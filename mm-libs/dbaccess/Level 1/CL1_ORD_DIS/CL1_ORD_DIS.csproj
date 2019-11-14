@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A41AEB4-910B-42E9-BDFC-51F4AE77B7AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_ORD_DIS</RootNamespace>
+    <AssemblyName>CL1_ORD_DIS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ORD_DIS_DistributionOrderPosition_2_ShipmentOrderPosition\ORM_ORD_DIS_DistributionOrderPosition_2_ShipmentOrderPosition.cs" />
+    <Compile Include="ORD_DIS_DistributionOrder_Header\ORM_ORD_DIS_DistributionOrder_Header.cs" />
+    <Compile Include="ORD_DIS_DistributionOrder_Header_Document\ORM_ORD_DIS_DistributionOrder_Header_Document.cs" />
+    <Compile Include="ORD_DIS_DistributionOrder_Header_History\ORM_ORD_DIS_DistributionOrder_Header_History.cs" />
+    <Compile Include="ORD_DIS_DistributionOrder_Header_SlottedDocument\ORM_ORD_DIS_DistributionOrder_Header_SlottedDocument.cs" />
+    <Compile Include="ORD_DIS_DistributionOrder_Position\ORM_ORD_DIS_DistributionOrder_Position.cs" />
+    <Compile Include="ORD_DIS_DistributionOrder_Position_Customization\ORM_ORD_DIS_DistributionOrder_Position_Customization.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Position_Customization\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Position_Customization\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Position_Customization\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrderPosition_2_ShipmentOrderPosition\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrderPosition_2_ShipmentOrderPosition\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrderPosition_2_ShipmentOrderPosition\SQL\Update.sql" />
+    <Content Include="_Support\ORD_DIS_DistributionOrderPosition_2_ShipmentOrderPosition.xml" />
+    <Content Include="_Support\ORD_DIS_DistributionOrder_Position_Customizations.xml" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Header\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Header\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Header\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Header_Document\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Header_Document\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Header_Document\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Header_History\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Header_History\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Header_History\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Header_SlottedDocument\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Header_SlottedDocument\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Header_SlottedDocument\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Position\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Position\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_DIS_DistributionOrder_Position\SQL\Update.sql" />
+    <Content Include="_Support\ORD_DIS_DistributionOrder_Headers.xml" />
+    <Content Include="_Support\ORD_DIS_DistributionOrder_Header_Documents.xml" />
+    <Content Include="_Support\ORD_DIS_DistributionOrder_Header_History.xml" />
+    <Content Include="_Support\ORD_DIS_DistributionOrder_Header_SlottedDocuments.xml" />
+    <Content Include="_Support\ORD_DIS_DistributionOrder_Positions.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="right.right-to-see-project-strucuture">
+    <Lang ISO="EN" Content="Right to see project strucuture" />
+    <Lang ISO="DE" Content="Recht auf Projektstruktur sehen" />
+    <Lang ISO="RS" Content="Pravo da vidi strukturu projekta" />
+  </Item>
+</Resources>

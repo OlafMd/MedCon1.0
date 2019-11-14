@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 5/29/2014 1:34:05 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="ACC_DUN_DunningProcess_MemberBill"
+                IsClass="true"
+                IsClass_Namespace="CL1_ACC_DUN"
+                IsClass_Corresponding_DBTable="acc_dun_dunningprocess_memberbills" >
+      <Members>
+		<ClassMember Name="ACC_DUN_DunningProcess_MemberBillID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ACC_DUN_DunningProcess_RefID" Type="Guid" />
+		<ClassMember Name="BIL_BillHeader_RefID" Type="Guid" />
+		<ClassMember Name="CurrentUnpaidBillFraction" Type="Decimal" />
+		<ClassMember Name="ApplicableProcessDunningFees" Type="Decimal" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

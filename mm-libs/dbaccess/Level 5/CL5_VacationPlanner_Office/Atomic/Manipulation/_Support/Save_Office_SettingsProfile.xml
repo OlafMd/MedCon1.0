@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="04-Nov-13 11:02:24">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Office_SettingsProfile</Name>
+    <Namespace>CL5_VacationPlanner_Office.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_VacationPlanner_Office.Atomic.Manipulation"
+                Method_ClassName="cls_Save_Office_SettingsProfile"
+                Method_Name="Save_Office_SettingsProfile"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Office_SettingsProfile"
+                />
+  
+  <Parameters IsClass="true" Name="P_L5OF_SOSP_1102">
+    <Members>
+      <ClassMember Name="CMN_BPT_STR_Office_SettingsProfileID" Type="Guid"  />
+      <ClassMember Name="Office_RefID" Type="Guid"  />
+      <ClassMember Name="AdulthoodAge" Type="int"  />
+      <ClassMember Name="RestWarningThreshold_Adults_in_mins" Type="int"  />
+      <ClassMember Name="RestWarningThreshold_NonAdults_in_mins" Type="int"  />
+      <ClassMember Name="RestMinimumThresholdl_Adults_in_mins" Type="int"  />
+      <ClassMember Name="RestMinimumThresholdl_NonAdults_in_mins" Type="int"  />
+      <ClassMember Name="WorkTimeWarningTreshold_Adults_in_mins" Type="int"  />
+      <ClassMember Name="WorkTimeWarningTreshold_NonAdults_in_mins" Type="int"  />
+      <ClassMember Name="WorkTimeMaximumTreshold_Adults_in_mins" Type="int"  />
+      <ClassMember Name="WorkTimeMaximumTreshold_NonAdults_in_mins" Type="int"  />
+      <ClassMember Name="WorkStartTimeWarning_NonAdults_in_mins" Type="int"  />
+      <ClassMember Name="WorkStartTimeMinimum_NonAdults_in_mins" Type="int"  />
+      <ClassMember Name="WorkEndTimeWarning_NonAdults_in_mins" Type="int"  />
+      <ClassMember Name="WorkEndTimeMaximum_NonAdults_in_mins" Type="int"  />
+      <ClassMember Name="WorktimeBalancePeriod_in_months" Type="int"  />
+      <ClassMember Name="WorkdayStart_in_mins" Type="int"  />
+      <ClassMember Name="MaximumPostWork_Period_in_mins" Type="int"  />
+      <ClassMember Name="MaximumPreWork_Period_in_mins" Type="int"  />
+      <ClassMember Name="RoosterGridMinimumPlanningUnit_in_mins" Type="int"  />
+    </Members>
+  </Parameters>
+  
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+    
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+    
+	</ResultInfo>
+
+</CodeGen>
+
+

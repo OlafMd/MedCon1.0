@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/18/2014 4:48:35 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CustomerOrder_or_CustomerOrderReturn_Headers_with_Positions_relatedTo_CustomerInteractions</Name>
+    <Namespace>CL6_Backoffice_OrderHistory.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_Backoffice_OrderHistory.Complex.Retrieval"
+                Method_ClassName="cls_Get_CustomerOrder_or_CustomerOrderReturn_Headers_with_Positions_relatedTo_CustomerInteractions"
+                Method_Name="Get_CustomerOrder_or_CustomerOrderReturn_Headers_with_Positions_relatedTo_CustomerInteractions"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_CustomerOrder_or_CustomerOrderReturn_Headers_with_Positions_relatedTo_CustomerInteractions"
+                />
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6OH_GCOoCORHwPrCI_1643">
+			<Members>
+                <ClassMember Name="OrderHeaders" IsArray="true" IsClass="true" Type="L6OH_GCOoCORHwPrCI_1643a">
+                    <Members>
+                        <ClassMember Name="CustomerInteractionID" Type="Guid"/>
+                        <ClassMember Name="CustomerOrderHeader" Type="CL3_CustomerOrder.Atomic.Retrieval.L3CO_GCOHwPbH_1604"  />
+                    </Members>
+                </ClassMember>
+                <ClassMember Name="ReturnOrderHeaders" IsArray="true" IsClass="true" Type="L6OH_GCOoCORHwPrCI_1643b">
+                    <Members>
+                        <ClassMember Name="CustomerInteractionID" Type="Guid"/>
+                        <ClassMember Name="CustomerOrderReturnHeader" Type="CL3_CustomerOrder.Atomic.Retrieval.L3CO_GCORHwPbH_1610"  />
+                    </Members>
+                </ClassMember>
+                <ClassMember Name="BothHeaders" IsArray="true" IsClass="true" Type="L6OH_GCOoCORHwPrCI_1643c">
+                    <Members>
+                        <ClassMember Name="CustomerInteractionID" Type="Guid" />
+                        <ClassMember Name="CustomerOrderHeader" Type="CL3_CustomerOrder.Atomic.Retrieval.L3CO_GCOHwPbH_1604"  />
+                        <ClassMember Name="CustomerOrderReturnHeader" Type="CL3_CustomerOrder.Atomic.Retrieval.L3CO_GCORHwPbH_1610"  />
+                    </Members>
+                </ClassMember>
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

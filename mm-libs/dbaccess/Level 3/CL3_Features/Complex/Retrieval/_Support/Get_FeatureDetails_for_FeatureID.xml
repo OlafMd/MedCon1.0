@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10-Dec-14 1:38:44 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_FeatureDetails_for_FeatureID</Name>
+    <Namespace>CL3_Features.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Features.Complex.Retrieval"
+                Method_ClassName="cls_Get_FeatureDetails_for_FeatureID"
+                Method_Name="Get_FeatureDetails_for_FeatureID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_FeatureDetails_for_FeatureID"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L3FE_GFDfFID_1338">
+    <Members>
+      <ClassMember Name="FeatureID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3FE_GFDfFID_1338" IsArray="false">
+      
+			<Members>
+
+        <ClassMember Name="TMS_PRO_FeatureID" Type="Guid"  />
+        <ClassMember Name="IdentificationNumber" Type="String"  />				
+				<ClassMember Name="Project_RefID" Type="Guid"  />
+				<ClassMember Name="Parent_RefID" Type="Guid"  />
+				<ClassMember Name="Name" Type="Dict" OriginTable="tms_pro_feature" Source_DBField="Name_DictID"  />
+				<ClassMember Name="Description" Type="Dict" OriginTable="tms_pro_feature" Source_DBField="Description_DictID"  />
+				<ClassMember Name="Deadline" Type="DateTime"  />
+        <ClassMember Name="PercentageComplete" Type="Double"  />
+        <ClassMember Name="Tags" Type="String" IsArray="true" />
+
+        <ClassMember IsReference="true" Type="L3DT_GDTfFID_1349" Name="Feature_DeveloperTasks" IsArray="true"/>
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

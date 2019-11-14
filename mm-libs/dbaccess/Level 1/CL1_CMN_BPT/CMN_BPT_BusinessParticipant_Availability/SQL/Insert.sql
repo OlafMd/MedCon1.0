@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_bpt_businessparticipant_availabilities
+	(
+		CMN_BPT_BusinessParticipant_AvailabilityID,
+		BusinessParticipant_RefID,
+		CMN_CAL_AVA_Availability_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_BusinessParticipant_AvailabilityID,
+		@BusinessParticipant_RefID,
+		@CMN_CAL_AVA_Availability_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

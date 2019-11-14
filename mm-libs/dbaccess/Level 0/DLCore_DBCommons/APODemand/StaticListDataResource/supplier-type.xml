@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="supplier-type.direct">
+    <Lang ISO="EN" Content="Direct" />
+    <Lang ISO="DE" Content="Direkt" />
+  </Item>
+  <Item ID="supplier-type.normal">
+    <Lang ISO="EN" Content="Normal" />
+    <Lang ISO="DE" Content="Normal" />
+  </Item>
+</Resources>

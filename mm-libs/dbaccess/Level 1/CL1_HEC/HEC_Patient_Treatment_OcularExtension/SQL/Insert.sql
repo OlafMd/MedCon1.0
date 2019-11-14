@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_patient_treatment_ocularextension
+	(
+		HEC_Patient_Treatment_OcularExtensionID,
+		HEC_Patient_Treatment_RefID,
+		IsTreatmentOfLeftEye,
+		IsTreatmentOfRightEye,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_Patient_Treatment_OcularExtensionID,
+		@HEC_Patient_Treatment_RefID,
+		@IsTreatmentOfLeftEye,
+		@IsTreatmentOfRightEye,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

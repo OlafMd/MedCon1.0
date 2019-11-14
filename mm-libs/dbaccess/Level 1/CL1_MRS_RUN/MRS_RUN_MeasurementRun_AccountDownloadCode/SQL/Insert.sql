@@ -1,0 +1,27 @@
+INSERT INTO 
+	mrs_run_measurementrun_accountdownloadcodes
+	(
+		MRS_RUN_MeasurementRun_AccountDownloadCodeID,
+		MeasurementRun_RefID,
+		Account_RefID,
+		ValidFrom,
+		ValidThrough,
+		DownloadCode,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@MRS_RUN_MeasurementRun_AccountDownloadCodeID,
+		@MeasurementRun_RefID,
+		@Account_RefID,
+		@ValidFrom,
+		@ValidThrough,
+		@DownloadCode,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

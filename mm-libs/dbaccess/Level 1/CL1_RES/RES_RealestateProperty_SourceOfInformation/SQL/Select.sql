@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_realestateproperty_sourceofinformation
+WHERE 
+	RES_RealestateProperty_SourceOfInformationID = @RES_RealestateProperty_SourceOfInformationID

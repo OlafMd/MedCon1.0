@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/14/2014 3:49:31 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>MeasurementTarrifs_All</Name>
+    <Namespace>CL3_Measurements.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Measurements.Atomic.Retrieval"
+                Method_ClassName="cls_MeasurementTarrifs_All"
+                Method_Name="MeasurementTarrifs_All"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".MeasurementTarrifs_All"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  mrs_run_measurement_tariffs.Tenant_RefID,
+  mrs_run_measurement_tariffs.Creation_Timestamp,
+  mrs_run_measurement_tariffs.MeasurementTariffName_DictID,
+  mrs_run_measurement_tariffs.GlobalPropertyMatchingID,
+  mrs_run_measurement_tariffs.MRS_RUN_Measurement_TariffID
+From
+  mrs_run_measurement_tariffs
+Where
+  mrs_run_measurement_tariffs.isDeleted = 0
+  </SQLStatement>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3_MTA_1318" IsArray="true">
+			<Members>
+				<ClassMember Name="MRS_RUN_Measurement_TariffID" Type="Guid"  />
+				<ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+				<ClassMember Name="MeasurementTariffName" Type="Dict" OriginTable="mrs_run_measurement_tariffs" Source_DBField="MeasurementTariffName_DictID"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

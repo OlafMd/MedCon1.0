@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_dia_potentialdiagnosis_prioritysequence
+WHERE 
+	HEC_DIA_PotentialDiagnosis_PrioritySequenceID = @HEC_DIA_PotentialDiagnosis_PrioritySequenceID

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_pat_electronicmedicalrecord_creationrequests
+WHERE 
+	HEC_PAT_ElectronicMedicalRecord_CreationRequestID = @HEC_PAT_ElectronicMedicalRecord_CreationRequestID

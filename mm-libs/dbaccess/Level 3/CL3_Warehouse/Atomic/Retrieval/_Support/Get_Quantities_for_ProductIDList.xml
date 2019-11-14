@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/23/2014 6:37:13 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CurrentShelfContents_and_ActiveReservations_for_ProductIDList</Name>
+    <Namespace>CL3_Warehouse.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Warehouse.Atomic.Retrieval"
+                Method_ClassName="cls_Get_CurrentShelfContents_and_ActiveReservations_for_ProductIDList"
+                Method_Name="Get_CurrentShelfContents_and_ActiveReservations_for_ProductIDList"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_CurrentShelfContents_and_ActiveReservations_for_ProductIDList"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  log_wrh_shelf_contents.Product_RefID,
+  Sum(log_wrh_shelf_contents.Quantity_Current) As CurrentQuantity,
+  Reservations.ReservedQuantity
+From
+  log_wrh_shelf_contents Inner Join
+  (Select
+    Sum(log_rsv_reservations.ReservedQuantity) As ReservedQuantity,
+    log_wrh_shelf_contents.Product_RefID
+  From
+    log_rsv_reservations Inner Join
+    log_wrh_shelf_contents On log_rsv_reservations.LOG_WRH_Shelf_Content_RefID =
+      log_wrh_shelf_contents.LOG_WRH_Shelf_ContentID
+  Where
+    log_wrh_shelf_contents.IsDeleted = 0 And
+    log_rsv_reservations.IsDeleted = 0 And
+    log_rsv_reservations.IsReservationExecuted = 0 And
+    log_wrh_shelf_contents.Product_RefID = @ProductIDList
+  Group By
+    log_wrh_shelf_contents.Product_RefID) Reservations
+    On log_wrh_shelf_contents.Product_RefID = Reservations.Product_RefID
+Where
+  log_wrh_shelf_contents.IsDeleted = 0 And
+  log_wrh_shelf_contents.Product_RefID = @ProductIDList
+Group By
+  log_wrh_shelf_contents.Product_RefID, Reservations.ReservedQuantity
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3WH_GCSCaARfP_1835">
+    <Members>
+		<ClassMember Name="ProductIDList" Type="Guid" IsArray="true"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3WH_GCSCaARfP_1835" IsArray="true">
+			<Members>
+				<ClassMember Name="Product_RefID" Type="Guid"  />
+        <ClassMember Name="CurrentQuantity" Type="Double"  />
+        <ClassMember Name="ReservedQuantity" Type="Double"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

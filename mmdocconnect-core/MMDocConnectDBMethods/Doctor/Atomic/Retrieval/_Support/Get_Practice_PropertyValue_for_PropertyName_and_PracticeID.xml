@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Practice_PropertyValue_for_PropertyName_and_PracticeID</Name>
+    <Namespace>MMDocConnectDBMethods.Doctor.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Doctor.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Practice_PropertyValue_for_PropertyName_and_PracticeID"
+								Method_Name="Get_Practice_PropertyValue_for_PropertyName_and_PracticeID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    Select
+      hec_medicalpractice_2_universalproperty.Value_Boolean As BooleanValue,
+      hec_medicalpractice_2_universalproperty.Value_Number As NumericValue,
+      hec_medicalpractice_2_universalproperty.Value_String As TextValue
+    From
+      hec_medicalpractice_2_universalproperty
+      Inner Join hec_medicalpractice_universalproperties
+        On hec_medicalpractice_2_universalproperty.HEC_MedicalPractice_UniversalProperty_RefID = hec_medicalpractice_universalproperties.HEC_MedicalPractice_UniversalPropertyID And
+        hec_medicalpractice_2_universalproperty.Tenant_RefID = @TenantID And hec_medicalpractice_2_universalproperty.IsDeleted = 0 And
+        hec_medicalpractice_2_universalproperty.HEC_MedicalPractice_RefID = @PracticeID
+    Where
+      hec_medicalpractice_universalproperties.PropertyName = @PropertyName And
+      hec_medicalpractice_universalproperties.Tenant_RefID = @TenantID And
+      hec_medicalpractice_universalproperties.IsDeleted = 0
+	</SQLStatement>
+  <Parameters IsClass="true" Name="P_DO_GPPVfPNaPID_0916">
+    <Members>
+      <ClassMember Name="PracticeID" Type="Guid"  />
+      <ClassMember Name="PropertyName" Type="String"  />
+
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="DO_GPPVfPNaPID_0916">
+      <Members>
+        <ClassMember Name="BooleanValue" Type="Boolean"  />
+        <ClassMember Name="NumericValue" Type="Double" />
+        <ClassMember Name="TextValue" Type="String"  />
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

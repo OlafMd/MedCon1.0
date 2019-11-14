@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 4/25/2014 2:21:21 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_DLV_Delivery_Position"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_DLV"
+                IsClass_Corresponding_DBTable="log_dlv_delivery_positions" >
+      <Members>
+		<ClassMember Name="LOG_DLV_Delivery_PositionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="DeliveryHeader_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

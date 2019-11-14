@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/15/2013 10:24:00 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="TMS_PRO_BusinessTask"
+                IsClass="true"
+                IsClass_Namespace="CLE_L1_"
+                IsClass_Corresponding_DBTable="tms_pro_businesstasks" >
+      <Members>
+		<ClassMember Name="TMS_PRO_BusinessTaskID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="IdentificationNumber" Type="String" />
+		<ClassMember Name="DOC_Structure_Header_RefID" Type="Guid" />
+		<ClassMember Name="BusinessTasksPackage_RefID" Type="Guid" />
+		<ClassMember Name="Project_RefID" Type="Guid" />
+		<ClassMember Name="Estimated_StartDate" Type="DateTime" />
+		<ClassMember Name="Estimated_EndDate" Type="DateTime" />
+		<ClassMember Name="Task_Name" Type="Dict" Source_DBField="Task_Name_DictID" OriginTable="tms_pro_businesstasks"/>
+		<ClassMember Name="Task_Description" Type="Dict" Source_DBField="Task_Description_DictID" OriginTable="tms_pro_businesstasks"/>
+		<ClassMember Name="Task_Type_RefID" Type="Guid" />
+		<ClassMember Name="Task_Status_RefID" Type="Guid" />
+		<ClassMember Name="Task_Deadline" Type="DateTime" />
+		<ClassMember Name="IsArchived" Type="Boolean" />
+		<ClassMember Name="CreatedByAccount_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

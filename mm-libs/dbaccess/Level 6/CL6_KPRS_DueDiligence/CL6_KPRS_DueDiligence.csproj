@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7565BACA-C780-4B56-9980-8F73C9EED763}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL6_KPRS_DueDiligence</RootNamespace>
+    <AssemblyName>CL6_KPRS_DueDiligence</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Complex\Retrieval\cls_Get_Questionnaires_for_RevisionGroupID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_RevisionGroupDetails.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_RevisionGroupInformation_for_RealestatePropertyID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_RevisionGroup_For_RevisionGroupID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Revisions_For_RevisionGroupID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Save_Submissions_for_RevisionGroupDetails.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Complex\Retrieval\_Support\Get_RevisionGroupInformation_for_RealestatePropertyID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Questionnaires_for_RevisionGroupID.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_RevisionGroupDetails.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_RevisionGroup_For_RevisionGroupID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Revisions_For_RevisionGroupID.xml" />
+    <Content Include="Complex\Retrieval\_Support\Save_Submissions_for_RevisionGroupDetails.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Properties\Get_Properties_For_Tenant.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Atomic\Retrieval\_Support\" />
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_LOC\CL1_CMN_LOC.csproj">
+      <Project>{FA892C18-7CCD-497D-BF20-9AA870C1E3A4}</Project>
+      <Name>CL1_CMN_LOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_DOC\CL1_DOC.csproj">
+      <Project>{08FEF49E-52A6-4C81-89EA-CB0679804159}</Project>
+      <Name>CL1_DOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_RES\CL1_RES.csproj">
+      <Project>{3EACA450-E49E-4CFE-9D8A-7D24FF790822}</Project>
+      <Name>CL1_RES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_RES_ACT\CL1_RES_ACT.csproj">
+      <Project>{91039248-BF9E-409A-A5F5-12A1E504223D}</Project>
+      <Name>CL1_RES_ACT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_RES_BLD\CL1_RES_BLD.csproj">
+      <Project>{3EB6A3F6-E90A-48F8-8A65-7D7B3F8AF647}</Project>
+      <Name>CL1_RES_BLD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_RES_DUD\CL1_RES_DUD.csproj">
+      <Project>{E57800E6-E170-4AC4-9C1B-83A5B68F8505}</Project>
+      <Name>CL1_RES_DUD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_RES_STR\CL1_RES_STR.csproj">
+      <Project>{0D19DC3C-FDA4-4743-9FE4-48AC1BA2323C}</Project>
+      <Name>CL1_RES_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_AccountInformation\CL2_AccountInformation.csproj">
+      <Project>{94993A0B-42D0-427D-B342-84C3F6A4480F}</Project>
+      <Name>CL2_AccountInformation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Price\CL2_Price.csproj">
+      <Project>{6630A96E-18C8-4FC3-97DF-E6815B4B92C4}</Project>
+      <Name>CL2_Price</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Document\CL3_Document.csproj">
+      <Project>{DA4A3C2C-C1C1-4CD1-96F4-CA1C5A3B5100}</Project>
+      <Name>CL3_Document</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_KPRS_Buildings\CL5_KPRS_Buildings.csproj">
+      <Project>{1F76D2DE-7704-4789-941E-E0F62736A9B3}</Project>
+      <Name>CL5_KPRS_Buildings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_KPRS_DueDilligences\CL5_KPRS_DueDiligences.csproj">
+      <Project>{F7DDC0EE-8683-46F8-BEE6-9E1534F43B07}</Project>
+      <Name>CL5_KPRS_DueDiligences</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_KPRS_Questionnaire\CL5_KPRS_Questionnaire.csproj">
+      <Project>{90574265-548B-411A-8901-AD667302B4F2}</Project>
+      <Name>CL5_KPRS_Questionnaire</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

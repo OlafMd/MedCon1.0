@@ -1,0 +1,21 @@
+UPDATE 
+	imo_questionnaire_submissions
+SET 
+	Questionnaire_RefID=@Questionnaire_RefID,
+	SubmittedBy_Account_RefID=@SubmittedBy_Account_RefID,
+	QuestionnaireVersion_RefID=@QuestionnaireVersion_RefID,
+	RealEstate_RefID=@RealEstate_RefID,
+	ImageGroup_RefID=@ImageGroup_RefID,
+	Questionnaire_SubmissionBinder_RefID=@Questionnaire_SubmissionBinder_RefID,
+	Title=@Title,
+	SubmittedOn=@SubmittedOn,
+	CreatedOn=@CreatedOn,
+	LastUpdateOn=@LastUpdateOn,
+	ResubmissionVersion=@ResubmissionVersion,
+	LastEdited_ByAccount_RefID=@LastEdited_ByAccount_RefID,
+	LastEdited_Date=@LastEdited_Date,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	IMO_Questionnaire_SubmissionID = @IMO_Questionnaire_SubmissionID

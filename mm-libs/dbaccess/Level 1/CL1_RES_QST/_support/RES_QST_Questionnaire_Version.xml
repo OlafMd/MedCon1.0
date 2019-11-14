@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/20/2013 10:43:42 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="RES_QST_Questionnaire_Version"
+                IsClass="true"
+                IsClass_Namespace="CL1_RES_QST"
+                IsClass_Corresponding_DBTable="res_qst_questionnaire_version" >
+      <Members>
+		<ClassMember Name="RES_QST_Questionnaire_VersionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Questionnaire_RefID" Type="Guid" />
+		<ClassMember Name="QuestionnaireVersion_Comment" Type="String" />
+		<ClassMember Name="QuestionnaireVersion_VersionNumber" Type="int" />
+		<ClassMember Name="IsApartmentStructureVisible" Type="Boolean" />
+		<ClassMember Name="IsStaircaseStructureVisible" Type="Boolean" />
+		<ClassMember Name="IsOutdoorFacilityVisible" Type="Boolean" />
+		<ClassMember Name="IsFacadeVisible" Type="Boolean" />
+		<ClassMember Name="IsRoofVisible" Type="Boolean" />
+		<ClassMember Name="IsAtticVisible" Type="Boolean" />
+		<ClassMember Name="IsBasementVisible" Type="Boolean" />
+		<ClassMember Name="IsHVACRVisible" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

@@ -1,0 +1,19 @@
+INSERT INTO 
+	bil_billheader_2_accountingtransactions
+	(
+		AssignmentID,
+		ACC_BOK_Accounting_Transaction_RefID,
+		BIL_BillHeader_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@ACC_BOK_Accounting_Transaction_RefID,
+		@BIL_BillHeader_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

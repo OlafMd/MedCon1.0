@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="8/2/2013 10:57:27 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_TimeFrames_For_Tenant</Name>
+    <Namespace>CL5_KPRS_StaticProperties.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_StaticProperties.Atomic.Retrieval"
+                Method_ClassName="cls_Get_TimeFrames_For_Tenant"
+                Method_Name="Get_TimeFrames_For_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_TimeFrames_For_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  res_timeframes.RES_TimeframeID,
+	  res_timeframes.Timeframe_Name_DictID,
+	  res_timeframes.Timeframe_Description_DictID,
+	  res_timeframes.Timeframe_SequenceNumber,
+	  res_timeframes.IsDeleted,
+	  res_timeframes.Tenant_RefID
+	From
+	  res_timeframes
+	Where
+	  res_timeframes.IsDeleted = 0 And
+	  res_timeframes.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5SP_GTFFT_1030" IsArray="true">
+			<Members>
+				<ClassMember Name="RES_TimeframeID" Type="Guid"  />
+				<ClassMember Name="Timeframe_Name" Type="Dict" OriginTable="res_timeframes" Source_DBField="Timeframe_Name_DictID"  />
+				<ClassMember Name="Timeframe_Description" Type="Dict" OriginTable="res_timeframes" Source_DBField="Timeframe_Description_DictID"  />
+				<ClassMember Name="Timeframe_SequenceNumber" Type="int"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/16/2013 2:56:23 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_Curent_Patient_data</Name>
+		<Namespace>CL6_MyHealthClub_Examanations.Complex.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+	<CreationInfo Method_Namespace="CL6_MyHealthClub_Examanations.Complex.Retrieval"
+				  Method_ClassName="cls_Get_Curent_Patient_data"
+				  Method_Name="Get_Curent_Patient_data"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Get_Curent_Patient_data"
+                />
+
+	<Parameters IsClass="true" Name="P_L6EX_GCPD_1353">
+		<Members>
+			<ClassMember Name="PatientID" Type="Guid"/>	
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6EX_GCPD_1353" IsArray="false">
+			<Members>
+				<ClassMember IsClass="true" IsArray="true" Name="current_diagnosis" Type="L6EX_GCPD_1353_current_diagnosis" GroupBy="id" >
+					<Members>
+						<ClassMember Name="icd10" Type="String"  />
+						<ClassMember Name="name" Type="String"  />
+						<ClassMember Name="date" Type="String"  />
+						<ClassMember Name="doctor_url" Type="String"  />
+						<ClassMember Name="doctor" Type="String"  />
+						<ClassMember Name="id" Type="String"  />
+					</Members>
+				</ClassMember>
+				<ClassMember IsClass="true" IsArray="true" Name="current_medication" Type="L6EX_GCPD_1353_current_medication" GroupBy="medication_id" >
+					<Members>
+						<ClassMember Name="medication" Type="String"  />
+						<ClassMember Name="added_date" Type="String"  />
+						<ClassMember Name="use_until_date" Type="String"  />
+						<ClassMember Name="medication_id" Type="String"  />
+					</Members>
+				</ClassMember>
+        <ClassMember IsClass="true" Name="patient_info" Type="L6EX_GCPD_1353_patient_info" IsArray="false" >
+          <Members>
+            <ClassMember Name="Patient_name" Type="String"  />
+            <ClassMember Name="Patient_birthday" Type="DateTime"  />
+          </Members>
+        </ClassMember>
+        
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

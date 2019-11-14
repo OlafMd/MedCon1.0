@@ -1,0 +1,12 @@
+
+Select
+  usr_account_applicationsetting_definitions.ItemKey,
+  usr_account_applicationsetting_definitions.DefaultValue,
+  usr_account_applicationsetting_definitions.USR_Account_ApplicationSetting_DefinitionID
+From
+  usr_account_applicationsetting_definitions
+Where
+  usr_account_applicationsetting_definitions.IsDeleted = 0 And
+  usr_account_applicationsetting_definitions.Tenant_RefID = @TenantID And
+  usr_account_applicationsetting_definitions.ApplicationID = @ApplicationID
+  

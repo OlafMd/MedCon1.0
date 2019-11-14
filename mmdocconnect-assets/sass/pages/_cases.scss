@@ -1,0 +1,109 @@
+
+.cases-list-header{
+	@extend .doctors-list-header;
+}
+
+.cases-list-item{
+	@extend .doctors-list-item;
+}
+
+.cases-list-header,
+.cases-list-item{
+	li{
+
+		white-space: inherit;
+		text-align: left !important;
+
+    &:first-child{
+      width: 25px;
+    }
+
+		&:nth-child(02){
+			width: 130px;
+			text-align: left;
+		}
+
+		&:nth-child(03){
+			width: 15%;
+			text-align: left;
+
+			span{
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		}
+
+		&:nth-child(04){
+			width: 14%;
+			text-align: left;
+		}
+
+		&:nth-child(05),
+		&:nth-child(06){
+			text-align: center;
+		}
+
+    &:nth-child(05){
+			width: 4%;
+			margin-right: 30px;
+		}
+
+		&:nth-child(06){
+			text-align: center;
+
+			span{
+				//text-align: center;
+				padding-top: 0 !important;
+			}
+		}
+	}
+}
+
+.scheduled-text{
+	color: #363636 !important;
+}
+
+.ordered-text{
+	color: #cd9a12 !important;
+}
+
+.shipped-text{
+	color: $active-color !important;
+}
+
+.rejected-text{
+	color: $error-color !important;
+}
+
+.scheduled-border,
+.ordered-border,
+.shipped-border,
+.rejected-border{
+	&:before{
+		content: '';
+		position: absolute;
+		display: block;
+		width: 9px;
+		height: 70px;
+		left: 0;
+		top: 5px;
+	}
+}
+
+.scheduled-border:before{
+	background-color: #363636;
+}
+
+.ordered-border:before{
+	background-color: #cd9a12;
+}
+
+.shipped-border:before{
+	background-color: $active-color;
+}
+
+.rejected-border:before{
+	background-color: $error-color;
+}
+

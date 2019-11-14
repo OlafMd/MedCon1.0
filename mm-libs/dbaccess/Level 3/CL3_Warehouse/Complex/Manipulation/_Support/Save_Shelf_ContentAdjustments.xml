@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="02/27/2014 14:01:11">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Shelf_ContentAdjustments</Name>
+    <Namespace>CL3_Warehouse.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Warehouse.Complex.Manipulation"
+                Method_ClassName="cls_Save_Shelf_ContentAdjustments"
+                Method_Name="Save_Shelf_ContentAdjustments"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Shelf_ContentAdjustments"
+                />
+  
+  <Parameters IsClass="true" Name="P_L3WH_SSCA_1732">
+    <Members>
+		<ClassMember Name="Adjustments" Type="P_L3WH_SSCA_1732a" IsArray="true" IsClass="true">
+			<Members>
+				<ClassMember Name="ProductID" Type="Guid"  />
+				<ClassMember Name="TrackingInstanceID" Type="Guid"  />
+        <ClassMember Name="ShelfContentID" Type="Guid"  />
+        
+				<ClassMember Name="AdjustedQuantity" Type="double"  />
+        
+				<ClassMember Name="IsManualCorrection" Type="bool"  />
+        <ClassMember Name="IfManualCorrection_InventoryChangeReason_RefID" Type="Guid"  />
+        
+        <ClassMember Name="IsRelocation" Type="bool"  />
+        <ClassMember Name="IfRelocation_CorrespondingAdjustment_RefID" Type="Guid"  />
+
+        <ClassMember Name="IsShipmentWithdrawal" Type="bool"  />
+        <ClassMember Name="IfShipmentWithdrawal_ShipmentPosition_RefID" Type="Guid"  />
+        
+        <ClassMember Name="RelocationAdjustmentID" Type="Guid"  />
+			</Members>
+		</ClassMember>
+      
+    </Members>
+  </Parameters>
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Bool" IsArray="false" />
+	</ResultInfo>
+</CodeGen>
+
+

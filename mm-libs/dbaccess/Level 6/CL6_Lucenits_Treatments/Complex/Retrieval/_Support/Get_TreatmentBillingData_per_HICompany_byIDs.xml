@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/16/2013 2:56:23 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Patient_Treatment</Name>
+    <Namespace>CL6_Lucenits_Treatments.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_Lucenits_Treatments.Complex.Retrieval"
+                Method_ClassName="cls_Get_TreatmentBillingData_per_HICompany_byIDs"
+                Method_Name="Get_TreatmentBillingData_per_HICompany_byIDs"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_TreatmentBillingData_per_HICompany_byIDs"
+                />
+
+  <Parameters IsClass="true" Name="P_L6TR_GTBDpHICfID_1130">
+    <Members>
+      <ClassMember Name="TreatmentID_List" Type="Guid" IsArray="true"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6TR_GTBDpHICfID_1130" IsArray="false">
+      <Members>
+        <ClassMember Name="previousMaxPositionIndex" Type="long"  />   
+        <ClassMember IsClass="true" IsArray="true" Name="HICompanies" Type="L6TR_GTBDpHICfID_1130_HICompany"  GroupBy="HIS_HealthInsurance_Company_RefID">
+          <Members>
+            <ClassMember Name="HIS_HealthInsurance_CompanyID" Type="Guid"  />
+            <ClassMember Name="HealthInsurance_Number" Type="string"  />
+            <ClassMember IsClass="true" IsArray="true" Name="Positions" Type="L6TR_GTBDpHICfID_1130_Position"  GroupBy="TreatmentID">
+              <Members>
+                <ClassMember Name="FollowupID" Type="Guid"  />
+                <ClassMember Name="TreatmentID" Type="Guid"  />
+                <ClassMember Name="PatientFirstName" Type="string"  />
+                <ClassMember Name="PatientLastName" Type="string"  />
+                <ClassMember Name="PatientInsuranceNumber" Type="string"  />
+                <ClassMember Name="dtPatientBirthDate" Type="DateTime"  />
+                <ClassMember Name="strDoctorLANR" Type="string"  />
+                <ClassMember Name="strPracticeBSNR" Type="string"  />
+                <ClassMember Name="bTreatmentIsFollowup" Type="bool"  />
+                <ClassMember Name="iTreatmentNumber" Type="int"  />
+                <ClassMember Name="dtTreatment" Type="DateTime"  />
+                <ClassMember Name="cTreatmentLocalization" Type="string"  />
+                <ClassMember Name="iPatientInsuranceState" Type="string"  />
+                <ClassMember Name="iPatientSex" Type="int"  />
+                <ClassMember Name="strFollowupPractice" Type="string"  />
+                <ClassMember Name="strFollowupDoctor" Type="string"  />
+                <ClassMember Name="strFollowupStatus" Type="string"  />
+                <ClassMember Name="dtFollowup" Type="DateTime"  />
+                <ClassMember Name="healthInsuranceCompany" Type="string"  />
+                <ClassMember IsClass="true" IsArray="true" Name="ArticleInfos" Type="L6TR_GTBDpHICfID_1130_ArticleInfo"  GroupBy="ArticleID">
+                  <Members>
+                    <ClassMember Name="ArticleID" Type="Guid"  />
+                    <ClassMember Name="Name" Type="Dict"  />
+                    <ClassMember Name="PZN" Type="string"  />
+                    <ClassMember Name="Quantity" Type="double"  />
+                  </Members>
+                </ClassMember>
+                <ClassMember IsClass="true" IsArray="true" Name="DiagnosisInfos" Type="L6TR_GTBDpHICfID_1130_DiagnosisInfo"  GroupBy="DiagnosisID">
+                  <Members>
+                    <ClassMember Name="DiagnosisID" Type="Guid"  />
+                    <ClassMember Name="strDiagnosisICD10" Type="string"  />
+                    <ClassMember Name="cDiagnosisState" Type="string"  />
+                    <ClassMember Name="PatientInsuranceState" Type="Dict"  />
+                  </Members>
+                </ClassMember>
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

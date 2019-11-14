@@ -1,0 +1,20 @@
+
+Select
+  log_shp_shipment_positions.LOG_SHP_Shipment_PositionID,
+  cmn_bpt_ctm_organizationalunits.OrganizationalUnit_SimpleName,
+  cmn_bpt_ctm_organizationalunits.OrganizationalUnit_Name_DictID,
+  cmn_bpt_ctm_organizationalunits.CMN_BPT_CTM_OrganizationalUnitID,
+  cmn_bpt_ctm_organizationalunits.CustomerTenant_OfficeITL
+From
+  log_shp_shipment_positions Inner Join
+  ord_cuo_customerorder_position_2_shipmentposition
+    On log_shp_shipment_positions.LOG_SHP_Shipment_PositionID =
+    ord_cuo_customerorder_position_2_shipmentposition.LOG_SHP_Shipment_Position_RefID And ord_cuo_customerorder_position_2_shipmentposition.Tenant_RefID = @TenantID Left Join
+  cmn_bpt_ctm_organizationalunits
+    On
+    ord_cuo_customerorder_position_2_shipmentposition.CMN_BPT_CTM_OrganizationalUnit_RefID = cmn_bpt_ctm_organizationalunits.CMN_BPT_CTM_OrganizationalUnitID And cmn_bpt_ctm_organizationalunits.Tenant_RefID = @TenantID
+Where
+  log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID = @ShippingHeaderID
+  And
+  log_shp_shipment_positions.Tenant_RefID = @TenantID
+  

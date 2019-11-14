@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="23/10/2013 02:52:32">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Warehouse_Area_for_ID_or_TenantID</Name>
+    <Namespace>CL2_Warehouse.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Warehouse.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Warehouse_Area_for_ID_or_TenantID"
+                Method_Name="Get_Warehouse_Area_for_ID_or_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Warehouse_Area_for_ID_or_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT log_wrh_areas.LOG_WRH_AreaID,
+	       log_wrh_areas.CoordinateCode,
+	       log_wrh_areas.Area_Name, 
+	       log_wrh_areas.Warehouse_RefID,
+	       log_wrh_areas.IsStructureHidden,
+	       log_wrh_areas.IsConsignmentArea,
+	       log_wrh_areas.IfConsignmentArea_DefaultOwningSupplier_RefID,
+         log_wrh_areas.Rack_NamePrefix,
+	       log_wrh_areas.IsDeleted,
+         log_wrh_area_defaultsuppliers.CMN_BPT_Supplier_RefID,
+         log_wrh_areas.IsDefaultIntakeArea,
+         log_wrh_areas.IsLongTermStorageArea,
+         log_wrh_areas.IsPointOfSalesArea
+	  FROM log_wrh_areas
+         LEFT JOIN log_wrh_area_defaultsuppliers ON log_wrh_areas.LOG_WRH_AreaID = log_wrh_area_defaultsuppliers.Area_RefID AND log_wrh_area_defaultsuppliers.IsDeleted = 0
+	 WHERE log_wrh_areas.LOG_WRH_AreaID = IFNULL(@AreaID, log_wrh_areas.LOG_WRH_AreaID)
+	       AND log_wrh_areas.Tenant_RefID = @TenantID
+         AND log_wrh_areas.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2WH_GWHAfIoT_1444">
+    <Members>
+      <ClassMember Name="AreaID" Type="Guid?"  />
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2WH_GWHAfIoT_1444" IsArray="true">
+      <Members>
+        <ClassMember Name="LOG_WRH_AreaID" Type="Guid"  />
+        <ClassMember Name="CoordinateCode" Type="String"  />
+        <ClassMember Name="Area_Name" Type="String"  />
+        <ClassMember Name="Warehouse_RefID" Type="Guid"  />
+        <ClassMember Name="IsStructureHidden" Type="bool"  />
+        <ClassMember Name="IsConsignmentArea" Type="bool"  />
+        <ClassMember Name="IfConsignmentArea_DefaultOwningSupplier_RefID" Type="Guid"  />
+        <ClassMember Name="Rack_NamePrefix" Type="String" />
+        <ClassMember Name="IsPointOfSalesArea" Type="bool"  />
+        <ClassMember Name="IsLongTermStorageArea" Type="bool"  />
+        <ClassMember Name="IsDeleted" Type="bool"  />
+        <ClassMember Name="CMN_BPT_Supplier_RefID" Type="Guid" />
+        <ClassMember Name="IsDefaultIntakeArea" Type="bool"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

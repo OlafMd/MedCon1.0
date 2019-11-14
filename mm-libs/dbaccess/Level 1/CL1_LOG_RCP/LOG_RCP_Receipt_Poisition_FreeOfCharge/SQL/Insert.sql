@@ -1,0 +1,21 @@
+INSERT INTO 
+	log_rcp_receipt_poisition_freeofcharge
+	(
+		LOG_RCP_Receipt_Poisition_FreeOfChargeID,
+		DiscountDueTo_Receipt_Position_RefID,
+		GeneratedDiscountAt_Receipt_Position_RefID,
+		QuantityFreeOfCharge,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_RCP_Receipt_Poisition_FreeOfChargeID,
+		@DiscountDueTo_Receipt_Position_RefID,
+		@GeneratedDiscountAt_Receipt_Position_RefID,
+		@QuantityFreeOfCharge,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

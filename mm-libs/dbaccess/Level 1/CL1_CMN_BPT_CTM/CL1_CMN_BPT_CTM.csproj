@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C453F5A9-9877-4197-A5E3-403EF6A0455D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_CMN_BPT_CTM</RootNamespace>
+    <AssemblyName>CL1_CMN_BPT_CTM</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CMN_BPT_CTM_AffinityStatus\ORM_CMN_BPT_CTM_AffinityStatus.cs" />
+    <Compile Include="CMN_BPT_CTM_AvailablePaymentCondition\ORM_CMN_BPT_CTM_AvailablePaymentCondition.cs" />
+    <Compile Include="CMN_BPT_CTM_AvailablePaymentType\ORM_CMN_BPT_CTM_AvailablePaymentType.cs" />
+    <Compile Include="CMN_BPT_CTM_CatalogProductExtensionRequests\ORM_CMN_BPT_CTM_CatalogProductExtensionRequests.cs" />
+    <Compile Include="CMN_BPT_CTM_CatalogProductExtensionRequest_Product\ORM_CMN_BPT_CTM_CatalogProductExtensionRequest_Product.cs" />
+    <Compile Include="CMN_BPT_CTM_Customer\ORM_CMN_BPT_CTM_Customer.cs" />
+    <Compile Include="CMN_BPT_CTM_Customer_2_SalesRepresentative\ORM_CMN_BPT_CTM_Customer_2_SalesRepresentative.cs" />
+    <Compile Include="CMN_BPT_CTM_Customer_Pricelist\ORM_CMN_BPT_CTM_Customer_Pricelist.cs" />
+    <Compile Include="CMN_BPT_CTM_OrganizationalUnit\ORM_CMN_BPT_CTM_OrganizationalUnit.cs" />
+    <Compile Include="CMN_BPT_CTM_OrganizationalUnit_Address\ORM_CMN_BPT_CTM_OrganizationalUnit_Address.cs" />
+    <Compile Include="CMN_BPT_CTM_OrganizationalUnit_Staff\ORM_CMN_BPT_CTM_OrganizationalUnit_Staff.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_BPT_CTM_OrganizationalUnit_Staff\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_OrganizationalUnit_Staff\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_OrganizationalUnit_Staff\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_BPT_CTM_OrganizationalUnits.xml" />
+    <Content Include="_Support\CMN_BPT_CTM_OrganizationalUnit_Addresses.xml" />
+    <Content Include="_Support\CMN_BPT_CTM_OrganizationalUnit_Staff.xml" />
+    <EmbeddedResource Include="CMN_BPT_CTM_OrganizationalUnit_Address\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_OrganizationalUnit_Address\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_OrganizationalUnit_Address\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_Customer_Pricelist\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_Customer_Pricelist\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_Customer_Pricelist\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_BPT_CTM_Customer_Pricelists.xml" />
+    <EmbeddedResource Include="CMN_BPT_CTM_OrganizationalUnit\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_OrganizationalUnit\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_OrganizationalUnit\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_CatalogProductExtensionRequest_Product\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_CatalogProductExtensionRequest_Product\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_CatalogProductExtensionRequest_Product\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_CatalogProductExtensionRequests\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_CatalogProductExtensionRequests\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_CatalogProductExtensionRequests\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_AvailablePaymentCondition\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_AvailablePaymentCondition\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_AvailablePaymentCondition\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_BPT_CTM_AvailablePaymentConditions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\CMN_BPT_CTM_CatalogProductExtensionRequest_Products.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="CMN_BPT_CTM_AffinityStatus\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_AffinityStatus\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_AffinityStatus\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_Customer_2_SalesRepresentative\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_Customer_2_SalesRepresentative\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_Customer_2_SalesRepresentative\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_Customer\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_Customer\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_Customer\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_AvailablePaymentType\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_AvailablePaymentType\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_CTM_AvailablePaymentType\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_BPT_CTM_CatalogProductExtensionRequests.xml" />
+    <Content Include="_Support\CMN_BPT_CTM_AffinityStatuses.xml" />
+    <Content Include="_Support\CMN_BPT_CTM_AvailablePaymentTypes.xml" />
+    <Content Include="_Support\CMN_BPT_CTM_Customers.xml" />
+    <Content Include="_Support\CMN_BPT_CTM_Customer_2_SalesRepresentatives.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

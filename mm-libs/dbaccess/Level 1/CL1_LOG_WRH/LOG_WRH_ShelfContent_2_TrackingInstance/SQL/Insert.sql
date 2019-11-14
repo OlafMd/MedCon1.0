@@ -1,0 +1,19 @@
+INSERT INTO 
+	log_wrh_shelfcontent_2_trackinginstance
+	(
+		AssignmentID,
+		LOG_ProductTrackingInstance_RefID,
+		LOG_WRH_Shelf_Content_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@LOG_ProductTrackingInstance_RefID,
+		@LOG_WRH_Shelf_Content_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

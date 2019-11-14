@@ -1,0 +1,21 @@
+INSERT INTO 
+	ord_prc_shoppingcart_notes
+	(
+		ORD_PRC_ShoppingCart_NoteID,
+		ORD_PRC_ShoppingCart_RefID,
+		CMN_BPT_Memo_RefID,
+		IsNoteForProcurementOrder,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ORD_PRC_ShoppingCart_NoteID,
+		@ORD_PRC_ShoppingCart_RefID,
+		@CMN_BPT_Memo_RefID,
+		@IsNoteForProcurementOrder,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

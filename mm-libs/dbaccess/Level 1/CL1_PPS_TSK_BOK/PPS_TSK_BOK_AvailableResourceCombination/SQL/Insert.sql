@@ -1,0 +1,23 @@
+INSERT INTO 
+	pps_tsk_bok_availableresourcecombinations
+	(
+		PPS_TSK_BOK_AvailableResourceCombinationID,
+		BookableTimeSlot_RefID,
+		IsAvailable,
+		IsUsedByOtherUsedConnectedResourceCombination,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@PPS_TSK_BOK_AvailableResourceCombinationID,
+		@BookableTimeSlot_RefID,
+		@IsAvailable,
+		@IsUsedByOtherUsedConnectedResourceCombination,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

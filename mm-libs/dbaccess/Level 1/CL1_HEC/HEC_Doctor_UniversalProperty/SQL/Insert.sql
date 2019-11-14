@@ -1,0 +1,27 @@
+INSERT INTO 
+	hec_doctor_universalproperties
+	(
+		HEC_Doctor_UniversalPropertyID,
+		GlobalPropertyMatchingID,
+		PropertyName,
+		IsValue_String,
+		IsValue_Number,
+		IsValue_Boolean,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_Doctor_UniversalPropertyID,
+		@GlobalPropertyMatchingID,
+		@PropertyName,
+		@IsValue_String,
+		@IsValue_Number,
+		@IsValue_Boolean,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

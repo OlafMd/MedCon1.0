@@ -1,0 +1,57 @@
+.global-filter {
+  display: table;
+  width: 100%;
+  height: 50px;
+  padding: 8px 25px;
+  table-layout: fixed;
+  background-color: $module-color;
+
+  > li {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  .search-dropdown-holder,
+  .search-input-holder {
+    width: 18%;
+  }
+
+  .search-input-holder input {
+    background: #fff url("../images/icons/magnifier.png") no-repeat right 15px center;
+  }
+
+  .global-filter-items {
+    font-size: 0;
+
+    > li {
+      position: relative;
+      display: inline-block;
+      margin: 0 3px;
+      padding: 5px 0;
+      font-size: 12px;
+
+      > .filter-item {
+        display: inline-block;
+        padding: 5px 10px;
+        color: #fff;
+        cursor: pointer;
+
+        &.active {
+          color: $module-color;
+          background-color: #fff;
+          border-radius: 4px;
+
+          &.dropdown-list-arrow:after {
+            border-top: 7px solid $module-color;
+          }
+        }
+      }
+
+      &.separator {
+        padding-right: 5px;
+        border-right: 2px solid #fff;
+      }
+    }
+  }
+}

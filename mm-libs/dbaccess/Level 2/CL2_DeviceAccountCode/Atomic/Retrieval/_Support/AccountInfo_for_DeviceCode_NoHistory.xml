@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/30/2014 3:57:05 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>AccountInfo_for_DeviceCode_NoHistory</Name>
+    <Namespace>CL2_DeviceAccountCode.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_DeviceAccountCode.Atomic.Retrieval"
+                Method_ClassName="cls_AccountInfo_for_DeviceCode_NoHistory"
+                Method_Name="AccountInfo_for_DeviceCode_NoHistory"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".AccountInfo_for_DeviceCode_NoHistory"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.PrimaryEmail,
+  cmn_per_personinfo.LastName,
+  cmn_per_personinfo.Title,
+  cmn_per_personinfo.Salutation_General,
+  cmn_per_personinfo.Salutation_Letter,
+  cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID,
+  cmn_per_personinfo.CMN_PER_PersonInfoID,
+  cmn_bpt_businessparticipant_accesscodes.CMN_BPT_BusinessParticipant_AccessCodeID,
+  cmn_bpt_businessparticipants.Tenant_RefID,
+  cmn_bpt_businessparticipant_accesscodes.Code
+From
+  cmn_bpt_businessparticipants Inner Join
+  cmn_per_personinfo On cmn_per_personinfo.CMN_PER_PersonInfoID =
+    cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID
+  Inner Join
+  cmn_bpt_businessparticipant_accesscodes
+    On cmn_bpt_businessparticipant_accesscodes.BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+Where
+  cmn_bpt_businessparticipants.IsNaturalPerson = 1 And
+  cmn_bpt_businessparticipants.IsDeleted = 0 And
+  cmn_per_personinfo.IsDeleted = 0 And
+  cmn_bpt_businessparticipant_accesscodes.Code = @DeviceCode
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2_AIFDCNH_1556">
+    <Members>
+		<ClassMember Name="DeviceCode" Type="String"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2_AIFDCNH_1556" IsArray="true">
+			<Members>
+				<ClassMember Name="FirstName" Type="String"  />
+				<ClassMember Name="PrimaryEmail" Type="String"  />
+				<ClassMember Name="LastName" Type="String"  />
+				<ClassMember Name="Title" Type="String"  />
+				<ClassMember Name="Salutation_General" Type="String"  />
+				<ClassMember Name="Salutation_Letter" Type="String"  />
+				<ClassMember Name="CMN_BPT_BusinessParticipantID" Type="Guid"  />
+				<ClassMember Name="CMN_PER_PersonInfoID" Type="Guid"  />
+				<ClassMember Name="CMN_BPT_BusinessParticipant_AccessCodeID" Type="Guid"  />
+				<ClassMember Name="Code" Type="String"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

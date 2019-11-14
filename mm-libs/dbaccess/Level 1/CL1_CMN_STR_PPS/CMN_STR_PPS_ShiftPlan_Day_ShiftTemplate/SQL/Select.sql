@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_str_pps_shiftplan_day_shifttemplates
+WHERE 
+	CMN_STR_PPS_ShiftPlan_Day_ShiftTemplateID = @CMN_STR_PPS_ShiftPlan_Day_ShiftTemplateID

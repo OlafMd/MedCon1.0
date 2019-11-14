@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_pos_customerinteractions
+	(
+		CMN_POS_CustomerInteractionID,
+		CustomerOrderReturnHeader_RefID,
+		CustomerOrderHeader_RefID,
+		IsCustomerOrderReturnInteraction,
+		IsCustomerOrderInteraction,
+		CustomerInteractionNumber,
+		DateOfCustomerInteraction,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_POS_CustomerInteractionID,
+		@CustomerOrderReturnHeader_RefID,
+		@CustomerOrderHeader_RefID,
+		@IsCustomerOrderReturnInteraction,
+		@IsCustomerOrderInteraction,
+		@CustomerInteractionNumber,
+		@DateOfCustomerInteraction,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

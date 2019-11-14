@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	ord_cuo_position_customerorganizationalunitdistribution
+WHERE 
+	ORD_CUO_Position_CustomerOrganizationalUnitDistributionID = @ORD_CUO_Position_CustomerOrganizationalUnitDistributionID

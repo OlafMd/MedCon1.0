@@ -1,0 +1,21 @@
+INSERT INTO 
+	acc_bok_bookingaccounts
+	(
+		ACC_BOK_BookingAccountID,
+		BookingAccountNumber,
+		BookingAccountName,
+		FiscalYear_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ACC_BOK_BookingAccountID,
+		@BookingAccountNumber,
+		@BookingAccountName,
+		@FiscalYear_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

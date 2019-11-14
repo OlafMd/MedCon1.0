@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_BillHeaderID_for_CaseID</Name>
+		<Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_BillHeaderID_for_CaseID"
+								Method_Name="Get_BillHeaderID_for_CaseID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+Select
+  bil_billheaders.BIL_BillHeaderID as header_id
+From
+  hec_cas_case_billcodes Inner Join
+  hec_bil_billposition_billcodes
+    On hec_cas_case_billcodes.HEC_BIL_BillPosition_BillCode_RefID =
+    hec_bil_billposition_billcodes.HEC_BIL_BillPosition_BillCodeID And
+    hec_bil_billposition_billcodes.Tenant_RefID = @TenantID And
+    hec_bil_billposition_billcodes.IsDeleted = 0
+     Inner Join
+  hec_bil_billpositions On hec_bil_billposition_billcodes.BillPosition_RefID =
+    hec_bil_billpositions.HEC_BIL_BillPositionID And
+    hec_bil_billpositions.Tenant_RefID = @TenantID And
+    hec_bil_billpositions.IsDeleted = 0
+     Inner Join
+  bil_billpositions On hec_bil_billpositions.Ext_BIL_BillPosition_RefID =
+    bil_billpositions.BIL_BillPositionID And
+    bil_billpositions.Tenant_RefID = @TenantID And
+    bil_billpositions.IsDeleted = 0
+    Inner Join
+  bil_billheaders On bil_billpositions.BIL_BilHeader_RefID =
+    bil_billheaders.BIL_BillHeaderID And
+    bil_billheaders.Tenant_RefID = @TenantID And
+    bil_billheaders.IsDeleted =0
+Where
+  hec_cas_case_billcodes.HEC_CAS_Case_RefID = @CaseID And
+  hec_cas_case_billcodes.IsDeleted = 0 And
+  hec_cas_case_billcodes.Tenant_RefID = @TenantID
+Group By
+  hec_cas_case_billcodes.HEC_CAS_Case_RefID
+	</SQLStatement>
+  
+  <Parameters IsClass="true" Name="P_CAS_GBHIDfCID_1311">
+    <Members>
+      <ClassMember Name="CaseID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CAS_GBHIDfCID_1311">
+			<Members>
+				<ClassMember Name="header_id" Type="Guid"  />			 
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

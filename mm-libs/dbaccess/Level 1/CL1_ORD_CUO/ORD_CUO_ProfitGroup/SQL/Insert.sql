@@ -1,0 +1,21 @@
+INSERT INTO 
+	ord_cuo_profitgroups
+	(
+		ORD_CUO_ProfitGroupID,
+		ShortName,
+		ProfitGroup_Name_DictID,
+		ProfitGroup_Description_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ORD_CUO_ProfitGroupID,
+		@ShortName,
+		@ProfitGroup_Name,
+		@ProfitGroup_Description,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

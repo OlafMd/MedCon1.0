@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/29/2015 11:09:25 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_CTR_I2BC_CoveredPotentialBillCodes_2_UniversalProperty"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC_CTR_I2BC"
+                IsClass_Corresponding_DBTable="hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty" >
+      <Members>
+		<ClassMember Name="AssignmentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="CoveredPotentialBillCode_RefID" Type="Guid" />
+		<ClassMember Name="CoveredPotentialBillCode_UniversalProperty_RefID" Type="Guid" />
+		<ClassMember Name="Value_String" Type="String" />
+		<ClassMember Name="Value_Number" Type="Double" />
+		<ClassMember Name="Value_Boolean" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

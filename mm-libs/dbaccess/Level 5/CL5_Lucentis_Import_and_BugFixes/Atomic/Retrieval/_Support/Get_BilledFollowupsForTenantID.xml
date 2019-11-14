@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/12/2014 5:41:29 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_BilledFollowupsForTenantID</Name>
+    <Namespace>CL5_Lucentis_Import_and_BugFixes.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Import_and_BugFixes.Atomic.Retrieval"
+                Method_ClassName="cls_Get_BilledFollowupsForTenantID"
+                Method_Name="Get_BilledFollowupsForTenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_BilledFollowupsForTenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  bil_billpositions.External_PositionType,
+  bil_billpositions.External_PositionReferenceField As VorgassNumber,
+  bil_billpositions.BIL_BillPositionID,
+  bil_billposition_transmitionstatuses.BIL_BillPosition_TransmitionStatusID,
+  hec_patient_treatment.IfTreatmentFollowup_FromTreatment_RefID,
+  hec_patient_treatment.HEC_Patient_TreatmentID As FollowupID
+From
+  hec_patient_treatment Inner Join
+  bil_billposition_2_patienttreatment
+    On hec_patient_treatment.HEC_Patient_TreatmentID =
+    bil_billposition_2_patienttreatment.HEC_Patient_Treatment_RefID Inner Join
+  bil_billpositions
+    On bil_billposition_2_patienttreatment.BIL_BillPosition_RefID =
+    bil_billpositions.BIL_BillPositionID Inner Join
+  bil_billposition_transmitionstatuses On bil_billpositions.BIL_BillPositionID =
+    bil_billposition_transmitionstatuses.BillPosition_RefID
+Where
+  bil_billpositions.IsDeleted = 0 And
+  bil_billpositions.Tenant_RefID = @TenantID And
+  hec_patient_treatment.IsTreatmentFollowup = 1 And
+  bil_billposition_transmitionstatuses.IsActive = 1 And
+  bil_billposition_transmitionstatuses.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5TR_GBFfTID_1740" IsArray="true">
+			<Members>
+				<ClassMember Name="External_PositionType" Type="String"  />
+				<ClassMember Name="VorgassNumber" Type="String"  />
+                <ClassMember Name="BIL_BillPosition_TransmitionStatusID" Type="Guid"  />
+				<ClassMember Name="FollowupID" Type="Guid"  />
+                <ClassMember Name="BIL_BillPositionID" Type="Guid"  />
+                <ClassMember Name="IfTreatmentFollowup_FromTreatment_RefID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

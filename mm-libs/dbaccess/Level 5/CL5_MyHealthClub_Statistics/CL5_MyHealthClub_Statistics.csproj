@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BE2EA50C-00D2-460D-9945-8A26085352A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_MyHealthClub_Statistics</RootNamespace>
+    <AssemblyName>CL5_MyHealthClub_Statistics</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_UpdateDiagnosisStatistics_for_Doctor.cs" />
+    <Compile Include="Atomic\Manipulation\cls_UpdateProcedureStatistics_for_Doctor.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_StatisticsData_For_TenantID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_CMT\CL1_HEC_CMT.csproj">
+      <Project>{FA4D5021-6E3E-4C1E-97B9-474D9465450E}</Project>
+      <Name>CL1_HEC_CMT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_DIA_STA\CL1_HEC_DIA_STA.csproj">
+      <Project>{2DBDAF7C-2CC5-4563-8C28-A9DBA0F0F28C}</Project>
+      <Name>CL1_HEC_DIA_STA</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\UpdateDiagnosisStatistics_for_Doctor.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\UpdateProcedureStatistics_for_Doctor.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DiagnoseData_for_TimeSpan.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_StatisticsData_For_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

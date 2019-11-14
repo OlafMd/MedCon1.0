@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/11/2015 12:55:17 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Referral_ReleventDiagnosis_Update</Name>
+    <Namespace>CL5_MyHealthClub_EMR.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_EMR.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Referral_ReleventDiagnosis_Update"
+                Method_Name="Get_Referral_ReleventDiagnosis_Update"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Referral_ReleventDiagnosis_Update"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  hec_dia_potentialdiagnoses.PotentialDiagnosis_Name_DictID,
+	  hec_act_performedaction_diagnosisupdates.HEC_Patient_Diagnosis_RefID,
+	  hec_act_performedaction_referral_relevantdiagnosisupdates.PerformedAction_Referral_RefID
+	From
+	  hec_act_performedaction_referral_relevantdiagnosisupdates Inner Join
+	  hec_act_performedaction_diagnosisupdates
+	    On
+	    hec_act_performedaction_referral_relevantdiagnosisupdates.PerformedAction_DiagnosisUpdate_RefID = hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_DiagnosisUpdateID Inner Join
+	  hec_dia_potentialdiagnoses
+	    On hec_act_performedaction_diagnosisupdates.PotentialDiagnosis_RefID =
+	    hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID
+	Where
+	  hec_act_performedaction_referral_relevantdiagnosisupdates.PerformedAction_Referral_RefID = @Referral_RefID And
+	  hec_act_performedaction_referral_relevantdiagnosisupdates.Tenant_RefID =
+	  @TenantID And
+	  hec_act_performedaction_referral_relevantdiagnosisupdates.IsDeleted = 0 And
+	  hec_act_performedaction_diagnosisupdates.IsDeleted = 0 And
+	  hec_dia_potentialdiagnoses.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5_EMR_GRRDU_1254">
+    <Members>
+		<ClassMember Name="Referral_RefID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5_EMR_GRRDU_1254" IsArray="true">
+			<Members>
+				<ClassMember Name="PotentialDiagnosis_Name" Type="Dict" OriginTable="hec_dia_potentialdiagnoses" Source_DBField="PotentialDiagnosis_Name_DictID"  />
+				<ClassMember Name="HEC_Patient_Diagnosis_RefID" Type="Guid"  />
+				<ClassMember Name="PerformedAction_Referral_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

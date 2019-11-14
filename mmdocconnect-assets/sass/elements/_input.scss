@@ -1,0 +1,414 @@
+/*
++                  input fields
+---------------------------------------------------------------------------*/
+.input-label{
+	display: block;
+}
+
+
+.input-field input {
+  width: 100%;
+  height: 26px;
+  border: 1px solid #c5c5c5;
+  transition: box-shadow 0.5s ease;
+}
+.input-field input:hover {
+  outline: none;
+  -webkit-box-shadow: inset 1px 1px 2px 0px rgba(197, 197, 197, 0.75);
+  -moz-box-shadow: inset 1px 1px 2px 0px rgba(197, 197, 197, 0.75);
+  box-shadow: inset 1px 1px 2px 0px rgba(197, 197, 197, 0.75);
+}
+.input-field label {
+  width: 100%;
+  padding-bottom: 5px;
+}
+.input-field input[type="text"] {
+  -webkit-appearance: none;
+}
+.input-field ::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+/*
++                  Search
+---------------------------------------------------------------------------*/
+.search-field-holder {
+	//min-width: 330px;
+	position: relative;
+
+	.autocomplete-magnifier,
+	.autocomplete-remove{
+		position: absolute;
+		height: 16px;
+		width: 16px;
+	}
+
+	.autocomplete-magnifier{
+		top: 1px;;
+		right: 5px;
+	}
+
+	.autocomplete-remove{
+		top: -21px;
+		right: 5px;
+	}
+  /*input[type="search"]::-webkit-search-decoration,
+  //input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration{
+	  display: none;
+	  background: #fff url("../images/remove.png") no-repeat center center;
+  }*/
+
+  input[type=text]::-ms-clear
+  /*, input[type=text]::-ms-reveal*/{
+	  display: none;
+	  width : 0;
+	  height: 0;
+  }
+}
+
+.search-field-holder .search-input {
+  width: 100%;
+  height: 26px;
+  border: 1px solid #c5c5c5;
+  padding-left: 5px;
+  padding-right: 30px;
+  //background: url("/Images/search.png") no-repeat center right 2px;
+}
+/*.search-field-holder input::-ms-clear,
+.search-field-holder input::-webkit-search-cancel-button
+input::-webkit-search-cancel-button {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  //background: white url("/Images/remove.png") no-repeat center center;
+}*/
+
+.search-input-autocomplete{
+  @extend .search-input;
+  background-image: url("../images/search-autocomplete.png");
+  background-position: center right 5px;
+  background-repeat: no-repeat; 
+}
+
+/*
++                  Radio buttons
+--------------------------------------------------------------------------- */
+/*.mask-radio {
+  width: 16px;
+  display: inline-block;
+  height: 16px;
+  margin-right: 3px;
+  background: url("../Images/radio-button.png") no-repeat center center;
+}
+.mask-radio.checked {
+  background: url("../Images/radio-button-active.png") no-repeat center center;
+}
+.mask-radio input {
+  width: 100%;
+  margin: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}*/
+/*
+input[type="checkbox"] {
+				opacity: 0;
+				float: left;
+				width: 18px;
+			}
+
+input[type="radio"] {
+				opacity: 0;
+				float: left;
+				width: 18px;
+			}
+
+input[type="radio"] + label{
+	opacity: 0;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	background: url("../Images/radio-button.png") no-repeat center center;
+}
+
+input[type="radio"]:checked + label{
+	background: url("../Images/radio-button-active.png") no-repeat center center;
+}
+
+input[type="checkbox"] + label {
+	opacity: 0;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	background: url("../Images/checkbox.png") no-repeat center center;
+}
+
+input[type="checkbox"]:checked + label{
+	background: url("../Images/checkbox-active.png") no-repeat center center;
+}*/
+
+/*
++                  checkbox
+--------------------------------------------------------------------------- */
+/*.mask-checkbox {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  margin-right: 3px;
+  background: url("../images/checkbox.png") no-repeat center center;
+}
+.mask-checkbox.checked {
+  background: url("../images/checkbox-active.png") no-repeat center center;
+}
+
+.mask-checkbox{
+  &.disabled{
+	background: url("../images/checkbox-disabled.png") no-repeat center center;
+  }
+}
+
+.mask-checkbox input {
+  width: 100%;
+  margin: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+
+.checkbox-text {  //renamed from label
+  //margin: 0 !important;
+  display: inline-block !important;
+  vertical-align: sub;
+  margin-top: 5px;
+  margin-left: 3px;
+}
+*/
+/*
++                  Select
+--------------------------------------------------------------------------- */
+.mask-select {
+  position: relative;
+  display: inline-block;
+  background: #fff;
+  width: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.mask-select .text-holder {
+  background: url("../images/icons/dropdown.png") no-repeat center right 7px;
+  border: 1px solid #c5c5c5;
+  height: 26px;
+  line-height: 24px;
+  cursor: pointer;
+  padding-right: 30px;
+  padding-left: 7px;
+}
+/*.mask-select .text-holder.disabled {
+  background-color: #ebebe4;
+}*/
+.mask-select .text-holder:hover {
+  border: 1px solid #c5c5c5;
+}
+.mask-select .text-holder.active {
+  background-color: #f3f3f3 !important;  /*background-color: #fff;*/
+  border-bottom: 1px solid transparent;
+  /*-webkit-box-shadow: 5px 5px 3px 0px #e2e2e2;
+  -moz-box-shadow: 5px 5px 3px 0px #e2e2e2;
+  box-shadow: 5px 5px 3px 0px #e2e2e2;*/
+}
+.mask-select .text-holder span {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  display: inline-block;
+  height: 90%;
+}
+.mask-select > ul {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  border-left: 1px solid #c5c5c5;
+  border-right: 1px solid #c5c5c5;
+  border-bottom: 1px solid #c5c5c5;
+  overflow: hidden;
+  margin: 0 !important;
+
+  /*-webkit-box-shadow: 5px 5px 3px 0px #e2e2e2;
+  -moz-box-shadow: 5px 5px 3px 0px #e2e2e2;
+  box-shadow: 5px 5px 3px 0px #e2e2e2;*/
+}
+.mask-select > ul > li {
+  cursor: pointer;
+  background: #fff;
+  width: 100% !important;
+  float: none !important;
+  margin-right: 0 !important;
+  min-height: 10px !important;
+  padding-left: 7px;
+  line-height: 18px;
+  background-color: #f3f3f3 !important;
+}
+.mask-select > ul > li:hover {
+  background-color: #e1e1e6 !important;
+}
+.mask-select select {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+}
+
+/*
++                  Datepicker
+--------------------------------------------------------------------------- */
+
+.datapicker-mask{
+	position: relative;
+
+	input{
+		height: 28px !important;
+	}
+
+	input::-webkit-calendar-picker-indicator {
+		//display: none;
+	}
+
+	input[type="date"]::-webkit-inner-spin-button{
+		//margin-right: 2px;
+		display: none !important;
+	}
+
+	input[type="date"]::-webkit-clear-button{
+		display: none;
+	}
+
+	.ui-datepicker-trigger{
+		position: absolute;
+		z-index: 1;
+		width: 26px;
+		height: 26px;
+		top: 1px;
+		right: 1px;
+		border: 0;
+		text-indent: -99999px;
+		outline: 0;
+		opacity: 0;
+		cursor: pointer;
+        
+		//background-color: #fff;
+		//background-color: #c5c5c5;
+		/*position: absolute;
+		width: 26px;
+		height: 26px;
+		top: 5px;
+		right: 5px;*/
+		//@-moz-document url-prefix() {
+		  //  background: #fff url("../images/date-picker.png") no-repeat center center;
+
+
+		&:active{
+			border: 0 !important;
+		}
+	}
+
+	&:after{
+			position: absolute;
+			display: block;
+			width: 26px;
+			height: 26px;
+			content: '';
+			top: -6px;
+			right: 1px;
+			z-index: 0;
+			border-left: 1px solid #b9b9b9;
+			background: #fff url("../images/date-picker.png") no-repeat center center;
+
+		&:hover{
+		  background: #fff url("../images/date-picker_hover.png") no-repeat center center !important;
+		}
+}
+
+	/*input:-webkit-search-cancel-button {
+		-webkit-appearance: none;
+	}*/
+
+	/*.ui-datepicker-trigger:after{
+			display: block !important;
+			position: absolute;
+			width: 24px;
+			height: 24px;
+			top: 0;
+			right: 0;
+			z-index: 2;
+			background: #fff url("/Images/datepicker.png") no-repeat center center;
+
+	}*/
+}
+
+.input-label-block{
+	display: block;
+}
+
+.input-label-inline{
+	display: inline-block !important;
+}
+
+.search-icon{
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	width: 26px;
+	height: 26px;
+	border-left: 1px solid #c5c5c5;
+	text-align: center;
+	line-height: 28px;
+}
+
+.input-add{
+	display: block;
+	height: 26px;
+	position: relative;
+
+	.add-btn{
+		width: 24px;
+		height: 24px;
+		position: absolute;
+		top: 1px;
+		right: 1px;
+		background: #fff url("../images/icons/create.png") no-repeat center center;
+		outline: 0;
+		border: 0;
+		border-left: 1px solid #b9b9b9;
+		text-indent: -99999px;
+	}
+
+}
+
+input{
+	padding-left: 7px;
+	border: 1px solid #b9b9b9;
+}
+
+input:focus{
+	background-color: #f3f3f3 !important;
+	outline: 0px solid transparent !important;
+	border: 1px solid #b9b9b9;
+}
+
+input:disabled{
+  border: 1px solid #b9b9b9;
+}
+
+.input-fixed-width{
+	max-width: 178px;
+
+	label,
+	input{
+		max-width: 178px;
+	}
+}

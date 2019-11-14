@@ -1,0 +1,89 @@
+.dropdown-menu.autocomplete-ac-doctor,
+.dropdown-menu.autocomplete-oct-doctor {
+  padding: 0 !important;
+  width: 350px;
+
+  &:before {
+    border-bottom-color: #ebebeb;
+  }
+
+  .dropdown-menu-content,
+  .dropdown-menu-header {
+    padding: 0 15px;
+  }
+
+  .dropdown-menu-header {
+    padding-bottom: 10px;
+    background-color: #ebebeb;
+  }
+
+  .dropdown-menu-content {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      margin: 0;
+      background-color: rgba(0, 0, 0, 0.04);
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #ebebeb;
+      border-radius: 5px;
+    }
+  }
+
+  .dropdown-menu-alert {
+    padding: 10px 15px;
+  }
+
+  .dropdown-menu-add-btn {
+    display: block;
+    height: 40px;
+    padding: 8px 0 10px 40px !important;
+    margin: 8px 0;
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 20px;
+    color: #b7b7b7;
+    background: url("../images/icons/add-thin-dd.png") no-repeat 10px 7px;
+
+    &:hover {
+      color: $module-color;
+    }
+  }
+
+  .dropdown-menu-items {
+    font-size: 12px;
+
+    > li > a {
+      display: block;
+      padding: 7px 0;
+      line-height: 16px;
+      color: #656565;
+
+      &:active,
+      &:focus,
+      &:hover {
+        font-weight: 700;
+        color: #439562;
+        outline: 0;
+      }
+    }
+  }
+
+  h3 {
+    float: none !important;
+    margin: 0 !important;
+    padding: 15px 0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #656565;
+  }
+
+}

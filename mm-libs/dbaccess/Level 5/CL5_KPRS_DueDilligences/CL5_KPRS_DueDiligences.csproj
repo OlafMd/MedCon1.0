@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F7DDC0EE-8683-46F8-BEE6-9E1534F43B07}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_KPRS_DueDiligences</RootNamespace>
+    <AssemblyName>CL5_KPRS_DueDiligences</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Delete_DueDiligences.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Delete_Submission.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_DueDiligences.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_DueDiligencesBasicData.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ApartmentSubmisionInfo_For_RevisionID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AtticSubmisionInfo_For_RevisionID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_BasementSubmisionInfo_For_RevisionID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DueDiligences_For_Realestate_Property.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_FacadeSubmisionInfo_For_RevisionID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_HVACRSubmisionInfo_For_RevisionID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_OutdoorFascilitySubmisionInfo_For_RevisionID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_RoofSubmisionInfo_For_RevisionID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_StaircaseSubmisionInfo_For_RevisionID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_get_Submission_For_SubmissioniD.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DueDiligence_For_DueDiligenceID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_RevisionGroups_For_RealestatePropertyID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_LOC\CL1_CMN_LOC.csproj">
+      <Project>{FA892C18-7CCD-497D-BF20-9AA870C1E3A4}</Project>
+      <Name>CL1_CMN_LOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PER\CL1_CMN_PER.csproj">
+      <Project>{6BDA1EB4-FA2A-41A1-8B83-171ED9B85ADD}</Project>
+      <Name>CL1_CMN_PER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_RES\CL1_RES.csproj">
+      <Project>{3EACA450-E49E-4CFE-9D8A-7D24FF790822}</Project>
+      <Name>CL1_RES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_RES_BLD\CL1_RES_BLD.csproj">
+      <Project>{3EB6A3F6-E90A-48F8-8A65-7D7B3F8AF647}</Project>
+      <Name>CL1_RES_BLD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_RES_DUD\CL1_RES_DUD.csproj">
+      <Project>{E57800E6-E170-4AC4-9C1B-83A5B68F8505}</Project>
+      <Name>CL1_RES_DUD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Price\CL2_Price.csproj">
+      <Project>{6630A96E-18C8-4FC3-97DF-E6815B4B92C4}</Project>
+      <Name>CL2_Price</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Document\CL3_Document.csproj">
+      <Project>{DA4A3C2C-C1C1-4CD1-96F4-CA1C5A3B5100}</Project>
+      <Name>CL3_Document</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Save_DueDiligencesBasicData.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Delete_Submission.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_DueDiligences.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Delete_DueDiligences.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_DueDiligence_For_DueDiligenceID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_RevisionGroups_For_RealestatePropertyID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ApartmentSubmisionInfo_For_RevisionID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_RoofSubmisionInfo_For_RevisionID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AtticSubmisionInfo_For_RevisionID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_BasementSubmisionInfo_For_RevisionID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_FacadeSubmisionInfo_For_RevisionID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_HVACRSubmisionInfo_For_RevisionID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_OutdoorFascilitySubmisionInfo_For_RevisionID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_StaircaseSubmisionInfo_For_RevisionID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ApartmentSubmisionInfo_For_RevisionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_AtticSubmisionInfo_For_RevisionID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_BasementSubmisionInfo_For_RevisionID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_FacadeSubmisionInfo_For_RevisionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_HVACRSubmisionInfo_For_RevisionID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_OutdoorFascilitySubmisionInfo_For_RevisionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_RoofSubmisionInfo_For_RevisionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_StaircaseSubmisionInfo_For_RevisionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_get_Submission_For_SubmissioniD.sql" />
+    <Content Include="Atomic\Retrieval\_Support\get_Submission_For_SubmissioniD.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DueDiligences_For_Realestate_Property.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DueDiligences_For_Realestate_Property.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

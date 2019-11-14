@@ -1,0 +1,23 @@
+INSERT INTO 
+	bil_billposition_reimbursements
+	(
+		BIL_BillPosition_ReimbursementID,
+		BIL_BillPosition_RefID,
+		ACC_CRN_GrantedCreditNote_RefID,
+		ReimbursedValue,
+		ReimbursedQuantity,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@BIL_BillPosition_ReimbursementID,
+		@BIL_BillPosition_RefID,
+		@ACC_CRN_GrantedCreditNote_RefID,
+		@ReimbursedValue,
+		@ReimbursedQuantity,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

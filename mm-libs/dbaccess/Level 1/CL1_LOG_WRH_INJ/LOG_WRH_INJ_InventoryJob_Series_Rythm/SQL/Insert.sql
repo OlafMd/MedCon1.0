@@ -1,0 +1,23 @@
+INSERT INTO 
+	log_wrh_inj_inventoryjob_series_rythms
+	(
+		LOG_WRH_INJ_InventoryJob_Series_RythmID,
+		InventoryJob_Series_RefID,
+		RythmCronExpression,
+		StartDate,
+		EndDate,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_WRH_INJ_InventoryJob_Series_RythmID,
+		@InventoryJob_Series_RefID,
+		@RythmCronExpression,
+		@StartDate,
+		@EndDate,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

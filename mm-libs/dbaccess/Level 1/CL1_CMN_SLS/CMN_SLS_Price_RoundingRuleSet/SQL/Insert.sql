@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_sls_price_roundingruleset
+	(
+		CMN_SLS_Price_RoundingRuleSetID,
+		RuleSet_Name_DictID,
+		MaximumPriceIncreaseInPercent,
+		MaximumPriceDecreaseInPercent,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_SLS_Price_RoundingRuleSetID,
+		@RuleSet_Name,
+		@MaximumPriceIncreaseInPercent,
+		@MaximumPriceDecreaseInPercent,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

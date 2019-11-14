@@ -1,0 +1,29 @@
+﻿<div>
+    <ul class="receipt-list-header">
+        <li class="unsorted" ng-class="setTableHeaderClass('filedate')" ng-click="SortFunction('filedate')">{{'LABEL_DATE' | translate }}</li>
+        <li class="unsorted text-left" ng-class="setTableHeaderClass('period')" ng-click="SortFunction('period')">{{'LABEL_PERIOD'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('amountNo')" ng-click="SortFunction('amountNo')">{{'LABEL_AMOUNT'| translate}}</li>
+    </ul>
+    <h2 id="stickyHeaderBox" class="first-letter-holder hide"></h2>
+
+    <div class="content-scroll clear" id="wrapper" sticky>
+        <div id="wrapper_inner" class="clearfix">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="item in receipts| groupBy:'group_name'" ng-repeat-finished>
+                    <h2 id="tableGroup" ng-class="{'tableGroup': shouldStick() }" class="first-letter-holder " ng-if="item.group_name_CHANGED">
+                        <span>
+                            {{::item.group_name| translate}}
+                        </span>
+                    </h2>
+                    <ul id="list" class="receipt-list-item">
+
+                        <li><span class="padding-top-3">{{::item.filedateString}}</span></li>
+                        <li><span class="padding-top-6 text-left">{{::item.period}}</span> </li>
+                        <li><span class="padding-top-6">{{::item.amount}}</span> </li>
+                        <li><a class="button wide icon-evidence icons-position" ng-click="DownloadDocument(item)" href="" title="{{'BUTTON_PDF' | translate}}">{{'BUTTON_PDF' | translate}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>>

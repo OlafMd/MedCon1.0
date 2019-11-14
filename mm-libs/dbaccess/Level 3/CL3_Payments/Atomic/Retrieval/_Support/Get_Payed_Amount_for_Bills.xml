@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/3/2014 8:47:41 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Payed_Amount_for_Bills</Name>
+    <Namespace>CL3_Payments.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Payments.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Payed_Amount_for_Bills"
+                Method_Name="Get_Payed_Amount_for_Bills"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Payed_Amount_for_Bills"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT
+		bil_billheaders.BIL_BillHeaderID AS BillHeaderID,
+		SUM(bil_billheader_assignedpayments.AssignedValue) AS TotalPayedValue,
+		bil_billheaders.TotalValue_IncludingTax
+	FROM
+		bil_billheaders
+	LEFT OUTER JOIN bil_billheader_assignedpayments
+		ON bil_billheader_assignedpayments.BIL_BillHeader_RefID = bil_billheaders.BIL_BillHeaderID
+		AND bil_billheader_assignedpayments.IsDeleted = 0
+		AND bil_billheader_assignedpayments.Tenant_RefID = @TenantID
+	WHERE
+		bil_billheaders.BIL_BillHeaderID = @BillHeaderID_List
+		AND bil_billheaders.IsDeleted = 0
+		AND bil_billheaders.Tenant_RefID = @TenantID
+	GROUP BY 1
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3PY_GPAfB_1312">
+    <Members>
+        <ClassMember Name="BillHeaderID_List" Type="Guid" IsArray="true"  />
+
+	</Members>
+  </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L3PY_GPAfB_1312" IsArray="true">
+            <Members>
+				<ClassMember Name="BillHeaderID" Type="Guid"  />
+				<ClassMember Name="TotalValue_IncludingTax" Type="Decimal"  />
+                <ClassMember Name="TotalPayedValue" Type="Decimal"  />
+
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

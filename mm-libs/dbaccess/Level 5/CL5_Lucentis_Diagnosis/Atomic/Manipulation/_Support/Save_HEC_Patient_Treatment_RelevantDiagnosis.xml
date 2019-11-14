@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/7/2013 3:01:52 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_HEC_Patient_Treatment_RelevantDiagnosis</Name>
+    <Namespace>CL5_Lucentis_Diagnosis.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Diagnosis.Atomic.Manipulation"
+                Method_ClassName="cls_Save_HEC_Patient_Treatment_RelevantDiagnosis"
+                Method_Name="Save_HEC_Patient_Treatment_RelevantDiagnosis"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_HEC_Patient_Treatment_RelevantDiagnosis"
+                />
+
+  <Parameters IsClass="true" Name="P_L5DG_SPTRD_1501">
+    <Members>
+		<ClassMember IsIdentificator="True" Name="HEC_Patient_Treatment_RelevantDiagnosisID" Type="Guid"  />
+		<ClassMember Name="Patient_Treatment_RefID" Type="Guid"  />
+        <ClassMember Name="CreationTime" Type="DateTime"  />
+        <ClassMember Name="Doctor_RefID" Type="Guid"  />
+		<ClassMember Name="DIA_PotentialDiagnosis_RefID" Type="Guid"  />
+		<ClassMember Name="DIA_Localization_RefID" Type="Guid"  />
+		<ClassMember Name="DIA_State_RefID" Type="Guid"  />
+		<ClassMember Name="RelevantDiagnosis_Comment" Type="String"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />            
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

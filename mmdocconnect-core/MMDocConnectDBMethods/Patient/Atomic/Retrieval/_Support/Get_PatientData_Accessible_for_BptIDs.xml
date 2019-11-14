@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PatientData_Accessible_for_BptIDs</Name>
+    <Namespace>MMDocConnectDBMethods.Patient.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Patient.Atomic.Retrieval"
+								Method_ClassName="cls_Get_PatientData_Accessible_for_BptIDs"
+								Method_Name="Get_PatientData_Accessible_for_BptIDs"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    Select
+      hec_act_plannedactions.HEC_ACT_PlannedActionID
+    From
+      hec_act_plannedactions
+    Where
+      hec_act_plannedactions.Patient_RefID = @PatientID And
+      hec_act_plannedactions.ToBePerformedBy_BusinessParticipant_RefID = @BptIDs And
+      hec_act_plannedactions.Tenant_RefID = @TenantID And
+      hec_act_plannedactions.IsDeleted = 0
+    Limit 1
+	</SQLStatement>
+  <Parameters IsClass="true" Name="P_PA_GPDAfBPTIDs_0849">
+    <Members>
+      <ClassMember Name="PatientID" Type="Guid"  />
+      <ClassMember Name="BptIDs" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="PA_GPDAfBPTIDs_0849">
+      <Members>
+        <ClassMember Name="HEC_ACT_PlannedActionID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/18/2013 4:23:35 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_Languages_For_Tennant_Mobile</Name>
+    <Namespace>CL2_Language.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Language.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_Languages_For_Tennant_Mobile"
+                Method_Name="Get_All_Languages_For_Tennant_Mobile"
+                ApplicationPlattform_WebServiceName="Languages"
+                ApplicationPlattform_Namespace="Languages.Get_All_Languages_For_Tennant_Mobile"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_languages.CMN_LanguageID,
+	  cmn_languages.ISO_639_1,
+	  cmn_languages.Tenant_RefID,
+	  cmn_languages.IsDeleted,
+	  cmn_languages.ISO_639_2,
+	  cmn_languages.Label,
+	  cmn_languages.Name_DictID,
+	  cmn_languages.Icon_Document_RefID,
+	  cmn_languages.Creation_Timestamp
+	From
+	  cmn_languages
+	Where
+	  cmn_languages.Tenant_RefID = @TenantID
+    And cmn_languages.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2LN_GaLfTM_1622" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_LanguageID" Type="Guid"  />
+				<ClassMember Name="ISO_639_1" Type="String"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+				<ClassMember Name="ISO_639_2" Type="String"  />
+				<ClassMember Name="Label" Type="String"  />
+				<ClassMember Name="Name" Type="Dict" OriginTable="cmn_languages" Source_DBField="Name_DictID"  />
+				<ClassMember Name="Icon_Document_RefID" Type="Guid"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

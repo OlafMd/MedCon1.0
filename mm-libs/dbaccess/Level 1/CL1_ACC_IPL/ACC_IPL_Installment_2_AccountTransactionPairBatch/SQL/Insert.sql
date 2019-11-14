@@ -1,0 +1,19 @@
+INSERT INTO 
+	acc_ipl_installment_2_accounttransactionpairbatch
+	(
+		AssignmentID,
+		ACC_IPL_Installment_RefID,
+		ACC_BOK_Accounting_Transaction_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@ACC_IPL_Installment_RefID,
+		@ACC_BOK_Accounting_Transaction_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

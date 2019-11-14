@@ -1,0 +1,21 @@
+INSERT INTO 
+	imo_questionnairestatus_2_questionnaireaction
+	(
+		AssignmentID,
+		QuestionnaireAction_RefID,
+		QuestionnaireStatus_RefID,
+		Default_Timeframe_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@QuestionnaireAction_RefID,
+		@QuestionnaireStatus_RefID,
+		@Default_Timeframe_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

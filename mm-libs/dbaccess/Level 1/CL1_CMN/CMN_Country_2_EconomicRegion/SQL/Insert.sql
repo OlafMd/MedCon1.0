@@ -1,0 +1,19 @@
+INSERT INTO 
+	CMN_Country_2_EconomicRegion
+	(
+		AssignmentID,
+		CMN_Country_RefID,
+		CMN_EconomicRegion_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_Country_RefID,
+		@CMN_EconomicRegion_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

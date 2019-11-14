@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 7/30/2014 1:08:32 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_ProductTrackingInstance"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG"
+                IsClass_Corresponding_DBTable="log_producttrackinginstances" >
+      <Members>
+        <ClassMember Name="LOG_ProductTrackingInstanceID" Type="Guid" IsObjectPrimaryKey="true"/>
+        <ClassMember Name="TrackingInstanceTakenFromSourceTrackingInstance_RefID" Type="Guid" />
+        <ClassMember Name="TrackingCode" Type="String" />
+        <ClassMember Name="SerialNumber" Type="String" />
+        <ClassMember Name="BatchNumber" Type="String" />
+        <ClassMember Name="OwnedBy_BusinessParticipant_RefID" Type="Guid" />
+        <ClassMember Name="CMN_PRO_Product_RefID" Type="Guid" />
+        <ClassMember Name="CMN_PRO_Product_Variant_RefID" Type="Guid" />
+        <ClassMember Name="CMN_PRO_Product_Release_RefID" Type="Guid" />
+        <ClassMember Name="ExpirationDate" Type="DateTime" />
+        <ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+        <ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+        <ClassMember Name="InitialQuantityOnTrackingInstance" Type="double" />
+        <ClassMember Name="CurrentQuantityOnTrackingInstance" Type="double" />
+        <ClassMember Name="R_ReservedQuantity" Type="double" />
+        <ClassMember Name="R_FreeQuantity" Type="double" />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_qst_questionnaire
+	(
+		RES_QST_QuestionnaireID,
+		Questionnaire_Name_DictID,
+		Questionnaire_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID,
+		Current_QuestionnaireVersion_RefID
+	)
+VALUES 
+	(
+		@RES_QST_QuestionnaireID,
+		@Questionnaire_Name,
+		@Questionnaire_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID,
+		@Current_QuestionnaireVersion_RefID
+	)

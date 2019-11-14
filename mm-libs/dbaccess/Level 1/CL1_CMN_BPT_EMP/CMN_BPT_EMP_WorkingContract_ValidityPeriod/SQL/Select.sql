@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_workingcontract_validityperiod
+WHERE 
+	CMN_BPT_EMP_WorkingContract_ValidityPeriodID = @CMN_BPT_EMP_WorkingContract_ValidityPeriodID

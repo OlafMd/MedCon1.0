@@ -1,0 +1,31 @@
+<div class="btn-group" uib-dropdown is-open="isOpen" keyboard-nav dropdown-append-to-body>
+    <input type="text" class="form-control" id="{{autocompleteId}}" ng-model="selectedItem.display_name" ng-change="updateInput()" uib-dropdown-toggle>
+    <div class="dropdown-menu autocomplete-oct-doctor" ng-class="{'dropdown-menu-right': dropdownRight}" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+
+        <div class="dropdown-menu-header">
+            <h3>{{'LABEL_LAST_USED' | translate}}</h3>
+            <ul class="dropdown-menu-items">
+                <li role="menuitem" ng-repeat="item in octDoctors.last_used">
+                    <a href id="{{autocompleteId}}_autocompleteLastUsed_{{$index}}" ng-click="selectItem(item)">{{::item.display_name}}</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="dropdown-menu-content" ng-if="octDoctors.doctors.length">
+            <h3>{{'DOCTOR' | translate}}</h3>
+            <ul class="dropdown-menu-items">
+                <li role="menuitem" ng-repeat="item in octDoctors.doctors">
+                    <a href id="{{autocompleteId}}_autocompleteDoctors_{{$index}}" ng-click="selectItem(item)">{{::item.display_name}}<span ng-if="item.secondary_display_name"> | {{ item.secondary_display_name }}</span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="dropdown-menu-alert" ng-if="searching">
+            <label>{{ 'LABEL_SEARCHING' | translate }}</label>
+        </div>
+
+        <div class="dropdown-menu-alert" ng-if="noDataFound">
+            <label>{{ 'LABEL_NO_RESULTS' | translate }}</label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2-27-15 14:27:27">
+
+  <Meta>
+    <Name>Get_ShipmentPositions_for_Shipment_by_ShipmentHeaderID</Name>
+    <Description>Get_ShipmentPositions_for_Shipment_by_ShipmentHeaderID</Description>
+    <Namespace>Get_ShipmentPositions_for_Shipment_by_ShipmentHeaderID</Namespace>
+    <Tags></Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Shipment.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ShipmentPositions_for_Shipment_by_ShipmentHeaderID"
+                Method_Name="Get_ShipmentPositions_for_Shipment_by_ShipmentHeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShipmentPositions_for_Shipment_by_ShipmentHeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+
+  Select
+  cmn_pro_products.CMN_PRO_ProductID,
+  cmn_pro_products.Product_Number,
+  cmn_pro_products_de.Content As ProductName,
+  cmn_pro_product_variants_de.Content As Variant,
+  log_shp_shipment_positions.QuantityToShip
+From
+  log_shp_shipment_positions Inner Join
+  log_shp_shipment_headers On log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID
+    = log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID Inner Join
+  cmn_pro_products On log_shp_shipment_positions.CMN_PRO_Product_RefID =
+    cmn_pro_products.CMN_PRO_ProductID Inner Join
+  cmn_pro_products_de On cmn_pro_products.Product_Name_DictID =
+    cmn_pro_products_de.DictID Inner Join
+  cmn_pro_product_variants
+    On log_shp_shipment_positions.CMN_PRO_ProductVariant_RefID =
+    cmn_pro_product_variants.CMN_PRO_Product_VariantID Inner Join
+  cmn_pro_product_variants_de On cmn_pro_product_variants.VariantName_DictID =
+    cmn_pro_product_variants_de.DictID
+Where
+  log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID =
+  @ShipmentHeaderID And
+  cmn_pro_products_de.Language_RefID = @LanguageID And
+  log_shp_shipment_headers.IsDeleted = 0 And
+  log_shp_shipment_headers.Tenant_RefID =
+  @TenantID And log_shp_shipment_positions.IsDeleted = 0 And
+  cmn_pro_products.IsDeleted = 0 And
+  cmn_pro_product_variants.IsDeleted = 0 And
+  cmn_pro_product_variants_de.Language_RefID =
+  @LanguageID
+    
+    
+</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3S_GOPfSbSP_1458">
+    <Members>
+      <ClassMember  Name="ShipmentHeaderID" Type="Guid" />
+      <ClassMember  Name="LanguageID" Type="Guid" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+      Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+      Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3S_GOPfSbSP_1458" IsArray="true">
+      <Members>
+        <ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+        <ClassMember Name="Product_Number" Type="string"  />
+        <ClassMember Name="ProductName" Type="string"  />
+        <ClassMember Name="Variant" Type="string" />
+        <ClassMember Name="QuantityToShip" Type="int" /> 
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+
+
+

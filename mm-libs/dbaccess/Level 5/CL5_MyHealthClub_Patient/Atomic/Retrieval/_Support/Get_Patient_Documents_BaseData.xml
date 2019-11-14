@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/26/2015 10:39:52 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Patient_Documents_BaseData</Name>
+    <Namespace>CL5_MyHealthClub_Patient.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Patient.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Patient_Documents_BaseData"
+                Method_Name="Get_Patient_Documents_BaseData"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Patient_Documents_BaseData"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  hec_patient_findings.HEC_Patient_FindingID As finding_id,
+	  hec_act_performedaction_referrals.ReferralTo_MedicalPracticeType_RefID As
+	  referal_id,
+	  hec_patient_findings.Modification_Timestamp As modification_time,
+	  hec_patient_findings.DateOfFindings As  creation_date
+	From
+	  hec_patient_findings Inner Join
+	  hec_act_performedaction_referrals
+	    On hec_patient_findings.IfFindingFromReferral_Referral_RefID =
+	    hec_act_performedaction_referrals.HEC_ACT_PerformedAction_ReferralID And
+	    hec_act_performedaction_referrals.Tenant_RefID =
+	    @TenantID And
+	    hec_act_performedaction_referrals.IsDeleted = 0
+	Where
+	  hec_patient_findings.Patient_RefID = @PatientID And
+	  hec_patient_findings.Tenant_RefID = @TenantID And
+	  hec_patient_findings.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5PA_GPDBD_1039">
+    <Members>
+		<ClassMember Name="PatientID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PA_GPDBD_1039" IsArray="true">
+			<Members>
+				<ClassMember Name="finding_id" Type="Guid"  />
+				<ClassMember Name="referal_id" Type="Guid"  />
+				<ClassMember Name="modification_time" Type="DateTime"  />
+				<ClassMember Name="creation_date" Type="DateTime"  />
+			
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

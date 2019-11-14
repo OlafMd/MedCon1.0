@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_bpt_supplier_discountvalues
+	(
+		CMN_BPT_Supplier_DiscountValueID,
+		Supplier_RefID,
+		ORD_PRC_DiscountType_RefID,
+		DiscountValue_in_percent,
+		IsDefaultSupplierDiscountValue,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_Supplier_DiscountValueID,
+		@Supplier_RefID,
+		@ORD_PRC_DiscountType_RefID,
+		@DiscountValue_in_percent,
+		@IsDefaultSupplierDiscountValue,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

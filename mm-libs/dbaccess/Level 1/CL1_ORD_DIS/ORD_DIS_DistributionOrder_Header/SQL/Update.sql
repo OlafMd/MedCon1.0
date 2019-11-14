@@ -1,0 +1,36 @@
+UPDATE 
+	ord_dis_distributionorder_headers
+SET 
+	DistributionOrderDate=@DistributionOrderDate,
+	DistributionOrderNumber=@DistributionOrderNumber,
+	Charged_CostCenter_RefID=@Charged_CostCenter_RefID,
+	IsCostCenterOrder=@IsCostCenterOrder,
+	IsEmployeeOrder=@IsEmployeeOrder,
+	Recipient_Employee_RefID=@Recipient_Employee_RefID,
+	IsOfficeOrder=@IsOfficeOrder,
+	Recipient_Office_RefID=@Recipient_Office_RefID,
+	IsWarehouseOrder=@IsWarehouseOrder,
+	Recipient_Warehouse_RefID=@Recipient_Warehouse_RefID,
+	InternallyCharged_TotalNetPriceValue=@InternallyCharged_TotalNetPriceValue,
+	InternallyCharged_TotalPointValue=@InternallyCharged_TotalPointValue,
+	InternallyCharged_Currency_RefID=@InternallyCharged_Currency_RefID,
+	DistributeTo_UCDAddress_RefID=@DistributeTo_UCDAddress_RefID,
+	IsCanceled=@IsCanceled,
+	IsForPickup=@IsForPickup,
+	IfForPickup_PointOfSale_RefID=@IfForPickup_PointOfSale_RefID,
+	IfForPickup_DesiredPickupDate=@IfForPickup_DesiredPickupDate,
+	IsForDelivery=@IsForDelivery,
+	IfForDelivery_RequestedDeliveryDate=@IfForDelivery_RequestedDeliveryDate,
+	IfForDelivery_ShipmentType_RefID=@IfForDelivery_ShipmentType_RefID,
+	IfForDelivery_LogisticsProvider_RefID=@IfForDelivery_LogisticsProvider_RefID,
+	IsPartiallyFullfilled=@IsPartiallyFullfilled,
+	IsFullyFullfilled=@IsFullyFullfilled,
+	IsGTCAccepted=@IsGTCAccepted,
+	IfGTCAccepted_ByAccount_RefID=@IfGTCAccepted_ByAccount_RefID,
+	IfGTCAccepted_DateOfAcceptance=@IfGTCAccepted_DateOfAcceptance,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	ORD_DIS_DistributionOrder_HeaderID = @ORD_DIS_DistributionOrder_HeaderID

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_stu_study_participatingmedicalpractices
+WHERE 
+	HEC_STU_Study_ParticipatingMedicalPracticeID = @HEC_STU_Study_ParticipatingMedicalPracticeID

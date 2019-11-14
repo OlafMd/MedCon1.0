@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/2/2014 12:01:11">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Confirm_StockReceiptControl</Name>
+    <Namespace>CL5_APOLogistic_StockReceipt.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_StockReceipt.Complex.Manipulation"
+                Method_ClassName="cls_Confirm_StockReceiptControl"
+                Method_Name="Confirm_StockReceiptControl"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Confirm_StockReceiptControl"
+                />
+  
+  <Parameters IsClass="true" Name="P_L5ALSR_CSRC_1200">
+    <Members>
+      <ClassMember Name="LOG_RCP_Receipt_PositionID" Type="Guid"  />
+      <ClassMember Name="AlreadyReceivedQuantityOfDelivery" Type="double"  />
+
+      <ClassMember Name="Companies" Type="P_L5ALSR_CSRC_1200_Company" IsClass="true" IsArray="true">
+        <Members>
+          <ClassMember Name="CompanyBusinessParticipantID" Type="Guid"  />
+          <ClassMember Name="CompanyStockPackets" Type="P_L5ALSR_CSRC_1200_CompanyStockPacket" IsClass="true" IsArray="true">
+            <Members>
+              <ClassMember Name="SerialNumber" Type="string"  />
+              <ClassMember Name="QuantityToTransfer" Type="int"  />
+              <ClassMember Name="ExpirationDate" Type="DateTime?"  />
+            </Members>
+          </ClassMember>
+        </Members>
+      </ClassMember>
+
+      <ClassMember Name="StockPackets" Type="P_L5ALSR_CSRC_1200_StockPacket" IsClass="true" IsArray="true">
+        <Members>
+          <ClassMember Name="SerialNumber" Type="string"  />
+          <ClassMember Name="ProductQuantity" Type="int"  />
+          <ClassMember Name="ExpirationDate" Type="DateTime?"  />
+          <ClassMember Name="QualityControl_PerformedAtDate" Type="DateTime" />
+          <ClassMember Name="QualityControl_PerformedByBusinessParticipant_RefID" Type="Guid" />
+        </Members>
+      </ClassMember>
+    </Members>
+  </Parameters>
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+</CodeGen>
+
+

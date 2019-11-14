@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/29/2014 1:13:31 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Save_TMS_WorkingTask_Type</Name>
+		<Namespace>CL2_WorkingTaskType.Atomic.Manipulation</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="CL2_WorkingTaskType.Atomic.Manipulation"
+								Method_ClassName="cls_Save_TMS_WorkingTask_Type"
+								Method_Name="Save_TMS_WorkingTask_Type"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=".Save_TMS_WorkingTask_Type"
+								/>
+
+
+	<Parameters IsClass="true" Name="P_L2WTT_SWTT_1313">
+		<Members>
+			<ClassMember IsIdentificator="True" Name="TMS_WorkingTaskTypeID" Type="Guid"  />
+			<ClassMember Name="QuickTaskTupe_ExternalID" Type="String"  />
+			<ClassMember Name="QuickTaskType_Description" Type="Dict"  />
+			<ClassMember Name="QuickTaskType_Name" Type="Dict"  />
+			<ClassMember Name="IsPersistent" Type="Boolean"  />
+      <ClassMember Name="IfDeleteReplaceWith" Type="Guid"  />
+			<ClassMember Name="Creation_Timestamp" Type="DateTime"/>
+			<ClassMember Name="IsDeleted" Type="Boolean"  />
+			<ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+			
+		</Members>
+	</Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+		<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>

@@ -1,0 +1,25 @@
+INSERT INTO 
+	hec_sub_substance_relations
+	(
+		HEC_SUB_Substance_RelationID,
+		FirstSubstance_RefID,
+		SecondSubstance_RefID,
+		Unit_RefID,
+		Value,
+		RelationType,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_SUB_Substance_RelationID,
+		@FirstSubstance_RefID,
+		@SecondSubstance_RefID,
+		@Unit_RefID,
+		@Value,
+		@RelationType,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

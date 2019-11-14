@@ -1,0 +1,102 @@
+﻿<div>
+    <ul class="table-header aftercare-table" ng-class="{'table-header-active': selected_count !== 0}">
+        <li>
+            <span class="mask-checkbox">
+                <input id="cbSelectAll" name="cbSelectAll" type="checkbox" ng-model="all_selected" ng-change="checkAll()">
+                <i class="icon"></i>
+            </span>
+            <span class="num-of-selected-item" ng-if="selected_count !== 0" ng-cloak>[ {{ selected_count }} ]</span>
+        </li>
+        <li class="unsorted" ng-class="setTableHeaderClass('treatment_date')" ng-click="SortFunction('treatment_date')">{{'LABEL_OP_DATE' | translate }}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('patient_name')" ng-click="SortFunction('patient_name')">{{'LABEL_LAST_NAME_FIRST_NAME'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('diagnose')" ng-click="SortFunction('diagnose')">{{'LABEL_DIAGNOSE'| translate}}</li>
+        <li class="unsorted text-center" ng-class="setTableHeaderClass('localization')" ng-click="SortFunction('localization')">{{'LABEL_LOKALIZATION'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('treatment_doctor_name')" ng-click="SortFunction('treatment_doctor_name')">{{'LABEL_OP_DOCTOR'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('aftercare_doctor_name')" ng-click="SortFunction('aftercare_doctor_name')" ng-if="selected_count === 0">{{'LABEL_AC_DOCTOR'| translate}}</li>
+        <li ng-if="selected_count !== 0">
+            <dropdown-list class="table-header-dropdown" id="selACDoctor" items="ac_doctors" ng-model="parameter.aftercare_doctor_practice_id" additional-class="'dropdown-min-width'" params="{has_prefix: true}"></dropdown-list>
+        </li>
+        <li class="unsorted" ng-class="setTableHeaderClass('status')" ng-click="SortFunction('status')">{{'LABEL_STATUS'| translate}}</li>
+        <li class="controls text-right">
+            <ul class="list-table" ng-if="selected_count !== 0">
+                <li><a href id="cancelMultiSaveSubmit" class="btn-link" ng-click="cancelMultiEdit()" title="{{ 'BUTTON_CANCEL' | translate}}">{{ 'BUTTON_CANCEL' | translate }}</a></li>
+                <li>
+                    <button id="multiSave" class="button narrow confirm" ng-click="multiEditAftercare(false)" title="{{ 'BUTTON_SAVE' | translate}}" ng-disabled="isEditButtonDisabled()">{{'BUTTON_SAVE' | translate}}</button>
+                </li>
+                <li class="text-right">
+                    <form name="aftercareForm" class="datepicker-input-group" ng-submit="multiEditAftercare(true)" novalidate>
+                        <datepicker date-format="dd.MM.yyyy" date-max-limit={{today}} date-model="parameter.aftercare_performed_date" is-right="true">
+                            <input type="text" id="aftercarePerformedDateMulti" ng-focus="setClass()" name="aftercarePerformedDate" ng-model="parameter.aftercare_performed_date"
+                                   placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                                   ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'" validate-date="true" date-max-limit="today" class="2000Year" required>
+                        </datepicker>
+                        <button class="icons-submit" ng-class="{'action-submit-button-click': !isMultiEditSubmitButtonDisabled(), 'action-submit-button': isMultiEditSubmitButtonDisabled() }"
+                                id="submitMulti" type="submit" translate="BUTTON_SUBMIT" ng-disabled="aftercareForm.$invalid" title="{{'BUTTON_SUBMIT' | translate}}"></button>
+                    </form>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <h2 id="stickyHeaderBox" class="first-letter-holder has-checkbox hide"></h2>
+
+    <div class="content-scroll clear" id="wrapper" sticky>
+        <div id="wrapper_inner">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="400" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="item in aftercares | groupBy:'group_name'" ng-repeat-finished>
+                    <h2 id="tableGroup" class="first-letter-holder has-checkbox tableGroup" ng-if="item.group_name_CHANGED && item.id !== edit_case_id">
+                        <span>{{::item.group_name | translate}}</span>
+                    </h2>
+                    <div class="table-row" ng-hide="show_edit_case_form && item.id == edit_case_id">
+                        <ul id="list" class="table-content aftercare-table" ng-class="getBorderClassName(item)">
+                            <li>
+                                <span class="mask-checkbox">
+                                    <input id="cbSelect_{{::item.id}}" name="cbSelect_{{::item.id}}" type="checkbox" ng-model="item.is_selected" ng-change="checkSelected(item)" ng-disabled="item.status === 'AC4'">
+                                    <i class="icon"></i>
+                                </span>
+                            </li>
+                            <li><big id="treatmentDate_{{$index}}">{{::item.treatment_date_day_month}}</big></li>
+                            <li class="larger-font" id="patientName_{{$index}}">
+                                {{::item.patient_name}}
+                                <a href="#/patient/patient_detail/{{item.patient_id}}" id="btnGoToPatientDetails_{{$index}}" title="{{ 'BUTTON_GO_TO_PATIENT_DETAILS' | translate}}"><i class="icons-preview-black"></i></a>
+                                <div id="patientBirthday_{{$index}}" class="normal-height-font gray-font-color">{{::item.patient_birthdate_string}}</div>
+                            </li>
+                            <li id="diagnosis_{{$index}}">{{::item.diagnose}}</li>
+                            <li class="text-center">{{::item.localization}}</li>
+                            <li><span id="treatmentDoctor_{{$index}}">{{::item.treatment_doctor_name}}</span> <div class="normal-height-font gray-font-color">{{::item.treatment_doctor_practice_name}}</div></li>
+                            <li id="aftercareDoctor_{{$index}}">{{::item.aftercare_doctor_name}}</li>
+                            <li><span id="status_{{$index}}" ng-class="{ '{{getAftercareStatusClassName(item)}}': true}">{{ ::item.status | translate }}</span></li>
+                            <li class="controls text-right">
+                                <span ng-if="item.is_submit_visible">
+                                    <form name="aftercareForm" class="datepicker-input-group" ng-submit="submitAftercare(item)" novalidate>
+                                        <input id="aftercarePerformedDate_{{$index}}"
+                                               type="text"
+                                               class="2000Year"
+                                               ng-focus="renderDatepicker($index, item)"
+                                               ng-required="show_datepicker_id !== $index"
+                                               placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                                               ng-if="show_datepicker_id !== $index"
+                                               ng-model="item.aftercare_date_string"
+                                               ng-model-options="{ debounce: 1000 }"></input>
+
+                                        <datepicker date-format="dd.MM.yyyy" date-min-limit={{formatDate(item.treatment_date)}} date-max-limit={{item.max_date_for_submission}} date-model="item.aftercare_date_string" is-right="true" ng-if="show_datepicker_id === $index">
+                                            <input type="text" id="aftercarePerformedDate_{{$index}}" ng-focus="setClass()" name="aftercarePerformedDate" class="2000Year aftercare-datepicker_{{::item.id}}" ng-model="item.aftercare_date_string"
+                                                   placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                                                   ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'" ng-required="show_datepicker_id === $index" ng-class="{'redborder': delivery_date_invalid}" validate-date="true" date-min-limit="formatDate(item.treatment_date)" date-max-limit="today" />
+                                        </datepicker>
+
+                                        <button id="submit_{{$index}}" class="icons-submit" ng-class="{'action-submit-button-click': show_datepicker_id !== $index, 'action-submit-button': show_datepicker_id === $index}" type="submit" translate="BUTTON_SUBMIT"
+                                                ng-disabled="aftercareForm.$invalid || datePickerLoading" title="{{'BUTTON_SUBMIT' | translate}}"></button>
+                                    </form>
+                                </span>
+                                <span ng-if="!item.is_submit_visible && item.status !== 'AC4'">
+                                    {{ 'LABEL_PLEASE_SELECT_A_DOCTOR' | translate }} <br>
+                                    {{ 'LABEL_LEFT_OF_THE_DATEPICKER' | translate }}
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

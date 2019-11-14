@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7D7DCFEB-15E1-4B53-9992-301DC0396565}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_LOG_RCP_RQF</RootNamespace>
+    <AssemblyName>CL1_LOG_RCP_RQF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LOG_RCP_RQF_Header_2_ShipmentHeader\ORM_LOG_RCP_RQF_Header_2_ShipmentHeader.cs" />
+    <Compile Include="LOG_RCP_RQF_Position_MemberItems_2_ShipmentPosition\ORM_LOG_RCP_RQF_Position_MemberItems_2_ShipmentPosition.cs" />
+    <Compile Include="LOG_RCP_RQF_Position_MemberItem\ORM_LOG_RCP_RQF_Position_MemberItem.cs" />
+    <Compile Include="LOG_RCP_RQF_RequestQuantityForwarding_Header\ORM_LOG_RCP_RQF_RequestQuantityForwarding_Header.cs" />
+    <Compile Include="LOG_RCP_RQF_RequestQuantityForwarding_Position\ORM_LOG_RCP_RQF_RequestQuantityForwarding_Position.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LOG_RCP_RQF_RequestQuantityForwarding_Position\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_RequestQuantityForwarding_Position\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_RequestQuantityForwarding_Position\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_RequestQuantityForwarding_Header\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_RequestQuantityForwarding_Header\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_RequestQuantityForwarding_Header\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_Position_MemberItems_2_ShipmentPosition\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_Position_MemberItems_2_ShipmentPosition\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_Position_MemberItems_2_ShipmentPosition\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_Position_MemberItem\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_Position_MemberItem\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_Position_MemberItem\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_Header_2_ShipmentHeader\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_Header_2_ShipmentHeader\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_RCP_RQF_Header_2_ShipmentHeader\SQL\Select.sql" />
+    <Content Include="_Support\LOG_RCP_RQF_Header_2_ShipmentHeader.xml" />
+    <Content Include="_Support\LOG_RCP_RQF_Position_MemberItems.xml" />
+    <Content Include="_Support\LOG_RCP_RQF_Position_MemberItems_2_ShipmentPosition.xml" />
+    <Content Include="_Support\LOG_RCP_RQF_RequestQuantityForwarding_Headers.xml" />
+    <Content Include="_Support\LOG_RCP_RQF_RequestQuantityForwarding_Positions.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

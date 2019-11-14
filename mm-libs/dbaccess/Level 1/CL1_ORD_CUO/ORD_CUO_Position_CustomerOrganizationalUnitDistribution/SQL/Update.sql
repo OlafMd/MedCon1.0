@@ -1,0 +1,11 @@
+UPDATE 
+	ord_cuo_position_customerorganizationalunitdistribution
+SET 
+	Quantity=@Quantity,
+	CMN_BPT_CTM_OrganizationalUnit_RefID=@CMN_BPT_CTM_OrganizationalUnit_RefID,
+	ORD_CUO_CustomerOrder_Position_RefID=@ORD_CUO_CustomerOrder_Position_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	ORD_CUO_Position_CustomerOrganizationalUnitDistributionID = @ORD_CUO_Position_CustomerOrganizationalUnitDistributionID

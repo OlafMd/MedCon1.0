@@ -1,0 +1,21 @@
+INSERT INTO 
+	tms_pro_developertask_2_tag
+	(
+		AssignmentID,
+		Tag_RefID,
+		DeveloperTask_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@Tag_RefID,
+		@DeveloperTask_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

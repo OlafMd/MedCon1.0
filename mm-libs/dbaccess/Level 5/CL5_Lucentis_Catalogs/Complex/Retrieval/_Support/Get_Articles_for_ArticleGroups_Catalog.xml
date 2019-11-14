@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="01/06/2014 11:48:23 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Articles_for_ArticleGroups_Catalog</Name>
+    <Namespace>CL5_Lucentis_Catalogs.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Catalogs.Complex.Retrieval"
+                Method_ClassName="cls_Get_Articles_for_ArticleGroups_Catalog"
+                Method_Name="Get_Articles_for_ArticleGroups_Catalog"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+
+  <Parameters IsClass="true" Name="P_L5CA_GAfAGC_1148">
+    <Members>
+      <ClassMember Name="IsPublicCatalog" Type="bool"  />
+      <ClassMember Name="BusinessParticipant_RefID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5CA_GAfAGC_1148" IsArray="true">
+      <Members>
+        <ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+        <ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+        <ClassMember Name="Product_Number" Type="String"  />
+        <ClassMember Name="HEC_Product_DosageFormID" Type="Guid"  />
+        <ClassMember Name="DosageForm_Name" Type="Dict" OriginTable="hec_product_dosageforms" Source_DBField="DosageForm_Name_DictID"  />
+        <ClassMember Name="CMN_UnitID" Type="Guid"  />
+        <ClassMember Name="Label" Type="Dict" OriginTable="cmn_units" Source_DBField="Label_DictID"  />
+        <ClassMember Name="ISOCode" Type="String"  />
+        <ClassMember Name="PackageContent_Amount" Type="String"  />
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+
+

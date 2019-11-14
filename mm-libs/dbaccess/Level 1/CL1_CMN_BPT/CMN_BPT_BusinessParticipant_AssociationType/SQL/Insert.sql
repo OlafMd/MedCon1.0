@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_businessparticipant_associationtype
+	(
+		CMN_BPT_BusinessParticipant_AssociationTypeID,
+		GlobalPropertyMatchingID,
+		AssociationType_Name_DictID,
+		AssociationType_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_BusinessParticipant_AssociationTypeID,
+		@GlobalPropertyMatchingID,
+		@AssociationType_Name,
+		@AssociationType_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

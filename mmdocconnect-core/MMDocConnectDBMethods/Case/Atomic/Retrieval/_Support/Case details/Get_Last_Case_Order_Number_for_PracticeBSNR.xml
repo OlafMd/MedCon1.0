@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="02/13/2017 03:35 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Last_Case_Order_Number_for_PracticeBSNR</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Last_Case_Order_Number_for_PracticeBSNR"
+								Method_Name="Get_Last_Case_Order_Number_for_PracticeBSNR"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+Select
+  Right(hec_cas_case_universalpropertyvalue.Value_String, 5) As CaseOrderNumber
+From
+  hec_cas_case_universalproperties Inner Join
+  hec_cas_case_universalpropertyvalue
+    On hec_cas_case_universalpropertyvalue.Tenant_RefID = @TenantID And
+    hec_cas_case_universalpropertyvalue.IsDeleted = 0 And
+    hec_cas_case_universalpropertyvalue.Value_String Like @PracticeBSNR And
+    hec_cas_case_universalproperties.HEC_CAS_Case_UniversalPropertyID =
+    hec_cas_case_universalpropertyvalue.HEC_CAS_Case_UniversalProperty_RefID
+Where
+  hec_cas_case_universalproperties.GlobalPropertyMatchingID =
+  'mm.doc.connect.case.order.number' And
+  hec_cas_case_universalproperties.Tenant_RefID = @TenantID And
+  hec_cas_case_universalproperties.IsDeleted = 0
+Order by
+	CaseOrderNumber Desc
+Limit 1
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GLCONfPBSNR_1534">
+    <Members>
+      <ClassMember Name="PracticeBSNR" Type="String"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GLCONfPBSNR_1534">
+      <Members>
+        <ClassMember Name="CaseOrderNumber" Type ="int"/>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E99E90BE-66E5-4412-B67C-EBFE6A5286AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MMDocConnectElasticSearchMethods</RootNamespace>
+    <AssemblyName>MMDocConnectElasticSearchMethods</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\mmdocconnect-mm-app\MMDocConnectMMApp\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PlainElastic.Net, Version=1.1.55.0, Culture=neutral, PublicKeyToken=0930e76dfc03b7ac, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\PlainElastic.Net.1.1.55\lib\Net40\PlainElastic.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Archive\Manipulation\Add_Item_to_Archive.cs" />
+    <Compile Include="Archive\Retrieval\Get_Archive_Items.cs" />
+    <Compile Include="Archive\Retrieval\QueryBuilderArchive.cs" />
+    <Compile Include="Case\Entity\AftercareHipParameter.cs" />
+    <Compile Include="Case\Manipulation\Add_New_Aftercare.cs" />
+    <Compile Include="Case\Manipulation\Add_New_Submitted_Case.cs" />
+    <Compile Include="Case\Manipulation\Add_New_Case.cs" />
+    <Compile Include="Case\Manipulation\Add_New_Order.cs" />
+    <Compile Include="Case\Retrieval\Get_Aftercares.cs" />
+    <Compile Include="Case\Retrieval\Get_All_Cases_With_Custom_Status.cs" />
+    <Compile Include="Case\Retrieval\Get_Submitted_Cases.cs" />
+    <Compile Include="Case\Retrieval\Get_Cases.cs" />
+    <Compile Include="Case\Retrieval\QueryBuilderCases.cs" />
+    <Compile Include="Doctor\Manipulation\Add_New_Practice_Last_Used.cs" />
+    <Compile Include="Doctor\Manipulation\Add_New_Practice.cs" />
+    <Compile Include="Doctor\Retrieval\Get_Doctors_for_PracticeID.cs" />
+    <Compile Include="Doctor\Retrieval\Get_Practices_and_Doctors.cs" />
+    <Compile Include="Doctor\Retrieval\Iban_Bic_Validation.cs" />
+    <Compile Include="Doctor\Retrieval\QueryBuilderDoctors.cs" />
+    <Compile Include="ElasticUtils\Elastic_Rollback.cs" />
+    <Compile Include="ElasticUtils\Elastic_Connection.cs" />
+    <Compile Include="Diagnose\Manipulation\Add_new_Diagnose.cs" />
+    <Compile Include="Diagnose\Retrieval\Get_Diagnoses.cs" />
+    <Compile Include="Diagnose\Retrieval\QueryBuilderDiagnose.cs" />
+    <Compile Include="Models\Archive_Model.cs" />
+    <Compile Include="Models\Diagnose_Model.cs" />
+    <Compile Include="Models\FieldValueParameter.cs" />
+    <Compile Include="Models\HIP_Model.cs" />
+    <Compile Include="Models\ElasticParameterObject.cs" />
+    <Compile Include="Models\Aftercare_Model.cs" />
+    <Compile Include="Models\Oct_Model.cs" />
+    <Compile Include="Models\PatientDetailViewModelExtended.cs" />
+    <Compile Include="Models\Query_Object.cs" />
+    <Compile Include="Models\Receipt_Model.cs" />
+    <Compile Include="Models\PatientDetailViewModel.cs" />
+    <Compile Include="Models\Settlement_Model.cs" />
+    <Compile Include="Models\Submitted_Case_Model.cs" />
+    <Compile Include="Models\Case_Model.cs" />
+    <Compile Include="Models\Doctor_Practice_Model.cs" />
+    <Compile Include="Models\Order_Model.cs" />
+    <Compile Include="Models\PatientModelFront.cs" />
+    <Compile Include="Models\Patient_Model.cs" />
+    <Compile Include="Oct\Add_New_Oct.cs" />
+    <Compile Include="Oct\Entity\OctHipParameter.cs" />
+    <Compile Include="Oct\Retrieve_Octs.cs" />
+    <Compile Include="Oct\QueryBuilderOct.cs" />
+    <Compile Include="Order\Retrieval\Get_Orders.cs" />
+    <Compile Include="Order\Retrieval\QueryBuilderOrders.cs" />
+    <Compile Include="Patient\Manipulation\Add_New_Patient.cs" />
+    <Compile Include="Patient\Retrieval\QueryBuilderPatients.cs" />
+    <Compile Include="Patient\Retrieval\Retrieve_Patients.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receipt\Manipulation\Add_Item_to_Receipts.cs" />
+    <Compile Include="Receipt\Retrieval\QueryBuilderReceipts.cs" />
+    <Compile Include="Receipt\Retrieval\Retrieve_Receipts.cs" />
+    <Compile Include="HIP\Manipulation\Add_new_HIP.cs" />
+    <Compile Include="HIP\Retrieval\Get_HIPs.cs" />
+    <Compile Include="HIP\Retrieval\QueryBuilderHIP.cs" />
+    <Compile Include="Settlement\Manipulation\Add_new_Settlement.cs" />
+    <Compile Include="Settlement\Retrieval\Get_Settlement.cs" />
+    <Compile Include="Settlement\Retrieval\QueryBuilderSettlement.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
+    <Folder Include="Order\Manipulation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\mm-libs\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMDocConnectUtils\MMDocConnectUtils.csproj">
+      <Project>{723f3602-7c25-4f63-813e-5731f820ef4b}</Project>
+      <Name>MMDocConnectUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

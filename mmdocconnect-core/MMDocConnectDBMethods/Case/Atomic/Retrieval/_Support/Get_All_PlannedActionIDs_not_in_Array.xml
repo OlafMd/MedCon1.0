@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_All_PlannedActionIDs_not_in_Array</Name>
+		<Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_All_PlannedActionIDs_not_in_Array"
+								Method_Name="Get_All_PlannedActionIDs_not_in_Array"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+    Select
+      hec_act_plannedactions.HEC_ACT_PlannedActionID as planned_action_id
+    From
+      hec_act_plannedactions
+    Where
+      hec_act_plannedactions.HEC_ACT_PlannedActionID=@PlannedActionIDs And
+      hec_act_plannedactions.Tenant_RefID = @TenantID And
+      hec_act_plannedactions.IsDeleted = 0 And
+      hec_act_plannedactions.IsPerformed = 1
+	</SQLStatement>
+	
+	<Parameters IsClass="true" Name="P_CAS_GAPAIDsniA_1818">
+		<Members>
+			<ClassMember Name="PlannedActionIDs" Type="Guid" IsArray="true" />
+
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CAS_GAPAIDsniA_1818" IsArray="true">
+			<Members>
+				<ClassMember Name="planned_action_id" Type="Guid"  />			 
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_sub_substance_texts
+	(
+		HEC_SUB_Substance_TextID,
+		Substance_RefID,
+		SubstanceText_DictID,
+		SubstanceText_Status,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_SUB_Substance_TextID,
+		@Substance_RefID,
+		@SubstanceText,
+		@SubstanceText_Status,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,21 @@
+UPDATE 
+	hec_patient_prescription_positions
+SET 
+	PrescriptionHeader_RefID=@PrescriptionHeader_RefID,
+	HEC_Product_RefID=@HEC_Product_RefID,
+	ProductProvidingPharmacy_RefID=@ProductProvidingPharmacy_RefID,
+	BoundTo_CustomerOrderPosition_RefID=@BoundTo_CustomerOrderPosition_RefID,
+	IfSubstance_Substance_RefiD=@IfSubstance_Substance_RefiD,
+	IsSubstance=@IsSubstance,
+	IsHealthcareProduct=@IsHealthcareProduct,
+	IfSubstance_Unit=@IfSubstance_Unit,
+	InitializedFrom_PatientMedication_RefID=@InitializedFrom_PatientMedication_RefID,
+	IfSubstance_Strength=@IfSubstance_Strength,
+	DosageText=@DosageText,
+	Dosage_RefID=@Dosage_RefID,
+	Modification_Timestamp=@Modification_Timestamp,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	HEC_Patient_Prescription_PositionID = @HEC_Patient_Prescription_PositionID

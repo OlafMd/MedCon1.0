@@ -1,0 +1,21 @@
+UPDATE 
+	cmn_str_pps_dailyworkschedules
+SET 
+	Employee_RefID=@Employee_RefID,
+	WorkSheduleDate=@WorkSheduleDate,
+	SheduleBreakTemplate_RefID=@SheduleBreakTemplate_RefID,
+	R_WorkDay_Start_in_sec=@R_WorkDay_Start_in_sec,
+	R_WorkDay_End_in_sec=@R_WorkDay_End_in_sec,
+	R_WorkDay_Duration_in_sec=@R_WorkDay_Duration_in_sec,
+	IsBreakTimeManualySpecified=@IsBreakTimeManualySpecified,
+	BreakDurationTime_in_sec=@BreakDurationTime_in_sec,
+	R_ContractSpecified_WorkingTime_in_sec=@R_ContractSpecified_WorkingTime_in_sec,
+	WorkingSheduleComment=@WorkingSheduleComment,
+	ContractWorkerText=@ContractWorkerText,
+	IsWorkShedule_Confirmed=@IsWorkShedule_Confirmed,
+	WorkShedule_ConfirmedBy_Account_RefID=@WorkShedule_ConfirmedBy_Account_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	CMN_STR_PPS_DailyWorkScheduleID = @CMN_STR_PPS_DailyWorkScheduleID

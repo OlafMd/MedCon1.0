@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="23-Oct-13 12:40:34">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_EmploymentRelationships_For_Employee</Name>
+    <Namespace>CL5_VacationPlanner_Contract.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_VacationPlanner_Contract.Atomic.Retrieval"
+                Method_ClassName="cls_Get_EmploymentRelationships_For_Employee"
+                Method_Name="Get_EmploymentRelationships_For_Employee"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_EmploymentRelationships_For_Employee"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_bpt_emp_employmentrelationships.CMN_BPT_EMP_EmploymentRelationshipID,
+	  cmn_bpt_emp_employmentrelationships.HasWorkRelationEnded,
+	  cmn_bpt_emp_employmentrelationships.Work_StartDate,
+	  cmn_bpt_emp_employmentrelationships.Work_EndDate
+	From
+	  cmn_bpt_emp_employmentrelationships
+	Where
+	  cmn_bpt_emp_employmentrelationships.IsDeleted = 0 And
+	  cmn_bpt_emp_employmentrelationships.Tenant_RefID = @TenantID And
+	  cmn_bpt_emp_employmentrelationships.Employee_RefID = @EmployeeID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5CT_GERFE_1239">
+    <Members>
+		<ClassMember Name="EmployeeID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5CT_GERFE_1239" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_BPT_EMP_EmploymentRelationshipID" Type="Guid"  />
+				<ClassMember Name="HasWorkRelationEnded" Type="bool"  />
+				<ClassMember Name="Work_StartDate" Type="DateTime"  />
+				<ClassMember Name="Work_EndDate" Type="DateTime"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

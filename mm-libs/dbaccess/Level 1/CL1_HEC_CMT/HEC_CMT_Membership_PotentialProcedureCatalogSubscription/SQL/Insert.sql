@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_cmt_membership_potentialprocedurecatalogsubscriptions
+	(
+		HEC_CMT_Membership_PotentialProcedureCatalogSubscriptionID,
+		Membership_RefID,
+		PotentialProcedureCatalogITL,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CMT_Membership_PotentialProcedureCatalogSubscriptionID,
+		@Membership_RefID,
+		@PotentialProcedureCatalogITL,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

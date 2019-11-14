@@ -1,0 +1,156 @@
+<div class="row">
+    <div class="col-sm-12">
+        <p class="margin-bottom-20" translate="LABEL_RETRO_CASES_INTRO_DESCRIPTION" translate-values="{patientName: patientName}"></p>
+    </div>
+    <div class="col-sm-6 popup-separator">
+        <h3>{{'LABEL_LEFT_EYE' | translate}}</h3>
+        <div class="error-msg-container" ng-if="left_eye.validations.length">
+            <span class="error" ng-repeat="validation in left_eye.validations" translate="{{ validation.label }}" translate-values="validation.values"></span>
+        </div>
+        <form name="formHolder.leftEyeIntro" novalidate>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>{{'LABEL_CURRENT_TREATMENT_YEAR_START' | translate}}:</label>
+                        <datepicker2 name="lefteyeTreatmentYearStartDate"
+                                     datepicker-id="lefteyeTreatmentYearStartDate"
+                                     ng-model="left_eye.treatment_year_start_date"
+                                     placeholder="'LABEL_DATE_PLACEHOLDER'"
+                                     date-validate="true"
+                                     date-max-limit="today"
+                                     date-invalid="left_eye.treatment_year_start_invalid"
+                                     required>
+                        </datepicker2>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>{{'LABEL_NUMBER_OF_OCTS' | translate}}:</label>
+                        <input id="lefteyeNumberOfOCTs" type="text" class="form-control" ng-model="left_eye.oct_number" required>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="order-msg-container padding-bottom-4" ng-if="left_eye.latest_ivom.is_regular_op">
+                    {{ 'LABEL_EXISTING_IVOM_FOUND' | translate }}
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>{{'LABEL_LATEST_IVOM_DATE' | translate}}:</label>
+                        <datepicker2 name="lefteyeLatestIvomDate"
+                                     datepicker-id="lefteyeLatestIvomDate"
+                                     ng-model="left_eye.latest_ivom.date"
+                                     ng-change="latestIvomDataChanged('left_eye')"
+                                     placeholder="'LABEL_DATE_PLACEHOLDER'"
+                                     date-validate="true"
+                                     date-max-limit="today"
+                                     date-invalid="left_eye.latest_ivom.invalid"
+                                     required>
+                        </datepicker2>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>{{'LABEL_OP_DOCTOR' | translate}}:</label>
+                        <dropdown-list id="lefteyeOpDoctor"
+                                       items="opDoctors"
+                                       ng-model="left_eye.latest_ivom.doctor"
+                                       additional-class="'dropdown-min-width'"
+                                       params="{has_prefix: true, is_model_object: true}"
+                                       required
+                                       ng-change="latestIvomDataChanged('left_eye')"></dropdown-list>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>{{'LABEL_DIAGNOSE' | translate}}:</label>
+                        <dropdown-list id="lefteyeDiagnose" items="all_diagnoses" ng-model="left_eye.latest_ivom.diagnose_id" additional-class="'dropdown-min-width'" required
+                                       ng-change="latestIvomDataChanged('left_eye')"></dropdown-list>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>{{'LABEL_DRUG' | translate}}:</label>
+                        <dropdown-list id="lefteyeDrug" items="all_drugs" ng-model="left_eye.latest_ivom.drug_id" additional-class="'dropdown-min-width'" required
+                                       ng-change="latestIvomDataChanged('left_eye')"></dropdown-list>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-6">
+        <h3>{{'LABEL_RIGHT_EYE' | translate}}</h3>
+        <div class="error-msg-container" ng-if="right_eye.validations.length">
+            <span class="error" ng-repeat="validation in right_eye.validations" translate="{{ validation.label }}" translate-values="validation.values"></span>
+        </div>
+        <form name="formHolder.rightEyeIntro" novalidate>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>{{'LABEL_CURRENT_TREATMENT_YEAR_START' | translate}}:</label>
+                        <datepicker2 name="righteyeTreatmentYearStartDate"
+                                     datepicker-id="righteyeTreatmentYearStartDate"
+                                     ng-model="right_eye.treatment_year_start_date"
+                                     placeholder="'LABEL_DATE_PLACEHOLDER'"
+                                     date-validate="true"
+                                     date-max-limit="today"
+                                     date-invalid="right_eye.treatment_year_start_invalid"
+                                     required>
+                        </datepicker2>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>{{'LABEL_NUMBER_OF_OCTS' | translate}}:</label>
+                        <input id="righteyeNumberOfOCTs" type="text" class="form-control" ng-model="right_eye.oct_number" required>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="order-msg-container padding-bottom-4" ng-if="right_eye.latest_ivom.is_regular_op">
+                    {{ 'LABEL_EXISTING_IVOM_FOUND' | translate }}
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>{{'LABEL_LATEST_IVOM_DATE' | translate}}:</label>
+                        <datepicker2 name="righteyeLatestIvomDate"
+                                     datepicker-id="righteyeLatestIvomDate"
+                                     ng-model="right_eye.latest_ivom.date"
+                                     ng-change="latestIvomDataChanged('right_eye')"
+                                     placeholder="'LABEL_DATE_PLACEHOLDER'"
+                                     date-validate="true"
+                                     date-max-limit="today"
+                                     date-invalid="right_eye.latest_ivom.invalid"
+                                     required>
+                        </datepicker2>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>{{'LABEL_OP_DOCTOR' | translate}}:</label>
+                        <dropdown-list id="righteyeOpDoctor" items="opDoctors" ng-model="right_eye.latest_ivom.doctor" additional-class="'dropdown-min-width'" params="{has_prefix: true, is_model_object: true}" required
+                                       ng-change="latestIvomDataChanged('right_eye')"></dropdown-list>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>{{'LABEL_DIAGNOSE' | translate}}:</label>
+                        <dropdown-list id="righteyeDiagnose" items="all_diagnoses" ng-model="right_eye.latest_ivom.diagnose_id" additional-class="'dropdown-min-width'" required
+                                       ng-change="latestIvomDataChanged('right_eye')"></dropdown-list>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>{{'LABEL_DRUG' | translate}}:</label>
+                        <dropdown-list id="righteyeDrug" items="all_drugs" ng-model="right_eye.latest_ivom.drug_id" additional-class="'dropdown-min-width'" required
+                                       ng-change="latestIvomDataChanged('right_eye')"></dropdown-list>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B6295F04-6656-4635-B473-B475E5FFDF6D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_CMN_STR_PPS</RootNamespace>
+    <AssemblyName>CL1_CMN_STR_PPS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DBACCESREFACTOR|AnyCPU'">
+    <OutputPath>bin\DBACCESREFACTOR\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CMN_STR_PPS_Activity\ORM_CMN_STR_PPS_Activity.cs" />
+    <Compile Include="CMN_STR_PPS_Activity_ProfessionAssignment\ORM_CMN_STR_PPS_Activity_ProfessionAssignment.cs" />
+    <Compile Include="CMN_STR_PPS_Activity_SkillAssignment\ORM_CMN_STR_PPS_Activity_SkillAssignment.cs" />
+    <Compile Include="CMN_STR_PPS_DailyWorkSchedule\ORM_CMN_STR_PPS_DailyWorkSchedule.cs" />
+    <Compile Include="CMN_STR_PPS_DailyWorkSchedule_2_ShiftTemplate\ORM_CMN_STR_PPS_DailyWorkSchedule_2_ShiftTemplate.cs" />
+    <Compile Include="CMN_STR_PPS_DailyWorkSchedule_Detail\ORM_CMN_STR_PPS_DailyWorkSchedule_Detail.cs" />
+    <Compile Include="CMN_STR_PPS_EffectiveWorkTime\ORM_CMN_STR_PPS_EffectiveWorkTime.cs" />
+    <Compile Include="CMN_STR_PPS_ShiftPlan_Days_EmployeeApplication\ORM_CMN_STR_PPS_ShiftPlan_Days_EmployeeApplication.cs" />
+    <Compile Include="CMN_STR_PPS_ShiftPlan_Day\ORM_CMN_STR_PPS_ShiftPlan_Day.cs" />
+    <Compile Include="CMN_STR_PPS_ShiftPlan_Day_ShiftTemplate\ORM_CMN_STR_PPS_ShiftPlan_Day_ShiftTemplate.cs" />
+    <Compile Include="CMN_STR_PPS_WorkArea\ORM_CMN_STR_PPS_WorkArea.cs" />
+    <Compile Include="CMN_STR_PPS_WorkArea_2_CostCenter\ORM_CMN_STR_PPS_WorkArea_2_CostCenter.cs" />
+    <Compile Include="CMN_STR_PPS_WorkArea_ResponsiblePerson\ORM_CMN_STR_PPS_WorkArea_ResponsiblePerson.cs" />
+    <Compile Include="CMN_STR_PPS_WorkArea_Type\ORM_CMN_STR_PPS_WorkArea_Type.cs" />
+    <Compile Include="CMN_STR_PPS_WorkDetail_Activity\ORM_CMN_STR_PPS_WorkDetail_Activity.cs" />
+    <Compile Include="CMN_STR_PPS_Workplacea_Activity_SkillAssignment\ORM_CMN_STR_PPS_Workplacea_Activity_SkillAssignment.cs" />
+    <Compile Include="CMN_STR_PPS_Workplace\ORM_CMN_STR_PPS_Workplace.cs" />
+    <Compile Include="CMN_STR_PPS_Workplace_2_Workplace_Activity\ORM_CMN_STR_PPS_Workplace_2_Workplace_Activity.cs" />
+    <Compile Include="CMN_STR_PPS_Workplace_Activity\ORM_CMN_STR_PPS_Workplace_Activity.cs" />
+    <Compile Include="CMN_STR_PPS_Workplace_Activity_ProfessionAssignment\ORM_CMN_STR_PPS_Workplace_Activity_ProfessionAssignment.cs" />
+    <Compile Include="CMN_STR_PPS_Workplace_ResponsiblePerson\ORM_CMN_STR_PPS_Workplace_ResponsiblePerson.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_STR_PPS_WorkArea_2_CostCenter\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkArea_2_CostCenter\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkArea_2_CostCenter\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkArea_ResponsiblePerson\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkArea_ResponsiblePerson\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkArea_ResponsiblePerson\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkArea_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkArea_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkArea_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkArea\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkArea\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkArea\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace_2_Workplace_Activity\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace_2_Workplace_Activity\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace_2_Workplace_Activity\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace_Activity\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace_Activity\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace_Activity\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace_Activity_ProfessionAssignment\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace_Activity_ProfessionAssignment\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace_Activity_ProfessionAssignment\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace_ResponsiblePerson\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace_ResponsiblePerson\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace_ResponsiblePerson\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplacea_Activity_SkillAssignment\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplacea_Activity_SkillAssignment\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplacea_Activity_SkillAssignment\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Workplace\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Activity\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Activity\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Activity\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Activity_ProfessionAssignment\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Activity_ProfessionAssignment\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Activity_ProfessionAssignment\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Activity_SkillAssignment\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Activity_SkillAssignment\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_Activity_SkillAssignment\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkDetail_Activity\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkDetail_Activity\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_WorkDetail_Activity\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_DailyWorkSchedule_Detail\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_DailyWorkSchedule_Detail\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_DailyWorkSchedule_Detail\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_DailyWorkSchedule\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_DailyWorkSchedule\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_DailyWorkSchedule\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_EffectiveWorkTime\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_EffectiveWorkTime\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_EffectiveWorkTime\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_DailyWorkSchedule_2_ShiftTemplate\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_DailyWorkSchedule_2_ShiftTemplate\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_DailyWorkSchedule_2_ShiftTemplate\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_ShiftPlan_Day_ShiftTemplate\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_ShiftPlan_Day_ShiftTemplate\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_ShiftPlan_Day_ShiftTemplate\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_ShiftPlan_Day\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_ShiftPlan_Day\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_ShiftPlan_Day\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_ShiftPlan_Days_EmployeeApplication\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_ShiftPlan_Days_EmployeeApplication\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_PPS_ShiftPlan_Days_EmployeeApplication\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_STR_PPS_Activities.xml" />
+    <Content Include="_Support\CMN_STR_PPS_Activity_ProfessionAssignments.xml" />
+    <Content Include="_Support\CMN_STR_PPS_Activity_SkillAssignments.xml" />
+    <Content Include="_Support\CMN_STR_PPS_DailyWorkSchedules.xml" />
+    <Content Include="_Support\CMN_STR_PPS_DailyWorkSchedule_2_ShiftTemplate.xml" />
+    <Content Include="_Support\CMN_STR_PPS_DailyWorkSchedule_Details.xml" />
+    <Content Include="_Support\CMN_STR_PPS_EffectiveWorkTimes.xml" />
+    <Content Include="_Support\CMN_STR_PPS_ShiftPlan_Days.xml" />
+    <Content Include="_Support\CMN_STR_PPS_ShiftPlan_Days_EmployeeApplications.xml" />
+    <Content Include="_Support\CMN_STR_PPS_ShiftPlan_Day_ShiftTemplates.xml" />
+    <Content Include="_Support\CMN_STR_PPS_WorkAreas.xml" />
+    <Content Include="_Support\CMN_STR_PPS_WorkArea_2_CostCenter.xml" />
+    <Content Include="_Support\CMN_STR_PPS_WorkArea_ResponsiblePersons.xml" />
+    <Content Include="_Support\CMN_STR_PPS_WorkArea_Types.xml" />
+    <Content Include="_Support\CMN_STR_PPS_WorkDetail_Activities.xml" />
+    <Content Include="_Support\CMN_STR_PPS_Workplacea_Activity_SkillAssignments.xml" />
+    <Content Include="_Support\CMN_STR_PPS_Workplaces.xml" />
+    <Content Include="_Support\CMN_STR_PPS_Workplace_2_Workplace_Activities.xml" />
+    <Content Include="_Support\CMN_STR_PPS_Workplace_Activities.xml" />
+    <Content Include="_Support\CMN_STR_PPS_Workplace_Activity_ProfessionAssignments.xml" />
+    <Content Include="_Support\CMN_STR_PPS_Workplace_ResponsiblePersons.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_per_person_2_compulsorysocialsecuritystatus
+	(
+		AssignmentID,
+		CMN_PER_PersonInfo_RefID,
+		CMN_PER_CompulsorySocialSecurityStatus_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_PER_PersonInfo_RefID,
+		@CMN_PER_CompulsorySocialSecurityStatus_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

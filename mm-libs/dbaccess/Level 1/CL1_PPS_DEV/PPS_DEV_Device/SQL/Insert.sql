@@ -1,0 +1,21 @@
+INSERT INTO 
+	pps_dev_devices
+	(
+		PPS_DEV_DeviceID,
+		DeviceType_RefID,
+		DeviceDisplayName,
+		DeviceName_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@PPS_DEV_DeviceID,
+		@DeviceType_RefID,
+		@DeviceDisplayName,
+		@DeviceName,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

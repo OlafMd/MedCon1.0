@@ -1,0 +1,23 @@
+INSERT INTO 
+	pps_tsk_bok_staffresources
+	(
+		PPS_TSK_BOK_StaffResourceID,
+		AvailableResourceCombination_RefID,
+		CMN_BPT_EMP_Employee_RefID,
+		CreatedFor_TaskTemplateRequiredStaff_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@PPS_TSK_BOK_StaffResourceID,
+		@AvailableResourceCombination_RefID,
+		@CMN_BPT_EMP_Employee_RefID,
+		@CreatedFor_TaskTemplateRequiredStaff_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

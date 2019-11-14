@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3CAB99EC-30E6-4C23-9C2B-4876B6D9E29B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_VacationPlanner_Contract</RootNamespace>
+    <AssemblyName>CL5_VacationPlanner_Contract</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Delete_WorkingContract_AllowedAbsenceReason.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Delete_Employee_WorkingContract.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Employee_AbsenceReason_TimeframeStatistic.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Employee_WorkingContract.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AbsenceReason_And_Adjustments_For_Employee.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Employee_AbsenceReason_TimeframeStatistic_byReasonTimeFrameEmployee.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_EmploymentRelationships_2_AllowedAbsenceReasons.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_EmploymentRelationships_For_Employee.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_EmploymentRelationships_For_Year.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_WorkingContracts_For_Employee.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_WorkingContracts_For_Employee.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Delete_WorkingContract_AllowedAbsenceReason.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Delete_Employee_WorkingContract.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Employee_AbsenceReason_TimeframeStatistic.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Employee_WorkingContract.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AbsenceReason_And_Adjustments_For_Employee.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AbsenceReason_And_Adjustments_For_Employee.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_WorkingContracts_For_Employee.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_EmploymentRelationships_For_Year.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_EmploymentRelationships_For_Employee.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_EmploymentRelationships_2_AllowedAbsenceReasons.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_EmploymentRelationships_2_AllowedAbsenceReasons.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_EmploymentRelationships_For_Employee.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_EmploymentRelationships_For_Year.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Employee_AbsenceReason_TimeframeStatistic_byReasonTimeFrameEmployee.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Employee_AbsenceReason_TimeframeStatistic_byReasonTimeFrameEmployee.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\apps\plannico.urlabsplaner.core\PlannicoModel\PlannicoModel.csproj">
+      <Project>{305EE153-084B-4596-9ADC-FA04D5A45DD6}</Project>
+      <Name>PlannicoModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_EMP\CL1_CMN_BPT_EMP.csproj">
+      <Project>{2385DE36-25FE-49CE-B27B-E70E7E2EB0A1}</Project>
+      <Name>CL1_CMN_BPT_EMP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_STA\CL1_CMN_BPT_STA.csproj">
+      <Project>{B15D38AC-4D53-4DDD-9D62-F4077498ECA1}</Project>
+      <Name>CL1_CMN_BPT_STA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL\CL1_CMN_CAL.csproj">
+      <Project>{C6107EF8-3603-4EDA-B158-42404049F249}</Project>
+      <Name>CL1_CMN_CAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR\CL1_CMN_STR.csproj">
+      <Project>{B6524266-049E-4266-981E-FCFCEBB8C86C}</Project>
+      <Name>CL1_CMN_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR_SCE\CL1_CMN_STR_SCE.csproj">
+      <Project>{EFC1DF6B-4B7C-4219-A6A8-4D692ACF419A}</Project>
+      <Name>CL1_CMN_STR_SCE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Language\CL2_Language.csproj">
+      <Project>{58245A4D-887C-4AA1-B01E-7E6779C4F096}</Project>
+      <Name>CL2_Language</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_Plannico_TypesOfSalary\CL5_Plannico_TypesOfSalary.csproj">
+      <Project>{5DF006EC-5C95-4546-B94D-DB01162F22EB}</Project>
+      <Name>CL5_Plannico_TypesOfSalary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\_Support\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

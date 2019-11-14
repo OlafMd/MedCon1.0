@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/10/2015 4:55:52 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShippmentHeaders_with_CustomerOrder_for_Picking_for_TenantID</Name>
+    <Namespace>CL5_Zugseil_PickingPreparation.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_PickingPreparation.Complex.Retrieval"
+                Method_ClassName="cls_Get_ShippmentHeaders_with_CustomerOrder_for_Picking_for_TenantID"
+                Method_Name="Get_ShippmentHeaders_with_CustomerOrder_for_Picking_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShippmentHeaders_with_CustomerOrder_for_Picking_for_TenantID"
+                />
+
+  <Parameters IsClass="true" Name="P_L5PP_GSHwCOfPfT_1348">
+    <Members>
+        <ClassMember Name="NoPositionsFullyToPick" Type="Boolean"  />
+        <ClassMember Name="HasPositionsPartiallyToPick" Type="Boolean"  />
+        <ClassMember Name="IsReadyForPicking" Type="Boolean"  />
+        <ClassMember Name="IsInPickingProcess" Type="Boolean"  />
+        <ClassMember Name="CustomerOrderNumber" Type="String"  />
+        <ClassMember Name="ShipmentNumber" Type="String"  />
+        <ClassMember Name="OrderDateFrom" Type="DateTime?"  />
+        <ClassMember Name="OrderDateTo" Type="DateTime?"  />
+        <ClassMember Name="Customer" Type="String"  />
+        <ClassMember Name="ShipmentCreationDateFrom" Type="DateTime?"  />
+        <ClassMember Name="ShipmentCreationDateTo" Type="DateTime?"  />
+        <ClassMember Name="From" Type="int"  />
+        <ClassMember Name="Size" Type="int"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PP_GSHwCOfPfT_1348" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_SHP_Shipment_HeaderID" Type="Guid"  />
+                <ClassMember Name="ShipmentHeader_Number" Type="String"  />
+                <ClassMember Name="IsShipped" Type="Boolean"  />
+                <ClassMember Name="IsBilled" Type="Boolean"  />
+                <ClassMember Name="IsReadyForPicking" Type="Boolean"  />
+                <ClassMember Name="IsPartiallyReadyForPicking" Type="Boolean"  />
+                <ClassMember Name="HasPickingStarted" Type="Boolean"  />
+                <ClassMember Name="HasPickingFinished" Type="Boolean"  />
+                <ClassMember Name="IsManuallyCleared_ForPicking" Type="Boolean"  />
+                <ClassMember Name="ShipmentCreationDate" Type="DateTime"  />
+
+                <ClassMember Name="ORD_CUO_CustomerOrder_HeaderID" Type="Guid"  />
+                <ClassMember Name="CustomerOrderNumber" Type="String"  />
+                <ClassMember Name="CustomerOrderDate" Type="DateTime"  />
+
+                <ClassMember Name="Customer" Type="String"  />
+
+            </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

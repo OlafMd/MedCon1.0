@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/31/2014 10:23:02 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Reimbursements_and_GrantedCreditNotes_for_BillPositions</Name>
+    <Namespace>CL5_APOBilling_BillCrediting.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBilling_BillCrediting.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Reimbursements_and_GrantedCreditNotes_for_BillPositions"
+                Method_Name="Get_Reimbursements_and_GrantedCreditNotes_for_BillPositions"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Reimbursements_and_GrantedCreditNotes_for_BillPositions"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT
+	  bil_billposition_reimbursements.BIL_BillPosition_RefID,
+	  bil_billposition_reimbursements.BIL_BillPosition_ReimbursementID,
+	  acc_crn_grantedcreditnotes.ACC_CRN_GrantedCreditNoteID
+	FROM bil_billposition_reimbursements
+	INNER JOIN acc_crn_grantedcreditnotes
+	  ON acc_crn_grantedcreditnotes.ACC_CRN_GrantedCreditNoteID = bil_billposition_reimbursements.ACC_CRN_GrantedCreditNote_RefID
+	  AND acc_crn_grantedcreditnotes.Tenant_RefID = bil_billposition_reimbursements.Tenant_RefID
+	  AND acc_crn_grantedcreditnotes.IsDeleted = bil_billposition_reimbursements.IsDeleted
+	WHERE
+	  bil_billposition_reimbursements.BIL_BillPosition_RefID = @BillPositionIDs
+	  AND bil_billposition_reimbursements.Tenant_RefID = @TenantID
+	  AND bil_billposition_reimbursements.IsDeleted = 0;
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5BC_GRaGCNfBP_1021">
+    <Members>
+		<ClassMember Name="BillPositionIDs" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+		<ObjectReturnType_Definition Name="L5BC_GRaGCNfBP_1021" IsArray="true">
+			<Members>
+				<ClassMember Name="BIL_BillPosition_RefID" Type="Guid"  />
+				<ClassMember Name="BIL_BillPosition_ReimbursementID" Type="Guid"  />
+				<ClassMember Name="ACC_CRN_GrantedCreditNoteID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+
+</CodeGen>
+
+

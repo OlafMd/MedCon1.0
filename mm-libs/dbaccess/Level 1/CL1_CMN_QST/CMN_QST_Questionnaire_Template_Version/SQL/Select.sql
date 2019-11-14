@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_qst_questionnaire_template_versions
+WHERE 
+	CMN_QST_Questionnaire_Template_VersionID = @CMN_QST_Questionnaire_Template_VersionID

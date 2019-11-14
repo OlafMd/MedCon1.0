@@ -1,0 +1,13 @@
+TestResults/
+packages/
+Local.testsettings
+BOpSDK.vsmdi
+TraceAndTestImpact.testsettings
+Debug/
+bin/
+obj/
+*.vsmdi
+testimpactdata.sdf
+*.vsp
+*.psess
+docs/build/

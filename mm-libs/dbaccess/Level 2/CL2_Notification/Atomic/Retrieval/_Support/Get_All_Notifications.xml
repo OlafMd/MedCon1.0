@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/6/2013 1:24:10 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_Languages</Name>
+    <Namespace>CLE_L3_Language.Atomic</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Notification.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_Notifications"
+                Method_Name="Get_All_Notifications"
+                ApplicationPlattform_WebServiceName="UserService"
+                ApplicationPlattform_Namespace="UserService.Get_All_Notifications"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  usr_not_notifications.USR_NOT_NotificationID,
+  usr_not_notifications.R_NotificationKey,
+  usr_not_notifications.NotificationSubscription_RefID,
+  usr_not_notifications.Notification_Link,
+  usr_not_notifications.Notification_Text
+From
+  usr_not_notifications
+Where
+  usr_not_notifications.R_Account_RefID = @AccountID And
+  usr_not_notifications.IsDeleted = 0 And
+  usr_not_notifications.Tenant_RefID = @TenantID And
+  usr_not_notifications.IsViewed = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2NT_GAN_1320" IsArray="true">
+			<Members>
+				<ClassMember Name="USR_NOT_NotificationID" Type="Guid"  />
+				<ClassMember Name="R_NotificationKey" Type="String"  />
+        <ClassMember Name="Notification_Link" Type="String"  />
+        <ClassMember Name="Notification_Text" Type="String"  />
+        <ClassMember Name="NotificationSubscription_RefID" Type="Guid" />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

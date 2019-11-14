@@ -1,0 +1,23 @@
+INSERT INTO 
+	mrs_mpt_measuringpoint_meterbindings
+	(
+		MRS_MPT_MeasuringPoint_MeterBindingID,
+		MeasuringPoint_RefID,
+		Meter_RefID,
+		ActiveFrom,
+		ActiveThrough,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@MRS_MPT_MeasuringPoint_MeterBindingID,
+		@MeasuringPoint_RefID,
+		@Meter_RefID,
+		@ActiveFrom,
+		@ActiveThrough,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

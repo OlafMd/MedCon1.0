@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/23/2012 3:53:16 PM">
+
+  <Meta>
+    <Name>Get_AccountMentionData</Name>
+    <Description>
+    </Description>
+    <Namespace>CL3_Comments.Complex.Retrieval</Namespace>
+    <Tags>PreloadingData</Tags>
+  </Meta>
+  
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Comments.Complex.Retrieval"
+                Method_ClassName="cls_Get_AccountMentionData"
+                Method_Name="Get_AccountMentionData"
+                ApplicationPlattform_WebServiceName="userService"
+                ApplicationPlattform_Namespace="userService.Get_AccountMentionData"
+                />
+
+  <Parameters IsClass="true" Name="P_L3CM_GAMD_1710">
+    <Members>
+      <ClassMember  Name="RightPackIDList" Type="Guid" IsArray="true"/>
+      <ClassMember  Name="ApplicationID"   Type="Guid"/>
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3CM_GAMD_1710" IsArray="false">
+			<Members>
+        
+        <ClassMember IsReference="true" Type="L3DT_GDTSVfPL_1458"           Name="DeveloperTasks"                   IsArray="true"/>
+        <ClassMember IsReference="true" Type="L3FE_GFSVfPL_1553"            Name="Features"                         IsArray="true"/>
+        <ClassMember IsReference="true" Type="L3BT_GBTSVfPL_1423"           Name="BusinessTasks"                    IsArray="true"/>
+        <ClassMember IsReference="true" Type="L3US_GAIfAaT_1157"            Name="Accounts"                         IsArray="true"/>
+
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

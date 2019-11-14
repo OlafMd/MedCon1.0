@@ -1,0 +1,10 @@
+﻿/*********** Validation ******************/
+
+
+.validator-trigger  { width: 16px; height: 16px; display:inline-block; }
+
+.validator-trigger .validator-message-holder  { display : none; position: absolute; padding:0 14px; z-index: 100; margin-top: 10px; max-width: 350px;}
+    .validator-trigger .validator-message  {  color: #fff; padding: 5px; display: block;}
+.validator-trigger:hover .validator-message-holder  { display : inline; background-position: -14px 0 !important;}
+.validator-trigger:hover .validator-message-holder.right-message  { background-position: right -14px top 0px !important; }
+

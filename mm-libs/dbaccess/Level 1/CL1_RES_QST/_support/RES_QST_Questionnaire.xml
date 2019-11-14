@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/20/2013 10:43:42 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="RES_QST_Questionnaire"
+                IsClass="true"
+                IsClass_Namespace="CL1_RES_QST"
+                IsClass_Corresponding_DBTable="res_qst_questionnaire" >
+      <Members>
+		<ClassMember Name="RES_QST_QuestionnaireID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Questionnaire_Name" Type="Dict" Source_DBField="Questionnaire_Name_DictID" OriginTable="res_qst_questionnaire"/>
+		<ClassMember Name="Questionnaire_Description" Type="Dict" Source_DBField="Questionnaire_Description_DictID" OriginTable="res_qst_questionnaire"/>
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+    <ClassMember Name="Current_QuestionnaireVersion_RefID" Type="Guid"/>
+        
+
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

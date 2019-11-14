@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/13/2014 03:31:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ChargingLevels_for_ProjectMemberTypeID</Name>
+    <Namespace>CL6_DanuTask_Project.Atomic.Retrieval</Namespace>
+
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+  <CreationInfo Method_Namespace="CL6_DanuTask_Project.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ChargingLevels_for_ProjectMemberTypeID"
+                Method_Name="Get_ChargingLevels_for_ProjectMemberTypeID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ChargingLevels_for_ProjectMemberTypeID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  tmp_pro_projectmember_type_availablecharginglevels.TMP_PRO_ProjectMember_Type_AvailableChargingLevelsID,
+  cmn_bpt_investedworktime_charginglevels.CMN_BPT_InvestedWorkTime_ChargingLevelID,
+  cmn_bpt_investedworktime_charginglevels.ChangingLevel_Name_DictID
+From
+  tmp_pro_projectmember_types Inner Join
+  tmp_pro_projectmember_type_availablecharginglevels
+    On tmp_pro_projectmember_types.TMP_PRO_ProjectMember_TypeID =
+    tmp_pro_projectmember_type_availablecharginglevels.ProjectMember_Type_RefID
+  Inner Join
+  cmn_bpt_investedworktime_charginglevels
+    On tmp_pro_projectmember_type_availablecharginglevels.ChargingLevel_RefID =
+    cmn_bpt_investedworktime_charginglevels.CMN_BPT_InvestedWorkTime_ChargingLevelID
+Where
+  tmp_pro_projectmember_types.TMP_PRO_ProjectMember_TypeID = @ProjectMemberID And
+  tmp_pro_projectmember_types.IsDeleted = 0 And
+  tmp_pro_projectmember_type_availablecharginglevels.IsDeleted = 0 And
+  cmn_bpt_investedworktime_charginglevels.IsDeleted = 0 And
+  tmp_pro_projectmember_types.Tenant_RefID = @TenantID
+</SQLStatement>
+  <Parameters IsClass="true" Name="P_L6PR_GCLfPMTID_1531">
+    <Members>
+      <ClassMember Name="ProjectMemberID" Type="Guid"  />
+    </Members>
+  </Parameters>
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="L6PR_GCLfPMTID_1531" IsArray="true">
+      <Members>
+        <ClassMember Name="TMP_PRO_ProjectMember_Type_AvailableChargingLevelsID" Type="Guid" />
+        <ClassMember Name="CMN_BPT_InvestedWorkTime_ChargingLevelID" Type="Guid" />
+        <ClassMember Name="ChargingLevelName" Type="Dict" OriginTable="cmn_bpt_investedworktime_charginglevels" Source_DBField="ChangingLevel_Name_DictID"/>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

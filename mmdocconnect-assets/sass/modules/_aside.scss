@@ -1,0 +1,48 @@
+.content-holder{
+       clear: both;
+       border-top: 1px solid #d7d7d7;
+.left-sidebar{
+    
+   // display: inline-block;
+    float: left;
+    width: 15%;
+    border-bottom: 1px solid #d7d7d7;
+    //border-top: none;
+    li{
+        display: block;
+        line-height: 81px;
+        border-top: 1px solid #d7d7d7;
+        font-size: 14px;
+        
+        &:first-child{
+            border-top: none;
+        }
+        
+        &.selected-item{
+            background-color: #959595;
+            
+            label{
+                color: #fff;
+            }
+        }
+        
+         label{
+            display: block;
+            padding-left: 25px;
+            color: #707070;
+             cursor: pointer;
+        }
+        input{
+            display: none;
+        }
+    }
+    
+}
+
+.content-right{
+    float: right;
+    width: 85%;
+    border-left: 1px solid #d7d7d7;
+}
+
+}

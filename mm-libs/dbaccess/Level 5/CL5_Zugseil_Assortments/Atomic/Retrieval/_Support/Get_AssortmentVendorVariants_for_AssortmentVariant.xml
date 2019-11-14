@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/29/2015 10:18:37">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AssortmentVendorVariants_for_AssortmentVariant</Name>
+    <Namespace>CL5_Zugseil_Assortments.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_Assortments.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AssortmentVendorVariants_for_AssortmentVariant"
+                Method_Name="Get_AssortmentVendorVariants_for_AssortmentVariant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AssortmentVendorVariants_for_AssortmentVariant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT cmn_pro_product_variants.CMN_PRO_Product_VariantID AS BoundToVariantID
+		,cmn_pro_product_variants.CMN_PRO_Product_RefID AS BoundToProductID
+	FROM cmn_pro_ass_assortmentvariant_vendorvariants
+	LEFT JOIN cmn_pro_product_variants ON cmn_pro_ass_assortmentvariant_vendorvariants.CMN_PRO_Product_Variant_RefID = cmn_pro_product_variants.CMN_PRO_Product_VariantID
+		AND cmn_pro_product_variants.IsDeleted = 0
+		AND cmn_pro_product_variants.Tenant_RefID = @TenantID
+	WHERE cmn_pro_ass_assortmentvariant_vendorvariants.CMN_PRO_ASS_AssortmentVariant_RefID = @AssortmentVariantID
+		AND cmn_pro_ass_assortmentvariant_vendorvariants.IsDeleted = 0
+		AND cmn_pro_ass_assortmentvariant_vendorvariants.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5AS_GAVVfAV_2218">
+    <Members>
+		<ClassMember Name="AssortmentVariantID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5AS_GAVVfAV_2218" IsArray="true">
+			<Members>
+				<ClassMember Name="BoundToProductID" Type="Guid"  />
+				<ClassMember Name="BoundToVariantID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

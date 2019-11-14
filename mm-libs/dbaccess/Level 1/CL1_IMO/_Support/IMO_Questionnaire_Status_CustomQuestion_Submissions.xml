@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 5:02:53 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="IMO_Questionnaire_Status_CustomQuestion_Submission"
+                IsClass="true"
+                IsClass_Namespace="CL1_IMO"
+                IsClass_Corresponding_DBTable="imo_questionnaire_status_customquestion_submissions" >
+      <Members>
+		<ClassMember Name="IMO_Questionnaire_Status_CustomQuestion_SubmissionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Questionnaire_Submission_RefID" Type="Guid" />
+		<ClassMember Name="Questionnaire_Status_RefID" Type="Guid" />
+		<ClassMember Name="Questionnaire_CustomStatusQuestion_RefID" Type="Guid" />
+		<ClassMember Name="Value_Number" Type="Double" />
+		<ClassMember Name="Value_Text" Type="String" />
+		<ClassMember Name="Value_Boolean" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

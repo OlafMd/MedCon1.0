@@ -1,0 +1,29 @@
+UPDATE 
+	hec_act_performedaction_diagnosisupdates
+SET 
+	HealthcarePerformedAction_DiagnosisITL=@HealthcarePerformedAction_DiagnosisITL,
+	HEC_ACT_PerformedAction_RefID=@HEC_ACT_PerformedAction_RefID,
+	HEC_Patient_Diagnosis_RefID=@HEC_Patient_Diagnosis_RefID,
+	PotentialDiagnosis_RefID=@PotentialDiagnosis_RefID,
+	DiagnosisState_RefID=@DiagnosisState_RefID,
+	IsDiagnosisAssumed=@IsDiagnosisAssumed,
+	IsDiagnosisConfirmed=@IsDiagnosisConfirmed,
+	IsDiagnosisNegated=@IsDiagnosisNegated,
+	IsDiagnosisCreated=@IsDiagnosisCreated,
+	IsDiagnosisModified=@IsDiagnosisModified,
+	IsDiagnosisDeactivated=@IsDiagnosisDeactivated,
+	ScheduledExpiryDate=@ScheduledExpiryDate,
+	Deactivated_OnDate=@Deactivated_OnDate,
+	DeactivatedBy_Doctor_RefID=@DeactivatedBy_Doctor_RefID,
+	DiagnosisUpdateComment=@DiagnosisUpdateComment,
+	IM_PotentialDiagnosis_Name=@IM_PotentialDiagnosis_Name,
+	IM_PotentialDiagnosis_Code=@IM_PotentialDiagnosis_Code,
+	IM_PotentialDiagnosisCatalog_Name=@IM_PotentialDiagnosisCatalog_Name,
+	IM_PotentialDiagnosisState_Name=@IM_PotentialDiagnosisState_Name,
+	IM_DeactivatingDoctor_FullName=@IM_DeactivatingDoctor_FullName,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_ACT_PerformedAction_DiagnosisUpdateID = @HEC_ACT_PerformedAction_DiagnosisUpdateID

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="17/4/2014 12:43:00">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DiscountTypes_for_GlobalPropertyMatchingID_List</Name>
+    <Namespace>CL2_DiscountType.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_DiscountType.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DiscountTypes_for_GlobalPropertyMatchingID_List"
+                Method_Name="Get_DiscountTypes_for_GlobalPropertyMatchingID_List"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DiscountTypes_for_GlobalPropertyMatchingID_List"
+                />
+
+    <SQLStatement xml:space="preserve">
+        SELECT
+           ord_prc_discounttypes.GlobalPropertyMatchingID
+           ,ord_prc_discounttypes.ORD_PRC_DiscountTypeID
+           ,ord_prc_discounttypes.DisplayName
+        FROM 
+           ord_prc_discounttypes
+        WHERE
+            ord_prc_discounttypes.GlobalPropertyMatchingID = @GlobalPropertyMatchingID_List
+           AND ord_prc_discounttypes.IsDeleted = 0
+           AND ord_prc_discounttypes.Tenant_RefID = @TenantID
+
+  </SQLStatement>
+
+
+    <Parameters IsClass="true" Name="P_L2DT_GDTfGPMIL_1546">
+    <Members>
+        <ClassMember Name="GlobalPropertyMatchingID_List" Type="String"  IsArray="true" />
+    </Members>
+  </Parameters>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L2DT_GDTfGPMIL_1546" IsArray="true">
+            <Members>
+                <ClassMember Name="ORD_PRC_DiscountTypeID" Type="Guid"  />
+                <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+                <ClassMember Name="DisplayName" Type="String"  />
+            </Members>
+        </ObjectReturnType_Definition>
+
+    </ResultInfo>
+
+</CodeGen>
+
+

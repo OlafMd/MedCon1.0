@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_bpt_emp_workingcontract_2_extraworksurcharges
+	(
+		CMN_BPT_EMP_WorkingContract_2_ExtraWorkSurchargeID,
+		CMN_BPT_EMP_WorkingContract_RefID,
+		CMN_BPT_EMP_ExtraWorkCalculation_Surcharge_RefID,
+		R_IsNightTimeSurcharge,
+		R_IsSpecialEventSurcharge,
+		MaximumAllowedSurchargeTime_in_mins,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_EMP_WorkingContract_2_ExtraWorkSurchargeID,
+		@CMN_BPT_EMP_WorkingContract_RefID,
+		@CMN_BPT_EMP_ExtraWorkCalculation_Surcharge_RefID,
+		@R_IsNightTimeSurcharge,
+		@R_IsSpecialEventSurcharge,
+		@MaximumAllowedSurchargeTime_in_mins,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

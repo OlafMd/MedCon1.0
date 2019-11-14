@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 11/15/2013 4:30:52 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_WRH_Warehouse"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_WRH"
+                IsClass_Corresponding_DBTable="log_wrh_warehouses" >
+      <Members>
+		<ClassMember Name="LOG_WRH_WarehouseID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="GlobalPropertyMatchingID" Type="String" />
+		<ClassMember Name="CoordinateCode" Type="String" />
+		<ClassMember Name="Warehouse_Name" Type="String" />
+		<ClassMember Name="DeliveryAddress_RefID" Type="Guid" />
+		<ClassMember Name="BoundTo_Office_RefID" Type="Guid" />
+		<ClassMember Name="BoundTo_EconomicRegion_RefID" Type="Guid" />
+		<ClassMember Name="IsStructureHidden" Type="Boolean" />
+		<ClassMember Name="IsConsignmentWarehouse" Type="Boolean" />
+		<ClassMember Name="IfConsignmentWarehouse_DefaultOwningSupplier_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+    <ClassMember Name="IsDefaultShipmentWarehouse" Type="bool"  />
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

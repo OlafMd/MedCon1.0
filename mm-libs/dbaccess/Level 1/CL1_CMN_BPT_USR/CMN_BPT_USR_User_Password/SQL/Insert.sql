@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_bpt_usr_user_passwords
+	(
+		CMN_BPT_USR_User_PasswordID,
+		CMN_BPT_USR_User_RefID,
+		IsActive,
+		Password_Hash,
+		Password_Salt,
+		Password_Algorithm,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_BPT_USR_User_PasswordID,
+		@CMN_BPT_USR_User_RefID,
+		@IsActive,
+		@Password_Hash,
+		@Password_Salt,
+		@Password_Algorithm,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="4/9/2014 11:30:56 AM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Save_OrganizationalUnit</Name>
+        <Namespace>CL2_OrganizationalUnit.Atomic.Manipulation</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL2_OrganizationalUnit.Atomic.Manipulation"
+                  Method_ClassName="cls_Save_OrganizationalUnit"
+                  Method_Name="Save_OrganizationalUnit"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Save_OrganizationalUnit"
+                />
+    <SQLLimitation_CSharp_Extension>
+        var returnValue = new FR_Guid();
+
+        var item = new CL1_CMN_BPT_CTM.ORM_CMN_BPT_CTM_OrganizationalUnit();
+        if (Parameter.CMN_BPT_CTM_OrganizationalUnitID != Guid.Empty)
+        {
+        var result = item.Load(Connection, Transaction, Parameter.CMN_BPT_CTM_OrganizationalUnitID);
+        if (result.Status != FR_Status.Success || item.CMN_BPT_CTM_OrganizationalUnitID == Guid.Empty)
+        {
+        var error = new FR_Guid();
+        error.ErrorMessage = "No Such ID";
+        error.Status =  FR_Status.Error_Internal;
+        return error;
+        }
+        }
+
+        if(Parameter.IsDeleted == true){
+        item.IsDeleted = true;
+        return new FR_Guid(item.Save(Connection, Transaction),item.CMN_BPT_CTM_OrganizationalUnitID);
+        }
+
+        //Creation specific parameters (Tenant, Account ... )
+        if (Parameter.CMN_BPT_CTM_OrganizationalUnitID == Guid.Empty)
+        {
+        item.Tenant_RefID = securityTicket.TenantID;
+        }
+
+        item.InternalOrganizationalUnitNumber = Parameter.InternalOrganizationalUnitNumber;
+        item.InternalOrganizationalUnitSimpleName = Parameter.InternalOrganizationalUnitSimpleName;
+
+        return new FR_Guid(item.Save(Connection, Transaction),item.CMN_BPT_CTM_OrganizationalUnitID);
+    </SQLLimitation_CSharp_Extension>
+
+    <Parameters IsClass="true" Name="P_OU_SOU_1130">
+        <Members>
+            <ClassMember IsIdentificator="True" Name="CMN_BPT_CTM_OrganizationalUnitID" Type="Guid"  />
+            <ClassMember Name="InternalOrganizationalUnitNumber" Type="String"  />
+            <ClassMember Name="InternalOrganizationalUnitSimpleName" Type="String"  />
+            <ClassMember Name="IsDeleted" Type="Boolean"  />
+
+        </Members>
+    </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+        <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+    </ResultInfo>
+
+</CodeGen>
+
+

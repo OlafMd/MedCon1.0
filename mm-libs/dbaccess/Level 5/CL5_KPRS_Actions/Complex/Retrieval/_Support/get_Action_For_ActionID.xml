@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/12/2013 10:02:37 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Retrieve_all_Propertes_for_Action</Name>
+    <Namespace>CLE_L5_Action.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_Actions.Complex.Retrieval"
+                Method_ClassName="cls_get_Action_For_ActionID"
+                Method_Name="get_Action_For_ActionID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".get_Action_For_ActionID"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L5AT_GAFA_1001">
+    <Members>
+      <ClassMember Name="ActionID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5AT_GAFA_1001" IsArray="false" GroupBy="RES_ACT_ActionID"  >
+      <Members>
+        <ClassMember Name="RES_ACT_ActionID" Type="Guid"  />
+        <ClassMember Name="RES_ACT_Action_VersionID" Type="Guid"  />
+        <ClassMember Name="Action_Name" Type="Dict" OriginTable="res_act_action_version" Source_DBField="Action_Name_DictID"  />
+        <ClassMember Name="Action_Description" Type="Dict" OriginTable="res_act_action_version" Source_DBField="Action_Description_DictID"  />
+        <ClassMember Name="Action_Version" Type="int"  />
+        <ClassMember Name="Default_PricePerUnit_RefID" Type="Guid"  />
+        <ClassMember Name="Default_Unit_RefID" Type="Guid"  />
+        <ClassMember Name="Default_UnitAmount" Type="double"  />
+
+        <ClassMember IsClass="true" IsArray="true" Name="Attic_Property" Type="L5AT_GAFA_1001_Attic_Property" GroupBy="RES_STR_Attic_Property_RefID">
+          <Members>
+            <ClassMember Name="RES_STR_Attic_Property_RefID" Type="Guid"  />
+            <ClassMember Name="RES_STR_Attic_Property_AvailableActionID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Basement_Property" Type="L5AT_GAFA_1001_Basement_Property" GroupBy="RES_STR_Basement_Property_RefID">
+          <Members>
+            <ClassMember Name="RES_STR_Basement_Property_AvailableActionID" Type="Guid"  />
+            <ClassMember Name="RES_STR_Basement_Property_RefID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Apartment_Property" Type="L5AT_GAFA_1001_Apartment_Property" GroupBy="RES_STR_Apartment_Property_RefID">
+          <Members>
+            <ClassMember Name="RES_STR_Apartment_Property_AvailableActionID" Type="Guid"  />
+            <ClassMember Name="RES_STR_Apartment_Property_RefID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="OutdoorFacility_Property" Type="L5AT_GAFA_1001_OutdoorFacility_Property" GroupBy="RES_STR_OutdoorFacility_Property_RefID">
+          <Members>
+            <ClassMember Name="RES_STR_OutdoorFacility_Property_AvailableActionID" Type="Guid"  />
+            <ClassMember Name="RES_STR_OutdoorFacility_Property_RefID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="HVACR_Property" Type="L5AT_GAFA_1001_HVACR_Property" GroupBy="RES_STR_HVACR_Property_RefID">
+          <Members>
+            <ClassMember Name="RES_STR_HVACR_Property_AvailableActionID" Type="Guid"  />
+            <ClassMember Name="RES_STR_HVACR_Property_RefID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Facade_Property" Type="L5AT_GAFA_1001_Facade_Property" GroupBy="RES_STR_Facade_Property_RefID">
+          <Members>
+            <ClassMember Name="RES_STR_Facade_Property_AvailableActionID" Type="Guid"  />
+            <ClassMember Name="RES_STR_Facade_Property_RefID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Staircase_Property" Type="L5AT_GAFA_1001_Staircase_Property" GroupBy="RES_STR_Staircase_Property_RefID">
+          <Members>
+            <ClassMember Name="RES_STR_Staircase_Property_RefID" Type="Guid"  />
+            <ClassMember Name="RES_STR_Staircase_Property_AvailableActionsID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Roof_Property" Type="L5AT_GAFA_1001_Roof_Property" GroupBy="RES_STR_Roof_Property_RefID">
+          <Members>
+            <ClassMember Name="RES_STR_Roof_Property_AvailableActionID" Type="Guid"  />
+            <ClassMember Name="RES_STR_Roof_Property_RefID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

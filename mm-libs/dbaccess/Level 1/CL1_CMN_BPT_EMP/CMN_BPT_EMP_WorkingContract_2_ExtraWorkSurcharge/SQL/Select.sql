@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_workingcontract_2_extraworksurcharges
+WHERE 
+	CMN_BPT_EMP_WorkingContract_2_ExtraWorkSurchargeID = @CMN_BPT_EMP_WorkingContract_2_ExtraWorkSurchargeID

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 11/20/2014 5:11:29 PM -->
+<CodeGen>
+    <Componenttype>BaseClass</Componenttype>
+
+    <Meta>
+        <Name></Name>
+        <Namespace></Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <CreationInfo Target_ProgrammingLanguage="C#"
+                  Target_ProgrammingLanguage_Revision="2.0"
+                  Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8" />
+
+    <Base_Tables>
+        <Base_Table Name="TMP_PRO_ProjectMember_Type"
+                    IsClass="true"
+                    IsClass_Namespace="CL1_TMP_PRO"
+                    IsClass_Corresponding_DBTable="tmp_pro_projectmember_types" >
+            <Members>
+                <ClassMember Name="TMP_PRO_ProjectMember_TypeID" Type="Guid" IsObjectPrimaryKey="true"/>
+                <ClassMember Name="ProjectMemberType_Name" Type="Dict" Source_DBField="ProjectMemberType_Name_DictID" OriginTable="tmp_pro_projectmember_types"/>
+                <ClassMember Name="Color" Type="String" />
+                <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+                <ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+                <ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+            </Members>
+        </Base_Table>
+    </Base_Tables>
+</CodeGen>
+
+

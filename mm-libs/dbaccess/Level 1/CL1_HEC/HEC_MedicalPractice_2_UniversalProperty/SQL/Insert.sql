@@ -1,0 +1,27 @@
+INSERT INTO 
+	hec_medicalpractice_2_universalproperty
+	(
+		AssignmentID,
+		HEC_MedicalPractice_RefID,
+		HEC_MedicalPractice_UniversalProperty_RefID,
+		Value_String,
+		Value_Number,
+		Value_Boolean,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@HEC_MedicalPractice_RefID,
+		@HEC_MedicalPractice_UniversalProperty_RefID,
+		@Value_String,
+		@Value_Number,
+		@Value_Boolean,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

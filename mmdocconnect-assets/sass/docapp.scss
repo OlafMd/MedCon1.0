@@ -1,0 +1,122 @@
+/*
+|------------------------------------------------------------
+| Libs
+|------------------------------------------------------------
+*/
+
+/*@import "config/config";*/
+@import "compass";
+/*@import "normalize";*/
+@import "config/variables";
+@import "compass/reset";
+@import "compass/css3";
+
+// Bootstrap
+@import "libs/bootstrap/bootstrap";
+
+/*
+|------------------------------------------------------------
+| Mixins
+|------------------------------------------------------------
+*/
+
+@import "mixins/breakpoint";
+@import "mixins/rem";
+@import "mixins/mixins";
+/* @import "mixins/responsive";*/
+@import "mixins/sprite";
+@import "mixins/buttons";
+/* @import "mixins/input-placeholder";*/
+
+/*
+|------------------------------------------------------------
+| Base
+|------------------------------------------------------------
+*/
+
+@import "base/base";
+@import "base/typography";
+
+/*
+|------------------------------------------------------------
+| Helpers
+|------------------------------------------------------------
+*/
+
+@import "helpers/functions";
+@import "helpers/helpers";
+
+/*
+|------------------------------------------------------------
+| Elements
+|------------------------------------------------------------
+*/
+
+@import "elements/table";
+@import "elements/icons";
+@import "elements/autocomplete";
+@import "elements/autocomplete-oct-doctor";
+@import "elements/buttons";
+@import "elements/validation";
+@import "elements/document-holder";
+@import "elements/dropdowns";
+@import "elements/global-filter";
+@import "elements/inputs";
+@import "elements/forms";
+@import "elements/input-groups";
+@import "elements/lists";
+@import "elements/navs";
+@import "elements/datepicker";
+@import "elements/error";
+@import "elements/select-dropdown";
+
+/*
+|------------------------------------------------------------
+| Layout
+|------------------------------------------------------------
+*/
+
+@import "layout/buttons";
+@import "layout/input-layout";
+@import "layout/scroll-container";
+
+/*
+|------------------------------------------------------------
+| Modules
+|------------------------------------------------------------
+*/
+
+@import "modules/header";
+@import "modules/aside";
+@import "modules/content";
+@import "modules/popup";
+
+/*
+|------------------------------------------------------------
+| Pages
+|------------------------------------------------------------
+*/
+
+@import "pages/temp";
+@import "pages/dashboard";
+@import "pages/doctors";
+@import "pages/practice";
+@import "pages/patients";
+@import "pages/contracts";
+@import "pages/planning";
+@import "pages/cases";
+@import "pages/orders";
+@import "pages/treatments";
+@import "pages/patients_mm";
+@import "pages/patient-details";
+//@import "pages/aftercare";
+/*@import "pages/archive";*/
+@import "pages/404";
+@import "pages/oct";
+@import "pages/settlement";
+@import "pages/shoppingcart";
+@import "pages/aftercare";
+
+@import "popups/change-oct-doctor";
+@import "popups/shopping-cart-confirm-order";
+@import "popups/add-retro-cases-wizard";

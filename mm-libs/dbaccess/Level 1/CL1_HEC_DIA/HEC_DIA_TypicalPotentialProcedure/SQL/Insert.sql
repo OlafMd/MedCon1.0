@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_dia_typicalpotentialprocedures
+	(
+		HEC_DIA_TypicalPotentialProcedureID,
+		PotentialDiagnosis_RefID,
+		PotentialProcedure_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_DIA_TypicalPotentialProcedureID,
+		@PotentialDiagnosis_RefID,
+		@PotentialProcedure_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

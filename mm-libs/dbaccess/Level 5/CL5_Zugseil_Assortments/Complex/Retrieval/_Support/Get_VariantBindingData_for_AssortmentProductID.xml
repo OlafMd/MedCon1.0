@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/29/2015 10:27:13">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_VariantBindingData_for_AssortmentProductID</Name>
+    <Namespace>CL5_Zugseil_Assortments.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_Assortments.Complex.Retrieval"
+                Method_ClassName="cls_Get_VariantBindingData_for_AssortmentProductID"
+                Method_Name="Get_VariantBindingData_for_AssortmentProductID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_VariantBindingData_for_AssortmentProductID"
+                />
+
+  <Parameters IsClass="true" Name="P_L5AS_GVBDfAP_2226">
+    <Members>
+      <ClassMember Name="AssortmentProductID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5AS_GVBDfAP_2226" IsArray="true">
+      <Members>
+        <ClassMember Name="AssVariantID" Type="Guid"  />
+        <ClassMember Name="AssProductVariantID" Type="Guid"  />
+        <ClassMember Name="AssProductVariantName" Type="Dict"  />
+        <ClassMember IsClass="true" IsArray="true" Name="VendorVariants" Type="L5AS_GVBDfAP_2226a">
+          <Members>
+            <ClassMember Name="BoundedProductID" Type="Guid"  />
+            <ClassMember Name="BoundedVariantID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

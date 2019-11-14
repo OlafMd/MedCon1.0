@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C66C42AA-6783-497E-894A-88655044AAA2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL3_Logistic</RootNamespace>
+    <AssemblyName>CL3_Logistic</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Delete_ShipmentType_for_ShipmentTypeID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Available_Shipment_Types_for_LogisticProviderID_and_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Logistic_Providers_for_Tenant.cs" />
+    <Compile Include="Complex\Manipulation\cls_SaveLogisticProvider.cs" />
+    <Compile Include="Complex\Manipulation\cls_SaveShipmentTypeforLogisticProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Delete_ShipmentType_for_ShipmentTypeID.xml" />
+    <Content Include="Complex\Manipulation\_Support\SaveLogisticProvider.xml" />
+    <Content Include="Complex\Manipulation\_Support\SaveShipmentTypeforLogisticProvider.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Logistic_Providers_for_Tenant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Available_Shipment_Types_for_LogisticProviderID_and_Tenant.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Available_Shipment_Types_for_LogisticProviderID_and_Tenant.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Logistic_Providers_for_Tenant.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031c04c9-08cd-4833-af41-a9b64d337ca6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG\CL1_LOG.csproj">
+      <Project>{5ff8e7c7-57c2-48ae-bc70-8f6b957dabc6}</Project>
+      <Name>CL1_LOG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_SHP\CL1_LOG_SHP.csproj">
+      <Project>{e43de7b7-3c37-46b1-8824-d7313ccd8273}</Project>
+      <Name>CL1_LOG_SHP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

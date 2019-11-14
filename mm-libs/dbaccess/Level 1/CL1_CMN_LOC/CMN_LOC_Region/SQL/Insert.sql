@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_loc_regions
+	(
+		CMN_LOC_RegionID,
+		RegionExternalID,
+		Country_RefID,
+		Parent_RefID,
+		Region_Name_DictID,
+		Tenant_RefID,
+		IsDeleted,
+		Creation_Timestamp
+	)
+VALUES 
+	(
+		@CMN_LOC_RegionID,
+		@RegionExternalID,
+		@Country_RefID,
+		@Parent_RefID,
+		@Region_Name,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Creation_Timestamp
+	)

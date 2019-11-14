@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_dia_recommendedproducts
+	(
+		HEC_DIA_RecommendedProductID,
+		PotentialDiagnosis_RefID,
+		HealthcareProduct_RefID,
+		IsDefault,
+		Modification_Timestamp,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_DIA_RecommendedProductID,
+		@PotentialDiagnosis_RefID,
+		@HealthcareProduct_RefID,
+		@IsDefault,
+		@Modification_Timestamp,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

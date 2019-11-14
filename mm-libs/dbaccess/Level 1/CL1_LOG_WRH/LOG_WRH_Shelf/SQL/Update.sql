@@ -1,0 +1,28 @@
+UPDATE 
+	log_wrh_shelves
+SET 
+	GlobalPropertyMatchingID=@GlobalPropertyMatchingID,
+	Rack_RefID=@Rack_RefID,
+	R_Warehouse_RefID=@R_Warehouse_RefID,
+	R_Area_RefID=@R_Area_RefID,
+	Shelf_Name=@Shelf_Name,
+	CoordinateCode=@CoordinateCode,
+	CoordinateX=@CoordinateX,
+	CoordinateY=@CoordinateY,
+	CoordinateZ=@CoordinateZ,
+	ShelfCapacity_Unit_RefID=@ShelfCapacity_Unit_RefID,
+	ShelfCapacity_Maximum=@ShelfCapacity_Maximum,
+	R_ShelfCapacity_Free=@R_ShelfCapacity_Free,
+	R_ShelfCapacity_Used=@R_ShelfCapacity_Used,
+	LimitShelfContent_ToOneProduct=@LimitShelfContent_ToOneProduct,
+	LimitShelfContent_ToOneProductVariant=@LimitShelfContent_ToOneProductVariant,
+	LimitShelfContent_ToOneProductRelease=@LimitShelfContent_ToOneProductRelease,
+	IsShelfLocked=@IsShelfLocked,
+	Predefined_Product_RefID=@Predefined_Product_RefID,
+	Predefined_Product_Variant_RefID=@Predefined_Product_Variant_RefID,
+	Predefined_Product_Release_RefID=@Predefined_Product_Release_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	LOG_WRH_ShelfID = @LOG_WRH_ShelfID

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:33:19 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="TMS_PRO_DeveloperTask_Involvement"
+                IsClass="true"
+                IsClass_Namespace="CL1_TMS_PRO"
+                IsClass_Corresponding_DBTable="tms_pro_developertask_involvements" >
+      <Members>
+		<ClassMember Name="TMS_PRO_DeveloperTask_InvolvementID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ProjectMember_RefID" Type="Guid" />
+		<ClassMember Name="DeveloperTask_RefID" Type="Guid" />
+		<ClassMember Name="OrderSequence" Type="int" />
+		<ClassMember Name="IsActive" Type="Boolean" />
+		<ClassMember Name="IsArchived" Type="Boolean" />
+		<ClassMember Name="R_InvestedWorkingTime_min" Type="long" />
+		<ClassMember Name="Developer_CompletionTimeEstimation_min" Type="long" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

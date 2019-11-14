@@ -1,0 +1,19 @@
+INSERT INTO 
+	bil_billposition_2_shipmentposition
+	(
+		AssignmentID,
+		BIL_BillPosition_RefID,
+		LOG_SHP_Shipment_Position_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@BIL_BillPosition_RefID,
+		@LOG_SHP_Shipment_Position_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="04/01/2014 14:30:11 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Start_CountingRun</Name>
+		<Namespace>CL6_APOLogistic_Inventory.Complex.Manipulation</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+	<CreationInfo Method_Namespace="CL6_APOLogistic_Inventory.Complex.Manipulation"
+				  Method_ClassName="cls_Start_CountingRun"
+				  Method_Name="Start_CountingRun"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Start_CountingRun"
+                />
+
+
+	<Parameters IsClass="true" Name="P_L6IN_SCR_1430">
+		<Members>
+      <ClassMember Name="LOG_WRH_INJ_InventoryJob_CountingRunID" Type="Guid"  />
+      <ClassMember Name="InventoryJob_Process_RefID" Type="Guid"  />
+		</Members>
+	</Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				  Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				  Returns_an_Object_or_ObjectArray="false">
+
+		<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>

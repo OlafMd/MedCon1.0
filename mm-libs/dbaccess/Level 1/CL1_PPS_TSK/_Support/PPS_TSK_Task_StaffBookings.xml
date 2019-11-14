@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 7/8/2014 1:19:55 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="PPS_TSK_Task_StaffBooking"
+                IsClass="true"
+                IsClass_Namespace="CL1_PPS_TSK"
+                IsClass_Corresponding_DBTable="pps_tsk_task_staffbookings" >
+      <Members>
+		<ClassMember Name="PPS_TSK_Task_StaffBookingsID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="PPS_TSK_Task_RefID" Type="Guid" />
+		<ClassMember Name="CMN_BPT_EMP_Employee_RefID" Type="Guid" />
+		<ClassMember Name="CreatedFrom_TaskTemplate_RequiredStaff_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

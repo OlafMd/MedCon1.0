@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen>
+
+    <Meta>
+        <Name></Name>
+        <Description>Get_all_BusinessTaskPackages_for_ProjectID</Description>
+        <Namespace>CL3_BusinessTasks.Atomic.Retrieval</Namespace>
+        <Tags>Projects, BusinessTasksPackages</Tags>
+    </Meta>
+
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL3_BusinessTasks.Atomic.Retrieval"
+                  Method_ClassName="cls_Get_all_BusinessTaskPackages_for_ProjectID"
+                  Method_Name="Get_all_BusinessTaskPackages_for_ProjectID"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".cls_Get_all_BusinessTaskPackages_for_ProjectID"
+                />
+
+    <SQLStatement xml:space="preserve">
+Select
+  tms_pro_projects.TMS_PRO_ProjectID,
+  tms_pro_businesstaskpackages.Project_RefID,
+  tms_pro_businesstaskpackages.Label,
+  tms_pro_businesstaskpackages.IsDeleted,
+  tms_pro_businesstaskpackages.Parent_RefID,
+  tms_pro_businesstaskpackages.TMS_PRO_BusinessTaskPackageID
+From
+  tms_pro_projects Inner Join
+  tms_pro_businesstaskpackages On tms_pro_projects.TMS_PRO_ProjectID =
+    tms_pro_businesstaskpackages.Project_RefID
+Where
+  tms_pro_businesstaskpackages.IsDeleted = 0 and
+  tms_pro_businesstaskpackages.Tenant_RefID = @TenantID 
+ 
+  </SQLStatement>
+
+
+    <Parameters IsClass="true" Name="P_L3BT_GBTPP_1010">
+        <Members>
+            <ClassMember  Name="TMS_PRO_ProjectID" Type="Guid"  />
+        </Members>
+    </Parameters>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L3BT_GBTPP_1010" IsArray="true">
+            <Members>
+                <ClassMember Name="TMS_PRO_BusinessTaskPackageID" Type="Guid"  />
+                <ClassMember  Name="Project_RefID" Type="Guid"  />
+                <ClassMember Name="Label" Type="String"  />
+                <ClassMember Name="Parent_RefID" Type="Guid"  />
+                <ClassMember Name="IsDeleted" Type="Boolean" /> 
+            </Members>
+        </ObjectReturnType_Definition>
+    </ResultInfo>
+
+</CodeGen>
+
+

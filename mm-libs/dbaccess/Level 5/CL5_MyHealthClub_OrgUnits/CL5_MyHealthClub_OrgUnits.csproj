@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE8D5EE5-BE82-4278-85BF-6DFC76FBCC39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_MyHealthClub_OrgUnits</RootNamespace>
+    <AssemblyName>CL5_MyHealthClub_OrgUnits</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Delete_OrgsUnitsGeneralData.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_OrgUnits_Type.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_OrgUnitType.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ForAllPracticesNonWorkingTime_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_OrgUnitDataEdit_for_UnitID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_OrgUnitData_Edit_for_UnitID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_OrgUnitData_for_AppointmentTypeID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_OrgUnitData_for_TenantID.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_OrgsUnitsGeneralData.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_OrgUnits_OpeningHours.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_NonWorkingTimesforOfficeID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_OffieceLightData_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_OrgUnitData_with_StandardHours_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_OrgUnitNames_for_BusinessParticipantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_OrgUnitNames_wirthATypes_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_OrgUnitNumberWithoutWorkingHours_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_OrgUnitsAndData_for_WebWidget.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_OrgUnit_WorktimeExceptions_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ReferalPractices_BaseData.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_StandardHours_for_OfficeID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_OrgUnits_with_WorkTimes_for_BusinessParticipantID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\SQL\" />
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Save_OrgUnits_Type.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_OrgUnits_with_WorkTimes_for_BusinessParticipantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_OrgUnitData_for_AppointmentTypeID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_OrgUnitNumberWithoutWorkingHours_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_OrgUnit_WorktimeExceptions_for_TenantID.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_OrgUnitType.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_OrgUnitData_Edit_for_UnitID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_OrgUnitNames_wirthATypes_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_OrgUnitData_with_StandardHours_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ReferalPractices_BaseData.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_OrgUnitData_with_StandardHours_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_OrgUnitNames_wirthATypes_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_OrgUnitData_Edit_for_UnitID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_OrgUnitData_for_AppointmentTypeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ForAllPracticesNonWorkingTime_for_TenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ForAllPracticesNonWorkingTime_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_StandardHours_for_OfficeID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_OrgUnitNumberWithoutWorkingHours_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_OrgUnit_WorktimeExceptions_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ReferalPractices_BaseData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_StandardHours_for_OfficeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_OrgUnitNames_for_BusinessParticipantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_OrgUnitNames_for_BusinessParticipantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_OrgUnitsAndData_for_WebWidget.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_OrgUnitsAndData_for_WebWidget.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_StandardHours_for_OfficeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_OffieceLightData_for_TenantID.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_OrgUnits_OpeningHours.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_NonWorkingTimesforOfficeID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_NonWorkingTimesforOfficeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_OffieceLightData_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_OrgUnitData_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_OrgUnitDataEdit_for_UnitID.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Delete_OrgsUnitsGeneralData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_OrgUnitDataEdit_for_UnitID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_OrgUnitData_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_OrgsUnitsGeneralData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_EMP\CL1_CMN_BPT_EMP.csproj">
+      <Project>{2385DE36-25FE-49CE-B27B-E70E7E2EB0A1}</Project>
+      <Name>CL1_CMN_BPT_EMP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL\CL1_CMN_CAL.csproj">
+      <Project>{C6107EF8-3603-4EDA-B158-42404049F249}</Project>
+      <Name>CL1_CMN_CAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PER\CL1_CMN_PER.csproj">
+      <Project>{6BDA1EB4-FA2A-41A1-8B83-171ED9B85ADD}</Project>
+      <Name>CL1_CMN_PER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR\CL1_CMN_STR.csproj">
+      <Project>{B6524266-049E-4266-981E-FCFCEBB8C86C}</Project>
+      <Name>CL1_CMN_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768C60E8-0C7F-42B2-B8C9-D327C6BF334A}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_PPS_TSK\CL1_PPS_TSK.csproj">
+      <Project>{DE84E7DB-3CD8-465E-9FBD-35CC77285849}</Project>
+      <Name>CL1_PPS_TSK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Language\CL2_Language.csproj">
+      <Project>{58245A4D-887C-4AA1-B01E-7E6779C4F096}</Project>
+      <Name>CL2_Language</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Offices\CL3_Offices.csproj">
+      <Project>{09A7B883-3719-4D61-BDCF-647FAC555D4C}</Project>
+      <Name>CL3_Offices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_MyHealthClub_BookableTimeSlot\CL5_MyHealthClub_BookableTimeSlot.csproj">
+      <Project>{1A9591D0-6AC0-4711-80DC-0A2A20633BFC}</Project>
+      <Name>CL5_MyHealthClub_BookableTimeSlot</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

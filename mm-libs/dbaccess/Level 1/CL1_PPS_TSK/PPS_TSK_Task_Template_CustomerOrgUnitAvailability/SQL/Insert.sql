@@ -1,0 +1,19 @@
+INSERT INTO 
+	pps_tsk_task_template_customerorgunitavailabilities
+	(
+		PPS_TSK_Task_Template_CustomerOrgUnitAvailabilityID,
+		PPS_TSK_Task_Template_RefID,
+		CMN_BPT_CTM_OrganizationalUnit_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@PPS_TSK_Task_Template_CustomerOrgUnitAvailabilityID,
+		@PPS_TSK_Task_Template_RefID,
+		@CMN_BPT_CTM_OrganizationalUnit_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

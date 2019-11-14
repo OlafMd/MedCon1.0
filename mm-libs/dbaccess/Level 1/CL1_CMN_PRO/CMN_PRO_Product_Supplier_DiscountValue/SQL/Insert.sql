@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_pro_product_supplier_discountvalues
+	(
+		CMN_PRO_Product_Supplier_DiscountValueID,
+		Product_Supplier_RefID,
+		ORD_PRC_DiscountType_RefID,
+		IsAbsoluteDiscountValue,
+		IsRelativeDiscountValue,
+		DiscountValue,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PRO_Product_Supplier_DiscountValueID,
+		@Product_Supplier_RefID,
+		@ORD_PRC_DiscountType_RefID,
+		@IsAbsoluteDiscountValue,
+		@IsRelativeDiscountValue,
+		@DiscountValue,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

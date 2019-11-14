@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/21/2013 1:19:26 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PlanGroup_For_PlanGroupID</Name>
+    <Namespace>CL5_Plannico_PlanGroups.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_PlanGroups.Complex.Retrieval"
+                Method_ClassName="cls_Get_PlanGroup_For_PlanGroupID"
+                Method_Name="Get_PlanGroup_For_PlanGroupID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PlanGroup_For_PlanGroupID"
+                />
+
+  <Parameters IsClass="true" Name="P_L5PG_GPGFPGID_1319">
+    <Members>
+      <ClassMember Name="CMN_BPT_EMP_Employee_PlanGroupID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PG_GPGFPGID_1319" IsArray="false">
+			<Members>
+				<ClassMember Name="PlanGroup" Type="L5PG_GPGFT_1317" IsReference="true"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_staircase_propertyassessmentstates
+WHERE 
+	RES_STR_Staircase_PropertyAssessmentStateID = @RES_STR_Staircase_PropertyAssessmentStateID

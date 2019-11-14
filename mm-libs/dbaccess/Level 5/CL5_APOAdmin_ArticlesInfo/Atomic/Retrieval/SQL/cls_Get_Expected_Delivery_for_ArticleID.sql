@@ -1,0 +1,33 @@
+
+	SELECT ORD_PRC_ProcurementOrder_Headers.ProcurementOrder_Number
+		,CMN_BPT_BusinessParticipants.DisplayName
+		,ORD_PRC_ProcurementOrder_Statuses.Status_Name_DictID
+		,ORD_PRC_ExpectedDelivery_positions.TotalExpectedQuantity
+		,ORD_PRC_ExpectedDelivery_headers.ExpectedDeliveryDate
+	FROM ORD_PRC_ProcurementOrder_Positions
+	INNER JOIN ORD_PRC_ProcurementOrder_Headers ON ORD_PRC_ProcurementOrder_Positions.ProcurementOrder_Header_RefID = ORD_PRC_ProcurementOrder_Headers.ORD_PRC_ProcurementOrder_HeaderID
+		AND ORD_PRC_ProcurementOrder_Headers.IsDeleted = 0
+		AND ORD_PRC_ProcurementOrder_Headers.Tenant_RefID = @TenantID
+		AND ORD_PRC_ProcurementOrder_Headers.IsCreatedForExpectedDelivery = 1
+	INNER JOIN CMN_BPT_Suppliers ON CMN_BPT_Suppliers.CMN_BPT_SupplierID = ORD_PRC_ProcurementOrder_Headers.ProcurementOrder_Supplier_RefID
+		AND CMN_BPT_Suppliers.IsDeleted = 0
+		AND CMN_BPT_Suppliers.Tenant_RefID = @TenantID
+	INNER JOIN CMN_BPT_BusinessParticipants ON CMN_BPT_BusinessParticipants.CMN_BPT_BusinessParticipantID = CMN_BPT_Suppliers.Ext_BusinessParticipant_RefID
+		AND CMN_BPT_BusinessParticipants.IsDeleted = 0
+		AND CMN_BPT_BusinessParticipants.Tenant_RefID = @TenantID
+	LEFT JOIN ORD_PRC_ProcurementOrder_Statuses ON ORD_PRC_ProcurementOrder_Statuses.ORD_PRC_ProcurementOrder_StatusID = ORD_PRC_ProcurementOrder_Headers.Current_ProcurementOrderStatus_RefID
+		AND ORD_PRC_ProcurementOrder_Statuses.IsDeleted = 0
+		AND ORD_PRC_ProcurementOrder_Statuses.Tenant_RefID = @TenantID
+	INNER JOIN ORD_PRC_Expecteddelivery_2_procurementOrderPosition ON ORD_PRC_Expecteddelivery_2_procurementOrderPosition.ORD_PRC_ProcurementOrder_Position_RefID = ORD_PRC_ProcurementOrder_Positions.ORD_PRC_ProcurementOrder_PositionID
+		AND ORD_PRC_Expecteddelivery_2_procurementOrderPosition.IsDeleted = 0
+		AND ORD_PRC_Expecteddelivery_2_procurementOrderPosition.Tenant_RefID = @TenantID
+	INNER JOIN ORD_PRC_ExpectedDelivery_positions ON ORD_PRC_Expecteddelivery_2_procurementOrderPosition.ORD_PRC_ExpectedDelivery_Position_RefID = ORD_PRC_ExpectedDelivery_positions.ORD_PRC_ExpectedDelivery_PositionID
+		AND ORD_PRC_ExpectedDelivery_positions.IsDeleted = 0
+		AND ORD_PRC_ExpectedDelivery_positions.Tenant_RefID = @TenantID
+	INNER JOIN ORD_PRC_ExpectedDelivery_headers ON ORD_PRC_ExpectedDelivery_headers.ORD_PRC_ExpectedDelivery_HeaderID = ORD_PRC_ExpectedDelivery_positions.ORD_PRC_ExpectedDelivery_RefID
+		AND ORD_PRC_ExpectedDelivery_headers.IsDeleted = 0
+		AND ORD_PRC_ExpectedDelivery_headers.Tenant_RefID = @TenantID
+	WHERE ORD_PRC_ProcurementOrder_Positions.CMN_PRO_Product_RefID = @ProductID
+		AND ORD_PRC_ProcurementOrder_Positions.IsDeleted = 0
+		AND ORD_PRC_ProcurementOrder_Positions.Tenant_RefID = @TenantID
+  

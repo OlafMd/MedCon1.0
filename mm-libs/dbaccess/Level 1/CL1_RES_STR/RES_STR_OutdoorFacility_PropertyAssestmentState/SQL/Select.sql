@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_outdoorfacility_propertyassestmentstates
+WHERE 
+	RES_STR_OutdoorFacility_PropertyAssestmentStateID = @RES_STR_OutdoorFacility_PropertyAssestmentStateID

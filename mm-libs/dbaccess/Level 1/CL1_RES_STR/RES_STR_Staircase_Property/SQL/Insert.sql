@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_str_staircase_properties
+	(
+		RES_STR_Staircase_PropertyID,
+		GlobalPropertyMatchingID,
+		StaircaseProperty_Name_DictID,
+		StaircaseProperty_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_Staircase_PropertyID,
+		@GlobalPropertyMatchingID,
+		@StaircaseProperty_Name,
+		@StaircaseProperty_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

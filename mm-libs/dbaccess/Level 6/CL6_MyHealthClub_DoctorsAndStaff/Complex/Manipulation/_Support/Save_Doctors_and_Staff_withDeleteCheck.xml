@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/22/2014 11:42:17 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Doctors_and_Staff_withDeleteCheck</Name>
+    <Namespace>CL6_MyHealthClub_DoctorsAndStaff.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_MyHealthClub_DoctorsAndStaff.Complex.Manipulation"
+                Method_ClassName="cls_Save_Doctors_and_Staff_withDeleteCheck"
+                Method_Name="Save_Doctors_and_Staff_withDeleteCheck"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Doctors_and_Staff_withDeleteCheck"
+                />
+
+  <Parameters IsClass="true" Name="P_L6DO_SDaSwDC_1224">
+    <Members>
+      <ClassMember Name="BaseData" Type="P_L5DO_SDaS_1604" IsReference="true" />
+      <ClassMember Name="UpdateSlots" Type="bool" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+     Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+     Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6DO_SDaSwDC_1224" IsArray="false">
+      <Members>
+        <ClassMember Name="ID" Type="Guid"  />
+        <ClassMember IsClass="true" IsArray="true" Type="L6DO_SDaSwDC_1224_UsedInAppointment" Name="UsedInAppointment" >
+          <Members>
+            <ClassMember Name="AppointmentName" Type="String" />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Type="L6DO_SDaSwDC_1224_UsedInAppointmentType" Name="UsedInAppointmentType" >
+          <Members>
+            <ClassMember Name="AppointmentTypeName" Type="Dict" />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+
+

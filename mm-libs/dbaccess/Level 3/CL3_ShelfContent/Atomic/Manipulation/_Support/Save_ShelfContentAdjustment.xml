@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/17/2015 02:34:20">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_ShelfContentAdjustment</Name>
+    <Namespace>CL3_ShelfContent.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_ShelfContent.Atomic.Manipulation"
+                Method_ClassName="cls_Save_ShelfContentAdjustment"
+                Method_Name="Save_ShelfContentAdjustment"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_ShelfContentAdjustment"
+                />
+
+  <Parameters IsClass="true" Name="P_L3SC_SSCA_1433" >
+    <Members>
+      <ClassMember Name="StockItems" Type="P_L3SC_SSCA_1433a" IsClass="true" IsArray="true">
+        <Members>
+          <ClassMember Name="ShelfContentID" Type="Guid"  />
+          <ClassMember Name="CountedQuantity" Type="double"  />
+          <ClassMember Name="InventoryChangeReason" Type="Guid"  />
+          <ClassMember Name="IsManualCorrection" Type="bool"  />
+        </Members>
+     </ClassMember>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+
+

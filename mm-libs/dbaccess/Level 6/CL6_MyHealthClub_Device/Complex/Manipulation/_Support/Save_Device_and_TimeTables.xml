@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="05/26/2014 16:04:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Doctors_and_Staff_Availability</Name>
+    <Namespace>CL5_MyHealthClub_DoctorsAndStaff.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_MyHealthClub_Device.Complex.Manipulation"
+                Method_ClassName="cls_Save_Device_and_TimeTables"
+                Method_Name="Save_Device_and_TimeTables"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <Parameters IsClass="true" Name="P_L6DE_SDaTT_1355">
+    <Members>
+      <ClassMember Name="UpdateSlots" Type="bool" />
+      <ClassMember IsReference="true" Type="P_L5MHC_SDIwDC_1040"       Name="BaseData"            IsArray="false"/>
+      <ClassMember  IsClass="true" Name="AvailabilityDate" Type="P_L6DE_SDaTT_1355_AvailabilityDate" IsArray="true">
+        <Members>
+          <ClassMember Name="IsDeleted" Type="Boolean"  />
+          <ClassMember Name="IsException" Type="Boolean"  />
+          <ClassMember Name="Reason" Type="String"  />
+          <ClassMember Name="Type" Type="String"/>
+          <ClassMember Name="AvailabilityDate_Name" Type="String"/>
+          <ClassMember Name="AvailabilityDate_From" Type="DateTime"/>
+          <ClassMember Name="AvailabilityDate_To" Type="DateTime"/>
+          <ClassMember Name="IsYearly" Type="Boolean"  />
+          <ClassMember Name="IsWeekly" Type="Boolean"  />
+          <ClassMember Name="IsMontly" Type="Boolean"  />
+          <ClassMember Name="IsDaily" Type="Boolean"  />
+          <ClassMember Name="IsRepetitive" Type="Boolean"  />
+          <ClassMember Name="AvailabilityID" Type="Guid"  />
+          <ClassMember Name="HasRepeatingOn_Mondays" Type="bool"  />
+          <ClassMember Name="HasRepeatingOn_Tuesdays" Type="bool"  />
+          <ClassMember Name="HasRepeatingOn_Wednesdays" Type="bool"  />
+          <ClassMember Name="HasRepeatingOn_Thursdays" Type="bool"  />
+          <ClassMember Name="HasRepeatingOn_Fridays" Type="bool"  />
+          <ClassMember Name="HasRepeatingOn_Saturdays" Type="bool"  />
+          <ClassMember Name="HasRepeatingOn_Sundays" Type="bool"  />
+          <ClassMember Name="IsWholeDay" Type="bool"  />
+        </Members>
+      </ClassMember>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+     Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+     Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6DE_SDaTT_1355" IsArray="false">
+      <Members>
+        <ClassMember Name="BaseData" Type="L5MHC_SDIwDC_1040" IsReference="true" />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

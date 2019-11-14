@@ -1,0 +1,20 @@
+UPDATE 
+	cmn_bpt_emp_workplaceassignments_workpatterns
+SET 
+	IsWeek_Even=@IsWeek_Even,
+	IsWeek_Odd=@IsWeek_Odd,
+	BoundTo_WorkplaceAssignment_RefID=@BoundTo_WorkplaceAssignment_RefID,
+	CMN_PPS_ShiftTemplate_RefID=@CMN_PPS_ShiftTemplate_RefID,
+	CMN_BPT_STA_AbsenceReason_RefID=@CMN_BPT_STA_AbsenceReason_RefID,
+	IsMonday=@IsMonday,
+	IsTuesday=@IsTuesday,
+	IsWednesday=@IsWednesday,
+	IsThursday=@IsThursday,
+	IsFriday=@IsFriday,
+	IsSaturday=@IsSaturday,
+	IsSunday=@IsSunday,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_BPT_EMP_WorkplaceAssignments_WorkPatternID = @CMN_BPT_EMP_WorkplaceAssignments_WorkPatternID

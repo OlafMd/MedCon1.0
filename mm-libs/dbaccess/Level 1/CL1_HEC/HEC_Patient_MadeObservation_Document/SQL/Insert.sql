@@ -1,0 +1,19 @@
+INSERT INTO 
+	hec_patient_madeobservation_documents
+	(
+		HEC_Patient_MadeObservation_DocumentID,
+		HEC_Patient_MadeObservation_RefID,
+		Document_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_Patient_MadeObservation_DocumentID,
+		@HEC_Patient_MadeObservation_RefID,
+		@Document_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

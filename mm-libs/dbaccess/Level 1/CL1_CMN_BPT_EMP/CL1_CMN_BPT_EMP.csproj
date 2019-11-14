@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2385DE36-25FE-49CE-B27B-E70E7E2EB0A1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_CMN_BPT_EMP</RootNamespace>
+    <AssemblyName>CL1_CMN_BPT_EMP</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DBACCESREFACTOR|AnyCPU'">
+    <OutputPath>bin\DBACCESREFACTOR\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CMN_BPT_EMP_ContractAbsenceAdjustment\ORM_CMN_BPT_EMP_ContractAbsenceAdjustment.cs" />
+    <Compile Include="CMN_BPT_EMP_ContractAbsenceAdjustment_Group\ORM_CMN_BPT_EMP_ContractAbsenceAdjustment_Group.cs" />
+    <Compile Include="CMN_BPT_EMP_EffectiveWorkTime_Header\ORM_CMN_BPT_EMP_EffectiveWorkTime_Header.cs" />
+    <Compile Include="CMN_BPT_EMP_EffectiveWorkTime_Header_2_DailyWorkSchedule\ORM_CMN_BPT_EMP_EffectiveWorkTime_Header_2_DailyWorkSchedule.cs" />
+    <Compile Include="CMN_BPT_EMP_EffectiveWorkTime_PositionHistory\ORM_CMN_BPT_EMP_EffectiveWorkTime_PositionHistory.cs" />
+    <Compile Include="CMN_BPT_EMP_EffectiveWorkTime_Position\ORM_CMN_BPT_EMP_EffectiveWorkTime_Position.cs" />
+    <Compile Include="CMN_BPT_EMP_EffectiveWorkTime_Position_WorkScheduleDetail\ORM_CMN_BPT_EMP_EffectiveWorkTime_Position_WorkScheduleDetail.cs" />
+    <Compile Include="CMN_BPT_EMP_Employee\ORM_CMN_BPT_EMP_Employee.cs" />
+    <Compile Include="CMN_BPT_EMP_Employee_2_Office\ORM_CMN_BPT_EMP_Employee_2_Office.cs" />
+    <Compile Include="CMN_BPT_EMP_Employee_2_Profession\ORM_CMN_BPT_EMP_Employee_2_Profession.cs" />
+    <Compile Include="CMN_BPT_EMP_Employee_2_Skill\ORM_CMN_BPT_EMP_Employee_2_Skill.cs" />
+    <Compile Include="CMN_BPT_EMP_Employee_AbsenceReason_TimeframeStatistic\ORM_CMN_BPT_EMP_Employee_AbsenceReason_TimeframeStatistic.cs" />
+    <Compile Include="CMN_BPT_EMP_Employee_DailyOvertimeEntry\ORM_CMN_BPT_EMP_Employee_DailyOvertimeEntry.cs" />
+    <Compile Include="CMN_BPT_EMP_Employee_FunctionHistory\ORM_CMN_BPT_EMP_Employee_FunctionHistory.cs" />
+    <Compile Include="CMN_BPT_EMP_Employee_LeaveRequest\ORM_CMN_BPT_EMP_Employee_LeaveRequest.cs" />
+    <Compile Include="CMN_BPT_EMP_Employee_LeaveRequest_EmployeeCover\ORM_CMN_BPT_EMP_Employee_LeaveRequest_EmployeeCover.cs" />
+    <Compile Include="CMN_BPT_EMP_Employee_PayroleDocument\ORM_CMN_BPT_EMP_Employee_PayroleDocument.cs" />
+    <Compile Include="CMN_BPT_EMP_Employee_PlanGroup\ORM_CMN_BPT_EMP_Employee_PlanGroup.cs" />
+    <Compile Include="CMN_BPT_EMP_Employee_TaxInformation\ORM_CMN_BPT_EMP_Employee_TaxInformation.cs" />
+    <Compile Include="CMN_BPT_EMP_Employee_WorkplaceAssignment\ORM_CMN_BPT_EMP_Employee_WorkplaceAssignment.cs" />
+    <Compile Include="CMN_BPT_EMP_EmploymentRelationship\ORM_CMN_BPT_EMP_EmploymentRelationship.cs" />
+    <Compile Include="CMN_BPT_EMP_EmploymentRelationship_2_WorkingContract\ORM_CMN_BPT_EMP_EmploymentRelationship_2_WorkingContract.cs" />
+    <Compile Include="CMN_BPT_EMP_EmploymentRelationship_Templates_2_WorkingContract\ORM_CMN_BPT_EMP_EmploymentRelationship_Templates_2_WorkingContract.cs" />
+    <Compile Include="CMN_BPT_EMP_EmploymentRelationship_Template\ORM_CMN_BPT_EMP_EmploymentRelationship_Template.cs" />
+    <Compile Include="CMN_BPT_EMP_EmploymentRelationship_Timeframe\ORM_CMN_BPT_EMP_EmploymentRelationship_Timeframe.cs" />
+    <Compile Include="CMN_BPT_EMP_ExtraWorkCalculation\ORM_CMN_BPT_EMP_ExtraWorkCalculation.cs" />
+    <Compile Include="CMN_BPT_EMP_ExtraWorkCalculation_StructureBinding\ORM_CMN_BPT_EMP_ExtraWorkCalculation_StructureBinding.cs" />
+    <Compile Include="CMN_BPT_EMP_ExtraWorkCalculation_Surcharges_Detail\ORM_CMN_BPT_EMP_ExtraWorkCalculation_Surcharges_Detail.cs" />
+    <Compile Include="CMN_BPT_EMP_ExtraWorkCalculation_Surcharge\ORM_CMN_BPT_EMP_ExtraWorkCalculation_Surcharge.cs" />
+    <Compile Include="CMN_BPT_EMP_ExtraWorkCalculation_Surcharge_StructureBinding\ORM_CMN_BPT_EMP_ExtraWorkCalculation_Surcharge_StructureBinding.cs" />
+    <Compile Include="CMN_BPT_EMP_SalaryType\ORM_CMN_BPT_EMP_SalaryType.cs" />
+    <Compile Include="CMN_BPT_EMP_SalaryType_2_EconomicRegion\ORM_CMN_BPT_EMP_SalaryType_2_EconomicRegion.cs" />
+    <Compile Include="CMN_BPT_EMP_WorkingContract\ORM_CMN_BPT_EMP_WorkingContract.cs" />
+    <Compile Include="CMN_BPT_EMP_WorkingContract_2_ContractEmploymentType\ORM_CMN_BPT_EMP_WorkingContract_2_ContractEmploymentType.cs" />
+    <Compile Include="CMN_BPT_EMP_WorkingContract_2_ExtraWorkSurcharge\ORM_CMN_BPT_EMP_WorkingContract_2_ExtraWorkSurcharge.cs" />
+    <Compile Include="CMN_BPT_EMP_WorkingContract_2_WorkingDay\ORM_CMN_BPT_EMP_WorkingContract_2_WorkingDay.cs" />
+    <Compile Include="CMN_BPT_EMP_WorkingContract_AllowedAbsenceReason\ORM_CMN_BPT_EMP_WorkingContract_AllowedAbsenceReason.cs" />
+    <Compile Include="CMN_BPT_EMP_WorkingContract_EmploymentType\ORM_CMN_BPT_EMP_WorkingContract_EmploymentType.cs" />
+    <Compile Include="CMN_BPT_EMP_WorkingContract_SalaryType\ORM_CMN_BPT_EMP_WorkingContract_SalaryType.cs" />
+    <Compile Include="CMN_BPT_EMP_WorkingContract_ValidityPeriod\ORM_CMN_BPT_EMP_WorkingContract_ValidityPeriod.cs" />
+    <Compile Include="CMN_BPT_EMP_WorkplaceAssignments_WorkPattern\ORM_CMN_BPT_EMP_WorkplaceAssignments_WorkPattern.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkplaceAssignments_WorkPattern\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkplaceAssignments_WorkPattern\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkplaceAssignments_WorkPattern\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_ValidityPeriod\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_ValidityPeriod\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_ValidityPeriod\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_EmploymentType\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_EmploymentType\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_EmploymentType\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_AllowedAbsenceReason\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_AllowedAbsenceReason\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_AllowedAbsenceReason\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_2_WorkingDay\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_2_WorkingDay\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_2_WorkingDay\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_2_ExtraWorkSurcharge\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_2_ExtraWorkSurcharge\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_2_ExtraWorkSurcharge\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_2_ContractEmploymentType\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_2_ContractEmploymentType\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_2_ContractEmploymentType\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation_Surcharges_Detail\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation_Surcharges_Detail\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation_Surcharges_Detail\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation_Surcharge\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation_Surcharge\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation_Surcharge\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship_Templates_2_WorkingContract\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship_Templates_2_WorkingContract\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship_Templates_2_WorkingContract\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship_Template\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship_Template\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship_Template\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship_2_WorkingContract\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship_2_WorkingContract\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship_2_WorkingContract\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_WorkplaceAssignment\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_WorkplaceAssignment\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_WorkplaceAssignment\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_TaxInformation\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_TaxInformation\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_TaxInformation\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_PlanGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_PlanGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_PlanGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_PayroleDocument\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_PayroleDocument\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_PayroleDocument\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_LeaveRequest\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_LeaveRequest\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_LeaveRequest\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_LeaveRequest_EmployeeCover\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_LeaveRequest_EmployeeCover\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_LeaveRequest_EmployeeCover\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_AbsenceReason_TimeframeStatistic\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_AbsenceReason_TimeframeStatistic\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_AbsenceReason_TimeframeStatistic\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_2_Skill\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_2_Skill\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_2_Skill\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_2_Profession\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_2_Profession\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_2_Profession\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ContractAbsenceAdjustment\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ContractAbsenceAdjustment\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ContractAbsenceAdjustment\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ContractAbsenceAdjustment_Group\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ContractAbsenceAdjustment_Group\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ContractAbsenceAdjustment_Group\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship_Timeframe\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship_Timeframe\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EmploymentRelationship_Timeframe\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_SalaryType\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_SalaryType\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_SalaryType\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_SalaryType_2_EconomicRegion\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_SalaryType_2_EconomicRegion\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_SalaryType_2_EconomicRegion\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation_StructureBinding\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation_StructureBinding\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation_StructureBinding\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation_Surcharge_StructureBinding\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation_Surcharge_StructureBinding\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_ExtraWorkCalculation_Surcharge_StructureBinding\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_2_Office\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_2_Office\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_2_Office\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_FunctionHistory\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_FunctionHistory\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_FunctionHistory\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_Header_2_DailyWorkSchedule\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_Header_2_DailyWorkSchedule\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_Header_2_DailyWorkSchedule\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_Header\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_Header\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_Header\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_Position\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_Position\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_Position\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_Position_WorkScheduleDetail\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_Position_WorkScheduleDetail\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_Position_WorkScheduleDetail\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_SalaryType\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_SalaryType\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_WorkingContract_SalaryType\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_DailyOvertimeEntry\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_DailyOvertimeEntry\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_Employee_DailyOvertimeEntry\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_PositionHistory\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_PositionHistory\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_EMP_EffectiveWorkTime_PositionHistory\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_BPT_EMP_ContractAbsenceAdjustments.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_ContractAbsenceAdjustment_Groups.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_EffectiveWorkTime_Headers.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_EffectiveWorkTime_Header_2_DailyWorkSchedule.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\CMN_BPT_EMP_EffectiveWorkTime_PositionHistory.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_EffectiveWorkTime_Positions.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_EffectiveWorkTime_Position_WorkScheduleDetail.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_Employees.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_Employee_2_Office.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_Employee_2_Profession.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_Employee_2_Skill.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_Employee_AbsenceReason_TimeframeStatistics.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_Employee_DailyOvertimeEntries.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_Employee_FunctionHistory.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_Employee_LeaveRequests.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_Employee_LeaveRequest_EmployeeCovers.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_Employee_PayroleDocuments.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_Employee_PlanGroups.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_Employee_TaxInformation.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_Employee_WorkplaceAssignments.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_EmploymentRelationships.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_EmploymentRelationship_2_WorkingContract.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_EmploymentRelationship_Templates.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_EmploymentRelationship_Templates_2_WorkingContract.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_EmploymentRelationship_Timeframes.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_ExtraWorkCalculations.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_ExtraWorkCalculation_StructureBindings.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_ExtraWorkCalculation_Surcharges.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_ExtraWorkCalculation_Surcharges_Details.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_ExtraWorkCalculation_Surcharge_StructureBindings.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_SalaryTypes.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_SalaryType_2_EconomicRegion.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_WorkingContracts.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_WorkingContract_2_ContractEmploymentTypes.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_WorkingContract_2_ExtraWorkSurcharges.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_WorkingContract_2_WorkingDays.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_WorkingContract_AllowedAbsenceReasons.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_WorkingContract_EmploymentTypes.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_WorkingContract_SalaryTypes.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_WorkingContract_ValidityPeriod.xml" />
+    <Content Include="_Support\CMN_BPT_EMP_WorkplaceAssignments_WorkPatterns.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

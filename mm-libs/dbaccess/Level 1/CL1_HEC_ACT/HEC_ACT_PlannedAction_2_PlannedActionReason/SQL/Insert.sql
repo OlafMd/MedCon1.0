@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_act_plannedaction_2_plannedactionreasons
+	(
+		AssignmentID,
+		HEC_ACT_PlannedAction_RefID,
+		HEC_ACT_PlannedAction_Reason_RefID,
+		Reason,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@HEC_ACT_PlannedAction_RefID,
+		@HEC_ACT_PlannedAction_Reason_RefID,
+		@Reason,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

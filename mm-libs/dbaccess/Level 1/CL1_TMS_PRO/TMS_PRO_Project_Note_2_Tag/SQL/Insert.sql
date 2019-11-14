@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_pro_project_note_2_tag
+	(
+		AssignmentID,
+		Tag_RefID,
+		Project_Note_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@Tag_RefID,
+		@Project_Note_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

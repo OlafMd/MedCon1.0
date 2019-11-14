@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/22/2014 11:42:17 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_MedicalPracticeTypes_for_TenantID</Name>
+    <Namespace>CL3_Offices.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Offices.Atomic.Retrieval"
+                Method_ClassName="cls_Get_MedicalPracticeTypes_for_TenantID"
+                Method_Name="Get_MedicalPracticeTypes_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_MedicalPracticeTypes_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  hec_medicalpractice_types.HEC_MedicalPractice_TypeID,
+	  hec_medicalpractice_types.MedicalPracticeType_Name_DictID
+	From
+	  hec_medicalpractice_types
+	Where
+	  hec_medicalpractice_types.IsDeleted = 0 And
+	  hec_medicalpractice_types.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3O_GMPTFTID_1640" IsArray="true">
+      <Members>
+        <ClassMember Name="MedicalPracticeType_Name" Type="Dict" OriginTable="hec_medicalpractice_types" Source_DBField="MedicalPracticeType_Name_DictID"  />
+        <ClassMember Name="HEC_MedicalPractice_TypeID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+
+

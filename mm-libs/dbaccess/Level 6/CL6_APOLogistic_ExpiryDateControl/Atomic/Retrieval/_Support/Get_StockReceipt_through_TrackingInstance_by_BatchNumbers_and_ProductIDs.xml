@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/27/2014 1:54:18 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_StockReceipt_through_TrackingInstance_by_BatchNumbers_and_ProductIDs</Name>
+    <Namespace>CL6_APOLogistic_ExpiryDateControl.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_APOLogistic_ExpiryDateControl.Atomic.Retrieval"
+                Method_ClassName="cls_Get_StockReceipt_through_TrackingInstance_by_BatchNumbers_and_ProductIDs"
+                Method_Name="Get_StockReceipt_through_TrackingInstance_by_BatchNumbers_and_ProductIDs"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_StockReceipt_through_TrackingInstance_by_BatchNumbers_and_ProductIDs"
+                />
+
+  <SQLStatement xml:space="preserve">
+SELECT
+    log_producttrackinginstances.BatchNumber,
+    log_producttrackinginstances.SerialNumber,
+    log_rcp_receipt_positions.LOG_RCP_Receipt_PositionID,
+    log_rcp_receipt_positions.ReceiptPosition_Product_RefID,
+    log_rcp_receipt_positions.ExpectedPositionPrice,
+    log_rcp_receipt_positions.TotalQuantityTakenIntoStock AS ReceiptQuantity,
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID AS SupplierId,
+    cmn_bpt_businessparticipants.DisplayName AS SupplierName
+FROM log_producttrackinginstances
+INNER JOIN log_wrh_shelfcontent_2_trackinginstance
+    ON log_wrh_shelfcontent_2_trackinginstance.LOG_ProductTrackingInstance_RefID = log_producttrackinginstances.LOG_ProductTrackingInstanceID
+    AND log_wrh_shelfcontent_2_trackinginstance.Tenant_RefID = log_producttrackinginstances.Tenant_RefID
+    AND log_wrh_shelfcontent_2_trackinginstance.IsDeleted = log_producttrackinginstances.IsDeleted
+INNER JOIN log_wrh_shelf_contents
+    ON log_wrh_shelf_contents.LOG_WRH_Shelf_ContentID = log_wrh_shelfcontent_2_trackinginstance.LOG_WRH_Shelf_Content_RefID
+    AND log_wrh_shelf_contents.Tenant_RefID = log_producttrackinginstances.Tenant_RefID
+    AND log_wrh_shelf_contents.IsDeleted = log_producttrackinginstances.IsDeleted
+INNER JOIN log_rcp_receiptposition_2_procurementorderposition
+    ON log_rcp_receiptposition_2_procurementorderposition.ORD_PRO_ProcurementOrder_Position_RefID = log_wrh_shelf_contents.ReceivedAsFulfillmentOf_ProcurementOrderPosition_RefID
+    AND log_rcp_receiptposition_2_procurementorderposition.Tenant_RefID = log_producttrackinginstances.Tenant_RefID
+    AND log_rcp_receiptposition_2_procurementorderposition.IsDeleted = log_producttrackinginstances.IsDeleted
+INNER JOIN log_rcp_receipt_positions
+	ON log_rcp_receipt_positions.LOG_RCP_Receipt_PositionID = log_rcp_receiptposition_2_procurementorderposition.LOG_RCP_Receipt_Position_RefID
+    AND log_rcp_receipt_positions.Tenant_RefID = log_producttrackinginstances.Tenant_RefID
+    AND log_rcp_receipt_positions.IsDeleted = log_producttrackinginstances.IsDeleted
+INNER JOIN log_rcp_receipt_headers
+	ON log_rcp_receipt_headers.LOG_RCP_Receipt_HeaderID = log_rcp_receipt_positions.Receipt_Header_RefID
+    AND log_rcp_receipt_headers.Tenant_RefID = log_producttrackinginstances.Tenant_RefID
+    AND log_rcp_receipt_headers.IsDeleted = log_producttrackinginstances.IsDeleted
+INNER JOIN cmn_bpt_suppliers
+    ON cmn_bpt_suppliers.CMN_BPT_SupplierID = log_rcp_receipt_headers.ProvidingSupplier_RefID
+    AND cmn_bpt_suppliers.Tenant_RefID = log_producttrackinginstances.Tenant_RefID
+    AND cmn_bpt_suppliers.IsDeleted = log_producttrackinginstances.IsDeleted
+INNER JOIN cmn_bpt_businessparticipants
+	ON cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID = cmn_bpt_suppliers.Ext_BusinessParticipant_RefID
+    AND cmn_bpt_businessparticipants.Tenant_RefID = log_producttrackinginstances.Tenant_RefID
+    AND cmn_bpt_businessparticipants.IsDeleted = log_producttrackinginstances.IsDeleted
+WHERE
+    log_producttrackinginstances.BatchNumber = @BatchNumbers
+    AND log_rcp_receipt_positions.ReceiptPosition_Product_RefID = @ProductIDs
+    AND log_producttrackinginstances.Tenant_RefID = @TenantID
+    AND log_producttrackinginstances.IsDeleted = 0
+    AND log_rcp_receipt_headers.IsCustomerReturnReceipt = 0;
+  </SQLStatement>
+
+    <Parameters IsClass="true" Name="P_L6ED_GSRtTIbBNaP_1353">
+        <Members>
+            <ClassMember Name="ProductIDs" Type="Guid" IsArray="true" />
+            <ClassMember Name="BatchNumbers" Type="String" IsArray="true" />
+
+        </Members>
+    </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L6ED_GSRtTIbBNaP_1353" IsArray="true">
+            <Members>
+                <ClassMember Name="BatchNumber" Type="String"  />
+                <ClassMember Name="SerialNumber" Type="String"  />
+                <ClassMember Name="SupplierId" Type="Guid"  />
+                <ClassMember Name="SupplierName" Type="String"  />
+                <ClassMember Name="ReceiptPosition_Product_RefID" Type="Guid"  />
+                <ClassMember Name="LOG_RCP_Receipt_PositionID" Type="Guid"  />
+                <ClassMember Name="ReceiptQuantity" Type="int"  />
+                <ClassMember Name="ExpectedPositionPrice" Type="decimal"  />
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

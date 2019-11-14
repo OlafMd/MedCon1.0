@@ -1,0 +1,25 @@
+INSERT INTO 
+	res_str_attics
+	(
+		RES_STR_AtticID,
+		DUD_Revision_RefID,
+		RES_BLD_Attic_RefID,
+		AverageRating_RefID,
+		DocumentHeader_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_AtticID,
+		@DUD_Revision_RefID,
+		@RES_BLD_Attic_RefID,
+		@AverageRating_RefID,
+		@DocumentHeader_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

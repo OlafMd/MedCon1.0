@@ -1,0 +1,23 @@
+INSERT INTO 
+	doc_documents
+	(
+		DOC_DocumentID,
+		GlobalPropertyMatchingID,
+		Alias,
+		PrimaryType,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@DOC_DocumentID,
+		@GlobalPropertyMatchingID,
+		@Alias,
+		@PrimaryType,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

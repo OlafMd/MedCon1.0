@@ -1,0 +1,23 @@
+INSERT INTO 
+	pps_tsk_task_template_requireddevices
+	(
+		PPS_TSK_Task_Template_RequiredDeviceID,
+		TaskTemplate_RefID,
+		DEV_Device_RefID,
+		RequiredQuantity,
+		OrderSequence,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@PPS_TSK_Task_Template_RequiredDeviceID,
+		@TaskTemplate_RefID,
+		@DEV_Device_RefID,
+		@RequiredQuantity,
+		@OrderSequence,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

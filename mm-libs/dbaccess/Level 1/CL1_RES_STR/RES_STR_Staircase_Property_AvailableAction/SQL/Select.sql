@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_staircase_property_availableactions
+WHERE 
+	RES_STR_Staircase_Property_AvailableActionsID = @RES_STR_Staircase_Property_AvailableActionsID

@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_bld_outdoorfacility_2_outdoorfacilitytype
+	(
+		AssignmentID,
+		RES_BLD_OutdoorFacility_RefID,
+		RES_BLD_OutdoorFacility_Type_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@RES_BLD_OutdoorFacility_RefID,
+		@RES_BLD_OutdoorFacility_Type_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

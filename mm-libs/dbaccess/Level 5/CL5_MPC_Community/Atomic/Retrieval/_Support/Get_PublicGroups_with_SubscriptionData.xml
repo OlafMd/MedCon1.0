@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/22/2014 4:13:06 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Dosage</Name>
+    <Namespace>CL5_MyHealthClub_Medication.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MPC_Community.Atomic.Retrieval"
+                Method_ClassName="cls_Get_PublicGroups_with_SubscriptionData"
+                Method_Name="Get_PublicGroups_with_SubscriptionData"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PublicGroups_with_SubscriptionData"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_cmt_communitygroups.HEC_CMT_CommunityGroupID,
+  hec_cmt_communitygroups.CommunityGroup_Name_DictID,
+  hec_cmt_communitygroups.IsPrivate,
+  hec_cmt_communitygroups.CommunityGroupCode,
+  hec_cmt_communitygroups.HealthcareCommunityGroupITL,
+  hec_cmt_communitygroups.CommunityGroup_Description_DictID,
+  hec_cmt_groupsubscriptions.HEC_CMT_GroupSubscriptionID,
+  hec_cmt_groupsubscription_requests.HEC_CMT_GroupSubscription_RequestID
+From
+  hec_cmt_communities Inner Join
+  hec_cmt_communitygroups On hec_cmt_communities.HEC_CMT_CommunityID =
+    hec_cmt_communitygroups.Community_RefID Left Join
+  hec_cmt_groupsubscriptions On hec_cmt_communitygroups.HEC_CMT_CommunityGroupID
+    = hec_cmt_groupsubscriptions.CommunityGroup_RefID And
+    (hec_cmt_groupsubscriptions.IsDeleted Is Null Or
+      hec_cmt_groupsubscriptions.IsDeleted = 0) And
+    (hec_cmt_groupsubscriptions.Membership_RefID = @MemberID Or
+      hec_cmt_groupsubscriptions.Membership_RefID Is Null) Left Join
+  hec_cmt_groupsubscription_requests
+    On hec_cmt_communitygroups.HEC_CMT_CommunityGroupID =
+    hec_cmt_groupsubscription_requests.CommunityGroup_RefID And
+    (hec_cmt_groupsubscription_requests.IsDeleted Is Null Or
+      hec_cmt_groupsubscription_requests.IsDeleted = 0) And
+    (hec_cmt_groupsubscription_requests.Membership_RefID Is Null Or
+      hec_cmt_groupsubscription_requests.Membership_RefID = @MemberID)
+    And (hec_cmt_groupsubscription_requests.IsRejected = 0 Or
+      hec_cmt_groupsubscription_requests.IsRejected Is Null) And
+    (hec_cmt_groupsubscription_requests.IsApproved = 0 Or
+      hec_cmt_groupsubscription_requests.IsApproved Is Null)
+Where
+  hec_cmt_communitygroups.IsPrivate = 0 And
+  hec_cmt_communitygroups.IsDeleted = 0 And
+  hec_cmt_communities.IsDeleted = 0 And
+  hec_cmt_communitygroups.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+  <Parameters IsClass="true" Name="P_L5AC_GPGwSD_1444">
+    <Members>
+      <ClassMember Name="MemberID" Type="Guid" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5AC_GPGwSD_1444" IsArray="true" GroupBy="HEC_CMT_CommunityGroupID">
+      <Members>
+        <ClassMember Name="HEC_CMT_CommunityGroupID" Type="Guid"  />
+        <ClassMember Name="CommunityGroup_Name" Type="Dict" OriginTable="hec_cmt_communitygroups" Source_DBField="CommunityGroup_Name_DictID"  />
+        <ClassMember Name="CommunityGroup_Description" Type="Dict" OriginTable="hec_cmt_communitygroups" Source_DBField="CommunityGroup_Description_DictID"  />
+        <ClassMember Name="IsPrivate" Type="bool"  />
+        <ClassMember Name="CommunityGroupCode" Type="string"  />s
+        <ClassMember Name="HealthcareCommunityGroupITL" Type="string"  />
+        <ClassMember IsClass="true" IsArray="false" Type="L5AC_GPGwSD_1444_Subscription" Name="Subscription" GroupBy="HEC_CMT_GroupSubscriptionID">
+          <Members>
+            <ClassMember Name="HEC_CMT_GroupSubscriptionID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Type="L5AC_GPGwSD_1444_PendingRequest" Name="PendingRequests" GroupBy="HEC_CMT_GroupSubscription_RequestID">
+          <Members>
+            <ClassMember Name="HEC_CMT_GroupSubscription_RequestID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

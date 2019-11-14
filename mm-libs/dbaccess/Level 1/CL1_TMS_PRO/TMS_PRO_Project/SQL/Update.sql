@@ -1,0 +1,19 @@
+UPDATE 
+	tms_pro_projects
+SET 
+	ProjectCode=@ProjectCode,
+	DefaultLanguage_RefID=@DefaultLanguage_RefID,
+	DOC_Structure_Header_RefID=@DOC_Structure_Header_RefID,
+	Name_DictID=@Name,
+	Description_DictID=@Description,
+	Status_RefID=@Status_RefID,
+	IsArchived=@IsArchived,
+	CreatedByAccount_RefID=@CreatedByAccount_RefID,
+	BillingCurrency_RefID=@BillingCurrency_RefID,
+	Default_CostCenter_RefID=@Default_CostCenter_RefID,
+	Color=@Color,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	TMS_PRO_ProjectID = @TMS_PRO_ProjectID

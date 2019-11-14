@@ -1,0 +1,21 @@
+INSERT INTO 
+	log_shp_shipment_statushistory
+	(
+		LOG_SHP_Shipment_StatusHistoryID,
+		LOG_SHP_Shipment_Header_RefID,
+		LOG_SHP_Shipment_Status_RefID,
+		PerformedBy_BusinessParticipant_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_SHP_Shipment_StatusHistoryID,
+		@LOG_SHP_Shipment_Header_RefID,
+		@LOG_SHP_Shipment_Status_RefID,
+		@PerformedBy_BusinessParticipant_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

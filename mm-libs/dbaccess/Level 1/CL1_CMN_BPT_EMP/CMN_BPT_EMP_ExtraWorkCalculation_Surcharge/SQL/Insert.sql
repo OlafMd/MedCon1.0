@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_emp_extraworkcalculation_surcharges
+	(
+		CMN_BPT_EMP_ExtraWorkCalculation_SurchargeID,
+		IsNightTimeSurcharge,
+		IsSpecialEventSurcharge,
+		Surcharge_Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_EMP_ExtraWorkCalculation_SurchargeID,
+		@IsNightTimeSurcharge,
+		@IsSpecialEventSurcharge,
+		@Surcharge_Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

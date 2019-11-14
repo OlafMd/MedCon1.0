@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_pps_activity_skillassignments
+	(
+		CMN_STR_PPS_RequiredSkillAssignmentID,
+		CMN_STR_Skill_RefID,
+		CMN_STR_PPS_Activity_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_STR_PPS_RequiredSkillAssignmentID,
+		@CMN_STR_Skill_RefID,
+		@CMN_STR_PPS_Activity_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

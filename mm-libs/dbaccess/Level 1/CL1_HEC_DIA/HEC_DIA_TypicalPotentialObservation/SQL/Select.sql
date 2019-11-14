@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_dia_typicalpotentialobservations
+WHERE 
+	HEC_DIA_TypicalPotentialObservationID = @HEC_DIA_TypicalPotentialObservationID

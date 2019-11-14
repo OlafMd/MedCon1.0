@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/7/2013 3:16:09 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>CheckIfPatientExistsInPractice</Name>
+    <Namespace>CL5_Lucentis_Patient.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Patient.Complex.Retrieval"
+                Method_ClassName="cls_CheckIfPatientExistsInPractice"
+                Method_Name="CheckIfPatientExistsInPractice"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".CheckIfPatientExistsInPractice"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  Count(hec_patient_healthinsurances.HealthInsurance_Number) as numberofID
+From
+  hec_patient_healthinsurances Inner Join
+  hec_patients On hec_patient_healthinsurances.Patient_RefID =
+    hec_patients.HEC_PatientID And hec_patients.IsDeleted = 0 And
+    hec_patients.Tenant_RefID = @TenantID Inner Join
+  hec_patient_medicalpractices On hec_patient_medicalpractices.HEC_Patient_RefID
+    = hec_patients.HEC_PatientID And hec_patient_medicalpractices.IsDeleted = 0
+    And hec_patient_medicalpractices.Tenant_RefID =
+    @TenantID
+Where
+  hec_patient_healthinsurances.HealthInsurance_Number = @HealthInsuranceNumber And
+  hec_patient_healthinsurances.IsDeleted = 0 And
+  hec_patient_healthinsurances.Tenant_RefID =
+  @TenantID And
+  hec_patient_medicalpractices.HEC_MedicalPractices_RefID =
+  @PracticeID
+  </SQLStatement>
+
+    <Parameters IsClass="true" Name="P_L5PA_CIPEIP_1213">
+        <Members>
+            <ClassMember Name="PracticeID" Type="Guid"  />
+            <ClassMember Name="HealthInsuranceNumber" Type="String"  />
+        </Members>
+    </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+
+        
+        
+		<ObjectReturnType_Definition Name="L5PA_CIPEIP_1213" IsArray="false">
+			<Members>
+                <ClassMember Name="numberofID" Type="int"/>
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

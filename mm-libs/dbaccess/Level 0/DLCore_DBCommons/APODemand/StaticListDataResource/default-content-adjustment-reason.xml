@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+    <Item ID="default-content-adjustment-reasons.broken-expired">
+        <Lang ISO="EN" Content="broken/expired" />
+        <Lang ISO="DE" Content="Bruch/Verfall " />
+    </Item>
+    <Item ID="default-content-adjustment-reasons.theft">
+        <Lang ISO="EN" Content="theft" />
+        <Lang ISO="DE" Content="Diebstahl" />
+    </Item>
+    <Item ID="default-content-adjustment-reasons.first-inventory">
+        <Lang ISO="EN" Content=" First inventory" />
+        <Lang ISO="DE" Content="Erstinventur" />
+    </Item>
+    <Item ID="default-content-adjustment-reasons.stock-mistake">
+        <Lang ISO="EN" Content="Stock mistake" />
+        <Lang ISO="DE" Content="Fehlbestand" />
+    </Item>
+</Resources>

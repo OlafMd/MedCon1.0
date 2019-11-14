@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+    <Name>Get_Next_Bill_Position_Number</Name>
+		<Namespace>DataImporter.DBMethods.Case.Complex.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="DataImporter.DBMethods.Case.Complex.Retrieval"
+								Method_ClassName="cls_Get_Next_Bill_Position_Number"
+								Method_Name="Get_Next_Bill_Position_Number"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+  
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CAS_GNBPN_1002">
+			<Members>
+				<ClassMember Name="bill_position_number" Type="String"  />
+			 
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

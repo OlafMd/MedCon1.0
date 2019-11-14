@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE881C68-B3FC-4838-AEED-89D3350BA3DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL3_QuickTask</RootNamespace>
+    <AssemblyName>CL3_QuickTask</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_TMS_QuickTask.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllQuickTasks_for_AccountID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_QuickTaskTypes_for_TenantID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_QuickTaskTypes_for_TenantID.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_TMS_QuickTask.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllQuickTasks_for_AccountID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllQuickTasks_for_AccountID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_QuickTaskTypes_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\_Support\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\dbaccess\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\dbaccess\Level 1\CL1_DOC\CL1_DOC.csproj">
+      <Project>{08FEF49E-52A6-4C81-89EA-CB0679804159}</Project>
+      <Name>CL1_DOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\dbaccess\Level 1\CL1_TMS\CL1_TMS.csproj">
+      <Project>{836FADE5-83E0-4A86-93BA-9C31A8EA07F0}</Project>
+      <Name>CL1_TMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\dbaccess\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{FEAB6F0E-56F1-43D4-BEF0-988B26474DD2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\dbaccess\Level 3\CL3_User\CL3_User.csproj">
+      <Project>{1F158903-D6B3-4FD9-AE52-CCA418366F9A}</Project>
+      <Name>CL3_User</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

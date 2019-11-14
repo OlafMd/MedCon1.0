@@ -1,0 +1,10 @@
+UPDATE 
+	pps_tsk_task_template_customerorgunitavailabilities
+SET 
+	PPS_TSK_Task_Template_RefID=@PPS_TSK_Task_Template_RefID,
+	CMN_BPT_CTM_OrganizationalUnit_RefID=@CMN_BPT_CTM_OrganizationalUnit_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	PPS_TSK_Task_Template_CustomerOrgUnitAvailabilityID = @PPS_TSK_Task_Template_CustomerOrgUnitAvailabilityID

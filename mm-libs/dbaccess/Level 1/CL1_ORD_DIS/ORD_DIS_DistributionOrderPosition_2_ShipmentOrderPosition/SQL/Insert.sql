@@ -1,0 +1,25 @@
+INSERT INTO 
+	ord_dis_distributionorderposition_2_shipmentorderposition
+	(
+		AssignmentID,
+		ORD_DIS_DistributionOrder_Position_RefID,
+		LOG_SHP_Shipment_Position_RefID,
+		IsDistributionShipment,
+		IsReplenishmentShipment,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@ORD_DIS_DistributionOrder_Position_RefID,
+		@LOG_SHP_Shipment_Position_RefID,
+		@IsDistributionShipment,
+		@IsReplenishmentShipment,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

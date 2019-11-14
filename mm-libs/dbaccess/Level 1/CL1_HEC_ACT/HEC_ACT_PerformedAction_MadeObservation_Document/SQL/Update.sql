@@ -1,0 +1,11 @@
+UPDATE 
+	hec_act_performedaction_madeobservation_documents
+SET 
+	HEC_ACT_PerformedAction_MadeObservation_RefID=@HEC_ACT_PerformedAction_MadeObservation_RefID,
+	DOC_Document_RefID=@DOC_Document_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_ACT_PerformedAction_MadeObservation_DocumentID = @HEC_ACT_PerformedAction_MadeObservation_DocumentID

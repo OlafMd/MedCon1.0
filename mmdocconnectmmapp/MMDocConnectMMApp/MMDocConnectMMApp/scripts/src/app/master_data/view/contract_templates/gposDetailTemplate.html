@@ -1,0 +1,33 @@
+﻿<div ng-init="initializeController()">
+    <add-gpos-directive ng-if="showGposForm" ng-model="gpos" on-submit="saveGpos"></add-gpos-directive>
+
+    <div class="gray-content-holder clear" ng-if="!showGposForm">
+        <button id="btnAddGpos" class="wide-add-button" ng-click="openGposForm()" translate="LABEL_ADD_GPOS"></button>
+    </div>
+
+    <ul class="gpos-list-header">
+        <li class="unsorted" ng-class="setTableHeaderClass('gpos_number')" ng-click="SortFunction('gpos_number')">{{'LABEL_GPOS_NUMBER' | translate }}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('gpos_name')" ng-click="SortFunction('gpos_name')">{{'LABEL_GPOS_NAME' | translate }}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('drug_names')" ng-click="SortFunction('drug_names')">{{'LABEL_MEDICATION'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('diagnose_names')" ng-click="SortFunction('diagnose_names')">{{'LABEL_DIAGNOSES' | translate }}</li>
+    </ul>
+    <div class="content-scroll clear" id="wrapper">
+        <div id="wrapper_inner" class="clearfix">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="item in gpos_data">
+                    <add-gpos-directive ng-if="gposToEditID === item.gpos_id" ng-model="item" on-submit="saveGpos"></add-gpos-directive>
+                    <ul class="gpos-list-item" ng-if="gposToEditID !== item.gpos_id">
+                        <li class="larger-font"><span>{{ ::item.gpos_number }}</span> </li>
+                        <li><span>{{ ::item.gpos_name }}</span></li>
+                        <li><span elipsis-directive data="item.drug_names">{{ ::item.drug_names }} </span></li>
+                        <li><span elipsis-directive data="item.diagnose_names">{{ ::item.diagnose_names }} </span></li>
+                        <li>
+                            <a href="" ng-click="editGpos(item.gpos_id)" class="icons-edit" title="{{ 'BUTTON_EDIT' | translate }}"></a>
+                            <a href="" ng-click="removeGPOS(item)" class="icons-discard" title="{{'LABEL_REMOVE_FROM_CONTRACT' | translate}}"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

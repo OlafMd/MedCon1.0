@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Case_InvoiceToPracticeData_on_Tenant</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Case_InvoiceToPracticeData_on_Tenant"
+								Method_Name="Get_Case_InvoiceToPracticeData_on_Tenant"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    Select
+      hec_cas_case_universalpropertyvalue.HEC_CAS_Case_RefID as case_id,
+      hec_cas_case_universalpropertyvalue.Value_Boolean as is_send_invoice_to_practice
+    From
+      hec_cas_case_universalpropertyvalue Inner Join
+      hec_cas_case_universalproperties
+        On hec_cas_case_universalpropertyvalue.HEC_CAS_Case_UniversalProperty_RefID = hec_cas_case_universalproperties.HEC_CAS_Case_UniversalPropertyID And
+        hec_cas_case_universalproperties.PropertyName = 'Send Invoice to Practice' And hec_cas_case_universalproperties.Tenant_RefID = @TenantID And
+        hec_cas_case_universalproperties.IsDeleted = 0
+    Where
+      hec_cas_case_universalpropertyvalue.Tenant_RefID = @TenantID And
+      hec_cas_case_universalpropertyvalue.IsDeleted = 0
+	</SQLStatement>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GCItPDoT_1142" IsArray="true">
+      <Members>
+        <ClassMember Name="case_id" Type="Guid"  />
+        <ClassMember Name="is_send_invoice_to_practice" Type="Boolean"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

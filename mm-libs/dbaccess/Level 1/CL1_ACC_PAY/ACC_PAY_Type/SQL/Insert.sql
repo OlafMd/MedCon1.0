@@ -1,0 +1,21 @@
+INSERT INTO 
+	acc_pay_types
+	(
+		ACC_PAY_TypeID,
+		GlobalPropertyMatchingID,
+		PaymentType_Name_DictID,
+		IsCashPaymentType,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ACC_PAY_TypeID,
+		@GlobalPropertyMatchingID,
+		@PaymentType_Name,
+		@IsCashPaymentType,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

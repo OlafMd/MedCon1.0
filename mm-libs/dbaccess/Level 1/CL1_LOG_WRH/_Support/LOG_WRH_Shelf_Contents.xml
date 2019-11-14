@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 3/5/2014 2:25:39 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_WRH_Shelf_Content"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_WRH"
+                IsClass_Corresponding_DBTable="log_wrh_shelf_contents" >
+      <Members>
+		<ClassMember Name="LOG_WRH_Shelf_ContentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="GlobalPropertyMatchingID" Type="String" />
+		<ClassMember Name="Shelf_RefID" Type="Guid" />
+		<ClassMember Name="Quantity_Current" Type="float" />
+		<ClassMember Name="Quantity_Initial" Type="float" />
+		<ClassMember Name="UsedShelfCapacityAmount" Type="float" />
+		<ClassMember Name="PlacedIntoStock_Date" Type="DateTime" />
+		<ClassMember Name="ReceivedAsFulfillmentOf_ProcurementOrderHeader_RefID" Type="Guid" />
+		<ClassMember Name="ReceivedAsFulfillmentOf_ProcurementOrderPosition_RefID" Type="Guid" />
+		<ClassMember Name="R_ProcurementValue" Type="Decimal" />
+		<ClassMember Name="R_ProcurementValue_Currency_RefID" Type="Guid" />
+		<ClassMember Name="Product_RefID" Type="Guid" />
+		<ClassMember Name="Product_Variant_RefID" Type="Guid" />
+		<ClassMember Name="Product_Release_RefID" Type="Guid" />
+		<ClassMember Name="ReceptionDate" Type="DateTime" />
+		<ClassMember Name="IntakeIntoInventoryDate" Type="DateTime" />
+		<ClassMember Name="IsLocked" Type="Boolean" />
+		<ClassMember Name="R_ReservedQuantity" Type="float" />
+		<ClassMember Name="R_FreeQuantity" Type="float" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

@@ -1,0 +1,21 @@
+INSERT INTO 
+	tmp_pro_projectmember_type_availablecharginglevels
+	(
+		TMP_PRO_ProjectMember_Type_AvailableChargingLevelsID,
+		ProjectMember_Type_RefID,
+		ChargingLevel_RefID,
+		IsDefault,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@TMP_PRO_ProjectMember_Type_AvailableChargingLevelsID,
+		@ProjectMember_Type_RefID,
+		@ChargingLevel_RefID,
+		@IsDefault,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

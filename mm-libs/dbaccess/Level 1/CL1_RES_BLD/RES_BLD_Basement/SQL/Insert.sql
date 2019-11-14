@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_bld_basements
+	(
+		RES_BLD_BasementID,
+		Building_RefID,
+		TypeOfFloor_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_BLD_BasementID,
+		@Building_RefID,
+		@TypeOfFloor_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

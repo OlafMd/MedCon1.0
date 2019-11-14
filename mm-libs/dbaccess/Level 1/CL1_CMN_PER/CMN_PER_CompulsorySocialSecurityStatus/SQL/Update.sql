@@ -1,0 +1,14 @@
+UPDATE 
+	cmn_per_compulsorysocialsecuritystatuses
+SET 
+	GlobalPropertyMatchingID=@GlobalPropertyMatchingID,
+	SocialSecurityStatus_DisplayName=@SocialSecurityStatus_DisplayName,
+	SocialSecurityStatus_Name_DictID=@SocialSecurityStatus_Name,
+	SocialSecurityStatus_Description_DictID=@SocialSecurityStatus_Description,
+	CMN_EconomicRegion_RefID=@CMN_EconomicRegion_RefID,
+	SocialSecurityStatus_Code=@SocialSecurityStatus_Code,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	CMN_PER_CompulsorySocialSecurityStatusID = @CMN_PER_CompulsorySocialSecurityStatusID

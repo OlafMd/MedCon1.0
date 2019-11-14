@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_cas_case_relevantdiagnosisupdates
+	(
+		HEC_CAS_Case_RelevantDiagnosisUpdateID,
+		Case_RefID,
+		PerformedAction_DiagnosisUpdate_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CAS_Case_RelevantDiagnosisUpdateID,
+		@Case_RefID,
+		@PerformedAction_DiagnosisUpdate_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

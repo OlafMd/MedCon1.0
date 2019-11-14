@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/27/2014 12:42:23 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_FiscalYear_for_Date</Name>
+    <Namespace>CL2_FiscalYear.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_FiscalYear.Atomic.Retrieval"
+                Method_ClassName="cls_Get_FiscalYear_for_Date"
+                Method_Name="Get_FiscalYear_for_Date"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_FiscalYear_for_Date"
+                />
+
+  <SQLStatement xml:space="preserve">
+        SELECT
+          acc_fiscalyears.ACC_FiscalYearID,
+          acc_fiscalyears.FiscalYearName,
+          acc_fiscalyears.StartDate,
+          acc_fiscalyears.EndDate
+        FROM
+          acc_fiscalyears
+        WHERE
+          acc_fiscalyears.IsDeleted = 0 
+		  AND acc_fiscalyears.Tenant_RefID = @TenantID
+          AND @ComparingDate between acc_fiscalyears.StartDate AND acc_fiscalyears.EndDate
+          
+  </SQLStatement>
+
+
+	<Parameters IsClass="true" Name="P_L2_GFYfD_1307">
+		<Members>
+			<ClassMember Name="ComparingDate" Type="DateTime"  />
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+                Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L2_GFYfD_1307" IsArray="false">
+            <Members>
+                <ClassMember Name="ACC_FiscalYearID" Type="Guid"  />
+                <ClassMember Name="FiscalYearName" Type="String"  />
+                <ClassMember Name="StartDate" Type="DateTime"  />
+                <ClassMember Name="EndDate" Type="DateTime"  />
+
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

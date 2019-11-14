@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/13/2014 1:14:09 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Tenant_Application_Settings_for_SettingsKey</Name>
+    <Namespace>CL2_ApplicationSettings.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_ApplicationSettings.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Tenant_Application_Settings_for_SettingsKey"
+                Method_Name="Get_Tenant_Application_Settings_for_SettingsKey"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Tenant_Application_Settings_for_SettingsKey"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_tenant_applicationsettings_definitions.DefaultValue,
+	  cmn_tenant_applicationsettings.ItemValue
+	From
+	  cmn_tenant_applicationsettings Right Join
+	  cmn_tenant_applicationsettings_definitions
+	    On
+	    cmn_tenant_applicationsettings_definitions.CMN_Tenant_ApplicationSettings_DefinitionsID = cmn_tenant_applicationsettings.ApplicationSettings_Definition_RefID
+	Where
+	  cmn_tenant_applicationsettings_definitions.ItemKey = @TenantApplicationSettingsKey And
+	  cmn_tenant_applicationsettings_definitions.Tenant_RefID = @TenantID And
+	  cmn_tenant_applicationsettings.IsDeleted = 0 And
+	  cmn_tenant_applicationsettings_definitions.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2AS_GTASfSK_1313">
+    <Members>
+      <ClassMember Name="TenantApplicationSettingsKey" Type="String"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2AS_GTASfSK_1313" IsArray="false">
+      <Members>
+        <ClassMember Name="DefaultValue" Type="String"  />
+        <ClassMember Name="ItemValue" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+
+

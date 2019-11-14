@@ -1,0 +1,25 @@
+INSERT INTO 
+	hec_act_applicablebillcodes
+	(
+		HEC_ACT_ApplicableBillCodeID,
+		HEC_ACT_PerformedAction_RefID,
+		HEC_BIL_PotentialCode_RefID,
+		Proposed_ValueMultiplicator,
+		Proposed_ValueMultiplicator_Comment,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_ApplicableBillCodeID,
+		@HEC_ACT_PerformedAction_RefID,
+		@HEC_BIL_PotentialCode_RefID,
+		@Proposed_ValueMultiplicator,
+		@Proposed_ValueMultiplicator_Comment,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

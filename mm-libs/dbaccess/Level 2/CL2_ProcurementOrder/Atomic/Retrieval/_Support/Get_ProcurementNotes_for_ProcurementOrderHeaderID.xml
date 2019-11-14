@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/6/2014 04:39:58">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ProcurementNotes_for_ProcurementOrderHeaderID</Name>
+    <Namespace>CL2_ProcurementOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_ProcurementOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ProcurementNotes_for_ProcurementOrderHeaderID"
+                Method_Name="Get_ProcurementNotes_for_ProcurementOrderHeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ProcurementNotes_for_ProcurementOrderHeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT ord_prc_procurementorder_notes.SequenceOrderNumber
+		,ord_prc_procurementorder_notes.NotePublishDate
+		,ord_prc_procurementorder_notes.Title
+		,ord_prc_procurementorder_notes.Comment
+		,ord_prc_procurementorder_notes.CMN_STR_Office_RefID
+		,ord_prc_procurementorder_notes.ORD_PRC_ProcurementOrder_NoteID
+    ,ord_prc_procurementorder_notes.ORD_PRC_ProcurementOrder_Header_RefID
+    ,ord_prc_procurementorder_notes.ORD_PRC_ProcurementOrder_Position_RefID
+    ,ord_prc_procurementorder_notes.Creation_Timestamp
+	FROM ord_prc_procurementorder_notes
+	INNER JOIN ord_prc_procurementorder_headers ON ord_prc_procurementorder_notes.ORD_PRC_ProcurementOrder_Header_RefID = ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID
+		AND ord_prc_procurementorder_headers.IsDeleted = 0
+		AND ord_prc_procurementorder_headers.Tenant_RefID = @TenantID
+		AND ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID = @HeaderID
+	WHERE ord_prc_procurementorder_notes.IsDeleted = 0
+		AND ord_prc_procurementorder_notes.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2PO_GPNfPOH_1634">
+    <Members>
+		<ClassMember Name="HeaderID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2PO_GPNfPOH_1634" IsArray="true">
+			<Members>
+				<ClassMember Name="SequenceOrderNumber" Type="String"  />
+				<ClassMember Name="NotePublishDate" Type="DateTime"  />
+				<ClassMember Name="Title" Type="String"  />
+				<ClassMember Name="Comment" Type="String"  />
+				<ClassMember Name="CMN_STR_Office_RefID" Type="Guid"  />
+				<ClassMember Name="ORD_PRC_ProcurementOrder_NoteID" Type="Guid"  />
+        <ClassMember Name="ORD_PRC_ProcurementOrder_Header_RefID" Type="Guid"  />
+        <ClassMember Name="ORD_PRC_ProcurementOrder_Position_RefID" Type="Guid"  />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

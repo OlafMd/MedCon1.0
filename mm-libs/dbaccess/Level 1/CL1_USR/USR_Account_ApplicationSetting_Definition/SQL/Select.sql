@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	usr_account_applicationsetting_definitions
+WHERE 
+	USR_Account_ApplicationSetting_DefinitionID = @USR_Account_ApplicationSetting_DefinitionID

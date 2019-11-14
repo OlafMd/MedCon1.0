@@ -1,0 +1,12 @@
+UPDATE 
+	cmn_pps_shifttemplate_wa_workplaceactivityassignments
+SET 
+	ShiftTemplate_WorkplaceAssignment_RefID=@ShiftTemplate_WorkplaceAssignment_RefID,
+	CMN_STR_PPS_Workplace_Activity_RefID=@CMN_STR_PPS_Workplace_Activity_RefID,
+	WorkplaceAssignment_Offset_sec=@WorkplaceAssignment_Offset_sec,
+	WorkplaceAssignment_Duration_sec=@WorkplaceAssignment_Duration_sec,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_PPS_ShiftTemplate_WA_WorkplaceActivityAssignmentID = @CMN_PPS_ShiftTemplate_WA_WorkplaceActivityAssignmentID

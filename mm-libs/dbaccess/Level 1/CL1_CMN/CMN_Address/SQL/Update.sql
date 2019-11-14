@@ -1,0 +1,23 @@
+UPDATE 
+	cmn_addresses
+SET 
+	Street_Name=@Street_Name,
+	Street_Number=@Street_Number,
+	City_AdministrativeDistrict=@City_AdministrativeDistrict,
+	City_Region=@City_Region,
+	City_Name=@City_Name,
+	City_PostalCode=@City_PostalCode,
+	Province_Name=@Province_Name,
+	Country_Name=@Country_Name,
+	CareOf=@CareOf,
+	Country_ISOCode=@Country_ISOCode,
+	Province_EconomicRegion_RefID=@Province_EconomicRegion_RefID,
+	Lattitude=@Lattitude,
+	Longitude=@Longitude,
+	POBox=@POBox,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	CMN_AddressID = @CMN_AddressID

@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_ctr_insurancetobrokercontracts_coveredhealthcareproducts
+	(
+		HEC_CTR_InsuranceToBrokerContracts_CoveredHealthcareProductID,
+		InsuranceToBrokerContract_RefID,
+		HealthcareProduct_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CTR_InsuranceToBrokerContracts_CoveredHealthcareProductID,
+		@InsuranceToBrokerContract_RefID,
+		@HealthcareProduct_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

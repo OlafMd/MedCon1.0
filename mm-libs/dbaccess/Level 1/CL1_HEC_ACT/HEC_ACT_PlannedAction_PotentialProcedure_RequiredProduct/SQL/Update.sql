@@ -1,0 +1,12 @@
+UPDATE 
+	hec_act_plannedaction_potentialprocedure_requiredproduct
+SET 
+	PlannedAction_PotentialProcedure_RefID=@PlannedAction_PotentialProcedure_RefID,
+	HealthcareProduct_RefID=@HealthcareProduct_RefID,
+	BoundTo_HealthcareProcurementOrderPosition_RefID=@BoundTo_HealthcareProcurementOrderPosition_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_ACT_PlannedAction_PotentialProcedure_RequiredProductID = @HEC_ACT_PlannedAction_PotentialProcedure_RequiredProductID

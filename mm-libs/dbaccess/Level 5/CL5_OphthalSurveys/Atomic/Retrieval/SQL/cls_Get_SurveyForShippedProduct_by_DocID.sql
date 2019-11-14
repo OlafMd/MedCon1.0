@@ -1,0 +1,82 @@
+
+Select
+  cmn_qst_questionnaire_template_versions.QuestionnaireTemplate_RefID,
+  cmn_qst_questionnaire_template_versions.CMN_QST_Questionnaire_Template_VersionID,
+  cmn_qst_questionnaire_questionitems.CMN_QST_Questionnaire_ItemID,
+  cmn_qst_questionnaire_questionitems.Questionnaire_Template_RefID,
+  cmn_qst_questionnaire_questionitems.QuestionItem_Label_DictID,
+  cmn_qst_questionnaire_questionitems.QuestionItem_Description_DictID,
+  cmn_qst_questionnaire_questionitems.QuestionItem_SequenceNumber,
+  cmn_qst_questionitem_enumerationanswertypes.EnumerationAnswerType_Name_DictID,
+  cmn_qst_questionitem_enumerationanswertypes.CMN_QST_QuestionItem_EnumerationAnswerTypeID,
+  cmn_qst_questionnaire_template_versions.IsDeleted,
+  cmn_qst_questionitem_enumerationanswers.EnumerationAnswer_Text_DictID,
+  cmn_qst_questionitem_enumerationanswers.EnumerationAnswerType_RefID,
+  cmn_qst_questionitem_enumerationanswers.CMN_QST_QuestionItem_EnumerationAnswerID,
+  cmn_pro_product_questionnaire_assignment.CMN_PRO_Product_Questionnaire_AssignmentID,
+  cmn_pro_product_questionnaire_assignment.IsActive,
+  cmn_pro_products.CMN_PRO_ProductID,
+  log_shp_shipment_headers.IsShipped,
+  cmn_pro_products.Product_Number,
+  cmn_pro_products.Product_Name_DictID,
+  log_shp_shipment_positions.LOG_SHP_Shipment_PositionID,
+  log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID,
+  hec_shippingposition_barcodelabels.HEC_ShippingPosition_BarcodeLabelID,
+  hec_shippingposition_barcodelabels.ShippingPosition_BarcodeLabel,
+  hec_shippingposition_barcodelabels.Doctor_RefID,
+  hec_shippingposition_barcodelabels.Tenant_RefID,
+  hec_shippingposition_barcodelabels.Creation_Timestamp,
+  cmn_pro_products.Tenant_RefID As Tenant_RefID1,
+  cmn_qst_questionitem_enumerationanswers.Creation_Timestamp as Enumerationanswers_Creation_Timestamp,
+  cmn_pro_product_questionnaire_assignment.Creation_Timestamp as Assignment_Creation_Timestamp
+From
+  cmn_pro_product_questionnaire_assignment Inner Join
+  cmn_qst_questionnaire_template_versions
+    On
+    cmn_pro_product_questionnaire_assignment.CMN_QST_Questionnaire_Template_Version_RefID = cmn_qst_questionnaire_template_versions.CMN_QST_Questionnaire_Template_VersionID Inner Join
+  cmn_qst_questionnaire_questionitems
+    On
+    cmn_qst_questionnaire_template_versions.CMN_QST_Questionnaire_Template_VersionID = cmn_qst_questionnaire_questionitems.Questionnaire_Template_RefID Inner Join
+  cmn_qst_questionitem_enumerationanswertypes
+    On cmn_qst_questionnaire_questionitems.IfAnswer_EnumType_RefID =
+    cmn_qst_questionitem_enumerationanswertypes.CMN_QST_QuestionItem_EnumerationAnswerTypeID Inner Join
+  cmn_qst_questionitem_enumerationanswers
+    On
+    cmn_qst_questionitem_enumerationanswertypes.CMN_QST_QuestionItem_EnumerationAnswerTypeID = cmn_qst_questionitem_enumerationanswers.EnumerationAnswerType_RefID Inner Join
+  cmn_pro_products On cmn_pro_products.CMN_PRO_ProductID =
+    cmn_pro_product_questionnaire_assignment.CMN_PRO_Product_RefID Inner Join
+  log_shp_shipment_positions On log_shp_shipment_positions.CMN_PRO_Product_RefID
+    = cmn_pro_products.CMN_PRO_ProductID Inner Join
+  log_shp_shipment_headers
+    On log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID =
+    log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID Inner Join
+  hec_shippingposition_barcodelabels
+    On hec_shippingposition_barcodelabels.LOG_SHP_Shipment_Position_RefID =
+    log_shp_shipment_positions.LOG_SHP_Shipment_PositionID Inner Join
+  cmn_qst_questionnaire_templates
+    On cmn_qst_questionnaire_template_versions.QuestionnaireTemplate_RefID =
+    cmn_qst_questionnaire_templates.CMN_QST_Questionnaire_TemplateID And
+    cmn_qst_questionnaire_templates.Current_PublishedVersion_RefID =
+    cmn_qst_questionnaire_template_versions.CMN_QST_Questionnaire_Template_VersionID
+Where
+  cmn_qst_questionnaire_template_versions.IsDeleted = 0 And
+  cmn_pro_product_questionnaire_assignment.IsActive = 1 And
+  hec_shippingposition_barcodelabels.Doctor_RefID = @HEC_DoctorID And
+  hec_shippingposition_barcodelabels.Tenant_RefID = @TenantID And
+  cmn_qst_questionitem_enumerationanswertypes.IsDeleted = 0 And
+  cmn_qst_questionnaire_questionitems.IsDeleted = 0 And
+  cmn_qst_questionitem_enumerationanswers.IsDeleted = 0 And
+  cmn_pro_product_questionnaire_assignment.IsDeleted = 0 And
+  cmn_pro_products.IsDeleted = 0 And
+  log_shp_shipment_positions.IsDeleted = 0 And
+  log_shp_shipment_headers.IsDeleted = 0 And
+  hec_shippingposition_barcodelabels.R_IsSubmission_Complete = 0 And
+  hec_shippingposition_barcodelabels.IsDeleted = 0 And
+  cmn_qst_questionnaire_template_versions.IsQuestionnaireVersion_Published = 1
+  And
+  cmn_qst_questionnaire_templates.IsDeleted = 0
+Order By
+  cmn_qst_questionnaire_questionitems.QuestionItem_SequenceNumber,
+  cmn_qst_questionitem_enumerationanswers.Creation_Timestamp
+
+  

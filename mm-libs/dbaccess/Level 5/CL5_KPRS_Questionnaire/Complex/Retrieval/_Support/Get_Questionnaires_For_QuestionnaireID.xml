@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/18/2013 3:17:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Retrieve_all_Questionnaires_for_Property</Name>
+    <Namespace>CLE_L5_Questionnaire.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_Questionnaire.Complex.Retrieval"
+                Method_ClassName="cls_Get_Questionnaires_For_QuestionnaireID"
+                Method_Name="Get_Questionnaires_For_QuestionnaireID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Questionnaires_For_QuestionnaireID"
+                />
+
+ 
+  <Parameters IsClass="true" Name="P_L5QT_GQFQI_1517">
+    <Members>
+      <ClassMember Name="QuestionnaireID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5QT_GQFQI_1517" IsArray="false">
+      <Members>
+        <ClassMember Name="Questionnaire" Type="ORM_RES_QST_Questionnaire" isReference="true" />
+        <ClassMember Name="QuestionnaireVersion" Type="ORM_RES_QST_Questionnaire_Version" isReference="true" />
+        <ClassMember Name="Apartments" Type="ORM_RES_QST_Apartment_AvailableProperty[]" isReference="true" />
+        <ClassMember Name="Attics" Type="ORM_RES_QST_Attic_AvailableProperty[]" isReference="true"  />
+        <ClassMember Name="Basements" Type="ORM_RES_QST_Basement_AvailableProperty[]" isReference="true"  />
+        <ClassMember Name="Facades" Type="ORM_RES_QST_Facade_AvailableProperty[]" isReference="true"  />
+        <ClassMember Name="Hvacr" Type="ORM_RES_QST_HVACR_AvailableProperty[]" isReference="true"  />
+        <ClassMember Name="Roofs" Type="ORM_RES_QST_Roof_AvailableProperty[]" isReference="true"  />        
+        <ClassMember Name="OutdoorFacilities" Type="ORM_RES_QST_OutdoorFacility_AvailableProperty[]" isReference="true"  />
+        <ClassMember Name="Staircases" Type="ORM_RES_QST_Staircase_AvailableProperty[]" isReference="true"  />      
+
+
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+
+

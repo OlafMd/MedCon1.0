@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BB08DBAD-494E-4689-9467-BBDDAEBC1EB0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_LOG_WRH</RootNamespace>
+    <AssemblyName>CL1_LOG_WRH</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LOG_WRH_Area\ORM_LOG_WRH_Area.cs" />
+    <Compile Include="LOG_WRH_Area_2_QuantityLevel\ORM_LOG_WRH_Area_2_QuantityLevel.cs" />
+    <Compile Include="LOG_WRH_Area_DefaultSupplier\ORM_LOG_WRH_Area_DefaultSupplier.cs" />
+    <Compile Include="LOG_WRH_InventoryChangeReason\ORM_LOG_WRH_InventoryChangeReason.cs" />
+    <Compile Include="LOG_WRH_QuantityLevel\ORM_LOG_WRH_QuantityLevel.cs" />
+    <Compile Include="LOG_WRH_Rack\ORM_LOG_WRH_Rack.cs" />
+    <Compile Include="LOG_WRH_Rack_2_QuantityLevel\ORM_LOG_WRH_Rack_2_QuantityLevel.cs" />
+    <Compile Include="LOG_WRH_Rack_DefaultSupplier\ORM_LOG_WRH_Rack_DefaultSupplier.cs" />
+    <Compile Include="LOG_WRH_ShelfContent_2_TrackingInstance\ORM_LOG_WRH_ShelfContent_2_TrackingInstance.cs" />
+    <Compile Include="LOG_WRH_Shelf\ORM_LOG_WRH_Shelf.cs" />
+    <Compile Include="LOG_WRH_Shelf_2_QuantityLevel\ORM_LOG_WRH_Shelf_2_QuantityLevel.cs" />
+    <Compile Include="LOG_WRH_Shelf_ContentAdjustment\ORM_LOG_WRH_Shelf_ContentAdjustment.cs" />
+    <Compile Include="LOG_WRH_Shelf_ContentAdjustment_TrackingInstance\ORM_LOG_WRH_Shelf_ContentAdjustment_TrackingInstance.cs" />
+    <Compile Include="LOG_WRH_Shelf_Content\ORM_LOG_WRH_Shelf_Content.cs" />
+    <Compile Include="LOG_WRH_Shelf_Content_AdjustmentHistory\ORM_LOG_WRH_Shelf_Content_AdjustmentHistory.cs" />
+    <Compile Include="LOG_WRH_Shelf_PredefinedProductLocation\ORM_LOG_WRH_Shelf_PredefinedProductLocation.cs" />
+    <Compile Include="LOG_WRH_Warehouse\ORM_LOG_WRH_Warehouse.cs" />
+    <Compile Include="LOG_WRH_Warehouse_2_QuantityLevel\ORM_LOG_WRH_Warehouse_2_QuantityLevel.cs" />
+    <Compile Include="LOG_WRH_Warehouse_2_WarehouseGroup\ORM_LOG_WRH_Warehouse_2_WarehouseGroup.cs" />
+    <Compile Include="LOG_WRH_Warehouse_DefaultSupplier\ORM_LOG_WRH_Warehouse_DefaultSupplier.cs" />
+    <Compile Include="LOG_WRH_Warehouse_Group\ORM_LOG_WRH_Warehouse_Group.cs" />
+    <Compile Include="LOG_WRH_Warehouse_Group_2_QuantityLevel\ORM_LOG_WRH_Warehouse_Group_2_QuantityLevel.cs" />
+    <Compile Include="LOG_WRH_Warehouse_Group_DefaultSupplier\ORM_LOG_WRH_Warehouse_Group_DefaultSupplier.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LOG_WRH_Warehouse_Group_DefaultSupplier\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_Group_DefaultSupplier\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_Group_DefaultSupplier\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_Group_2_QuantityLevel\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_Group_2_QuantityLevel\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_Group_2_QuantityLevel\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_DefaultSupplier\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_DefaultSupplier\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_DefaultSupplier\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_2_QuantityLevel\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_2_QuantityLevel\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_2_QuantityLevel\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_ShelfContent_2_TrackingInstance\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_ShelfContent_2_TrackingInstance\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_ShelfContent_2_TrackingInstance\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Rack_DefaultSupplier\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Rack_DefaultSupplier\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Rack_DefaultSupplier\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_QuantityLevel\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_QuantityLevel\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_QuantityLevel\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Area_DefaultSupplier\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Area_DefaultSupplier\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Area_DefaultSupplier\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Area_2_QuantityLevel\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Area_2_QuantityLevel\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Area_2_QuantityLevel\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Rack_2_QuantityLevel\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Rack_2_QuantityLevel\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Rack_2_QuantityLevel\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_2_QuantityLevel\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_2_QuantityLevel\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_2_QuantityLevel\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_ContentAdjustment\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_ContentAdjustment\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_ContentAdjustment\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_InventoryChangeReason\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_InventoryChangeReason\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_InventoryChangeReason\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_PredefinedProductLocation\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_PredefinedProductLocation\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_PredefinedProductLocation\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_Content_AdjustmentHistory\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_Content_AdjustmentHistory\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_Content_AdjustmentHistory\SQL\Insert.sql" />
+    <Content Include="_Support\LOG_WRH_InventoryChangeReasons.xml" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_ContentAdjustment_TrackingInstance\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_ContentAdjustment_TrackingInstance\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_ContentAdjustment_TrackingInstance\SQL\Insert.sql" />
+    <Content Include="_Support\LOG_WRH_Rack_2_QuantityLevels.xml" />
+    <Content Include="_Support\LOG_WRH_Shelf_2_QuantityLevels.xml" />
+    <Content Include="_Support\LOG_WRH_Shelf_ContentAdjustments.xml" />
+    <Content Include="_Support\LOG_WRH_Shelf_ContentAdjustment_TrackingInstances.xml" />
+    <Content Include="_Support\LOG_WRH_Shelf_Content_AdjustmentHistory.xml" />
+    <Content Include="_Support\LOG_WRH_Shelf_PredefinedProductLocations.xml" />
+    <Content Include="_Support\LOG_WRH_Warehouse_Group_2_QuantityLevels.xml" />
+    <Content Include="_Support\LOG_WRH_Warehouse_Group_DefaultSuppliers.xml" />
+    <EmbeddedResource Include="LOG_WRH_Rack\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Rack\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Rack\SQL\Insert.sql" />
+    <Content Include="_Support\LOG_WRH_Area_2_QuantityLevels.xml" />
+    <Content Include="_Support\LOG_WRH_Area_DefaultSuppliers.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\LOG_WRH_QuantityLevels.xml" />
+    <Content Include="_Support\LOG_WRH_Rack.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="LOG_WRH_Warehouse\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_Group\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_Group\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_Group\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_2_WarehouseGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_2_WarehouseGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_2_WarehouseGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_Content\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_Content\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Shelf_Content\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Area\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Area\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Area\SQL\Select.sql" />
+    <Content Include="_Support\LOG_WRH_Areas.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\LOG_WRH_Racks.xml" />
+    <Content Include="_Support\LOG_WRH_Rack_DefaultSuppliers.xml" />
+    <Content Include="_Support\LOG_WRH_ShelfContent_2_TrackingInstance.xml" />
+    <Content Include="_Support\LOG_WRH_Shelf_Contents.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\LOG_WRH_Shelves.xml" />
+    <Content Include="_Support\LOG_WRH_Warehouses.xml" />
+    <Content Include="_Support\LOG_WRH_Warehouse_2_QuantityLevels.xml" />
+    <Content Include="_Support\LOG_WRH_Warehouse_2_WarehouseGroup.xml" />
+    <Content Include="_Support\LOG_WRH_Warehouse_DefaultSuppliers.xml" />
+    <Content Include="_Support\LOG_WRH_Warehouse_Groups.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

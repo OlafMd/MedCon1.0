@@ -1,0 +1,26 @@
+UPDATE 
+	cmn_bpt_businessparticipants
+SET 
+	BusinessParticipantITL=@BusinessParticipantITL,
+	ImportedFromSource=@ImportedFromSource,
+	DisplayName=@DisplayName,
+	IsNaturalPerson=@IsNaturalPerson,
+	IsCompany=@IsCompany,
+	IfNaturalPerson_CMN_PER_PersonInfo_RefID=@IfNaturalPerson_CMN_PER_PersonInfo_RefID,
+	IfCompany_CMN_COM_CompanyInfo_RefID=@IfCompany_CMN_COM_CompanyInfo_RefID,
+	IsTenant=@IsTenant,
+	IfTenant_Tenant_RefID=@IfTenant_Tenant_RefID,
+	DisplayImage_RefID=@DisplayImage_RefID,
+	DefaultLanguage_RefID=@DefaultLanguage_RefID,
+	DefaultCurrency_RefID=@DefaultCurrency_RefID,
+	LastContacted_Date=@LastContacted_Date,
+	LastContacted_ByBusinessPartner_RefID=@LastContacted_ByBusinessPartner_RefID,
+	Audit_UpdatedByAccount_RefID=@Audit_UpdatedByAccount_RefID,
+	Audit_CreatedByAccount_RefID=@Audit_CreatedByAccount_RefID,
+	Audit_UpdatedOn=@Audit_UpdatedOn,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	CMN_BPT_BusinessParticipantID = @CMN_BPT_BusinessParticipantID

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_pps_shifttemplate_wa_workplaceactivityassignments
+WHERE 
+	CMN_PPS_ShiftTemplate_WA_WorkplaceActivityAssignmentID = @CMN_PPS_ShiftTemplate_WA_WorkplaceActivityAssignmentID

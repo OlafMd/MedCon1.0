@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CaseID_and_PatientID_for_OrderIDs</Name>
+    <Namespace>MMDocConnectDBMethods.Order.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Order.Atomic.Retrieval"
+                Method_ClassName="cls_Get_CaseID_and_PatientID_for_OrderIDs"
+                Method_Name="Get_CaseID_and_PatientID_for_OrderIDs"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+  <SQLStatement xml:space="preserve">
+    Select
+      hec_cas_case_relevantperformedactions.Case_RefID As case_id,
+      hec_act_plannedactions.Patient_RefID As patient_id
+    From
+      ord_prc_procurementorder_positions Inner Join
+      hec_prc_procurementorder_positions
+        On ord_prc_procurementorder_positions.ORD_PRC_ProcurementOrder_PositionID = hec_prc_procurementorder_positions.Ext_ORD_PRC_ProcurementOrder_Position_RefID
+        And hec_prc_procurementorder_positions.Tenant_RefID = @TenantID And hec_prc_procurementorder_positions.IsDeleted = 0 Inner Join
+      hec_act_plannedaction_potentialprocedure_requiredproduct
+        On hec_act_plannedaction_potentialprocedure_requiredproduct.BoundTo_HealthcareProcurementOrderPosition_RefID =
+        hec_prc_procurementorder_positions.HEC_PRC_ProcurementOrder_PositionID And hec_act_plannedaction_potentialprocedure_requiredproduct.Tenant_RefID = @TenantID
+        And hec_act_plannedaction_potentialprocedure_requiredproduct.IsDeleted = 0 Inner Join
+      hec_act_plannedaction_potentialprocedures
+        On hec_act_plannedaction_potentialprocedure_requiredproduct.PlannedAction_PotentialProcedure_RefID =
+        hec_act_plannedaction_potentialprocedures.HEC_ACT_PlannedAction_PotentialProcedureID And hec_act_plannedaction_potentialprocedures.Tenant_RefID = @TenantID
+        And hec_act_plannedaction_potentialprocedures.IsDeleted = 0 Inner Join
+      hec_act_plannedactions
+        On hec_act_plannedaction_potentialprocedures.PlannedAction_RefID = hec_act_plannedactions.HEC_ACT_PlannedActionID And hec_act_plannedactions.Tenant_RefID =
+        @TenantID And hec_act_plannedactions.IsDeleted = 0 Inner Join
+      hec_cas_case_relevantperformedactions
+        On hec_act_plannedactions.IfPlannedFollowup_PreviousAction_RefID = hec_cas_case_relevantperformedactions.PerformedAction_RefID And
+        hec_cas_case_relevantperformedactions.Tenant_RefID = @TenantID And hec_cas_case_relevantperformedactions.IsDeleted = 0
+    Where
+      ord_prc_procurementorder_positions.ProcurementOrder_Header_RefID = @OrderIDs And
+      ord_prc_procurementorder_positions.Tenant_RefID = @TenantID And
+      ord_prc_procurementorder_positions.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_OR_GCIDaPIDfOIDs_1434">
+    <Members>
+      <ClassMember Name="OrderIDs" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">    
+    <ObjectReturnType_Definition Name="OR_GCIDaPIDfOIDs_1434" IsArray="true">
+      <Members>
+        <ClassMember Name="case_id" Type="Guid"/>
+        <ClassMember Name="patient_id" Type="Guid"/>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/21/2014 10:24:34 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShelfContent_with_Quantity_for_InventoryJob_ProcessID</Name>
+    <Namespace>CL5_APOLogistic_Inventory.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_Inventory.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ShelfContent_with_Quantity_for_InventoryJob_ProcessID"
+                Method_Name="Get_ShelfContent_with_Quantity_for_InventoryJob_ProcessID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShelfContent_with_Quantity_for_InventoryJob_ProcessID"
+                />
+
+  <SQLStatement xml:space="preserve">
+SELECT log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_INJ_InventoryJob_Process_ShelfID
+	,log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_Shelf_RefID
+	,log_producttrackinginstances.LOG_ProductTrackingInstanceID
+	,log_wrh_shelf_contents.Quantity_Current AS ShelfContent_Quantity
+	,log_producttrackinginstances.CurrentQuantityOnTrackingInstance AS TrackingInstance_Quantity
+	,log_producttrackinginstances.BatchNumber
+	,log_producttrackinginstances.ExpirationDate
+	,log_wrh_shelf_contents.Product_RefID
+	,log_wrh_shelf_contents.LOG_WRH_Shelf_ContentID
+	,log_wrh_shelves.CoordinateCode AS ShelfCode
+	,log_wrh_shelves.Shelf_Name AS ShelfName
+FROM log_wrh_inj_inventoryjob_process_shelves
+INNER JOIN log_wrh_shelves ON log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_Shelf_RefID = log_wrh_shelves.LOG_WRH_ShelfID
+	AND log_wrh_shelves.IsDeleted = 0
+	AND log_wrh_shelves.Tenant_RefID = @TenantID
+INNER JOIN log_wrh_shelf_contents ON log_wrh_shelf_contents.Shelf_RefID = log_wrh_shelves.LOG_WRH_ShelfID
+	AND log_wrh_shelf_contents.IsDeleted = 0
+	AND log_wrh_shelf_contents.Tenant_RefID = @TenantID
+LEFT OUTER JOIN log_wrh_shelfcontent_2_trackinginstance ON log_wrh_shelfcontent_2_trackinginstance.LOG_WRH_Shelf_Content_RefID = log_wrh_shelf_contents.LOG_WRH_Shelf_ContentID
+	AND log_wrh_shelfcontent_2_trackinginstance.IsDeleted = 0
+	AND log_wrh_shelfcontent_2_trackinginstance.Tenant_RefID = @TenantID
+LEFT OUTER JOIN log_producttrackinginstances ON log_producttrackinginstances.LOG_ProductTrackingInstanceID = log_wrh_shelfcontent_2_trackinginstance.LOG_ProductTrackingInstance_RefID
+	AND log_producttrackinginstances.IsDeleted = 0
+	AND log_producttrackinginstances.Tenant_RefID = @TenantID
+WHERE log_wrh_inj_inventoryjob_process_shelves.IsDeleted = 0
+	AND log_wrh_inj_inventoryjob_process_shelves.Tenant_RefID = @TenantID
+	AND log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_INJ_InventoryJob_Process_RefID = @ProcessID
+GROUP BY log_wrh_shelf_contents.LOG_WRH_Shelf_ContentID
+
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5IN_GSCwQfIJP_1023">
+    <Members>
+      <ClassMember Name="ProcessID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+              Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+              Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5IN_GSCwQfIJP_1023" IsArray="true">
+      <Members>
+        <ClassMember Name="LOG_WRH_INJ_InventoryJob_Process_ShelfID" Type="Guid"  />
+        <ClassMember Name="LOG_WRH_Shelf_RefID" Type="Guid"  />
+        <ClassMember Name="LOG_WRH_Shelf_ContentID" Type="Guid"  />
+        <ClassMember Name="LOG_ProductTrackingInstanceID" Type="Guid"  />
+        <ClassMember Name="BatchNumber" Type="String"  />
+        <ClassMember Name="ExpirationDate" Type="DateTime"  />
+        <ClassMember Name="ShelfContent_Quantity" Type="Double"  />
+        <ClassMember Name="TrackingInstance_Quantity" Type="Double"  />
+        <ClassMember Name="Product_RefID" Type="Guid"  />
+        <ClassMember Name="ShelfCode" Type="string"  />
+        <ClassMember Name="ShelfName" Type="string"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,189 @@
+.form-group {
+  margin-bottom: 15px;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+.help-block {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #737373;
+}
+
+.checkbox,
+.radio {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  label {
+    display: inline-block;
+    max-width: 100%;
+    min-height: 20px; // Ensure the input doesn't jump when there is no text
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+    color: #363636;
+  }
+}
+
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"],
+.radio input[type="radio"],
+.radio-inline input[type="radio"] {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: 4px \9;
+}
+
+.checkbox + .checkbox,
+.radio + .radio {
+  margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+  }
+}
+// These classes are used directly on <label>s
+.checkbox-inline,
+.radio-inline {
+  &.disabled,
+  fieldset[disabled] & {
+    cursor: not-allowed;
+  }
+}
+// These classes are used on elements with <label> descendants
+.checkbox,
+.radio {
+  &.disabled,
+  fieldset[disabled] & {
+    label {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.checkbox {
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+  }
+
+  [type="checkbox"]:checked + label,
+  [type="checkbox"]:not(:checked) + label {
+    padding-left: 30px;
+    line-height: 25px;
+    @include user-select(none);
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #fff;
+      background: #fff;
+      @include border-radius(3px);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 23px;
+      height: 13px;
+      top: 4px;
+      left: 3px;
+      background: url('../images/icons/check-sign.png') no-repeat;
+      transition: all 0.1s;
+    }
+  }
+
+  [type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  [type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  [type="checkbox"]:focus + label:before {
+    border-color: #439562;
+  }
+
+  .checkbox-item-content {
+    padding: 10px 30px;
+  }
+}
+
+.radio {
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+  }
+
+  [type="radio"]:checked + label,
+  [type="radio"]:not(:checked) + label {
+    padding-left: 30px;
+    line-height: 25px;
+    @include user-select(none);
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1px;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #cdcdcd;
+      background: #fff;
+      @include border-radius(50%);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      top: 7px;
+      left: 6px;
+      font-size: 10px;
+      font-family: "streamline-24px-filled-in";
+      line-height: 0.8;
+      background-color: #439562;
+      @include border-radius(50%);
+      transition: all 0.1s;
+    }
+  }
+
+  [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  [type="radio"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  [type="radio"]:focus + label:before {
+    border-color: #439562;
+  }
+
+  .radio-item-content {
+    padding: 10px 30px;
+  }
+}

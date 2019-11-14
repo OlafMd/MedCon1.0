@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="8/7/2014 15:11:59 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ProjectStatuses_for_Tenant</Name>
+    <Namespace>CL2_Project.Atomic.Retrieval</Namespace>
+    <Description>Retrieval of tenant specific project statuses</Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Project.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ProjectStatuses_for_Tenant"
+                Method_Name="Get_ProjectStatuses_for_Tenant"
+                ApplicationPlattform_WebServiceName="ProjectService"
+                ApplicationPlattform_Namespace="ProjectService.Get_ProjectStatuses_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  tms_pro_project_status.TMS_PRO_Project_StatusID AS ProjectStatus_ID,
+	  tms_pro_project_status.Label_DictID,
+    tms_pro_project_status.GlobalPropertyMatchingID AS ProjectStatus_GlobalPropertyMatchingID
+	From
+	  tms_pro_project_status
+	Where
+	  tms_pro_project_status.IsDeleted = 0 And
+	  tms_pro_project_status.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2PR_GPSfT_1511" IsArray="true">
+      <Members>
+        <ClassMember Name="ProjectStatus_ID" Type="Guid"  />
+        <ClassMember Name="Label_DictID" Type="Dict" OriginTable="tms_pro_project_status" Source_DBField="Label_DictID"  />
+        <ClassMember Name="ProjectStatus_GlobalPropertyMatchingID" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

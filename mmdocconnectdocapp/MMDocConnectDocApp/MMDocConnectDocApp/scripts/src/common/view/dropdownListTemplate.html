@@ -1,0 +1,15 @@
+<div class="angucomplete-holder" ng-class="{'angucomplete-dropdown-visible': showDropdown}">
+    <input type="text" class="form-control dropdown-arrow input-ellipsis pointer" id="{{id}}_value" ng-model="selectedItem" translate="selectedItem" ng-click="triggerDropdown()" ng-keyup="handleKeyEvent($event)" ng-blur="hideDropdown()"
+           ng-focus="onFocusHandler()" ng-disabled="disableInput" readonly placeholder="{{ placeholder | translate }}">
+
+    <div id="{{id}}_dropdown" class="angucomplete-dropdown" ng-if="showDropdown" ng-class="{'{{additionalClass}}': true}">
+      <div class="angucomplete-scroll">
+          <div id="dropdownListElement_{{id}}_{{$index}}" ng-click="selectResult(item)" ng-mouseenter="hoverRow($index)" class="angucomplete-row"
+               ng-repeat="item in items track by item[id_ordinal]" ng-class="{'angucomplete-selected-row': $index == currentIndex }">
+              <div>
+                  <div class="angucomplete-title"><span> {{ item[name_ordinal] | translate }}</span></div>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>

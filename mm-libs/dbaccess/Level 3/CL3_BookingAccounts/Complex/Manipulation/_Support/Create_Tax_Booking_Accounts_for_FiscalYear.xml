@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="27/1/2014 01:30:13">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Create_Tax_Booking_Accounts_for_FiscalYear</Name>
+    <Namespace>CL3_BookingAccounts.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_BookingAccounts.Complex.Manipulation"
+                Method_ClassName="cls_Create_Tax_Booking_Accounts_for_FiscalYear"
+                Method_Name="Create_Tax_Booking_Accounts_for_FiscalYear"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Create_Tax_Booking_Accounts_for_FiscalYear"
+                />
+
+  <Parameters IsClass="true" Name="P_L3BA_CTBAfFY_1530">
+    <Members>
+        <ClassMember Name="FiscalYearID" Type="Guid"  />
+		<ClassMember Name="BusinessParticipantID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+                Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+                Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Bool" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+
+

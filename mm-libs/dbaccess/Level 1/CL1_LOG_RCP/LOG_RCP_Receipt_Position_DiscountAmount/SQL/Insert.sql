@@ -1,0 +1,25 @@
+INSERT INTO 
+	log_rcp_receipt_position_discountamounts
+	(
+		LOG_RCP_Receipt_Position_DiscountAmountID,
+		ORD_PRC_DiscountType_RefID,
+		LOG_RCP_Receipt_Position_RefID,
+		IsAbsoluteValue,
+		IsRelativeValue,
+		PositionDiscountValue,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_RCP_Receipt_Position_DiscountAmountID,
+		@ORD_PRC_DiscountType_RefID,
+		@LOG_RCP_Receipt_Position_RefID,
+		@IsAbsoluteValue,
+		@IsRelativeValue,
+		@PositionDiscountValue,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

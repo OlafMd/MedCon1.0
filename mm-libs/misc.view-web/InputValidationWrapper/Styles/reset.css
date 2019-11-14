@@ -1,0 +1,78 @@
+/* --------------------------------------------------------------------------------------
++
++   Simplified CSS (kinda) framework - v1.2
++   http://www.simplifiedstudio.com
++
++   = Resets and global styles
++
++   Thanks:
++      - Eric Meyer (http://meyerweb.com/eric/tools/css/reset)
++      - Wilson Miner (http://www.alistapart.com/articles/settingtypeontheweb)
++
+-------------------------------------------------------------------------------------- */
+
+
+/*
++  GLOBAL RESETS - DO NOT MODIFY THESE
+---------------------------------------------------------------------------- */
+html, body, div, span, applet, object, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; border: 0; outline: 0;}
+:focus{outline: 0;}
+html{ overflow-y:scroll;}
+body{ line-height: 1; color: #000; background: #fff;}
+ol, ul{ list-style: none;} 
+table{ border-collapse: separate; border-spacing: 0;}
+caption, th, td{ text-align: left; font-weight: normal;}
+blockquote:before, blockquote:after,q:before, q:after {content: " ";}
+blockquote, q{quotes: "" "";}
+textarea{overflow:auto; resize: none;}
+
+
+/*
++  BASIC TYPOGRAPY
+---------------------------------------------------------------------------- */
+* html{ font-size: 62.5%; }
+    * html body{ font-size: 1.4em; }
+html > body{font-size: 12px;}
+body{ font: normal 12px/19px Helvetica, Arial, sans-serif; }
+    input, textarea{ font: normal 12px/18px Helvetica, Arial, sans-serif;}
+strong{font-weight: bold;}
+em{font-style: italic;}
+small{font-size: 11px;}
+p, address, .adr{margin-bottom: 18px;}
+
+h1, h2{ font-size: 26px; line-height: 36px; margin-bottom: 18px;}
+h3{ font-size: 18px; line-height: 18px; margin-bottom: 18px;}
+h4{ font-size: 14px; line-height: 18px;}
+h5, h6{ font-size: 12px; line-height: 18px;}
+ul, ol{ list-style-position: inside; list-style-type: square;}
+ol{ list-style-type: decimal;}
+dl{ margin-top: 18px; margin-bottom: 18px;}
+dl dt{ font-weight: bold;}
+table{margin-bottom:0px;}
+blockquote{ margin: 18px 0; padding: 17px 18px 0 17px; font-style: italic;}
+pre,code,tt { font: 0.95em/1.5em Courier, Monaco, "lucida console", monospace;}
+abbr, acronym{ border-bottom: 1px dotted #d0d0d0; cursor: help;}
+hr{ background: #ccc; border: none; clear:both; color: #ccc; float:none; height:1px; margin: 18px 0; width:100%;}
+a img{ border: none;}
+
+
+/*
++  BASIC STYLES
+---------------------------------------------------------------------------- */
+.left{float: left;}
+.right{float: right;}
+.first{ margin-left:0 !important;}
+.last{ margin-right:0 !important;}
+.hide{display: none;}
+.empty{visibility: hidden;}
+
+.hr{ clear: both; margin: 18px 0; background: transparent; border: none; border-top: 1px solid #e0e0e0;}
+	hr{	visibility: hidden;	font-size: 0; line-height: 0; height: 0; border: none;}
+.accent, strong.accent, span.accent, em.accent{ background: #ffffbf !important; color: inherit; padding: .25em; font-weight: bold;}
+div.accent, p.accent{padding: 1.5em;}
+.amp{ font: italic 1.1em/10% "Warnock Pro", "Goudy Old Style", "Palatino", "Book Antiqua", serif;}
+
+.clearfix:after{ content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+.clearfix{ display: inline-block;}
+/* Hides from IE-mac \*/ * html .clearfix{ height: 1%;}
+.clearfix{ display: block;}

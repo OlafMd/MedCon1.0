@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+    <Item ID="community-role.administrator">
+      <Lang ISO="EN" Content="Administrator" />
+      <Lang ISO="DE" Content="Administrator" />
+      <Lang ISO="RS" Content="Administrator" />
+    </Item>
+    <Item ID="community-role.contributor">
+      <Lang ISO="EN" Content="Contributor" />
+      <Lang ISO="DE" Content="Contributor" />
+      <Lang ISO="RS" Content="Contributor" />
+    </Item>
+    <Item ID="community-role.consumer">
+      <Lang ISO="EN" Content="Consumer" />
+      <Lang ISO="DE" Content="Consumer" />
+      <Lang ISO="RS" Content="Consumer" />
+    </Item>
+</Resources>

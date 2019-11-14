@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_pro_cus_customizations
+	(
+		CMN_PRO_CUS_CustomizationID,
+		InstantiatedFrom_CustomizationTemplate_RefID,
+		Product_RefID,
+		Customization_Name_DictID,
+		Customization_Description_DictID,
+		OrderSequence,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_PRO_CUS_CustomizationID,
+		@InstantiatedFrom_CustomizationTemplate_RefID,
+		@Product_RefID,
+		@Customization_Name,
+		@Customization_Description,
+		@OrderSequence,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

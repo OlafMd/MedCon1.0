@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/15/2015 5:26:58 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Diagnosis_for_ID</Name>
+    <Namespace>CL5_MyHealthClub_Diagnosis.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Diagnosis.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Diagnosis_for_ID"
+                Method_Name="Get_Diagnosis_for_ID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Diagnosis_for_ID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  hec_dia_potentialdiagnoses.ICD10_Code,
+	  hec_dia_potentialdiagnoses.PotentialDiagnosis_Name_DictID,
+	  hec_dia_potentialdiagnoses.PotentialDiagnosis_Description_DictID
+	From
+	  hec_dia_potentialdiagnoses
+	Where
+	  hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID = @DiagnoseID And
+	  hec_dia_potentialdiagnoses.Tenant_RefID = @TenantID And
+	  hec_dia_potentialdiagnoses.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5DI_GDfDI_1726">
+    <Members>
+		<ClassMember Name="DiagnoseID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5DI_GDfDI_1726" IsArray="false">
+			<Members>
+				<ClassMember Name="ICD10_Code" Type="String"  />
+				<ClassMember Name="PotentialDiagnosis_Name" Type="Dict" OriginTable="hec_dia_potentialdiagnoses" Source_DBField="PotentialDiagnosis_Name_DictID"  />
+				<ClassMember Name="PotentialDiagnosis_Description" Type="Dict" OriginTable="hec_dia_potentialdiagnoses" Source_DBField="PotentialDiagnosis_Description_DictID"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/16/2013 2:56:23 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Patient_Treatment</Name>
+    <Namespace>CL6_Lucenits_Treatments.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_MRMS_Backoffice.Complex.Manipulation"
+                Method_ClassName="cls_CreateUpdate_MRMS_Backoffice_Entities"
+                Method_Name="CreateUpdate_MRMS_Backoffice_Entities"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".CreateUpdate_MRMS_Backoffice_Entities"
+                />
+
+  <Parameters IsClass="true" Name="P_L6MB_CUMBE_2302">
+    <Members>
+      <ClassMember IsClass="true" IsArray="true" Name="Positions" Type="P_L6MB_CUMBE_2302_Row"  GroupBy="TreatmentID">
+        <Members>
+          <ClassMember Name="MeterSerialNumber" Type="string"  />
+          <ClassMember Name="ReaderEmail" Type="string"  />
+          <ClassMember Name="MeterType" Type="string"  />
+          <ClassMember Name="ContractNumber" Type="string"  />
+          <ClassMember Name="ContractOwnerFirstName" Type="string"  />
+          <ClassMember Name="ContractOwnerLastName" Type="string"  />
+          <ClassMember Name="AddressName" Type="string"  />
+          <ClassMember Name="AddressNumber" Type="string"  />
+          <ClassMember Name="ZipCode" Type="string"  />
+          <ClassMember Name="City" Type="string"  />
+          <ClassMember Name="RouteName" Type="string"  />
+          <ClassMember Name="SequenceInRoute" Type="int"  />
+          <ClassMember Name="ReaderFirstName" Type="string"  />
+          <ClassMember Name="ReaderLastName" Type="string"  />
+        </Members>
+    </ClassMember>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+
+  </CodeGen>
+
+

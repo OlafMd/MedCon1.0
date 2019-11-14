@@ -1,0 +1,23 @@
+INSERT INTO 
+	doc_structures
+	(
+		DOC_StructureID,
+		Label,
+		Structure_Header_RefID,
+		Parent_RefID,
+		CreatedBy_Account_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@DOC_StructureID,
+		@Label,
+		@Structure_Header_RefID,
+		@Parent_RefID,
+		@CreatedBy_Account_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

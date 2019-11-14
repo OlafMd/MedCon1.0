@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/9/2013 9:58:51 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Check_EventTypes_To_Events</Name>
+    <Namespace>CLE_L3_CMN_STE_Events.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Events.Atomic.Retrieval"
+                Method_ClassName="cls_Check_EventTypes_To_Events"
+                Method_Name="Check_EventTypes_To_Events"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Check_EventTypes_To_Events"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_str_sce_structurecalendarevent_types.CMN_STR_SCE_StructureCalendarEvent_TypeID
+	From
+	  cmn_str_sce_structurecalendarevent_types Inner Join
+	  cmn_str_sce_structurecalendarevents
+	    On cmn_str_sce_structurecalendarevents.StructureCalendarEvent_Type_RefID =
+	    cmn_str_sce_structurecalendarevent_types.CMN_STR_SCE_StructureCalendarEvent_TypeID
+	Where
+	  cmn_str_sce_structurecalendarevent_types.IsDeleted = 0 And
+	  cmn_str_sce_structurecalendarevents.IsDeleted = 0 And
+	  cmn_str_sce_structurecalendarevents.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3EV_CETTE_0957" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_STR_SCE_StructureCalendarEvent_TypeID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

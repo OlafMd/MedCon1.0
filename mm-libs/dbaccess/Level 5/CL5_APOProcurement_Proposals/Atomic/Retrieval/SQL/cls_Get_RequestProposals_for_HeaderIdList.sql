@@ -1,0 +1,21 @@
+
+	Select
+  ord_prc_rfp_requestforproposal_positions.CMN_PRO_Product_RefID,
+  ord_prc_rfp_requestforproposal_positions.Quantity,
+  ord_prc_rfp_requestforproposal_headers.ORD_PRC_RFO_RequestForProposal_HeaderID,
+  ord_prc_rfp_requestforproposal_positions.ORD_PRC_RFP_RequestForProposal_PositionID
+From
+  ord_prc_rfp_requestforproposal_headers Inner Join
+  ord_prc_rfp_requestforproposal_positions
+    On ord_prc_rfp_requestforproposal_positions.RequestForProposal_Header_RefID
+    =
+    ord_prc_rfp_requestforproposal_headers.ORD_PRC_RFO_RequestForProposal_HeaderID And ord_prc_rfp_requestforproposal_positions.Tenant_RefID = @TenantID Left Join
+  hec_prc_rfp_requestforproposal_positions
+    On
+    hec_prc_rfp_requestforproposal_positions.Ext_ORD_PRC_RFP_RequestForProposal_Position_RefID = ord_prc_rfp_requestforproposal_positions.ORD_PRC_RFP_RequestForProposal_PositionID And hec_prc_rfp_requestforproposal_positions.Tenant_RefID = @TenantID
+Where
+  ord_prc_rfp_requestforproposal_headers.ORD_PRC_RFO_RequestForProposal_HeaderID
+  = @HeaderID_List And
+  ord_prc_rfp_requestforproposal_headers.Tenant_RefID = @TenantID And
+  ord_prc_rfp_requestforproposal_headers.IsDeleted = 0
+  

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DB54257E-EAF0-443C-9EBC-3CFA0B1AA597}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_CMN_PPS</RootNamespace>
+    <AssemblyName>CL1_CMN_PPS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DBACCESREFACTOR|AnyCPU'">
+    <OutputPath>bin\DBACCESREFACTOR\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CMN_PPS_BreakTime\ORM_CMN_PPS_BreakTime.cs" />
+    <Compile Include="CMN_PPS_BreakTime_Defaults_StructureBinding\ORM_CMN_PPS_BreakTime_Defaults_StructureBinding.cs" />
+    <Compile Include="CMN_PPS_BreakTime_Default\ORM_CMN_PPS_BreakTime_Default.cs" />
+    <Compile Include="CMN_PPS_BreakTime_Template\ORM_CMN_PPS_BreakTime_Template.cs" />
+    <Compile Include="CMN_PPS_BreakTime_Template_Assignment\ORM_CMN_PPS_BreakTime_Template_Assignment.cs" />
+    <Compile Include="CMN_PPS_ShiftTemplate\ORM_CMN_PPS_ShiftTemplate.cs" />
+    <Compile Include="CMN_PPS_ShiftTemplate_Group\ORM_CMN_PPS_ShiftTemplate_Group.cs" />
+    <Compile Include="CMN_PPS_ShiftTemplate_Group_2_ShiftTemplate\ORM_CMN_PPS_ShiftTemplate_Group_2_ShiftTemplate.cs" />
+    <Compile Include="CMN_PPS_ShiftTemplate_Group_2_StructureCalendarEventType\ORM_CMN_PPS_ShiftTemplate_Group_2_StructureCalendarEventType.cs" />
+    <Compile Include="CMN_PPS_ShiftTemplate_WA_WorkplaceActivityAssignment\ORM_CMN_PPS_ShiftTemplate_WA_WorkplaceActivityAssignment.cs" />
+    <Compile Include="CMN_PPS_ShiftTemplate_WorkareaAssignment\ORM_CMN_PPS_ShiftTemplate_WorkareaAssignment.cs" />
+    <Compile Include="CMN_PPS_ShiftTemplate_WorkDetail\ORM_CMN_PPS_ShiftTemplate_WorkDetail.cs" />
+    <Compile Include="CMN_PPS_ShiftTemplate_WorkplaceAssignment\ORM_CMN_PPS_ShiftTemplate_WorkplaceAssignment.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_WorkplaceAssignment\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_WorkplaceAssignment\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_WorkplaceAssignment\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_WorkareaAssignment\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_WorkareaAssignment\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_WorkareaAssignment\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_WA_WorkplaceActivityAssignment\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_WA_WorkplaceActivityAssignment\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_WA_WorkplaceActivityAssignment\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime_Template_Assignment\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime_Template_Assignment\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime_Template_Assignment\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime_Template\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime_Template\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime_Template\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_WorkDetail\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_WorkDetail\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_WorkDetail\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime_Default\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime_Default\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime_Default\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime_Defaults_StructureBinding\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime_Defaults_StructureBinding\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PPS_BreakTime_Defaults_StructureBinding\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_Group_2_ShiftTemplate\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_Group_2_ShiftTemplate\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_Group_2_ShiftTemplate\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_Group_2_StructureCalendarEventType\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_Group_2_StructureCalendarEventType\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_Group_2_StructureCalendarEventType\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_Group\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_Group\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PPS_ShiftTemplate_Group\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_PPS_BreakTimes.xml" />
+    <Content Include="_Support\CMN_PPS_BreakTime_Defaults.xml" />
+    <Content Include="_Support\CMN_PPS_BreakTime_Defaults_StructureBindings.xml" />
+    <Content Include="_Support\CMN_PPS_BreakTime_Templates.xml" />
+    <Content Include="_Support\CMN_PPS_BreakTime_Template_Assignments.xml" />
+    <Content Include="_Support\CMN_PPS_ShiftTemplates.xml" />
+    <Content Include="_Support\CMN_PPS_ShiftTemplate_Groups.xml" />
+    <Content Include="_Support\CMN_PPS_ShiftTemplate_Group_2_ShiftTemplate.xml" />
+    <Content Include="_Support\CMN_PPS_ShiftTemplate_Group_2_StructureCalendarEventType.xml" />
+    <Content Include="_Support\CMN_PPS_ShiftTemplate_WA_WorkplaceActivityAssignments.xml" />
+    <Content Include="_Support\CMN_PPS_ShiftTemplate_WorkareaAssignments.xml" />
+    <Content Include="_Support\CMN_PPS_ShiftTemplate_WorkDetails.xml" />
+    <Content Include="_Support\CMN_PPS_ShiftTemplate_WorkplaceAssignments.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

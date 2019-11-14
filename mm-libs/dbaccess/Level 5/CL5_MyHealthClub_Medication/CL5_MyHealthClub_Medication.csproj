@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3A2FFE9E-48C9-4098-A16B-80DFFED33853}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_MyHealthClub_Medication</RootNamespace>
+    <AssemblyName>CL5_MyHealthClub_Medication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\..\apps\pocdoc.view-mobile\pocdoc\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LynxPocDoc|AnyCPU'">
+    <OutputPath>bin\LynxPocDoc\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_Dosage.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_DosageOfTheRecomendedProduct.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Localization.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Product.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_RecommendedProduct.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_RecommendedSubstance.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Substance.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllProducts_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Count_of_AllProducts.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Dosage_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Products_for_Import.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Product_for_ProductID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_RecommendedProduct_for_PotentialDiagnosisID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_RecommendedSubstances_for_PotentialDiagnosisID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Substance_for_SubstanceID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06AB1C3C-339F-4E31-8408-232DC283308C}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO_PAC\CL1_CMN_PRO_PAC.csproj">
+      <Project>{022F0501-41A8-4206-9007-374D9155E23D}</Project>
+      <Name>CL1_CMN_PRO_PAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768C60E8-0C7F-42B2-B8C9-D327C6BF334A}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_DIA\CL1_HEC_DIA.csproj">
+      <Project>{44B9C824-F3F7-4B95-9F59-87FDC93164DE}</Project>
+      <Name>CL1_HEC_DIA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_PRO\CL1_HEC_PRO.csproj">
+      <Project>{B289752D-AB70-4099-BD8C-58C989A952DE}</Project>
+      <Name>CL1_HEC_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_SUB\CL1_HEC_SUB.csproj">
+      <Project>{12047A47-1ED6-4E54-860D-BB7F0D6456E7}</Project>
+      <Name>CL1_HEC_SUB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Language\CL2_Language.csproj">
+      <Project>{58245A4D-887C-4AA1-B01E-7E6779C4F096}</Project>
+      <Name>CL2_Language</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Save_Product.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_RecommendedProduct.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Localization.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_DosageOfTheRecomendedProduct.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Dosage.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Substance_for_SubstanceID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Products_for_Import.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Substance.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Products_for_Import.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Substance_for_SubstanceID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_RecommendedSubstances_for_PotentialDiagnosisID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_RecommendedProduct_for_PotentialDiagnosisID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_RecommendedProduct_for_PotentialDiagnosisID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_RecommendedSubstances_for_PotentialDiagnosisID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Product_for_ProductID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Product_for_ProductID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Dosage_for_TenantID.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_RecommendedSubstance.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllProducts_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Count_of_AllProducts.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllProducts_and_AllSupstances_for_LanguageID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_AllProducts_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Count_of_AllProducts.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Dosage_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\_Support\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

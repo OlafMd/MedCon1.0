@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="22/7/2014 04:43:34">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ArticleID_for_ArticleITLs</Name>
+    <Namespace>CL3_Articles.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Articles.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ArticleID_for_ArticleITLs"
+                Method_Name="Get_ArticleID_for_ArticleITLs"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ArticleID_for_ArticleITLs"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT CMN_PRO_ProductID, ProductITL
+	FROM cmn_pro_products
+	WHERE ProductITL = @ProductITLList
+		AND IsDeleted = 0
+		AND Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3AR_GAIDfAITLs_1641">
+    <Members>
+		<ClassMember Name="ProductITLList" Type="string" IsArray ="true"/>
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3AR_GAIDfAITLs_1641" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+        <ClassMember Name="ProductITL" Type="string"  />
+
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

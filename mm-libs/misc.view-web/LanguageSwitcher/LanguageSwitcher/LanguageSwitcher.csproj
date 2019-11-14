@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AD6F9A5F-C449-431F-8A18-0200AC19382C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LanguageSwitcher</RootNamespace>
+    <AssemblyName>LanguageSwitcher</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Nonshipping>true</Nonshipping>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LanguageSwitcher.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\arrow_down.png" />
+    <EmbeddedResource Include="Images\arrow_up.png" />
+    <EmbeddedResource Include="Images\flags\ad.gif" />
+    <EmbeddedResource Include="Images\flags\ae.gif" />
+    <EmbeddedResource Include="Images\flags\af.gif" />
+    <EmbeddedResource Include="Images\flags\ag.gif" />
+    <EmbeddedResource Include="Images\flags\ai.gif" />
+    <EmbeddedResource Include="Images\flags\al.gif" />
+    <EmbeddedResource Include="Images\flags\am.gif" />
+    <EmbeddedResource Include="Images\flags\an.gif" />
+    <EmbeddedResource Include="Images\flags\ao.gif" />
+    <EmbeddedResource Include="Images\flags\ar.gif" />
+    <EmbeddedResource Include="Images\flags\as.gif" />
+    <EmbeddedResource Include="Images\flags\at.gif" />
+    <EmbeddedResource Include="Images\flags\au.gif" />
+    <EmbeddedResource Include="Images\flags\aw.gif" />
+    <EmbeddedResource Include="Images\flags\ax.gif" />
+    <EmbeddedResource Include="Images\flags\az.gif" />
+    <EmbeddedResource Include="Images\flags\ba.gif" />
+    <EmbeddedResource Include="Images\flags\bb.gif" />
+    <EmbeddedResource Include="Images\flags\bd.gif" />
+    <EmbeddedResource Include="Images\flags\be.gif" />
+    <EmbeddedResource Include="Images\flags\bf.gif" />
+    <EmbeddedResource Include="Images\flags\bg.gif" />
+    <EmbeddedResource Include="Images\flags\bh.gif" />
+    <EmbeddedResource Include="Images\flags\bi.gif" />
+    <EmbeddedResource Include="Images\flags\bj.gif" />
+    <EmbeddedResource Include="Images\flags\bm.gif" />
+    <EmbeddedResource Include="Images\flags\bn.gif" />
+    <EmbeddedResource Include="Images\flags\bo.gif" />
+    <EmbeddedResource Include="Images\flags\br.gif" />
+    <EmbeddedResource Include="Images\flags\bs.gif" />
+    <EmbeddedResource Include="Images\flags\bt.gif" />
+    <EmbeddedResource Include="Images\flags\bv.gif" />
+    <EmbeddedResource Include="Images\flags\bw.gif" />
+    <EmbeddedResource Include="Images\flags\by.gif" />
+    <EmbeddedResource Include="Images\flags\bz.gif" />
+    <EmbeddedResource Include="Images\flags\ca.gif" />
+    <EmbeddedResource Include="Images\flags\catalonia.gif" />
+    <EmbeddedResource Include="Images\flags\cc.gif" />
+    <EmbeddedResource Include="Images\flags\cd.gif" />
+    <EmbeddedResource Include="Images\flags\cf.gif" />
+    <EmbeddedResource Include="Images\flags\cg.gif" />
+    <EmbeddedResource Include="Images\flags\ch.gif" />
+    <EmbeddedResource Include="Images\flags\ci.gif" />
+    <EmbeddedResource Include="Images\flags\ck.gif" />
+    <EmbeddedResource Include="Images\flags\cl.gif" />
+    <EmbeddedResource Include="Images\flags\cm.gif" />
+    <EmbeddedResource Include="Images\flags\cn.gif" />
+    <EmbeddedResource Include="Images\flags\co.gif" />
+    <EmbeddedResource Include="Images\flags\cr.gif" />
+    <EmbeddedResource Include="Images\flags\cs.gif" />
+    <EmbeddedResource Include="Images\flags\cu.gif" />
+    <EmbeddedResource Include="Images\flags\cv.gif" />
+    <EmbeddedResource Include="Images\flags\cx.gif" />
+    <EmbeddedResource Include="Images\flags\cy.gif" />
+    <EmbeddedResource Include="Images\flags\cz.gif" />
+    <EmbeddedResource Include="Images\flags\de.gif" />
+    <EmbeddedResource Include="Images\flags\dj.gif" />
+    <EmbeddedResource Include="Images\flags\dk.gif" />
+    <EmbeddedResource Include="Images\flags\dm.gif" />
+    <EmbeddedResource Include="Images\flags\do.gif" />
+    <EmbeddedResource Include="Images\flags\dz.gif" />
+    <EmbeddedResource Include="Images\flags\ec.gif" />
+    <EmbeddedResource Include="Images\flags\ee.gif" />
+    <EmbeddedResource Include="Images\flags\eg.gif" />
+    <EmbeddedResource Include="Images\flags\eh.gif" />
+    <EmbeddedResource Include="Images\flags\en.gif" />
+    <EmbeddedResource Include="Images\flags\england.gif" />
+    <EmbeddedResource Include="Images\flags\er.gif" />
+    <EmbeddedResource Include="Images\flags\es.gif" />
+    <EmbeddedResource Include="Images\flags\et.gif" />
+    <EmbeddedResource Include="Images\flags\europeanunion.gif" />
+    <EmbeddedResource Include="Images\flags\fam.gif" />
+    <EmbeddedResource Include="Images\flags\fi.gif" />
+    <EmbeddedResource Include="Images\flags\fj.gif" />
+    <EmbeddedResource Include="Images\flags\fk.gif" />
+    <EmbeddedResource Include="Images\flags\fm.gif" />
+    <EmbeddedResource Include="Images\flags\fo.gif" />
+    <EmbeddedResource Include="Images\flags\fr.gif" />
+    <EmbeddedResource Include="Images\flags\ga.gif" />
+    <EmbeddedResource Include="Images\flags\gb.gif" />
+    <EmbeddedResource Include="Images\flags\gd.gif" />
+    <EmbeddedResource Include="Images\flags\ge.gif" />
+    <EmbeddedResource Include="Images\flags\gf.gif" />
+    <EmbeddedResource Include="Images\flags\gh.gif" />
+    <EmbeddedResource Include="Images\flags\gi.gif" />
+    <EmbeddedResource Include="Images\flags\gl.gif" />
+    <EmbeddedResource Include="Images\flags\gm.gif" />
+    <EmbeddedResource Include="Images\flags\gn.gif" />
+    <EmbeddedResource Include="Images\flags\gp.gif" />
+    <EmbeddedResource Include="Images\flags\gq.gif" />
+    <EmbeddedResource Include="Images\flags\gr.gif" />
+    <EmbeddedResource Include="Images\flags\gs.gif" />
+    <EmbeddedResource Include="Images\flags\gt.gif" />
+    <EmbeddedResource Include="Images\flags\gu.gif" />
+    <EmbeddedResource Include="Images\flags\gw.gif" />
+    <EmbeddedResource Include="Images\flags\gy.gif" />
+    <EmbeddedResource Include="Images\flags\hk.gif" />
+    <EmbeddedResource Include="Images\flags\hm.gif" />
+    <EmbeddedResource Include="Images\flags\hn.gif" />
+    <EmbeddedResource Include="Images\flags\hr.gif" />
+    <EmbeddedResource Include="Images\flags\ht.gif" />
+    <EmbeddedResource Include="Images\flags\hu.gif" />
+    <EmbeddedResource Include="Images\flags\id.gif" />
+    <EmbeddedResource Include="Images\flags\ie.gif" />
+    <EmbeddedResource Include="Images\flags\il.gif" />
+    <EmbeddedResource Include="Images\flags\in.gif" />
+    <EmbeddedResource Include="Images\flags\io.gif" />
+    <EmbeddedResource Include="Images\flags\iq.gif" />
+    <EmbeddedResource Include="Images\flags\ir.gif" />
+    <EmbeddedResource Include="Images\flags\is.gif" />
+    <EmbeddedResource Include="Images\flags\it.gif" />
+    <EmbeddedResource Include="Images\flags\jm.gif" />
+    <EmbeddedResource Include="Images\flags\jo.gif" />
+    <EmbeddedResource Include="Images\flags\jp.gif" />
+    <EmbeddedResource Include="Images\flags\ke.gif" />
+    <EmbeddedResource Include="Images\flags\kg.gif" />
+    <EmbeddedResource Include="Images\flags\kh.gif" />
+    <EmbeddedResource Include="Images\flags\ki.gif" />
+    <EmbeddedResource Include="Images\flags\km.gif" />
+    <EmbeddedResource Include="Images\flags\kn.gif" />
+    <EmbeddedResource Include="Images\flags\kp.gif" />
+    <EmbeddedResource Include="Images\flags\kr.gif" />
+    <EmbeddedResource Include="Images\flags\kw.gif" />
+    <EmbeddedResource Include="Images\flags\ky.gif" />
+    <EmbeddedResource Include="Images\flags\kz.gif" />
+    <EmbeddedResource Include="Images\flags\la.gif" />
+    <EmbeddedResource Include="Images\flags\lb.gif" />
+    <EmbeddedResource Include="Images\flags\lc.gif" />
+    <EmbeddedResource Include="Images\flags\li.gif" />
+    <EmbeddedResource Include="Images\flags\lk.gif" />
+    <EmbeddedResource Include="Images\flags\lr.gif" />
+    <EmbeddedResource Include="Images\flags\ls.gif" />
+    <EmbeddedResource Include="Images\flags\lt.gif" />
+    <EmbeddedResource Include="Images\flags\lu.gif" />
+    <EmbeddedResource Include="Images\flags\lv.gif" />
+    <EmbeddedResource Include="Images\flags\ly.gif" />
+    <EmbeddedResource Include="Images\flags\ma.gif" />
+    <EmbeddedResource Include="Images\flags\mc.gif" />
+    <EmbeddedResource Include="Images\flags\md.gif" />
+    <EmbeddedResource Include="Images\flags\me.gif" />
+    <EmbeddedResource Include="Images\flags\mg.gif" />
+    <EmbeddedResource Include="Images\flags\mh.gif" />
+    <EmbeddedResource Include="Images\flags\mk.gif" />
+    <EmbeddedResource Include="Images\flags\ml.gif" />
+    <EmbeddedResource Include="Images\flags\mm.gif" />
+    <EmbeddedResource Include="Images\flags\mn.gif" />
+    <EmbeddedResource Include="Images\flags\mo.gif" />
+    <EmbeddedResource Include="Images\flags\mp.gif" />
+    <EmbeddedResource Include="Images\flags\mq.gif" />
+    <EmbeddedResource Include="Images\flags\mr.gif" />
+    <EmbeddedResource Include="Images\flags\ms.gif" />
+    <EmbeddedResource Include="Images\flags\mt.gif" />
+    <EmbeddedResource Include="Images\flags\mu.gif" />
+    <EmbeddedResource Include="Images\flags\mv.gif" />
+    <EmbeddedResource Include="Images\flags\mw.gif" />
+    <EmbeddedResource Include="Images\flags\mx.gif" />
+    <EmbeddedResource Include="Images\flags\my.gif" />
+    <EmbeddedResource Include="Images\flags\mz.gif" />
+    <EmbeddedResource Include="Images\flags\na.gif" />
+    <EmbeddedResource Include="Images\flags\nc.gif" />
+    <EmbeddedResource Include="Images\flags\ne.gif" />
+    <EmbeddedResource Include="Images\flags\nf.gif" />
+    <EmbeddedResource Include="Images\flags\ng.gif" />
+    <EmbeddedResource Include="Images\flags\ni.gif" />
+    <EmbeddedResource Include="Images\flags\nl.gif" />
+    <EmbeddedResource Include="Images\flags\no.gif" />
+    <EmbeddedResource Include="Images\flags\noimage.gif" />
+    <EmbeddedResource Include="Images\flags\np.gif" />
+    <EmbeddedResource Include="Images\flags\nr.gif" />
+    <EmbeddedResource Include="Images\flags\nu.gif" />
+    <EmbeddedResource Include="Images\flags\nz.gif" />
+    <EmbeddedResource Include="Images\flags\om.gif" />
+    <EmbeddedResource Include="Images\flags\pa.gif" />
+    <EmbeddedResource Include="Images\flags\pe.gif" />
+    <EmbeddedResource Include="Images\flags\pf.gif" />
+    <EmbeddedResource Include="Images\flags\pg.gif" />
+    <EmbeddedResource Include="Images\flags\ph.gif" />
+    <EmbeddedResource Include="Images\flags\pk.gif" />
+    <EmbeddedResource Include="Images\flags\pl.gif" />
+    <EmbeddedResource Include="Images\flags\pm.gif" />
+    <EmbeddedResource Include="Images\flags\pn.gif" />
+    <EmbeddedResource Include="Images\flags\pr.gif" />
+    <EmbeddedResource Include="Images\flags\ps.gif" />
+    <EmbeddedResource Include="Images\flags\pt.gif" />
+    <EmbeddedResource Include="Images\flags\pw.gif" />
+    <EmbeddedResource Include="Images\flags\py.gif" />
+    <EmbeddedResource Include="Images\flags\qa.gif" />
+    <EmbeddedResource Include="Images\flags\re.gif" />
+    <EmbeddedResource Include="Images\flags\ro.gif" />
+    <EmbeddedResource Include="Images\flags\ru.gif" />
+    <EmbeddedResource Include="Images\flags\rw.gif" />
+    <EmbeddedResource Include="Images\flags\sa.gif" />
+    <EmbeddedResource Include="Images\flags\sb.gif" />
+    <EmbeddedResource Include="Images\flags\sc.gif" />
+    <EmbeddedResource Include="Images\flags\scotland.gif" />
+    <EmbeddedResource Include="Images\flags\sd.gif" />
+    <EmbeddedResource Include="Images\flags\se.gif" />
+    <EmbeddedResource Include="Images\flags\sg.gif" />
+    <EmbeddedResource Include="Images\flags\sh.gif" />
+    <EmbeddedResource Include="Images\flags\si.gif" />
+    <EmbeddedResource Include="Images\flags\sj.gif" />
+    <EmbeddedResource Include="Images\flags\sk.gif" />
+    <EmbeddedResource Include="Images\flags\sl.gif" />
+    <EmbeddedResource Include="Images\flags\sm.gif" />
+    <EmbeddedResource Include="Images\flags\sn.gif" />
+    <EmbeddedResource Include="Images\flags\so.gif" />
+    <EmbeddedResource Include="Images\flags\sr.gif" />
+    <EmbeddedResource Include="Images\flags\sr_wtf.gif" />
+    <EmbeddedResource Include="Images\flags\st.gif" />
+    <EmbeddedResource Include="Images\flags\sv.gif" />
+    <EmbeddedResource Include="Images\flags\sy.gif" />
+    <EmbeddedResource Include="Images\flags\sz.gif" />
+    <EmbeddedResource Include="Images\flags\tc.gif" />
+    <EmbeddedResource Include="Images\flags\td.gif" />
+    <EmbeddedResource Include="Images\flags\tf.gif" />
+    <EmbeddedResource Include="Images\flags\tg.gif" />
+    <EmbeddedResource Include="Images\flags\th.gif" />
+    <EmbeddedResource Include="Images\flags\tj.gif" />
+    <EmbeddedResource Include="Images\flags\tk.gif" />
+    <EmbeddedResource Include="Images\flags\tl.gif" />
+    <EmbeddedResource Include="Images\flags\tm.gif" />
+    <EmbeddedResource Include="Images\flags\tn.gif" />
+    <EmbeddedResource Include="Images\flags\to.gif" />
+    <EmbeddedResource Include="Images\flags\tr.gif" />
+    <EmbeddedResource Include="Images\flags\tt.gif" />
+    <EmbeddedResource Include="Images\flags\tv.gif" />
+    <EmbeddedResource Include="Images\flags\tw.gif" />
+    <EmbeddedResource Include="Images\flags\tz.gif" />
+    <EmbeddedResource Include="Images\flags\ua.gif" />
+    <EmbeddedResource Include="Images\flags\ug.gif" />
+    <EmbeddedResource Include="Images\flags\um.gif" />
+    <EmbeddedResource Include="Images\flags\us.gif" />
+    <EmbeddedResource Include="Images\flags\uy.gif" />
+    <EmbeddedResource Include="Images\flags\uz.gif" />
+    <EmbeddedResource Include="Images\flags\va.gif" />
+    <EmbeddedResource Include="Images\flags\vc.gif" />
+    <EmbeddedResource Include="Images\flags\ve.gif" />
+    <EmbeddedResource Include="Images\flags\vg.gif" />
+    <EmbeddedResource Include="Images\flags\vi.gif" />
+    <EmbeddedResource Include="Images\flags\vn.gif" />
+    <EmbeddedResource Include="Images\flags\vu.gif" />
+    <EmbeddedResource Include="Images\flags\wales.gif" />
+    <EmbeddedResource Include="Images\flags\wf.gif" />
+    <EmbeddedResource Include="Images\flags\ws.gif" />
+    <EmbeddedResource Include="Images\flags\ye.gif" />
+    <EmbeddedResource Include="Images\flags\yt.gif" />
+    <EmbeddedResource Include="Images\flags\za.gif" />
+    <EmbeddedResource Include="Images\flags\zm.gif" />
+    <EmbeddedResource Include="Images\flags\zw.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Styles\main.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DictTextBox\DictTextBox.csproj">
+      <Project>{E6CEA539-D99F-4321-B1F3-B7115F890064}</Project>
+      <Name>DictTextBox</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

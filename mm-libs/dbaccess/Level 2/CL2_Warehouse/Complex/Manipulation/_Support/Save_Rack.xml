@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="23/10/2013 01:44:07">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Rack</Name>
+    <Namespace>CL2_Warehouse.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Warehouse.Complex.Manipulation"
+                Method_ClassName="cls_Save_Rack"
+                Method_Name="Save_Rack"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Rack"
+                />
+  <SQLLimitation_CSharp_Extension>
+    var returnValue = new FR_Guid();
+
+    var item = new CL1_LOG_WRH.ORM_LOG_WRH_Rack();
+    if (Parameter.LOG_WRH_RackID != Guid.Empty)
+    {
+    var result = item.Load(Connection, Transaction, Parameter.LOG_WRH_RackID);
+    }
+
+    if(Parameter.IsDeleted == true){
+    item.IsDeleted = true;
+    return new FR_Guid(item.Save(Connection, Transaction),item.LOG_WRH_RackID);
+    }
+
+    //Creation specific parameters (Tenant, Account ... )
+    if (Parameter.LOG_WRH_RackID == Guid.Empty)
+    {
+    item.Tenant_RefID = securityTicket.TenantID;
+    }
+
+    item.Area_RefID = Parameter.Area_RefID;
+    item.CoordinateCode = Parameter.CoordinateCode;
+    item.Shelves_Use_XCoordinate = Parameter.Shelves_Use_XCoordinate;
+    item.Shelves_Use_YCoordinate = Parameter.Shelves_Use_YCoordinate;
+    item.Shelves_Use_ZCoordinate = Parameter.Shelves_Use_ZCoordinate;
+    item.Shelves_XLabel = Parameter.Shelves_XLabel;
+    item.Shelves_YLabel = Parameter.Shelves_YLabel;
+    item.Shelves_ZLabel = Parameter.Shelbes_ZLabel;
+    item.IsStructureHidden = Parameter.IsStructureHidden;
+
+
+    return new FR_Guid(item.Save(Connection, Transaction),item.LOG_WRH_RackID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2WH_SRCK_1343">
+    <Members>
+      <ClassMember Name="LOG_WRH_RackID" IsIdentificator="True" Type="Guid"  />
+      <ClassMember Name="Area_RefID" Type="Guid"  />
+      <ClassMember Name="CoordinateCode" Type="String"  />
+      <ClassMember Name="Shelves_Use_XCoordinate" Type="Boolean"  />
+      <ClassMember Name="Shelves_Use_YCoordinate" Type="Boolean"  />
+      <ClassMember Name="Shelves_Use_ZCoordinate" Type="Boolean"  />
+      <ClassMember Name="Shelves_XLabel" Type="String"  />
+      <ClassMember Name="Shelves_YLabel" Type="String"  />
+      <ClassMember Name="Shelves_ZLabel" Type="String"  />
+      <ClassMember Name="IsStructureHidden" Type="Boolean"  />
+      <ClassMember Name="IsDeleted" Type="Boolean"  />
+      <ClassMember Name="Shelf_NamePrefix" Type="String" />
+      <ClassMember Name="Rack_Name" Type="String" />
+      <ClassMember Name="Default_Supplier_RefID" Type="Guid" />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

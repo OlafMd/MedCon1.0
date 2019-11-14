@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{44D6B644-78DC-4B93-9A4E-B1A0D6FE3188}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_CMN_PRO_ASS</RootNamespace>
+    <AssemblyName>CL1_CMN_PRO_ASS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CMN_PRO_ASS_AssortmentProduct\ORM_CMN_PRO_ASS_AssortmentProduct.cs" />
+    <Compile Include="CMN_PRO_ASS_AssortmentProduct_VendorProduct\ORM_CMN_PRO_ASS_AssortmentProduct_VendorProduct.cs" />
+    <Compile Include="CMN_PRO_ASS_AssortmentVariant\ORM_CMN_PRO_ASS_AssortmentVariant.cs" />
+    <Compile Include="CMN_PRO_ASS_AssortmentVariant_VendorVariant\ORM_CMN_PRO_ASS_AssortmentVariant_VendorVariant.cs" />
+    <Compile Include="CMN_PRO_ASS_Assortment\ORM_CMN_PRO_ASS_Assortment.cs" />
+    <Compile Include="CMN_PRO_ASS_Assortment_2_AssortmentProduct\ORM_CMN_PRO_ASS_Assortment_2_AssortmentProduct.cs" />
+    <Compile Include="CMN_PRO_ASS_DistributionPrice\ORM_CMN_PRO_ASS_DistributionPrice.cs" />
+    <Compile Include="CMN_PRO_ASS_DistributionPrice_Value\ORM_CMN_PRO_ASS_DistributionPrice_Value.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_PRO_ASS_DistributionPrice\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_DistributionPrice\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_DistributionPrice\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_DistributionPrice_Value\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_DistributionPrice_Value\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_DistributionPrice_Value\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_AssortmentVariant_VendorVariant\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_AssortmentVariant_VendorVariant\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_AssortmentVariant_VendorVariant\SQL\Insert.sql" />
+    <EmbeddedResource Include="_Support\CMN_PRO_ASS_AssortmentVariant_VendorVariants.xml" />
+    <EmbeddedResource Include="CMN_PRO_ASS_Assortment\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_Assortment\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_Assortment\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_PRO_ASS_DistributionPrices.xml" />
+    <Content Include="_Support\CMN_PRO_ASS_DistributionPrice_Values.xml" />
+    <EmbeddedResource Include="CMN_PRO_ASS_Assortment_2_AssortmentProduct\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_Assortment_2_AssortmentProduct\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_Assortment_2_AssortmentProduct\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_AssortmentProduct_VendorProduct\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_AssortmentProduct_VendorProduct\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_AssortmentProduct_VendorProduct\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_AssortmentProduct\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_AssortmentProduct\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_AssortmentProduct\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_AssortmentVariant\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_AssortmentVariant\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_ASS_AssortmentVariant\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_PRO_ASS_AssortmentProducts.xml" />
+    <Content Include="_Support\CMN_PRO_ASS_AssortmentProduct_VendorProducts.xml" />
+    <Content Include="_Support\CMN_PRO_ASS_AssortmentVariants.xml" />
+    <Content Include="_Support\CMN_PRO_ASS_Assortment_2_AssortmentProduct.xml" />
+    <Content Include="_Support\CMN_PRO_ASS_Assortments.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

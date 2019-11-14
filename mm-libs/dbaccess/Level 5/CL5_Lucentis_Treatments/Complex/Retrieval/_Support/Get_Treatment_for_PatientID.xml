@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/7/2013 3:16:09 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Treatment_for_PatientID</Name>
+    <Namespace>CL5_Lucentis_Treatments.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Treatments.Complex.Retrieval"
+                Method_ClassName="cls_Get_Treatment_for_PatientID"
+                Method_Name="Get_Treatment_for_PatientID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Treatment_for_PatientID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_patient_treatment.IsTreatmentPerformed,
+  hec_patient_treatment.IfTreatmentPerformed_Date,
+  hec_patient_treatment.IsTreatmentFollowup,
+  hec_patient_treatment.IsScheduled,
+  hec_patient_treatment.IfSheduled_Date,
+  hec_patient_treatment.IsTreatmentBilled,
+  hec_patient_treatment.IfTreatmentBilled_Date,
+  Article.CMN_PRO_ProductID,
+  hec_patient_treatment.HEC_Patient_TreatmentID,
+  Article.HEC_Patient_Treatment_RefID,
+  Article.Product_Name_DictID,
+  RequiredProducts.BoundTo_CustomerOrderPosition_RefID,
+  RequiredProducts.HEC_Patient_Treatment_RequiredProductID,
+  hec_patient_treatment_ocularextension.IsTreatmentOfLeftEye,
+  hec_patient_treatment_ocularextension.IsTreatmentOfRightEye,
+  Article.Quantity,
+  Article.Product_Number,
+  FollowUp.FollowUp_ID,
+  FollowUp.IfFollowUpSheduled_Date,
+  FollowUp.IsFollowUPPerformed,
+  FollowUp.IfFollowUpPerformed_Date,
+  FollowUp.Followup_PracticeID,
+  FollowUp.Followup_Performed_by_DoctorID,
+  hec_patient_treatment.TreatmentPractice_RefID As Treatment_PracticeID,
+  hec_patient_treatment.IfTreatmentPerformed_ByDoctor_RefID As
+  Treatment_Performed_by_DoctorID,
+  Article.ExpectedDateOfDelivery,
+  Article.PharmacyID,
+  Article.Status_Name_DictID,
+  Article.ArticleDate,
+  FollowUp.Followup_Scheduled_for_DoctorID
+From
+  hec_patient_treatment Inner Join
+  hec_patient_2_patienttreatment
+    On hec_patient_treatment.HEC_Patient_TreatmentID =
+    hec_patient_2_patienttreatment.HEC_Patient_Treatment_RefID Inner Join
+  hec_patients
+    On hec_patients.HEC_PatientID =
+    hec_patient_2_patienttreatment.HEC_Patient_RefID Left Join
+  (Select
+    cmn_pro_products.Product_Name_DictID,
+    cmn_pro_products.CMN_PRO_ProductID,
+    hec_patient_treatment_requiredproducts.HEC_Patient_Treatment_RefID,
+    hec_patient_treatment_requiredproducts.Quantity,
+    cmn_pro_products.Product_Number,
+    hec_patient_treatment_requiredproducts.ExpectedDateOfDelivery,
+    hec_patient_treatment_requiredproducts.ProductProvidingPharmacy_RefID As
+    PharmacyID,
+    ord_cuo_customerorder_statuses.Status_Name_DictID,
+    ord_cuo_customerorder_positions.Position_RequestedDateOfDelivery As
+    ArticleDate
+  From
+    hec_patient_treatment_requiredproducts Inner Join
+    hec_products On hec_patient_treatment_requiredproducts.HEC_Product_RefID =
+      hec_products.HEC_ProductID Inner Join
+    cmn_pro_products On hec_products.Ext_PRO_Product_RefID =
+      cmn_pro_products.CMN_PRO_ProductID Left Join
+    ord_cuo_customerorder_positions
+      On
+      hec_patient_treatment_requiredproducts.BoundTo_CustomerOrderPosition_RefID
+      = ord_cuo_customerorder_positions.ORD_CUO_CustomerOrder_PositionID And
+      ord_cuo_customerorder_positions.IsDeleted = 0 Left Join
+    ord_cuo_customerorder_headers
+      On ord_cuo_customerorder_positions.CustomerOrder_Header_RefID =
+      ord_cuo_customerorder_headers.ORD_CUO_CustomerOrder_HeaderID And
+      ord_cuo_customerorder_headers.IsDeleted = 0 Left Join
+    ord_cuo_customerorder_statushistory
+      On ord_cuo_customerorder_headers.ORD_CUO_CustomerOrder_HeaderID =
+      ord_cuo_customerorder_statushistory.CustomerOrder_Header_RefID And
+      ord_cuo_customerorder_statushistory.IsDeleted = 0 Left Join
+    ord_cuo_customerorder_statuses
+      On ord_cuo_customerorder_statushistory.CustomerOrder_Status_RefID =
+      ord_cuo_customerorder_statuses.ORD_CUO_CustomerOrder_StatusID And
+      ord_cuo_customerorder_statuses.IsDeleted = 0
+  Where
+    hec_patient_treatment_requiredproducts.IsDeleted = 0 And
+    hec_products.IsDeleted = 0 And
+    cmn_pro_products.IsDeleted = 0) Article
+    On hec_patient_treatment.HEC_Patient_TreatmentID =
+    Article.HEC_Patient_Treatment_RefID Left Join
+  (Select
+    hec_patient_treatment_requiredproducts.HEC_Patient_Treatment_RefID,
+    hec_patient_treatment_requiredproducts.BoundTo_CustomerOrderPosition_RefID,
+    hec_patient_treatment_requiredproducts.HEC_Patient_Treatment_RequiredProductID
+  From
+    hec_patient_treatment_requiredproducts
+  Where
+    hec_patient_treatment_requiredproducts.IsDeleted = 0) RequiredProducts
+    On hec_patient_treatment.HEC_Patient_TreatmentID =
+    RequiredProducts.HEC_Patient_Treatment_RefID Left Join
+  hec_patient_treatment_ocularextension
+    On hec_patient_treatment.HEC_Patient_TreatmentID =
+    hec_patient_treatment_ocularextension.HEC_Patient_Treatment_RefID And
+    hec_patient_treatment_ocularextension.IsDeleted = 0 Left Join
+  (Select
+    hec_patient_treatment.HEC_Patient_TreatmentID As FollowUp_ID,
+    hec_patient_treatment.IfSheduled_Date As IfFollowUpSheduled_Date,
+    hec_patient_treatment.IsTreatmentPerformed As IsFollowUPPerformed,
+    hec_patient_treatment.IfTreatmentFollowup_FromTreatment_RefID,
+    hec_patient_treatment.IfTreatmentPerformed_Date As IfFollowUpPerformed_Date,
+    hec_patient_treatment.TreatmentPractice_RefID As Followup_PracticeID,
+    hec_patient_treatment.IfTreatmentPerformed_ByDoctor_RefID As
+    Followup_Performed_by_DoctorID,
+    hec_patient_treatment.IfSheduled_ForDoctor_RefID As
+    Followup_Scheduled_for_DoctorID
+  From
+    hec_patient_treatment
+  Where
+    hec_patient_treatment.IsDeleted = 0 And
+    hec_patient_treatment.IsTreatmentFollowup = 1 And
+    hec_patient_treatment.Tenant_RefID = @TenantID) FollowUp
+    On hec_patient_treatment.HEC_Patient_TreatmentID =
+    FollowUp.IfTreatmentFollowup_FromTreatment_RefID
+Where
+  hec_patients.HEC_PatientID = @PatientID And
+  hec_patients.IsDeleted = 0 And
+  hec_patients.Tenant_RefID = @TenantID And
+  hec_patient_2_patienttreatment.IsDeleted = 0 And
+  hec_patient_treatment.IsDeleted = 0
+  </SQLStatement>
+
+    <Parameters IsClass="true" Name="P_L5TR_GTfPID_1045">
+        <Members>
+            <ClassMember Name="PatientID" Type="Guid"  />
+
+        </Members>
+    </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+
+        
+        
+		<ObjectReturnType_Definition Name="L5TR_GTfPID_1045" IsArray="true" GroupBy="HEC_Patient_TreatmentID">
+			<Members>
+                <ClassMember Name="IsTreatmentPerformed" Type="bool"  />
+                <ClassMember Name="IfTreatmentPerformed_Date" Type="DateTime"  />
+                <ClassMember Name="IsTreatmentFollowup" Type="bool"  />
+                <ClassMember Name="IsScheduled" Type="bool"  />
+                <ClassMember Name="IfSheduled_Date" Type="DateTime"  />
+                <ClassMember Name="IsTreatmentBilled" Type="bool"  />
+                <ClassMember Name="IfTreatmentBilled_Date" Type="DateTime"  />
+                <ClassMember Name="HEC_Patient_TreatmentID" Type="Guid"  />
+                <ClassMember Name="IsTreatmentOfLeftEye" Type="bool"  />
+                <ClassMember Name="IsTreatmentOfRightEye" Type="bool"  />
+                <ClassMember Name="Treatment_PracticeID" Type="Guid"  />
+                <ClassMember Name="Treatment_Performed_by_DoctorID" Type="Guid"  />
+                
+                <ClassMember IsClass="true" IsArray="true" Name="Article" Type="L5TR_GTfPID_1045a" GroupBy="CMN_PRO_ProductID">
+                    <Members>
+                        <ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+                      <ClassMember Name="Product_Number" Type="string"  />
+                      <ClassMember Name="Quantity" Type="double"  />
+                        <ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+                        <ClassMember Name="Status_Name_DictID" Type="Dict" OriginTable="ord_cuo_customerorder_statuses" Source_DBField="Status_Name_DictID"  />
+                        <ClassMember Name="ArticleDate" Type="DateTime"  />
+                        <ClassMember Name="ExpectedDateOfDelivery" Type="DateTime"  />
+                    </Members>
+                </ClassMember>
+
+                <ClassMember IsClass="true" IsArray="true" Name="RequiredProducts" Type="L5TR_GTfPID_1045b" GroupBy="HEC_Patient_Treatment_RequiredProductID">
+                    <Members>
+                        <ClassMember Name="HEC_Patient_Treatment_RequiredProductID" Type="Guid"  />
+                        <ClassMember Name="BoundTo_CustomerOrderPosition_RefID" Type="Guid"  />
+                        <ClassMember Name="PharmacyID" Type="Guid"  />
+                    </Members>
+                </ClassMember>
+
+                <ClassMember IsClass="true" IsArray="true" Name="FollowUps" Type="L5TR_GTfPID_1045c" GroupBy="FollowUp_ID">
+                    <Members>
+                        <ClassMember Name="FollowUp_ID" Type="Guid"  />
+                        <ClassMember Name="IsFollowUPPerformed" Type="bool"  />
+                        <ClassMember Name="IfFollowUpPerformed_Date" Type="DateTime"  />
+                        <ClassMember Name="IfFollowUpSheduled_Date" Type="DateTime"  />
+                        <ClassMember Name="Followup_PracticeID" Type="Guid"  />
+                        <ClassMember Name="Followup_Performed_by_DoctorID" Type="Guid"  />
+                        <ClassMember Name="Followup_Scheduled_for_DoctorID" Type="Guid"  />
+                    </Members>
+                </ClassMember>
+                
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

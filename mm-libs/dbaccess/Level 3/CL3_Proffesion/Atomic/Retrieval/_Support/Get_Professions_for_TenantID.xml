@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/26/2014 3:39:10 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Professions_for_TenantID</Name>
+    <Namespace>CL3_Profession.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Profession.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Professions_for_TenantID"
+                Method_Name="Get_Professions_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Professions_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_str_professions.ProfessionName_DictID,
+  cmn_str_professions.CMN_STR_ProfessionID,
+  cmn_str_professionkeys.CMN_STR_ProfessionKeyID,
+  cmn_str_professionkeys.SocialSecurityProfessionKey,
+  cmn_str_skills.CMN_STR_SkillID,
+  cmn_str_skills.Skill_Name_DictID
+From
+  cmn_str_professions Left Join
+  cmn_str_professionkeys On cmn_str_professions.CMN_STR_ProfessionID =
+    cmn_str_professionkeys.CMN_STR_Profession_RefID And
+    cmn_str_professionkeys.IsDeleted = 0 And cmn_str_professionkeys.Tenant_RefID
+    = @TenantID Left Join
+  cmn_str_skill_2_profession On cmn_str_professions.CMN_STR_ProfessionID =
+    cmn_str_skill_2_profession.Profession_RefID And
+    cmn_str_skill_2_profession.IsDeleted = 0 And
+    cmn_str_skill_2_profession.Tenant_RefID = @TenantID Left Join
+  cmn_str_skills On cmn_str_skill_2_profession.Skill_RefID =
+    cmn_str_skills.CMN_STR_SkillID And cmn_str_skills.IsDeleted = 0 And
+    cmn_str_skills.Tenant_RefID = @TenantID
+Where
+  cmn_str_professions.IsDeleted = 0 And
+  cmn_str_professions.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3P_GPfT_1537" IsArray="true" GroupBy="CMN_STR_ProfessionID">
+      <Members>
+        <ClassMember Name="ProfessionName" Type="Dict" OriginTable="cmn_str_professions" Source_DBField="ProfessionName_DictID"  />
+        <ClassMember Name="CMN_STR_ProfessionID" Type="Guid"  />
+        <ClassMember Name="CMN_STR_ProfessionKeyID" Type="Guid"  />
+        <ClassMember Name="SocialSecurityProfessionKey" Type="String"  />
+        <ClassMember IsClass="true" IsArray="true" Type="L3P_GPfT_1537_Skills" Name="Skills" GroupBy="CMN_STR_SkillID">
+          <Members>
+            <ClassMember Name="CMN_STR_SkillID" Type="Guid"  />
+            <ClassMember Name="Skill_Name" Type="Dict" OriginTable="cmn_str_skills" Source_DBField="Skill_Name_DictID"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+
+	</ResultInfo>
+
+</CodeGen>
+
+

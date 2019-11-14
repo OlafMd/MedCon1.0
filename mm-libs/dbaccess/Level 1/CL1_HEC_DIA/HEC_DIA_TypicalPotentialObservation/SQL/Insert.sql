@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_dia_typicalpotentialobservations
+	(
+		HEC_DIA_TypicalPotentialObservationID,
+		PotentialDiagnosis_RefID,
+		PotentialObservation_RefID,
+		SequenceNumber,
+		Creation_Timestamp,
+		Modification_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_DIA_TypicalPotentialObservationID,
+		@PotentialDiagnosis_RefID,
+		@PotentialObservation_RefID,
+		@SequenceNumber,
+		@Creation_Timestamp,
+		@Modification_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

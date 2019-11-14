@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_str_pps_workplace_responsiblepersons
+WHERE 
+	CMN_STR_PPS_Workplace_ResponsiblePersonID = @CMN_STR_PPS_Workplace_ResponsiblePersonID

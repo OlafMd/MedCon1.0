@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2F0DFD07-2266-4975-AF81-B3443971609F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_APOBilling_BillCrediting</RootNamespace>
+    <AssemblyName>CL5_APOBilling_BillCrediting</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_BillReimbursement_and_GrantedCreditNotes_for_BillPositionIDs.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Reimbursements_and_GrantedCreditNotes_for_BillPositions.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Shipment_and_CustomerOrderReturn_Header_for_BillPositionIDs.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_BillPositions_CreditNotes.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_BillPositions_with_CreditData_for_BillHeaderID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_BillReimbursement_and_GrantedCreditNotes_for_BillPositionIDs.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Reimbursements_and_GrantedCreditNotes_for_BillPositions.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Shipment_and_CustomerOrderReturn_Header_for_BillPositionIDs.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_BillReimbursement_and_GrantedCreditNotes_for_BillPositionIDs.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Shipment_and_CustomerOrderReturn_Header_for_BillPositionIDs.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Reimbursements_and_GrantedCreditNotes_for_BillPositions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_BillPositions_CreditNotes.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_BillPositions_with_CreditData_for_BillHeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_CRN\CL1_ACC_CRN.csproj">
+      <Project>{921822E3-FCBA-4498-946C-19B7E4D8C4AC}</Project>
+      <Name>CL1_ACC_CRN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_BIL\CL1_BIL.csproj">
+      <Project>{D4F4B377-8C25-466F-B42F-315FC44A6D33}</Project>
+      <Name>CL1_BIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_NumberRange\CL2_NumberRange.csproj">
+      <Project>{430ED362-7290-4A5F-9A7C-BCF3E90A72B3}</Project>
+      <Name>CL2_NumberRange</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Articles\CL3_Articles.csproj">
+      <Project>{B6DFA294-6413-463B-AD21-1F6EC75F8196}</Project>
+      <Name>CL3_Articles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_APOBilling_Bill\CL5_APOBilling_Bill.csproj">
+      <Project>{0AF74496-AEE2-424B-B5DA-DFB1332E4807}</Project>
+      <Name>CL5_APOBilling_Bill</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

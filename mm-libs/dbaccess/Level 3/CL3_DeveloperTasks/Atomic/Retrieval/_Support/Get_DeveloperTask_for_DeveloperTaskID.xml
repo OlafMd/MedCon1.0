@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="07/14/2014 03:09:17 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DeveloperTask_for_DeveloperTaskID</Name>
+    <Namespace>CL3_DeveloperTask.Atomic.Retrieval</Namespace>
+    <Description>Get developer task for specified developer task ID</Description>
+    <Tags>DeveloperTask, DeveloperTaskID</Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_DeveloperTask.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DeveloperTask_for_DeveloperTaskID"
+                Method_Name="Get_DeveloperTask_for_DeveloperTaskID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DeveloperTask_for_DeveloperTaskID"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+      tms_pro_developertasks.IdentificationNumber,
+      tms_pro_developertasks.DOC_Structure_Header_RefID,
+      tms_pro_developertasks.CreatedBy_ProjectMember_RefID,
+      tms_pro_developertasks.Priority_RefID,
+      tms_pro_developertasks.Project_RefID,
+      tms_pro_developertasks.DeveloperTask_Type_RefID,
+      tms_pro_developertasks.GrabbedByMember_RefID,
+      tms_pro_developertasks.Completion_Deadline,
+      tms_pro_developertasks.Completion_Timestamp,
+      tms_pro_developertasks.Name,
+      tms_pro_developertasks.Description,
+      tms_pro_developertasks.Developer_Points,
+      tms_pro_developertasks.IsComplete,
+      tms_pro_developertasks.IsIncompleteInformation,
+      tms_pro_developertasks.IsArchived,
+      tms_pro_developertasks.IsBeingPrepared,
+      tms_pro_developertasks.Creation_Timestamp,
+      tms_pro_developertasks.IsDeleted,
+      tms_pro_developertasks.Tenant_RefID,
+      tms_pro_developertasks.DeveloperTime_RequiredEstimation_min,
+      tms_pro_developertasks.DeveloperTime_CurrentInvestment_min,
+      tms_pro_developertasks.PercentageComplete
+    From
+      tms_pro_developertasks
+    Where
+      tms_pro_developertasks.TMS_PRO_DeveloperTaskID = @TaskID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3DT_GDTfDT_1509">
+    <Members>
+      <ClassMember Name="TaskID" Type="Guid" IsArray="false"/>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3DT_GDTfDT_1509" IsArray="false">
+      <Members>
+        <ClassMember Name="IdentificationNumber" Type="String" />
+        <ClassMember Name="DOC_Structure_Header_RefID" Type="Guid" />
+        <ClassMember Name="CreatedBy_ProjectMember_RefID" Type="Guid" />
+        <ClassMember Name="Priority_RefID" Type="Guid" />
+        <ClassMember Name="Project_RefID" Type="Guid" />
+        <ClassMember Name="DeveloperTask_Type_RefID" Type="Guid" />
+        <ClassMember Name="GrabbedByMember_RefID" Type="Guid" />
+        <ClassMember Name="Completion_Deadline" Type="DateTime"  />
+        <ClassMember Name="Completion_Timestamp" Type="DateTime"  />
+        <ClassMember Name="Name" Type="String"  />
+        <ClassMember Name="Description" Type="String" />
+        <ClassMember Name="Developer_Points" Type="int" />
+        <ClassMember Name="IsComplete" Type="bool"  />
+        <ClassMember Name="IsIncompleteInformation" Type="bool"  />
+        <ClassMember Name="IsArchived" Type="bool"  />
+        <ClassMember Name="IsBeingPrepared" Type="bool"  />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+        <ClassMember Name="IsDeleted" Type="bool"  />
+        <ClassMember Name="Tenant_RefID" Type="Guid" />
+        <ClassMember Name="DeveloperTime_CurrentInvestment_min" Type="Double"  />
+        <ClassMember Name="DeveloperTime_RequiredEstimation_min" Type="Double"  />
+        <ClassMember Name="PercentageComplete" Type="Double"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

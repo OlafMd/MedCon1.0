@@ -1,0 +1,39 @@
+<div>
+    <ul class="table-header patients-mm">
+        <li class="unsorted" ng-class="setTableHeaderClass('name')" ng-click="orderTable('name')">{{::'LABEL_LAST_NAME_FIRST_NAME' | translate }}</li>
+        <li class="unsorted text-center" ng-class="setTableHeaderClass('sex')" ng-click="orderTable('sex')">{{::'LABEL_SEX'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('health_insurance_provider')" ng-click="orderTable('health_insurance_provider')">{{::'LABEL_HEALTH_INSURANCE_PROVIDER'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('last_first_op_doctor_name')" ng-click="orderTable('last_first_op_doctor_name')">{{::'LAEL_OP_DOCTOR_PRACTICE'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('last_first_ac_doctor_name')" ng-click="orderTable('last_first_ac_doctor_name')">{{::'LAEL_AC_DOCTOR_PRACTICE'| translate}}</li>
+        <li>{{::'LABEL_INSURANCE_ID'| translate}}</li>
+        <li class="text-center" >{{::'LABEL_INSURANCE_STATUS'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('participation_consent')" ng-click="orderTable('participation_consent')"> {{::'LABEL_PARTICIPATION_CONSENT'| translate}}</li>
+        <li class="controls text-right"></li>
+    </ul>
+    <h2 id="stickyHeaderBox" class="first-letter-holder hide"></h2>
+
+    <div class="content-scroll clear" id="wrapper" ng-if="showPatientData" sticky>
+        <div id="wrapper_inner" class="clearfix">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div id="table_id" ng-repeat="item in patientList | groupBy:'group_name'" ng-repeat-finished>
+                    <h2 id="tableGroup" class="first-letter-holder tableGroup" ng-if="item.group_name_CHANGED">{{::item.group_name}}</h2>
+                    <div class="table-row">
+                        <ul id="list" class="table-content patients-mm" ng-class="setStatusClass(item.participation_consent_status)">
+                            <li class="larger-font">{{::item.name}}<div class="normal-height-font gray-font-color">{{::item.birthday_string}}</div></li>
+                            <li class="text-center">{{::item.sex}}</li>
+                            <li>{{::item.health_insurance_provider}}</li>
+                            <li>{{::item.last_first_op_doctor_name}}<div class="normal-height-font gray-font-color">{{::item.practice}}</div></li>
+                            <li>{{::item.last_first_ac_doctor_name}}<div class="normal-height-font gray-font-color">{{::item.ac_practice}}</div></li>
+                            <li>{{::item.insurance_id}}</li>
+                            <li class="text-center">{{::item.insurance_status}}</li>
+                            <li class="table-row-color">{{::item.participation_consent_status | translate}}</li>
+                            <li class="controls text-right">
+                                <a class="icons-eye" href="#/patient/patient_detail/{{::item.id}}" id="btnEditPatient_{{$index}}" title="{{::'BUTTON_EDIT' | translate}}"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

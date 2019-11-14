@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	mrs_run_measurementrun_statushistory
+WHERE 
+	MRS_RUN_MeasurementRun_StatusHistoryID = @MRS_RUN_MeasurementRun_StatusHistoryID

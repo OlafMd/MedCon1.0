@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8A936290-4628-4F28-9639-9B65915A0C8C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DLCore_DBCommons</RootNamespace>
+    <AssemblyName>DLCore_DBCommons</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\..\apps\mmdocconnect-doc-app\MMDocConnectDocApp\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDtMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDtMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDyMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDyMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DBACCESREFACTOR|AnyCPU'">
+    <OutputPath>bin\DBACCESREFACTOR\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>$(SolutionDir)\packages\RestSharp.105.0.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APODemand\SLDCorrespodenceType.cs" />
+    <Compile Include="APODemand\SLDCustomMessages.cs" />
+    <Compile Include="APODemand\SLDDunning.cs" />
+    <Compile Include="DBUpdater\TransactionWraper.cs" />
+    <Compile Include="APODemand\SLDAPOApplication.cs" />
+    <Compile Include="APODemand\SLDBill.cs" />
+    <Compile Include="APODemand\SLDCatalog.cs" />
+    <Compile Include="APODemand\SLDContentAdjustment.cs" />
+    <Compile Include="APODemand\SLDDiscountType.cs" />
+    <Compile Include="APODemand\SLDDocument.cs" />
+    <Compile Include="APODemand\SLDFunctionLevelRights.cs" />
+    <Compile Include="APODemand\SLDInstallmentPlan.cs" />
+    <Compile Include="APODemand\SLDInventory.cs" />
+    <Compile Include="APODemand\SLDNumberRange.cs" />
+    <Compile Include="APODemand\SLDOrderStatus.cs" />
+    <Compile Include="APODemand\SLDPayment.cs" />
+    <Compile Include="APODemand\SLDPriceList.cs" />
+    <Compile Include="APODemand\SLDReturnPolicy.cs" />
+    <Compile Include="APODemand\SLDShoppingCart.cs" />
+    <Compile Include="APODemand\SLDSupplier.cs" />
+    <Compile Include="DanuTask\DLStaticListData.cs" />
+    <Compile Include="MRMS\DLStaticListData.cs" />
+    <Compile Include="MyHealthClub\DLStaticListData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\DBCommonsReader.cs" />
+    <Compile Include="Utils\EnumUtils.cs" />
+    <Compile Include="Utils\SerializationUtils.cs" />
+    <Compile Include="XMLInDBModels\ProductAdditionalInfoXML.cs" />
+    <Compile Include="Zugseil\DBUpdater\Model\Dimension.cs" />
+    <Compile Include="Zugseil\DBUpdater\Model\InventoryReasons.cs" />
+    <Compile Include="Zugseil\DBUpdater\Model\NumberRanges.cs" />
+    <Compile Include="Zugseil\DBUpdater\Model\ShipmentTypes.cs" />
+    <Compile Include="Zugseil\DBUpdater\ReadFromFile.cs" />
+    <Compile Include="Zugseil\SLDCatalog.cs" />
+    <Compile Include="Zugseil\SLDOrderStatus.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DanuTask\StaticListDataResource\acount-function-level-right.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DanuTask\StaticListDataResource\business-task-statuses.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DanuTask\StaticListDataResource\business-task-types.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DanuTask\StaticListDataResource\comunication-contact-type.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DanuTask\StaticListDataResource\developer-task-priorities.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DanuTask\StaticListDataResource\developer-task-statuses.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DanuTask\StaticListDataResource\feature-statuses.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DanuTask\StaticListDataResource\feature-types.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DanuTask\StaticListDataResource\project-statuses.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DanuTask\StaticListDataResource\quick-task-type.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DanuTask\StaticListDataResource\rights-packages.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\acount-function-level-right.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\acount-function-level-right-group.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\customer-order-status.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\shipment-status.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\bill-status.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanuTask\StaticListDataResource\currency-names.xml" />
+    <EmbeddedResource Include="DanuTask\StaticListDataResource\rights.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\procurement-order-status.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\payment-type.xml" />
+    <EmbeddedResource Include="APODemand\StaticListDataResource\installment-plan-status.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\dunning-type.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\number-range-usage-area.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\default-content-adjustment-reason.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\default-return-policies.xml" />
+    <EmbeddedResource Include="APODemand\StaticListDataResource\supplier-type.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\invetory-process-status.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\return-reason.xml" />
+    <EmbeddedResource Include="APODemand\StaticListDataResource\stock-correction-reason.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\discount-type.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\correspondence-type.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="APODemand\StaticListDataResource\custom-messages.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="Zugseil\DBUpdater\Json\Dimensions.json" />
+    <EmbeddedResource Include="Zugseil\DBUpdater\Json\ShipmentTypes.json" />
+    <EmbeddedResource Include="Zugseil\DBUpdater\Json\NumberRanges.json" />
+    <EmbeddedResource Include="Zugseil\DBUpdater\Json\InventoryChangeReasons.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Zugseil\StaticListDataResource\customer-order-status.xml" />
+    <EmbeddedResource Include="Zugseil\StaticListDataResource\procurement-order-status.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Zugseil\StaticListDataResource\shipment-status.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

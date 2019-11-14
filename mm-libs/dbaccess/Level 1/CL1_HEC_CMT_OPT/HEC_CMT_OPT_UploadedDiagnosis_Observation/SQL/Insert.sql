@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_cmt_opt_uploadeddiagnosis_observations
+	(
+		HEC_CMT_OPT_UploadedDiagnosis_ObservationID,
+		UploadedDiagnosis_RefID,
+		Uploaded_PotentialObservationITL,
+		PotentialObservation_DisplayName,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CMT_OPT_UploadedDiagnosis_ObservationID,
+		@UploadedDiagnosis_RefID,
+		@Uploaded_PotentialObservationITL,
+		@PotentialObservation_DisplayName,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

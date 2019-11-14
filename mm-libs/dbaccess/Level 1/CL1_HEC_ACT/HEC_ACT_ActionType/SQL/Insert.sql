@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_act_actiontype
+	(
+		HEC_ACT_ActionTypeID,
+		GlobalPropertyMatchingID,
+		ActionType_Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_ActionTypeID,
+		@GlobalPropertyMatchingID,
+		@ActionType_Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

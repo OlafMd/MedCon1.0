@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/10/2013 2:06:49 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_Accounts_For_MeasurementRun</Name>
+    <Namespace>CL6_MRMS_Backoffice.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_MRMS_Backoffice.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_Accounts_For_MeasurementRun"
+                Method_Name="Get_All_Accounts_For_MeasurementRun"
+                ApplicationPlattform_WebServiceName="Get_All_Accounts_For_MeasurementRun"
+                ApplicationPlattform_Namespace=".Get_All_Accounts_For_MeasurementRun"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.LastName,
+  cmn_per_personinfo.PrimaryEmail,
+  cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID,
+  mrs_run_measurementrun_routes.Route_RefID
+From
+  cmn_bpt_businessparticipants Inner Join
+  cmn_per_personinfo
+    On cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID And cmn_per_personinfo.IsDeleted = 0
+    And cmn_per_personinfo.Tenant_RefID = @TenantID Inner Join
+  mrs_run_measurementrun_routes
+    On mrs_run_measurementrun_routes.BoundTo_Account_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+Where
+  mrs_run_measurementrun_routes.IsDeleted = 0 And
+  mrs_run_measurementrun_routes.MeasurementRun_RefID = @MeasurementRunID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6MRMS_GAAfMR_0930">
+    <Members>
+      <ClassMember Name="MeasurementRunID" Type="Guid"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="L6MRMS_GAAfMR_0930" IsArray="true">
+      <Members>
+        <ClassMember Name="LastName" Type="String"  />
+        <ClassMember Name="FirstName" Type="String"  />
+        <ClassMember Name="PrimaryEmail" Type="String"  />
+        <ClassMember Name="CMN_BPT_BusinessParticipantID" Type="Guid"  />
+        <ClassMember Name="Route_RefID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

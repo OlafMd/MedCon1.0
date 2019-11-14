@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/8/2013 3:23:45 PM">
+
+
+  <Meta>
+    <Name>Get_QuickTaskInvestedWorkTimes_for_ActiveUser_and_Date</Name>
+    <Namespace>CL6_DanuTask_QuickTask.Atomic.Retrieval</Namespace>
+    <Description>Retrieval of basic info for invested worktimes per active account.</Description>
+    <Tags></Tags>
+  </Meta>
+  <Componenttype>AtomicMethod</Componenttype>
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_DanuTask_QuickTask.Atomic.Retrieval"
+                Method_ClassName="cls_Get_QuickTaskInvestedWorkTimes_for_ActiveUser_and_Date"
+                Method_Name="Get_QuickTaskInvestedWorkTimes_for_ActiveUser_and_Date"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace="."
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  tms_quicktasks.TMS_QuickTaskID,
+  tms_quicktasks.IdentificationNumber,
+  tms_quicktasks.QuickTask_Title_DictID,
+  tms_quicktasks.QuickTask_StartTime,
+  tms_quicktasks.QuickTask_Description_DictID,
+  tms_quicktasks.QuickTask_Type_RefID,
+  tms_pro_projects.TMS_PRO_ProjectID,
+  tms_pro_projects.Name_DictID,
+  tms_quicktasks.R_QuickTask_InvestedTime_min
+From
+  cmn_bpt_investedworktimes Left Join
+  usr_accounts On usr_accounts.BusinessParticipant_RefID =
+    cmn_bpt_investedworktimes.BusinessParticipant_RefID Inner Join
+  tms_quicktask_investedworktimes
+    On cmn_bpt_investedworktimes.CMN_BPT_InvestedWorkTimeID =
+    tms_quicktask_investedworktimes.CMN_BPT_InvestedWorkTime_RefID Inner Join
+  tms_quicktasks On tms_quicktask_investedworktimes.TMS_QuickTasks_RefID =
+    tms_quicktasks.TMS_QuickTaskID Inner Join
+  tms_pro_projects On tms_quicktasks.AssignedTo_Project_RefID =
+    tms_pro_projects.TMS_PRO_ProjectID
+Where
+  cmn_bpt_investedworktimes.IsDeleted = 0 And
+  tms_quicktasks.IsDeleted = 0 And
+  tms_quicktask_investedworktimes.IsDeleted = 0 And
+  usr_accounts.USR_AccountID = @AccountID And
+  DATE(tms_quicktasks.QuickTask_StartTime) = DATE(@StartDate) And
+  tms_pro_projects.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6QT_GQTIWTfAUaST_1046">
+    <Members>
+      <ClassMember Name="StartDate" Type="DateTime"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6QT_GQTIWTfAUaST_1046" IsArray="true">
+      <Members>
+        <ClassMember Name="TMS_QuickTaskID" Type="Guid"  />
+        <ClassMember Name="IdentificationNumber" Type="String"  />
+        <ClassMember Name="QuickTask_Title" Type="Dict" OriginTable="tms_quicktasks" Source_DBField="QuickTask_Title_DictID"  />
+        <ClassMember Name="QuickTask_Description" Type="Dict" OriginTable="tms_quicktasks" Source_DBField="QuickTask_Description_DictID"  />
+        <ClassMember Name="QuickTask_StartTime" Type="DateTime"  />
+        <ClassMember Name="QuickTask_Type_RefID" Type="Guid"  />
+        <ClassMember Name="TMS_PRO_ProjectID" Type="Guid"  />
+        <ClassMember Name="Project_Name" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Name_DictID"  />        
+        <ClassMember Name="R_QuickTask_InvestedTime_min" Type="Double"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

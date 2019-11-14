@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/11/2013 3:41:10 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShoppingCart_for_ShoppingCartStatusID</Name>
+    <Namespace>CL5_Lucentis_WebShop.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_WebShop.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ShoppingCart_for_ShoppingCartID"
+                Method_Name="Get_ShoppingCart_for_ShoppingCartID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShoppingCart_for_ShoppingCartID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  ord_prc_shoppingcart.ORD_PRC_ShoppingCartID,
+  ord_prc_shoppingcart.Creation_Timestamp As ShoppingCart_CreationDate,
+  ord_prc_shoppingcart_products.ORD_PRC_ShoppingCart_ProductID,
+  ord_prc_shoppingcart_products.CMN_PRO_Product_RefID,
+  ord_prc_shoppingcart_products.Quantity,
+  ord_prc_shoppingcart_products.IsCanceled As IsProductCanceled,
+  ord_prc_shoppingcart_products.IsDeleted As IsProductDeleted,
+  cmn_pro_products.Product_Name_DictID,
+  cmn_pro_products.Product_Number
+From
+  ord_prc_shoppingcart Left Join
+  ord_prc_shoppingcart_products On ord_prc_shoppingcart.ORD_PRC_ShoppingCartID =
+    ord_prc_shoppingcart_products.ORD_PRC_ShoppingCart_RefID And
+    ord_prc_shoppingcart_products.IsDeleted = 0 And
+    ord_prc_shoppingcart_products.IsCanceled = 0 Left Join
+  cmn_pro_products On ord_prc_shoppingcart_products.CMN_PRO_Product_RefID =
+    cmn_pro_products.CMN_PRO_ProductID And cmn_pro_products.IsDeleted = 0
+Where
+  ord_prc_shoppingcart.IsDeleted = 0 And
+  ord_prc_shoppingcart.Tenant_RefID = @TenantID And
+  ord_prc_shoppingcart.ORD_PRC_ShoppingCartID = @ShoppingCartID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5WS_GSCfSC_1824">
+    <Members>
+      <ClassMember Name="ShoppingCartID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5WS_GSCfSC_1824" IsArray="true" GroupBy="ORD_PRC_ShoppingCartID">
+      <Members>
+        <ClassMember Name="ORD_PRC_ShoppingCartID" Type="Guid"  />
+        <ClassMember Name="ShoppingCart_CreationDate" Type="DateTime"  />
+        <ClassMember Name="Products" IsClass="true" IsArray="true" GroupBy="ORD_PRC_ShoppingCart_ProductID" Type="L5WS_GSCfSC_1824_Product" >
+          <Members>
+            <ClassMember Name="ORD_PRC_ShoppingCart_ProductID" Type="Guid"  />
+            <ClassMember Name="CMN_PRO_Product_RefID" Type="Guid"  />
+            <ClassMember Name="Quantity" Type="double"  />
+            <ClassMember Name="IsProductCanceled" Type="bool"  />
+            <ClassMember Name="IsProductDeleted" Type="bool"  />
+            <ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+            <ClassMember Name="Product_Number" Type="String"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

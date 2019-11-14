@@ -1,0 +1,23 @@
+INSERT INTO 
+	bil_billheader_propertyvalues
+	(
+		BIL_BillHeader_PropertyValueID,
+		BIL_BillHeader_RefID,
+		PropertyKey,
+		PropertyValue,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@BIL_BillHeader_PropertyValueID,
+		@BIL_BillHeader_RefID,
+		@PropertyKey,
+		@PropertyValue,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_pps_shifttemplate_wa_workplaceactivityassignments
+	(
+		CMN_PPS_ShiftTemplate_WA_WorkplaceActivityAssignmentID,
+		ShiftTemplate_WorkplaceAssignment_RefID,
+		CMN_STR_PPS_Workplace_Activity_RefID,
+		WorkplaceAssignment_Offset_sec,
+		WorkplaceAssignment_Duration_sec,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_PPS_ShiftTemplate_WA_WorkplaceActivityAssignmentID,
+		@ShiftTemplate_WorkplaceAssignment_RefID,
+		@CMN_STR_PPS_Workplace_Activity_RefID,
+		@WorkplaceAssignment_Offset_sec,
+		@WorkplaceAssignment_Duration_sec,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

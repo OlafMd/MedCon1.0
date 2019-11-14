@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_str_sce_capacityrestriction_types
+WHERE 
+	CMN_STR_SCE_CapacityRestriction_TypeID = @CMN_STR_SCE_CapacityRestriction_TypeID

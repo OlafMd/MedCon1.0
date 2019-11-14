@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="02/02/2017 02:21 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Default_Pharmacy_for_Practice</Name>
+    <Namespace>MMDocConnectDBMethods.Pharmacy.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Pharmacy.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Default_Pharmacy_for_Practice"
+                Method_Name="Get_Default_Pharmacy_for_Practice"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_medicalpractice_2_universalproperty.Value_String As DefaultPharmacy
+From
+  hec_medicalpractises Inner Join
+  hec_medicalpractice_2_universalproperty
+    On hec_medicalpractises.HEC_MedicalPractiseID =
+    hec_medicalpractice_2_universalproperty.HEC_MedicalPractice_RefID And
+    hec_medicalpractice_2_universalproperty.Tenant_RefID = @TenantID And
+    hec_medicalpractice_2_universalproperty.IsDeleted = 0 Inner Join
+  hec_medicalpractice_universalproperties
+    On
+    hec_medicalpractice_2_universalproperty.HEC_MedicalPractice_UniversalProperty_RefID = hec_medicalpractice_universalproperties.HEC_MedicalPractice_UniversalPropertyID And 
+    hec_medicalpractice_universalproperties.PropertyName = "Default pharmacy" And 
+    hec_medicalpractice_universalproperties.Tenant_RefID = @TenantID And 
+    hec_medicalpractice_universalproperties.IsDeleted = 0
+Where
+  hec_medicalpractises.HEC_MedicalPractiseID = @PracticeID And
+  hec_medicalpractises.Tenant_RefID = @TenantID And
+  hec_medicalpractises.IsDeleted = 0
+  </SQLStatement>
+
+
+  <Parameters IsClass="true" Name="P_PH_GDPfP_1421">
+    <Members>
+      <ClassMember Name="PracticeID" Type="Guid" />
+    </Members>
+  </Parameters>
+  
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+    
+    <ObjectReturnType_Definition Name="PH_GDPfP_1421">
+      <Members>        
+        <ClassMember Name="DefaultPharmacy" Type="String" />
+     </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

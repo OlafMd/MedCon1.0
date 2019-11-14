@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/28/2013 11:22:09 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="TMS_PRO_Request_2_BusinessTask"
+                IsClass="true"
+                IsClass_Namespace="CL1_TMS_PRO"
+                IsClass_Corresponding_DBTable="tms_pro_request_2_businesstask" >
+      <Members>
+        <ClassMember Name="AssignmentID" Type="Guid" IsObjectPrimaryKey="true"/>
+        <ClassMember Name="TMS_PRO_Request_RefID" Type="Guid" />
+        <ClassMember Name="TMS_PRO_BusinessTask_RefID" Type="Guid" />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+        <ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+        <ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

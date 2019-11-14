@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_bil_potentialcode_2_healthcaresubstance
+	(
+		AssignmentID,
+		HEC_BIL_PotentialCode_RefID,
+		HEC_SUB_Substance_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@HEC_BIL_PotentialCode_RefID,
+		@HEC_SUB_Substance_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

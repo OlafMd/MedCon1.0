@@ -1,0 +1,31 @@
+.list-inline {
+  font-size: 0;
+
+  > li {
+    display: inline-block;
+    font-size: 12px;
+    vertical-align: top;
+  }
+}
+
+.list-table {
+  display: table;
+  width: 100%;
+
+  > li {
+    display: table-cell;
+    vertical-align: middle;
+
+    & + li {
+      padding-left: 10px;
+    }
+  }
+}
+
+.ordered-list {
+  list-style-type: decimal;
+
+  > li {
+    padding-left: 20px;
+  }
+}

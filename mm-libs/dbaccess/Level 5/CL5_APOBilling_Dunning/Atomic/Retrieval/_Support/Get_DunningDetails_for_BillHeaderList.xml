@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/28/2014 11:17:47 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DunningDetails_for_BillHeaderList</Name>
+    <Namespace>CL5_APOBilling_Dunning.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBilling_Dunning.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DunningDetails_for_BillHeaderList"
+                Method_Name="Get_DunningDetails_for_BillHeaderList"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DunningDetails_for_BillHeaderList"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  acc_dun_dunningprocess_memberbills.ACC_DUN_DunningProcess_MemberBillID,
+  acc_dun_dunningprocess_memberbills.BIL_BillHeader_RefID,
+  acc_dun_dunningprocess_memberbills.ApplicableProcessDunningFees,
+  acc_dun_dunningprocess_memberbills.CurrentUnpaidBillFraction,
+  acc_dun_dunningprocesses.ACC_DUN_DunningProcessID,
+  acc_dun_dunning_models.ACC_DUN_Dunning_ModelID,
+  acc_dun_dunningprocesses.IsDunningProcessClosed,
+  acc_dun_dunningprocess_history.IsCurrentStep,
+  acc_dun_dunningprocess_history.IsSentToCustomer,
+  acc_dun_dunningprocess_history.ACC_DUN_DunningProcess_HistoryID,
+  acc_dun_dunningprocesses.DunnedAmount_Total,
+  acc_dun_dunning_levels.ACC_DUN_Dunning_LevelID,
+  acc_dun_dunningprocesses.DunningProcessClosedAt_Date,
+  acc_dun_dunningprocesses.DunningProcessClosedBy_BusinessParticipnant_RefID,
+  acc_dun_dunning_levels.Default_DunningFee,
+  acc_dun_dunningprocesses.ReachesNextDunningLevelAtDate,
+  acc_dun_dunninglevel_modelassignments.OrderSequence,
+  acc_dun_dunninglevel_modelassignments.DunningFee,
+  acc_dun_dunninglevel_modelassignments.ACC_DUN_DunningLevel_ModelAssignmentID,
+  acc_dun_dunning_levels.GlobalPropertyMatchingID,
+  acc_dun_dunning_levels.DunningLevelName_DictID
+From
+  acc_dun_dunning_models Inner Join
+  acc_dun_dunningprocesses On acc_dun_dunning_models.ACC_DUN_Dunning_ModelID =
+    acc_dun_dunningprocesses.DunningModel_RefID Inner Join
+  acc_dun_dunningprocess_memberbills
+    On acc_dun_dunningprocesses.ACC_DUN_DunningProcessID =
+    acc_dun_dunningprocess_memberbills.ACC_DUN_DunningProcess_RefID Inner Join
+  acc_dun_dunning_levels On acc_dun_dunning_levels.ACC_DUN_Dunning_LevelID =
+    acc_dun_dunningprocesses.Current_DunningLevel_RefID Inner Join
+  acc_dun_dunningprocess_history
+    On acc_dun_dunningprocess_memberbills.ACC_DUN_DunningProcess_RefID =
+    acc_dun_dunningprocess_history.ACC_DUN_DunningProcess_RefID And
+    acc_dun_dunning_levels.ACC_DUN_Dunning_LevelID =
+    acc_dun_dunningprocess_history.ACC_DUN_Dunning_Level_RefID Inner Join
+  acc_dun_dunninglevel_modelassignments
+    On acc_dun_dunning_models.ACC_DUN_Dunning_ModelID =
+    acc_dun_dunninglevel_modelassignments.Dunning_Model_RefID And
+    acc_dun_dunning_levels.ACC_DUN_Dunning_LevelID =
+    acc_dun_dunninglevel_modelassignments.Dunning_Level_RefID And
+    acc_dun_dunninglevel_modelassignments.IsDeleted = 0
+Where
+  acc_dun_dunningprocess_memberbills.BIL_BillHeader_RefID = @BillHeaderID_List And
+  acc_dun_dunningprocesses.IsDunningProcessClosed = 0 And
+  acc_dun_dunningprocess_memberbills.Tenant_RefID = @TenantID And
+  acc_dun_dunningprocess_memberbills.IsDeleted = 0 And
+  acc_dun_dunningprocess_history.IsCurrentStep = 1 And
+  (@BillDunningStatusGlobalProperty IS NULL OR (@BillDunningStatusGlobalProperty IS NOT NULL AND acc_dun_dunning_levels.GlobalPropertyMatchingID = @BillDunningStatusGlobalProperty)) 
+  AND (@DunningDateFrom IS NULL OR (@DunningDateFrom IS NOT NULL AND acc_dun_dunningprocesses.ReachesNextDunningLevelAtDate >= @DunningDateFrom))
+  AND (@DunningDateTo IS NULL OR (@DunningDateTo IS NOT NULL AND acc_dun_dunningprocesses.ReachesNextDunningLevelAtDate &lt;= @DunningDateTo))
+  AND acc_dun_dunningprocess_history.IsSentToCustomer = IfNull(@IsReminded, acc_dun_dunningprocess_history.IsSentToCustomer)
+  AND acc_dun_dunning_levels.ACC_DUN_Dunning_LevelID = IfNull(@DunningLevelID, acc_dun_dunning_levels.ACC_DUN_Dunning_LevelID)
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5BD_GDDfBHL_1117">
+    <Members>
+		  <ClassMember Name="BillHeaderID_List" Type="Guid" IsArray="true"  />
+      <ClassMember Name="DunningDateFrom" Type="DateTime?" />
+      <ClassMember Name="DunningDateTo" Type="DateTime?" />
+      <ClassMember Name="BillDunningStatusGlobalProperty" Type="String" />
+      <ClassMember Name="IsReminded" Type="Boolean?" />
+      <ClassMember Name="DunningLevelID" Type="Guid?" />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5BD_GDDfBHL_1117" IsArray="true">
+			<Members>
+				<ClassMember Name="ACC_DUN_DunningProcess_MemberBillID" Type="Guid"  />
+				<ClassMember Name="BIL_BillHeader_RefID" Type="Guid"  />
+				<ClassMember Name="ApplicableProcessDunningFees" Type="String"  />
+				<ClassMember Name="CurrentUnpaidBillFraction" Type="String"  />
+				<ClassMember Name="ACC_DUN_DunningProcessID" Type="Guid"  />
+				<ClassMember Name="ACC_DUN_Dunning_ModelID" Type="Guid"  />
+        <ClassMember Name="IsDunningProcessClosed" Type="Boolean"  />
+        <ClassMember Name="IsCurrentStep" Type="Boolean"  />
+        <ClassMember Name="IsSentToCustomer" Type="Boolean"  />
+        <ClassMember Name="ACC_DUN_DunningProcess_HistoryID" Type="Guid"  />
+        <ClassMember Name="DunnedAmount_Total" Type="Double"  />
+        <ClassMember Name="ACC_DUN_Dunning_LevelID" Type="Guid"  />
+        <ClassMember Name="DunningProcessClosedAt_Date" Type="DateTime"  />
+        <ClassMember Name="DunningProcessClosedBy_BusinessParticipnant_RefID" Type="Guid"  />
+        <ClassMember Name="Default_DunningFee" Type="Decimal"  />
+        <ClassMember Name="ReachesNextDunningLevelAtDate" Type="DateTime"  />
+        <ClassMember Name="OrderSequence" Type="int"  />
+        <ClassMember Name="DunningFee" Type="Decimal"  />
+        <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+        <ClassMember Name="DunningLevelName_DictID" Type="Dict" Source_DBField="DunningLevelName_DictID" OriginTable="acc_dun_dunning_levels"  />
+       
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

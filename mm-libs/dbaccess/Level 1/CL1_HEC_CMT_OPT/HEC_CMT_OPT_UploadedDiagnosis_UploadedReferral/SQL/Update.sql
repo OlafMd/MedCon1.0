@@ -1,0 +1,14 @@
+UPDATE 
+	hec_cmt_opt_uploadeddiagnosis_uploadedreferrals
+SET 
+	UploadedDiagnosis_RefID=@UploadedDiagnosis_RefID,
+	Uploaded_Practice_BusinessParticipantITL=@Uploaded_Practice_BusinessParticipantITL,
+	Uploaded_Practice_Name=@Uploaded_Practice_Name,
+	Upladed_PracticeType_GlobalPropertyMatchingID=@Upladed_PracticeType_GlobalPropertyMatchingID,
+	Uploaded_PracticeType_Name=@Uploaded_PracticeType_Name,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_CMT_OPT_UploadedDiagnosis_UploadedReferralID = @HEC_CMT_OPT_UploadedDiagnosis_UploadedReferralID

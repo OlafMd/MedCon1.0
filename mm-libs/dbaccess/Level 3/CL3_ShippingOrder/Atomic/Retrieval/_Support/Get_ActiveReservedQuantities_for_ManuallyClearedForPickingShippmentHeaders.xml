@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/22/2014 2:53:19 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ActiveReservedQuantities_for_ManuallyClearedForPickingShippmentHeaders</Name>
+    <Namespace>CL3_ShippingOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_ShippingOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ActiveReservedQuantities_for_ManuallyClearedForPickingShippmentHeaders"
+                Method_Name="Get_ActiveReservedQuantities_for_ManuallyClearedForPickingShippmentHeaders"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ActiveReservedQuantities_for_ManuallyClearedForPickingShippmentHeaders"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  Sum(log_rsv_reservation_trackinginstances.ReservedQuantityFromTrackingInstance) As ReservedQuantityFromTrackingInstance,
+  log_rsv_reservation_trackinginstances.LOG_ProductTrackingInstance_RefID
+From
+  log_rsv_reservations Inner Join
+  log_shp_shipment_positions
+    On log_shp_shipment_positions.LOG_SHP_Shipment_PositionID =
+    log_rsv_reservations.LOG_SHP_Shipment_Position_RefID Inner Join
+  log_shp_shipment_headers
+    On log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID =
+    log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID Inner Join
+  log_rsv_reservation_trackinginstances
+    On log_rsv_reservation_trackinginstances.LOG_RSV_Reservation_RefID =
+    log_rsv_reservations.LOG_RSV_ReservationID
+Where
+  log_rsv_reservations.IsDeleted = 0 And
+  log_shp_shipment_positions.IsDeleted = 0 And
+  log_shp_shipment_headers.IsDeleted = 0 And
+  log_rsv_reservations.IsReservationExecuted = 0 And
+  log_shp_shipment_positions.IsCancelled = 0 And
+  log_shp_shipment_headers.IsManuallyCleared_ForPicking = 1 And
+  log_rsv_reservation_trackinginstances.IsDeleted = 0 And
+  log_rsv_reservation_trackinginstances.LOG_ProductTrackingInstance_RefID = @ProductTrackingInstanceList
+Group By
+  log_rsv_reservation_trackinginstances.LOG_ProductTrackingInstance_RefID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3SO_GARQfMCFPSH_1450">
+    <Members>
+      <ClassMember Name="ProductTrackingInstanceList" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3SO_GARQfMCFPSH_1450" IsArray="true">
+      <Members>
+        <ClassMember Name="LOG_ProductTrackingInstance_RefID" Type="Guid"  />
+        <ClassMember Name="ReservedQuantityFromTrackingInstance" Type="Double"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

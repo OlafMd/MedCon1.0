@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 2/27/2014 3:05:22 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="ORD_PRC_SPB_SupplierBill_Header"
+                IsClass="true"
+                IsClass_Namespace="CL1_ORD_PRC_SPB"
+                IsClass_Corresponding_DBTable="ord_prc_spb_supplierbill_headers" >
+      <Members>
+		<ClassMember Name="ORD_PRC_SPB_SupplierBill_HeaderID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Supplier_RefID" Type="Guid" />
+		<ClassMember Name="Currency_RefID" Type="Guid" />
+		<ClassMember Name="SupplierBillNumber" Type="String" />
+		<ClassMember Name="DateOnBill" Type="DateTime" />
+		<ClassMember Name="TotalValue_BeforeTax" Type="Decimal" />
+		<ClassMember Name="TotalValue_IncludingTax" Type="Decimal" />
+		<ClassMember Name="BillComment" Type="String" />
+		<ClassMember Name="PaymentTargetDate" Type="DateTime" />
+		<ClassMember Name="CashDiscountInPercent" Type="Double" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

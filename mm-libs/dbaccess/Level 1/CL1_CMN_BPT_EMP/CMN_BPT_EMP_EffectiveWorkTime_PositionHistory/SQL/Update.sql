@@ -1,0 +1,23 @@
+UPDATE 
+	cmn_bpt_emp_effectiveworktime_positionhistory
+SET 
+	EffectiveWorkTime_Header_RefID=@EffectiveWorkTime_Header_RefID,
+	EffectiveWorkTime_Position_RefID=@EffectiveWorkTime_Position_RefID,
+	TriggeredAt_Date=@TriggeredAt_Date,
+	TriggeredBy_BusinessParticipant_RefID=@TriggeredBy_BusinessParticipant_RefID,
+	TriggeredBy_SourceOfEntry=@TriggeredBy_SourceOfEntry,
+	Comment=@Comment,
+	Activity_RefID=@Activity_RefID,
+	Workplace_RefID=@Workplace_RefID,
+	CMN_BPT_EMP_Employee_LeaveRequest_RefID=@CMN_BPT_EMP_Employee_LeaveRequest_RefID,
+	WorkTime_StartTime=@WorkTime_StartTime,
+	WorkTime_Duration_in_sec=@WorkTime_Duration_in_sec,
+	SourceOfEntry=@SourceOfEntry,
+	IsCreated=@IsCreated,
+	IsModified=@IsModified,
+	IsDeleted=@IsDeleted,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	CMN_BPT_EMP_EffectiveWorkTime_PositionHistoryID = @CMN_BPT_EMP_EffectiveWorkTime_PositionHistoryID

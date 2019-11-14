@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/13/2015 4:18:55 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Contract_Details_for_ContractID</Name>
+    <Namespace>MMDocConnectDBMethods.MainData.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.MainData.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Contract_Details_for_ContractID"
+                Method_Name="Get_Contract_Details_for_ContractID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Contract_Details_for_ContractID"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+      cmn_ctr_contracts.CMN_CTR_ContractID as ContractID,
+      cmn_ctr_contracts.ContractName,
+      cmn_ctr_contracts.ValidFrom,
+      cmn_ctr_contracts.ValidThrough
+    From
+      cmn_ctr_contracts
+    Where
+      cmn_ctr_contracts.Tenant_RefID = @TenantID And
+      cmn_ctr_contracts.IsDeleted = 0 And
+      cmn_ctr_contracts.CMN_CTR_ContractID = @ContractID
+  </SQLStatement>
+  
+  <Parameters IsClass="true" Name="P_MD_GCDfCID_1518">
+    <Members>
+      <ClassMember Name="ContractID" Type="Guid"  />
+      
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="MD_GCDfCID_1518">
+      <Members>
+        <ClassMember Name="ContractID" Type="Guid"  />
+        <ClassMember Name="ContractName" Type="String"  />
+        <ClassMember Name="ValidFrom" Type="DateTime"  />
+        <ClassMember Name="ValidThrough" Type="DateTime"  />
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

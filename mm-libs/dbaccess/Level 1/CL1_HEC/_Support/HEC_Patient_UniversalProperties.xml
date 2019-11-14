@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/21/2016 11:35:44 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_Patient_UniversalProperty"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC"
+                IsClass_Corresponding_DBTable="hec_patient_universalproperties" >
+      <Members>
+        <ClassMember Name="HEC_Patient_UniversalPropertyID" Type="Guid" IsObjectPrimaryKey="true"/>
+        <ClassMember Name="GlobalPropertyMatchingID" Type="String" />
+        <ClassMember Name="PropertyName" Type="String" />
+        <ClassMember Name="IsValue_String" Type="Boolean" />
+        <ClassMember Name="IfValue_String_DefaultValue" Type="String" />
+        <ClassMember Name="IsValue_Number" Type="Boolean" />
+        <ClassMember Name="IfValue_Number_DefaultValue" Type="double" />
+        <ClassMember Name="IsValue_Boolean" Type="Boolean" />
+        <ClassMember Name="IfValue_Boolean_DefaultValue" Type="Boolean" />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+        <ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+        <ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+        <ClassMember Name="Modification_Timestamp" Type="DateTime" />
+
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

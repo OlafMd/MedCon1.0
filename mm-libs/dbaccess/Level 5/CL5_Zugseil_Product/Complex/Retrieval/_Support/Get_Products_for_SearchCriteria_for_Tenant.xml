@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="09/24/2014 09:38:20 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Products_for_SearchCriteria_for_Tenant</Name>
+    <Namespace>CL5_Zugseil_Product.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_Product.Complex.Retrieval"
+                Method_ClassName="cls_Get_Products_for_SearchCriteria_for_Tenant"
+                Method_Name="Get_Products_for_SearchCriteria_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <Parameters IsClass="true" Name="P_L5PR_GPfSCfT_0938">
+    <Members>
+      <ClassMember Name="LanguageID" Type="Guid"  />
+      <ClassMember Name="PageSize" Type="int"  />
+      <ClassMember Name="ActivePage" Type="int"  />
+      <ClassMember Name="SearchCriteria" Type="String"  />
+      <ClassMember Name="OrderByCriteria" Type="String"  />
+      <ClassMember Name="ExcludedProducts"  Type="Guid" IsArray="true"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5PR_GPfSCfT_0938" IsArray="false">
+      <Members>
+        <ClassMember IsReference="true" Type="L5PR_GNoPfT_1442"       Name="NumberOfProducts"                  IsArray="false"/>
+        <ClassMember IsReference="true" Type="L5PR_GPfT_1439"          Name="ProductList"                  IsArray="true"/>
+ 
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+

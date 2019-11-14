@@ -1,0 +1,9 @@
+UPDATE 
+	log_shp_returnshipment_receivablecreditnote_headers
+SET 
+	Ext_ACC_CRN_ReceivedCreditNote_RefID=@Ext_ACC_CRN_ReceivedCreditNote_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	LOG_SHP_ReturnShipment_ReceivableCreditNote_HeaderID = @LOG_SHP_ReturnShipment_ReceivableCreditNote_HeaderID

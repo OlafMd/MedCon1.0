@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/26/2013 1:50:58 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_RealestateProperties_Data</Name>
+    <Namespace>CLE_L5_RealEstate.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_Realestate.Complex.Retrieval"
+                Method_ClassName="cls_Get_RealestateProperties_Data"
+                Method_Name="Get_RealestateProperties_Data"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_RealestateProperties_Data"
+                />
+
+ 
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5ER_GREPD_1350" IsArray="false">
+			<Members>
+			
+
+				<!-- Derived Tables -->
+				<ClassMember IsClass="true" IsArray="true" Name="PropertyTypes" Type="L5ER_GREPD_1350_PropertyTypes">
+					<Members>
+						<ClassMember Name="RES_RealestateProperty_TypeID" Type="Guid"  />
+						<ClassMember Name="RealestatePropertyType_Name" Type="Dict" OriginTable="PropertyTypes" Source_DBField="RealestatePropertyType_Name_DictID"  />
+						<ClassMember Name="RealestatePropertyType_Description" Type="Dict" OriginTable="PropertyTypes" Source_DBField="RealestatePropertyType_Description_DictID"  />
+					</Members>
+				</ClassMember>
+				<ClassMember IsClass="true" IsArray="true" Name="ConstructionTypes" Type="L5ER_GREPD_1350_ConstructionType">
+					<Members>
+						<ClassMember Name="RES_RealestateProperty_ConstructionTypeID" Type="Guid"  />
+						<ClassMember Name="ConstructionType_Name" Type="Dict" OriginTable="ConstructionType" Source_DBField="ConstructionType_Name_DictID"  />
+						<ClassMember Name="ConstructionType_Description" Type="Dict" OriginTable="ConstructionType" Source_DBField="ConstructionType_Description_DictID"  />
+					</Members>
+				</ClassMember>
+				<ClassMember IsClass="true" IsArray="true" Name="SourceOfInformations" Type="L5ER_GREPD_1350_SourceOfInformation">
+					<Members>
+						<ClassMember Name="RES_RealestateProperty_SourceOfInformationID" Type="Guid"  />
+						<ClassMember Name="SourceOfInformation_Name" Type="Dict" OriginTable="SourceOfInformation" Source_DBField="SourceOfInformation_Name_DictID"  />
+						<ClassMember Name="SourceOfInformation_Description" Type="Dict" OriginTable="SourceOfInformation" Source_DBField="SourceOfInformation_Description_DictID"  />
+					</Members>
+				</ClassMember>
+	
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

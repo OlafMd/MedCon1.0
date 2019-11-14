@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	log_shp_returnshipment_receivablecreditnote_positions
+WHERE 
+	LOG_SHP_ReturnShipment_ReceivableCreditNote_PositionID = @LOG_SHP_ReturnShipment_ReceivableCreditNote_PositionID

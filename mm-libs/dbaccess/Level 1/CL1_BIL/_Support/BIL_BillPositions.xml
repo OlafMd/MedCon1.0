@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/2/2015 9:15:46 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="BIL_BillPosition"
+                IsClass="true"
+                IsClass_Namespace="CL1_BIL"
+                IsClass_Corresponding_DBTable="bil_billpositions" >
+      <Members>
+		<ClassMember Name="BIL_BillPositionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="BIL_BilHeader_RefID" Type="Guid" />
+		<ClassMember Name="BIL_BillPosition_Group_RefID" Type="Guid" />
+		<ClassMember Name="ApplicableSalesTax_RefID" Type="Guid" />
+		<ClassMember Name="ApplicableSalesTax_Value" Type="Decimal" />
+		<ClassMember Name="ApplicableSalesTax_PerUnitValue" Type="Decimal" />
+		<ClassMember Name="PositionNumber" Type="String" />
+		<ClassMember Name="BillPosition_Description" Type="String" />
+		<ClassMember Name="BillPosition_Comment" Type="String" />
+		<ClassMember Name="PositionIndex" Type="int" />
+		<ClassMember Name="PositionValue_BeforeTax" Type="Decimal" />
+		<ClassMember Name="PositionValue_IncludingTax" Type="Decimal" />
+		<ClassMember Name="PositionPricePerUnitValue_BeforeTax" Type="Decimal" />
+		<ClassMember Name="PositionPricePerUnitValue_IncludingTax" Type="Decimal" />
+		<ClassMember Name="BillPosition_ProductNumber" Type="String" />
+		<ClassMember Name="Quantity" Type="double" />
+		<ClassMember Name="External_PositionReferenceField" Type="String" />
+		<ClassMember Name="External_PositionCode" Type="String" />
+		<ClassMember Name="External_PositionType" Type="String" />
+		<ClassMember Name="IsFullyPaid" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

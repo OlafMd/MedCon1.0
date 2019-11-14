@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/13/2013 12:36:41 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>cls_Get_EmployeePhoneNumbers</Name>
+    <Namespace>CL5_VacationPlanner_Employees.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_VacationPlanner_Employees.Atomic.Retrieval"
+                Method_ClassName="cls_Get_EmployeePhoneNumbers"
+                Method_Name="Get_EmployeePhoneNumbers"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_EmployeePhoneNumbers"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID,
+  cmn_per_communicationcontacts.Content,
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.LastName,
+  cmn_per_personinfo.PrimaryEmail,
+  cmn_per_personinfo.Title,
+  cmn_per_personinfo.BirthDate,
+  cmn_per_personinfo.Address_RefID,
+  cmn_per_personinfo.ProfileImage_Document_RefID,
+  cmn_per_personinfo.Creation_Timestamp,
+  cmn_per_communicationcontact_types.CMN_PER_CommunicationContact_TypeID,
+  cmn_per_communicationcontacts.CMN_PER_CommunicationContactID,
+  cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID,
+  cmn_per_communicationcontact_types.Type,
+  cmn_per_personinfo.CMN_PER_PersonInfoID
+From
+  cmn_bpt_emp_employees Inner Join
+  cmn_bpt_businessparticipants
+    On cmn_bpt_emp_employees.BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID Inner Join
+  cmn_per_personinfo On cmn_per_personinfo.CMN_PER_PersonInfoID =
+    cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID
+  Inner Join
+  cmn_per_communicationcontacts On cmn_per_personinfo.CMN_PER_PersonInfoID =
+    cmn_per_communicationcontacts.PersonInfo_RefID Inner Join
+  cmn_per_communicationcontact_types
+    On cmn_per_communicationcontacts.Contact_Type =
+    cmn_per_communicationcontact_types.CMN_PER_CommunicationContact_TypeID
+Where
+  cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID = @EmployeeID And
+  cmn_per_communicationcontacts.IsDeleted = 0 And
+  cmn_per_personinfo.IsDeleted = 0 And
+  cmn_bpt_businessparticipants.IsDeleted = 0 And
+  cmn_bpt_emp_employees.IsDeleted = 0
+  </SQLStatement>
+
+    <Parameters IsClass="true" Name="P_L5EM_GEPN_1235">
+        <Members>
+            <ClassMember Name="EmployeeID" Type="Guid"  />
+
+        </Members>
+    </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5EM_GEPN_1235" IsArray="false" GroupBy="CMN_BPT_EMP_EmployeeID">
+			<Members>
+				<ClassMember Name="CMN_BPT_EMP_EmployeeID" Type="Guid"  />
+				<ClassMember Name="FirstName" Type="String"  />
+				<ClassMember Name="LastName" Type="String"  />
+				<ClassMember Name="PrimaryEmail" Type="String"  />
+				<ClassMember Name="Title" Type="String"  />
+				<ClassMember Name="BirthDate" Type="DateTime"  />
+				<ClassMember Name="Address_RefID" Type="Guid"  />
+				<ClassMember Name="ProfileImage_Document_RefID" Type="Guid"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="CMN_BPT_BusinessParticipantID" Type="Guid"  />
+				<ClassMember Name="CMN_PER_PersonInfoID" Type="Guid"  />
+
+                <ClassMember IsClass="true" IsArray="true" Name="Contacts" Type="L5EM_GEPN_1235_Contacts" GroupBy="CMN_PER_CommunicationContactID">
+                    <Members>
+                        <ClassMember Name="CMN_PER_CommunicationContactID" Type="Guid"  />
+                        <ClassMember Name="CMN_PER_CommunicationContact_TypeID" Type="Guid"  />
+                        <ClassMember Name="Content" Type="String"  />
+                        <ClassMember Name="Type" Type="String"  />
+
+                    </Members>
+                </ClassMember>
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

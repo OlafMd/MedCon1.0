@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_loc_parkingsituations
+	(
+		RES_LOC_ParkingSituationID,
+		ParkingSituation_Name_DictID,
+		ParkingSituation_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_LOC_ParkingSituationID,
+		@ParkingSituation_Name,
+		@ParkingSituation_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

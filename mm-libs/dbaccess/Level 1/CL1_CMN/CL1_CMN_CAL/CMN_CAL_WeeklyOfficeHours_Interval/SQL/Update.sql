@@ -1,0 +1,19 @@
+UPDATE 
+	cmn_cal_weeklyofficehours_intervals
+SET 
+	WeeklyOfficeHours_Template_RefID=@WeeklyOfficeHours_Template_RefID,
+	IsWholeDay=@IsWholeDay,
+	TimeFrom_InMinutes=@TimeFrom_InMinutes,
+	TimeTo_InMinutes=@TimeTo_InMinutes,
+	IsMonday=@IsMonday,
+	IsTuesday=@IsTuesday,
+	IsWednesday=@IsWednesday,
+	IsThursday=@IsThursday,
+	IsFriday=@IsFriday,
+	IsSaturday=@IsSaturday,
+	IsSunday=@IsSunday,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_CAL_WeeklyOfficeHours_IntervalID = @CMN_CAL_WeeklyOfficeHours_IntervalID

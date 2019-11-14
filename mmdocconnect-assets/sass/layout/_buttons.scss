@@ -1,0 +1,274 @@
+.button{
+	display: inline-block;
+	height: 34px;
+	line-height: 34px;
+	color: #fff;
+	outline: 0;
+	border: 0;
+	margin-bottom: 30px;
+	margin-right: 10px;
+	background-color: #439562;
+	@include border-radius(3px);
+	background-repeat: no-repeat;
+
+	&:last-child{
+		margin-right: 0;
+	}
+
+	&:hover,
+	&:focus{
+		background-color: #2e6844;
+		outline: 0;
+		border: 0;
+		cursor: pointer;
+	}
+
+	&.wide{
+		/*padding: 0 40px 0 30px;*/
+		padding: 0 20px 0 35px;
+
+
+		&.confirm,
+		&.confirm-yellow,
+		&.reject {
+			background-position: 16px;
+			background-repeat: no-repeat;
+		}
+
+		&.back {
+			background-position: 16px 9px;
+			background-repeat: no-repeat;
+		}
+	}
+
+	&.padding-cancel-popup{
+		@extend .wide;
+	    padding: 0 15px 0 30px ;
+	}
+
+	&.medium{
+		min-width: 100px;
+		padding: 0 12px;
+		background-color: $sub-header;
+		background-image: none !important;
+
+		&:hover,
+		&:focus{
+			background-color: $btn-hover-color;
+		}
+        @media screen and (max-width: 1230px){
+            padding: 0 6px;
+        }
+	}
+
+	&.narrow{
+		width: 34px;
+		text-indent: -9999px;
+
+		&.confirm,
+		&.confirm-yellow,
+		&.reject,
+		&.back {
+			background-position: center center;
+			background-repeat: no-repeat;
+		}
+	}
+
+	&.confirm{
+		background-color: $active-color;
+		background-image: url("../images/icons/confirm.png") !important;
+
+		&:hover,
+		&:focus{
+			background-color: #2e6844;
+		}
+	}
+
+	&.confirm-yellow {
+		background-color: $warning-color;
+		background-image: url("../images/icons/confirm.png") !important;
+
+		&:hover,
+		&:focus{
+			background-color: #ba8a0a;
+		}
+	}
+
+	&.reject{
+		background-color: $sub-header;
+		background-image: url("../images/icons/reject.png");
+        vertical-align: top;
+
+		&:hover,
+		&:focus{
+			background-color: #707070;
+		}
+    }
+	&.back {
+		background-color: $sub-header;
+		background-image: url("../images/icons/back-button-white.png");
+        vertical-align: top;
+
+		&:hover,
+		&:focus{
+			background-color: #707070;
+		}
+	}
+    &.add-button{
+        background-color: $sub-header;
+		background-image: url("../images/icons/add-button.png");
+        //safari
+        background-position: 5% 50%;
+        background-position: center left 5px;
+
+		&:hover,
+		&:focus{
+			background-color: #707070;
+        }
+	}
+
+	&.wide.reject,
+	&.wide.back{
+		min-width: 135px;
+		padding-left: 40px;
+	}
+
+	&.confirm{
+		min-width: 200px;
+		padding-left: 40px;
+	}
+
+	&.wide.confirm-smaller{
+		@extend .confirm;
+
+		min-width: 135px;
+		padding-left: 40px;
+	}
+	&.wide.confirm-yellow-smaller {
+		@extend .confirm-yellow;
+
+		min-width: 135px;
+		padding-left: 40px;
+	}
+}
+
+button[disabled="disabled"].button{
+	background-color: #d7d7d7 !important;
+
+	&:hover,
+	&:focus{
+		background-color: #d7d7d7 !important;
+	}
+}
+
+.wide-add-button{
+	width: 100%;
+	height: 50px;
+	padding: 10px 15px 10px 60px;
+	font-size: 1rem;
+	font-weight: bold;
+	text-align: left;
+	color: $module-color;
+	border: 2px dashed #b7b7b7;
+	outline: 0;
+	cursor: pointer;
+	background: url("../images/icons/add-thin.png") no-repeat 15px 7px;
+
+	&.disabled{
+		color: $disabled-color;
+		cursor: inherit;
+		background: url("../images/icons/add-thin-disabled.png") no-repeat 15px 7px;
+	}
+
+	&.dropdown-btn{
+		//max-width: 310px;
+		font-size: 0.875rem;
+		//line-height: 25px !important;
+		height: 40px;
+		color: #b7b7b7;
+		font-weight: normal;
+		/*padding: 8px 15px 10px 40px;*/
+		padding: 8px 0 10px 40px !important;
+        margin: 8px 0;
+		background: url("../images/icons/add-thin-dd.png") no-repeat 10px 7px;
+
+		&:hover{
+			color: $module-color;
+		}
+	}
+}
+.wide-button-margin{
+    margin: 8px 15px 15px !important;
+    width: auto !important;
+}
+
+.buttons-with-text-button{
+	//float: left;
+    float: right;
+	width: 250px;
+
+	.button,
+	.abort{
+		float: right;
+	}
+}
+	.abort{
+		/*display: block;*/
+		margin-bottom: 10px;
+
+		&:before,
+		&:after,
+		a{
+			/*display: inline-block;*/
+			color: $sub-header;
+			border-bottom: 1px solid $sub-header;
+		}
+
+		&:before,
+		&:after,
+		a{
+			padding-bottom: 1px;
+		}
+
+		&:before{
+			content: '[';
+			margin-right: 2px;
+		}
+
+		&:after{
+			content: ']';
+			margin-left: 2px;
+		}
+	}
+
+	.icon-evidence{
+				background-image: url("../images/icons/evidence-white.png");
+				background-position: 10% center ;
+
+
+			&:hover{
+				&:before{
+					background-image: url("../images/icons/evidence_hover.png");
+				}
+			}
+
+		}
+  .pdf-button{
+                @include border-radius(3px);
+
+                height: 34px;
+                width: 68px;
+			    position: absolute;
+				top: 50%;
+				right: auto;
+				margin: -17px 0 0 70px;
+				line-height: 32px;
+				cursor:pointer;
+                background: url("../images/icons/evidence-white.png") no-repeat center;
+                text-indent: -9999px;
+                background-color: $sub-header;
+
+                  &:hover{
+                    background-color: $btn-hover-color;
+                  }
+			}

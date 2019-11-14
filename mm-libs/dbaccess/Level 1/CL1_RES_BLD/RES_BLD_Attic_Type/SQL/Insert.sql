@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_bld_attic_types
+	(
+		RES_BLD_Attic_TypeID,
+		AtticType_Name_DictID,
+		AtticType_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_BLD_Attic_TypeID,
+		@AtticType_Name,
+		@AtticType_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,11 @@
+﻿CREATE  TABLE $$TABLENAME$$ (
+  `EntryID` BINARY(16) NOT NULL ,
+  `DictID` BINARY(16) NULL ,
+  `Language_RefID` BINARY(16) NULL ,
+  `Content` TEXT NULL ,
+  `Creation_Timestamp` DATETIME NOT NULL DEFAULT 0,
+  `IsDeleted` TINYINT(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`EntryID`) )
+ENGINE = InnoDB;
+
+COMMIT

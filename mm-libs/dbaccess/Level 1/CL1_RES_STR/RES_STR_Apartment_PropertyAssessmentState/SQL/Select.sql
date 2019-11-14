@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_apartment_propertyassessmentstates
+WHERE 
+	RES_STR_Appartment_PropertyAssessmentStateID = @RES_STR_Appartment_PropertyAssessmentStateID

@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_pro_dimension_values
+	(
+		CMN_PRO_Dimension_ValueID,
+		Dimensions_RefID,
+		DimensionValue_Text_DictID,
+		OrderSequence,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_PRO_Dimension_ValueID,
+		@Dimensions_RefID,
+		@DimensionValue_Text,
+		@OrderSequence,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

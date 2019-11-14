@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/7/2013 3:16:09 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Treatment_for_PatientID</Name>
+    <Namespace>CL5_Lucentis_Treatments.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Treatments.Complex.Retrieval"
+                Method_ClassName="cls_Get_TreatmentCount_for_PatientIDlist"
+                Method_Name="Get_TreatmentCount_for_PatientIDlist"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_TreatmentCount_for_PatientIDlist"
+                />
+
+  <SQLStatement xml:space="preserve">
+ 
+Select
+  hec_patients.HEC_PatientID,
+  SUM(IFNULL(Query1.treatmentCount, 0))  As treatmentCount
+From
+  hec_patients Left Join
+  (Select
+    hec_patient_treatment.HEC_Patient_TreatmentID,
+    hec_patient_2_patienttreatment.HEC_Patient_RefID,
+    Count(*)As treatmentCount
+  From
+    hec_patient_2_patienttreatment Inner Join
+    hec_patient_treatment
+      On hec_patient_2_patienttreatment.HEC_Patient_Treatment_RefID =
+      hec_patient_treatment.HEC_Patient_TreatmentID
+  Where
+    hec_patient_2_patienttreatment.IsDeleted = 0 And
+    hec_patient_treatment.IsDeleted = 0 And
+    hec_patient_treatment.IsTreatmentBilled = 1) Query1
+    On Query1.HEC_Patient_RefID = hec_patients.HEC_PatientID
+Where
+  hec_patients.IsDeleted = 0 And
+  hec_patients.Tenant_RefID = @TenantID
+Group By
+  hec_patients.HEC_PatientID, Query1.treatmentCount
+Having
+  hec_patients.HEC_PatientID = @PatientID 
+
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5TR_GTCfPID_1152" >
+    <Members>
+      <ClassMember Name="PatientID" Type="Guid" IsArray ="true" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+
+
+
+    <ObjectReturnType_Definition Name="L5TR_GTCfPID_1152" IsArray="true">
+      <Members>
+        <ClassMember Name="HEC_PatientID" Type="Guid"  />
+        <ClassMember Name="treatmentCount" Type="int"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

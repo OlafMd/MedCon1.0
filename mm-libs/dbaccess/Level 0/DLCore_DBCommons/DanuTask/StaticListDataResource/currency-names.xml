@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="currency-names.Euro">
+    <Lang ISO="EN" Content="Euro" />
+    <Lang ISO="DE" Content="Euro" />
+    <Lang ISO="RS" Content="Euro" />
+  </Item>
+  <Item ID="currency-names.Dinar">
+    <Lang ISO="EN" Content="Dinar" />
+    <Lang ISO="DE" Content="Dinar" />
+    <Lang ISO="RS" Content="Dinar" />
+  </Item>
+  <Item ID="currency-names.Dollar">
+    <Lang ISO="EN" Content="Dollar" />
+    <Lang ISO="DE" Content="Dolar" />
+    <Lang ISO="RS" Content="Dolar" />
+  </Item>
+</Resources>

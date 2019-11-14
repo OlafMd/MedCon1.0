@@ -1,0 +1,17 @@
+UPDATE 
+	cmn_bpt_emp_employee_workplaceassignments
+SET 
+	CMN_BPT_EMP_Employee_RefID=@CMN_BPT_EMP_Employee_RefID,
+	CMN_BPT_EMP_Employee_PlanGroup_RefID=@CMN_BPT_EMP_Employee_PlanGroup_RefID,
+	BoundTo_Workplace_RefID=@BoundTo_Workplace_RefID,
+	Default_BreakTime_Template_RefID=@Default_BreakTime_Template_RefID,
+	SequenceNumber=@SequenceNumber,
+	WorkplaceAssignment_StartDate=@WorkplaceAssignment_StartDate,
+	WorkplaceAssignment_EndDate=@WorkplaceAssignment_EndDate,
+	IsBreakTimeCalculated_Planning=@IsBreakTimeCalculated_Planning,
+	IsBreakTimeCalculated_Actual=@IsBreakTimeCalculated_Actual,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_BPT_EMP_Employee_WorkplaceAssignment = @CMN_BPT_EMP_Employee_WorkplaceAssignment

@@ -1,0 +1,19 @@
+﻿<div class="popup-wrapper">
+    <div class="popup popup-medium warning-popup">
+        <div class="warning-msg"><h1>{{ 'LABEL_WARNING' | translate }}</h1></div>
+        <h1>{{warning_message}}</h1>
+        <div ng-repeat="item in warning_messages">
+            <h4 class="warning_message_class" translate={{item.message}} translate-values="{ treatment_year_length: item.treatment_year_length, name: item.name, date:item.date, timespan: item.consent_timespan, max_count: item.max_count, first_oct_date: item.first_oct_date,  op_doctor_name: item.op_doctor_name, op_doctor_email: item.op_doctor_email, op_doctor_phone: item.op_doctor_phone, hip_name: item.hip_name, insurance_number: item.insurance_number }"></h4>
+        </div>
+        <div class="popup-content">
+            <div class="checkbox margin-bottom-" ng-show="showCheckbox">
+                <input type="checkbox" id="cbDontShowMessage" name="cbDontShowMessage" ng-model="dontShowMessage">
+                <label id="labelDontShowMessage" class="larger-font bolded-text" for="cbDontShowMessage">{{ 'LABEL_DONT_SHOW_MESSAGE' | translate}}</label>
+            </div>
+            <div class="buttons text-right" ng-class="{'center-div-content': !url}">
+                <button class="button medium jsblockClose" ng-click="closePopup(dontShowMessage)" id="btnOK">{{ 'BUTTON_OK' | translate }}</button>
+                <button ng-if="url" class="button btn-preview-url" ng-click="goToUrl()">{{ urlButtonMessage | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>

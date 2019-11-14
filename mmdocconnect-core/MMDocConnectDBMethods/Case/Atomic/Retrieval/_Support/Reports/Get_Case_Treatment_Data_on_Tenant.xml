@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_Case_Treatment_Data_on_Tenant</Name>
+		<Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Case_Treatment_Data_on_Tenant"
+								Method_Name="Get_Case_Treatment_Data_on_Tenant"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+    Select
+      hec_act_performedaction_diagnosisupdate_localizations.IM_PotentialDiagnosisLocalization_Code As localization,
+      hec_act_performedaction_diagnosisupdates.IM_PotentialDiagnosisCatalog_Name as diagnose_catalog_name,
+      hec_act_performedaction_diagnosisupdates.IM_PotentialDiagnosis_Code as diagnose_code,
+      hec_act_performedaction_diagnosisupdates.IM_PotentialDiagnosis_Name as diagnose_name,
+      hec_act_performedaction_diagnosisupdates.PotentialDiagnosis_RefID as diagnose_id,
+      hec_cas_case_relevantperformedactions.Case_RefID as case_id
+    From
+      hec_cas_case_relevantperformedactions Inner Join
+      hec_act_performedaction_diagnosisupdates
+        On hec_cas_case_relevantperformedactions.PerformedAction_RefID = hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_RefID And
+        hec_act_performedaction_diagnosisupdates.Tenant_RefID = @TenantID And hec_act_performedaction_diagnosisupdates.IsDeleted = 0 Inner Join
+      hec_act_performedaction_diagnosisupdate_localizations
+        On hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_DiagnosisUpdateID =
+        hec_act_performedaction_diagnosisupdate_localizations.HEX_EXC_Action_DiagnosisUpdate_RefID And
+        hec_act_performedaction_diagnosisupdate_localizations.Tenant_RefID = @TenantID And hec_act_performedaction_diagnosisupdate_localizations.IsDeleted = 0      
+    Where
+      hec_cas_case_relevantperformedactions.Tenant_RefID = @TenantID And
+      hec_cas_case_relevantperformedactions.IsDeleted = 0
+	</SQLStatement>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GCTDoT_0932" IsArray="true">
+      <Members>
+        <ClassMember Name="localization" Type="String"  />
+        <ClassMember Name="diagnose_catalog_name" Type="String"  />
+        <ClassMember Name="diagnose_code" Type="String"  />
+        <ClassMember Name="diagnose_name" Type="String"  />
+        <ClassMember Name="case_id" Type="Guid"  />
+        <ClassMember Name="diagnose_id" Type="Guid"  />        
+      </Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+</CodeGen>

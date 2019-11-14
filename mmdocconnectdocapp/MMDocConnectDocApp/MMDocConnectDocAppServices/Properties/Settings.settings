@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MMDocConnectDocAppServices.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="OPDocAccountDocApp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.doc.app.op.doctor</Value>
+    </Setting>
+    <Setting Name="ACDocAccountDocApp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.doc.app.ac.doctor</Value>
+    </Setting>
+    <Setting Name="OPPracticeAccountDocApp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.doc.app.op.practice</Value>
+    </Setting>
+    <Setting Name="ACPracticeAccountDocApp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.doc.app.ac.practice</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

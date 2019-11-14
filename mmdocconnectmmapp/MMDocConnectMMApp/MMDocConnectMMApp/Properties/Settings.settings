@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MMDocConnectMMApp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ApplicationID" Type="System.Guid" Scope="Application">
+      <Value Profile="(Default)">fd28f517-d4bc-44e6-a6d7-cc711b4f2cd5</Value>
+    </Setting>
+    <Setting Name="DefaultLanguageCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DE</Value>
+    </Setting>
+    <Setting Name="CASSession_Timeout" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">28800</Value>
+    </Setting>
+    <Setting Name="ModuleID" Type="System.Guid" Scope="Application">
+      <Value Profile="(Default)">88de7959-5dd3-4ca0-b10c-d4446a9c7ecb</Value>
+    </Setting>
+    <Setting Name="MMAppGroup" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.mm.app.group</Value>
+    </Setting>
+    <Setting Name="MasterAccountMMApp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.mm.app.master</Value>
+    </Setting>
+    <Setting Name="RegularAccountMMApp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.mm.app.regular</Value>
+    </Setting>
+    <Setting Name="DocAppGroup" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.doc.app.group</Value>
+    </Setting>
+    <Setting Name="ACPracticeAccountDocApp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.doc.app.ac.practice</Value>
+    </Setting>
+    <Setting Name="OPPracticeAccountDocApp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.doc.app.op.practice</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

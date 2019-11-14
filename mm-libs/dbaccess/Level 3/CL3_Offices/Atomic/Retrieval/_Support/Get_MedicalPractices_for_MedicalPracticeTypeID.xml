@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/2/2015 2:52:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_MedicalPractices_for_MedicalPracticeTypeID</Name>
+    <Namespace>CL3_Offices.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Offices.Atomic.Retrieval"
+                Method_ClassName="cls_Get_MedicalPractices_for_MedicalPracticeTypeID"
+                Method_Name="Get_MedicalPractices_for_MedicalPracticeTypeID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_MedicalPractices_for_MedicalPracticeTypeID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select   distinct
+  cmn_str_offices.CMN_STR_OfficeID As OfficeID,
+  cmn_str_offices.Office_Name_DictID
+From
+  hec_medicalpractice_types Inner Join
+  hec_medicalpractice_2_practicetype
+    On hec_medicalpractice_2_practicetype.HEC_MedicalPractice_Type_RefID =
+    hec_medicalpractice_types.HEC_MedicalPractice_TypeID Inner Join
+  hec_medicalpractises
+    On hec_medicalpractice_2_practicetype.HEC_MedicalPractice_RefID =
+    hec_medicalpractises.HEC_MedicalPractiseID Inner Join
+  cmn_str_offices On cmn_str_offices.IfMedicalPractise_HEC_MedicalPractice_RefID
+    = hec_medicalpractises.HEC_MedicalPractiseID
+Where
+  hec_medicalpractice_2_practicetype.HEC_MedicalPractice_Type_RefID = @MedicalPracticeTypeID And
+  hec_medicalpractice_2_practicetype.IsDeleted = 0 And
+  hec_medicalpractice_2_practicetype.Tenant_RefID = @TenantID
+  </SQLStatement>
+  <Parameters IsClass="true" Name="P_L3O_GMPfMPTID_1452">
+    <Members>
+      <ClassMember Name="MedicalPracticeTypeID" Type="Guid"  />
+    </Members>
+  </Parameters>
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3O_GMPfMPTID_1452" IsArray="true">
+      <Members>
+        <ClassMember Name="OfficeID" Type="Guid"  />
+        <ClassMember Name="Office_Name_DictID" Type="Dict" OriginTable="cmn_str_offices" Source_DBField="Office_Name_DictID" />
+       
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

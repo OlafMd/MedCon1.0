@@ -1,0 +1,19 @@
+INSERT INTO 
+	ord_prc_rfp_supplierproposalresponseposition_2_prc_position
+	(
+		AssignmentID,
+		ORD_PRC_RFP_SupplierProposalResponse_Position_RefID,
+		ORD_PRC_ProcurementOrder_Position_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@ORD_PRC_RFP_SupplierProposalResponse_Position_RefID,
+		@ORD_PRC_ProcurementOrder_Position_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

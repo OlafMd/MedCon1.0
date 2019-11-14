@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_Case_Treatments_on_Tenant</Name>
+		<Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Case_Treatments_on_Tenant"
+								Method_Name="Get_Case_Treatments_on_Tenant"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+    Select
+      hec_cas_case_relevantperformedactions.Case_RefID As CaseID,
+      hec_doctors.HEC_DoctorID As DoctorID,
+      hec_act_plannedactions.HEC_ACT_PlannedActionID As TreatmentPlannedActionID,
+      hec_act_plannedactions.PlannedFor_Date As TreatmentDate,
+      hec_act_plannedactions.IsPerformed,
+      hec_act_plannedaction_potentialprocedure_requiredproduct.HealthcareProduct_RefID As DrugID,
+      hec_act_plannedaction_potentialprocedure_requiredproduct.BoundTo_HealthcareProcurementOrderPosition_RefID As OrderID
+    From
+      hec_cas_case_relevantperformedactions Inner Join
+      hec_act_plannedactions
+        On hec_cas_case_relevantperformedactions.PerformedAction_RefID =
+        hec_act_plannedactions.IfPlannedFollowup_PreviousAction_RefID And
+        hec_act_plannedactions.Tenant_RefID = @TenantID And
+        hec_act_plannedactions.IsCancelled = 0 And
+        hec_act_plannedactions.IsDeleted = 0 Inner Join
+      hec_doctors
+        On hec_act_plannedactions.ToBePerformedBy_BusinessParticipant_RefID =
+        hec_doctors.BusinessParticipant_RefID And
+        hec_doctors.Tenant_RefID = @TenantID And
+        hec_doctors.IsDeleted = 0 Inner Join
+      hec_act_plannedaction_potentialprocedures
+        On hec_act_plannedactions.HEC_ACT_PlannedActionID =
+        hec_act_plannedaction_potentialprocedures.PlannedAction_RefID And
+        hec_act_plannedaction_potentialprocedures.Tenant_RefID = @TenantID And
+        hec_act_plannedaction_potentialprocedures.IsDeleted = 0 Inner Join
+      hec_act_plannedaction_potentialprocedure_requiredproduct
+        On
+        hec_act_plannedaction_potentialprocedures.HEC_ACT_PlannedAction_PotentialProcedureID = hec_act_plannedaction_potentialprocedure_requiredproduct.PlannedAction_PotentialProcedure_RefID And
+        hec_act_plannedaction_potentialprocedure_requiredproduct.Tenant_RefID = @TenantID And
+        hec_act_plannedaction_potentialprocedure_requiredproduct.IsDeleted = 0
+    Where 
+      hec_cas_case_relevantperformedactions.Case_RefID = @CaseIDs And
+      hec_cas_case_relevantperformedactions.Tenant_RefID = @TenantID And
+      hec_cas_case_relevantperformedactions.IsDeleted = 0
+	</SQLStatement>
+	
+	<Parameters IsClass="true" Name="P_CAS_GCToT_1418">
+		<Members>
+			<ClassMember Name="CaseIDs" Type="Guid" IsArray="true" />
+
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CAS_GCToT_1418" IsArray="true">
+			<Members>
+        <ClassMember Name="CaseID" Type="Guid"  />
+				<ClassMember Name="DoctorID" Type="Guid"  />
+        <ClassMember Name="TreatmentPlannedActionID" Type="Guid"  />
+        <ClassMember Name="TreatmentDate" Type="DateTime"  />
+        <ClassMember Name="IsPerformed" Type="Boolean"  />
+        <ClassMember Name="DrugID" Type="Guid"  />
+        <ClassMember Name="OrderID" Type="Guid"  />
+        
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

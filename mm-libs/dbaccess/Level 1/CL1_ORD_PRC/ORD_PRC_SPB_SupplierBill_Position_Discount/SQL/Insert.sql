@@ -1,0 +1,25 @@
+INSERT INTO 
+	ord_prc_spb_supplierbill_position_discounts
+	(
+		ORD_PRC_SPB_SupplierBill_Position_DiscountID,
+		SupplierBill_Position_RefID,
+		OrderSequence,
+		DiscountDisplayName,
+		Discount_Name_DictID,
+		Discount_in_percentage,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ORD_PRC_SPB_SupplierBill_Position_DiscountID,
+		@SupplierBill_Position_RefID,
+		@OrderSequence,
+		@DiscountDisplayName,
+		@Discount_Name,
+		@Discount_in_percentage,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,25 @@
+INSERT INTO 
+	res_str_outdoorfacility_propertyassessments
+	(
+		RES_STR_OutdoorFacility_PropertyAssessmentID,
+		STR_OutdoorFacility_RefID,
+		Rating_RefID,
+		OutdoorFacilityProperty_RefID,
+		DocumentHeader_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_OutdoorFacility_PropertyAssessmentID,
+		@STR_OutdoorFacility_RefID,
+		@Rating_RefID,
+		@OutdoorFacilityProperty_RefID,
+		@DocumentHeader_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

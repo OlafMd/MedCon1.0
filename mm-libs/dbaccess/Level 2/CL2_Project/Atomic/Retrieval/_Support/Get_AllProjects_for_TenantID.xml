@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="24-Nov-14 5:00:52 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllProjects_for_TenantID</Name>
+    <Namespace>CL2_Project.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Project.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllProjects_for_TenantID"
+                Method_Name="Get_AllProjects_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AllProjects_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  tms_pro_projects.TMS_PRO_ProjectID,
+	  tms_pro_projects.Name_DictID,
+	  tms_pro_projects.Description_DictID,
+	  tms_pro_projects.IsArchived,
+	  tms_pro_projects.IsDeleted,
+	  tms_pro_projects.Tenant_RefID
+	From
+	  tms_pro_projects
+	Where
+	  tms_pro_projects.IsDeleted = 0 And
+	  tms_pro_projects.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2PR_GAPfTID_1700" IsArray="true">
+			<Members>
+				<ClassMember Name="TMS_PRO_ProjectID" Type="Guid"  />
+				<ClassMember Name="Name" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Name_DictID"  />
+				<ClassMember Name="Description" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Description_DictID"  />
+				<ClassMember Name="IsArchived" Type="bool"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

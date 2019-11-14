@@ -1,0 +1,21 @@
+INSERT INTO 
+	log_wrh_inj_inventoryjob_series
+	(
+		LOG_WRH_INJ_InventoryJob_SeriesID,
+		InventoryJobSeries_DisplayName,
+		IsUsingNumberOfProductsSeriesType,
+		NumberOfProductsToSelect,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_WRH_INJ_InventoryJob_SeriesID,
+		@InventoryJobSeries_DisplayName,
+		@IsUsingNumberOfProductsSeriesType,
+		@NumberOfProductsToSelect,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

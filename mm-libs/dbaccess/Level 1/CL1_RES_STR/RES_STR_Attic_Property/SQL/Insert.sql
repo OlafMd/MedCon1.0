@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_str_attic_properties
+	(
+		RES_STR_Attic_PropertyID,
+		GlobalPropertyMatchingID,
+		AtticProperty_Name_DictID,
+		AtticProperty_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_Attic_PropertyID,
+		@GlobalPropertyMatchingID,
+		@AtticProperty_Name,
+		@AtticProperty_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

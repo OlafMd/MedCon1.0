@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="08/20/2014 15:00:11 PM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Delete_LastShipmentPosition</Name>
+        <Namespace>CL6_APOLogistic_ShippingOrder.Complex.Manipulation</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL6_APOLogistic_ShippingOrder.Complex.Manipulation"
+				  Method_ClassName="cls_Delete_LastShipmentPosition"
+				  Method_Name="Delete_LastShipmentPosition"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Delete_LastShipmentPosition"
+                />
+
+
+    <Parameters IsClass="true" Name="P_L6SO_DLSP_1535">
+        <Members>
+            <ClassMember Name="PositionID" Type="Guid"  />
+            <ClassMember Name="Shipment_HeaderID" Type="Guid"  />
+        </Members>
+    </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				  Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				  Returns_an_Object_or_ObjectArray="false">
+
+        <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+    </ResultInfo>
+
+</CodeGen>
+

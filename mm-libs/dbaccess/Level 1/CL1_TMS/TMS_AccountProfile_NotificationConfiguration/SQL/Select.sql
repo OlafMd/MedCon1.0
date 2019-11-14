@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	tms_accountprofile_notificationconfiguration
+WHERE 
+	TMS_SubscriptionNotificationFrequencyID = @TMS_SubscriptionNotificationFrequencyID

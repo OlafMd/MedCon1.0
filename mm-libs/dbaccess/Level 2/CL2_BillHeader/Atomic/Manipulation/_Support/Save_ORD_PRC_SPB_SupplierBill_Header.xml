@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/27/2014 3:15:19 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_ORD_PRC_SPB_SupplierBill_Header</Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_BillHeader.Atomic.Manipulation"
+                Method_ClassName="cls_Save_ORD_PRC_SPB_SupplierBill_Header"
+                Method_Name="Save_ORD_PRC_SPB_SupplierBill_Header"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_ORD_PRC_SPB_SupplierBill_Header"
+                />
+  <SQLLimitation_CSharp_Extension>
+			var returnValue = new FR_Guid();
+
+			var item = new CL1_ORD_PRC_SPB.ORD_PRC_SPB_SupplierBill_Header.ORM_ORD_PRC_SPB_SupplierBill_Header();
+			if (Parameter.ORD_PRC_SPB_SupplierBill_HeaderID != Guid.Empty)
+			{
+			    var result = item.Load(Connection, Transaction, Parameter.ORD_PRC_SPB_SupplierBill_HeaderID);
+			    if (result.Status != FR_Status.Success || item.ORD_PRC_SPB_SupplierBill_HeaderID == Guid.Empty)
+			    {
+			        var error = new FR_Guid();
+			        error.ErrorMessage = "No Such ID";
+			        error.Status =  FR_Status.Error_Internal;
+			        return error;
+			    }
+			}
+
+			if(Parameter.IsDeleted == true){
+				item.IsDeleted = true;
+				return new FR_Guid(item.Save(Connection, Transaction),item.ORD_PRC_SPB_SupplierBill_HeaderID);
+			}
+
+			//Creation specific parameters (Tenant, Account ... )
+			if (Parameter.ORD_PRC_SPB_SupplierBill_HeaderID == Guid.Empty)
+			{
+				item.Tenant_RefID = securityTicket.TenantID;
+			}
+
+			item.Supplier_RefID = Parameter.Supplier_RefID;
+			item.Currency_RefID = Parameter.Currency_RefID;
+			item.SupplierBillNumber = Parameter.SupplierBillNumber;
+			item.DateOnBill = Parameter.DateOnBill;
+			item.TotalValue_BeforeTax = Parameter.TotalValue_BeforeTax;
+			item.TotalValue_IncludingTax = Parameter.TotalValue_IncludingTax;
+			item.BillComment = Parameter.BillComment;
+			item.PaymentTargetDate = Parameter.PaymentTargetDate;
+			item.CashDiscountInPercent = Parameter.CashDiscountInPercent;
+
+
+			return new FR_Guid(item.Save(Connection, Transaction),item.ORD_PRC_SPB_SupplierBill_HeaderID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2BH_SOPSSBH_1515">
+    <Members>
+		<ClassMember IsIdentificator="True" Name="ORD_PRC_SPB_SupplierBill_HeaderID" Type="Guid"  />
+		<ClassMember Name="Supplier_RefID" Type="Guid"  />
+		<ClassMember Name="Currency_RefID" Type="Guid"  />
+		<ClassMember Name="SupplierBillNumber" Type="String"  />
+		<ClassMember Name="DateOnBill" Type="DateTime"  />
+		<ClassMember Name="TotalValue_BeforeTax" Type="Decimal"  />
+		<ClassMember Name="TotalValue_IncludingTax" Type="Decimal"  />
+		<ClassMember Name="BillComment" Type="String"  />
+		<ClassMember Name="PaymentTargetDate" Type="DateTime"  />
+		<ClassMember Name="CashDiscountInPercent" Type="Double"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

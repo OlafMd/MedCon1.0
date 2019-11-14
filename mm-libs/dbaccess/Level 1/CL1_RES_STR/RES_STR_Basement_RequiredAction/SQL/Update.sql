@@ -1,0 +1,19 @@
+UPDATE 
+	res_str_basement_requiredactions
+SET 
+	BasementPropertyAssestment_RefID=@BasementPropertyAssestment_RefID,
+	SelectedActionVersion_RefID=@SelectedActionVersion_RefID,
+	EffectivePrice_RefID=@EffectivePrice_RefID,
+	Action_PricePerUnit_RefID=@Action_PricePerUnit_RefID,
+	Action_Unit_RefID=@Action_Unit_RefID,
+	Action_UnitAmount=@Action_UnitAmount,
+	IsCustom=@IsCustom,
+	IfCustom_Name=@IfCustom_Name,
+	IfCustom_Description=@IfCustom_Description,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID,
+	Action_Timeframe_RefID=@Action_Timeframe_RefID,
+	Comment=@Comment
+WHERE 
+	RES_STR_Basement_RequiredActionID = @RES_STR_Basement_RequiredActionID

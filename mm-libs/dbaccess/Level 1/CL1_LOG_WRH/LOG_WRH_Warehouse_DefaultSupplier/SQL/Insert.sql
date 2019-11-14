@@ -1,0 +1,19 @@
+INSERT INTO 
+	log_wrh_warehouse_defaultsuppliers
+	(
+		LOG_WRH_Warehouse_DefaultSupplierID,
+		CMN_BPT_Supplier_RefID,
+		Warehouse_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_WRH_Warehouse_DefaultSupplierID,
+		@CMN_BPT_Supplier_RefID,
+		@Warehouse_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

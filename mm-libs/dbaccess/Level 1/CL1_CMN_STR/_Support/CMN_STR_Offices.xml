@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/20/2014 1:10:53 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_STR_Office"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_STR"
+                IsClass_Corresponding_DBTable="cmn_str_offices" >
+      <Members>
+		<ClassMember Name="CMN_STR_OfficeID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="OfficeITL" Type="String" />
+		<ClassMember Name="Parent_RefID" Type="Guid" />
+		<ClassMember Name="Country_RefID" Type="Guid" />
+		<ClassMember Name="Region_RefID" Type="Guid" />
+		<ClassMember Name="Default_BillingAddress_RefID" Type="Guid" />
+		<ClassMember Name="Default_ShippingAddress_RefID" Type="Guid" />
+		<ClassMember Name="CMN_CAL_CalendarInstance_RefID" Type="Guid" />
+		<ClassMember Name="Default_PhoneNumber" Type="String" />
+		<ClassMember Name="Default_FaxNumber" Type="String" />
+		<ClassMember Name="Default_Website" Type="String" />
+		<ClassMember Name="Default_Email" Type="String" />
+		<ClassMember Name="Office_Name" Type="Dict" Source_DBField="Office_Name_DictID" OriginTable="cmn_str_offices"/>
+		<ClassMember Name="Office_Description" Type="Dict" Source_DBField="Office_Description_DictID" OriginTable="cmn_str_offices"/>
+		<ClassMember Name="Office_ShortName" Type="String" />
+		<ClassMember Name="IsMockObject" Type="Boolean" />
+		<ClassMember Name="Office_InternalName" Type="String" />
+		<ClassMember Name="Office_InternalNumber" Type="String" />
+		<ClassMember Name="Comment" Type="String" />
+		<ClassMember Name="DisplayImage_Document_RefID" Type="Guid" />
+		<ClassMember Name="IsMedicalPractice" Type="Boolean" />
+		<ClassMember Name="IfMedicalPractise_HEC_MedicalPractice_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

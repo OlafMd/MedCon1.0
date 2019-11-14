@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_dia_recommendedsubstance_dosages
+	(
+		HEC_DIA_RecommendedSubstance_DosageID,
+		RecommendedSubstance_RefID,
+		Dosage_RefID,
+		IsDefault,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_DIA_RecommendedSubstance_DosageID,
+		@RecommendedSubstance_RefID,
+		@Dosage_RefID,
+		@IsDefault,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

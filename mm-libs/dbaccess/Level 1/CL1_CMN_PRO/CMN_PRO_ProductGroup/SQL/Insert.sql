@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_pro_productgroups
+	(
+		CMN_PRO_ProductGroupID,
+		GlobalPropertyMatchingID,
+		ProductGroup_Name_DictID,
+		ProductGroup_Description_DictID,
+		Parent_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PRO_ProductGroupID,
+		@GlobalPropertyMatchingID,
+		@ProductGroup_Name,
+		@ProductGroup_Description,
+		@Parent_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

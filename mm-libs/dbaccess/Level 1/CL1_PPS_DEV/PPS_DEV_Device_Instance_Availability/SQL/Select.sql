@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	pps_dev_device_instance_availabilities
+WHERE 
+	PPS_DEV_Device_Instance_AvailabilityID = @PPS_DEV_Device_Instance_AvailabilityID

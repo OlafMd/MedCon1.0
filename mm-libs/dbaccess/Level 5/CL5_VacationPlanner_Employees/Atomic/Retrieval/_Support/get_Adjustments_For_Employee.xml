@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/24/2013 2:34:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>get_Adjustments_For_Employee</Name>
+    <Namespace>CL5_VacationPlanner_Employees.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_VacationPlanner_Employees.Atomic.Retrieval"
+                Method_ClassName="cls_get_Adjustments_For_Employee"
+                Method_Name="get_Adjustments_For_Employee"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".get_Adjustments_For_Employee"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  cmn_bpt_emp_contractabsenceadjustment_groups.CMN_BPT_EMP_ContractAbsenceAdjustment_GroupID,
+  cmn_bpt_emp_contractabsenceadjustment_groups.AbsenceAdjustment_Comment,
+  cmn_bpt_emp_contractabsenceadjustments.CMN_BPT_EMP_ContractAbsenceAdjustmentID,
+  cmn_bpt_emp_contractabsenceadjustments.AbsenceTime_InMinutes,
+  cmn_bpt_emp_contractabsenceadjustments.AdjustmentComment,
+  cmn_bpt_emp_contractabsenceadjustments.TriggeringAccount_RefID,
+  cmn_bpt_emp_contractabsenceadjustments.IsManual,
+  cmn_bpt_emp_contractabsenceadjustments.InternalAdjustmentType,
+  cmn_bpt_emp_contractabsenceadjustments.AdjustmentDate,
+  cmn_bpt_sta_absencereasons.Name_DictID,
+  cmn_bpt_sta_absencereasons.CMN_BPT_STA_AbsenceReasonID,
+  cmn_bpt_emp_employmentrelationship_timeframes.CMN_BPT_EMP_EmploymentRelationship_TimeframeID,
+  cmn_cal_calculationtimeframes.CMN_CAL_CalculationTimeframeID,
+  cmn_cal_calculationtimeframes.CalculationTimeframe_StartDate,
+  cmn_cal_calculationtimeframes.CalculationTimefrate_EndDate,
+  cmn_cal_calculationtimeframes.CalculationTimeframe_EstimatedEndDate,
+  cmn_cal_calculationtimeframes.IsCalculationTimeframe_Active,
+  cmn_bpt_emp_employmentrelationships.CMN_BPT_EMP_EmploymentRelationshipID,
+  cmn_bpt_emp_employmentrelationships.HasWorkRelationEnded,
+  cmn_bpt_emp_employmentrelationships.Work_StartDate,
+  cmn_bpt_emp_employmentrelationships.Work_EndDate,
+  cmn_bpt_emp_employmentrelationships.IsLockedFor_TemplateUpdates,
+  cmn_bpt_emp_employmentrelationships.InstanceOf_EmploymentRelationships_Template_RefID,
+  cmn_bpt_emp_employees.StandardFunction,
+  cmn_bpt_emp_employees.Staff_Number,
+  cmn_bpt_emp_employees.BusinessParticipant_RefID,
+  cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID,
+  cmn_bpt_emp_employees.EmployeeDocument_Structure_RefID,
+  cmn_bpt_sta_absencereasons.IsDeleted,
+  cmn_bpt_emp_employmentrelationship_timeframes.IsDeleted As IsDeleted1,
+  cmn_bpt_emp_contractabsenceadjustments.IsDeleted As IsDeleted2,
+  cmn_cal_calculationtimeframes.IsDeleted As IsDeleted3,
+  cmn_bpt_emp_employmentrelationships.IsDeleted As IsDeleted4,
+  cmn_bpt_emp_employees.IsDeleted As IsDeleted5,
+  cmn_bpt_emp_contractabsenceadjustments.Creation_Timestamp
+From
+  cmn_bpt_emp_contractabsenceadjustment_groups Right Join
+  cmn_bpt_emp_contractabsenceadjustments
+    On
+    cmn_bpt_emp_contractabsenceadjustments.ContractAbsenceAdjustment_Group_RefID
+    =
+    cmn_bpt_emp_contractabsenceadjustment_groups.CMN_BPT_EMP_ContractAbsenceAdjustment_GroupID Inner Join
+  cmn_bpt_sta_absencereasons
+    On cmn_bpt_emp_contractabsenceadjustments.AbsenceReason_RefID =
+    cmn_bpt_sta_absencereasons.CMN_BPT_STA_AbsenceReasonID Inner Join
+  cmn_bpt_emp_employmentrelationship_timeframes
+    On
+    cmn_bpt_emp_employmentrelationship_timeframes.CMN_BPT_EMP_EmploymentRelationship_TimeframeID = cmn_bpt_emp_contractabsenceadjustments.EmploymentRelationship_Timeframe_RefID Inner Join
+  cmn_cal_calculationtimeframes
+    On cmn_bpt_emp_employmentrelationship_timeframes.CalculationTimeframe_RefID
+    = cmn_cal_calculationtimeframes.CMN_CAL_CalculationTimeframeID Inner Join
+  cmn_bpt_emp_employmentrelationships
+    On
+    cmn_bpt_emp_employmentrelationship_timeframes.EmploymentRelationship_RefID =
+    cmn_bpt_emp_employmentrelationships.CMN_BPT_EMP_EmploymentRelationshipID
+  Inner Join
+  cmn_bpt_emp_employees On cmn_bpt_emp_employmentrelationships.Employee_RefID =
+    cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID
+Where
+  cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID = @EmployeeID And
+  cmn_bpt_sta_absencereasons.IsDeleted = 0 And
+  cmn_bpt_emp_employmentrelationship_timeframes.IsDeleted = 0 And
+  cmn_bpt_emp_contractabsenceadjustments.IsDeleted = 0 And
+  cmn_cal_calculationtimeframes.IsDeleted = 0 And
+  cmn_bpt_emp_employmentrelationships.IsDeleted = 0 And
+  cmn_bpt_emp_employees.IsDeleted = 0 And
+  (cmn_bpt_emp_contractabsenceadjustment_groups.IsDeleted = 0 Or
+    cmn_bpt_emp_contractabsenceadjustment_groups.IsDeleted Is Null) And
+  cmn_bpt_emp_employees.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5EM_GAFE_1216">
+    <Members>
+		<ClassMember Name="EmployeeID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5EM_GAFE_1216" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_BPT_EMP_ContractAbsenceAdjustment_GroupID" Type="Guid"  />
+				<ClassMember Name="AbsenceAdjustment_Comment" Type="String"  />
+				<ClassMember Name="CMN_BPT_EMP_ContractAbsenceAdjustmentID" Type="Guid"  />
+				<ClassMember Name="AbsenceTime_InMinutes" Type="int"  />
+				<ClassMember Name="AdjustmentComment" Type="String"  />
+				<ClassMember Name="TriggeringAccount_RefID" Type="Guid"  />
+				<ClassMember Name="IsManual" Type="bool"  />
+				<ClassMember Name="InternalAdjustmentType" Type="String"  />
+                <ClassMember Name="AdjustmentDate" Type="DateTime"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="cmn_bpt_sta_absencereasons" Source_DBField="Name_DictID"  />
+				<ClassMember Name="CMN_BPT_STA_AbsenceReasonID" Type="Guid"  />
+				<ClassMember Name="CMN_BPT_EMP_EmploymentRelationship_TimeframeID" Type="Guid"  />
+				<ClassMember Name="CMN_CAL_CalculationTimeframeID" Type="Guid"  />
+				<ClassMember Name="CalculationTimeframe_StartDate" Type="DateTime"  />
+				<ClassMember Name="CalculationTimefrate_EndDate" Type="DateTime"  />
+				<ClassMember Name="CalculationTimeframe_EstimatedEndDate" Type="DateTime"  />
+				<ClassMember Name="IsCalculationTimeframe_Active" Type="bool"  />
+				<ClassMember Name="CMN_BPT_EMP_EmploymentRelationshipID" Type="Guid"  />
+				<ClassMember Name="HasWorkRelationEnded" Type="bool"  />
+				<ClassMember Name="Work_StartDate" Type="DateTime"  />
+				<ClassMember Name="Work_EndDate" Type="DateTime"  />
+				<ClassMember Name="IsLockedFor_TemplateUpdates" Type="bool"  />
+				<ClassMember Name="InstanceOf_EmploymentRelationships_Template_RefID" Type="Guid"  />
+				<ClassMember Name="StandardFunction" Type="String"  />
+				<ClassMember Name="Staff_Number" Type="String"  />
+				<ClassMember Name="BusinessParticipant_RefID" Type="Guid"  />
+				<ClassMember Name="CMN_BPT_EMP_EmployeeID" Type="Guid"  />
+				<ClassMember Name="EmployeeDocument_Structure_RefID" Type="Guid"  />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+
+
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_bpt_emp_employee_payroledocuments
+	(
+		CMN_BPT_EMP_Employee_PayroleDocumentsID,
+		Employee_RefID,
+		Document_RefID,
+		IsViewedByEmployee,
+		DocumentDate,
+		ViewedOnDate,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_EMP_Employee_PayroleDocumentsID,
+		@Employee_RefID,
+		@Document_RefID,
+		@IsViewedByEmployee,
+		@DocumentDate,
+		@ViewedOnDate,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

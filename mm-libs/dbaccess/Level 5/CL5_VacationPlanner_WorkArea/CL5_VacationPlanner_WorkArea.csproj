@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2CE4AE2B-5490-434F-A288-15B962EF2F31}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_VacationPlanner_WorkArea</RootNamespace>
+    <AssemblyName>CL5_VacationPlanner_WorkArea</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Delete_Workarea_SettingsProfile.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Delete_WorkArea.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Workarea_SettingsProfiles_For_Tenant.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Workarea_SettingsProfile.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_WorkArea.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Parent_Names_For_WorkArea.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_WorkArea_for_Shortname.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_WorkAreas_For_Tenant.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_WorkArea_for_WorkAreaID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Is_Workarea_Used.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Delete_Workarea_SettingsProfile.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Delete_WorkArea.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Workarea_SettingsProfile.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_WorkArea.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Is_Workarea_Used.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_WorkAreas_For_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_WorkArea_for_WorkAreaID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_WorkArea_for_Shortname.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Parent_Names_For_WorkArea.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Workarea_SettingsProfiles_For_Tenant.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Parent_Names_For_WorkArea.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Workarea_SettingsProfiles_For_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_WorkAreas_For_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_WorkArea_for_Shortname.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\apps\plannico.urlabsplaner.core\PlannicoModel\PlannicoModel.csproj">
+      <Project>{305EE153-084B-4596-9ADC-FA04D5A45DD6}</Project>
+      <Name>PlannicoModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_EMP\CL1_CMN_BPT_EMP.csproj">
+      <Project>{2385DE36-25FE-49CE-B27B-E70E7E2EB0A1}</Project>
+      <Name>CL1_CMN_BPT_EMP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_STA\CL1_CMN_BPT_STA.csproj">
+      <Project>{B15D38AC-4D53-4DDD-9D62-F4077498ECA1}</Project>
+      <Name>CL1_CMN_BPT_STA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_STR\CL1_CMN_BPT_STR.csproj">
+      <Project>{244A9B21-F03F-4328-BFEF-36FE48A577D7}</Project>
+      <Name>CL1_CMN_BPT_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL\CL1_CMN_CAL.csproj">
+      <Project>{C6107EF8-3603-4EDA-B158-42404049F249}</Project>
+      <Name>CL1_CMN_CAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PER\CL1_CMN_PER.csproj">
+      <Project>{6BDA1EB4-FA2A-41A1-8B83-171ED9B85ADD}</Project>
+      <Name>CL1_CMN_PER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PPS\CL1_CMN_PPS.csproj">
+      <Project>{DB54257E-EAF0-443C-9EBC-3CFA0B1AA597}</Project>
+      <Name>CL1_CMN_PPS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR\CL1_CMN_STR.csproj">
+      <Project>{B6524266-049E-4266-981E-FCFCEBB8C86C}</Project>
+      <Name>CL1_CMN_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR_PPS\CL1_CMN_STR_PPS.csproj">
+      <Project>{B6295F04-6656-4635-B473-B475E5FFDF6D}</Project>
+      <Name>CL1_CMN_STR_PPS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR_SCE\CL1_CMN_STR_SCE.csproj">
+      <Project>{EFC1DF6B-4B7C-4219-A6A8-4D692ACF419A}</Project>
+      <Name>CL1_CMN_STR_SCE</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

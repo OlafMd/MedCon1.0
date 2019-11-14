@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/17/2015 11:49:18 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Devices_for_DeviceConfigurationCode</Name>
+    <Namespace>CL5_MyHealthClub_DoctorsAndStaff.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_DoctorsAndStaff.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Devices_for_DeviceConfigurationCode"
+                Method_Name="Get_Devices_for_DeviceConfigurationCode"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Devices_for_DeviceConfigurationCode"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  usr_devices.USR_DeviceID,
+  usr_devices.DeviceName,
+  usr_devices.IsBanned,
+  usr_devices.DeviceVendor
+From
+  usr_devices Inner Join
+  usr_device_activityhistory On usr_device_activityhistory.Device_RefID =
+    usr_devices.USR_DeviceID And usr_device_activityhistory.Tenant_RefID =
+    @TenantID And usr_device_activityhistory.IsDeleted = 0 Inner Join
+  usr_device_configurationcodes
+    On
+    usr_device_activityhistory.WasDevice_Configured_WithConfigurationCode_RefID
+    = usr_device_configurationcodes.USR_Device_ConfigurationCodeID And
+    usr_device_configurationcodes.Tenant_RefID = @TenantID And
+    usr_device_configurationcodes.IsDeleted = 0
+Where
+  usr_devices.Tenant_RefID = @TenantID And
+  usr_devices.IsDeleted = 0 And
+  usr_device_configurationcodes.DeviceConfigurationCode =
+  @DeviceConfigurationCode
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5DO_GDfDCC_1148">
+    <Members>
+		<ClassMember Name="DeviceConfigurationCode" Type="String"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5DO_GDfDCC_1148" IsArray="true">
+			<Members>
+				<ClassMember Name="USR_DeviceID" Type="Guid"  />
+				<ClassMember Name="DeviceName" Type="String"  />
+        <ClassMember Name="IsBanned" Type="bool"  />
+        <ClassMember Name="DeviceVendor" Type="String"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

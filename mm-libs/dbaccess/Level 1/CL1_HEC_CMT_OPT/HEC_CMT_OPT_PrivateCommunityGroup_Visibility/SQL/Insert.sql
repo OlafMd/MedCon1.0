@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_cmt_opt_privatecommunitygroup_visibility
+	(
+		HEC_CMT_OPT_CommunityGroupVisibilityID,
+		Member_RefID,
+		CommunityGroup_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CMT_OPT_CommunityGroupVisibilityID,
+		@Member_RefID,
+		@CommunityGroup_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

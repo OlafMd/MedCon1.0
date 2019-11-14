@@ -1,0 +1,19 @@
+INSERT INTO 
+	imo_questionnaire
+	(
+		IMO_QuestionnaireID,
+		QuestionnaireName_DictID,
+		QuestionnaireDescription_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@IMO_QuestionnaireID,
+		@QuestionnaireName,
+		@QuestionnaireDescription,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

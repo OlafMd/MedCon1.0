@@ -1,0 +1,27 @@
+INSERT INTO 
+	hec_patient_referrals
+	(
+		HEC_Patient_ReferralID,
+		Patient_RefID,
+		ReferredBy_Doctor_RefID,
+		DateOfReferral,
+		ReferralTo_MedicalPracticeType_RefID,
+		PatientEffectivelyWentTo_MedicalPractice_RefID,
+		Creation_Timestamp,
+		Modification_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_Patient_ReferralID,
+		@Patient_RefID,
+		@ReferredBy_Doctor_RefID,
+		@DateOfReferral,
+		@ReferralTo_MedicalPracticeType_RefID,
+		@PatientEffectivelyWentTo_MedicalPractice_RefID,
+		@Creation_Timestamp,
+		@Modification_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

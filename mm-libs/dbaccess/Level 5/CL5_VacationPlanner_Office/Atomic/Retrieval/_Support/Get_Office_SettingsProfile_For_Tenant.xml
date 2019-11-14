@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="04-Nov-13 13:29:04">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Office_SettingsProfile_For_Tenant</Name>
+    <Namespace>CL5_VacationPlanner_Office.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_VacationPlanner_Office.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Office_SettingsProfile_For_Tenant"
+                Method_Name="Get_Office_SettingsProfile_For_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Office_SettingsProfile_For_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  cmn_bpt_str_office_settingsprofile.CMN_BPT_STR_Office_SettingsProfileID,
+  cmn_bpt_str_office_settingsprofile.Office_RefID,
+  cmn_bpt_str_office_settingsprofile.AdulthoodAge,
+  cmn_bpt_str_office_settingsprofile.RestMinimumThresholdl_NonAdults_in_mins,
+  cmn_bpt_str_office_settingsprofile.RestWarningThreshold_NonAdults_in_mins,
+  cmn_bpt_str_office_settingsprofile.RestWarningThreshold_Adults_in_mins,
+  cmn_bpt_str_office_settingsprofile.RestMinimumThresholdl_Adults_in_mins,
+  cmn_bpt_str_office_settingsprofile.WorkTimeWarningTreshold_Adults_in_mins,
+  cmn_bpt_str_office_settingsprofile.WorkTimeWarningTreshold_NonAdults_in_mins,
+  cmn_bpt_str_office_settingsprofile.WorkTimeMaximumTreshold_Adults_in_mins,
+  cmn_bpt_str_office_settingsprofile.WorkTimeMaximumTreshold_NonAdults_in_mins,
+  cmn_bpt_str_office_settingsprofile.WorkStartTimeWarning_NonAdults_in_mins,
+  cmn_bpt_str_office_settingsprofile.WorkStartTimeMinimum_NonAdults_in_mins,
+  cmn_bpt_str_office_settingsprofile.WorkEndTimeWarning_NonAdults_in_mins,
+  cmn_bpt_str_office_settingsprofile.WorkEndTimeMaximum_NonAdults_in_mins,
+  cmn_bpt_str_office_settingsprofile.WorktimeBalancePeriod_in_months,
+  cmn_bpt_str_office_settingsprofile.WorkdayStart_in_mins,
+  cmn_bpt_str_office_settingsprofile.RoosterGridMinimumPlanningUnit_in_mins,
+  cmn_bpt_str_office_settingsprofile.MaximumPreWork_Period_in_mins,
+  cmn_bpt_str_office_settingsprofile.MaximumPostWork_Period_in_mins
+From
+  cmn_bpt_str_office_settingsprofile
+Where
+  cmn_bpt_str_office_settingsprofile.IsDeleted = 0 And
+  cmn_bpt_str_office_settingsprofile.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5OF_GOSPFT_1325" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_BPT_STR_Office_SettingsProfileID" Type="Guid"  />
+				<ClassMember Name="Office_RefID" Type="Guid"  />
+				<ClassMember Name="AdulthoodAge" Type="int"  />
+				<ClassMember Name="RestMinimumThresholdl_NonAdults_in_mins" Type="int"  />
+				<ClassMember Name="RestWarningThreshold_NonAdults_in_mins" Type="int"  />
+				<ClassMember Name="RestWarningThreshold_Adults_in_mins" Type="int"  />
+				<ClassMember Name="RestMinimumThresholdl_Adults_in_mins" Type="int"  />
+				<ClassMember Name="WorkTimeWarningTreshold_Adults_in_mins" Type="int"  />
+				<ClassMember Name="WorkTimeWarningTreshold_NonAdults_in_mins" Type="int"  />
+				<ClassMember Name="WorkTimeMaximumTreshold_Adults_in_mins" Type="int"  />
+				<ClassMember Name="WorkTimeMaximumTreshold_NonAdults_in_mins" Type="int"  />
+				<ClassMember Name="WorkStartTimeWarning_NonAdults_in_mins" Type="int"  />
+				<ClassMember Name="WorkStartTimeMinimum_NonAdults_in_mins" Type="int"  />
+				<ClassMember Name="WorkEndTimeWarning_NonAdults_in_mins" Type="int"  />
+				<ClassMember Name="WorkEndTimeMaximum_NonAdults_in_mins" Type="int"  />
+				<ClassMember Name="WorktimeBalancePeriod_in_months" Type="int"  />
+        <ClassMember Name="WorkdayStart_in_mins" Type="int"  />
+        <ClassMember Name="RoosterGridMinimumPlanningUnit_in_mins" Type="int"  />
+        <ClassMember Name="MaximumPreWork_Period_in_mins" Type="int"  />
+        <ClassMember Name="MaximumPostWork_Period_in_mins" Type="int"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="08-Dec-14 2:02:46 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ManagerModuleDashboardMenuData_for_ActiveUser</Name>
+    <Namespace>CL6_DanuTask_User.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_DanuTask_User.Complex.Retrieval"
+                Method_ClassName="cls_Get_ManagerModuleDashboardMenuData_for_ActiveUser"
+                Method_Name="Get_ManagerModuleDashboardMenuData_for_ActiveUser"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ManagerModuleDashboardMenuData_for_ActiveUser"
+                />
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6US_GMMDMDfAU_1401" IsArray="false">
+			<Members>
+				<ClassMember Name="Projects_Count" Type="int"  />
+				<ClassMember Name="Boards_Count" Type="int"  />
+        <ClassMember Name="Features_Count" Type="int"  />
+        <ClassMember Name="DeveloperTasks_Count" Type="int"  />
+
+        <ClassMember Name="Reports_Count" Type="int"  />
+        <ClassMember Name="TimeReportedToday" Type="int"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

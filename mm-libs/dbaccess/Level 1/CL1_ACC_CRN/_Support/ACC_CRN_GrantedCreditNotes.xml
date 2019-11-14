@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 7/24/2014 3:39:38 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="ACC_CRN_GrantedCreditNote"
+                IsClass="true"
+                IsClass_Namespace="CL1_ACC_CRN"
+                IsClass_Corresponding_DBTable="acc_crn_grantedcreditnotes" >
+      <Members>
+		<ClassMember Name="ACC_CRN_GrantedCreditNoteID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="CreditNoteITPL" Type="String" />
+		<ClassMember Name="CreditNote_Currency_RefID" Type="Guid" />
+		<ClassMember Name="CreditNote_Value" Type="Decimal" />
+		<ClassMember Name="CreditNote_Number" Type="String" />
+		<ClassMember Name="DateOnCreditNote" Type="DateTime" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

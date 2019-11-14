@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_stu_studies
+	(
+		HEC_STU_StudyID,
+		GlobalPropertyMatchingID,
+		Study_Name_DictID,
+		Study_Decription_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_STU_StudyID,
+		@GlobalPropertyMatchingID,
+		@Study_Name,
+		@Study_Decription,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

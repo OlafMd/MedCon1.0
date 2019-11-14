@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/22/2015 12:14:13">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CustomizationTemplates_with_Variants</Name>
+    <Namespace>CL3_ProductCustomization.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_ProductCustomization.Atomic.Retrieval"
+                Method_ClassName="cls_Get_CustomizationTemplates_with_Variants"
+                Method_Name="Get_CustomizationTemplates_with_Variants"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_CustomizationTemplates_with_Variants"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT cmn_pro_cus_customization_templates.CMN_PRO_CUS_Customization_TemplateID,
+	       cmn_pro_cus_customization_templates.CustomizationTemplate_Name_DictID,
+	       cmn_pro_cus_customization_templates.CustomizationTemplate_Description_DictID,
+	       cmn_pro_cus_customization_variant_templates.CMN_PRO_CUS_Customization_Variant_TemplateID,
+	       cmn_pro_cus_customization_variant_templates.CustomizationVariantTemplate_Name_DictID,
+	       cmn_pro_cus_customization_variant_templates.OrderSequence
+	FROM cmn_pro_cus_customization_templates
+	LEFT JOIN cmn_pro_cus_customization_variant_templates ON cmn_pro_cus_customization_templates.CMN_PRO_CUS_Customization_TemplateID = cmn_pro_cus_customization_variant_templates.Customization_Template_RefID
+	AND cmn_pro_cus_customization_variant_templates.Tenant_RefID = @TenantID
+	AND cmn_pro_cus_customization_variant_templates.IsDeleted = 0
+	WHERE cmn_pro_cus_customization_templates.Tenant_RefID = @TenantID
+	  AND cmn_pro_cus_customization_templates.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3PC_GCTwV_1212" IsArray="true"  GroupBy="CMN_PRO_CUS_Customization_TemplateID">
+			<Members>
+				<ClassMember Name="CMN_PRO_CUS_Customization_TemplateID" Type="Guid"  />
+				<ClassMember Name="CustomizationTemplate_Name" Type="Dict" OriginTable="cmn_pro_cus_customization_templates" Source_DBField="CustomizationTemplate_Name_DictID"  />
+				<ClassMember Name="CustomizationTemplate_Description" Type="Dict" OriginTable="cmn_pro_cus_customization_templates" Source_DBField="CustomizationTemplate_Description_DictID"  />
+        <ClassMember IsClass="true" IsArray="true" Name="TemplateVariants" Type="L3PC_GCTwV_1212a" GroupBy="CMN_PRO_CUS_Customization_Variant_TemplateID">
+          <Members>
+            <ClassMember Name="CMN_PRO_CUS_Customization_Variant_TemplateID" Type="Guid"  />
+            <ClassMember Name="CustomizationVariantTemplate_Name" Type="Dict" OriginTable="cmn_pro_cus_customization_variant_templates" Source_DBField="CustomizationVariantTemplate_Name_DictID"  />
+            <ClassMember Name="OrderSequence" Type="int"  />
+          </Members>
+        </ClassMember>
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="developer-task-status.assigned">
+    <Lang ISO="EN" Content="Assigned" />
+    <Lang ISO="DE" Content="Zugewiesen" />
+    <Lang ISO="RS" Content="Preuzet" />
+  </Item>
+  <Item ID="developer-task-status.deassigned">
+    <Lang ISO="EN" Content="Deassigned" />
+    <Lang ISO="DE" Content="Auflösen der Zuordnung" />
+    <Lang ISO="RS" Content="Vracen" />
+  </Item>
+  <Item ID="developer-task-status.developers-update">
+    <Lang ISO="EN" Content="Updated by developer" />
+    <Lang ISO="DE" Content="Entwickler aktualisieren" />
+    <Lang ISO="RS" Content="Izmenjen" />
+  </Item>
+  <Item ID="developer-task-status.activated">
+    <Lang ISO="EN" Content="Activated" />
+    <Lang ISO="DE" Content="Aktiviert" />
+    <Lang ISO="RS" Content="Aktiviran" />
+  </Item>
+  <Item ID="developer-task-status.deactivated">
+    <Lang ISO="EN" Content="Deactivated" />
+    <Lang ISO="DE" Content="Deaktiviert" />
+    <Lang ISO="RS" Content="Deaktiviran" />
+  </Item>
+  <Item ID="developer-task-status.started">
+    <Lang ISO="EN" Content="Started" />
+    <Lang ISO="DE" Content="Gestartet" />
+    <Lang ISO="RS" Content="Startovan" />
+  </Item>
+  <Item ID="developer-task-status.stopped">
+    <Lang ISO="EN" Content="Stopped" />
+    <Lang ISO="DE" Content="Gestoppt" />
+    <Lang ISO="RS" Content="Stopiran" />
+  </Item>
+  <Item ID="developer-task-status.missing-info">
+    <Lang ISO="EN" Content="Missing Info" />
+    <Lang ISO="DE" Content="Fehlende Informationen" />
+    <Lang ISO="RS" Content="Nepotpune Informacije" />
+  </Item>
+  <Item ID="developer-task-status.finished">
+    <Lang ISO="EN" Content="Finished" />
+    <Lang ISO="DE" Content="Fertig" />
+    <Lang ISO="RS" Content="Zavrsen" />
+  </Item>
+  <Item ID="developer-task-status.returned-to-developer">
+    <Lang ISO="EN" Content="Returned to developer" />
+    <Lang ISO="DE" Content="Zurück" />
+    <Lang ISO="RS" Content="Vracen developeru" />
+  </Item>
+  <Item ID="developer-task-status.assigned-by-manager">
+    <Lang ISO="EN" Content="Assigned by manager" />
+    <Lang ISO="DE" Content="Zugewiesen von Manager" />
+    <Lang ISO="RS" Content="Dodeljen od strane menadzera" />
+  </Item>
+  <Item ID="developer-task-status.deassigned-by-manager">
+    <Lang ISO="EN" Content="Deassigned by manager" />
+    <Lang ISO="DE" Content="Auflösen der Zuordnung von Manager" />
+    <Lang ISO="RS" Content="Vracen od strane mendzera" />
+  </Item>
+  <Item ID="developer-task-status.missing-info-resolved">
+    <Lang ISO="EN" Content="Missing Info Resolved" />
+    <Lang ISO="DE" Content="Fehlende Informationen gelöst" />
+    <Lang ISO="RS" Content="Nepotpune informacije dopunjene" />
+  </Item>
+  <Item ID="developer-task-status.taskinfo-changed">
+    <Lang ISO="EN" Content="Task info is changed" />
+    <Lang ISO="DE" Content="Aufgabe Info ist geändert" />
+    <Lang ISO="RS" Content="Informacije izmenjene" />
+  </Item>
+  <Item ID="developer-task-status.manager-time-invested">
+    <Lang ISO="EN" Content="Manager's time invested" />
+    <Lang ISO="DE" Content="Manager Investierte Zeit" />
+    <Lang ISO="RS" Content="Investirano menadzersko vreme" />
+  </Item>
+  <Item ID="developer-task-status.document-updated">
+    <Lang ISO="EN" Content="Document updated" />
+    <Lang ISO="DE" Content="Dokument aktualisiert" />
+    <Lang ISO="RS" Content="Dokument izmenjen" />
+  </Item>
+  <Item ID="developer-task-status.commented">
+    <Lang ISO="EN" Content="Commented" />
+    <Lang ISO="DE" Content="Kommentiert" />
+    <Lang ISO="RS" Content="Komentarisanje" />
+  </Item>
+</Resources>

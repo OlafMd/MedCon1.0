@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="rights-package.project-member">
+    <Lang ISO="EN" Content="Project Member" />
+    <Lang ISO="DE" Content="Projektmitarbeiter" />
+    <Lang ISO="RS" Content="Clan Projekta" />
+  </Item>
+  <Item ID="rights-package.task-developer">
+    <Lang ISO="EN" Content="Task Developer" />
+    <Lang ISO="DE" Content="Aufgabe Entwickler" />
+    <Lang ISO="RS" Content="Programer" />
+  </Item>
+  <Item ID="rights-package.technical-manager">
+    <Lang ISO="EN" Content="Technical Manager" />
+    <Lang ISO="DE" Content="Technische Manager" />
+    <Lang ISO="RS" Content="Tehnicki Menadzer" />
+  </Item>
+  <Item ID="rights-package.project-manager">
+    <Lang ISO="EN" Content="Project Manager" />
+    <Lang ISO="DE" Content="Projektleiterr" />
+    <Lang ISO="RS" Content="Projekt Menadzer" />
+  </Item>
+</Resources>

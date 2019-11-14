@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/29/2015 10:17:02">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AssortmentVariants_for_ProductID</Name>
+    <Namespace>CL5_Zugseil_Assortments.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_Assortments.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AssortmentVariants_for_ProductID"
+                Method_Name="Get_AssortmentVariants_for_ProductID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AssortmentVariants_for_ProductID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT cmn_pro_product_variants.CMN_PRO_Product_VariantID
+		,cmn_pro_product_variants.VariantName_DictID
+    ,CMN_PRO_ASS_AssortmentVariants.CMN_PRO_ASS_AssortmentVariantID 
+	FROM CMN_PRO_ASS_AssortmentVariants
+	INNER JOIN cmn_pro_product_variants ON cmn_pro_product_variants.CMN_PRO_Product_VariantID = cmn_pro_ass_assortmentvariants.Ext_CMN_PRO_Product_Variant_RefID
+		AND cmn_pro_product_variants.CMN_PRO_Product_RefID = @ProductID
+		AND cmn_pro_product_variants.IsDeleted = 0
+		AND cmn_pro_product_variants.Tenant_RefID = @TenantID
+    AND CMN_PRO_Product_Variants.IsStandardProductVariant = 0
+	WHERE cmn_pro_product_variants.IsDeleted = 0
+		AND cmn_pro_product_variants.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5AS_GAVfP_2216">
+    <Members>
+		<ClassMember Name="ProductID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5AS_GAVfP_2216" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_PRO_Product_VariantID" Type="Guid"  />
+        <ClassMember Name="VariantName_DictID" Type="Dict"  OriginTable="cmn_pro_product_Variants" Source_DBField="VariantName_DictID" />
+        <ClassMember Name="CMN_PRO_ASS_AssortmentVariantID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

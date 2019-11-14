@@ -1,0 +1,19 @@
+INSERT INTO 
+	acc_cbx_cashboxbalancechange_2_accountingtransaction
+	(
+		AssignmentID,
+		ACC_CBX_CashBox_BalanceChange_RefID,
+		ACC_BOK_Accounting_Transaction_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@ACC_CBX_CashBox_BalanceChange_RefID,
+		@ACC_BOK_Accounting_Transaction_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

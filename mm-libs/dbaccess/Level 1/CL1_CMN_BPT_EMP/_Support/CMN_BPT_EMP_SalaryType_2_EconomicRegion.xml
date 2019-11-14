@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 11/26/2013 5:23:39 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_BPT_EMP_SalaryType_2_EconomicRegion"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_BPT_EMP"
+                IsClass_Corresponding_DBTable="cmn_bpt_emp_salarytype_2_economicregion" >
+      <Members>
+		<ClassMember Name="AssignmentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="CMN_BPT_EMP_SalaryType_RefID" Type="Guid" />
+		<ClassMember Name="CMN_EconomicRegion_RefID" Type="Guid" />
+		<ClassMember Name="SalaryType_Code" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

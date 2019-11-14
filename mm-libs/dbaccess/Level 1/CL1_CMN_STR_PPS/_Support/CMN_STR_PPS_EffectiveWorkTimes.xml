@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 2/10/2014 5:54:40 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_STR_PPS_EffectiveWorkTime"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_STR_PPS"
+                IsClass_Corresponding_DBTable="cmn_str_pps_effectiveworktimes" >
+      <Members>
+		<ClassMember Name="CMN_STR_PPS_EffectiveWorkTimeID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="CMN_BPT_EMP_Employe_RefID" Type="Guid" />
+		<ClassMember Name="BoundTo_DailyWorkShedule_Detail_RefID" Type="Guid" />
+		<ClassMember Name="Activity_RefID" Type="Guid" />
+		<ClassMember Name="Workplace_RefID" Type="Guid" />
+		<ClassMember Name="CMN_BPT_EMP_Employee_LeaveRequest_RefID" Type="Guid" />
+		<ClassMember Name="WorkTime_StartTime" Type="DateTime" />
+		<ClassMember Name="WorkTime_Duration_in_sec" Type="int" />
+		<ClassMember Name="SourceOfEntry" Type="int" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

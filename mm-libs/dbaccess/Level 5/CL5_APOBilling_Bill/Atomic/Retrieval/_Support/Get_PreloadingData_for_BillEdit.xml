@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/22/2014 4:37:07 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PreloadingData_for_BillEdit</Name>
+    <Namespace>CL5_APOBilling_Bill.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBilling_Bill.Atomic.Retrieval"
+                Method_ClassName="cls_Get_PreloadingData_for_BillEdit"
+                Method_Name="Get_PreloadingData_for_BillEdit"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PreloadingData_for_BillEdit"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  bil_billheaders.BIL_BillHeaderID,
+  bil_billheaders.BillRecipient_BuisnessParticipant_RefID,
+  bil_billheaders.CreatedBy_BusinessParticipant_RefID,
+  bil_billheaders.BillNumber,
+  bil_billheaders.BillComment,
+  bil_billheaders.BillHeader_PaymentCondition_RefID,
+  bil_billheader_methodofpayments.ACC_PAY_Type_RefID,
+  bil_billheaders.DateOnBill,
+  bil_billheaders.BillingAddress_UCD_RefID,
+  bil_billheader_2_billstatus.IsCurrentStatus,
+  bil_billstatuses.BIL_BillStatusID,
+  bil_billstatuses.GlobalPropertyMatchingID As Status_GlobalPropertyMatchingID,
+  bil_billstatuses.BillStatus_Name_DictID,
+  cmn_universalcontactdetails.CMN_UniversalContactDetailID,
+  cmn_universalcontactdetails.CompanyName_Line1,
+  cmn_universalcontactdetails.First_Name,
+  cmn_universalcontactdetails.Last_Name,
+  cmn_universalcontactdetails.Country_Name,
+  cmn_universalcontactdetails.Country_639_1_ISOCode,
+  cmn_universalcontactdetails.Street_Name,
+  cmn_universalcontactdetails.Street_Number,
+  cmn_universalcontactdetails.ZIP,
+  cmn_universalcontactdetails.Town,
+  bil_billheaders.Tenant_RefID,
+  bil_billheaders.TotalValue_BeforeTax,
+  bil_billheaders.TotalValue_IncludingTax,
+  bil_billheader_2_billstatus.AssignmentID As Status_AssignmentID,
+  cmn_bpt_ctm_customers.CMN_BPT_CTM_CustomerID,
+  cmn_currencies.Symbol,
+  cmn_currencies.ISO4127,
+  COUNT(DISTINCT bil_notes.BIL_Note) NotesNumber
+From
+  bil_billheaders Inner Join
+  bil_billheader_2_billstatus On bil_billheaders.BIL_BillHeaderID =
+    bil_billheader_2_billstatus.BIL_BillHeader_RefID Inner Join
+  bil_billstatuses On bil_billheader_2_billstatus.BIL_BillStatus_RefID =
+    bil_billstatuses.BIL_BillStatusID Inner Join
+  cmn_universalcontactdetails On bil_billheaders.BillingAddress_UCD_RefID =
+    cmn_universalcontactdetails.CMN_UniversalContactDetailID Inner Join
+  cmn_bpt_ctm_customers
+    On bil_billheaders.BillRecipient_BuisnessParticipant_RefID =
+    cmn_bpt_ctm_customers.Ext_BusinessParticipant_RefID 
+  Left Outer Join bil_billheader_methodofpayments
+    On bil_billheader_methodofpayments.BIL_BillHeader_RefID =
+    bil_billheaders.BIL_BillHeaderID And
+    bil_billheader_methodofpayments.IsPreferredMethodOfPayment = 1 And
+    bil_billheader_methodofpayments.IsDeleted = 0 Inner Join
+  cmn_currencies On bil_billheaders.Currency_RefID =
+    cmn_currencies.CMN_CurrencyID
+  LEFT JOIN bil_notes ON bil_notes.BillHeader_RefID = bil_billheaders.BIL_BillHeaderID
+   AND bil_notes.IsDeleted = 0
+Where
+  bil_billheaders.BIL_BillHeaderID = @BillHeaderID And
+  bil_billheaders.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5BL_GPDfBE_1635">
+    <Members>
+        <ClassMember Name="BillHeaderID" Type="Guid"  />
+    
+    </Members>
+  </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5BL_GPDfBE_1635" IsArray="false" GroupBy="BIL_BillHeaderID">
+      <Members>
+        <ClassMember Name="BIL_BillHeaderID" Type="Guid"  />
+        <ClassMember Name="BillRecipient_BuisnessParticipant_RefID" Type="Guid"  />
+        <ClassMember Name="CreatedBy_BusinessParticipant_RefID" Type="Guid"  />
+        <ClassMember Name="BillNumber" Type="String"  />
+        <ClassMember Name="BillComment" Type="String"  />
+        <ClassMember Name="BillHeader_PaymentCondition_RefID" Type="Guid"  />
+		<ClassMember Name="ACC_PAY_Type_RefID" Type="Guid"  />
+        <ClassMember Name="DateOnBill" Type="DateTime"  />
+        <ClassMember Name="BillingAddress_UCD_RefID" Type="Guid"  />
+        <ClassMember Name="CMN_UniversalContactDetailID" Type="Guid"  />
+        <ClassMember Name="CompanyName_Line1" Type="String"  />
+        <ClassMember Name="First_Name" Type="String"  />
+        <ClassMember Name="Last_Name" Type="String"  />
+        <ClassMember Name="Country_Name" Type="String"  />
+        <ClassMember Name="Country_639_1_ISOCode" Type="String"  />
+        <ClassMember Name="Street_Name" Type="String"  />
+        <ClassMember Name="Street_Number" Type="String"  />
+        <ClassMember Name="ZIP" Type="String"  />
+        <ClassMember Name="Town" Type="String"  />
+        <ClassMember Name="Tenant_RefID" Type="Guid"  />
+        <ClassMember Name="TotalValue_BeforeTax" Type="Double"  />
+        <ClassMember Name="TotalValue_IncludingTax" Type="Double"  />
+        <ClassMember Name="Status_AssignmentID" Type="Guid" />
+        <ClassMember Name="CMN_BPT_CTM_CustomerID" Type="Guid" />
+        <ClassMember Name="Symbol" Type="String" />
+        <ClassMember Name="ISO4127" Type="String" />
+        <ClassMember Name="BillStatus" Type="L5BL_GPDfBE_1635_BillStatus" IsClass="true" IsArray="true" GroupBy="BIL_BillStatusID" >
+          <Members>
+            <ClassMember Name="BIL_BillStatusID" Type="Guid" />
+            <ClassMember Name="Status_GlobalPropertyMatchingID" Type="string" />
+            <ClassMember Name="BillStatus_Name" Type="Dict" OriginTable="bil_billstatuses" Source_DBField="BillStatus_Name_DictID" />
+            <ClassMember Name="IsCurrentStatus" Type="bool" />
+          </Members>
+        </ClassMember>
+        <ClassMember Name="NotesNumber" Type="int" />
+      </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

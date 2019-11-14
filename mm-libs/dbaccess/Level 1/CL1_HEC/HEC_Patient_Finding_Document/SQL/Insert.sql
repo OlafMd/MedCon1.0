@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_patient_finding_documents
+	(
+		HEC_Patient_Finding_DocumentID,
+		Patient_Finding_RefID,
+		Document_RefID,
+		Comment,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_Patient_Finding_DocumentID,
+		@Patient_Finding_RefID,
+		@Document_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

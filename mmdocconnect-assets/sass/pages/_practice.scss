@@ -1,0 +1,269 @@
+.doctors-data-lists.practice-list{
+	background-color: #ebebeb;
+	float: left;
+	clear: left;
+	width: 100%;
+
+	input{
+		border: 1px solid transparent;
+		outline: 0;
+		@include border-radius(3px);
+
+		&:focus{
+			border: 1px solid $active-color;
+		}
+	}
+
+	input[type="text"],
+	input[type="number"],
+	input[type="email"],
+	input[type="password"]{
+		height: 34px;
+		padding: 2px 5px;
+	}
+
+	.first-class-data{
+        width: 76%;
+		width: calc( 100% - 270px);
+	}
+
+	.second-class-data-wrapper{
+        width: 75%;
+		width: calc( 100% - 290px);
+
+
+	}
+
+	.second-class-data{
+		width: 100%;
+	}
+     .third-class-data{
+        @extend .first-class-data;
+        width: calc( 100% - 400px);
+    }
+	.first-class-data,
+	.second-class-data{
+		float: left;
+		clear: left;
+
+		> li {
+			float: left;
+			margin-right: 10px;
+			margin-bottom: 20px;
+
+			&:last-child{
+				margin-right: 0;
+			}
+
+			label{
+				display: block;
+				margin-bottom: 10px;
+			}
+
+			input{
+				width: 100%;
+			}
+		}
+	}
+
+	.second-class-data-wrapper{
+		padding-left: 40px;
+		border-top: 1px solid #b7b7b7;
+		clear: left;
+		float: left;
+		padding-top: 15px;
+	}
+
+	h3{
+		float: left;
+		clear: left;
+		margin-bottom: 10px;
+	}
+
+	.buttons{
+		//float: left;
+        float: right;
+		width: 250px;
+		margin-top: 21px;
+
+		.button{
+			margin-bottom: 0;
+		}
+	}
+
+	.centered-checkbox{
+		.mask-checkbox{
+			display: block;
+			margin: 15px auto 0;
+		}
+
+		.mask-toggle{
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+	.first-row{
+		li{
+			&:first-child{
+				width: 20.3%;
+			}
+
+			&:last-child{
+				width: 20.3%;
+			}
+
+			&.last-field-ddetail-edit{
+				width: 19.6%;
+			}
+		}
+	}
+
+	.first-row{
+		li{
+			&:nth-child(02),
+			&:nth-child(05){
+				width: 16%;
+			}
+		}
+	}
+
+	.second-row{
+		li{
+			&:nth-child(01),
+			&:nth-child(04) {
+				width: 19%;
+			}
+
+			&:nth-child(02),
+			&:nth-child(03),
+			&:nth-child(05){
+				width: 12.75%;
+
+				@media screen and (max-width: 1310px){
+					width: 15%;
+				}
+			}
+
+			&:nth-child(7),
+			&:nth-child(8),
+			&:nth-child(9),
+			&:nth-child(10) {
+				margin-right: 30px;
+			}
+
+			.mask-checkbox {
+				margin-top: 8px;
+			}
+		}
+	}
+
+	.third-row{
+		li{
+			margin-right: 30px;
+
+			&:nth-child(04){
+				width: 123px;
+				margin-left: 30px;
+
+				input{
+					width: 34px !important;
+					display: inline-block;
+				}
+
+				label:last-child{
+					display: inline-block;
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+
+	.fourth-row{
+		li{
+			&:first-child{
+				width: 32.9%;
+			}
+
+			&:nth-child(02){
+				width: 20%;
+			}
+
+			&:nth-child(03){
+				width: 20%;
+			}
+
+			&:nth-child(04){
+				width: 25%;
+			}
+		}
+	}
+
+	.fifth-row{
+		li{
+			margin-bottom: 35px;
+
+			&:first-child{
+				width:21%;
+			}
+
+			&:nth-child(02),
+			&:nth-child(03){
+				width:15%;
+				//inputs should be wider
+				@media screen and (max-width: 1370px){
+					width: 19%;
+				}
+			}
+
+			&:last-child{
+				padding-top: 36px;
+			}
+
+			.mask-checkbox{
+				margin-top: -5px;
+			}
+		}
+	}
+
+	.fifth-row-ddetail-edit{
+		li{
+			&:first-child{
+				width:21%;
+			}
+
+			&:nth-child(02){
+				width:15%;
+			}
+
+			&.password-btn-holder{
+				padding-top: 22px;
+
+				.button{
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	.error{
+		font-weight: bold;
+		color: #c73030;
+		margin-left: 3px;
+	}
+}
+
+.practice-list.pdetails-edit{
+	.fifth-row-ddetail-edit{
+		li{
+			&:last-child{
+				margin-left: 25px;
+
+				.mask-toggle{
+					display: block;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+}

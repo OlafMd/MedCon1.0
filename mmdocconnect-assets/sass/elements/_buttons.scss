@@ -1,0 +1,47 @@
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-weight: 400;
+    height: 34px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    @include user-select(none);
+    color: #fff;
+    outline: 0;
+    border: 0;
+    @include border-radius(3px);
+    cursor: pointer;
+}
+
+.btn-primary {
+    @include button-variant(#fff, $active-color, $active-color);
+}
+
+.btn-link {
+  padding: 0;
+  padding-bottom: 1px;
+  font-size: 12px;
+  font-weight: normal;
+  color: $sub-header;
+  border-radius: 0;
+  border-bottom: 1px solid $sub-header;
+
+  &:before {
+    content: '[';
+  }
+  &:after {
+    content: ']';
+  }
+
+  &,
+  &:active,
+  &.active,
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: transparent;
+    @include box-shadow(none);
+  }
+}

@@ -1,0 +1,50 @@
+﻿<div class="preexamination-error-correction-edit-form gray-content-holder-visible doctors-data-lists planning-list clearfix animate-if">
+
+
+    <form id="octForm" class="rejected-border-small relative clear" name="octForm" ng-submit="saveOct()" novalidate>
+        <div class="error-msg">
+            <span class="error">{{ comment }}</span>
+            <span class="error" ng-if="error" translate="{{ error }}"></span>
+            <span class="error" ng-if="validation" translate="{{ validation.label }}" translate-values="validation"></span>
+        </div>
+        <ul class="first-class-data first-row ">
+            <li>
+                <label id="lblPatientName">
+                    {{ 'LABEL_PATIENT_NAME' | translate }}
+                </label>
+                <input id="patientName" type="text" ng-model="patient_display_name" disabled="disabled" />
+            </li>
+            <li>
+                <label>{{ 'LABEL_DATE' | translate }}<span class="error" ng-class="{'hidden':!octForm.octDate.$error.required}">*</span></label>
+                <datepicker date-format="dd.MM.yyyy" date-model="oct.surgery_date_string" date-max-limit={{today}}>
+                    <input type="text" id="octDate" name="octDate" class="2000Year preexamination-input" ng-model="oct.surgery_date_string" placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                           ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'" required ng-class="{'redborder': error }" validate-date="true" date-max-limit="today" />
+                </datepicker>
+            </li>
+            <li class="preexamination-localization">
+                <label id="lblLokalization">{{ 'LABEL_LOKALIZATION' | translate}}<span class="error" ng-show="!isLocalizationSelected()">*</span></label>
+                <div>
+                    <span class="mask-checkbox">
+                        <input type="radio" ng-model="oct.is_left_eye" ng-value="true" name="lokalization" id="rbLeftEye" />
+                        <i class="icon"></i>
+                    </span>
+                    <label for="rbLeftEye" class="pointer">{{ 'LABEL_LEFT' | translate }}</label>
+                    <span class="mask-checkbox margin-left">
+                        <input type="radio" ng-model="oct.is_left_eye" ng-value="false" name="lokalization" id="rbRightEye" />
+                        <i class="icon"></i>
+                    </span>
+                    <label for="rbRightEye" class="pointer">{{ 'LABEL_RIGHT' | translate }}</label>
+                </div>
+            </li>
+            <li class="preexamination-doctor-dropdown">
+                <label id="lblOpDoctor" translate="LABEL_OCT_DOCTOR"></label>
+                <dropdown-list id="selOctDoctor" items="doctors" ng-model="oct.treatment_doctor_id" additional-class="'dropdown-min-width'" params="{has_prefix: true}"></dropdown-list>
+            </li>
+            <li class="buttons-with-text-button">
+                <span class="abort"><a href="" ng-click="closeCaseForm()" translate="BUTTON_CANCEL" title="{{ 'BUTTON_CANCEL' | translate}}">{{ 'LABEL_CANCEL' | translate }}</a></span>
+                <button class="button wide confirm" id="btnSaveCase" type="submit" translate="BUTTON_SAVE" title="{{ 'BUTTON_SAVE' | translate}}"
+                        ng-disabled="octForm.$invalid"></button>
+            </li>
+        </ul>
+    </form>
+</div>

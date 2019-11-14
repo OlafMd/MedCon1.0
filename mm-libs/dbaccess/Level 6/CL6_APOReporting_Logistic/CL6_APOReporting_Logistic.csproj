@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C67EE911-6D61-411F-AACC-CFC7B2C39AD0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL6_APOReporting_Logistic</RootNamespace>
+    <AssemblyName>CL6_APOReporting_Logistic</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APOLogistic_DeliveryList\cls_Get_Data_for_DeliveryList_Report.cs" />
+    <Compile Include="APOLogistic_DemandList\cls_Get_Data_for_DemandList_Report.cs" />
+    <Compile Include="APOLogistic_DemandList\cls_Get_Product_Demand_and_Supply_Quantity.cs" />
+    <Compile Include="APOLogistic_PickingList\cls_Get_Data_for_PickingList_Report.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_CTM\CL1_CMN_BPT_CTM.csproj">
+      <Project>{C453F5A9-9877-4197-A5E3-403EF6A0455D}</Project>
+      <Name>CL1_CMN_BPT_CTM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_SHP\CL1_LOG_SHP.csproj">
+      <Project>{E43DE7B7-3C37-46B1-8824-D7313CCD8273}</Project>
+      <Name>CL1_LOG_SHP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_CUO\CL1_ORD_CUO.csproj">
+      <Project>{08B298C5-2B62-46EA-964F-98109E5B288C}</Project>
+      <Name>CL1_ORD_CUO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_CustomerOrder\CL2_CustomerOrder.csproj">
+      <Project>{CFED3BED-A135-4A75-A37A-B6EC5CD9AC60}</Project>
+      <Name>CL2_CustomerOrder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Language\CL2_Language.csproj">
+      <Project>{58245A4D-887C-4AA1-B01E-7E6779C4F096}</Project>
+      <Name>CL2_Language</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Account\CL3_Account.csproj">
+      <Project>{683E9E5E-16DE-4CB3-8D80-D87468291694}</Project>
+      <Name>CL3_Account</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Articles\CL3_Articles.csproj">
+      <Project>{B6DFA294-6413-463B-AD21-1F6EC75F8196}</Project>
+      <Name>CL3_Articles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_CustomerOrder\CL3_CustomerOrder.csproj">
+      <Project>{46534EFC-2F26-4D65-BEAF-7385212E053E}</Project>
+      <Name>CL3_CustomerOrder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_APOBackoffice_CustomerOrder\CL5_APOBackoffice_CustomerOrder.csproj">
+      <Project>{849D2E31-3758-488E-A729-26C57DCFBB23}</Project>
+      <Name>CL5_APOBackoffice_CustomerOrder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_APOLogistic_ShippingOrder\CL5_APOLogistic_ShippingOrder.csproj">
+      <Project>{37A293E0-5D59-44F6-AFEF-82739F638C1B}</Project>
+      <Name>CL5_APOLogistic_ShippingOrder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL6_APOLogistic_ShippingOrder\CL6_APOLogistic_ShippingOrder.csproj">
+      <Project>{92504B3D-344A-4A80-91BD-77471835EDDB}</Project>
+      <Name>CL6_APOLogistic_ShippingOrder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="APOLogistic_DeliveryList\_Support\Get_Data_for_DeliveryList_Report.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="APOLogistic_DemandList\SQL\cls_Get_Product_Demand_and_Supply_Quantity.sql" />
+    <Content Include="APOLogistic_DemandList\_Support\Get_Product_Demand_and_Supply_Quantity.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="APOLogistic_DemandList\_Support\Get_Data_for_DemandList_Report.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="APOLogistic_PickingList\_Support\Get_Data_for_PickingList_Report.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

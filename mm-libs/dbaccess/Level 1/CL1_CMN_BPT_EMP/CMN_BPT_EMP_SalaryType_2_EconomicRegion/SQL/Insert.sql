@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_emp_salarytype_2_economicregion
+	(
+		AssignmentID,
+		CMN_BPT_EMP_SalaryType_RefID,
+		CMN_EconomicRegion_RefID,
+		SalaryType_Code,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_BPT_EMP_SalaryType_RefID,
+		@CMN_EconomicRegion_RefID,
+		@SalaryType_Code,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

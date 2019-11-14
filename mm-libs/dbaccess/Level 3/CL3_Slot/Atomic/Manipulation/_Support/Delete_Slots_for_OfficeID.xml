@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/27/2014 1:39:56 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Skills_for_TenantID</Name>
+    <Namespace>CL3_Skills.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+  <CreationInfo Method_Namespace="CL3_TaskTemplateSlot.Atomic.Manipulation"
+                Method_ClassName="cls_Delete_Slots_for_OfficeID"
+                Method_Name="Delete_Slots_for_OfficeID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Delete_Slots_for_OfficeID"
+                />
+  <Parameters IsClass="true" Name="P_L3TTS_DSbOID_1222">
+    <Members>
+      <ClassMember Name="OfficeID" Type="Guid" />
+    </Members>
+  </Parameters>
+	<ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+	</ResultInfo>
+</CodeGen>
+
+

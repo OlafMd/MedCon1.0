@@ -1,0 +1,25 @@
+UPDATE 
+	cmn_per_personinfo
+SET 
+	Address_RefID=@Address_RefID,
+	Title=@Title,
+	Salutation_General=@Salutation_General,
+	Salutation_Letter=@Salutation_Letter,
+	Initials=@Initials,
+	FirstName=@FirstName,
+	LastName=@LastName,
+	PrimaryEmail=@PrimaryEmail,
+	ProfileImage_Document_RefID=@ProfileImage_Document_RefID,
+	BirthDate=@BirthDate,
+	Gender=@Gender,
+	NumberOfChildren=@NumberOfChildren,
+	IsRepresentedByLegalGuardian=@IsRepresentedByLegalGuardian,
+	IsDead=@IsDead,
+	DateOfDeath=@DateOfDeath,
+	AgeCalculation_YearOfBirth=@AgeCalculation_YearOfBirth,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	CMN_PER_PersonInfoID = @CMN_PER_PersonInfoID

@@ -1,0 +1,25 @@
+INSERT INTO 
+	mrs_mpt_customerownerships
+	(
+		MRS_MPT_CustomerOwnershipID,
+		MeasuringPoint_RefID,
+		Customer_RefID,
+		ContractNumber,
+		ValidFrom,
+		ValidThrough,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@MRS_MPT_CustomerOwnershipID,
+		@MeasuringPoint_RefID,
+		@Customer_RefID,
+		@ContractNumber,
+		@ValidFrom,
+		@ValidThrough,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

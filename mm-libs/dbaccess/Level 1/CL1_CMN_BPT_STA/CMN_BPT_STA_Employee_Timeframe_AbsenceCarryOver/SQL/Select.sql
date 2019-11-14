@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_sta_employee_timeframe_absencecarryovers
+WHERE 
+	CMN_BPT_STA_Employee_AbsenceCarryOverID = @CMN_BPT_STA_Employee_AbsenceCarryOverID

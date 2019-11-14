@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Case_Order_Number_for_OrderIDs</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Manipulation"
+								Method_ClassName="cls_Save_Case_Order_Number_for_OrderIDs"
+								Method_Name="Save_Case_Order_Number_for_OrderIDs"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <Parameters IsClass="true" Name="P_CAS_SCONfOID_1442">
+    <Members>
+      <ClassMember Name="order_ids" Type="Guid" IsArray="true" />
+      <ClassMember Name="practice_bsnr" Type="String"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_a_StandardDataType_or_StadardDataTypeArray="true">
+    <StandardReturnType_Definition returnType="String" IsArray="false" />
+  </ResultInfo>
+</CodeGen>

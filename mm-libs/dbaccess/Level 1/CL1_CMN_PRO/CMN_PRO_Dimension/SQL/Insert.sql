@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_pro_dimensions
+	(
+		CMN_PRO_DimensionID,
+		Product_RefID,
+		Abbreviation,
+		DimensionName_DictID,
+		OrderSequence,
+		IsDimensionTemplate,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_PRO_DimensionID,
+		@Product_RefID,
+		@Abbreviation,
+		@DimensionName,
+		@OrderSequence,
+		@IsDimensionTemplate,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

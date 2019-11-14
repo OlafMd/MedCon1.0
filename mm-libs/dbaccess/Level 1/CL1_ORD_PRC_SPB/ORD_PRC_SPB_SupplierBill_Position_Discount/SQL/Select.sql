@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	ord_prc_spb_supplierbill_position_discounts
+WHERE 
+	ORD_PRC_SPB_SupplierBill_Position_DiscountID = @ORD_PRC_SPB_SupplierBill_Position_DiscountID

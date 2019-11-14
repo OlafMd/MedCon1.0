@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_bpt_emp_employee_taxinformation
+	(
+		CMN_BPT_EMP_Employee_TaxInformationID,
+		Employee_RefID,
+		TaxNumber,
+		TaxClass,
+		TaxExemptionAmount,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_EMP_Employee_TaxInformationID,
+		@Employee_RefID,
+		@TaxNumber,
+		@TaxClass,
+		@TaxExemptionAmount,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

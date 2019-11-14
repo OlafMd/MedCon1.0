@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/10/2014 17:02:47 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Document</Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOAdmin_Documents.Complex.Manipulation"
+                Method_ClassName="cls_Save_Document"
+                Method_Name="Save_Document"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Document"
+                />  
+
+  <Parameters IsClass="true" Name="P_L5DO_SD_1702">
+    <Members>
+		  <ClassMember IsIdentificator="True" Name="DOC_DocumentID" Type="Guid"  />
+		  <ClassMember Name="File_Name" Type="String"  />
+		  <ClassMember Name="UploadedByAccount" Type="Guid"  />
+      <ClassMember Name="CreationDate" Type="DateTime" />
+      <ClassMember Name="VisibleInWebShop" Type="Boolean" />
+      <ClassMember Name="FileLocation" Type="String"  />
+		  <ClassMember Name="IsDeleted" Type="Boolean"  />	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

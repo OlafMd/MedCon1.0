@@ -1,0 +1,12 @@
+UPDATE 
+	log_shp_rsh_receivablecreditnote_2_receiptposition
+SET 
+	LOG_SHP_ReturnShipment_ReceivableCreditNote_Position_RefID=@LOG_SHP_ReturnShipment_ReceivableCreditNote_Position_RefID,
+	LOG_RCP_Receipt_Position_RefID=@LOG_RCP_Receipt_Position_RefID,
+	CompensationValue=@CompensationValue,
+	IsFullCompensationForReceivableCreditNotePosition=@IsFullCompensationForReceivableCreditNotePosition,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	AssignmentID = @AssignmentID

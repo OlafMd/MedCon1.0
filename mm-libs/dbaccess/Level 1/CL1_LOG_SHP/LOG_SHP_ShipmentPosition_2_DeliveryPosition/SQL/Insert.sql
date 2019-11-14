@@ -1,0 +1,23 @@
+INSERT INTO 
+	log_shp_shipmentposition_2_deliveryposition
+	(
+		AssignmentID,
+		LOG_SHP_Shipment_Position_RefID,
+		LOG_DLV_Delivery_Position_RefID,
+		DeliveryQuantity,
+		Shiped_TrackingInstance_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@LOG_SHP_Shipment_Position_RefID,
+		@LOG_DLV_Delivery_Position_RefID,
+		@DeliveryQuantity,
+		@Shiped_TrackingInstance_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

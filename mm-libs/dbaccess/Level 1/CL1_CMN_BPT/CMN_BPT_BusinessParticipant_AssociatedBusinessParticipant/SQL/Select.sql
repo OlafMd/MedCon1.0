@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_businessparticipant_associatedbusinessparticipants
+WHERE 
+	CMN_BPT_BusinessParticipant_AssociatedBusinessParticipantID = @CMN_BPT_BusinessParticipant_AssociatedBusinessParticipantID

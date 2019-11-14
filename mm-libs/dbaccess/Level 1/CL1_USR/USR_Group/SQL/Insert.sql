@@ -1,0 +1,19 @@
+INSERT INTO 
+	usr_groups
+	(
+		USR_GroupID,
+		Group_Name_DictID,
+		Group_Description_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@USR_GroupID,
+		@Group_Name,
+		@Group_Description,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

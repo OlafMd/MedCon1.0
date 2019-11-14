@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/16/2013 2:56:23 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Examination_Data</Name>
+    <Namespace>CL5_MyHealthClub_Examinations.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Examinations.Complex.Retrieval"
+				  Method_ClassName="cls_Get_All_PatientReferralData"
+				  Method_Name="Get_All_PatientReferralData"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Get_All_PatientReferralData"
+                />
+
+  <Parameters IsClass="true" Name="P_L5EX_GAPRD_1154">
+    <Members>
+      <ClassMember Name="ExaminationID" Type="Guid"/>
+      <ClassMember Name="PatientID" Type="Guid"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5EX_GAPRD_1154" IsArray="false">
+      <Members>
+        <ClassMember Name="top_medical_practice_types" Type="L5OU_GRPBD_1305_top_medical_practice_types" IsClass="true" IsArray="true" GroupBy="id">
+          <Members>
+            <ClassMember Name="id" Type="String"/>
+			      <ClassMember Name="medical_pracitce_id" Type="String"/>
+            <ClassMember Name="name" Type="String"/>
+			      <ClassMember Name="number_of_occurances" Type="String"/>
+          </Members>
+        </ClassMember>
+        <ClassMember Name="top_diagnoses" Type="L5OU_GRPBD_1305_top_diagnoses" IsClass="true" IsArray="true" GroupBy="id">
+          <Members>
+            <ClassMember Name="id" Type="String"/>
+            <ClassMember Name="code" Type="String"/>
+            <ClassMember Name="name" Type="String"/>
+            <ClassMember Name="number_of_occurances" Type="String"/>
+          </Members>
+        </ClassMember>
+		  <ClassMember Name="medical_practice_types" Type="L5OU_GRPBD_1305_medical_practice_types" IsClass="true" IsArray="true" GroupBy="id">
+			  <Members>
+				  <ClassMember Name="id" Type="String"/>
+				  <ClassMember Name="name" Type="String"/>
+			  </Members>
+		  </ClassMember>
+        <ClassMember Name="hospitals" Type="L5OU_GRPBD_1305_hospitals" IsClass="true" IsArray="true">
+          <Members>
+            <ClassMember Name="HospitalID" Type="Guid"></ClassMember>
+            <ClassMember Name="HospitalName" Type="String"></ClassMember>
+          </Members>
+        </ClassMember>
+        <ClassMember Name="doctors" Type="L5OU_GRPBD_1305_doctors" IsClass="true" IsArray="true">
+          <Members>
+            <ClassMember Name="doctor" Type="String"></ClassMember>
+            <ClassMember Name="doctor_id" Type="Guid"></ClassMember>
+            <ClassMember Name="HEC_MedicalPractiseID" Type="Guid"></ClassMember>
+          </Members>
+        </ClassMember>
+        <ClassMember Name="referralSaved" Type="Boolean"></ClassMember>
+        <ClassMember Name="selectedPracticeTypeID" Type="Guid"/>
+        <ClassMember Name="selectedHospitalID" Type="Guid"/>
+        <ClassMember Name="selectedProcedureID" Type="Guid"/>
+        <ClassMember Name="selectedDoctor" Type="Guid"/>
+        <ClassMember Name="comment" Type="String"/>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+ 
+</CodeGen>
+
+

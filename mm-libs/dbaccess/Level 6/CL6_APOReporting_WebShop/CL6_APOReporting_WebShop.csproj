@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{27380405-D2E5-40F4-B146-A5272FF4CCAD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL6_APOReporting_WebShop</RootNamespace>
+    <AssemblyName>CL6_APOReporting_WebShop</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_ShoppingCart_for_ShoppingCartID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_ShoppingCartData_for_ShoppingCartID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ShoppingCart_for_ShoppingCartID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ShoppingCart_for_ShoppingCartID.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_ShoppingCartData_for_ShoppingCartID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_TAX\CL1_ACC_TAX.csproj">
+      <Project>{E2A9FD01-BAC1-4A56-9062-B8F30237590E}</Project>
+      <Name>CL1_ACC_TAX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PER\CL1_CMN_PER.csproj">
+      <Project>{6BDA1EB4-FA2A-41A1-8B83-171ED9B85ADD}</Project>
+      <Name>CL1_CMN_PER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06AB1C3C-339F-4E31-8408-232DC283308C}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_SLS\CL1_CMN_SLS.csproj">
+      <Project>{86752CE8-6442-4C3F-A316-98FADBB38BE1}</Project>
+      <Name>CL1_CMN_SLS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_PRC\CL1_ORD_PRC.csproj">
+      <Project>{2ED9EC1F-4C36-4790-B8AE-6C03F4B40588}</Project>
+      <Name>CL1_ORD_PRC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Articles\CL3_Articles.csproj">
+      <Project>{B6DFA294-6413-463B-AD21-1F6EC75F8196}</Project>
+      <Name>CL3_Articles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_APOWebShop_ShoppingCart\CL5_APOWebShop_ShoppingCart.csproj">
+      <Project>{ACFBF666-C818-4772-B7F1-0FE85F9EEF7B}</Project>
+      <Name>CL5_APOWebShop_ShoppingCart</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

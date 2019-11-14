@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/29/2014 7:29:06 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_AssortmentProductDistributionPrice</Name>
+    <Namespace>CL3_Assortment.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Assortment.Complex.Manipulation"
+                Method_ClassName="cls_Save_AssortmentProductDistributionPrice"
+                Method_Name="Save_AssortmentProductDistributionPrice"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_AssortmentProductDistributionPrice"
+                />
+
+  <Parameters IsClass="true" IsArray="true" Name="P_L3AS_SAPDP_1928" >
+    <Members>
+      <ClassMember Name="CMN_PRO_ASS_DistributionPriceID" Type="Guid"  />
+      <ClassMember Name="DistributionPriceValues" Type="P_L3AS_SAPDP_1928a" IsClass="true" IsArray="true">
+        <Members>
+          <ClassMember Name="IsAssigned" Type="bool"  />
+          <ClassMember Name="IsDefault" Type="bool"  />
+          <ClassMember Name="CMN_PRO_ASS_DistributionPrice_ValueID" Type="Guid"  />
+          <ClassMember Name="DefaultPointValue" Type="double"  />
+          <ClassMember Name="ValidFrom" Type="DateTime"  />
+          <ClassMember Name="ValidThrough" Type="DateTime"  />
+          <ClassMember Name="CMN_Price_RefID" Type="Guid"  />
+          <ClassMember Name="Prices" Type="P_L3AS_SAPDP_1928b" IsClass="true" IsArray="true">
+            <Members>
+              <ClassMember Name="CMN_Price_ValueID" Type="Guid"  />
+              <ClassMember Name="DefaultCurrency_RefID" Type="Guid"  />
+              <ClassMember Name="PriceValue_Amount" Type="Decimal"  />
+            </Members>
+          </ClassMember>
+        </Members>
+      </ClassMember>
+
+    </Members>
+  </Parameters>
+  <ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+  </ResultInfo>
+		
+
+</CodeGen>
+
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/11/2012 9:19:08 AM">
+
+  <Meta>
+    <Name>GetUserSubscriptionForApplicationAndUserID</Name>
+    <Description>
+
+    </Description>
+    <Namespace>CL5_MyHealthClub_DoctorsAndStaff.Complex.Retrieval</Namespace>
+    <Tags></Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_DoctorsAndStaff.Complex.Retrieval"
+                Method_ClassName="cls_GetUserSubscriptionForApplicationAndUserID"
+                Method_Name="GetUserSubscriptionForApplicationAndUserID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+
+  <Parameters IsClass="true" Name="P_L5DO_GUSfAUID_1246">
+    <Members>
+      <ClassMember  Name="ApplicationID" Type="Guid"/>
+      <ClassMember  Name="CurrentUserID" Type="Guid"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5DO_GUSfAUID_1246" IsArray="false">
+      <Members>
+        <ClassMember  Name="HasSubscription" Type="bool"/>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{849D2E31-3758-488E-A729-26C57DCFBB23}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_APOBackoffice_CustomerOrder</RootNamespace>
+    <AssemblyName>CL5_APOBackoffice_CustomerOrder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Delete_CustomerOrderPositions.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllCustomerOrderPositions_and_OrganizationalUnitDistributions_for_CustomerOrderHeaderID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllCustomerOrderPositions_for_Unshipped_ShipmentPositions.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllCustomerOrders_for_Tenant_or_OrderID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllPurchaseOrder_for_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_CustomerOrderHeaders_with_Positions_notRelatedTo_CustomerInteractions.cs" />
+    <Compile Include="Complex\Manipulation\cls_AcceptOrderWithShipment.cs" />
+    <Compile Include="Complex\Manipulation\cls_Create_CustomerOrder_after_MessageReceive.cs" />
+    <Compile Include="Complex\Manipulation\cls_Create_ShipmentHeader_for_CustomerOrderID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Create_ShipmentHeader_with_Positions.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_CustomerOrderHeader.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_CustomerOrderPositions.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_CustomerOrderReturnHeader.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_CustomerOrderReturnPositions.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_CustomerOrder_Header_and_Positions.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_CustomerOrderPositions_with_Details_for_HeaderID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_CustomerOrderReturnPositions_with_Details_for_HeaderID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_CustomerOrder_With_AllDetails.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_PreloadingData_for_Details.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_PreloadingData_for_History.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_PreloadingData_for_Orders.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Delete_CustomerOrderPositions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllCustomerOrderPositions_for_Unshipped_ShipmentPositions.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllCustomerOrderPositions_and_OrganizationalUnitDistributions_for_CustomerOrderHeaderID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_CustomerOrderHeaders_with_Positions_notRelatedTo_CustomerInteractions.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllCustomerOrders_for_Tenant_or_OrderID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllPurchaseOrder_for_Tenant.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllCustomerOrderPositions_and_OrganizationalUnitDistributions_for_CustomerOrderHeaderID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllCustomerOrderPositions_for_Unshipped_ShipmentPositions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_AllCustomerOrders_for_Tenant_or_OrderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_AllPurchaseOrder_for_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_CustomerOrderHeaders_with_Positions_notRelatedTo_CustomerInteractions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\AcceptOrderWithShipment.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Create_CustomerOrder_after_MessageReceive.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_CustomerOrderReturnHeader.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_CustomerOrderReturnPositions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Create_ShipmentHeader_for_CustomerOrderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Create_ShipmentHeader_with_Positions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_CustomerOrderHeader.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_CustomerOrderPositions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_CustomerOrder_Header_and_Positions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_CustomerOrderPositions_with_Details_for_HeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_CustomerOrderReturnPositions_with_Details_for_HeaderID.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_PreloadingData_for_History.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_PreloadingData_for_Details.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_CustomerOrder_With_AllDetails.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_PreloadingData_for_Orders.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_MessageListener\DLCore_MessageListener.csproj">
+      <Project>{A3DFF096-684C-4300-B334-C101FA953493}</Project>
+      <Name>DLCore_MessageListener</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_CTM\CL1_CMN_BPT_CTM.csproj">
+      <Project>{C453F5A9-9877-4197-A5E3-403EF6A0455D}</Project>
+      <Name>CL1_CMN_BPT_CTM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_POS\CL1_CMN_POS.csproj">
+      <Project>{84607C25-8DC0-4C6A-903F-A17788A2141A}</Project>
+      <Name>CL1_CMN_POS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06AB1C3C-339F-4E31-8408-232DC283308C}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO_PAC\CL1_CMN_PRO_PAC.csproj">
+      <Project>{022F0501-41A8-4206-9007-374D9155E23D}</Project>
+      <Name>CL1_CMN_PRO_PAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_SLS\CL1_CMN_SLS.csproj">
+      <Project>{86752CE8-6442-4C3F-A316-98FADBB38BE1}</Project>
+      <Name>CL1_CMN_SLS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_SHP\CL1_LOG_SHP.csproj">
+      <Project>{E43DE7B7-3C37-46B1-8824-D7313CCD8273}</Project>
+      <Name>CL1_LOG_SHP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_CUO\CL1_ORD_CUO.csproj">
+      <Project>{08B298C5-2B62-46EA-964F-98109E5B288C}</Project>
+      <Name>CL1_ORD_CUO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{FEAB6F0E-56F1-43D4-BEF0-988B26474DD2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Currency\CL2_Currency.csproj">
+      <Project>{CACC6DDF-D4E9-4EE9-9C75-E1A65071A37C}</Project>
+      <Name>CL2_Currency</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_CustomerOrder\CL2_CustomerOrder.csproj">
+      <Project>{CFED3BED-A135-4A75-A37A-B6EC5CD9AC60}</Project>
+      <Name>CL2_CustomerOrder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_NumberRange\CL2_NumberRange.csproj">
+      <Project>{430ED362-7290-4A5F-9A7C-BCF3E90A72B3}</Project>
+      <Name>CL2_NumberRange</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Articles\CL3_Articles.csproj">
+      <Project>{B6DFA294-6413-463B-AD21-1F6EC75F8196}</Project>
+      <Name>CL3_Articles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_CustomerOrder\CL3_CustomerOrder.csproj">
+      <Project>{46534EFC-2F26-4D65-BEAF-7385212E053E}</Project>
+      <Name>CL3_CustomerOrder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_OrganizationalStructure\CL3_OrganizationalStructure.csproj">
+      <Project>{AE672987-B12A-48EA-83C2-C6E0484DE416}</Project>
+      <Name>CL3_OrganizationalStructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_ShippingOrder\CL3_ShippingOrder.csproj">
+      <Project>{BA9896B5-6424-4D1B-9838-537B2E79B745}</Project>
+      <Name>CL3_ShippingOrder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

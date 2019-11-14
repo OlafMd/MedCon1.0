@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29A9C10C-A64E-4B75-925C-655BA00483CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_HEC_TRE</RootNamespace>
+    <AssemblyName>CL1_HEC_TRE</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LynxPocDoc|AnyCPU'">
+    <OutputPath>bin\LynxPocDoc\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HEC_TRE_PotentialProcedure\ORM_HEC_TRE_PotentialProcedure.cs" />
+    <Compile Include="HEC_TRE_PotentialProcedure_2_MedicalPracticeType\ORM_HEC_TRE_PotentialProcedure_2_MedicalPracticeType.cs" />
+    <Compile Include="HEC_TRE_PotentialProcedure_2_ProcedurePackage\ORM_HEC_TRE_PotentialProcedure_2_ProcedurePackage.cs" />
+    <Compile Include="HEC_TRE_PotentialProcedure_CatalogCode\ORM_HEC_TRE_PotentialProcedure_CatalogCode.cs" />
+    <Compile Include="HEC_TRE_PotentialProcedure_Catalog\ORM_HEC_TRE_PotentialProcedure_Catalog.cs" />
+    <Compile Include="HEC_TRE_PotentialProcedure_Localization\ORM_HEC_TRE_PotentialProcedure_Localization.cs" />
+    <Compile Include="HEC_TRE_PotentialProcedure_Localization_CatalogCode\ORM_HEC_TRE_PotentialProcedure_Localization_CatalogCode.cs" />
+    <Compile Include="HEC_TRE_PotentialProcedure_Package\ORM_HEC_TRE_PotentialProcedure_Package.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_2_ProcedurePackage\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_2_ProcedurePackage\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_2_ProcedurePackage\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_Package\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_Package\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_Package\SQL\Insert.sql" />
+    <Content Include="_Support\HEC_TRE_PotentialProcedure_Packages.xml" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_Localization\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_Localization\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_Localization\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_Localization_CatalogCode\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_Localization_CatalogCode\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_Localization_CatalogCode\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_Catalog\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_Catalog\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_Catalog\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_CatalogCode\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_CatalogCode\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_CatalogCode\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_2_MedicalPracticeType\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_2_MedicalPracticeType\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_TRE_PotentialProcedure_2_MedicalPracticeType\SQL\Select.sql" />
+    <Content Include="_Support\HEC_TRE_PotentialProcedures.xml" />
+    <Content Include="_Support\HEC_TRE_PotentialProcedure_2_MedicalPracticeType.xml" />
+    <Content Include="_Support\HEC_TRE_PotentialProcedure_2_ProcedurePackage.xml" />
+    <Content Include="_Support\HEC_TRE_PotentialProcedure_CatalogCodes.xml" />
+    <Content Include="_Support\HEC_TRE_PotentialProcedure_Catalogs.xml" />
+    <Content Include="_Support\HEC_TRE_PotentialProcedure_Localizations.xml" />
+    <Content Include="_Support\HEC_TRE_PotentialProcedure_Localization_CatalogCodes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

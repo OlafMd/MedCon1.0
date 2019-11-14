@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="07/04/2014">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_FreeDeveloperTasksList_for_ActiveUser_and_ProjectList</Name>
+    <Namespace>CL3_DeveloperTask.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_DeveloperTask.Atomic.Retrieval"
+                Method_ClassName="cls_Get_FreeDeveloperTasksList_for_ActiveUser_and_ProjectList"
+                Method_Name="Get_FreeDeveloperTasksList_for_ActiveUser_and_ProjectList"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_FreeDeveloperTask_List_for_ActiveAccountID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  tms_pro_developertasks.TMS_PRO_DeveloperTaskID AS DeveloperTask_ID
+From
+  tms_pro_developertasks Inner Join
+  tms_pro_projects On tms_pro_developertasks.Project_RefID =
+    tms_pro_projects.TMS_PRO_ProjectID Inner Join
+  tms_pro_projectmembers On tms_pro_projects.TMS_PRO_ProjectID =
+    tms_pro_projectmembers.Project_RefID Inner Join
+  tms_pro_feature_2_developertask
+    On tms_pro_developertasks.TMS_PRO_DeveloperTaskID =
+    tms_pro_feature_2_developertask.DeveloperTask_RefID Inner Join
+  tms_pro_feature On tms_pro_feature_2_developertask.Feature_RefID =
+    tms_pro_feature.TMS_PRO_FeatureID Inner Join
+  tms_pro_businesstask_2_feature On tms_pro_feature.TMS_PRO_FeatureID =
+    tms_pro_businesstask_2_feature.Feature_RefID Inner Join
+  tms_pro_businesstasks On tms_pro_businesstask_2_feature.BusinessTask_RefID =
+    tms_pro_businesstasks.TMS_PRO_BusinessTaskID
+Where
+  tms_pro_developertasks.IsDeleted = 0 And
+  tms_pro_developertasks.IsArchived = 0 And
+  tms_pro_developertasks.IsComplete = 0 And
+  (tms_pro_developertasks.IsBeingPrepared = 1 Or
+    tms_pro_developertasks.IsBeingPrepared = @IsBeingPrepared_Only Or
+    tms_pro_developertasks.IsBeingPrepared Is Null) And
+  tms_pro_projects.IsArchived = 0 And
+  tms_pro_projects.IsDeleted = 0 And
+  tms_pro_projectmembers.USR_Account_RefID = @AccountID And
+  tms_pro_projects.Tenant_RefID = @TenantID And
+  tms_pro_developertasks.GrabbedByMember_RefID =
+  Cast(0x00000000000000000000000000000000 As Binary) And
+  tms_pro_developertasks.Project_RefID = @ProjectID_List And
+  tms_pro_feature.Status_RefID != @FeatureStatusExcluded And
+  tms_pro_feature.IsArchived = 0 And
+  tms_pro_feature.IsDeleted = 0 And
+  tms_pro_businesstasks.IsArchived = 0 And
+  tms_pro_businesstasks.IsDeleted = 0 And
+  tms_pro_businesstasks.Task_Status_RefID != @BusinessTaskStatusExcluded And
+  tms_pro_projects.Status_RefID != @ProjectStatusExcluded
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3DT_GFDTLfAUIDaPL_1643">
+    <Members>
+      <ClassMember Name="IsBeingPrepared_Only" Type="Boolean"  />
+      <ClassMember Name="ProjectID_List" Type="Guid" IsArray="true" />
+      <ClassMember Name="ProjectStatusExcluded" Type="Guid"  />
+      <ClassMember Name="FeatureStatusExcluded" Type="Guid"  />
+      <ClassMember Name="BusinessTaskStatusExcluded" Type="Guid"  />
+    </Members>
+  </Parameters>
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3DT_GFDTLfAUIDaPL_1643" IsArray="true">
+      <Members>
+        <ClassMember Name="DeveloperTask_ID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

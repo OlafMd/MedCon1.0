@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="07/29/2013 14:37:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Patient</Name>
+    <Namespace>MMDocConnectDBMethods.Patient.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Patient.Atomic.Manipulation"
+                Method_ClassName="cls_Save_Patient"
+                Method_Name="Save_Patient"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <Parameters IsClass="true" Name="P_PA_SP_1013">
+    <Members>
+      <ClassMember Name="id" Type="Guid"  />
+      <ClassMember Name="participation_id" Type="Guid"  />
+      <ClassMember Name="medical_practice_id" Type="Guid"  />
+      <ClassMember Name="first_name" Type="String"  />
+      <ClassMember Name="last_name" Type="String"  />
+      <ClassMember Name="bithday" Type="DateTime"  />
+      <ClassMember Name="sex" Type="int"  />
+      <ClassMember Name="health_insurance_provider_id" Type="Guid"  />
+      <ClassMember Name="insurance_id" Type="String"  />
+      <ClassMember Name="insurance_status" Type="String"  />
+      <ClassMember Name="participation_consent" Type="String"  />
+      <ClassMember Name="isDeleted" Type="bool"  />
+      <ClassMember Name="hasParticipationConsent" Type="bool"  />
+      <ClassMember Name="contract_id" Type="Guid"  />
+      <ClassMember Name="issue_date_from" Type="DateTime"  />
+      <ClassMember Name="issue_date_to" Type="DateTime"  />
+      <ClassMember Name="is_privately_insured" Type="bool"  />
+      <ClassMember Name="hip_changed" Type="bool"  />
+      <ClassMember Name="external_id" Type="String"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+

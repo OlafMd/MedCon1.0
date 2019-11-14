@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3EB6A3F6-E90A-48F8-8A65-7D7B3F8AF647}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_RES_BLD</RootNamespace>
+    <AssemblyName>CL1_RES_BLD</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RES_BLD_Apartment\ORM_RES_BLD_Apartment.cs" />
+    <Compile Include="RES_BLD_Apartment_2_ApartmentType\ORM_RES_BLD_Apartment_2_ApartmentType.cs" />
+    <Compile Include="RES_BLD_Apartment_Type\ORM_RES_BLD_Apartment_Type.cs" />
+    <Compile Include="RES_BLD_Appartment_FlooringType\ORM_RES_BLD_Appartment_FlooringType.cs" />
+    <Compile Include="RES_BLD_Appartment_HeatingType\ORM_RES_BLD_Appartment_HeatingType.cs" />
+    <Compile Include="RES_BLD_Appartment_WallCoveringType\ORM_RES_BLD_Appartment_WallCoveringType.cs" />
+    <Compile Include="RES_BLD_Attic\ORM_RES_BLD_Attic.cs" />
+    <Compile Include="RES_BLD_Attic_2_AtticType\ORM_RES_BLD_Attic_2_AtticType.cs" />
+    <Compile Include="RES_BLD_Attic_Type\ORM_RES_BLD_Attic_Type.cs" />
+    <Compile Include="RES_BLD_Basement\ORM_RES_BLD_Basement.cs" />
+    <Compile Include="RES_BLD_Basement_2_BasementType\ORM_RES_BLD_Basement_2_BasementType.cs" />
+    <Compile Include="RES_BLD_Basement_FloorType\ORM_RES_BLD_Basement_FloorType.cs" />
+    <Compile Include="RES_BLD_Basement_Type\ORM_RES_BLD_Basement_Type.cs" />
+    <Compile Include="RES_BLD_Building\ORM_RES_BLD_Building.cs" />
+    <Compile Include="RES_BLD_Building_2_BuildingType\ORM_RES_BLD_Building_2_BuildingType.cs" />
+    <Compile Include="RES_BLD_Building_2_GarbageContainerType\ORM_RES_BLD_Building_2_GarbageContainerType.cs" />
+    <Compile Include="RES_BLD_Building_RevisionHeader\ORM_RES_BLD_Building_RevisionHeader.cs" />
+    <Compile Include="RES_BLD_Building_Type\ORM_RES_BLD_Building_Type.cs" />
+    <Compile Include="RES_BLD_Facade\ORM_RES_BLD_Facade.cs" />
+    <Compile Include="RES_BLD_Facade_2_FacadeType\ORM_RES_BLD_Facade_2_FacadeType.cs" />
+    <Compile Include="RES_BLD_Facade_Type\ORM_RES_BLD_Facade_Type.cs" />
+    <Compile Include="RES_BLD_GarbageContainerType\ORM_RES_BLD_GarbageContainerType.cs" />
+    <Compile Include="RES_BLD_HVACR\ORM_RES_BLD_HVACR.cs" />
+    <Compile Include="RES_BLD_HVACR_2_HVACR_Type\ORM_RES_BLD_HVACR_2_HVACR_Type.cs" />
+    <Compile Include="RES_BLD_HVACR_Type\ORM_RES_BLD_HVACR_Type.cs" />
+    <Compile Include="RES_BLD_OutdoorFacility\ORM_RES_BLD_OutdoorFacility.cs" />
+    <Compile Include="RES_BLD_OutdoorFacility_2_OutdoorFacilityType\ORM_RES_BLD_OutdoorFacility_2_OutdoorFacilityType.cs" />
+    <Compile Include="RES_BLD_OutdoorFacility_AccessRoadType\ORM_RES_BLD_OutdoorFacility_AccessRoadType.cs" />
+    <Compile Include="RES_BLD_OutdoorFacility_FenceType\ORM_RES_BLD_OutdoorFacility_FenceType.cs" />
+    <Compile Include="RES_BLD_OutdoorFacility_Type\ORM_RES_BLD_OutdoorFacility_Type.cs" />
+    <Compile Include="RES_BLD_RoofType\ORM_RES_BLD_RoofType.cs" />
+    <Compile Include="RES_BLD_Roof\ORM_RES_BLD_Roof.cs" />
+    <Compile Include="RES_BLD_Roof_2_RoofType\ORM_RES_BLD_Roof_2_RoofType.cs" />
+    <Compile Include="RES_BLD_Staircase\ORM_RES_BLD_Staircase.cs" />
+    <Compile Include="RES_BLD_Staircase_2_StaircaseType\ORM_RES_BLD_Staircase_2_StaircaseType.cs" />
+    <Compile Include="RES_BLD_Staircase_Type\ORM_RES_BLD_Staircase_Type.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RES_BLD_Apartment_2_ApartmentType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Apartment_2_ApartmentType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Apartment_2_ApartmentType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Staircase\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Staircase\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Staircase\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Apartment_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Apartment_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Apartment_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Apartment\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Apartment\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Apartment\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Attic_2_AtticType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Attic_2_AtticType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Attic_2_AtticType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Attic_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Attic_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Attic_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Attic\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Attic\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Attic\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Basement_2_BasementType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Basement_2_BasementType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Basement_2_BasementType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Basement_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Basement_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Basement_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Basement\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Basement\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Basement\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Building_2_BuildingType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Building_2_BuildingType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Building_2_BuildingType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Building_2_GarbageContainerType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Building_2_GarbageContainerType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Building_2_GarbageContainerType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Building_RevisionHeader\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Building_RevisionHeader\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Building_RevisionHeader\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Building_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Building_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Building_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Building\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Building\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Building\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Facade_2_FacadeType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Facade_2_FacadeType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Facade_2_FacadeType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Facade_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Facade_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Facade_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_GarbageContainerType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_GarbageContainerType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_GarbageContainerType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility_2_OutdoorFacilityType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility_2_OutdoorFacilityType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility_2_OutdoorFacilityType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Roof\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Roof\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Roof\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Roof_2_RoofType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Roof_2_RoofType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Roof_2_RoofType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_RoofType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_RoofType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_RoofType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Staircase_2_StaircaseType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Staircase_2_StaircaseType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Staircase_2_StaircaseType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Staircase_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Staircase_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Staircase_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Facade\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Facade\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Facade\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_HVACR_2_HVACR_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_HVACR_2_HVACR_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_HVACR_2_HVACR_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_HVACR_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_HVACR_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_HVACR_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_HVACR\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_HVACR\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_HVACR\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Appartment_HeatingType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Appartment_HeatingType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Appartment_HeatingType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Appartment_FlooringType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Appartment_FlooringType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Appartment_FlooringType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Appartment_WallCoveringType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Appartment_WallCoveringType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Appartment_WallCoveringType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility_AccessRoadType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility_AccessRoadType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility_AccessRoadType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility_FenceType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility_FenceType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_OutdoorFacility_FenceType\SQL\Insert.sql" />
+    <EmbeddedResource Include="RES_BLD_Basement_FloorType\SQL\Select.sql" />
+    <EmbeddedResource Include="RES_BLD_Basement_FloorType\SQL\Update.sql" />
+    <EmbeddedResource Include="RES_BLD_Basement_FloorType\SQL\Insert.sql" />
+    <Content Include="_support\RES_BLD_Apartments.xml" />
+    <Content Include="_support\RES_BLD_Apartment_2_ApartmentType.xml" />
+    <Content Include="_support\RES_BLD_Apartment_Types.xml" />
+    <Content Include="_support\RES_BLD_Appartment_FlooringTypes.xml" />
+    <Content Include="_support\RES_BLD_Appartment_HeatingTypes.xml" />
+    <Content Include="_support\RES_BLD_Appartment_WallCoveringTypes.xml" />
+    <Content Include="_support\RES_BLD_Attics.xml" />
+    <Content Include="_support\RES_BLD_Attic_2_AtticType.xml" />
+    <Content Include="_support\RES_BLD_Attic_Types.xml" />
+    <Content Include="_support\RES_BLD_Basements.xml" />
+    <Content Include="_support\RES_BLD_Basement_2_BasementType.xml" />
+    <Content Include="_support\RES_BLD_Basement_FloorTypes.xml" />
+    <Content Include="_support\RES_BLD_Basement_Types.xml" />
+    <Content Include="_support\RES_BLD_Buildings.xml" />
+    <Content Include="_support\RES_BLD_Building_2_BuildingType.xml" />
+    <Content Include="_support\RES_BLD_Building_2_GarbageContainerType.xml" />
+    <Content Include="_support\RES_BLD_Building_RevisionHeaders.xml" />
+    <Content Include="_support\RES_BLD_Building_Types.xml" />
+    <Content Include="_support\RES_BLD_Facades.xml" />
+    <Content Include="_support\RES_BLD_Facade_2_FacadeType.xml" />
+    <Content Include="_support\RES_BLD_Facade_Types.xml" />
+    <Content Include="_support\RES_BLD_GarbageContainerTypes.xml" />
+    <Content Include="_support\RES_BLD_HVACRs.xml" />
+    <Content Include="_support\RES_BLD_HVACR_2_HVACR_Type.xml" />
+    <Content Include="_support\RES_BLD_HVACR_Types.xml" />
+    <Content Include="_support\RES_BLD_OutdoorFacilities.xml" />
+    <Content Include="_support\RES_BLD_OutdoorFacility_2_OutdoorFacilityType.xml" />
+    <Content Include="_support\RES_BLD_OutdoorFacility_AccessRoadTypes.xml" />
+    <Content Include="_support\RES_BLD_OutdoorFacility_FenceTypes.xml" />
+    <Content Include="_support\RES_BLD_OutdoorFacility_Types.xml" />
+    <Content Include="_support\RES_BLD_Roof.xml" />
+    <Content Include="_support\RES_BLD_RoofType.xml" />
+    <Content Include="_support\RES_BLD_Roof_2_RoofType.xml" />
+    <Content Include="_support\RES_BLD_Staircases.xml" />
+    <Content Include="_support\RES_BLD_Staircase_2_StaircaseType.xml" />
+    <Content Include="_support\RES_BLD_Staircase_Types.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

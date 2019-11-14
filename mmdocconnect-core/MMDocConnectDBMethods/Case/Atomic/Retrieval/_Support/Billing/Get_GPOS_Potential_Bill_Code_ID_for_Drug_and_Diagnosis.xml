@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="01/09/2017 03:01 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_GPOS_Potential_Bill_Code_ID_for_Drug_and_Diagnosis</Name>
+		<Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_GPOS_Potential_Bill_Code_ID_for_Drug_and_Diagnosis"
+								Method_Name="Get_GPOS_Potential_Bill_Code_ID_for_Drug_and_Diagnosis"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+Select
+  hec_ctr_insurancetobrokercontracts_coveredpotentialbillcodes.PotentialBillCode_RefID
+From
+  hec_bil_potentialcode_2_healthcareproduct Inner Join
+  hec_bil_potentialcode_2_potentialdiagnosis
+    On hec_bil_potentialcode_2_healthcareproduct.HEC_BIL_PotentialCode_RefID =
+    hec_bil_potentialcode_2_potentialdiagnosis.HEC_BIL_PotentialCode_RefID And
+    hec_bil_potentialcode_2_potentialdiagnosis.HEC_DIA_PotentialDiagnosis_RefID
+    = @DiagnosisID And hec_bil_potentialcode_2_potentialdiagnosis.Tenant_RefID =
+    @TenantID And hec_bil_potentialcode_2_potentialdiagnosis.IsDeleted = 0
+  Inner Join
+  hec_ctr_insurancetobrokercontracts_coveredpotentialbillcodes
+    On hec_bil_potentialcode_2_potentialdiagnosis.HEC_BIL_PotentialCode_RefID =
+    hec_ctr_insurancetobrokercontracts_coveredpotentialbillcodes.PotentialBillCode_RefID And hec_ctr_insurancetobrokercontracts_coveredpotentialbillcodes.IsDeleted = 0 And 
+    hec_ctr_insurancetobrokercontracts_coveredpotentialbillcodes.Tenant_RefID = @TenantID
+Where
+  hec_bil_potentialcode_2_healthcareproduct.Tenant_RefID = @TenantID And
+  hec_bil_potentialcode_2_healthcareproduct.IsDeleted = 0 And
+  hec_bil_potentialcode_2_healthcareproduct.HEC_Product_RefID = @DrugID
+	</SQLStatement>
+
+  Get_GPOS_Potential_Bill_Code_ID_for_Drug_and_Diagnosis
+
+  <Parameters IsClass="true" Name="P_CAS_GGPOSPBCIDfDaD_1501">
+		<Members>
+      <ClassMember Name="DiagnosisID" Type="Guid"  />
+      <ClassMember Name="DrugID" Type="Guid"  />    
+    </Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CAS_GGPOSPBCIDfDaD_1501">
+			<Members>
+				<ClassMember Name="PotentialBillCode_RefID" Type="Guid"  />
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

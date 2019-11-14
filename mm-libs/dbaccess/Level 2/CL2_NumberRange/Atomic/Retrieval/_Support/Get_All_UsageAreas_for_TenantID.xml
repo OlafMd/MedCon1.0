@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/29/2014 10:35:18 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_UsageAreas_for_TenantID</Name>
+    <Namespace>CL2_NumberRange.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_NumberRange.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_UsageAreas_for_TenantID"
+                Method_Name="Get_All_UsageAreas_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_UsageAreas_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_numberrange_usageareas.CMN_NumberRange_UsageAreaID,
+	  cmn_numberrange_usageareas.GlobalStaticMatchingID,
+	  cmn_numberrange_usageareas.UsageArea_Name_DictID,
+	  cmn_numberrange_usageareas.UsageArea_Description_DictID,
+	  cmn_numberrange_usageareas.Creation_Timestamp,
+	  cmn_numberrange_usageareas.Tenant_RefID
+	From
+	  cmn_numberrange_usageareas
+	Where
+	  cmn_numberrange_usageareas.IsDeleted = 0 And
+	  cmn_numberrange_usageareas.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2NR_GAUAfT_1033" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_NumberRange_UsageAreaID" Type="Guid"  />
+				<ClassMember Name="GlobalStaticMatchingID" Type="String"  />
+				<ClassMember Name="UsageArea_Name" Type="Dict" OriginTable="cmn_numberrange_usageareas" Source_DBField="UsageArea_Name_DictID"  />
+				<ClassMember Name="UsageArea_Description" Type="Dict" OriginTable="cmn_numberrange_usageareas" Source_DBField="UsageArea_Description_DictID"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

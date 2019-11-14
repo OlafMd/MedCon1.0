@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 2/5/2014 4:59:37 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="ECM_DOC_GeneralDocument"
+                IsClass="true"
+                IsClass_Namespace="CL1_ECM_DOC"
+                IsClass_Corresponding_DBTable="ecm_doc_generaldocuments" >
+      <Members>
+		<ClassMember Name="ECM_DOC_GeneralDocumentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="DocumentMatchingID" Type="String" />
+		<ClassMember Name="DocumentTypeMatchingID" Type="String" />
+		<ClassMember Name="Document_RefID" Type="Guid" />
+		<ClassMember Name="IsPublicallyVisible" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

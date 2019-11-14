@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 7/8/2013 12:17:59 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_Patient_HealthInsurance"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC"
+                IsClass_Corresponding_DBTable="hec_patient_healthinsurances" >
+      <Members>
+		<ClassMember Name="HEC_Patient_HealthInsurancesID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="HealthInsurance_Number" Type="String" />
+		<ClassMember Name="HealthInsurance_State_RefID" Type="Guid" />
+		<ClassMember Name="Patient_RefID" Type="Guid" />
+		<ClassMember Name="HIS_HealthInsurance_Company_RefID" Type="Guid" />
+		<ClassMember Name="IsPrimary" Type="Boolean" />
+		<ClassMember Name="SequenceNumber" Type="int" />
+		<ClassMember Name="InsuranceStateCode" Type="String" />
+          <ClassMember Name="InsuranceValidFrom" Type="DateTime" />
+          <ClassMember Name="InsuranceValidThrough" Type="DateTime" />
+          <ClassMember Name="IsNotSelfInsured" Type="Boolean" />
+          <ClassMember Name="IsNotSelfInsured_InsuredPersonName" Type="String" />
+          <ClassMember Name="IsNotSelfInsured_InsuredPersonBirthday" Type="DateTime" />
+          <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

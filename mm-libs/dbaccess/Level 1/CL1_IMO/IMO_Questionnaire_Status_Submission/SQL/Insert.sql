@@ -1,0 +1,27 @@
+INSERT INTO 
+	imo_questionnaire_status_submissions
+	(
+		IMO_Questionnaire_Status_SubmissionID,
+		Questionnaire_Submission_RefID,
+		Questionnaire_StatusRating_RefID,
+		Questionnaire_Status_RefID,
+		Comment,
+		ImageGroup_RefID,
+		IsStatusApplicable,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@IMO_Questionnaire_Status_SubmissionID,
+		@Questionnaire_Submission_RefID,
+		@Questionnaire_StatusRating_RefID,
+		@Questionnaire_Status_RefID,
+		@Comment,
+		@ImageGroup_RefID,
+		@IsStatusApplicable,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

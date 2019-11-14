@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Cases_with_Wrongfully_Transferred_BillPositions</Name>
+    <Namespace>DataImporter.DBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="DataImporter.DBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Cases_with_Wrongfully_Transferred_BillPositions"
+								Method_Name="Get_Cases_with_Wrongfully_Transferred_BillPositions"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_cas_cases.HEC_CAS_CaseID,
+  bil_billposition_transmitionstatuses.BIL_BillPosition_TransmitionStatusID,
+  hec_cas_case_billcodes.HEC_CAS_Case_BillCodeID,
+  hec_bil_billposition_billcodes.HEC_BIL_BillPosition_BillCodeID,
+  hec_bil_billpositions.HEC_BIL_BillPositionID,
+  hec_bil_billpositions.Ext_BIL_BillPosition_RefID,
+  hec_cas_case_billcodes.Creation_Timestamp
+From
+  hec_cas_cases Inner Join
+  hec_cas_case_relevantperformedactions
+    On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_relevantperformedactions.Case_RefID And hec_cas_case_relevantperformedactions.Tenant_RefID = @TenantID And
+    hec_cas_case_relevantperformedactions.IsDeleted = 0 Inner Join
+  hec_act_plannedactions
+    On hec_cas_case_relevantperformedactions.PerformedAction_RefID = hec_act_plannedactions.IfPlannedFollowup_PreviousAction_RefID And
+    hec_act_plannedactions.IsPerformed = 0 And hec_act_plannedactions.Tenant_RefID = @TenantID And hec_act_plannedactions.IsDeleted = 0 Inner Join
+  hec_cas_case_billcodes
+    On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_billcodes.HEC_CAS_Case_RefID And hec_cas_case_billcodes.Tenant_RefID = @TenantID And
+    hec_cas_case_billcodes.IsDeleted = 0 Inner Join
+  hec_bil_billposition_billcodes
+    On hec_cas_case_billcodes.HEC_BIL_BillPosition_BillCode_RefID = hec_bil_billposition_billcodes.HEC_BIL_BillPosition_BillCodeID And
+    hec_bil_billposition_billcodes.Tenant_RefID = @TenantID And hec_bil_billposition_billcodes.IsDeleted = 0 Inner Join
+  hec_bil_billpositions
+    On hec_bil_billposition_billcodes.BillPosition_RefID = hec_bil_billpositions.HEC_BIL_BillPositionID And hec_bil_billpositions.Tenant_RefID = @TenantID And
+    hec_bil_billpositions.IsDeleted = 0 Inner Join
+  bil_billposition_transmitionstatuses
+    On hec_bil_billpositions.Ext_BIL_BillPosition_RefID = bil_billposition_transmitionstatuses.BillPosition_RefID And
+    bil_billposition_transmitionstatuses.TransmitionCode = 13 And bil_billposition_transmitionstatuses.TransmitionStatusKey = 'treatment' And
+    hec_bil_billpositions.Tenant_RefID = @TenantID And hec_bil_billpositions.IsDeleted = 0
+Where
+  hec_cas_cases.Tenant_RefID = @TenantID And
+  hec_cas_cases.IsDeleted = 0
+	</SQLStatement>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GCwWTBP_1832" IsArray="true">
+      <Members>
+        <ClassMember Name="HEC_CAS_CaseID" Type="Guid"  />
+        <ClassMember Name="BIL_BillPosition_TransmitionStatusID" Type="Guid"  />
+        <ClassMember Name="HEC_CAS_Case_BillCodeID" Type="Guid"  />
+        <ClassMember Name="HEC_BIL_BillPosition_BillCodeID" Type="Guid"  />
+        <ClassMember Name="HEC_BIL_BillPositionID" Type="Guid"  />
+        <ClassMember Name="Ext_BIL_BillPosition_RefID" Type="Guid"  />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime"  />        
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

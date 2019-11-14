@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/21/2014 09:13:00 AM">
+
+  <Meta>
+    <Name>Get_DTStatusHistory_and_InvestedWorkTime_for_DeveloperTaskID</Name>
+    <Description>
+      Get Developer Task Status history and Invested time for Developer task ID
+    </Description>
+    <Namespace>CL6_DeveloperTask.Complex.Retrieval</Namespace>
+    <Tags>StatusHistory, InvestedTime, DeveloperTaskID</Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_DanuTask_DeveloperTask.Complex.Retrieval"
+                Method_ClassName="cls_Get_DTStatusHistory_and_InvestedWorkTime_for_DeveloperTaskID"
+                Method_Name="Get_DTStatusHistory_and_InvestedWorkTime_for_DeveloperTaskID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DTStatusHistory_and_InvestedWorkTime_for_DeveloperTaskID"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L6DT_GDTSHaIWTfDT_0913">
+    <Members>
+      <ClassMember  Name="DeveloperTaskID" Type="Guid"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6DT_GDTSHaIWTfDT_0913" IsArray="false">
+      <Members>
+        <ClassMember IsReference="true" Type="L6DT_GDTSHfDT_1646"    Name="StatusHistory"  IsArray="true"/>
+        <ClassMember Name="InvestedWorkTime" Type="long"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

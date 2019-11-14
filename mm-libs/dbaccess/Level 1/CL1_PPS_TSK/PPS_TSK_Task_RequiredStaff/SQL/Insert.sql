@@ -1,0 +1,21 @@
+INSERT INTO 
+	pps_tsk_task_requiredstaff
+	(
+		PPS_TSK_Task_RequiredStaffID,
+		TaskTemplate_RefID,
+		StaffQuantity,
+		Required_Employee_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@PPS_TSK_Task_RequiredStaffID,
+		@TaskTemplate_RefID,
+		@StaffQuantity,
+		@Required_Employee_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

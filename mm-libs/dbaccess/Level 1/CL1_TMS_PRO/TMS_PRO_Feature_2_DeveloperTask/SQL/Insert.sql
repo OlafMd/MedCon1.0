@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_pro_feature_2_developertask
+	(
+		AssignmentID,
+		Feature_RefID,
+		DeveloperTask_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@Feature_RefID,
+		@DeveloperTask_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

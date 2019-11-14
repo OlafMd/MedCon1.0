@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="07/29/2013 14:37:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Change_Case_Status</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Complex.Manipulation"
+                Method_ClassName="cls_Change_Case_Status"
+                Method_Name="Change_Case_Status"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <Parameters IsClass="true" Name="P_CAS_CCS_1516">
+    <Members>
+      <ClassMember Name="StatusFrom" Type="Double" />
+      <ClassMember Name="StatusTo" Type="Double" />
+      <ClassMember Name="AreCasesFiltered" Type="bool" />
+      <ClassMember Name="AreCasesPositive" Type="bool" />
+      <ClassMember Name="AreCasesPaymentAndStatus" Type="bool" />
+      <ClassMember IsClass="true" Type="P_CAS_CCS_1516a" Name="Cases" IsArray="true">
+        <Members>
+          <ClassMember Name="Kasse" Type="String"/>
+          <ClassMember Name="KVNR" Type="String" />
+          <ClassMember Name="Rechnungsnummer" Type="String" />
+          <ClassMember Name="Betrag" Type="String" />
+        </Members>
+     </ClassMember>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+    
+    <ObjectReturnType_Definition Name="CAS_CCS_1516" IsArray="false">
+      <Members>
+        <ClassMember IsReference="true" Type="CAS_GCFR_0910"  Name="caseList" IsArray="true"/>
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>

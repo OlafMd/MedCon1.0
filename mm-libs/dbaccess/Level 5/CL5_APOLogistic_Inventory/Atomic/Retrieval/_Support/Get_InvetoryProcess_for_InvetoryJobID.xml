@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/14/2014 2:51:11 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_InvetoryProcess_for_InvetoryJobID</Name>
+    <Namespace>CL5_APOLogistic_Inventory.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_Inventory.Atomic.Retrieval"
+                Method_ClassName="cls_Get_InvetoryProcess_for_InvetoryJobID"
+                Method_Name="Get_InvetoryProcess_for_InvetoryJobID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_InvetoryProcess_for_InvetoryJobID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_ProcessID,
+  log_wrh_inj_inventoryjob_countingruns.IsCounting_Started,
+  log_wrh_inj_inventoryjob_countingruns.IsCounting_Completed,
+  log_wrh_inj_inventoryjob_countingruns.IsCountingListPrinted,
+  log_wrh_inj_inventoryjob_countingruns.IsDifferenceFound,
+  log_wrh_inj_inventoryjob_countingruns.SequenceNumber,
+  log_wrh_inj_inventoryjob_processes.SequenceNumber As processSequenceNumber,
+  log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_Shelf_RefID,
+  log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_INJ_InventoryJob_Process_ShelfID,
+  log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_INJ_InventoryJob_Process_RefID,
+  log_wrh_inj_inventoryjob_countingruns.LOG_WRH_INJ_InventoryJob_CountingRunID
+From
+  log_wrh_inj_inventoryjob_processes Left Join
+  log_wrh_inj_inventoryjob_countingruns
+    On log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_ProcessID =
+    log_wrh_inj_inventoryjob_countingruns.InventoryJob_Process_RefID And
+    log_wrh_inj_inventoryjob_countingruns.Tenant_RefID = @TenantID And
+    log_wrh_inj_inventoryjob_countingruns.IsDeleted = 0 Left Join
+  log_wrh_inj_inventoryjob_process_shelves
+    On log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_ProcessID =
+    log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_INJ_InventoryJob_Process_RefID And log_wrh_inj_inventoryjob_process_shelves.Tenant_RefID = @TenantID And log_wrh_inj_inventoryjob_process_shelves.IsDeleted = 0
+Where
+  log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_RefID =
+  @InvetoryJobID And
+  log_wrh_inj_inventoryjob_processes.Tenant_RefID = @TenantID And
+  log_wrh_inj_inventoryjob_processes.IsDeleted = 0
+Order by log_wrh_inj_inventoryjob_countingruns.SequenceNumber
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5IN_GIPfIJ_1449">
+    <Members>
+      <ClassMember Name="InvetoryJobID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5IN_GIPfIJ_1449" IsArray="true" GroupBy="LOG_WRH_INJ_InventoryJob_ProcessID">
+      <Members>
+        <ClassMember Name="LOG_WRH_INJ_InventoryJob_ProcessID" Type="Guid"  />
+        <ClassMember Name="ProcessSequenceNumber" Type="int" />
+        <ClassMember Name="CountingRun" IsClass="true" IsArray="true" GroupBy="LOG_WRH_INJ_InventoryJob_CountingRunID" Type="L5IN_GIPfIJ_1449_CountingRuns">
+          <Members>
+            <ClassMember Name="LOG_WRH_INJ_InventoryJob_CountingRunID" Type="Guid"/>
+            <ClassMember Name="IsCounting_Started" Type="bool"  />
+            <ClassMember Name="IsCounting_Completed" Type="bool"  />
+            <ClassMember Name="IsCountingListPrinted" Type="bool"  />
+            <ClassMember Name="IsDifferenceFound" Type="bool" />
+            <ClassMember Name="SequenceNumber" Type="int"  />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Name="ProcessShelfs" Type="L5IN_GIPfIJ_1449_Shelfs" GroupBy="LOG_WRH_INJ_InventoryJob_Process_ShelfID">
+          <Members>
+            <ClassMember Name="LOG_WRH_INJ_InventoryJob_Process_ShelfID" Type="Guid" />
+            <ClassMember Name="LOG_WRH_Shelf_RefID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

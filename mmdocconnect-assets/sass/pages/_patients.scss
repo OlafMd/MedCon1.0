@@ -1,0 +1,469 @@
+.patients-table {
+	> li {
+		&:nth-child(2) {
+			width: 90px;
+		}
+		&:nth-child(5) {
+			width: 120px;
+		}
+	}
+}
+.doctors-data-lists.patients-list{
+	background-color: #ebebeb;
+	/*@include clearfix;*/
+
+	input{
+		border: 1px solid transparent;
+		outline: 0;
+		@include border-radius(3px);
+
+		&:focus{
+			border: 1px solid $active-color;
+		}
+	}
+
+	input[type="text"],
+	input[type="number"],
+	input[type="email"],
+	input[type="password"]{
+		height: 34px;
+		padding: 2px 5px;
+	}
+
+	.first-class-data{
+		float: left;
+		clear: left;
+        width: 76%;
+        width: calc( 100% - 270px);
+
+		li{
+			float: left;
+			margin-right: 10px;
+			margin-bottom: 20px;
+
+			&:last-child{
+				margin-right: 0;
+			}
+
+			label{
+				display: block;
+				margin-bottom: 10px;
+			}
+
+			input{
+				width: 100%;
+			}
+		}
+	}
+
+     .second-class-data{
+
+         width: 100%;
+         margin-bottom: 15px;
+        li{
+
+         label{
+             display: block;
+             margin-bottom: 10px;
+         }
+
+         input{
+             width: 100%;
+         }
+
+         textarea{
+             padding: 20px;
+             border-radius: 3px;
+             border: none;
+             width: 100%;
+         }
+       }
+     }
+
+  .third-class-data{
+       @extend .first-class-data;
+       width: 70%;
+       width: calc(100% - 380px);
+       border-bottom: 1px solid #b7b7b7;
+    }
+
+  .first-row{
+    li{
+      &:first-child,
+      &:nth-child(2){
+        width: 23%;
+      }
+
+      &:nth-child(3){
+        width: 144px;
+
+        select{
+					@include border-radius(3px);
+					width: 100%;
+					height: 34px;
+					outline: 0;
+					border: 1px solid transparent;
+
+					&:focus{
+						border: 1px solid $active-color;
+					}
+
+					&:-moz-focus-inner{
+						border: 1px solid transparent;
+					}
+				}
+      }
+
+      &:nth-child(4){
+        //width: 9%;
+		//fix date width
+		width: 144px;
+		//resize date to be same as status
+	/*	@media screen and (max-width: 1200px){
+			width: 15%;
+		}*/
+        }
+
+    }
+  }
+
+    .first-row-edit{
+        li{
+            &:first-child{
+                width: 28%;
+            }
+
+            &:nth-child(02){
+                width: 26%;
+                margin-left: 25px;
+                text-align: center;
+              /*  @media screen and(max-width: 1680px){
+                    width: 26%;
+                }*/
+                input{
+                    width: 16% !important;
+                    margin: 0 5px;
+                }
+            }
+
+            &:last-child{
+                width: 36%;
+
+                input{
+                    display: inline-block;
+                    width: 12% !important;
+                    margin: 0 5px;
+                }
+            }
+
+        }
+    }
+
+    .second-row{
+        li{
+            .angucomplete-dropdown-ac >div:last-child{
+                padding: 0 !important;
+            }
+
+            /*.angucomplete-dropdown-ac{
+                >div:first-child{
+                    .angucomplete-title{
+                        padding-top: 10px;
+                    }
+                }
+            }*/
+
+            margin-bottom: 15px;
+
+            &:first-child{
+                /* Fix by Cole on 14/01/2016 */
+                width: 40px;
+
+                .mask-checkbox{
+                    margin-top: 6px;
+                    margin-left: 6px;
+                }
+
+                .angucomplete-holder input{
+                    height: 34px;
+                }
+            }
+
+            &:nth-child(2){
+              width: 23%;
+            }
+
+			&:nth-child(3){
+                width: calc(23% - 50px);
+                width: -moz-calc(23% - 50px);
+                width: -webkit-calc(23% - 50px);
+            }
+
+            &:nth-child(4),
+			&:nth-child(5){
+                width: 144px;
+            }
+        }
+
+    }
+
+     .second-row-edit{
+      padding-top: 15px;
+
+      li{
+          &:first-child{
+              width: 19%;
+              padding-top: 30px;
+
+              @media screen and (max-width: 1650px){
+                  width: 29%;
+              }
+              label{
+                  font-size: 16px;
+              }
+          }
+
+          &:nth-child(02){
+              width: 29%;
+          }
+
+          &:nth-child(03){
+              width: 20%;
+          }
+
+          &:last-child{
+              width: 16%;
+              display: inline-block;
+              //padding-top: 20px;
+          }
+
+      }
+  }
+		.third-row{
+			li{
+				&:nth-child(02){
+					width: 40%;
+
+					select{
+						-webkit-border-radius: 3px;
+						-moz-border-radius: 3px;
+						border-radius: 3px;
+						width: 100%;
+						height: 34px;
+						outline: 0;
+						border: 1px solid transparent;
+						&:focus{
+							border: 1px solid #439562;
+						}
+					}
+				}
+
+				&:nth-child(03){
+					position: absolute;
+					right: 30px;
+					margin-bottom: 0;
+
+					.button{
+						margin-bottom: 0;
+						margin-top: 22px;
+					}
+				}
+			}
+		}
+
+    .row-equale-fields{
+        li{
+            width: 32%;
+            display: inline-block;
+            padding-right: 8px;
+
+            &:last-child{
+                width: 35%;
+                padding: 0;
+            }
+
+        }
+    }
+
+    .medication-row{
+        li{
+            margin: 10px 0 0 0;
+
+            input{
+                left: 0;
+            }
+
+            &:first-child{
+                width: 25%;
+            }
+
+            &:nth-child(02){
+                text-align: center;
+                margin: 6px 30px 0 30px;
+                line-height: 22px;
+
+                label{
+                    margin-right: 15px;
+                }
+            }
+
+             &:nth-child(03){
+                 width: 18%;
+
+                 @media screen and(max-width: 1400px ){
+                     width: 23%;
+                 }
+             }
+
+            &:nth-child(04){
+                width: 45px;
+                margin-left: 30px;
+            }
+        }
+    }
+
+		.hidden-row{
+			h3{
+				margin-bottom: 10px;
+			}
+		}
+
+	.error{
+		font-weight: bold;
+		color: #c73030;
+		margin-left: 3px;
+	}
+
+/*	.error-msg-container{
+		width: calc(100% - 50px);
+	    margin-left: 25px;
+	}*/
+
+	.buttons{
+		float: right;
+      	margin-right: 5px;
+	}
+}
+
+.participation-form{
+	h3,
+	.third-row{
+		padding-left: 25px;
+	}
+
+	h3{
+		margin-bottom: 10px;
+	}
+
+	.buttons{
+		margin-right: 0 !important;
+	}
+   .row{
+       border-top: 0 !important;
+       //padding-left: 5px;
+      // padding-top: 10px;
+
+       li{
+           display: inline-block;
+
+               &:first-child{
+               width: 18%;
+               //check participation consent
+              // width: 12%;
+               margin-right: 10px;
+               vertical-align: top;
+               }
+
+               &:nth-child(02){
+                width: 80% ;
+                    //check participation consent
+                // margin-left: 100px;
+               }
+
+           input{
+                 width: 100%;
+             }
+
+           label{
+               display: block;
+               margin-bottom: 5px;
+           }
+       }
+   }
+}
+
+.icon-folder{
+	display: inline-block;
+    height: 24px;
+    width: 29px;
+	background: url("../images/icons/folder.png") no-repeat center;
+}
+
+.icons-orders{
+    display: inline-block;
+    width: 24px;
+    height: 25px;
+   // text-align: center;
+    text-indent: -99999px;
+    background: url("../images/icons/orders.png") no-repeat center;
+    }
+
+
+.action-buttons{
+    position: absolute;
+    line-height: 34px;
+    top: 50%;
+    right: auto;
+    margin: -17px 0 0 -10px;
+    }
+
+.action-delete-button{
+    @extend .action-buttons;
+    margin-left: 30px;
+}
+
+.action-submit-button{
+    @extend .action-buttons;
+    line-height: 32px;
+    margin-left: 70px;
+    cursor:pointer;
+}
+
+.action-submit-button-disabled{
+    @extend .action-buttons;
+    line-height: 32px;
+    margin-left: 70px;
+    background: url("../images/icons/submit-disable.png") center no-repeat;
+
+        &:hover{
+                background-position: center !important;
+            }
+    }
+
+
+
+.patients-buttons{
+    position: absolute;
+    top: 50%;
+    left: 92%;
+
+    span{
+        a{
+            &.icons-edit{
+                right: auto !important;
+            }
+        }
+    }
+}
+
+/*
+    Added by Cole on 14.01.2016.
+*/
+
+.doctor-form-row{
+    li{
+        &:nth-child(2){ width: 9% !important; }
+        &:nth-child(7){ width: 8% !important; }
+        &:last-child{ width: 11% !important; }
+    }
+}

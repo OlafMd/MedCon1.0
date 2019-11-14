@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_ctr_insurancetobrokercontracts_coveredhealthcareproducts
+WHERE 
+	HEC_CTR_InsuranceToBrokerContracts_CoveredHealthcareProductID = @HEC_CTR_InsuranceToBrokerContracts_CoveredHealthcareProductID

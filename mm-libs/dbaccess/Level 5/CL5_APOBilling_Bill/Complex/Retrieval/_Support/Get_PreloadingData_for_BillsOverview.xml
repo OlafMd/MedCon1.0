@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/16/2013 12:46:16 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+	Get_PreloadingData_for_BillsOverview.xml
+	<Meta>
+    <Name>Get_PreloadingData_for_BillsOverview</Name>
+    <Namespace>CL5_APOBilling_Bill.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBilling_Bill.Complex.Retrieval"
+                Method_ClassName="cls_Get_PreloadingData_for_BillsOverview"
+                Method_Name="Get_PreloadingData_for_BillsOverview"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PreloadingData_for_BillsOverview"
+                />
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5BL_GPDfBO_1321" IsArray="false">
+			<Members>
+				<ClassMember Name="BillStatuses" Type="L2_BS_GBSfT_1615" IsArray="true" />
+				<ClassMember Name="PaymentTypes" Type="L2_AP_GAPTfT_1156" IsArray="true" />
+                <ClassMember Name="NumberOfDefindDunningLevels" Type="int" IsArray="false" />
+			</Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+</CodeGen>
+
+

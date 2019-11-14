@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/16/2013 12:46:16 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PreloadingData_for_Details</Name>
+    <Namespace>CL5_APOBackoffice_CustomerOrder.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBackoffice_CustomerOrder.Complex.Retrieval"
+                Method_ClassName="cls_Get_PreloadingData_for_Details"
+                Method_Name="Get_PreloadingData_for_Details"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PreloadingData_for_Details"
+                />
+
+  <Parameters IsClass="true" Name="P_L5CO_GPDfD_1428">
+    <Members>
+      <ClassMember Name="OrderHeaderID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5CO_GPDfD_1428" IsArray="false">
+			<Members>
+				<ClassMember Name="CustomerOrderWithDetails" Type="L5CO_GACOfToO_1214" IsArray="false" />
+                <ClassMember Name="PositionsForOrder" Type="CL5_APOBackoffice_CustomerOrder.Complex.Retrieval.L5CO_GCOPwDfH_1421" IsArray="true" />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

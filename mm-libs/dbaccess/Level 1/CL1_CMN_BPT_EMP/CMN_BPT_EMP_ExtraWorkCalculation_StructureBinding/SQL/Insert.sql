@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_bpt_emp_extraworkcalculation_structurebindings
+	(
+		CMN_BPT_EMP_ExtraWorkCalculation_StructureBindingID,
+		BoundTo_Office_RefID,
+		BoundTo_WorkArea_RefID,
+		BoundTo_Workplace_RefID,
+		ExtraWorkCalculation_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_EMP_ExtraWorkCalculation_StructureBindingID,
+		@BoundTo_Office_RefID,
+		@BoundTo_WorkArea_RefID,
+		@BoundTo_Workplace_RefID,
+		@ExtraWorkCalculation_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

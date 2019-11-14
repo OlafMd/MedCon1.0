@@ -1,0 +1,27 @@
+INSERT INTO 
+	tmp_pro_milestones
+	(
+		TMP_PRO_MilestoneID,
+		DOC_Structure_Header_RefID,
+		BusinessTaskPackage_RefID,
+		BusinessTask_RefID,
+		Description_DictID,
+		DateReached,
+		TargetDate,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@TMP_PRO_MilestoneID,
+		@DOC_Structure_Header_RefID,
+		@BusinessTaskPackage_RefID,
+		@BusinessTask_RefID,
+		@Description,
+		@DateReached,
+		@TargetDate,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_pro_variant_dimensionvalues
+	(
+		CMN_PRO_Variant_DimensionValueID,
+		ProductVariant_RefID,
+		DimensionValue_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_PRO_Variant_DimensionValueID,
+		@ProductVariant_RefID,
+		@DimensionValue_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

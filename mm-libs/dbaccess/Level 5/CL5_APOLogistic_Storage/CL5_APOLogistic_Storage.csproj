@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{444533C1-EE01-4CCA-8FFB-ED5BDFD098A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_APOLogistic_Storage</RootNamespace>
+    <AssemblyName>CL5_APOLogistic_Storage</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_Data_for_StockCorrection_by_Article.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Data_for_StockCorrection_by_StoragePlace.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Product_from_Shelf_by_ProductID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_StorageDetails_for_ProductID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_StorageDetails_for_ProductIDorShelfID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Shelf_ContentRelocation.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Data_for_StockRelocation_by_Article.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Data_for_StockRelocation_by_StoragePlace.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_StoragePlaces_with_Predefined.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_PreloadingData_for_StockCorrection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Retrieval\SQL\cls_Get_StorageDetails_for_ProductID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_StorageDetails_for_ProductIDorShelfID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_StorageDetails_for_ProductIDorShelfID.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_Shelf_ContentRelocation.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_Data_for_StockRelocation_by_Article.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_Data_for_StockRelocation_by_StoragePlace.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_StoragePlaces_with_Predefined.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Product_from_Shelf_by_ProductID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Product_from_Shelf_by_ProductID.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_PreloadingData_for_StockCorrection.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Data_for_StockCorrection_by_Article.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Data_for_StockCorrection_by_StoragePlace.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Data_for_StockCorrection_by_StoragePlace.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Data_for_StockCorrection_by_Article.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG\CL1_LOG.csproj">
+      <Project>{5FF8E7C7-57C2-48AE-BC70-8F6B957DABC6}</Project>
+      <Name>CL1_LOG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_WRH\CL1_LOG_WRH.csproj">
+      <Project>{BB08DBAD-494E-4689-9467-BBDDAEBC1EB0}</Project>
+      <Name>CL1_LOG_WRH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_InventoryChangeReason\CL2_InventoryChangeReason.csproj">
+      <Project>{23175F7E-8B3C-453E-9DCC-CD17B61EABAC}</Project>
+      <Name>CL2_InventoryChangeReason</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Articles\CL3_Articles.csproj">
+      <Project>{B6DFA294-6413-463B-AD21-1F6EC75F8196}</Project>
+      <Name>CL3_Articles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Warehouse\CL3_Warehouse.csproj">
+      <Project>{A3A3BD1F-A206-4C65-BD16-526F6F77495B}</Project>
+      <Name>CL3_Warehouse</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

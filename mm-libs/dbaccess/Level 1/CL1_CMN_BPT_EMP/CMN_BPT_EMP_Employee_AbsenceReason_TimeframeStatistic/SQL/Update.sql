@@ -1,0 +1,19 @@
+UPDATE 
+	cmn_bpt_emp_employee_absencereason_timeframestatistics
+SET 
+	CalculationTimeframe_RefID=@CalculationTimeframe_RefID,
+	AbsenceReason_RefID=@AbsenceReason_RefID,
+	Employee_RefID=@Employee_RefID,
+	R_AbsenceCarryOver_InHours=@R_AbsenceCarryOver_InHours,
+	R_AbsenceCarryOver_InDays=@R_AbsenceCarryOver_InDays,
+	R_AbsenceTimeUsed_InHours=@R_AbsenceTimeUsed_InHours,
+	R_AbsenceTimeUsed_InDays=@R_AbsenceTimeUsed_InDays,
+	R_RequestReservedAbsence_InHours=@R_RequestReservedAbsence_InHours,
+	R_RequestReservedAbsence_InDays=@R_RequestReservedAbsence_InDays,
+	R_TotalAllowedAbsenceTime_InHours=@R_TotalAllowedAbsenceTime_InHours,
+	R_TotalAllowedAbsenceTime_InDays=@R_TotalAllowedAbsenceTime_InDays,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_BPT_EMP_Employee_AbsenceReason_TimeframeStatisticsID = @CMN_BPT_EMP_Employee_AbsenceReason_TimeframeStatisticsID

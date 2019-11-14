@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/19/2013 11:10:20 PM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Get_ArticleReference_PreloadingData_for_ProductID</Name>
+        <Namespace>CL5_APOAdmin_Articles.Complex.Retrieval</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_APOAdmin_Articles.Complex.Retrieval"
+                  Method_ClassName="cls_Get_ArticleReference_PreloadingData_for_ProductID"
+                  Method_Name="Get_ArticleReference_PreloadingData_for_ProductID"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=""
+                />
+
+    <Parameters IsClass="true" Name="P_L5AA_GARPDfPI_3535">
+        <Members>
+            <ClassMember Name="ArticleID" Type="Guid"  />
+        </Members>
+    </Parameters>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                  Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                  Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5AA_GARPDfPI_3535" IsArray="false">
+            <Members>
+                <ClassMember IsReference="true"  Type="L5AA_GPSfPI_1248"       Name="ProductSuppliers"       IsArray="true"/>
+                <ClassMember IsReference="true"  Type="L3PR_GSPfPIL_1645"      Name="StandardPrices"         IsArray="false"/>
+				<ClassMember IsReference="true"  Type="L2DT_GDTfGPMIL_1546"    Name="DiscountTypes"            IsArray ="true" />
+                <ClassMember IsReference="false" Type="String"                 Name="PZN"                    IsArray ="false" />
+                <ClassMember IsReference="false" Type="Dict"                   Name="ArticleName"            IsArray ="false" />
+				
+				
+
+			</Members>
+        </ObjectReturnType_Definition>
+
+    </ResultInfo>
+
+</CodeGen>

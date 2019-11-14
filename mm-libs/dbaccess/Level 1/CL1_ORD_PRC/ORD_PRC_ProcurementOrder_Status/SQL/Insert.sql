@@ -1,0 +1,23 @@
+INSERT INTO 
+	ord_prc_procurementorder_statuses
+	(
+		ORD_PRC_ProcurementOrder_StatusID,
+		GlobalPropertyMatchingID,
+		Status_Code,
+		Status_Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@ORD_PRC_ProcurementOrder_StatusID,
+		@GlobalPropertyMatchingID,
+		@Status_Code,
+		@Status_Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

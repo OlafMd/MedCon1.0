@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/4/2013 3:54:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Documents_for_PatientID</Name>
+    <Namespace>CL6_Lucenits_Document.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_Lucenits_Document.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Documents_for_PatientID"
+                Method_Name="Get_Documents_for_PatientID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Documents_for_PatientID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+    doc_documents.DOC_DocumentID,
+    doc_documentrevisions.File_ServerLocation,
+    doc_documentrevisions.File_Name,
+    doc_documentrevisions.DOC_DocumentRevisionID,
+    doc_documentrevisions.File_Size_Bytes,
+    doc_documentrevisions.File_MIMEType,
+    doc_documentrevisions.File_Extension,
+    hec_patient_documents.HEC_Patient_DocumentID,
+    hec_patient_documents.IsDocument_Standard,
+    hec_patient_documents.IsDocument_PatientConsent,
+    hec_patient_documents.IsDocument_PatientParticipationPolicy
+  From
+    doc_documents Inner Join
+    doc_documentrevisions On doc_documents.DOC_DocumentID =
+      doc_documentrevisions.Document_RefID Inner Join
+    hec_patient_documents On hec_patient_documents.Document_RefID =
+      doc_documents.DOC_DocumentID
+  Where
+    doc_documents.IsDeleted = 0 And
+    doc_documentrevisions.IsDeleted = 0 And
+    hec_patient_documents.IsDeleted = 0 And
+    hec_patient_documents.Tenant_RefID = @TenantID And
+    doc_documentrevisions.IsLastRevision = 1 And
+    hec_patient_documents.Patient_RefID = @PatientID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6DO_GDfP_1552">
+    <Members>
+      <ClassMember Name="PatientID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6DO_GDfP_1552" IsArray="true">
+			<Members>
+				<ClassMember Name="DOC_DocumentID" Type="Guid"  />
+				<ClassMember Name="File_ServerLocation" Type="String"  />
+				<ClassMember Name="File_Name" Type="String"  />
+				<ClassMember Name="DOC_DocumentRevisionID" Type="Guid"  />
+				<ClassMember Name="File_Size_Bytes" Type="String"  />
+				<ClassMember Name="File_MIMEType" Type="String"  />
+				<ClassMember Name="File_Extension" Type="String"  />
+				<ClassMember Name="HEC_Patient_DocumentID" Type="Guid"  />
+				<ClassMember Name="IsDocument_Standard" Type="bool"  />
+				<ClassMember Name="IsDocument_PatientConsent" Type="bool"  />
+				<ClassMember Name="IsDocument_PatientParticipationPolicy" Type="bool"  />
+			
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

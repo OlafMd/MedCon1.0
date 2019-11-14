@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="29/5/2014 10:50:47">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DunningLevels_for_TenantID</Name>
+    <Namespace>CL2_BillDunning.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_BillDunning.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DunningLevels_for_TenantID"
+                Method_Name="Get_DunningLevels_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DunningLevels_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT 
+  acc_dun_dunning_levels.ACC_DUN_Dunning_LevelID
+  , acc_dun_dunning_levels.Creation_Timestamp
+  , acc_dun_dunning_levels.Default_Configuration
+  , acc_dun_dunning_levels.Default_DunningFee
+  , acc_dun_dunning_levels.DunningLevelName_DictID
+  , acc_dun_dunning_levels.GlobalPropertyMatchingID
+  , acc_dun_dunning_levels.IsDeleted
+  , acc_dun_dunning_levels.OrderSequence
+  , acc_dun_dunning_levels.ParentLevel_RefID
+  , acc_dun_dunning_levels.Tenant_RefID
+	FROM acc_dun_dunning_levels
+	WHERE 
+	acc_dun_dunning_levels.Tenant_RefID = @TenantID
+	AND acc_dun_dunning_levels.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2BD_GDLfT_1048" IsArray="true">
+			<Members>
+        <ClassMember Name="ACC_DUN_Dunning_LevelID" Type="Guid" IsObjectPrimaryKey="true"/>
+        <ClassMember Name="ParentLevel_RefID" Type="Guid" />
+        <ClassMember Name="GlobalPropertyMatchingID" Type="String" />
+        <ClassMember Name="DunningLevelName_DictID" Type="Dict" Source_DBField="DunningLevelName_DictID" OriginTable="acc_dun_dunning_levels"/>
+        <ClassMember Name="OrderSequence" Type="int" />
+        <ClassMember Name="Default_DunningFee" Type="Decimal" />
+        <ClassMember Name="Default_Configuration" Type="String" />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+        <ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+        <ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

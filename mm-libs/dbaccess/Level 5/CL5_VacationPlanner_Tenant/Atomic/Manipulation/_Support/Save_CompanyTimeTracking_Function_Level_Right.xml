@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="16/12/2013 12:08:10">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_CompanyTimeTracking_Function_Level_Right</Name>
+    <Namespace>CL5_VacationPlanner_Tenant.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_VacationPlanner_Tenant.Atomic.Manipulation"
+                Method_ClassName="cls_Save_CompanyTimeTracking_Function_Level_Right"
+                Method_Name="Save_CompanyTimeTracking_Function_Level_Right"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_CompanyTimeTracking_Function_Level_Right"
+                />
+
+ 
+
+  <Parameters IsClass="true" Name="P_L5TN_SCTTFLR_1230">
+    <Members>
+      <ClassMember Name="AccountID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

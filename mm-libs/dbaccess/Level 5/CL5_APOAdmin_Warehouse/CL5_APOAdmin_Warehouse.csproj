@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7510082C-F68A-4C01-891A-17013464E737}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_APOAdmin_Warehouse</RootNamespace>
+    <AssemblyName>CL5_APOAdmin_Warehouse</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_GlobalQuantityLevels_for_TenantID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_GlobalQuantityLevels.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Warehouse_BillingAddress_and_DeliveryAddress.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Complex\Manipulation\SQL\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_GlobalQuantityLevels_for_TenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_GlobalQuantityLevels_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_GlobalQuantityLevels.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_Warehouse_BillingAddress_and_DeliveryAddress.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_WRH\CL1_LOG_WRH.csproj">
+      <Project>{BB08DBAD-494E-4689-9467-BBDDAEBC1EB0}</Project>
+      <Name>CL1_LOG_WRH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Address\CL2_Address.csproj">
+      <Project>{BAD683E6-A6F1-4199-A717-D7C6999FFC86}</Project>
+      <Name>CL2_Address</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Office\CL2_Office.csproj">
+      <Project>{A2743AF2-47C0-4645-B383-A1418F3627BA}</Project>
+      <Name>CL2_Office</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Warehouse\CL2_Warehouse.csproj">
+      <Project>{7DC3647A-C68F-42DD-AF1B-0B02957E73CD}</Project>
+      <Name>CL2_Warehouse</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

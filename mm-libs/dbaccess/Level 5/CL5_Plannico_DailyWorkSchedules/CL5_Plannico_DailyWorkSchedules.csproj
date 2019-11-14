@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{31AB563E-E018-4B06-8919-C0BD4DDAFA03}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_Plannico_DailyWorkSchedules</RootNamespace>
+    <AssemblyName>CL5_Plannico_DailyWorkSchedules</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Delete_EffectiveWorkTime_Header.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Delete_EffectiveWorkTime_Position.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Delete_EffectiveWorkTime_Positions.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Delete_Employee_DailyWorkSchedule_Detail.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Load_Employee_ActualData.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_DailyWorkSchedule_For_ShiftTemplate.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_EffectiveWorkTime_For_ShiftTemplate.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_EffectiveWorkTime_Header.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_EffectiveWorkTime_Position.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_EffectiveWorkTime_Positions.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Employee_DailyWorkSchedule_Detail.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Update_DailyWorkSchedule_BreakTime.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Update_DailyWorkSchedule_WorkTime.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Update_Employee_EffectiveWorkTime.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DailyWorkSchedules_For_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PlaningDataCount_For_Employee.cs" />
+    <Compile Include="Complex\Retrieval\cls_Check_For_DailyWorkSchedules_For_Period.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DailyWorkSchedules_WithDetails_For_Date.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DailyWorkSchedules_WithDetails_For_Period_And_EmployeeID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DailyWorkSchedules_WithDetails_For_Period.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DailyWorkSchedules_WithDetails_For_Week.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DailyWorkSchedule_Detail_For_DailyWorkScheduleID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DailyWorkSchedule_Detail_For_DetailID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DailyWorkSchedule_For_Week.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DailyWorkSchedule_For_WorkSheduleDate.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_EffectiveWorkTimes_For_Date.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_EffectiveWorkTimes_For_Date_And_EmployeeID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_EffectiveWorkTimes_For_Period_And_Employee.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_EffectiveWorkTimes_For_Week.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_EffectiveWorkTime_Positions_For_Header.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_EffectiveWorkTime_Position_For_PositionID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Delete_EffectiveWorkTime_Positions.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_EffectiveWorkTime_Positions.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Delete_Employee_DailyWorkSchedule_Detail.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_EffectiveWorkTime_Header.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Delete_EffectiveWorkTime_Position.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Delete_EffectiveWorkTime_Header.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Load_Employee_ActualData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_DailyWorkSchedule_For_ShiftTemplate.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_EffectiveWorkTime_For_ShiftTemplate.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_EffectiveWorkTime_Position.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Update_Employee_EffectiveWorkTime.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Update_DailyWorkSchedule_BreakTime.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Update_DailyWorkSchedule_WorkTime.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Employee_DailyWorkSchedule_Detail.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_EffectiveWorkTimes_For_DailyWorkScheduleID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PlaningDataCount_For_Employee.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PlaningDataCount_For_Employee.xml" />
+    <Content Include="Complex\Retrieval\_Support\Check_For_DailyWorkSchedules_For_Period.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_EffectiveWorkTimes_For_Period_And_Employee.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_EffectiveWorkTimes_For_Date_And_EmployeeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_EffectiveWorkTime_Position_For_PositionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_EffectiveWorkTime_Positions_For_Header.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_DailyWorkSchedules_WithDetails_For_Period_And_EmployeeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_EffectiveWorkTimes_For_Date.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_DailyWorkSchedules_WithDetails_For_Period.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_DailyWorkSchedules_WithDetails_For_Week.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_EffectiveWorkTimes_For_Week.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_DailyWorkSchedules_WithDetails_For_Date.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_DailyWorkSchedule_For_Week.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_DailyWorkSchedule_Detail_For_DetailID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_DailyWorkSchedule_For_WorkSheduleDate.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_DailyWorkSchedule_Detail_For_DailyWorkScheduleID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DailyWorkSchedules_For_Tenant.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DailyWorkSchedules_For_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\SQL\" />
+    <Folder Include="Complex\Manipulation\_Support\" />
+    <Folder Include="Complex\Retrieval\SQL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\apps\plannico.urlabsplaner.core\PlannicoModel\PlannicoModel.csproj">
+      <Project>{305EE153-084B-4596-9ADC-FA04D5A45DD6}</Project>
+      <Name>PlannicoModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\apps\plannico.urlabsplaner.core\VacationPlannerCore\VacationPlannerCore.csproj">
+      <Project>{ED5AF06A-93C1-42B1-AD3A-F17FD5455517}</Project>
+      <Name>VacationPlannerCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\external\log4net\log4net.csproj">
+      <Project>{181FE707-E161-4722-9F38-6AAAB6FAA106}</Project>
+      <Name>log4net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_EMP\CL1_CMN_BPT_EMP.csproj">
+      <Project>{2385DE36-25FE-49CE-B27B-E70E7E2EB0A1}</Project>
+      <Name>CL1_CMN_BPT_EMP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL\CL1_CMN_CAL.csproj">
+      <Project>{C6107EF8-3603-4EDA-B158-42404049F249}</Project>
+      <Name>CL1_CMN_CAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PPS\CL1_CMN_PPS.csproj">
+      <Project>{DB54257E-EAF0-443C-9EBC-3CFA0B1AA597}</Project>
+      <Name>CL1_CMN_PPS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR_PPS\CL1_CMN_STR_PPS.csproj">
+      <Project>{B6295F04-6656-4635-B473-B475E5FFDF6D}</Project>
+      <Name>CL1_CMN_STR_PPS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Language\CL2_Language.csproj">
+      <Project>{58245A4D-887C-4AA1-B01E-7E6779C4F096}</Project>
+      <Name>CL2_Language</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Events\CL3_Events.csproj">
+      <Project>{DA55F8FD-98C3-4E00-81F6-3C8360CA65AF}</Project>
+      <Name>CL3_Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 6\CL6_VacationPlanner_Tenant\CL6_VacationPlanner_Tenant.csproj">
+      <Project>{872C3CBE-87D2-481C-A092-FBEE9291036C}</Project>
+      <Name>CL6_VacationPlanner_Tenant</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_Company\CL5_VacationPlanner_Company.csproj">
+      <Project>{B3A40118-6ECE-47A9-84A4-065907ED7C9E}</Project>
+      <Name>CL5_VacationPlanner_Company</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_Contract\CL5_VacationPlanner_Contract.csproj">
+      <Project>{3CAB99EC-30E6-4C23-9C2B-4876B6D9E29B}</Project>
+      <Name>CL5_VacationPlanner_Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_Employees\CL5_VacationPlanner_Employees.csproj">
+      <Project>{08D1F13A-1618-40C4-BAFF-91A875A2A0A3}</Project>
+      <Name>CL5_VacationPlanner_Employees</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_LeaveRequest\CL5_VacationPlanner_LeaveRequest.csproj">
+      <Project>{4CBD7692-56F0-4EA1-ABA2-2F4A2215BC64}</Project>
+      <Name>CL5_VacationPlanner_LeaveRequest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_Office\CL5_VacationPlanner_Office.csproj">
+      <Project>{016A5BB0-C2AA-4545-840A-002620E51F0F}</Project>
+      <Name>CL5_VacationPlanner_Office</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_WorkArea\CL5_VacationPlanner_WorkArea.csproj">
+      <Project>{2CE4AE2B-5490-434F-A288-15B962EF2F31}</Project>
+      <Name>CL5_VacationPlanner_WorkArea</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_WorkPlace\CL5_VacationPlanner_WorkPlace.csproj">
+      <Project>{F603CF53-7220-4BC4-8AC3-C27B9297DB3E}</Project>
+      <Name>CL5_VacationPlanner_WorkPlace</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

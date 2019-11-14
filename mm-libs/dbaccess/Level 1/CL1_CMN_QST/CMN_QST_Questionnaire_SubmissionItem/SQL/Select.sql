@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_qst_questionnaire_submissionitems
+WHERE 
+	CMN_QST_Questionnaire_SubmissionItemID = @CMN_QST_Questionnaire_SubmissionItemID

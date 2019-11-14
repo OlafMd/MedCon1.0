@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{32A42713-A6F4-49CE-86E3-DF85B43282DA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL6_VacationPlanner_LeaveRequest</RootNamespace>
+    <AssemblyName>CL6_VacationPlanner_LeaveRequest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Check_CapacityRestrictions_For_Event.cs" />
+    <Compile Include="Complex\Manipulation\cle_Save_LeaveRequest.cs" />
+    <Compile Include="Complex\Manipulation\cle_Save_LeaveRequest_ApproveAction.cs" />
+    <Compile Include="Complex\Manipulation\cle_Save_LeaveRequest_CancelAction.cs" />
+    <Compile Include="Complex\Manipulation\cle_Save_LeaveRequest_DenyAction.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_LeaveRequest_Data.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_RemainingAllowances_EmployeeData.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_RemainingAllowances_ReportData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Retrieval\_Support\Check_CapacityRestrictions_For_Event.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_LeaveRequest_CancelAction.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_RemainingAllowances_EmployeeData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_RemainingAllowances_ReportData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_LeaveRequest_Data.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_LeaveRequest_ApproveAction.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_LeaveRequest_DenyAction.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_LeaveRequest.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\apps\plannico.urlabsplaner.core\PlannicoModel\PlannicoModel.csproj">
+      <Project>{305EE153-084B-4596-9ADC-FA04D5A45DD6}</Project>
+      <Name>PlannicoModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\apps\plannico.urlabsplaner.core\VacationPlannerCore\VacationPlannerCore.csproj">
+      <Project>{ED5AF06A-93C1-42B1-AD3A-F17FD5455517}</Project>
+      <Name>VacationPlannerCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_EMP\CL1_CMN_BPT_EMP.csproj">
+      <Project>{2385DE36-25FE-49CE-B27B-E70E7E2EB0A1}</Project>
+      <Name>CL1_CMN_BPT_EMP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_STA\CL1_CMN_BPT_STA.csproj">
+      <Project>{B15D38AC-4D53-4DDD-9D62-F4077498ECA1}</Project>
+      <Name>CL1_CMN_BPT_STA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL\CL1_CMN_CAL.csproj">
+      <Project>{C6107EF8-3603-4EDA-B158-42404049F249}</Project>
+      <Name>CL1_CMN_CAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL_APR\CL1_CMN_CAL_APR.csproj">
+      <Project>{5FB54AB2-B742-403F-9DE7-1547C88D76D3}</Project>
+      <Name>CL1_CMN_CAL_APR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PER\CL1_CMN_PER.csproj">
+      <Project>{6BDA1EB4-FA2A-41A1-8B83-171ED9B85ADD}</Project>
+      <Name>CL1_CMN_PER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PPS\CL1_CMN_PPS.csproj">
+      <Project>{DB54257E-EAF0-443C-9EBC-3CFA0B1AA597}</Project>
+      <Name>CL1_CMN_PPS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR\CL1_CMN_STR.csproj">
+      <Project>{B6524266-049E-4266-981E-FCFCEBB8C86C}</Project>
+      <Name>CL1_CMN_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR_PPS\CL1_CMN_STR_PPS.csproj">
+      <Project>{B6295F04-6656-4635-B473-B475E5FFDF6D}</Project>
+      <Name>CL1_CMN_STR_PPS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR_SCE\CL1_CMN_STR_SCE.csproj">
+      <Project>{EFC1DF6B-4B7C-4219-A6A8-4D692ACF419A}</Project>
+      <Name>CL1_CMN_STR_SCE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Events\CL3_Events.csproj">
+      <Project>{DA55F8FD-98C3-4E00-81F6-3C8360CA65AF}</Project>
+      <Name>CL3_Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_Plannico_DailyWorkSchedules\CL5_Plannico_DailyWorkSchedules.csproj">
+      <Project>{31AB563E-E018-4B06-8919-C0BD4DDAFA03}</Project>
+      <Name>CL5_Plannico_DailyWorkSchedules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_VacationPlanner_Absence\CL5_VacationPlanner_Absence.csproj">
+      <Project>{23372EB6-ED52-46D4-8378-3FCB9967AA9F}</Project>
+      <Name>CL5_VacationPlanner_Absence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_VacationPlanner_Company\CL5_VacationPlanner_Company.csproj">
+      <Project>{B3A40118-6ECE-47A9-84A4-065907ED7C9E}</Project>
+      <Name>CL5_VacationPlanner_Company</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_VacationPlanner_Contract\CL5_VacationPlanner_Contract.csproj">
+      <Project>{3CAB99EC-30E6-4C23-9C2B-4876B6D9E29B}</Project>
+      <Name>CL5_VacationPlanner_Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_VacationPlanner_Employees\CL5_VacationPlanner_Employees.csproj">
+      <Project>{08D1F13A-1618-40C4-BAFF-91A875A2A0A3}</Project>
+      <Name>CL5_VacationPlanner_Employees</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_VacationPlanner_LeaveRequest\CL5_VacationPlanner_LeaveRequest.csproj">
+      <Project>{4CBD7692-56F0-4EA1-ABA2-2F4A2215BC64}</Project>
+      <Name>CL5_VacationPlanner_LeaveRequest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_VacationPlanner_Tenant\CL5_VacationPlanner_Tenant.csproj">
+      <Project>{7ABB059C-8AA5-4A23-8FCE-67D3EB8CADBE}</Project>
+      <Name>CL5_VacationPlanner_Tenant</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL6_VacationPlanner_EmployeeStatistics\CL6_VacationPlanner_EmployeeStatistics.csproj">
+      <Project>{DEAED8A1-6418-4B77-A957-E65AFBC8992C}</Project>
+      <Name>CL6_VacationPlanner_EmployeeStatistics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL6_VacationPlanner_User\CL6_VacationPlanner_User.csproj">
+      <Project>{618BDA91-B61A-4BE9-BF37-F19E903886C0}</Project>
+      <Name>CL6_VacationPlanner_User</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL6_VacationPlanner_Tenant\CL6_VacationPlanner_Tenant.csproj">
+      <Project>{872C3CBE-87D2-481C-A092-FBEE9291036C}</Project>
+      <Name>CL6_VacationPlanner_Tenant</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

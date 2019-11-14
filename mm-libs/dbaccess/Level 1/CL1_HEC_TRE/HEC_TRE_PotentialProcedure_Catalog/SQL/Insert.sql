@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_tre_potentialprocedure_catalogs
+	(
+		HEC_TRE_PotentialProcedure_CatalogID,
+		GlobalPropertyMatchingID,
+		Catalog_DisplayName,
+		Catalog_Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_TRE_PotentialProcedure_CatalogID,
+		@GlobalPropertyMatchingID,
+		@Catalog_DisplayName,
+		@Catalog_Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

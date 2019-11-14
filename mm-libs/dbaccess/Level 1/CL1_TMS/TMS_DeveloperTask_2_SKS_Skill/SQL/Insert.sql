@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_developertask_2_sks_skill
+	(
+		AssignmentID,
+		DeveloperTask_RefID,
+		Skill_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@DeveloperTask_RefID,
+		@Skill_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

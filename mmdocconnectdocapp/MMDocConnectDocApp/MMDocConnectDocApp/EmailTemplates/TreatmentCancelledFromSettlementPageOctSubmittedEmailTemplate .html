@@ -1,0 +1,19 @@
+﻿Hallo MM Team,
+
+die Behandlung für {{patient_first_name}} {{patient_last_name}} ({{treatment_date}}), 
+{{treatment_doctor_title}} {{treatment_doctor_first_name}} {{treatment_doctor_last_name}} wurde storniert.
+
+<%loop octs%>
+Die OCT, behandelnder Arzt  {{oct_doctor_title}} {{oct_doctor_first_name}} {{oct_doctor_last_name}} ({{oct_date}}), wurde bereits durchgeführt und daher nicht automatisch storniert.
+
+<%end loop octs%>
+Kommentar: {{doctors_comment}}
+
+Bitte diesen Fall mit der Praxis klären.
+
+<a href="{{mmapp_treatment_page_url}}">MMApp Behandlung</a>
+
+Mit freundlichen Grüßen,
+Ihr Medios Connect Team.
+
+<img src="{{medios_connect_logo_url}}" />

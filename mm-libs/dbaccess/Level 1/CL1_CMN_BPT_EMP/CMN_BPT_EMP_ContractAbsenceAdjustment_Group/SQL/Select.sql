@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_contractabsenceadjustment_groups
+WHERE 
+	CMN_BPT_EMP_ContractAbsenceAdjustment_GroupID = @CMN_BPT_EMP_ContractAbsenceAdjustment_GroupID

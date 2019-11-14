@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_medicalpractice_2_practicetype
+	(
+		AssignmentID,
+		HEC_MedicalPractice_RefID,
+		HEC_MedicalPractice_Type_RefID,
+		Creation_Timestamp,
+		Modification_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		IsPrimaryType
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@HEC_MedicalPractice_RefID,
+		@HEC_MedicalPractice_Type_RefID,
+		@Creation_Timestamp,
+		@Modification_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@IsPrimaryType
+	)

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="27-Nov-14 12:03:12 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Feature</Name>
+    <Namespace>CL2_Feature.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Feature.Atomic.Manipulation"
+                Method_ClassName="cls_Save_Feature"
+                Method_Name="Save_Feature"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Feature"
+                />
+
+
+
+  <Parameters IsClass="true" Name="P_L2FE_SF_1202">
+    <Members>
+		<ClassMember IsIdentificator="True" Name="FeatureID" Type="Guid"  />
+      <ClassMember Name="IdentificationNumber" Type="String"  />
+      <ClassMember Name="DOC_Structure_Header_RefID" Type="Guid"  />
+      <ClassMember Name="Project_RefID" Type="Guid"  />
+      <ClassMember Name="Component_RefID" Type="Guid"  />
+      <ClassMember Name="Parent_RefID" Type="Guid"  />
+      <ClassMember Name="Type_RefID" Type="Guid"  />
+      <ClassMember Name="Status_RefID" Type="Guid"  />
+      <ClassMember Name="Name" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Name_DictID"/>
+      <ClassMember Name="Description" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Description_DictID"/>
+      <ClassMember Name="Feature_Deadline" Type="DateTime"  />
+      <ClassMember Name="IsArchived" Type="Boolean"  />
+      <ClassMember Name="IsDeleted" Type="Boolean"  />
+      <ClassMember Name="CreatedByAccount_RefID" Type="Guid"  />
+      <ClassMember Name="Tags" Type="String" IsArray="true"  />
+      <ClassMember Name="ActionType" Type="String"  />
+      <ClassMember Name="FeaturesToDelete" Type="String" IsArray="true"  />
+      
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

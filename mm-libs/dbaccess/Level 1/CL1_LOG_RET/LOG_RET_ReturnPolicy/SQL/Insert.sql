@@ -1,0 +1,23 @@
+INSERT INTO 
+	log_ret_returnpolicies
+	(
+		LOG_RET_ReturnPolicyID,
+		GlobalPropertyMatchingID,
+		ReturnPolicy_Abbreviation,
+		ReturnPolicy_Reason_DictID,
+		ReturnPolicy_Cost_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_RET_ReturnPolicyID,
+		@GlobalPropertyMatchingID,
+		@ReturnPolicy_Abbreviation,
+		@ReturnPolicy_Reason,
+		@ReturnPolicy_Cost_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

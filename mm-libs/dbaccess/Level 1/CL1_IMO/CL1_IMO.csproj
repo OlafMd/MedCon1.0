@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{512C2B75-6A02-4464-84B1-C382772DC157}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_IMO</RootNamespace>
+    <AssemblyName>CL1_IMO</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IMO_QuestionnaireStatus_2_QuestionnaireAction\ORM_IMO_QuestionnaireStatus_2_QuestionnaireAction.cs" />
+    <Compile Include="IMO_QuestionnaireStatus_2_StatusType\ORM_IMO_QuestionnaireStatus_2_StatusType.cs" />
+    <Compile Include="IMO_QuestionnaireVersion\ORM_IMO_QuestionnaireVersion.cs" />
+    <Compile Include="IMO_QuestionnaireVersion_2_StatusRatingGroup\ORM_IMO_QuestionnaireVersion_2_StatusRatingGroup.cs" />
+    <Compile Include="IMO_Questionnaire\ORM_IMO_Questionnaire.cs" />
+    <Compile Include="IMO_Questionnaire_2_Questionnaire_StatusGroup\ORM_IMO_Questionnaire_2_Questionnaire_StatusGroup.cs" />
+    <Compile Include="IMO_Questionnaire_ActionTimeframeGroup\ORM_IMO_Questionnaire_ActionTimeframeGroup.cs" />
+    <Compile Include="IMO_Questionnaire_Action\ORM_IMO_Questionnaire_Action.cs" />
+    <Compile Include="IMO_Questionnaire_Action_Submission\ORM_IMO_Questionnaire_Action_Submission.cs" />
+    <Compile Include="IMO_Questionnaire_Action_Timeframe\ORM_IMO_Questionnaire_Action_Timeframe.cs" />
+    <Compile Include="IMO_Questionnaire_CustomAction\ORM_IMO_Questionnaire_CustomAction.cs" />
+    <Compile Include="IMO_Questionnaire_CustomStatusQuestionGroup\ORM_IMO_Questionnaire_CustomStatusQuestionGroup.cs" />
+    <Compile Include="IMO_Questionnaire_CustomStatusQuestion\ORM_IMO_Questionnaire_CustomStatusQuestion.cs" />
+    <Compile Include="IMO_Questionnaire_ImageGroup_Submission\ORM_IMO_Questionnaire_ImageGroup_Submission.cs" />
+    <Compile Include="IMO_Questionnaire_Image_Submission\ORM_IMO_Questionnaire_Image_Submission.cs" />
+    <Compile Include="IMO_Questionnaire_StatusGroup\ORM_IMO_Questionnaire_StatusGroup.cs" />
+    <Compile Include="IMO_Questionnaire_StatusRatingGroup\ORM_IMO_Questionnaire_StatusRatingGroup.cs" />
+    <Compile Include="IMO_Questionnaire_StatusRating\ORM_IMO_Questionnaire_StatusRating.cs" />
+    <Compile Include="IMO_Questionnaire_StatusType\ORM_IMO_Questionnaire_StatusType.cs" />
+    <Compile Include="IMO_Questionnaire_Status\ORM_IMO_Questionnaire_Status.cs" />
+    <Compile Include="IMO_Questionnaire_Status_CustomQuestion_Submission\ORM_IMO_Questionnaire_Status_CustomQuestion_Submission.cs" />
+    <Compile Include="IMO_Questionnaire_Status_Submission\ORM_IMO_Questionnaire_Status_Submission.cs" />
+    <Compile Include="IMO_Questionnaire_SubmissionBinder\ORM_IMO_Questionnaire_SubmissionBinder.cs" />
+    <Compile Include="IMO_Questionnaire_Submission\ORM_IMO_Questionnaire_Submission.cs" />
+    <Compile Include="IMO_SubmissionBundle\ORM_IMO_SubmissionBundle.cs" />
+    <Compile Include="IMO_SubmissionBundle_Content\ORM_IMO_SubmissionBundle_Content.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="IMO_SubmissionBundle\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_SubmissionBundle\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_SubmissionBundle\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_SubmissionBundle_Content\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_SubmissionBundle_Content\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_SubmissionBundle_Content\SQL\Select.sql" />
+    <Content Include="_Support\IMO_SubmissionBundles.xml" />
+    <Content Include="_Support\IMO_SubmissionBundle_Contents.xml" />
+    <EmbeddedResource Include="IMO_Questionnaire\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_2_Questionnaire_StatusGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_2_Questionnaire_StatusGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_2_Questionnaire_StatusGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Action_Submission\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Action_Submission\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Action_Submission\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Action_Timeframe\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Action_Timeframe\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Action_Timeframe\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Action\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Action\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Action\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_ActionTimeframeGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_ActionTimeframeGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_ActionTimeframeGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_CustomAction\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_CustomAction\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_CustomAction\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_CustomStatusQuestion\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_CustomStatusQuestion\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_CustomStatusQuestion\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_CustomStatusQuestionGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_CustomStatusQuestionGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_CustomStatusQuestionGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Image_Submission\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Image_Submission\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Image_Submission\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_ImageGroup_Submission\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_ImageGroup_Submission\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_ImageGroup_Submission\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Status_CustomQuestion_Submission\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Status_CustomQuestion_Submission\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Status_CustomQuestion_Submission\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Status_Submission\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Status_Submission\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Status_Submission\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Status\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Status\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Status\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_StatusGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_StatusGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_StatusGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_StatusRatingGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_StatusRatingGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_StatusRatingGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_StatusRating\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_StatusRating\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_StatusRating\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_StatusType\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_StatusType\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_StatusType\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_SubmissionBinder\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_SubmissionBinder\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_SubmissionBinder\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Submission\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Submission\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_Questionnaire_Submission\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_QuestionnaireStatus_2_StatusType\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_QuestionnaireStatus_2_StatusType\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_QuestionnaireStatus_2_StatusType\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_QuestionnaireStatus_2_QuestionnaireAction\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_QuestionnaireStatus_2_QuestionnaireAction\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_QuestionnaireStatus_2_QuestionnaireAction\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_QuestionnaireVersion_2_StatusRatingGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_QuestionnaireVersion_2_StatusRatingGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_QuestionnaireVersion_2_StatusRatingGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="IMO_QuestionnaireVersion\SQL\Insert.sql" />
+    <EmbeddedResource Include="IMO_QuestionnaireVersion\SQL\Update.sql" />
+    <EmbeddedResource Include="IMO_QuestionnaireVersion\SQL\Select.sql" />
+    <Content Include="_Support\IMO_Questionnaire.xml" />
+    <Content Include="_Support\IMO_QuestionnaireStatus_2_QuestionnaireAction.xml" />
+    <Content Include="_Support\IMO_QuestionnaireStatus_2_StatusType.xml" />
+    <Content Include="_Support\IMO_QuestionnaireVersions.xml" />
+    <Content Include="_Support\IMO_QuestionnaireVersion_2_StatusRatingGroup.xml" />
+    <Content Include="_Support\IMO_Questionnaire_2_Questionnaire_StatusGroup.xml" />
+    <Content Include="_Support\IMO_Questionnaire_Actions.xml" />
+    <Content Include="_Support\IMO_Questionnaire_ActionTimeframeGroups.xml" />
+    <Content Include="_Support\IMO_Questionnaire_Action_Submissions.xml" />
+    <Content Include="_Support\IMO_Questionnaire_Action_Timeframes.xml" />
+    <Content Include="_Support\IMO_Questionnaire_CustomActions.xml" />
+    <Content Include="_Support\IMO_Questionnaire_CustomStatusQuestionGroups.xml" />
+    <Content Include="_Support\IMO_Questionnaire_CustomStatusQuestions.xml" />
+    <Content Include="_Support\IMO_Questionnaire_ImageGroup_Submissions.xml" />
+    <Content Include="_Support\IMO_Questionnaire_Image_Submissions.xml" />
+    <Content Include="_Support\IMO_Questionnaire_Statuses.xml" />
+    <Content Include="_Support\IMO_Questionnaire_StatusGroups.xml" />
+    <Content Include="_Support\IMO_Questionnaire_StatusRatingGroups.xml" />
+    <Content Include="_Support\IMO_Questionnaire_StatusRatings.xml" />
+    <Content Include="_Support\IMO_Questionnaire_StatusTypes.xml" />
+    <Content Include="_Support\IMO_Questionnaire_Status_CustomQuestion_Submissions.xml" />
+    <Content Include="_Support\IMO_Questionnaire_Status_Submissions.xml" />
+    <Content Include="_Support\IMO_Questionnaire_SubmissionBinders.xml" />
+    <Content Include="_Support\IMO_Questionnaire_Submissions.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\dlFramework\CSharpV2\Core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\dlFramework\CSharpV2\Core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

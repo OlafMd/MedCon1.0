@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_cal_repetitionpatterns_monthly
+	(
+		CMN_CAL_RepetitionPattern_MonthlyID,
+		Repetition_RefID,
+		Repetition_EveryNumberOfMonths,
+		IsFixed,
+		IsRelative,
+		IfRelative_RepetitionPattern_RefID,
+		IfFixed_DayOfMonth,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_CAL_RepetitionPattern_MonthlyID,
+		@Repetition_RefID,
+		@Repetition_EveryNumberOfMonths,
+		@IsFixed,
+		@IsRelative,
+		@IfRelative_RepetitionPattern_RefID,
+		@IfFixed_DayOfMonth,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,27 @@
+INSERT INTO 
+	hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty
+	(
+		AssignmentID,
+		CoveredPotentialBillCode_RefID,
+		CoveredPotentialBillCode_UniversalProperty_RefID,
+		Value_String,
+		Value_Number,
+		Value_Boolean,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CoveredPotentialBillCode_RefID,
+		@CoveredPotentialBillCode_UniversalProperty_RefID,
+		@Value_String,
+		@Value_Number,
+		@Value_Boolean,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

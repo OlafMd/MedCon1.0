@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="comunication-contact-type.CTTelephone">
+    <Lang ISO="EN" Content="Customer phone" />
+    <Lang ISO="DE" Content="Kundenservice Telefon" />
+    <Lang ISO="RS" Content="Customer phone" />
+  </Item>
+  <Item ID="comunication-contact-type.CTSkypeName">
+    <Lang ISO="EN" Content="Customer skype name" />
+    <Lang ISO="DE" Content="Kunden skype name" />
+    <Lang ISO="RS" Content="Customer skype name" />
+  </Item>
+  <Item ID="comunication-contact-type.CTEmail">
+    <Lang ISO="EN" Content="Customer email" />
+    <Lang ISO="DE" Content="Kundenservice per E-Mail" />
+    <Lang ISO="RS" Content="Customer email" />
+  </Item>
+</Resources>

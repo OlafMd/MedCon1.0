@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{977AA6B3-270E-4AF9-9397-5CE6BCE0C657}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MMDocConnectDocAppServices</RootNamespace>
+    <AssemblyName>MMDocConnectDocAppServices</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DoctorDataService.cs" />
+    <Compile Include="DocumentationOnlyDataService.cs" />
+    <Compile Include="OctService.cs" />
+    <Compile Include="OrdersDataService.cs" />
+    <Compile Include="PharmacyDataService.cs" />
+    <Compile Include="PreexaminationDataService.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ReceiptDataService.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsDataService.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="ValidationService.cs" />
+    <Compile Include="MainDataService.cs" />
+    <Compile Include="AftercareDataService.cs" />
+    <Compile Include="PlanningDataService.cs" />
+    <Compile Include="PatientDataService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettlementDataService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\mm-libs\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 0\DLCore_TokenVerificationV3\DLCore_TokenVerificationV3.csproj">
+      <Project>{63a878ac-69ff-45f8-8194-f27d7ddec716}</Project>
+      <Name>DLCore_TokenVerificationV3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_BIL\CL1_BIL.csproj">
+      <Project>{d4f4b377-8c25-466f-b42f-315fc44a6d33}</Project>
+      <Name>CL1_BIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3c164500-bf5f-4173-b1a8-154a38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031c04c9-08cd-4833-af41-a9b64d337ca6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_CMN_CTR\CL1_CMN_CTR.csproj">
+      <Project>{8327f3d8-91fd-4c90-b53d-4f34c8b58c93}</Project>
+      <Name>CL1_CMN_CTR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06ab1c3c-339f-4e31-8408-232dc283308c}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768c60e8-0c7f-42b2-b8c9-d327c6bf334a}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_HEC_ACT\CL1_HEC_ACT.csproj">
+      <Project>{f66b8f6f-ec2c-4867-9d07-d4e9850e8933}</Project>
+      <Name>CL1_HEC_ACT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_HEC_BIL\CL1_HEC_BIL.csproj">
+      <Project>{3fd2ac3a-f34e-433b-8a86-48fe54c51b00}</Project>
+      <Name>CL1_HEC_BIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_HEC_CAS\CL1_HEC_CAS.csproj">
+      <Project>{17e35f8f-6972-4ee9-8135-396798e493c8}</Project>
+      <Name>CL1_HEC_CAS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_HEC_CRT\CL1_HEC_CRT.csproj">
+      <Project>{433faf4c-828d-40d3-9ac1-36b8d9167771}</Project>
+      <Name>CL1_HEC_CRT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_HEC_CTR\CL1_HEC_CTR.csproj">
+      <Project>{ddb8ac6e-2ba5-45a3-9d78-becdb89dd06c}</Project>
+      <Name>CL1_HEC_CTR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_HEC_CTR_I2BC\CL1_HEC_CTR_I2BC.csproj">
+      <Project>{66354857-55b0-4a60-a79a-4445fc50b874}</Project>
+      <Name>CL1_HEC_CTR_I2BC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_HEC_DIA\CL1_HEC_DIA.csproj">
+      <Project>{44b9c824-f3f7-4b95-9f59-87fdc93164de}</Project>
+      <Name>CL1_HEC_DIA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_HEC_PRC\CL1_HEC_PRC.csproj">
+      <Project>{a5b4351c-89c5-438e-a57e-e048b40d3527}</Project>
+      <Name>CL1_HEC_PRC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_HEC_TRE\CL1_HEC_TRE.csproj">
+      <Project>{29a9c10c-a64e-4b75-925c-655ba00483cc}</Project>
+      <Name>CL1_HEC_TRE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_ORD_PRC\CL1_ORD_PRC.csproj">
+      <Project>{2ed9ec1f-4c36-4790-b8ae-6c03f4b40588}</Project>
+      <Name>CL1_ORD_PRC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{feab6f0e-56f1-43d4-bef0-988b26474dd2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mmdocconnect-core\MMDocConnectDBMethods\MMDocConnectDBMethods.csproj">
+      <Project>{0f2fdac6-f460-4012-8a29-08c7e5cdabcd}</Project>
+      <Name>MMDocConnectDBMethods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mmdocconnect-core\MMDocConnectElasticSearchMethods\MMDocConnectElasticSearchMethods.csproj">
+      <Project>{e99e90be-66e5-4412-b67c-ebfe6a5286ad}</Project>
+      <Name>MMDocConnectElasticSearchMethods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mmdocconnect-core\MMDocConnectLogUtils\LogUtils\LogUtils.csproj">
+      <Project>{3b9f11bc-018f-4f4e-ac96-708a2b1f86fc}</Project>
+      <Name>LogUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mmdocconnect-core\MMDocConnectUtils\MMDocConnectUtils.csproj">
+      <Project>{723f3602-7c25-4f63-813e-5731f820ef4b}</Project>
+      <Name>MMDocConnectUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mmdocconnect-core\SharedServiceUtils\SharedServiceUtils.csproj">
+      <Project>{ab0eaafb-d407-47d2-a9ec-e2de565ea145}</Project>
+      <Name>SharedServiceUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BOpSDK\BOpSDK.csproj">
+      <Project>{b5aa6031-a2a9-4642-abf6-2290c8deedc6}</Project>
+      <Name>BOpSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMDocConnectDocAppInterfaces\MMDocConnectDocAppInterfaces.csproj">
+      <Project>{c4e41f89-5805-4441-b4a1-a56c92037a05}</Project>
+      <Name>MMDocConnectDocAppInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMDocConnectDocAppModels\MMDocConnectDocAppModels.csproj">
+      <Project>{8b59789c-5ffa-4db4-93f5-78f642642aef}</Project>
+      <Name>MMDocConnectDocAppModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

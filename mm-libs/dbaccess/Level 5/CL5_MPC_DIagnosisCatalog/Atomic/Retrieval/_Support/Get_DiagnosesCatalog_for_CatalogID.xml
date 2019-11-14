@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/12/2014 3:56:34 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DiagnosesCatalog_for_CatalogID</Name>
+    <Namespace>CL5_MyHealthClub_Diagnosis.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MPC_DIagnosisCatalog.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DiagnosesCatalog_for_CatalogID"
+                Method_Name="Get_DiagnosesCatalog_for_CatalogID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DiagnosesCatalog_for_CatalogID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID,
+  hec_dia_potentialdiagnoses.ICD10_Code,
+  hec_dia_potentialdiagnoses.PotentialDiagnosis_Name_DictID,
+  hec_dia_potentialdiagnoses.IsDeleted,
+  hec_dia_potentialdiagnoses.PotentialDiagnosis_Description_DictID,
+  hec_dia_potentialdiagnoses.PotentialDiagnosisITL,
+  hec_dia_potentialdiagnoses.Tenant_RefID,
+  hec_dia_potentialdiagnoses.Creation_Timestamp,
+  hec_dia_potentialdiagnoses.IsAllergy,
+  hec_dia_potentialdiagnoses.DefaultTimeUntillDeactivation_InDays
+From
+  hec_dia_potentialdiagnosis_catalogs Inner Join
+  hec_dia_potentialdiagnosis_catalogcodes
+    On hec_dia_potentialdiagnosis_catalogs.HEC_DIA_PotentialDiagnosis_CatalogID
+    = hec_dia_potentialdiagnosis_catalogcodes.PotentialDiagnosis_Catalog_RefID
+  Inner Join
+  hec_dia_potentialdiagnoses
+    On hec_dia_potentialdiagnosis_catalogcodes.PotentialDiagnosis_RefID =
+    hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID
+Where
+  hec_dia_potentialdiagnosis_catalogs.Tenant_RefID = @TenantID And
+  hec_dia_potentialdiagnosis_catalogs.IsDeleted = 0 And
+  hec_dia_potentialdiagnosis_catalogs.HEC_DIA_PotentialDiagnosis_CatalogID =
+  @CatalogID And
+  hec_dia_potentialdiagnosis_catalogcodes.IsDeleted = 0 And
+  hec_dia_potentialdiagnoses.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5DI_GDCfCID_1555">
+    <Members>
+		<ClassMember Name="CatalogID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5DC_GDCfCID_0213" IsArray="true">
+      <Members>
+        <ClassMember Name="PotentialDiagnosis_Name" Type="Dict" OriginTable="hec_dia_potentialdiagnoses" Source_DBField="PotentialDiagnosis_Name_DictID"  />
+        <ClassMember Name="ICD10_Code" Type="string"  />
+        <ClassMember Name="HEC_DIA_PotentialDiagnosisID" Type="Guid"  />
+        <ClassMember Name="PotentialDiagnosis_Description" Type="Dict" OriginTable="hec_dia_potentialdiagnoses" Source_DBField="PotentialDiagnosis_Description_DictID"  />
+        <ClassMember Name="PotentialDiagnosisITL" Type="string"  />
+        <ClassMember Name="Tenant_RefID" Type="Guid"  />
+        <ClassMember Name="IsDeleted" Type="bool"  />
+        <ClassMember Name="DefaultTimeUntillDeactivation_InDays" Type="int"  />
+        <ClassMember Name="IsAllergy" Type="bool"  />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

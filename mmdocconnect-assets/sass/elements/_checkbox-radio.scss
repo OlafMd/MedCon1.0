@@ -1,0 +1,218 @@
+input[type='checkbox'],
+input[type='radio'] {
+	background: none;
+	opacity: 0;
+}
+
+/*.mask-checkbox,
+.mask-radio {
+	position: relative;
+	margin-bottom: 5px;
+	text-indent: 20px;
+	width: 100%;
+	display: block;
+}*/
+
+
+.mask-checkbox,
+.mask-radio {
+  display: inline-block;
+  position: relative;
+  height: 16px;
+  width: 16px;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+.checkbox-text {  //renamed from label
+  //margin: 0 !important;
+  display: inline-block !important;
+  vertical-align: sub;
+  margin-top: 5px;
+  margin-left: 3px;
+}
+
+input[type='checkbox'] ~ i.icon,
+input[type='radio'] ~ i.icon {
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	float: left;
+	width: 14px;
+	height: 16px;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+	/*float: left;*/
+	position: absolute;
+	z-index: 10;
+	margin: 0;
+	/*left: -3px; ///////       remove for label
+	top: 5px; ////////////*/
+}
+
+.mask-radio,
+.mask-checkbox {
+	/*height: 16px;*/
+	position: relative;
+	z-index: 1 !important;
+}
+
+/*Checkbox*/
+
+input[type='checkbox'] ~ i.icon{
+	background: url("../images/checkbox.png") no-repeat center left;
+}
+
+input[type='checkbox']:checked ~ i.icon{
+	background: url("../images/checkbox-active.png") no-repeat center left;
+}
+
+input[type='checkbox']:not(:checked):focus ~ i.icon{
+	background: url("../images/checkbox-focus.png") no-repeat center left;
+}
+
+input[type='checkbox']:checked:focus ~ i.icon{
+	background: url("../images/checkbox-checked-focus.png") no-repeat center left;
+}
+
+[type='checkbox']:disabled:not(:checked) ~ i.icon{
+	background: url("../images/checkbox-disabled.png") no-repeat center right;
+}
+
+input[type='checkbox']:disabled:checked ~ i.icon{
+	background: url("../images/checkbox-disabled-checked.png") no-repeat center left;
+}
+
+/*
+input[type='checkbox']:hover:checked + span,
+input[type='checkbox']:focus:checked + span {
+	background-position: -16px -16px;
+}
+
+input[type='checkbox']:hover + span,
+input[type='checkbox']:focus + span {
+	background-position: 0 -16px;
+}
+
+input[type='checkbox']:active + span {
+	background-position: 0 -48px;
+}
+
+input[type='checkbox']:disabled + span{
+	background-position: 0 -32px;
+}
+
+input[type='checkbox']:disabled:checked + span {
+	background-position: -16px -32px;
+}
+
+input[type='checkbox']:hover:disabled + span,
+input[type='checkbox']:focus:disabled + span {
+	background-position: 0 -32px;
+}
+
+input[type='checkbox']:hover:disabled:checked + span ,
+input[type='checkbox']:focus:disabled:checked + span {
+	background-position: -16px -32px;
+}
+
+input[type='checkbox']:active:checked + span {
+	background-position: -16px -48px;
+}*/
+
+/*Radiobutton*/
+
+input[type='radio'] ~ i.icon {
+	background: url("../images/radio-button.png") no-repeat center left;
+}
+
+input[type='radio']:checked ~ i.icon{
+	background: url("../images/radio-button-checked.png") no-repeat center left;
+}
+
+input[type='radio']:focus ~ i.icon {
+	background: url("../images/radio-focus.png") no-repeat center left;
+}
+
+input[type='radio']:checked:focus ~ i.icon{
+	background: url("../images/radio-checked-focus.png") no-repeat center left;
+}
+
+input[type='radio']:disabled ~ i.icon {
+	background: url("../images/radio-disabled.png") no-repeat center left;
+}
+
+input[type='radio']:disabled:checked ~ i.icon{
+	background: url("../images/radio-disabled-checked.png") no-repeat center left;
+}
+
+/*
+input[type='radio']:hover:checked + span,
+input[type='radio']:focus:checked + span {
+	background-position: -48px -16px;
+}
+
+input[type='radio']:hover + span,
+input[type='radio']:focus + span {
+	background-position: -32px -16px;
+}
+
+input[type='radio']:disabled + span{
+	background-position: -32px -32px;
+}
+
+input[type='radio']:disabled:checked + span {
+	background-position: -48px -32px;
+}
+
+input[type='radio']:hover:disabled + span,
+input[type='radio']:focus:disabled + span {
+	background-position: -32px -32px;
+}
+
+input[type='radio']:hover:disabled:checked + span ,
+input[type='radio']:focus:disabled:checked + span {
+	background-position: -48px -32px;
+}
+
+input[type='radio']:active + span {
+	background-position: -32px -48px;
+}
+
+input[type='radio']:active:checked + span {
+	background-position: -48px -48px;
+}*/
+
+/**************** select ***********************/
+
+select{
+	background: #fff url("../images/icons/dropdown.png") no-repeat center right 7px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	-khtml-appearance: none;
+	outline: 0;
+	border: 1px solid #c5c5c5;
+	padding-right: 20px;
+	width: 100%;
+
+	&:focus,
+	option{
+		background-color: #f3f3f3;
+	}
+
+	option{
+		position: relative;
+		z-index: 1;
+	}
+
+	&.active{
+		option{
+			background-color: #e1e1e6;
+		}
+	}
+}

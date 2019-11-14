@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/16/2013 2:34:42 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Imported_Catalog_for_TenantID</Name>
+    <Namespace>CL3_Catalog.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Catalog.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Imported_Catalog_for_TenantID"
+                Method_Name="Get_Imported_Catalog_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Imported_Catalog_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_pro_subscribedcatalogs.SubscribedCatalog_ValidFrom As ValidFrom,
+  cmn_pro_subscribedcatalogs.SubscribedCatalog_ValidThrough As ValidTo,
+  cmn_pro_subscribedcatalogs.CMN_PRO_SubscribedCatalogID As CatalogID,
+  cmn_pro_subscribedcatalogs.SubscribedCatalog_Name As CatalogName,
+  (Case
+    When Now() >= cmn_pro_subscribedcatalogs.SubscribedCatalog_ValidFrom And
+    Now() &lt;= cmn_pro_subscribedcatalogs.SubscribedCatalog_ValidThrough Then true
+    Else false End) As IsActive,
+  cmn_bpt_businessparticipants.DisplayName As SupplierName,
+  cmn_pro_subscribedcatalogs.CatalogCodeITL As CatalogITL,
+  cmn_pro_subscribedcatalogs.IsCatalogPublic
+From
+  cmn_pro_subscribedcatalogs Left Join
+  cmn_bpt_suppliers On cmn_pro_subscribedcatalogs.PublishingSupplier_RefID =
+    cmn_bpt_suppliers.CMN_BPT_SupplierID And cmn_bpt_suppliers.IsDeleted = 0
+  Left Join
+  cmn_bpt_businessparticipants
+    On cmn_bpt_suppliers.Ext_BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And
+    cmn_bpt_businessparticipants.IsDeleted = 0
+Where
+  cmn_bpt_businessparticipants.IsCompany = 1 And
+  cmn_bpt_businessparticipants.IsNaturalPerson = 0 And
+  cmn_pro_subscribedcatalogs.IsDeleted = 0 And
+  cmn_pro_subscribedcatalogs.Tenant_RefID = @TenantID And
+  cmn_pro_subscribedcatalogs.SubscribedBy_BusinessParticipant_RefID =
+  @BussinessParticipantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3CA_GICfTID_1432">
+    <Members>
+		<ClassMember Name="BussinessParticipantID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3CA_GICfTID_1432" IsArray="true">
+			<Members>
+				<ClassMember Name="ValidFrom" Type="DateTime"  />
+				<ClassMember Name="ValidTo" Type="DateTime"  />
+				<ClassMember Name="CatalogID" Type="Guid"  />
+				<ClassMember Name="CatalogName" Type="String"  />
+				<ClassMember Name="IsActive" Type="bool"  />
+                <ClassMember Name="IsCatalogPublic" Type="bool"  />
+                <ClassMember Name="SupplierName" Type="String"  />
+                <ClassMember Name="CatalogITL" Type="String"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

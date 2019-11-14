@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="23/10/2013 02:55:05">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Warehouse_Rack_for_ID_or_TenantID</Name>
+    <Namespace>CL2_Warehouse.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Warehouse.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Warehouse_Rack_for_ID_or_TenantID"
+                Method_Name="Get_Warehouse_Rack_for_ID_or_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Warehouse_Rack_for_ID_or_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT LOG_WRH_RackID,
+	       log_wrh_racks.Area_RefID,
+	       log_wrh_racks.CoordinateCode,
+	       log_wrh_racks.Shelves_Use_XCoordinate,
+	       log_wrh_racks.Shelves_Use_YCoordinate,
+	       log_wrh_racks.Shelves_Use_ZCoordinate,
+	       log_wrh_racks.IsStructureHidden,
+	       log_wrh_racks.Shelves_XLabel,
+	       log_wrh_racks.Shelves_YLabel,
+	       log_wrh_racks.Shelves_ZLabel,
+	       log_wrh_racks.IsDeleted,
+         log_wrh_racks.Shelf_NamePrefix,
+         log_wrh_racks.Rack_Name,
+         log_wrh_areas.Rack_NamePrefix,
+         log_wrh_rack_defaultsuppliers.CMN_BPT_Supplier_RefID
+	  FROM log_wrh_racks
+         LEFT JOIN log_wrh_areas on log_wrh_racks.Area_RefID = log_wrh_areas.LOG_WRH_AreaID
+         LEFT JOIN log_wrh_rack_defaultsuppliers ON log_wrh_racks.LOG_WRH_RackID = log_wrh_rack_defaultsuppliers.Rack_RefID AND log_wrh_rack_defaultsuppliers.IsDeleted = 0
+   WHERE log_wrh_racks.LOG_WRH_RackID = IFNULL(@RackID, log_wrh_racks.LOG_WRH_RackID)
+	       AND log_wrh_racks.Tenant_RefID = @TenantID
+         AND log_wrh_racks.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2WH_GWHRfIoT_1454">
+    <Members>
+		<ClassMember Name="RackID" Type="Guid?"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2WH_GWHRfIoT_1454" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_WRH_RackID" Type="Guid"  />
+				<ClassMember Name="Area_RefID" Type="Guid"  />
+				<ClassMember Name="CoordinateCode" Type="String"  />
+				<ClassMember Name="Shelves_Use_XCoordinate" Type="Boolean"  />
+				<ClassMember Name="Shelves_Use_YCoordinate" Type="Boolean"  />
+				<ClassMember Name="Shelves_Use_ZCoordinate" Type="Boolean"  />
+				<ClassMember Name="IsStructureHidden" Type="bool"  />
+				<ClassMember Name="Shelves_XLabel" Type="String"  />
+				<ClassMember Name="Shelves_YLabel" Type="String"  />
+				<ClassMember Name="Shelves_ZLabel" Type="String"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+        <ClassMember Name="Shelf_NamePrefix" Type="String" />
+        <ClassMember Name="Rack_Name" Type="String" />
+        <ClassMember Name="CMN_BPT_Supplier_RefID" Type="Guid" />
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

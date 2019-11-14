@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/3/2013 5:07:37 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_BuildingPartTypes_For_Tenant</Name>
+    <Namespace>CL5_KPRS_StaticProperties.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_StaticProperties.Complex.Retrieval"
+                Method_ClassName="cls_Get_All_BuildingPartTypes_For_Tenant"
+                Method_Name="Get_All_BuildingPartTypes_For_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_BuildingPartTypes_For_Tenant"
+                />
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5SP_GABPTFT_1244" IsArray="false">
+      <Members>
+        <ClassMember IsClass="true" IsArray="true" Name="Apartment_Types" Type="L5SP_GABPTFT_1244_Apartment_Types">
+          <Members>
+            <ClassMember Name="RES_BLD_Apartment_TypeID" Type="Guid"  />
+            <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_Apartment_Types" Source_DBField="ApartmentType_Name_DictID"  />
+            <ClassMember Name="Description" Type="Dict" OriginTable="RES_BLD_Apartment_Types" Source_DBField="ApartmentType_Description_DictID"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Appartment_HeatingTypes" Type="L5SP_GABPTFT_1244_Appartment_HeatingTypes">
+            <Members>
+                <ClassMember Name="RES_BLD_Appartment_HeatingTypeID" Type="Guid"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_Appartment_HeatingTypes" Source_DBField="HeatingType_Name_DictID"  />
+                <ClassMember Name="GlobalPropertyMatchingID" Type="string" />
+            </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Appartment_FlooringTypes" Type="L5SP_GABPTFT_1244_Appartment_FlooringTypes">
+            <Members>
+                <ClassMember Name="RES_BLD_Appartment_FlooringTypesID" Type="Guid"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_Appartment_FlooringTypes" Source_DBField="FlooringType_Name_DictID"  />
+                <ClassMember Name="GlobalPropertyMatchingID" Type="string" />
+            </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Appartment_WallCoveringTypes" Type="L5SP_GABPTFT_1244_Appartment_WallCoveringTypes">
+            <Members>
+                <ClassMember Name="RES_BLD_Appartment_WallCoveringTypeID" Type="Guid"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_Appartment_WallCoveringTypes" Source_DBField="WallCoveringType_Name_DictID"  />
+                <ClassMember Name="GlobalPropertyMatchingID" Type="string" />
+            </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="OutdoorFacility_Types" Type="L5SP_GABPTFT_1244_OutdoorFacility_Types">
+            <Members>
+                <ClassMember Name="RES_BLD_OutdoorFacility_TypeID" Type="Guid"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_OutdoorFacility_Types" Source_DBField="OutdoorFacilityType_Name_DictID"  />
+                <ClassMember Name="Description" Type="Dict" OriginTable="RES_BLD_OutdoorFacility_Types" Source_DBField="OutdoorFacilityType_Description_DictID"  />
+            </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="OutdoorFacility_AccessRoadTypes" Type="L5SP_GABPTFT_1244_OutdoorFacility_AccessRoadTypes">
+            <Members>
+                <ClassMember Name="RES_BLD_OutdoorFacility_AccessRoadTypeID" Type="Guid"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_OutdoorFacility_AccessRoadTypes" Source_DBField="AccessRoadType_Name_DictID"  />
+                <ClassMember Name="GlobalPropertyMatchingID" Type="string" />
+            </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="OutdoorFacility_FenceTypes" Type="L5SP_GABPTFT_1244_OutdoorFacility_FenceTypes">
+            <Members>
+                <ClassMember Name="RES_BLD_OutdoorFacility_FenceTypeID" Type="Guid"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_OutdoorFacility_FenceTypes" Source_DBField="FenceType_Name_DictID"  />
+                <ClassMember Name="GlobalPropertyMatchingID" Type="string" />
+            </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Basement_Types" Type="L5SP_GABPTFT_1244_Basement_Types">
+            <Members>
+                <ClassMember Name="RES_BLD_Basement_TypeID" Type="Guid"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_Basement_Types" Source_DBField="BasementType_Name_DictID"  />
+                <ClassMember Name="Description" Type="Dict" OriginTable="RES_BLD_Attic_Types" Source_DBField="BasementType_Description_DictID"  />
+            </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Basement_FloorTypes" Type="L5SP_GABPTFT_1244_Basement_FloorTypes">
+            <Members>
+                <ClassMember Name="RES_BLD_Basement_FloorTypeID" Type="Guid"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_Basement_FloorTypes" Source_DBField="FloorType_Name_RefID"  />
+                <ClassMember Name="GlobalPropertyMatchingID" Type="string" />
+            </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Attic_Types" Type="L5SP_GABPTFT_1244_Attic_Types">
+            <Members>
+                <ClassMember Name="RES_BLD_Attic_TypeID" Type="Guid"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_Attic_Types" Source_DBField="AtticType_Name_DictID"  />
+                <ClassMember Name="Description" Type="Dict" OriginTable="RES_BLD_Attic_Types" Source_DBField="AtticType_Description_DictID"  />
+            </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Facade_Types" Type="L5SP_GABPTFT_1244_Facade_Types">
+            <Members>
+                <ClassMember Name="RES_BLD_Facade_TypeID" Type="Guid"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_Facade_Types" Source_DBField="FacadeType_Name_DictID"  />
+                <ClassMember Name="Description" Type="Dict" OriginTable="RES_BLD_Facade_Types" Source_DBField="FacadeType_Description_DictID"  />
+            </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="RoofType" Type="L5SP_GABPTFT_1244_RoofType">
+            <Members>
+                <ClassMember Name="RES_BLD_RoofTypeID" Type="Guid"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_RoofType" Source_DBField="RoofType_Name_DictID"  />
+                <ClassMember Name="Description" Type="Dict" OriginTable="RES_BLD_RoofType" Source_DBField="RoofType_Dictionary_DictID"  />
+            </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Staircase_Types" Type="L5SP_GABPTFT_1244_Staircase_Types">
+            <Members>
+                <ClassMember Name="RES_BLD_Staircase_TypeID" Type="Guid"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_Staircase_Types" Source_DBField="StaircaseType_Name_DictID"  />
+                <ClassMember Name="Description" Type="Dict" OriginTable="RES_BLD_Staircase_Types" Source_DBField="StaircaseType_Description_DictID"  />
+            </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="HVACR_Types" Type="L5SP_GABPTFT_1244_HVACR_Types">
+            <Members>
+                <ClassMember Name="RES_BLD_HVACR_TypeID" Type="Guid"  />
+                <ClassMember Name="Name" Type="Dict" OriginTable="RES_BLD_HVACR_Types" Source_DBField="HVACRType_Name_DictID"  />
+                <ClassMember Name="Description" Type="Dict" OriginTable="RES_BLD_HVACR_Types" Source_DBField="HVACRType_Description_DictID"  />
+            </Members>
+        </ClassMember>
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

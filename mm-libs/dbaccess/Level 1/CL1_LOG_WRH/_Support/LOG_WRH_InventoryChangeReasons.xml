@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 3/5/2014 4:58:15 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_WRH_InventoryChangeReason"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_WRH"
+                IsClass_Corresponding_DBTable="log_wrh_inventorychangereasons" >
+      <Members>
+		<ClassMember Name="LOG_WRH_InventoryChangeReasonID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="GlobalPropertyMatchingID" Type="String" />
+		<ClassMember Name="InventoryChange_Name" Type="Dict" Source_DBField="InventoryChange_Name_DictID" OriginTable="log_wrh_inventorychangereasons"/>
+		<ClassMember Name="InventoryChange_Description" Type="Dict" Source_DBField="InventoryChange_Description_DictID" OriginTable="log_wrh_inventorychangereasons"/>
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

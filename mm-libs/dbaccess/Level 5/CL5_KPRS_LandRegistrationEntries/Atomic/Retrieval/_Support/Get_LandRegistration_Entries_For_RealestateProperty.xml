@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/8/2013 10:44:54 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_LandRegistration_Entries_For_RealestateProperty</Name>
+    <Namespace>CL5_KPRS_LandRegistrationEntries.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_LandRegistrationEntries.Atomic.Retrieval"
+                Method_ClassName="cls_Get_LandRegistration_Entries_For_RealestateProperty"
+                Method_Name="Get_LandRegistration_Entries_For_RealestateProperty"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_LandRegistration_Entries_For_RealestateProperty"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  res_realestateproperty_landregistrationentries.RES_RealestateProperty_LandRegistrationEntryID,
+	  res_realestateproperty_landregistrationentries.LandRegistrationEntry_LandTitleRegister,
+	  res_realestateproperty_landregistrationentries.LandRegistrationEntry_Marking,
+	  res_realestateproperty_landregistrationentries.LandRegistrationEntry_LandLot,
+	  res_realestateproperty_landregistrationentries.LandRegistrationEntry_Parcel_FromNumber,
+	  res_realestateproperty_landregistrationentries.LandRegistrationEntry_Parcel_ToNumber,
+	  res_realestateproperty_landregistrationentries.LandRegistrationEntry_Sheet,
+	  res_realestateproperty_landregistrationentries.LandRegistrationEntry_GroundAreaSize_in_sqm,
+	  res_realestateproperty_landregistrationentries.RealestateProperty_RefID
+	From
+	  res_realestateproperty_landregistrationentries
+	Where
+	  res_realestateproperty_landregistrationentries.RealestateProperty_RefID =
+	  @RealestatePropertyID And
+	  res_realestateproperty_landregistrationentries.Tenant_RefID = @TenantID And
+	  res_realestateproperty_landregistrationentries.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5LR_GLREFRP_1043">
+    <Members>
+		<ClassMember Name="RealestatePropertyID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5LR_GLREFRP_1043" IsArray="true">
+			<Members>
+				<ClassMember Name="RES_RealestateProperty_LandRegistrationEntryID" Type="Guid"  />
+				<ClassMember Name="LandRegistrationEntry_LandTitleRegister" Type="String"  />
+				<ClassMember Name="LandRegistrationEntry_Marking" Type="String"  />
+				<ClassMember Name="LandRegistrationEntry_LandLot" Type="int"  />
+				<ClassMember Name="LandRegistrationEntry_Parcel_FromNumber" Type="int"  />
+				<ClassMember Name="LandRegistrationEntry_Parcel_ToNumber" Type="int"  />
+				<ClassMember Name="LandRegistrationEntry_Sheet" Type="int"  />
+				<ClassMember Name="LandRegistrationEntry_GroundAreaSize_in_sqm" Type="double"  />
+				<ClassMember Name="RealestateProperty_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

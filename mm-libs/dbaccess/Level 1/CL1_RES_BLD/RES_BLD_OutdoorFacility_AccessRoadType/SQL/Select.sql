@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_bld_outdoorfacility_accessroadtypes
+WHERE 
+	RES_BLD_OutdoorFacility_AccessRoadTypeID = @RES_BLD_OutdoorFacility_AccessRoadTypeID

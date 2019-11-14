@@ -1,0 +1,25 @@
+﻿[
+  {
+    "Name": "Size",
+    "DimansionValues": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ]
+  },
+  {
+    "Name": "Color",
+    "DimansionValues": [
+      "Black",
+      "White",
+      "Grey",
+      "Blue",
+      "Red",
+      "Green",
+      "Yellow "
+    ]
+  }
+]

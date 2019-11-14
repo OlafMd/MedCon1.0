@@ -1,0 +1,7 @@
+diff a/Level 3/CL3_Projects/Complex/Manipulation/cls_Save_Projects.cs b/Level 3/CL3_Projects/Complex/Manipulation/cls_Save_Projects.cs	(rejected hunks)
+@@ -0,6 +0,8 @@
+ using CL3_Project.Complex.Manipulation;
+ using CL2_Project.Atomic.Manipulation;
+ 
+ namespace CL3_Project.Complex.Manipulation
+ {

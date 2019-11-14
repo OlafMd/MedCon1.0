@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_employee_leaverequest_employeecovers
+WHERE 
+	CMN_BPT_EMP_Employee_LeaveRequest_EmployeeCoverID = @CMN_BPT_EMP_Employee_LeaveRequest_EmployeeCoverID

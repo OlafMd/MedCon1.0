@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/26/2013 1:40:38 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_all_RealestateProperties_for_Tenant</Name>
+    <Namespace>CL6_KPRS_RealestateProperty.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_KPRS_RealestateProperty.Atomic.Retrieval"
+                Method_ClassName="cls_Get_all_RealestateProperties_for_Tenant"
+                Method_Name="Get_all_RealestateProperties_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_all_RealestateProperties_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  usr_accounts.Username,
+  usr_accounts.USR_AccountID,
+  res_realestateproperties.RealestateProperty_Title,
+  cmn_addresses.Street_Name,
+  cmn_addresses.Street_Number,
+  cmn_addresses.City_AdministrativeDistrict,
+  cmn_addresses.City_Region,
+  cmn_addresses.City_Name,
+  cmn_addresses.Province_Name,
+  cmn_addresses.City_PostalCode,
+  cmn_addresses.Country_Name,
+  cmn_addresses.Country_ISOCode,
+  res_bld_buildings.Building_Name,
+  res_realestateproperties.RES_RealestatePropertyID,
+  res_realestateproperties.Creation_Timestamp,
+  res_bld_buildings.RES_BLD_BuildingID,
+  res_bld_buildings.Building_BalconyPortionPercent,
+  res_realestateproperties.Geolocation_Lattitude,
+  res_realestateproperties.Geolocation_Longitude
+From
+  cmn_addresses Inner Join
+  cmn_loc_location On cmn_loc_location.Address_RefID =
+    cmn_addresses.CMN_AddressID Right Join
+  res_realestateproperties
+    On res_realestateproperties.RealestateProperty_Location_RefID =
+    cmn_loc_location.CMN_LOC_LocationID Left Join
+  usr_accounts On res_realestateproperties.InformationSubmittedBy_Account_RefID
+    = usr_accounts.USR_AccountID Right Join
+  res_bld_building_revisionheaders
+    On res_bld_building_revisionheaders.RealestateProperty_RefID =
+    res_realestateproperties.RES_RealestatePropertyID Right Join
+  res_bld_buildings
+    On res_bld_building_revisionheaders.CurrentBuildingVersion_RefID =
+    res_bld_buildings.RES_BLD_BuildingID
+Where
+  res_realestateproperties.IsDeleted = 0 And
+res_bld_building_revisionheaders.IsDeleted = 0 And
+res_bld_buildings.IsDeleted = 0 And
+res_realestateproperties.Tenant_RefID = @TenantID
+And  usr_accounts.Username  LIKE @UploaderUserName COLLATE UTF8_GENERAL_CI  
+  And  res_realestateproperties.RealestateProperty_Title LIKE @Title COLLATE UTF8_GENERAL_CI  
+And cmn_addresses.Street_Name  LIKE @StreetName    COLLATE UTF8_GENERAL_CI  
+  And  cmn_addresses.Street_Number LIKE @StreetNumber COLLATE UTF8_GENERAL_CI  
+  And  cmn_addresses.City_Name LIKE @City COLLATE UTF8_GENERAL_CI  
+ And  cmn_addresses.Province_Name LIKE @Province COLLATE UTF8_GENERAL_CI  
+ And cmn_addresses.City_Region LIKE @Region  COLLATE UTF8_GENERAL_CI  
+ And  cmn_addresses.City_PostalCode LIKE @ZipCode COLLATE UTF8_GENERAL_CI 
+</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6RP_GaRPfT_1139">
+    <Members>
+      <ClassMember Name="UploaderUserName" Type="String" Optional="true" />
+      <ClassMember Name="Title" Type="String" Optional="true"  />
+      <ClassMember Name="StreetName" Type="String" Optional="true" />
+      <ClassMember Name="StreetNumber" Type="String"  Optional="true"/>
+      <ClassMember Name="City" Type="String" Optional="true" />
+      <ClassMember Name="Province" Type="String"  Optional="true"/>
+      <ClassMember Name="Region" Type="String" Optional="true" />
+      <ClassMember Name="ZipCode" Type="String"  Optional="true"/>
+      <ClassMember Name="Country" Type="String" Optional="true" />
+      <ClassMember Name="RowCount" Type="int" />
+      <ClassMember Name="StartIndex" Type="int"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6RP_GaRPfT_1139" IsArray="true" GroupBy="RES_RealestatePropertyID">
+      <Members>
+        <ClassMember Name="Username" Type="String"  />
+        <ClassMember Name="USR_AccountID" Type="Guid"  />
+        <ClassMember Name="RealestateProperty_Title" Type="String"  />
+        <ClassMember Name="Street_Name" Type="String"  />
+        <ClassMember Name="Street_Number" Type="String"  />
+        <ClassMember Name="City_AdministrativeDistrict" Type="String"  />
+        <ClassMember Name="City_Region" Type="String"  />
+        <ClassMember Name="City_Name" Type="String"  />
+        <ClassMember Name="Province_Name" Type="String"  />
+        <ClassMember Name="City_PostalCode" Type="String"  />
+        <ClassMember Name="Country_Name" Type="String"  />
+        <ClassMember Name="Country_ISOCode" Type="String"  />
+        <ClassMember Name="RES_RealestatePropertyID" Type="Guid"  />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+        <ClassMember Name="Geolocation_Lattitude" Type="String"  />
+        <ClassMember Name="Geolocation_Longitude" Type="String"  />
+
+        <ClassMember IsClass="true" IsArray="true" Name="Building" Type="L6RP_GaRPfT_1139_Building" GroupBy="RES_BLD_BuildingID">
+          <Members>
+            <ClassMember Name="RES_BLD_BuildingID" Type="Guid"  />
+            <ClassMember Name="Building_Name" Type="String"  />
+            <ClassMember Name="Building_BalconyPortionPercent" Type="String"  />
+          </Members>
+        </ClassMember>
+      </Members>
+
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,11 @@
+UPDATE 
+	hec_ctr_insurancetobrokercontracts_coveredpotentialdiagnoses
+SET 
+	InsuranceToBrokerContract_RefID=@InsuranceToBrokerContract_RefID,
+	PotentialDiagnosis_RefID=@PotentialDiagnosis_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_CTR_InsuranceToBrokerContracts_CoveredPotentialDiagnosisID = @HEC_CTR_InsuranceToBrokerContracts_CoveredPotentialDiagnosisID

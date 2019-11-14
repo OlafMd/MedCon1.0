@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{13F5A662-EFDD-44D1-9289-FC632EE9DFD1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL3_Customer</RootNamespace>
+    <AssemblyName>CL3_Customer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_Customers_for_TenantID_and_Parameters.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Notes_for_Customer.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PriceList_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_TenantITL_and_Name_for_CustomerID.cs" />
+    <Compile Include="Complex\Manipulation\cls_CreateCustomer_after_MessageReceive.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_CMN_BPT_CTM_Customer_Pricelist.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_CTM\CL1_CMN_BPT_CTM.csproj">
+      <Project>{C453F5A9-9877-4197-A5E3-403EF6A0455D}</Project>
+      <Name>CL1_CMN_BPT_CTM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_COM\CL1_CMN_COM.csproj">
+      <Project>{63F92C99-99E4-48AC-8AC3-1627ED7831DF}</Project>
+      <Name>CL1_CMN_COM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PER\CL1_CMN_PER.csproj">
+      <Project>{6BDA1EB4-FA2A-41A1-8B83-171ED9B85ADD}</Project>
+      <Name>CL1_CMN_PER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_FiscalYear\CL2_FiscalYear.csproj">
+      <Project>{2B8B4033-A934-4DF2-AB0F-0AC69DEE74DA}</Project>
+      <Name>CL2_FiscalYear</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_BookingAccounts\CL3_BookingAccounts.csproj">
+      <Project>{55696b50-09da-4c0b-9d0d-c75dbdea0308}</Project>
+      <Name>CL3_BookingAccounts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_Tenant\CL3_Tenant.csproj">
+      <Project>{B4CEF6CC-FF9F-4A61-B039-AB07841350EB}</Project>
+      <Name>CL3_Tenant</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Complex\Manipulation\_Support\CreateCustomer_after_MessageReceive.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_TenantITL_and_Name_for_CustomerID.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_CMN_BPT_CTM_Customer_Pricelist.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PriceList_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Notes_for_Customer.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Customers_for_TenantID_and_Parameters.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Notes_for_Customer.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_PriceList_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_TenantITL_and_Name_for_CustomerID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Customers_for_TenantID_and_Parameters.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

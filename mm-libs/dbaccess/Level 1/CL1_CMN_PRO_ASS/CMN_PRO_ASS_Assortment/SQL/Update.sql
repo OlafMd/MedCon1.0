@@ -1,0 +1,19 @@
+UPDATE 
+	cmn_pro_ass_assortments
+SET 
+	AssortmentName_DictID=@AssortmentName,
+	AvailableForSalesFrom=@AvailableForSalesFrom,
+	AvailableForSalesThrough=@AvailableForSalesThrough,
+	AvailableForOrderingFrom=@AvailableForOrderingFrom,
+	AvailableForOrderingThrough=@AvailableForOrderingThrough,
+	IsForInternalDistribution=@IsForInternalDistribution,
+	IsDefaultAssortment_ForCostcenterOrder=@IsDefaultAssortment_ForCostcenterOrder,
+	IsDefaultAssortment_ForOfficeOrder=@IsDefaultAssortment_ForOfficeOrder,
+	IsDefaultAssortment_ForPersonalOrder=@IsDefaultAssortment_ForPersonalOrder,
+	IsDefaultAssortment_ForWarehouseOrder=@IsDefaultAssortment_ForWarehouseOrder,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	CMN_PRO_ASS_AssortmentID = @CMN_PRO_ASS_AssortmentID

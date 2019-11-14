@@ -1,0 +1,10 @@
+UPDATE 
+	res_realestateproperty_sourceofinformation
+SET 
+	SourceOfInformation_Name_DictID=@SourceOfInformation_Name,
+	SourceOfInformation_Description_DictID=@SourceOfInformation_Description,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_RealestateProperty_SourceOfInformationID = @RES_RealestateProperty_SourceOfInformationID

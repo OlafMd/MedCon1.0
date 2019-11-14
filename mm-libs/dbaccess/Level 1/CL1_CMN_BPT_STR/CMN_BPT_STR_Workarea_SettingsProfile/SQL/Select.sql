@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_str_workarea_settingsprofiles
+WHERE 
+	CMN_BPT_STR_Workarea_SettingsProfileID = @CMN_BPT_STR_Workarea_SettingsProfileID

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/11/2013 4:06:11 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Pricelists_and_Prices_for_ArticleID</Name>
+    <Namespace>CL5_APOAdmin_Articles.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOAdmin_Articles.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Pricelists_and_Prices_for_ArticleID"
+                Method_Name="Get_Pricelists_and_Prices_for_ArticleID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Pricelists_and_Prices_for_ArticleID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  cmn_sls_pricelist.Pricelist_Name_DictID,
+  cmn_sls_pricelist.Pricelist_Description_DictID,
+  cmn_sls_pricelist.CMN_SLS_PricelistID,
+  cmn_sls_prices.CMN_SLS_PriceID,
+  cmn_sls_prices.PriceAmount,
+  cmn_sls_pricelist_releases.Release_Version,
+  cmn_sls_pricelist_releases.CMN_SLS_Pricelist_ReleaseID,
+  cmn_sls_prices.CMN_PRO_Product_RefID,
+  cmn_sls_prices.CMN_Currency_RefID
+From
+  cmn_sls_pricelist_releases Left Join
+  cmn_sls_prices On cmn_sls_pricelist_releases.CMN_SLS_Pricelist_ReleaseID =
+    cmn_sls_prices.PricelistRelease_RefID And cmn_sls_prices.CMN_PRO_Product_RefID = @ArticleID
+    Inner Join
+  cmn_sls_pricelist On cmn_sls_pricelist_releases.Pricelist_RefID =
+    cmn_sls_pricelist.CMN_SLS_PricelistID
+Where   
+  cmn_sls_pricelist_releases.IsDeleted = 0 And
+  cmn_sls_pricelist_releases.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5AR_GPaPfAID_1603">
+    <Members>
+      <ClassMember Name="ArticleID" Type="Guid"  IsArray="true"/>
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5AR_GPaPfAID_1603" IsArray="true">
+			<Members>
+				<ClassMember Name="Pricelist_Name" Type="Dict" OriginTable="cmn_sls_pricelist" Source_DBField="Pricelist_Name_DictID"  />
+				<ClassMember Name="Pricelist_Description" Type="Dict" OriginTable="cmn_sls_pricelist" Source_DBField="Pricelist_Description_DictID"  />
+				<ClassMember Name="CMN_SLS_PricelistID" Type="Guid"  />
+				<ClassMember Name="CMN_SLS_PriceID" Type="Guid"  />
+				<ClassMember Name="PriceAmount" Type="String"  />
+				<ClassMember Name="Release_Version" Type="String"  />
+				<ClassMember Name="CMN_SLS_Pricelist_ReleaseID" Type="Guid"  />
+				<ClassMember Name="CMN_PRO_Product_RefID" Type="Guid"  />
+        <ClassMember Name="CMN_Currency_RefID" Type="Guid" />
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

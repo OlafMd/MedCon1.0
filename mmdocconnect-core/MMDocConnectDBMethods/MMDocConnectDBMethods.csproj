@@ -1,0 +1,2135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F2FDAC6-F460-4012-8A29-08C7E5CDABCD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MMDocConnectDBMethods</RootNamespace>
+    <AssemblyName>MMDocConnectDBMethods</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\mmdocconnect-mm-app\MMDocConnectMMApp\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MigraDoc.DocumentObjectModel">
+      <HintPath>$(SolutionDir)\packages\PDFsharp-MigraDoc-GDI.1.32.4334.0\lib\net20\MigraDoc.DocumentObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering">
+      <HintPath>$(SolutionDir)\packages\PDFsharp-MigraDoc-GDI.1.32.4334.0\lib\net20\MigraDoc.Rendering.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.RtfRendering">
+      <HintPath>$(SolutionDir)\packages\PDFsharp-MigraDoc-GDI.1.32.4334.0\lib\net20\MigraDoc.RtfRendering.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp">
+      <HintPath>$(SolutionDir)\packages\PDFsharp-MigraDoc-GDI.1.32.4334.0\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting">
+      <HintPath>$(SolutionDir)\packages\PDFsharp-MigraDoc-GDI.1.32.4334.0\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Archive\Atomic\Manipulation\cls_Upload_Case_PDF_Report.cs" />
+    <Compile Include="Archive\Atomic\Manipulation\cls_Upload_PDF_Report.cs" />
+    <Compile Include="Archive\Atomic\Retrieval\cls_Download_File.cs" />
+    <Compile Include="Archive\Atomic\Retrieval\cls_Get_Contract_Characteristic.cs" />
+    <Compile Include="Archive\Atomic\Retrieval\cls_Get_DocumentData_on_Tenant.cs" />
+    <Compile Include="Archive\Atomic\Retrieval\cls_Get_Numbers_of_PDF_reports.cs" />
+    <Compile Include="Archive\Atomic\Retrieval\cls_Get_Number_of_Edifacts.cs" />
+    <Compile Include="Archive\Complex\Manipulation\cls_Upload_Report.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Assign_Bill_Position_Numbers.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Calculate_Case_GPOS.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Cancel_Case.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Cancel_Case_From_Settlement_Page.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Cancel_Drug_Order.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Change_Case_to_Status_Error.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Change_Case_TransmitionStatus.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Change_ManagementFee_Status_for_PlannedActionID.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Change_PerformedAction_Status_for_PlannedActionID.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Create_Aftercare_Planned_Action.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Create_Drug_Order.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Create_Initial_Performed_Action.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Create_OCT.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Create_Potential_Procedure.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Create_Treatment_Count_Temporary_Table.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Create_Treatment_Planned_Action.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Delete_BillingData_for_BillPositionID.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Drop_Treatment_Count_Temporary_Table.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Get_Negative_Cases_Which_Should_Not_be_Imported.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Handle_OCT.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Save_Case.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Save_Case_Multi_Edit.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Save_Case_Order_Number_for_OrderIDs.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Save_Case_Property.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Save_Preexamination.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Submit_Case.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Submit_Case_for_Error_Correction.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Submit_Preexamination.cs" />
+    <Compile Include="Case\Atomic\Manipulation\cls_Withdraw_OCT_or_Send_Email.cs" />
+    <Compile Include="Case\Atomic\Manipulation\GeneriUtils.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Check_Case_Status.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Check_Case_Status_For_BillNumber.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Check_Drug_GPOS.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Count_Treatment_or_Aftercare.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_ActiveOctFsStatuses_for_PatientID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Active_NonError_OctBillPositionID_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Active_NonError_OctFsStatusesCount_for_PatientID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Active_OctFsStatuses_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Aftercares_Count.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Aftercare_DoctorID_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Aftercare_Performed_Date_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Aftercare_Planned_Actions_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Aftercare_Planned_Action_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Aftercare_Planned_Action_with_Localization_for_AftercareIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Aftercare_Planned_Action_with_Localization_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_all_Cases_in_FS_statuses.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_All_Case_BillPositions_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_All_Case_Statuses.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_All_Diagnoses_for_ContractID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_All_Drugs_for_ContractID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_All_Drugs_for_ContractIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_All_GPOS_Billing_Codes_for_GlobalPropertyMatchingID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_All_GPOS_Details_for_ContractID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_All_PlannedActionIDs_not_in_Array.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_All_Statuses_for_BillPosition.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_All_Submitted_Cases.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Any_PerformedOpDate_in_Timespan_for_PatientID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_BillHeaderID_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_BillingCode_for_CaseBillCodeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_BillPositionIDs_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_BillPositionIDs_for_CaseIDs_and_GposType.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_BillPositionIDs_for_PatientID_and_GposType.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_BillPositionNumbers_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_BillPositionNumbers_waiting_Hip_Response.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_CaseBillCodeIDs_for_GposType_and_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_CaseIDs_for_OrderIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_CaseIDs_for_Patient_and_Localization.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_CaseIDs_for_PlannedActionIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_CaseIDs_where_PatientID_and_BptID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_CaseIDs_with_Pending_Octs_for_PatientID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_CaseID_for_BullNumber.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_CaseID_for_PatientID_Localization_and_CasePropertyGpmID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_CasePropertyValues_for_CaseID_and_CasePropertyID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_CasePropertyValue_for_CaseIDs_and_CasePropertyGpmID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_CasePropertyValue_for_CaseID_and_CasePropertyGpmID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Cases_for_General_Report.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Cases_For_Report.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Cases_for_SubmissionReport_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Cases_with_BillData_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Cases_with_Property_Count_for_PracticeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_ActionDiagnoseData_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_Aftercares_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_BaseData_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_BaseData_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_BaseData_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_BillCodeIDs_for_CaseID_And_GposTypeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_BillCodeID_for_CaseID_and_BillingCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_BillCodeID_for_CaseID_And_GlobalPropertyMatchingID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_BillingData_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_BillingData_on_Tenant_for_Status.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_DoctorData_for_DoctorBptID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_DrugOrderData_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_FS_Statuses_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_FS_Statuses_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_FS_Statuses_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_InvoiceToPracticeData_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_Order_Data_for_OrderHeaderID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_Order_Data_for_OrderID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_Order_Status_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_PlannedActionData_for_CaseID_and_ActionTypeGpmID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_PracticeData_for_PracticeBptID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_Properties_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_Properties_for_GpmID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_RelevantPlannedActionIDs_for_CaseID_and_ActionTypeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_TransmitionCode_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_TransmitionCode_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_TransmitionCode_for_CaseIDs_and_Type.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_TransmitionStatusIDs_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_TransmitionStatusIDs_for_CaseID_and_StatusCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_TransmitionStatusIDs_for_PatientID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_TransmitionStatusIDs_for_PatientID_and_StatusCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_Treatments_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_Treatment_Data_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_Treatment_Data_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_Treatment_Data_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Case_UniversalPropertyValueID_for_CaseID_and_GlobalPropertyMatchingID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_ContractID_GposID_Combinations_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_DiagnoseDetails_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Diagnose_Details_for_DiagnoseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_DoctorAssignmentActionIDs_for_ActionIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_DoctorAssignmentCount_for_ActionIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_DocumentationOnly_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_DocumentationOnly_CaseIDs_for_PatientID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_DocumentationOnly_CaseIDs_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_DrugOrderIDs_for_PlannedActionID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Drug_Details_for_DrugID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Drug_Details_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Drug_Order_Settings.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Existing_OCT_BillPosition_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Existing_OCT_BillPosition_for_PatientID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Existing_OCT_BillPosition_for_PatientID_and_LocalizationCode_where_not_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_FirstOpDate_for_PatientID_and_LocalizationCode_in_TreatmentYear.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_FirstTreatmentDate_for_PatientID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_First_PlannedActionID_for_CaseIDs_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_First_PlannedActionID_for_CaseID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_GposNames_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Gpos_AssignmentCount_for_GposID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_GPOS_Details_for_DiagnoseID_and_DrugID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_GPOS_Potential_Bill_Code_ID_for_Drug_and_Diagnosis.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_GPOS_where_Management_Fee_is_Waived_for_PatientID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_HIP_Name_for_HIP_IK_Number.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Initial_PerformedActionID_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_InsuranceToBrokerContractID_And_ContractID_for_DrugID_and_DiagnoseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_InsuranceToBrokerContractID_for_DrugID_and_DiagnoseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_InsuranceToBrokerContractID_for_PatientID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_is_Aftercare_Performed_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_is_Aftercare_Performed_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Last_Case_Order_Number_for_PracticeBSNR.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_LatestPerformedTreatmentDate_for_PatientID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_Bill_Position_Number.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_CaseBasicInformation_for_PatientID_and_Localization.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_CaseID_for_PatientID_and_Localization.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_CaseID_for_PatientID_DiagnoseID_and_Localization.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_CaseID_for_PatientID_DiagnoseID_and_Localization_in_TreatmentYear.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_Cases_for_PatientID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_Case_Number.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_NonError_CaseID_for_PatientID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_NonError_NonCancelled_OpDate_for_PatientIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_NonError_NonCancelled_OpDate_for_PatientID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_Oct_Doctor_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_Oct_Doctor_for_PatientID_and_Localization.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_PlannedActionID_for_CaseID_and_ActionTypeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Latest_PlannedActionID_for_PatientID_ActionTypeID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Localizations_where_Oct_Rejected.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Management_Fee_Property_Values_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Management_Fee_Property_Value_for_CaseID_and_GposID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_NonCancelledOcts_in_OpRenewedConsentTimespan.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_NonOpCaseIDs_where_PatientID_and_BptID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_NonOpDates_where_PatientID_and_BptID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_NonPerformed_Case_Data_for_PatientID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_NonPerformed_Oct_for_CaseID_and_PlannedActionTypeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_NonSubmittedOct_DoctorID_for_PatientID_and_LocalizationID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_NonSubmitted_BillPositionID_for_CaseID_and_GposTypeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Number_of_GposTypes_on_Case_for_CaseID_and_GposType.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Number_of_GposTypes_on_Case_for_GposType_and_PatientIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Number_of_Negative_Tries_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Number_of_Negative_Tries_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_OctCaseIDs_for_ActionIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_OctData_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_OctFsStatuses_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_OctFsStatuses_for_PatientID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_OctFsStatuses_for_PatientID_in_TimeSpan.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_OctFsStatuses_for_PatientID_in_TimeSpan_LocalizationIndependent.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_OctIDs_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_OctID_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_OctPerformedDates_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_OctPerformedDates_for_PatientID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_OctRelevantActions_for_CaseIDs_and_ActionTypeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Oct_and_OP_Dates_for_PatientID_and_Localization.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Oct_Basic_Info_for_OctIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_OpDates_for_PatientID_and_LocalizationCode_in_TreatmentYear .cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Open_ActionID_for_CaseID_and_ActionTypeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_OtherPerformedDates_for_CaseIDs .cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PatientIDs_for_CaseIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PatientIDs_used_in_Practice_for_DoctorBptIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PendingOct_FsStatus_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PerformedActionData_for_PatientIDs_and_ActionTypeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PerformedActionDate_for_PlannedActionID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PerformedActionsDates_for_PatientID_and_LocalizationCode_in_Timespan.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PerformedOctDoctorData_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PerformedOpDates_for_PatientID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PerformedOpDates_for_PatientIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PerformedOpDates_for_PatientID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PerformedOpDates_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PerformedOpDates_with_localization_for_PatientIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PlannedActionIDs_for_PatientID_and_ActionTypeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PlannedActionType_GlobalPropertyMatchingID_for_PlannedActionID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Planned_Action_DiagnosisIDs_for_PlannedActionID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PracticeID_for_Doctor_BusinessParticipantID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_PracticeID_for_Practice_BusinessParticipantID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Previous_Status_for_Case_That_Was_on_Hold.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_RelevanActionIDs_for_CaseID_and_ActionTypeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_RelevantActionData_for_ActionIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_RelevantActionIDs_for_PatientID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_RelevantActionIDs_for_PatientID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_RelevantPlannedActions_for_ActionTypeID_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Relevant_PlannedActionIds_for_CaseID_and_ActionTypeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Response_from_HIP_and_Comment_for_Doctor_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_ServiceFeeValues_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_ServiceFeeValue_for_BillingCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_SubmitUntilDate_CasePropertyValues_for_PatientID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_TransmitionStatuses_on_Tenant.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Treatment_Count_for_PatientID_And_DiagnoseID_and_LocalizationCode.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Treatment_Count_for_PatientID_And_DiagnoseID_and_LocalizationCode_using_Temporary.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Treatment_Data_using_Temporary.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Treatment_Date_for_Aftercare.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Treatment_DoctorID_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Treatment_for_PatientIDs_and_PracticeIDs.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Treatment_for_PatientID_and_Localization_and_Treatment_Date_and_PracticeID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Treatment_Performed_Action_Diagnose_Details_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Treatment_Planned_Action_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_Treatment_Planned_Action_PotentialProcedureID_for_CaseID.cs" />
+    <Compile Include="Case\Atomic\Retrieval\cls_Get_TretmentDates_for_PatientID.cs" />
+    <Compile Include="Case\Complex\Manipulation\cls_Change_Case_Status.cs" />
+    <Compile Include="Case\Complex\Manipulation\cls_Create_Pdf_Report.cs" />
+    <Compile Include="Case\Complex\Manipulation\cls_Create_Pdf_Report_for_Submitted_Case.cs" />
+    <Compile Include="Case\Complex\Manipulation\cls_Create_Report_for_All_Cases.cs" />
+    <Compile Include="Case\Complex\Manipulation\cls_Create_XML_for_Immutable_Fields.cs" />
+    <Compile Include="Case\Complex\Manipulation\cls_Generate_Report.cs" />
+    <Compile Include="Case\Complex\Manipulation\cls_Settlement_Change_Case_Status.cs" />
+    <Compile Include="Case\Complex\Retrieval\cls_Get_ActionTypeID.cs" />
+    <Compile Include="Case\Complex\Retrieval\cls_Get_All_Drugs_for_PracticeID.cs" />
+    <Compile Include="Case\Complex\Retrieval\cls_Get_Case_Details_for_CaseID.cs" />
+    <Compile Include="Case\Complex\Retrieval\cls_Get_is_Aftercares_Status_Editable_for_CaseID.cs" />
+    <Compile Include="Case\Complex\Retrieval\cls_Get_Next_Bill_Position_Number.cs" />
+    <Compile Include="Case\Complex\Retrieval\cls_Get_Next_Case_Number.cs" />
+    <Compile Include="Case\Complex\Retrieval\cls_Get_Next_Order_Number.cs" />
+    <Compile Include="Case\Complex\Retrieval\cls_Get_Previous_Case_Data_for_PatientID.cs" />
+    <Compile Include="Case\Complex\Retrieval\cls_Get_TreatmentYear.cs" />
+    <Compile Include="Case\Complex\Retrieval\cls_Get_TreatmentYearLength.cs" />
+    <Compile Include="Case\Complex\Retrieval\cls_Get_TreatmentYearOctCount.cs" />
+    <Compile Include="Case\Complex\Retrieval\cls_Get_TreatmentYearOctCount_IndependentForLocalization.cs" />
+    <Compile Include="Case\Models\CaseBillingData.cs" />
+    <Compile Include="Case\Models\NegativeResponseModel.cs" />
+    <Compile Include="Case\Models\PdfReportParameter.cs" />
+    <Compile Include="Case\Models\PotentialTreatmentYearStartDate.cs" />
+    <Compile Include="Case\Models\SubmissionReportContent.cs" />
+    <Compile Include="Doctor\Atomic\Manipulation\cls_Change_Password.cs" />
+    <Compile Include="Doctor\Atomic\Manipulation\cls_Merge_Doctor.cs" />
+    <Compile Include="Doctor\Atomic\Manipulation\cls_Reset_Grace_Period_for_Practice.cs" />
+    <Compile Include="Doctor\Atomic\Manipulation\cls_Save_AdHoc_Doctor.cs" />
+    <Compile Include="Doctor\Atomic\Manipulation\cls_Save_Doctor.cs" />
+    <Compile Include="Doctor\Atomic\Manipulation\cls_Save_Doctor_Grace_Period.cs" />
+    <Compile Include="Doctor\Atomic\Manipulation\cls_Save_Practice.cs" />
+    <Compile Include="Doctor\Atomic\Manipulation\cls_Save_Practice_Grace_Period.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Check_Bsnr.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Check_Doctor_Contracts_Dates.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Check_Lanr.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Check_Lanr_for_Merge.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Check_LoginEmail.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_AccountRefID_from_HEC_Doctors_for_DoctorID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_all_Doctors_Contract_Assignment_for_PracticeID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_all_Practices.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Assigned_ContractIDs_for_PracticeID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_BankInfo_for_DoctorID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_BankInfo_for_Practice.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_DoctorBptIDs_for_PracticeID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_DoctorIDs_for_ContractID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_DoctorIDs_for_PracticeID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Contracts_for_Doctor.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_DoctorIDs_with_Oct_Contract.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_DoctorIDs_with_Oct_Contract_for_Practice.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_DoctorID_for_AccountID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctors_Assignments_on_Contract.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctors_ConsentStartDate_for_DoctorID_and_ContractID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctors_Consent_Details_for_AssignmentID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctors_on_Contracts_for_PatientID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctors_Properties.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctors_Properties_for_DoctorID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctor_AccountID_for_DoctorID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctor_BasicInformation_for_DoctorID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctor_BasicInformation_for_Logged_Doctor.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctor_Basic_Information_for_Doctors_from_Different_Practice.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctor_Consents_before_Date_and_GposIDs.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctor_Contract_for_List.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctor_Customer_Number_for_DoctorID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctor_Details_for_DoctorID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctor_Details_for_Report.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctor_Details_on_Tenant.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctor_Grace_Period_Start_Time.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Doctor_InsuranceToBrokerContract_with_Oct_for_DoctorID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Is_Doctor_Certificated_for_OCT.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Latest_OctDoctorID_for_PatientID_and_LocalizationCode.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_PracticeDetails_for_BPT.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_PracticeID_for_BusinesParticipant.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_PracticeID_for_DoctorID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Practice_AccountID_for_PracticeID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Practice_Address_for_PracticeID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Practice_BptID_for_PracticeID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Practice_ContactPersonDetails_for_PracticeID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Practice_Default_Settings_for_PracticeID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Practice_Details_for_PracticeID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Practice_Details_for_Report.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Practice_Details_on_Tenant.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Practice_Grace_Period_Start_Time.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Practice_Names_for_DoctorIDs.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Practice_PropertyValue_for_PropertyName_and_PracticeID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Temporary_Doctor_Comment_for_DoctorID.cs" />
+    <Compile Include="Doctor\Atomic\Retrieval\cls_Get_Temporary_Doctor_Count_and_Oldest_Date.cs" />
+    <Compile Include="Doctor\Complex\Manipulation\cls_Save_Doctor_to_Contract.cs" />
+    <Compile Include="Doctor\Complex\Manipulation\cls_Save_Grace_Period.cs" />
+    <Compile Include="Doctor\Complex\Retrieval\cls_Get_Doctor_DetailData.cs" />
+    <Compile Include="Doctor\Model\DoctorPropertyType.cs" />
+    <Compile Include="Doctor\Model\EGracePeriod.cs" />
+    <Compile Include="ElasticRefresh\cls_cls_Get_Report_Downloaded_PropertyValues_for_PatientID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_ActiveNonError_OctFsStatuses_by_PatientID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_All_Cases_from_DB_for_ElasticRebuild_for_PatientID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_CaseProperties_for_PropertyGpmID_and_PatientIDs.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_Case_FS_Statuses_for_PatientIDs.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_DoctorBasicInformation_for_DoctorBptIDs.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_ElasticRefresh_Aftercares_for_CaseIDs.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_ElasticRefresh_Aftercare_Diagnoses_for_PatientID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_ElasticRefresh_CaseProperties_for_PatientID_and_PropertyGpmIDs.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_ElasticRefresh_Cases_for_PatientIDs.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_ElasticRefresh_Orders_for_PatientID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_ElasticRefresh_Order_History_for_OrderIDs.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_ElasticRefresh_RelevantActions_for_PatientID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_ElasticRefresh_TreatmentData_for_CaseIDs.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_Management_Fee_Property_Value_for_PatientID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_Octs_for_ElasticRefresh_by_PatientID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_Oct_and_Op_Dates_by_PatientID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_Oct_FsStatuses_by_PatientID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_PatientConsents_on_Contract_by_GposIDs_and_PatientID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_PerformedActionData_for_PatientIDs.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_PerformedOnDates_for_PlannedActionTypeID_and_PatientID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_PharmacyBasicInformation_for_PharmacyBptIDs.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_PlannedActions_for_ActionTypeID_and_PatientID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_PracticeBasicInformation_for_PracticeBptIDs.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_PracticeName_for_PracticeID.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_Previous_FS_Statuses_on_Tenant.cs" />
+    <Compile Include="ElasticRefresh\cls_Get_RelevantActionData_for_PatientID.cs" />
+    <Compile Include="MainData\Atomic\Manipulation\cls_Change_Account_Password.cs" />
+    <Compile Include="MainData\Atomic\Manipulation\cls_Delete_GPOS_Data.cs" />
+    <Compile Include="MainData\Atomic\Manipulation\cls_Save_Company_Settings.cs" />
+    <Compile Include="Doctor\Complex\Retrieval\cls_Get_Practice_DetailData.cs" />
+    <Compile Include="MainData\Atomic\Manipulation\cls_Save_Contract_Covered_Diagnoses.cs" />
+    <Compile Include="MainData\Atomic\Manipulation\cls_Save_Contract_Covered_Drugs.cs" />
+    <Compile Include="MainData\Atomic\Manipulation\cls_Save_Contract_Due_Dates.cs" />
+    <Compile Include="MainData\Atomic\Manipulation\cls_Save_Contract_GPOS_Data.cs" />
+    <Compile Include="MainData\Atomic\Manipulation\cls_Save_Contract_Parameter.cs" />
+    <Compile Include="MainData\Atomic\Manipulation\cls_Save_Contract_Participating_Doctors.cs" />
+    <Compile Include="MainData\Atomic\Manipulation\cls_Save_Contract_Participating_HIPs.cs" />
+    <Compile Include="MainData\Atomic\Manipulation\cls_Save_New_Diagnoses_and_Return_New_IDs.cs" />
+    <Compile Include="MainData\Atomic\Manipulation\cls_Save_New_Insurance_Companies_and_Return_New_IDs.cs" />
+    <Compile Include="MainData\Atomic\Manipulation\cls_Save_Permisions_to_User.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Check_Contract_GPOS_for_ContractID_and_GPOSType.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Account_Information.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Account_Information_for_AccountID.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Account_Role.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_All_Account_LoginEmails_Who_Receive_Notifications.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_All_Contracts.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_All_HIPs_for_ContractID.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Communication_Contact_Info_for_User_Person_Info.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Company_Settings.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Contract_Details_for_ContractID.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Contract_Parameter_Value_for_InsuranceToBrokerContractID.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_CoveredGposID_for_InsuranceToBrokerContractID_and_GposTypeID.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_DiagnoseID_for_ICD10_and_DiagnoseName.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Diagnoses_for_SearchCriteria.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Doctor_Consents_for_DoctorIDs.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Drugs_for_SearchCriteria.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Due_Dates_for_ContractID.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Employees.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Employees_for_RightID.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Existing_ContractName_for_ContractName.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_GposIDs_for_GposType.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_GPOS_BaseData_for_GPOSID.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_GPOS_Details_for_ContractID.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_GPOS_DiagnoseIDs_for_ContractID.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_GPOS_DrugIDs_for_ContractID.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_HIPs_for_SearchCriteria.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Hip_Contract_Parameters_on_Tenant.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_InsuranceToBrokerContractIDs_for_Contracts_with_Preexamination.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Number_of_OCTs_per_Treatment_Year_for_Contract_Name.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Oct_Contract_Parameters.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Oldest_ContractID_for_HipID_and_GposIDs.cs" />
+    <Compile Include="MainData\Atomic\Retrieval\cls_Get_Participating_DoctorIDs_for_ContractID.cs" />
+    <Compile Include="MainData\Complex\Manipulation\cls_Add_New_User.cs" />
+    <Compile Include="MainData\Complex\Manipulation\cls_Check_if_Autentification_Needed.cs" />
+    <Compile Include="MainData\Complex\Manipulation\cls_Copy_Contract.cs" />
+    <Compile Include="MainData\Complex\Manipulation\cls_Save_Contract.cs" />
+    <Compile Include="MainData\Complex\Retrieval\cls_Get_Account_Information_with_PracticeID.cs" />
+    <Compile Include="MainData\Complex\Retrieval\cls_Get_Gpos_Details_for_GposID.cs" />
+    <Compile Include="Medication\Atomic\Manipulation\cls_Save_Medication.cs" />
+    <Compile Include="Medication\Atomic\Retrieval\cls_Get_Medications.cs" />
+    <Compile Include="Medication\Atomic\Retrieval\cls_Get_Medication_for_MedicationID.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_All_MO1_Orders.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_all_Orders_with_Status.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_CaseID_and_PatientID_for_OrderID.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_CaseID_and_PatientID_for_OrderIDs.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_Latest_Order_Number.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_Number_of_Orders_for_Complete_Report.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_OrderIDs_for_CaseIDs.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_OrderID_for_CaseID.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_OrderInfo_for_OrderIDs.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_Orders_for_Report_for_Statuses.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_Orders_For_Steribase_Report.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_Order_PDF_Report_for_OrderID.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_Order_Status_for_CaseID.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_Order_Status_History_for_OrderIDs.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_Potential_Orders_Eligible_for_Settlement.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_Previous_Order_Status_for_HeaderID.cs" />
+    <Compile Include="Order\Atomic\Retrieval\cls_Get_TreatmentDates_for_OrderIDs.cs" />
+    <Compile Include="Order\Complex\Manipulation\cls_Change_all_Order_Statuses.cs" />
+    <Compile Include="Order\Complex\Manipulation\cls_Change_Order_Status.cs" />
+    <Compile Include="Order\Complex\Manipulation\cls_Create_Orders_Report.cs" />
+    <Compile Include="Order\Complex\Manipulation\cls_Download_Order_PDF_Report_for_OrderID.cs" />
+    <Compile Include="Order\Complex\Manipulation\cls_Submit_Order_to_MM.cs" />
+    <Compile Include="Order\Complex\Manipulation\cls_Upload_Order_PDF_Report.cs" />
+    <Compile Include="Order\Complex\Model\OrderReportParameters.cs" />
+    <Compile Include="Order\Complex\Model\OrderSubmitParameter.cs" />
+    <Compile Include="Order\Complex\Model\SubmitOrderPdfReportContent.cs" />
+    <Compile Include="Order\Complex\Util\OrderPdfReportGenerator.cs" />
+    <Compile Include="Patient\Atomic\Manipulation\cls_Save_Patient.cs" />
+    <Compile Include="Patient\Atomic\Manipulation\cls_Save_Patient_Participation_Consent.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Check_if_HINumberUnique.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Check_if_TheSamePatientExists.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_AllContracts_for_DoctorID.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_AllContracts_for_Practice_Doctors.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_AllHealthInsuranceProviders.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_All_Patient_Consents_for_PatientIDs.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_ConsentValidForMonths_for_LatestConsent_before_TreatmentDate_for_PatientID.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_ContractIDForParticipationID.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Contracts_Where_Hip_Participating_for_HipID.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Contract_Insurance_Data_on_Tenant.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Diagnoses_for_PatientID.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_HIP_for_PatientID.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_HIP_Name_for_HIPID.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_is_Patient_HIP_on_an_Oct_Contract.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_is_Patient_HIP_on_an_Oct_Contract_for_PatientIDs.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_PatientData_Accessible_for_BptIDs.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_PatientEdit_Data_for_PatientID.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patients_HIP_Contracts.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_Consents_before_Date_and_GposIDs.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_Consents_for_ID_Array.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_Consents_for_PatientIDs.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_Consents_on_Contract_for_PatientID.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_Consents_with_Period_for_Practice.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_Details_for_PatientID.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_Details_for_PatientIDs.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_Details_on_Tenant.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_Insurance_Data_for_PatientIDs.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_Insurance_Data_on_Tenant.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_PracticeName_for_PatientID.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_Preexaminations_on_Tenant.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_Properties_for_PatientIDs_and_PropertyGpmID.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Patient_Properties_for_PatientID_and_PropertyGpmID.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_PreexaminationDates_for_PatientID_And_Localization.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Used_HIPs_for_PatientIDs.cs" />
+    <Compile Include="Patient\Atomic\Retrieval\cls_Get_Used_HIPs_for_PracticeID.cs" />
+    <Compile Include="Patient\Complex\Retrieval\cls_Get_Data_for_AddPatientView.cs" />
+    <Compile Include="Patient\Complex\Retrieval\cls_Get_Data_for_PatientEdit.cs" />
+    <Compile Include="Patient\Complex\Retrieval\cls_Get_PatientData_With_ContractList.cs" />
+    <Compile Include="Patient\Complex\Retrieval\cls_Get_PatientData_With_ContractListTenant.cs" />
+    <Compile Include="Pharmacy\Atomic\Manipulation\cls_Delete_Pharmacy.cs" />
+    <Compile Include="Pharmacy\Atomic\Manipulation\cls_Save_Pharmacy.cs" />
+    <Compile Include="Pharmacy\Atomic\Retrieval\cls_Get_Default_Pharmacy_for_Practice.cs" />
+    <Compile Include="Pharmacy\Atomic\Retrieval\cls_Get_Internal_Pharmacies.cs" />
+    <Compile Include="Pharmacy\Atomic\Retrieval\cls_Get_Number_of_Times_Used_for_PharmacyID.cs" />
+    <Compile Include="Pharmacy\Atomic\Retrieval\cls_Get_Pharmacy_for_PharmacyID.cs" />
+    <Compile Include="Pharmacy\Model\EPharmacyType.cs" />
+    <Compile Include="Pharmacy\Model\Pharmacy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.de.Designer.cs">
+      <DependentUpon>Resources.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Archive\Complex\Retrieval\_Support\" />
+    <Folder Include="Medication\Complex\Manipulation\_Support\" />
+    <Folder Include="Medication\Complex\Retrieval\_Support\" />
+    <Folder Include="Order\Atomic\Manipulation\_Support\" />
+    <Folder Include="Order\Complex\Retrieval\_Support\" />
+    <Folder Include="Order\Model\" />
+    <Folder Include="Patient\Complex\Manipulation\" />
+    <Folder Include="Pharmacy\Complex\Manipulation\_Support\" />
+    <Folder Include="Pharmacy\Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Case\Atomic\Manipulation\_Support\Save_Case_Order_Number_for_OrderIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_CaseIDs_for_OrderIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Last_Case_Order_Number_for_PracticeBSNR.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Treatment_for_PatientID_and_Localization_and_Treatment_Date_and_PracticeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_TransmitionCode_for_CaseIDs_and_Type.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_CaseIDs_for_Patient_and_Localization.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Oct_Basic_Info_for_OctIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Aftercare_Planned_Action_with_Localization_for_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Aftercare_Planned_Action_with_Localization_for_AftercareIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Treatment_for_PatientIDs_and_PracticeIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Existing_OCT_BillPosition_for_PatientID_and_LocalizationCode_where_not_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_Properties_for_GpmID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_RelevantActionIDs_for_PatientID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_OctFsStatuses_for_PatientID_in_TimeSpan.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Number_of_GposTypes_on_Case_for_GposType_and_PatientIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_OctFsStatuses_for_PatientID_in_TimeSpan_LocalizationIndependent.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Open_ActionID_for_CaseID_and_ActionTypeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_NonError_NonCancelled_OpDate_for_PatientIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PatientIDs_for_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_Oct_Doctor_for_PatientID_and_Localization.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PlannedActionIDs_for_PatientID_and_ActionTypeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_BillPositionIDs_for_PatientID_and_GposType.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_TransmitionStatusIDs_for_PatientID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_TransmitionStatusIDs_for_PatientID_and_StatusCode.sql" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Aftercare\Get_Aftercare_Planned_Action_with_Localization_for_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_BillPositionIDs_for_PatientID_and_GposType.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Case_TransmitionCode_for_CaseIDs_and_Type.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Case_TransmitionStatusIDs_for_PatientID_and_StatusCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Case_TransmitionStatusIDs_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Existing_OCT_BillPosition_for_PatientID_and_LocalizationCode_where_not_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_CaseIDs_for_Patient_and_Localization.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Open_ActionID_for_CaseID_and_ActionTypeID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Case_Properties_for_GpmID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Last_Case_Order_Number_for_PracticeBSNR.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Get_PlannedActionIDs_for_PatientID_and_ActionTypeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Get_PatientIDs_for_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Latest_NonError_NonCancelled_OpDate_for_PatientIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Latest_Oct_Doctor_for_PatientID_and_Localization.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_OctFsStatuses_for_PatientID_in_TimeSpan_LocalizationIndependent.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_OctFsStatuses_for_PatientID_in_TimeSpan.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Oct_Basic_Info_for_OctIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_RelevantActionIDs_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_CaseIDs_for_OrderIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_Treatment_for_PatientIDs_and_PracticeIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_Treatment_for_PatientID_and_Localization_and_Treatment_Date_and_PracticeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Complex\Retrieval\_Support\Get_TreatmentYearOctCount_IndependentForLocalization.xml" />
+    <Content Include="Doctor\Atomic\Manipulation\_Support\Reset_Grace_Period_for_Practice.xml" />
+    <Content Include="Doctor\Atomic\Manipulation\_Support\Save_Practice_Grace_Period.xml" />
+    <Content Include="Doctor\Atomic\Manipulation\_Support\Save_Doctor_Grace_Period.xml" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctor_Grace_Period_Start_Time.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Practice_Grace_Period_Start_Time.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctors_on_Contracts_for_PatientID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctor_InsuranceToBrokerContract_with_Oct_for_DoctorID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_DoctorIDs_with_Oct_Contract.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Is_Doctor_Certificated_for_OCT.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctors_Properties_for_DoctorID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctors_Properties.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_DoctorIDs_for_ContractID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_DoctorIDs_with_Oct_Contract_for_Practice.sql" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_DoctorIDs_for_ContractID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_DoctorIDs_with_Oct_Contract_for_Practice.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_DoctorIDs_with_Oct_Contract.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctors_Properties.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctors_Properties_for_DoctorID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctor_InsuranceToBrokerContract_with_Oct_for_DoctorID_and_Practice.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Is_Doctor_Certificated_for_OCT.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctor_InsuranceToBrokerContract_with_Oct_for_DoctorID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctors_on_Contracts_for_PatientID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Practice_Grace_Period_Start_Time.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctor_Grace_Period_Start_Time.xml" />
+    <Content Include="Doctor\Complex\Manipulation\_Support\Save_Grace_Period.xml" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_CoveredGposID_for_InsuranceToBrokerContractID_and_GposTypeID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_Octs_for_ElasticRefresh_by_PatientID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_Oct_and_Op_Dates_by_PatientID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_Oct_FsStatuses_by_PatientID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_PatientConsents_on_Contract_by_GposIDs_and_PatientID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_ActiveNonError_OctFsStatuses_by_PatientID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_PerformedOnDates_for_PlannedActionTypeID_and_PatientID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_All_Cases_from_DB_for_ElasticRebuild_for_PatientID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_cls_Get_Report_Downloaded_PropertyValues_for_PatientID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_PerformedActionData_for_PatientIDs.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_Case_FS_Statuses_for_PatientIDs.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_Previous_FS_Statuses_on_Tenant.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_CaseProperties_for_PropertyGpmID_and_PatientIDs.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_PlannedActions_for_ActionTypeID_and_PatientID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_ElasticRefresh_RelevantActions_for_PatientID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_RelevantActionData_for_PatientID.sql" />
+    <Content Include="ElasticRefresh\_Support\Case\Get_ElasticRefresh_RelevantActions_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\OCT\Get_PlannedActions_for_ActionTypeID_and_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\OCT\Get_Number_of_GposTypes_on_Case_for_GposType_and_PatientIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_ElasticRefresh_Cases_for_PatientIDs.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_DoctorBasicInformation_for_DoctorBptIDs.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_PracticeBasicInformation_for_PracticeBptIDs.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_ElasticRefresh_Order_History_for_OrderIDs.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_ElasticRefresh_CaseProperties_for_PatientID_and_PropertyGpmIDs.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_ElasticRefresh_Aftercare_Diagnoses_for_PatientID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_ElasticRefresh_Aftercares_for_CaseIDs.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_ElasticRefresh_Orders_for_PatientID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_PharmacyBasicInformation_for_PharmacyBptIDs.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_ElasticRefresh_TreatmentData_for_CaseIDs.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_PracticeName_for_PracticeID.sql" />
+    <EmbeddedResource Include="ElasticRefresh\SQL\cls_Get_Management_Fee_Property_Value_for_PatientID.sql" />
+    <Content Include="ElasticRefresh\_Support\Case\Get_ElasticRefresh_Aftercares_for_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\Case\Get_ElasticRefresh_Aftercare_Diagnoses_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\Case\Get_ElasticRefresh_CaseProperties_for_PatientID_and_PropertyGpmIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\Case\Get_ElasticRefresh_TreatmentData_for_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\Order\Get_ElasticRefresh_Order_History_for_OrderIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\Entities\Get_PharmacyBasicInformation_for_PharmacyBptIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\Entities\Get_PracticeName_for_PracticeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\Entities\Get_PracticeBasicInformation_for_PracticeBptIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\Entities\Get_DoctorBasicInformation_for_DoctorBptIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\Case\Get_ElasticRefresh_Cases_for_PatientIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\Order\Get_ElasticRefresh_Orders_for_PatientID.xml" />
+    <Content Include="ElasticRefresh\_Support\Settlement\Get_Management_Fee_Property_Value_for_PatientID.xml" />
+    <Content Include="ElasticRefresh\_Support\Settlement\Get_CaseProperties_for_PropertyGpmID_and_PatientIDs.xml" />
+    <Content Include="ElasticRefresh\_Support\Settlement\Get_Previous_FS_Statuses_for_PatientIDs.xml" />
+    <Content Include="ElasticRefresh\_Support\Settlement\Get_Case_FS_Statuses_for_PatientIDs.xml" />
+    <Content Include="ElasticRefresh\_Support\Settlement\Get_PerformedActionData_for_PatientIDs.xml" />
+    <Content Include="ElasticRefresh\_Support\Settlement\cls_Get_Report_Downloaded_PropertyValues_for_PatientIDs.xml" />
+    <Content Include="ElasticRefresh\_Support\Settlement\cls_Get_RelevantActionData_for_PatientIDs.xml" />
+    <Content Include="ElasticRefresh\_Support\Settlement\Get_All_Cases_from_DB_for_ElasticRebuild_for_PatientIDs.xml" />
+    <Content Include="ElasticRefresh\_Support\OCT\Get_ActiveNonError_OctFsStatuses_by_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\OCT\Get_PatientConsents_on_Contract_by_GposIDs_and_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\OCT\Get_Oct_FsStatuses_by_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\OCT\Get_Oct_and_Op_Dates_by_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\OCT\Get_Octs_for_ElasticRefresh_by_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ElasticRefresh\_Support\OCT\Get_PerformedOnDates_for_PlannedActionTypeID_and_PatientID.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_CoveredGposID_for_InsuranceToBrokerContractID_and_GposTypeID.xml" />
+    <Content Include="MainData\Complex\Manipulation\_Support\Check_if_Autentification_Needed.xml" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_Order_PDF_Report_for_OrderID.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_TreatmentDates_for_OrderIDs.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_Potential_Orders_Eligible_for_Settlement.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_Order_Status_History_for_OrderIDs.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_Orders_for_Report_for_Statuses.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_Orders_for_Report_for_Statuses_and_Property_Name.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_Number_of_Orders_for_Complete_Report.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_CaseID_and_PatientID_for_OrderID.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_CaseID_and_PatientID_for_OrderIDs.sql" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_CaseID_and_PatientID_for_OrderIDs.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_CaseID_and_PatientID_for_OrderID.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_Number_of_Orders_for_Complete_Report.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_Orders_for_Report_for_Statuses.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_Potential_Orders_Eligible_for_Settlement.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_Order_Status_History_for_OrderIDs.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_TreatmentDates_for_OrderIDs.xml" />
+    <Content Include="Order\Complex\Manipulation\_Support\Submit_Order_to_MM.xml" />
+    <Content Include="Order\Complex\Manipulation\_Support\Submit_Order_to_MM.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Oct_and_OP_Dates_for_PatientID_and_Localization.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_Order_PDF_Report_for_OrderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Order\Complex\Manipulation\_Support\Upload_Order_PDF_Report.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_Consents_with_Period_for_Practice.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_PatientData_Accessible_for_BptIDs.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_HIP_for_PatientID.sql" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_HIP_for_PatientID.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_PatientData_Accessible_for_BptIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_Consents_with_Period_for_Practice.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Pharmacy\Atomic\Manipulation\_Support\Delete_Pharmacy.xml" />
+    <EmbeddedResource Include="Pharmacy\Atomic\Retrieval\SQL\cls_Get_Internal_Pharmacies.sql" />
+    <EmbeddedResource Include="Pharmacy\Atomic\Retrieval\SQL\cls_Get_Default_Pharmacy_for_Practice.sql" />
+    <EmbeddedResource Include="Pharmacy\Atomic\Retrieval\SQL\cls_Get_Pharmacy_for_PharmacyID.sql" />
+    <EmbeddedResource Include="Pharmacy\Atomic\Retrieval\SQL\cls_Get_Number_of_Times_Used_for_PharmacyID.sql" />
+    <Content Include="Pharmacy\Atomic\Retrieval\_Support\Get_Default_Pharmacy_for_Practice.xml" />
+    <Content Include="Pharmacy\Atomic\Retrieval\_Support\Get_Number_of_Times_Used_for_PharmacyID.xml" />
+    <Content Include="Pharmacy\Atomic\Retrieval\_Support\Get_Pharmacy_for_PharmacyID.xml" />
+    <Content Include="Pharmacy\Atomic\Retrieval\_Support\Get_Internal_Pharmacies.xml" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_All_Contracts.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Contract_Details_for_ContractID.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_GPOS_Details_for_ContractID.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_GPOS_DrugIDs_for_ContractID.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_GPOS_DiagnoseIDs_for_ContractID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_All_Submitted_Cases.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_All_GPOS_Details_for_ContractID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Number_of_GposTypes_on_Case_for_CaseID_and_GposType.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Gpos_AssignmentCount_for_GposID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Management_Fee_Property_Value_for_CaseID_and_GposID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_TransmitionCode_for_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_TransmitionStatuses_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_FS_Statuses_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Management_Fee_Property_Values_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Treatment_Data_using_Temporary.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_ServiceFeeValues_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Drug_Details_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_ContractID_GposID_Combinations_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Number_of_Negative_Tries_for_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Number_of_Negative_Tries_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_All_Case_BillPositions_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_DiagnoseDetails_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Cases_for_SubmissionReport_for_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_BillPositionNumbers_for_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_NonPerformed_Case_Data_for_PatientID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_InsuranceToBrokerContractID_And_ContractID_for_DrugID_and_DiagnoseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Manipulation\SQL\cls_Assign_Bill_Position_Numbers.sql" />
+    <Content Include="Archive\Atomic\Manipulation\_Support\Upload_Case_PDF_Report.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Archive\Atomic\Retrieval\SQL\cls_Get_DocumentData_on_Tenant.sql" />
+    <Content Include="Archive\Atomic\Retrieval\_Support\Get_DocumentData_on_Tenant.xml" />
+    <Content Include="Case\Atomic\Manipulation\_Support\Assign_Bill_Position_Numbers.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Withdraw_OCT_or_Send_Email.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Delete_BillingData_for_BillPositionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Save_Case_Property.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Handle_OCT.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Create_OCT.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Save_Preexamination.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Submit_Preexamination.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_FS_Statuses_for_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_CasePropertyValues_for_CaseID_and_CasePropertyID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_Treatments_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_Aftercares_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Cases_with_BillData_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_PlannedActionID_for_CaseID_and_ActionTypeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_CaseID_for_PatientID_DiagnoseID_and_Localization.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_CaseID_for_PatientID_and_Localization.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Relevant_PlannedActionIds_for_CaseID_and_ActionTypeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Existing_OCT_BillPosition_for_PatientID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_FirstTreatmentDate_for_PatientID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_BaseData_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_Treatment_Data_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_Order_Data_for_OrderID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_Properties_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_PlannedActionData_for_CaseID_and_ActionTypeGpmID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_DoctorData_for_DoctorBptID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_PracticeData_for_PracticeBptID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_NonSubmitted_BillPositionID_for_CaseID_and_GposTypeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_NonSubmittedOct_DoctorID_for_PatientID_and_LocalizationID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_PlannedActionID_for_PatientID_ActionTypeID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_RelevantPlannedActions_for_ActionTypeID_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_BaseData_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_Treatment_Data_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_BillingData_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_DrugOrderData_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_InvoiceToPracticeData_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_ActionDiagnoseData_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PerformedOpDates_for_PatientID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_CasePropertyValue_for_CaseID_and_CasePropertyGpmID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_SubmitUntilDate_CasePropertyValues_for_PatientID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PerformedActionsDates_for_PatientID_and_LocalizationCode_in_Timespan.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PerformedActionData_for_PatientIDs_and_ActionTypeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_RelevantActionData_for_ActionIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PerformedOpDates_for_PatientIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_OctRelevantActions_for_CaseIDs_and_ActionTypeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_OctCaseIDs_for_ActionIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_DoctorAssignmentCount_for_ActionIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_DoctorAssignmentActionIDs_for_ActionIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_CaseID_for_PatientID_DiagnoseID_and_Localization_in_TreatmentYear.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_BaseData_for_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_BillingData_on_Tenant_for_Status.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_GposNames_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_BillPositionNumbers_waiting_Hip_Response.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PerformedOpDates_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_RelevantPlannedActionIDs_for_CaseID_and_ActionTypeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_LatestPerformedTreatmentDate_for_PatientID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_ActiveOctFsStatuses_for_PatientID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_RelevanActionIDs_for_CaseID_and_ActionTypeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PerformedActionDate_for_PlannedActionID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Active_NonError_OctFsStatusesCount_for_PatientID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_CasePropertyValue_for_CaseIDs_and_CasePropertyGpmID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_NonCancelledOcts_in_OpRenewedConsentTimespan.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PerformedOpDates_for_PatientID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Active_OctFsStatuses_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_OctPerformedDates_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Active_NonError_OctBillPositionID_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PerformedOctDoctorData_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_FirstOpDate_for_PatientID_and_LocalizationCode_in_TreatmentYear.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Any_PerformedOpDate_in_Timespan_for_PatientID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_OpDates_for_PatientID_and_LocalizationCode_in_TreatmentYear .sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_NonPerformed_Oct_for_CaseID_and_PlannedActionTypeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Cases_with_Property_Count_for_PracticeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_First_PlannedActionID_for_CaseID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_TretmentDates_for_PatientID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_Oct_Doctor_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_OctPerformedDates_for_PatientID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_OctFsStatuses_for_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_RelevantActionIDs_for_PatientID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_BillPositionIDs_for_CaseIDs_and_GposType.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_OctFsStatuses_for_PatientID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Localizations_where_Oct_Rejected.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Existing_OCT_BillPosition_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_CaseIDs_with_Pending_Octs_for_PatientID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_First_PlannedActionID_for_CaseIDs_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_CaseIDs_where_PatientID_and_BptID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_NonOpCaseIDs_where_PatientID_and_BptID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_BillCodeIDs_for_CaseID_And_GposTypeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_Order_Data_for_OrderHeaderID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_NonError_CaseID_for_PatientID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_Order_Status_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PendingOct_FsStatus_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_DocumentationOnly_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_Treatment_Data_for_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_OctData_for_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_NonError_NonCancelled_OpDate_for_PatientID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_DocumentationOnly_CaseIDs_for_PatientID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PatientIDs_used_in_Practice_for_DoctorBptIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_OctID_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_TransmitionStatusIDs_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_NonOpDates_where_PatientID_and_BptID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_CaseID_for_PatientID_Localization_and_CasePropertyGpmID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_CaseBasicInformation_for_PatientID_and_Localization.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_Cases_for_PatientID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_OtherPerformedDates_for_CaseIDs .sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_OctIDs_for_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_GPOS_Potential_Bill_Code_ID_for_Drug_and_Diagnosis.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_InsuranceToBrokerContractID_for_PatientID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_CaseIDs_for_PlannedActionIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_HIP_Name_for_HIP_IK_Number.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_CaseBillCodeIDs_for_GposType_and_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PerformedOpDates_with_localization_for_PatientIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_DocumentationOnly_CaseIDs_on_Tenant.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_All_Drugs_for_ContractIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Oct_and_OP_Dates_for_PatientID_and_Localization.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_is_Aftercare_Performed_for_CaseIDs.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Aftercare_Planned_Actions_for_CaseIDs.sql" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Aftercare\Get_Aftercare_Planned_Actions_for_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Aftercare\Get_is_Aftercare_Performed_for_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Aftercare\Get_RelevantPlannedActions_for_ActionTypeID_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_CaseBillCodeIDs_for_GposType_and_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_BillPositionIDs_for_CaseIDs_and_GposType.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_BillPositionNumbers_waiting_Hip_Response.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Case_BillCodeIDs_for_CaseID_And_GposTypeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Case_TransmitionStatusIDs_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Existing_OCT_BillPosition_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_GPOS_Potential_Bill_Code_ID_for_Drug_and_Diagnosis.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_InsuranceToBrokerContractID_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_CasePropertyValue_for_CaseIDs_and_CasePropertyGpmID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Case_Order_Data_for_OrderHeaderID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Latest_Cases_for_PatientID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Latest_CaseBasicInformation_for_PatientID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_OctData_for_CaseIDs.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Case_Treatment_Data_for_CaseIDs.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Latest_NonError_CaseID_for_PatientID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Case_Order_Status_for_CaseID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Drug\Get_All_Drugs_for_ContractIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Get_NonOpDates_where_PatientID_and_BptID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Get_OtherPerformedDates_for_CaseIDs .xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Get_PatientIDs_used_in_Practice_for_DoctorBptIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Get_NonOpCaseIDs_where_PatientID_and_BptID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Get_CaseIDs_where_PatientID_and_BptID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Get_CaseID_for_PatientID_Localization_and_CasePropertyGpmID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_DocumentationOnly_CaseIDs_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_DocumentationOnly_CaseIDs_for_PatientID_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_DocumentationOnly_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Latest_NonError_NonCancelled_OpDate_for_PatientID_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_OctIDs_for_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_OctID_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Oct_and_OP_Dates_for_PatientID_and_Localization.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_PendingOct_FsStatus_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_CaseIDs_with_Pending_Octs_for_PatientID_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_First_PlannedActionID_for_CaseIDs_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Localizations_where_Oct_Rejected.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_OctFsStatuses_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_PerformedOpDates_with_localization_for_PatientIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_RelevantActionIDs_for_PatientID_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_OctFsStatuses_for_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_OctPerformedDates_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Cases_with_Property_Count_for_PracticeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_PerformedOctDoctorData_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Active_NonError_OctBillPositionID_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_OctPerformedDates_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Active_OctFsStatuses_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_NonCancelledOcts_in_OpRenewedConsentTimespan.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Active_NonError_OctFsStatusesCount_for_PatientID_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_ActiveOctFsStatuses_for_PatientID_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_GposNames_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_NonSubmitted_BillPositionID_for_CaseID_and_GposTypeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_CasePropertyValue_for_CaseID_and_CasePropertyGpmID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Case_RelevantPlannedActionIDs_for_CaseID_and_ActionTypeID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_PerformedActionDate_for_PlannedActionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Latest_CaseID_for_PatientID_DiagnoseID_and_Localization_in_TreatmentYear.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_PerformedOpDates_for_PatientID_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_PerformedOpDates_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_LatestPerformedTreatmentDate_for_PatientID_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_NonPerformed_Oct_for_CaseID_and_PlannedActionTypeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_First_PlannedActionID_for_CaseID_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_RelevanActionIDs_for_CaseID_and_ActionTypeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Latest_Oct_Doctor_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Participants\Get_DoctorAssignmentActionIDs_for_ActionIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Participants\Get_DoctorAssignmentCount_for_ActionIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_OctCaseIDs_for_ActionIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_PerformedActionData_for_PatientIDs_and_ActionTypeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_PerformedActionsDates_for_PatientID_and_LocalizationCode_in_Timespan.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_SubmitUntilDate_CasePropertyValues_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_PerformedOpDates_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_HIP_Name_for_HIP_IK_Number.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_Case_BaseData_for_CaseIDs.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_Case_BillingData_on_Tenant_for_Status.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_CaseIDs_for_PlannedActionIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_RelevantActionData_for_ActionIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_Case_BaseData_on_Tenant.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Case_PracticeData_for_PracticeBptID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Case_DoctorData_for_DoctorBptID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Case_PlannedActionData_for_CaseID_and_ActionTypeGpmID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Case_Properties_for_CaseID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Case_Order_Data_for_OrderID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Case_Treatment_Data_for_CaseID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Case_BaseData_for_CaseID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Case_TransmitionCodes_for_CaseID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Latest_PlannedActionID_for_PatientID_ActionTypeID_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_Case_InvoiceToPracticeData_on_Tenant.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_Case_DrugOrderData_on_Tenant.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_Case_BillingData_on_Tenant.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_Case_ActionDiagnoseData_on_Tenant.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_Case_Treatment_Data_on_Tenant.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Submission report cache\Get_OctRelevantActions_for_CaseIDs_and_ActionTypeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Submission report cache\Get_PerformedOpDates_for_PatientIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Any_PerformedOpDate_in_Timespan_for_PatientID_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_TretmentDates_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_OpDates_for_PatientID_and_LocalizationCode_in_TreatmentYear .xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_FirstTreatmentDate_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_NonSubmittedOct_DoctorID_for_PatientID_and_LocalizationID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_FirstOpDate_for_PatientID_and_LocalizationCode_in_TreatmentYear.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_FirstTreatmentDate_for_PatientID_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_Relevant_PlannedActionIds_for_CaseID_and_ActionTypeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Latest_CaseID_for_PatientID_and_Localization.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Latest_CaseID_for_PatientID_DiagnoseID_and_Localization.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Oct\Get_Latest_PlannedActionID_for_CaseID_and_ActionTypeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Cases_with_BillData_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Aftercare\Get_Case_Aftercares_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_Case_Treatments_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_All_Case_BillPositions_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_CasePropertyValues_for_CaseID_and_CasePropertyID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_InsuranceToBrokerContractID_And_ContractID_for_DrugID_and_DiagnoseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_NonPerformed_Case_Data_for_PatientID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_BillPositionNumbers_for_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_Cases_for_SubmissionReport_for_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Diagnose\Get_DiagnoseDetails_on_Tenant.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Number_of_Negative_Tries_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Number_of_Negative_Tries_for_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_ContractID_GposID_Combinations_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Case_FS_Statuses_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Drug\Get_Drug_Details_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Management_Fee_Property_Value_for_CaseID_and_GposID - Copy.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_ServiceFeeValues_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_TransmitionStatuses_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Case_TransmitionCode_for_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Gpos_AssignmentCount_for_GposID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Number_of_GposTypes_on_Case_for_CaseID_and_GposType.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_All_Submitted_Cases.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctors_Assignments_on_Contract.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctors_Consent_Details_for_AssignmentID.sql" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_All_GPOS_Details_for_ContractID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctors_ConsentStartDate_for_DoctorID_and_ContractID.sql" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_Treatment_Data_using_Temporary.xml" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctor_Details_for_Report.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Practice_Details_on_Tenant.sql" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Existing_OCT_BillPosition_for_PatientID_and_LocalizationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Submission report cache\Get_Case_FS_Statuses_for_CaseIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Complex\Manipulation\_Support\Change_Case_Status_and_Generate_Report.xml" />
+    <Content Include="Case\Complex\Manipulation\_Support\Create_Pdf_Report_for_Submitted_Case.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctor_Customer_Number_for_DoctorID.sql" />
+    <Content Include="Case\Complex\Manipulation\_Support\Generate_Report.xml" />
+    <Content Include="Case\Complex\Retrieval\_Support\Get_TreatmentYearOctCount.xml" />
+    <Content Include="Case\Complex\Retrieval\_Support\Get_Case_Details_for_CaseID.xml" />
+    <Content Include="Case\Complex\Retrieval\_Support\Get_TreatmentYearLength.xml" />
+    <Content Include="Case\Complex\Retrieval\_Support\Get_TreatmentYear.xml" />
+    <Content Include="Case\Complex\Retrieval\_Support\Get_ActionTypeID.xml" />
+    <Content Include="Doctor\Atomic\Manipulation\_Support\Change_Password.xml" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Practice_PropertyValue_for_PropertyName_and_PracticeID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctor_Consents_before_Date_and_GposIDs.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctor_BasicInformation_for_DoctorID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Practice_Address_for_PracticeID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Practice_ContactPersonDetails_for_PracticeID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctor_BasicInformation_for_Logged_Doctor.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctor_Details_on_Tenant.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_DoctorBptIDs_for_PracticeID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Practice_BptID_for_PracticeID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Practice_Names_for_DoctorIDs.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Latest_OctDoctorID_for_PatientID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Assigned_ContractIDs_for_PracticeID.sql" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Assigned_ContractIDs_for_PracticeID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Latest_OctDoctorID_for_PatientID_and_LocalizationCode.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_DoctorBptIDs_for_PracticeID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctor_Details_on_Tenant.xml" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctor_Basic_Information_for_Doctors_from_Different_Practice.sql" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctor_Basic_Information_for_Doctors_from_Different_Practice.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctor_BasicInformation_for_Logged_Doctor.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctor_BasicInformation_for_DoctorID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctor_Consents_before_Date_and_GposIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctors_ConsentStartDate_for_DoctorID_and_ContractID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctors_Consent_Details_for_AssignmentID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctors_Assignments_on_Contract.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctor_Customer_Number_for_DoctorID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctor_Details_for_Report.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Practice_BptID_for_PracticeID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Practice_Names_for_DoctorIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Practice_ContactPersonDetails_for_PracticeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Practice_Address_for_PracticeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Practice_PropertyValue_for_PropertyName_and_PracticeID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Practice_Details_on_Tenant.xml" />
+    <Content Include="MainData\Atomic\Manipulation\_Support\Delete_GPOS_Data.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="MainData\Atomic\Manipulation\_Support\Save_Contract_Parameter.xml" />
+    <Content Include="MainData\Atomic\Manipulation\_Support\Save_New_Diagnoses_and_Return_New_IDs.xml" />
+    <Content Include="MainData\Atomic\Manipulation\_Support\Save_New_Insurance_Companies_and_Return_New_IDs.xml" />
+    <Content Include="MainData\Atomic\Manipulation\_Support\Save_Contract_Participating_HIPs.xml" />
+    <Content Include="MainData\Atomic\Manipulation\_Support\Save_Contract_Participating_Doctors.xml" />
+    <Content Include="MainData\Atomic\Manipulation\_Support\Save_Contract_Covered_Diagnoses.xml" />
+    <Content Include="MainData\Atomic\Manipulation\_Support\Save_Contract_Covered_Drugs.xml" />
+    <Content Include="MainData\Atomic\Manipulation\_Support\Save_Contract_Due_Dates.xml" />
+    <Content Include="MainData\Atomic\Manipulation\_Support\Save_Contract_GPOS_Data.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Drugs_for_SearchCriteria.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Diagnoses_for_SearchCriteria.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_All_HIPs_for_ContractID.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_HIPs_for_SearchCriteria.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Participating_DoctorIDs_for_ContractID.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Due_Dates_for_ContractID.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_GPOS_BaseData_for_GPOSID.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Existing_ContractName_for_ContractName.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_DiagnoseID_for_ICD10_and_DiagnoseName.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Check_Contract_GPOS_for_ContractID_and_GPOSType.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_InsuranceToBrokerContractIDs_for_Contracts_with_Preexamination.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Contract_Parameter_Value_for_InsuranceToBrokerContractID.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Hip_Contract_Parameters_on_Tenant.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_GposIDs_for_GposType.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Oct_Contract_Parameters.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Oldest_ContractID_for_HipID_and_GposIDs.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Number_of_OCTs_per_Treatment_Year_for_Contract_Name.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Doctor_Consents_for_DoctorIDs.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Account_Role.sql" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Account_Role.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Doctor_Consents_for_DoctorIDs.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Number_of_OCTs_per_Treatment_Year_for_Contract_Name.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Oldest_ContractID_for_HipID_and_GposIDs.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Oct_Contract_Parameters.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_GposIDs_for_GposType.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Hip_Contract_Parameters_on_Tenant.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Check_Contract_GPOS_for_ContractID_and_GPOSType.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Contract_Parameter_Value_for_InsuranceToBrokerContractID.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_InsuranceToBrokerContractIDs_for_Contracts_with_Preexamination.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_DiagnoseID_for_ICD10_and_DiagnoseName.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Existing_ContractName_for_ContractName.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Due_Dates_for_ContractID.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_GPOS_BaseData_for_GPOSID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Participating_DoctorIDs_for_ContractID.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_HIPs_for_SearchCriteria.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Diagnoses_for_SearchCriteria.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Drugs_for_SearchCriteria.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_All_HIPs_for_ContractID.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_GPOS_DiagnoseIDs_for_ContractID.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_GPOS_DrugIDs_for_ContractID.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_GPOS_Details_for_ContractID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Contract_Details_for_ContractID.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_All_Contracts.xml" />
+    <Content Include="MainData\Complex\Manipulation\_Support\Copy_Contract.xml" />
+    <Content Include="MainData\Complex\Manipulation\_Support\Save_Contract.xml" />
+    <Content Include="MainData\Complex\Retrieval\_Support\Get_Gpos_Details_for_GposID.xml" />
+    <Content Include="Medication\Atomic\Manipulation\_Support\Save_Medication.xml" />
+    <EmbeddedResource Include="Medication\Atomic\Retrieval\SQL\cls_Get_Medications.sql" />
+    <EmbeddedResource Include="Medication\Atomic\Retrieval\SQL\cls_Get_Medication_for_MedicationID.sql" />
+    <Content Include="Medication\Atomic\Retrieval\_Support\Get_Medications.xml" />
+    <Content Include="Medication\Atomic\Retrieval\_Support\Get_Medication_for_MedicationID.xml" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_HIP_Name_for_HIPID.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_ContractIDForParticipationID.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_Previous_Order_Status_for_HeaderID.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_OrderID_for_CaseID.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_OrderInfo_for_OrderIDs.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_OrderIDs_for_CaseIDs.sql" />
+    <Content Include="Pharmacy\Atomic\Manipulation\_Support\Save_Pharmacy.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_OrderIDs_for_CaseIDs.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_OrderID_for_CaseID.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_OrderInfo_for_OrderIDs.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_Previous_Order_Status_for_HeaderID.xml" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Contracts_Where_Hip_Participating_for_HipID.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_Consents_for_ID_Array.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_Details_on_Tenant.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_Insurance_Data_on_Tenant.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Contract_Insurance_Data_on_Tenant.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_PreexaminationDates_for_PatientID_And_Localization.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_Preexaminations_on_Tenant.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Diagnoses_for_PatientID.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_Details_for_PatientIDs.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_Consents_for_PatientIDs.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_Insurance_Data_for_PatientIDs.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_is_Patient_HIP_on_an_Oct_Contract.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_Consents_before_Date_and_GposIDs.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_ConsentValidForMonths_for_LatestConsent_before_TreatmentDate_for_PatientID.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Used_HIPs_for_PracticeID.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_All_Patient_Consents_for_PatientIDs.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_Properties_for_PatientID_and_PropertyGpmID.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_PracticeName_for_PatientID.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_Properties_for_PatientIDs_and_PropertyGpmID.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_Consents_on_Contract_for_PatientID.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Used_HIPs_for_PatientIDs.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_is_Patient_HIP_on_an_Oct_Contract_for_PatientIDs.sql" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_is_Patient_HIP_on_an_Oct_Contract_for_PatientIDs.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_Consents_on_Contract_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_PracticeName_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_Details_on_Tenant.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_Properties_for_PatientIDs_and_PropertyGpmID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_Properties_for_PatientID_and_PropertyGpmID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_is_Patient_HIP_on_an_Oct_Contract.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Contract_Insurance_Data_on_Tenant.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Diagnoses_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_All_Patient_Consents_for_PatientIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Used_HIPs_for_PatientIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Used_HIPs_for_PracticeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_Consents_before_Date_and_GposIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_Consents_for_PatientIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_Details_for_PatientIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_Insurance_Data_for_PatientIDs.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_Preexaminations_on_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_ConsentValidForMonths_for_LatestConsent_before_TreatmentDate_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_PreexaminationDates_for_PatientID_And_Localization.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_Insurance_Data_on_Tenant.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_Consents_for_ID_Array.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Contracts_Where_Hip_Participating_for_HipID.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_HIP_Name_for_HIPID.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_ContractIDForParticipationID.xml" />
+    <Content Include="Patient\Complex\Retrieval\_Support\Get_PatientData_with_ContractListTenant.xml" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patient_Details_for_PatientID.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_AllContracts_for_Practice_Doctors.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_AllContracts_for_DoctorID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_Details_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Check_Drug_GPOS.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Treatment_Planned_Action_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Aftercare_Planned_Action_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Planned_Action_DiagnosisIDs_for_PlannedActionID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_DrugOrderIDs_for_PlannedActionID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_UniversalPropertyValueID_for_CaseID_and_GlobalPropertyMatchingID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Initial_PerformedActionID_for_CaseID.sql" />
+    <EmbeddedResource Include="Archive\Atomic\Retrieval\SQL\cls_Download_File.sql" />
+    <EmbeddedResource Include="Archive\Atomic\Retrieval\SQL\cls_Get_Number_of_Edifacts.sql" />
+    <EmbeddedResource Include="Archive\Atomic\Retrieval\SQL\cls_Get_Contract_Characteristic.sql" />
+    <Content Include="Archive\Atomic\Manipulation\_Support\Upload_PDF_Report.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Archive\Atomic\Retrieval\SQL\cls_Get_Numbers_of_PDF_reports.sql" />
+    <Content Include="Archive\Atomic\Retrieval\_Support\Get_Contract_Characteristic.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Archive\Atomic\Retrieval\_Support\Get_Numbers_of_PDF_reports.xml" />
+    <Content Include="Archive\Atomic\Retrieval\_Support\Get_Number_of_Edifacts.xml" />
+    <Content Include="Archive\Atomic\Retrieval\_Support\Download_File.xml" />
+    <Content Include="Archive\Complex\Manipulation\SQL\_Support\Upload_Report.xml" />
+    <EmbeddedResource Include="Case\Atomic\Manipulation\SQL\cls_Create_Treatment_Count_Temporary_Table.sql" />
+    <EmbeddedResource Include="Case\Atomic\Manipulation\SQL\cls_Drop_Treatment_Count_Temporary_Table.sql" />
+    <Content Include="Archive\Complex\Manipulation\_Support\Upload_Report.xml" />
+    <Content Include="Case\Atomic\Manipulation\_Support\Calculate_Case_GPOS.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Change_Case_TransmitionStatus.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Change_ManagementFee_Status_for_PlannedActionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Drop_Treatment_Count_Temporary_Table.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Create_Treatment_Count_Temporary_Table.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Cancel_Case_From_Settlement_Page.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Save_Case_Multi_Edit.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Change_PerformedAction_Status_for_PlannedActionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Get_Negative_Cases_Which_Should_Not_be_Imported.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Change_Case_to_Status_Error.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Submit_Case_for_Error_Correction.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Create_Aftercare_Planned_Action.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Cancel_Drug_Order.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Create_Treatment_Planned_Action.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Create_Drug_Order.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Create_Potential_Procedure.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Create_Initial_Performed_Action.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Cancel_Case.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Manipulation\_Support\Submit_Case.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_BillHeaderID_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_all_Cases_in_FS_statuses.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Drug_Order_Settings.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_BillPositionIDs_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_BillCodeID_for_CaseID_and_BillingCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_GPOS_where_Management_Fee_is_Waived_for_PatientID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Treatment_Count_for_PatientID_And_DiagnoseID_and_LocalizationCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Cases_For_Report.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_Case_Number.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Latest_Bill_Position_Number.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_BillingCode_for_CaseBillCodeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Treatment_Date_for_Aftercare.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Treatment_Planned_Action_PotentialProcedureID_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Response_from_HIP_and_Comment_for_Doctor_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_TransmitionStatusIDs_for_CaseID_and_StatusCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Previous_Status_for_Case_That_Was_on_Hold.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Check_Case_Status_For_BillNumber.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_CaseID_for_BullNumber.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_All_PlannedActionIDs_not_in_Array.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PlannedActionType_GlobalPropertyMatchingID_for_PlannedActionID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_All_Statuses_for_BillPosition.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_TransmitionCode_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_All_Case_Statuses.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Cases_for_General_Report.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Count_Treatment_or_Aftercare.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_is_Aftercare_Performed_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Aftercare_Performed_Date_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_InsuranceToBrokerContractID_for_DrugID_and_DiagnoseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Treatment_Count_for_PatientID_And_DiagnoseID_and_LocalizationCode_using_Temporary.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PracticeID_for_Doctor_BusinessParticipantID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_PracticeID_for_Practice_BusinessParticipantID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Treatment_DoctorID_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Aftercare_DoctorID_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_BillCodeID_for_CaseID_And_GlobalPropertyMatchingID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_ServiceFeeValue_for_BillingCode.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Case_FS_Statuses_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_GPOS_Details_for_DiagnoseID_and_DrugID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Aftercares_Count.sql" />
+    <Content Include="Case\Atomic\Retrieval\SQL\cls_Get_Treatment_Performed_Action_Diagnose_Details_for_CaseID.sql" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Aftercare\Get_Aftercares_Count.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_GPOS_Details_for_DiagnoseID_and_DrugID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Case_BillCodeID_for_CaseID_And_GlobalPropertyMatchingID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Aftercare\Get_Aftercare_DoctorID_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Case_FS_Statuses_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Management_Fee_Property_Values_on_Tenant.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_ServiceFeeValue_for_BillingCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_Treatment_DoctorID_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Participants\Get_PracticeID_for_Practice_BusinessParticipantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Participants\Get_PracticeID_for_Doctor_BusinessParticipantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_InsuranceToBrokerContractID_for_DrugID_and_DiagnoseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Aftercare\Get_Aftercare_Performed_Date_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Aftercare\Get_is_Aftercare_Performed_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Count_Treatment_or_Aftercare.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_All_Case_Statuses.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Get_All_PlannedActionIDs_not_in_Array.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Check_Case_Status_For_BillNumber.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Case_TransmitionCode_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_Cases_for_General_Report.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Get_PlannedActionType_GlobalPropertyMatchingID_for_PlannedActionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Case_TransmitionStatusIDs_for_CaseID_and_StatusCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_All_Statuses_for_BillPosition.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Previous_Status_for_Case_That_Was_on_Hold.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Response_from_HIP_and_Comment_for_Doctor_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_Treatment_Count_for_PatientID_And_DiagnoseID_and_LocalizationCode_using_Temporary.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_Treatment_Count_for_PatientID_And_DiagnoseID_and_LocalizationCode.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_Treatment_Performed_Action_Diagnose_Details_for_CaseID.xml" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Treatment_Performed_Action_Diagnose_Details_for_CaseID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_All_GPOS_Billing_Codes_for_GlobalPropertyMatchingID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Check_Case_Status.sql" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Check_Case_Status.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_All_GPOS_Billing_Codes_for_GlobalPropertyMatchingID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_CaseID_for_BullNumber.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_Treatment_Planned_Action_PotentialProcedureID_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Latest_Bill_Position_Number.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Latest_Case_Number.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Reports\Get_Cases_For_Report.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_GPOS_where_Management_Fee_is_Waived_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_Case_BillCodeID_for_CaseID_and_BillingCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_BillPositionIDs_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Drug\Get_Drug_Order_Settings.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_all_Cases_in_FS_statuses.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_BillHeaderID_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Complex\Retrieval\_Support\Get_Previous_Case_Data_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Initial_PerformedActionID_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Case details\Get_Case_UniversalPropertyID_for_CaseID_and_GlobalPropertyMatchingID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Drug\Get_DrugOrderIDs_for_PlannedActionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Aftercare\Get_Aftercare_Planned_Action_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Diagnose\Get_Planned_Action_DiagnosisIDs_for_PlannedActionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Get_BillingCode_for_CaseBillCodeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_Treatment_Date_for_Aftercare.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Treatment\Get_Treatment_Planned_Action_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Billing\Check_Drug_GPOS.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Deprecated\Get_Case_Details_for_CaseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Complex\Manipulation\_Support\Change_Case_Status.xml" />
+    <Content Include="Case\Complex\Manipulation\_Support\Create_Pdf_Report.xml" />
+    <Content Include="Case\Complex\Manipulation\_Support\Create_Report_for_All_Cases.xml" />
+    <Content Include="Case\Complex\Manipulation\_Support\Create_XML_for_Immutable_Fields.xml" />
+    <Content Include="Case\Complex\Manipulation\_Support\Settlement_Change_Case_Status.xml" />
+    <Content Include="Case\Complex\Retrieval\_Support\Get_is_Aftercares_Status_Editable_for_CaseID.xml" />
+    <Content Include="Case\Complex\Retrieval\_Support\Get_Next_Bill_Position_Number.xml" />
+    <Content Include="Case\Complex\Retrieval\_Support\Get_Next_Case_Number.xml" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_PatientEdit_Data_for_PatientID.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_Order_Status_for_CaseID.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_all_Orders_with_Status.sql" />
+    <Content Include="Case\Complex\Retrieval\_Support\Get_Next_Order_Number.xml" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_Latest_Order_Number.sql" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_Orders_For_Steribase_Report.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_PracticeID_for_BusinesParticipant.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Practice_Details_for_Report.sql" />
+    <Content Include="Doctor\Atomic\Manipulation\_Support\Merge_Doctor.xml" />
+    <Content Include="Doctor\Atomic\Manipulation\_Support\Save_AdHoc_Doctor.xml" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_AccountRefID_from_HEC_Doctors_for_DoctorID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Temporary_Doctor_Count_and_Oldest_Date.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Temporary_Doctor_Comment_for_DoctorID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Check_Lanr_for_Merge.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_PracticeDetails_for_BPT.sql" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Check_Lanr_for_Merge.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_PracticeDetails_for_BPT.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Temporary_Doctor_Comment_for_DoctorID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Temporary_Doctor_Count_and_Oldest_Date.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_AccountRefID_from_HEC_Doctors_for_DoctorID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_PracticeID_for_BusinesParticipant.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Practice_Details_for_Report.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Doctor\Complex\Retrieval\_Support\Get_Practice_DetailData.xml" />
+    <Content Include="Doctor\Complex\Retrieval\_Support\Get_Doctor_DetailData.xml" />
+    <Content Include="MainData\Atomic\Manipulation\_Support\Change_Account_Password.xml" />
+    <Content Include="MainData\Atomic\Manipulation\_Support\Save_Company_Settings.xml" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Account_Information_for_AccountID.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Communication_Contact_Info_for_User_Person_Info.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_All_Account_LoginEmails_Who_Receive_Notifications.sql" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Employees_for_RightID.sql" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Account_Information_for_AccountID.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_All_Account_LoginEmails_Who_Receive_Notifications.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Communication_Contact_Info_for_User_Person_Info.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Company_Settings.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Employees_for_RightID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="MainData\Complex\Manipulation\_Support\Add_New_User.xml" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Employees.sql" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Employees.xml" />
+    <EmbeddedResource Include="Order\Atomic\Retrieval\SQL\cls_Get_All_MO1_Orders.sql" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_All_MO1_Orders.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_Latest_Order_Number.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_all_Orders_with_Status.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_Orders_For_Steribase_Report.xml" />
+    <Content Include="Order\Atomic\Retrieval\_Support\Get_Order_Status_for_CaseID.xml" />
+    <Content Include="Order\Complex\Manipulation\_Support\Change_all_Order_Statuses.xml" />
+    <Content Include="Order\Complex\Manipulation\_Support\Change_Order_Status.xml" />
+    <Content Include="Order\Complex\Manipulation\_Support\Create_Orders_Report.xml" />
+    <Content Include="Patient\Atomic\Manipulation\_Support\Save_Patient_Participation_Consent.xml" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_Patients_HIP_Contracts.sql" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patients_HIP_Contracts.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_AllContracts_for_DoctorID.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_AllContracts_for_Practice_Doctors.xml" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Diagnose_Details_for_DiagnoseID.sql" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_PatientEdit_Data_for_PatientID.xml" />
+    <Content Include="Patient\Complex\Retrieval\_Support\Get_PatientData_With_ContractList.xml" />
+    <Content Include="Patient\Complex\Retrieval\_Support\Get_Data_for_PatientEdit.xml" />
+    <Content Include="Patient\Complex\Retrieval\_Support\Get_Data_for_AddPatientView.xml" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_Drug_Details_for_DrugID.sql" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Drug\Get_Drug_Details_for_DrugID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Diagnose\Get_Diagnose_Details_for_DiagnoseID.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_Patient_Details_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Practice_Default_Settings_for_PracticeID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_All_Diagnoses_for_ContractID.sql" />
+    <EmbeddedResource Include="Case\Atomic\Retrieval\SQL\cls_Get_All_Drugs_for_ContractID.sql" />
+    <Content Include="Case\Atomic\Manipulation\_Support\Save_Case.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Atomic\Retrieval\_Support\Diagnose\Get_All_Diagnoses_for_ContractID.xml" />
+    <Content Include="Case\Atomic\Retrieval\_Support\Drug\Get_All_Drugs_for_ContractID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Case\Complex\Retrieval\_Support\Get_All_Drugs_for_PracticeID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Practice_Default_Settings_for_PracticeID.xml" />
+    <Content Include="Doctor\Atomic\Manipulation\_Support\Save_Doctor.xml" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_DoctorID_for_AccountID.sql" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_DoctorID_for_AccountID.xml" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_PracticeID_for_DoctorID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_all_Doctors_Contract_Assignment_for_PracticeID.sql" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_all_Doctors_Contract_Assignment_for_PracticeID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_PracticeID_for_DoctorID.xml" />
+    <Content Include="Doctor\Complex\Manipulation\_Support\Save_Doctor_to_Contract.xml" />
+    <Content Include="Doctor\Atomic\Manipulation\_Support\Save_Practice.xml" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctor_Contract_for_List.sql" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctor_Contract_for_List.xml" />
+    <Content Include="MainData\Complex\Retrieval\_Support\Get_Account_Information_with_PracticeID.xml" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Check_if_TheSamePatientExists.sql" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Get_AllHealthInsuranceProviders.sql" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Get_AllHealthInsuranceProviders.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Check_if_TheSamePatientExists.xml" />
+    <Content Include="Patient\Atomic\Retrieval\_Support\Check_if_HINumberUnique.xml" />
+    <EmbeddedResource Include="Patient\Atomic\Retrieval\SQL\cls_Check_if_HINumberUnique.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Check_Bsnr.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_all_Practices.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Check_Lanr.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_BankInfo_for_Practice.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctor_Details_for_DoctorID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Practice_Details_for_PracticeID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Practice_AccountID_for_PracticeID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Contracts_for_Doctor.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Check_Doctor_Contracts_Dates.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_BankInfo_for_DoctorID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_Doctor_AccountID_for_DoctorID.sql" />
+    <EmbeddedResource Include="Doctor\Atomic\Retrieval\SQL\cls_Get_DoctorIDs_for_PracticeID.sql" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\CheckLoginEmail.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Check_Bsnr.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Check_Doctor_Contracts_Dates.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Check_Lanr.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_all_Practices.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_BankInfo_for_Practice.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Contracts_for_Doctor.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_BankInfo_for_DoctorID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctor_AccountID_for_DoctorID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Practice_AccountID_for_PracticeID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_DoctorIDs_for_PracticeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Practice_Details_for_PracticeID.xml" />
+    <Content Include="Doctor\Atomic\Retrieval\_Support\Get_Doctor_Details_for_DoctorID.xml" />
+    <Content Include="MainData\Atomic\Manipulation\_Support\Save_Permisions_to_User.xml" />
+    <Content Include="MainData\Atomic\Retrieval\_Support\Get_Account_Information.xml" />
+    <EmbeddedResource Include="MainData\Atomic\Retrieval\SQL\cls_Get_Account_Information.sql" />
+    <Content Include="Patient\Atomic\Manipulation\_Support\Save_Patient.xml" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.de.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\mm-libs\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8a936290-4628-4f28-9639-9b65915a0c8c}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 0\DLCore_TokenVerificationV3\DLCore_TokenVerificationV3.csproj">
+      <Project>{63a878ac-69ff-45f8-8194-f27d7ddec716}</Project>
+      <Name>DLCore_TokenVerificationV3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_ACC_BNK\CL1_ACC_BNK.csproj">
+      <Project>{6c90052f-9ebc-48f7-806b-6d5430aecfbf}</Project>
+      <Name>CL1_ACC_BNK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_BIL\CL1_BIL.csproj">
+      <Project>{d4f4b377-8c25-466f-b42f-315fc44a6d33}</Project>
+      <Name>CL1_BIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3c164500-bf5f-4173-b1a8-154a38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031c04c9-08cd-4833-af41-a9b64d337ca6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_CMN_BPT_CTM\CL1_CMN_BPT_CTM.csproj">
+      <Project>{c453f5a9-9877-4197-a5e3-403ef6a0455d}</Project>
+      <Name>CL1_CMN_BPT_CTM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_CMN_COM\CL1_CMN_COM.csproj">
+      <Project>{63f92c99-99e4-48ac-8ac3-1627ed7831df}</Project>
+      <Name>CL1_CMN_COM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_CMN_CTR\CL1_CMN_CTR.csproj">
+      <Project>{8327f3d8-91fd-4c90-b53d-4f34c8b58c93}</Project>
+      <Name>CL1_CMN_CTR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_CMN_PER\CL1_CMN_PER.csproj">
+      <Project>{6bda1eb4-fa2a-41a1-8b83-171ed9b85add}</Project>
+      <Name>CL1_CMN_PER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06ab1c3c-339f-4e31-8408-232dc283308c}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_DOC\CL1_DOC.csproj">
+      <Project>{08fef49e-52a6-4c81-89ea-cb0679804159}</Project>
+      <Name>CL1_DOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768c60e8-0c7f-42b2-b8c9-d327c6bf334a}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC_ACT\CL1_HEC_ACT.csproj">
+      <Project>{f66b8f6f-ec2c-4867-9d07-d4e9850e8933}</Project>
+      <Name>CL1_HEC_ACT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC_BIL\CL1_HEC_BIL.csproj">
+      <Project>{3fd2ac3a-f34e-433b-8a86-48fe54c51b00}</Project>
+      <Name>CL1_HEC_BIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC_CAS\CL1_HEC_CAS.csproj">
+      <Project>{17e35f8f-6972-4ee9-8135-396798e493c8}</Project>
+      <Name>CL1_HEC_CAS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC_CRT\CL1_HEC_CRT.csproj">
+      <Project>{433faf4c-828d-40d3-9ac1-36b8d9167771}</Project>
+      <Name>CL1_HEC_CRT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC_CTR\CL1_HEC_CTR.csproj">
+      <Project>{ddb8ac6e-2ba5-45a3-9d78-becdb89dd06c}</Project>
+      <Name>CL1_HEC_CTR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC_CTR_I2BC\CL1_HEC_CTR_I2BC.csproj">
+      <Project>{66354857-55b0-4a60-a79a-4445fc50b874}</Project>
+      <Name>CL1_HEC_CTR_I2BC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC_DIA\CL1_HEC_DIA.csproj">
+      <Project>{44b9c824-f3f7-4b95-9f59-87fdc93164de}</Project>
+      <Name>CL1_HEC_DIA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC_HIS\CL1_HEC_HIS.csproj">
+      <Project>{5fe027fb-a11c-44a2-9f60-0ec9acfe4eba}</Project>
+      <Name>CL1_HEC_HIS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC_PRC\CL1_HEC_PRC.csproj">
+      <Project>{a5b4351c-89c5-438e-a57e-e048b40d3527}</Project>
+      <Name>CL1_HEC_PRC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC_TRE\CL1_HEC_TRE.csproj">
+      <Project>{29a9c10c-a64e-4b75-925c-655ba00483cc}</Project>
+      <Name>CL1_HEC_TRE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_ORD_PRC\CL1_ORD_PRC.csproj">
+      <Project>{2ed9ec1f-4c36-4790-b8ae-6c03f4b40588}</Project>
+      <Name>CL1_ORD_PRC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{feab6f0e-56f1-43d4-bef0-988b26474dd2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 2\CL2_Language\CL2_Language.csproj">
+      <Project>{58245a4d-887c-4aa1-b01e-7e6779c4f096}</Project>
+      <Name>CL2_Language</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\edifact-api\Edifact API\Edifact API.csproj">
+      <Project>{7c18d789-bcfe-40cc-818a-163c89370531}</Project>
+      <Name>Edifact API</Name>
+    </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)\BOpSDK\BOpSDK.csproj">
+      <Project>{b5aa6031-a2a9-4642-abf6-2290c8deedc6}</Project>
+      <Name>BOpSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMDocConnectElasticSearchMethods\MMDocConnectElasticSearchMethods.csproj">
+      <Project>{e99e90be-66e5-4412-b67c-ebfe6a5286ad}</Project>
+      <Name>MMDocConnectElasticSearchMethods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMDocConnectLogUtils\LogUtils\LogUtils.csproj">
+      <Project>{3b9f11bc-018f-4f4e-ac96-708a2b1f86fc}</Project>
+      <Name>LogUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMDocConnectUtils\MMDocConnectUtils.csproj">
+      <Project>{723f3602-7c25-4f63-813e-5731f820ef4b}</Project>
+      <Name>MMDocConnectUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

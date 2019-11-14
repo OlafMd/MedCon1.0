@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="21-Oct-13 13:35:17">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Project</Name>
+    <Namespace>CL5_Plannico_Projects.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_Projects.Atomic.Manipulation"
+                Method_ClassName="cls_Save_Project"
+                Method_Name="Save_Project"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Project"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L5PR_SPR_1333">
+    <Members>
+      <ClassMember Name="TMS_PRO_ProjectID" Type="Guid"  />
+      <ClassMember Name="IsArchived" Type="bool"  />
+      <ClassMember Name="Name" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Name_DictID"  />
+      <ClassMember Name="Description" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Description_DictID"  />
+      <ClassMember Name="Default_CostCenter_RefID" Type="Guid" />
+      <ClassMember Name="TMS_PRO_Project_Group_RefID" Type="Guid" />
+    </Members>
+  </Parameters>
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+    
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />    
+    
+	</ResultInfo>
+
+</CodeGen>
+
+

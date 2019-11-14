@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_patient_diagnosis_localizations
+	(
+		HEC_Patient_Diagnosis_LocalizationID,
+		Patient_Diagnosis_RefID,
+		DIA_Diagnosis_Localization_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_Patient_Diagnosis_LocalizationID,
+		@Patient_Diagnosis_RefID,
+		@DIA_Diagnosis_Localization_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,53 @@
+﻿<div ng-init="initializeController()" id="view">
+    <add-practice-directive id="practiceDirective" ng-if="showPracticeDirective"></add-practice-directive>
+
+    <add-doctor-directive id="doctorDirective" ng-if="showDoctorDirective"></add-doctor-directive>
+
+    <div class="gray-content-holder clear" ng-hide="hidePracticeButton">
+        <button id="btnPracticeDir" class="wide-add-button" ng-click="OpenFormAddPractice()" translate="LABEL_ADD_PRACTICE" ng-model="showPracticeDirective" ng-init="showPracticeDirective=false"></button>
+    </div>
+    <div class="gray-content-holder padding-gray-holder clear" ng-hide="hideDoctorButton">
+
+        <button id="btnDoctorDir" class="wide-add-button" ng-click="OpenFormAddDoctor()" ng-class="{disabled:DisableDoctorbtn ==true}" translate="LABEL_ADD_DOCTOR" ng-model="showDoctorDirective" ng-init="showDoctorDirective=false" ng-disabled="DisableDoctorbtn"></button>
+    </div>
+
+    <ul class="table-header doctors-table" id="listHeader">
+        <li class="unsorted" ng-class="setTableHeaderClass('name_untouched')" ng-click="SortFunction('name_untouched')">{{::'LABEL_DOCTOR_PRACTICE_NAME' | translate }}</li>
+        <li class="unsorted text-center" ng-class="setTableHeaderClass('type')" ng-click="SortFunction('type')">{{::'LABEL_DOCTOR_PRACTICE' | translate }}</li>
+        <li>{{::'LABEL_BSNR_LANR'| translate}}</li>
+        <li class="unsorted text-center" ng-class="setTableHeaderClass('contract')" ng-click="SortFunction('contract')">{{::'LABEL_CONTRACT'| translate}}</li>
+        <li>{{::'LABEL_ADDRESS'| translate}}</li>
+        <li>{{::'LABEL_CONTACT'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('bank_untouched')" ng-click="SortFunction('bank_untouched')">{{::'LABEL_BANK'| translate}}</li>
+        <li>{{::'LABEL_IBAN_BIC'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('account_status')" ng-click="SortFunction('account_status')">{{::'LABEL_ACCOUNT_STATUS' | translate}}</li>
+        <li class="controls"></li>
+    </ul>
+    <h2 id="stickyHeaderBox" class="first-letter-holder hide"></h2>
+
+    <div class="content-scroll clear" id="wrapper" ng-if="showData" sticky>
+        <div id="wrapper_inner" class="clearfix">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="item in DoctorPrList | groupBy:'group_name'" ng-repeat-finished>
+                    <h2 id="tableGroup" class="first-letter-holder tableGroup" ng-if="item.group_name_CHANGED">{{::item.group_name}}</h2>
+                    <div class="table-row">
+                        <ul id="list" class="table-content doctors-table" ng-class="getBorderClassName(item)">
+                            <li class="larger-font">{{::item.name}}<div class="normal-height-font gray-font-color">{{::item.doctor_count_or_practice_name}} <span ng-if="item.type=='Practice'">{{::'LABEL_DOCTOR' | translate}}</span></div></li>
+                            <li class="text-center"><span ng-class="{'icons-hospital-item':item.type=='Practice', 'icons-doctor-item':item.type=='Doctor' }"></span></li>
+                            <li>{{::item.bsnr_lanr || '-'}}</li>
+                            <li class="text-center">{{::item.contract}}</li>
+                            <li>{{::item.address || '-'}}<div class="normal-height-font gray-font-color">{{ ::item.zip}} {{ ::item.city }}</div></li>
+                            <li>{{::item.phone || '-'}}<div class="normal-height-font gray-font-color">{{ ::item.email}}</div></li>
+                            <li>{{::item.bank || '-'}}</li>
+                            <li>{{::item.iban || '-'}}<div class="normal-height-font gray-font-color">{{ ::item.bic}}</div></li>
+                            <li class="table-row-color">{{::item.account_status | translate}}</li>
+                            <li class="controls text-right">
+                                <a class="icons-eye" href="{{::getPathForRedirect(item.id,item.type)}}" title="{{::'BUTTON_EDIT' | translate}}"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

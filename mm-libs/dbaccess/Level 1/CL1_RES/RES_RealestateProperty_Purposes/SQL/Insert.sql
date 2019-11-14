@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_realestateproperty_purposes
+	(
+		RES_RealestateProperty_PurposeID,
+		Purpose_Name_DictID,
+		Purpose_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_RealestateProperty_PurposeID,
+		@Purpose_Name,
+		@Purpose_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

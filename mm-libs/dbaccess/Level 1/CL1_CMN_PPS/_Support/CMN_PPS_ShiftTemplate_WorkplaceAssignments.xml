@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:45:16 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_PPS_ShiftTemplate_WorkplaceAssignment"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_PPS"
+                IsClass_Corresponding_DBTable="cmn_pps_shifttemplate_workplaceassignments" >
+      <Members>
+		<ClassMember Name="CMN_PPS_ShiftTemplate_WorkplaceAssignmentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="CMN_STR_PPS_Workplace_RefID" Type="Guid" />
+		<ClassMember Name="CMN_PPS_ShiftTemplate_RefID" Type="Guid" />
+		<ClassMember Name="ShiftStart_Offset_sec" Type="Double" />
+		<ClassMember Name="Required_StaffHeadCount" Type="int" />
+		<ClassMember Name="Shift_Assignment_Duration_sec" Type="Double" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

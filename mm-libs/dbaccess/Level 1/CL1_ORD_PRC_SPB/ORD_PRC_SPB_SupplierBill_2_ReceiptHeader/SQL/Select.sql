@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	ord_prc_spb_supplierbill_2_receiptheaders
+WHERE 
+	ORD_PRC_SPB_SupplierBill_2_ReceiptHeaderID = @ORD_PRC_SPB_SupplierBill_2_ReceiptHeaderID

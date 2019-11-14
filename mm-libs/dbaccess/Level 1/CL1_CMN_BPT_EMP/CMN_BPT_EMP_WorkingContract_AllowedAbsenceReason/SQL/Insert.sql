@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_bpt_emp_workingcontract_allowedabsencereasons
+	(
+		CMN_BPT_EMP_WorkingContract_AllowedAbsenceReasonID,
+		WorkingContract_RefID,
+		STA_AbsenceReason_RefID,
+		IsAbsenceCalculated_InHours,
+		IsAbsenceCalculated_InDays,
+		ContractAllowedAbsence_per_Month,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_EMP_WorkingContract_AllowedAbsenceReasonID,
+		@WorkingContract_RefID,
+		@STA_AbsenceReason_RefID,
+		@IsAbsenceCalculated_InHours,
+		@IsAbsenceCalculated_InDays,
+		@ContractAllowedAbsence_per_Month,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_ctr_contract_roles
+	(
+		CMN_CTR_Contract_RoleID,
+		GlobalPropertyMatchingID,
+		RoleName,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_CTR_Contract_RoleID,
+		@GlobalPropertyMatchingID,
+		@RoleName,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

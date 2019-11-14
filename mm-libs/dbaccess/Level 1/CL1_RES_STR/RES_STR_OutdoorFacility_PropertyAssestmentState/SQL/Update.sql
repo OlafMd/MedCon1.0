@@ -1,0 +1,11 @@
+UPDATE 
+	res_str_outdoorfacility_propertyassestmentstates
+SET 
+	OutdoorFacilityPropertyAssessmentState_Name_DictID=@OutdoorFacilityPropertyAssessmentState_Name,
+	OutdoorFacilityPropertyAssessmentState_Description_DictID=@OutdoorFacilityPropertyAssessmentState_Description,
+	OutdoorFacilityPropertyAssessmentState_OrdinalPosition=@OutdoorFacilityPropertyAssessmentState_OrdinalPosition,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_STR_OutdoorFacility_PropertyAssestmentStateID = @RES_STR_OutdoorFacility_PropertyAssestmentStateID

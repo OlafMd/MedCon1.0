@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD8FD0D2-89F2-4B0B-83B4-C1B81B522E19}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL3_Zugseil_Catalog</RootNamespace>
+    <AssemblyName>CL3_Zugseil_Catalog</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_CatalogSupplierTenantID_for_SubscribedCatalogID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Catalog_and_Revisions_for_CatalogID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Catalog_ProductGroups_for_CatalogRevision.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Latest_CatalogRevisionID.cs" />
+    <Compile Include="Complex\Manipulation\cls_CreateOrUpdateSupplier_for_ImportedCatalog.cs" />
+    <Compile Include="Complex\Manipulation\cls_Import_Catalog.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Catalog_and_Revisions_for_CatalogID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Latest_CatalogRevisionID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_CatalogSupplierTenantID_for_SubscribedCatalogID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Catalog_ProductGroups_for_CatalogRevision.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_CatalogSupplierTenantID_for_SubscribedCatalogID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Catalog_and_Revisions_for_CatalogID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Catalog_ProductGroups_for_CatalogRevision.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Latest_CatalogRevisionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\CreateOrUpdateSupplier_for_ImportedCatalog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Import_Catalog.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Complex\Manipulation\SQL\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3c164500-bf5f-4173-b1a8-154a38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031c04c9-08cd-4833-af41-a9b64d337ca6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_COM\CL1_CMN_COM.csproj">
+      <Project>{63f92c99-99e4-48ac-8ac3-1627ed7831df}</Project>
+      <Name>CL1_CMN_COM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06ab1c3c-339f-4e31-8408-232dc283308c}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_SLS\CL1_CMN_SLS.csproj">
+      <Project>{86752ce8-6442-4c3f-a316-98fadbb38be1}</Project>
+      <Name>CL1_CMN_SLS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Language\CL2_Language.csproj">
+      <Project>{58245a4d-887c-4aa1-b01e-7e6779c4f096}</Project>
+      <Name>CL2_Language</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_Product\CL3_Product.csproj">
+      <Project>{737719e7-e00f-40a8-b2b1-0ff1200b39f5}</Project>
+      <Name>CL3_Product</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

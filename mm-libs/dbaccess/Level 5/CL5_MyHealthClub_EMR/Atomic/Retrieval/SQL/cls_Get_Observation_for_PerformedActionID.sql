@@ -1,0 +1,20 @@
+
+Select
+  hec_act_performedaction_madeobservations.Comment,
+  hec_act_performedaction_madeobservations.HEC_ACT_PerformedAction_ObservationID,
+  hec_act_performedaction_madeobservation_documents.DOC_Document_RefID
+From
+  hec_act_performedaction_madeobservations Left Join
+  hec_act_performedaction_madeobservation_documents
+    On
+    hec_act_performedaction_madeobservation_documents.HEC_ACT_PerformedAction_MadeObservation_RefID = hec_act_performedaction_madeobservations.HEC_ACT_PerformedAction_ObservationID And hec_act_performedaction_madeobservation_documents.IsDeleted = 0
+Where
+  hec_act_performedaction_madeobservations.IsDeleted = 0 And
+  hec_act_performedaction_madeobservations.Tenant_RefID = @TenantID And
+  hec_act_performedaction_madeobservations.HEC_ACT_PerformedAction_RefID =
+  @PerformedActionID And
+  hec_act_performedaction_madeobservations.Relevant_PatientDiagnosis_RefID =
+  @PatientDiagnosisID
+Order By
+  hec_act_performedaction_madeobservations.Creation_Timestamp Desc
+  

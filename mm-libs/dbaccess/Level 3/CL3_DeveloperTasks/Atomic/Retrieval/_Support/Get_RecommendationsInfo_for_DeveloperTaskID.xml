@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="07/04/2014">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_RecommendationsInfo_for_DeveloperTaskID</Name>
+    <Namespace>CL3_DeveloperTask.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_DeveloperTask.Atomic.Retrieval"
+                Method_ClassName="cls_Get_RecommendationsInfo_for_DeveloperTaskID"
+                Method_Name="Get_RecommendationsInfo_for_DeveloperTaskID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.LastName,
+  tms_pro_projectmembers.TMS_PRO_ProjectMemberID
+From
+  tms_pro_developertask_recommendations Inner Join
+  tms_pro_projectmembers
+    On tms_pro_developertask_recommendations.RecommendedTo_ProjectMember_RefID =
+    tms_pro_projectmembers.TMS_PRO_ProjectMemberID Inner Join
+  cmn_per_personinfo_2_account On tms_pro_projectmembers.USR_Account_RefID =
+    cmn_per_personinfo_2_account.USR_Account_RefID Inner Join
+  cmn_per_personinfo On cmn_per_personinfo_2_account.CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID
+Where
+  tms_pro_developertask_recommendations.DeveloperTask_RefID = @DTaskID And
+  tms_pro_developertask_recommendations.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3DT_GRIfDTID_1408">
+    <Members>
+      <ClassMember Name="DTaskID" Type="Guid"/>
+    </Members>
+  </Parameters>
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3DT_GRIfDTID_1408" IsArray="true">
+      <Members>
+        <ClassMember Name="TMS_PRO_ProjectMemberID" Type="Guid"  />
+        <ClassMember Name="FirstName" Type="String"  />
+        <ClassMember Name="LastName" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_com_companyinfo_types
+	(
+		CMN_COM_CompanyInfo_TypeID,
+		CompanyType_Name_DictID,
+		CompanyType_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_COM_CompanyInfo_TypeID,
+		@CompanyType_Name,
+		@CompanyType_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

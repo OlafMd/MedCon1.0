@@ -1,0 +1,19 @@
+INSERT INTO 
+	hec_app_appointment_patientbookings
+	(
+		HEC_APP_Appointment_PatientBookingID,
+		Appointment_RefID,
+		Patient_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_APP_Appointment_PatientBookingID,
+		@Appointment_RefID,
+		@Patient_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

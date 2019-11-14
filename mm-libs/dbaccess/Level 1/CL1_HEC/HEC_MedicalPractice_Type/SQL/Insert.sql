@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_medicalpractice_types
+	(
+		HEC_MedicalPractice_TypeID,
+		GlobalPropertyMatchingID,
+		MedicalPracticeType_Name_DictID,
+		Creation_Timestamp,
+		Modification_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_MedicalPractice_TypeID,
+		@GlobalPropertyMatchingID,
+		@MedicalPracticeType_Name,
+		@Creation_Timestamp,
+		@Modification_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

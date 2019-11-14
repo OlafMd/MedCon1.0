@@ -1,0 +1,23 @@
+INSERT INTO 
+	log_shp_rsh_receivablecreditnote_2_receiptposition
+	(
+		AssignmentID,
+		LOG_SHP_ReturnShipment_ReceivableCreditNote_Position_RefID,
+		LOG_RCP_Receipt_Position_RefID,
+		CompensationValue,
+		IsFullCompensationForReceivableCreditNotePosition,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@LOG_SHP_ReturnShipment_ReceivableCreditNote_Position_RefID,
+		@LOG_RCP_Receipt_Position_RefID,
+		@CompensationValue,
+		@IsFullCompensationForReceivableCreditNotePosition,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

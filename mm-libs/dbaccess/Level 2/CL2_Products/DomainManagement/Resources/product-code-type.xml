@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+    <Item ID="product-code-type.EAN">
+      <Lang ISO="EN" Content="EAN" />
+      <Lang ISO="DE" Content="EAN" />
+      <Lang ISO="RS" Content="EAN" />
+    </Item>
+</Resources>

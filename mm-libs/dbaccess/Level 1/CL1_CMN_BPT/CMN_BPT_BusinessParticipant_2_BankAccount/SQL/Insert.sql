@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_bpt_businessparticipant_2_bankaccount
+	(
+		AssignmentID,
+		CMN_BPT_BusinessParticipant_RefID,
+		ACC_BNK_BankAccount_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_BPT_BusinessParticipant_RefID,
+		@ACC_BNK_BankAccount_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

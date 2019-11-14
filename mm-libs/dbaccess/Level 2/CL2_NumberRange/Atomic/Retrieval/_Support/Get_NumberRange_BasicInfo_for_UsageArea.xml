@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/9/2014 10:01:14 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_NumberRange_BasicInfo_for_UsageArea</Name>
+    <Namespace>CL2_NumberRange.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_NumberRange.Atomic.Retrieval"
+                Method_ClassName="cls_Get_NumberRange_BasicInfo_for_UsageArea"
+                Method_Name="Get_NumberRange_BasicInfo_for_UsageArea"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_NumberRange_BasicInfo_for_UsageArea"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+      cmn_numberranges.Value_Current,
+      cmn_numberranges.Value_Start,
+      cmn_numberranges.Value_End,
+      cmn_numberranges.FixedPrefix,
+      cmn_numberranges.Formatting_NumberLength,
+      cmn_numberranges.Formatting_LeadingFillCharacter,
+      cmn_numberranges.CMN_NumberRangeID
+    From
+      cmn_numberrange_usageareas Left Join
+      cmn_numberranges On cmn_numberranges.NumberRange_UsageArea_RefID =
+        cmn_numberrange_usageareas.CMN_NumberRange_UsageAreaID And
+        cmn_numberranges.IsDeleted = 0
+    Where
+      cmn_numberrange_usageareas.IsDeleted = 0 And
+      cmn_numberrange_usageareas.Tenant_RefID = @TenantID And
+      cmn_numberrange_usageareas.GlobalStaticMatchingID = @GlobalStaticMatchingID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2NR_GNRBIfUA_1000">
+    <Members>
+      <ClassMember Name="GlobalStaticMatchingID" Type="String"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2NR_GNRBIfUA_1000" IsArray="false">
+			<Members>
+
+        <ClassMember Name="CMN_NumberRangeID" Type="Guid"  />
+        <ClassMember Name="Value_Current" Type="long"  />
+				<ClassMember Name="Value_Start" Type="long"  />
+				<ClassMember Name="Value_End" Type="long"  />
+				<ClassMember Name="FixedPrefix" Type="String"  />
+				<ClassMember Name="Formatting_NumberLength" Type="int"  />
+				<ClassMember Name="Formatting_LeadingFillCharacter" Type="String"  />
+			
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

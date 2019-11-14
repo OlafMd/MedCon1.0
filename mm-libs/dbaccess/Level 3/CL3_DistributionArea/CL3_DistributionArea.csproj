@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{37BB63A7-1DF6-413E-A915-595CC0D31900}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL3_DistributionArea</RootNamespace>
+    <AssemblyName>CL3_DistributionArea</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_All_DistributionArea2Country_Assignments.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DistributionAreas_for_Tenant.cs" />
+    <Compile Include="Complex\Manipulation\cls_Delete_DistributionArea_with_Country_Assignments.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_DistributionArea_with_Country_Assignments.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DistributionAreas_With_Country_Assignments.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3c164500-bf5f-4173-b1a8-154a38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06ab1c3c-339f-4e31-8408-232dc283308c}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_REG\CL1_LOG_REG.csproj">
+      <Project>{13fd8627-8dbc-4176-87ce-ef3e265432f5}</Project>
+      <Name>CL1_LOG_REG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_EconomicRegion\CL2_EconomicRegion.csproj">
+      <Project>{c447c872-c476-4a8d-b765-c83098840abe}</Project>
+      <Name>CL2_EconomicRegion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_Language\CL3_Language.csproj">
+      <Project>{048f2d66-5f1a-41e3-beec-3b8201c1a54e}</Project>
+      <Name>CL3_Language</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Complex\Manipulation\SQL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_DistributionArea2Country_Assignments.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DistributionAreas_for_Tenant.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_DistributionArea2Country_Assignments.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DistributionAreas_for_Tenant.xml" />
+    <Content Include="Complex\Manipulation\_Support\Delete_DistributionArea_with_Country_Assignments.xml" />
+    <EmbeddedResource Include="Complex\Retrieval\SQL\cls_Get_DistributionAreas_With_Country_Assignments.sql" />
+    <Content Include="Complex\Retrieval\_Support\Get_DistributionAreas_with_Country_Assignments.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_DistributionArea_with_Country_Assignments.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

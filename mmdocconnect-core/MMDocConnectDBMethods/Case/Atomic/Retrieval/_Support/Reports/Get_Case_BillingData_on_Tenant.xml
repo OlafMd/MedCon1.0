@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Case_BillingData_on_Tenant</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Case_BillingData_on_Tenant"
+								Method_Name="Get_Case_BillingData_on_Tenant"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <!--Increase QueryTimeout from 60 to 600 after rebuild xml-->
+  
+  <SQLStatement xml:space="preserve">
+Select
+  hec_cas_cases.HEC_CAS_CaseID As case_id,
+  hec_cas_cases.CaseNumber As case_number,
+  bil_billpositions.BIL_BillPositionID As bill_position_id,
+  hec_bil_billposition_billcodes.PotentialCode_RefID As gpos_id,
+  bil_billposition_transmitionstatuses.TransmitionStatusKey As fs_status_key,
+  bil_billposition_transmitionstatuses.TransmitionCode As fs_status_code,
+  bil_billpositions.PositionNumber As bill_position_number,
+  hec_bil_potentialcodes.BillingCode As gpos_code,
+  bil_billpositions.PositionValue_IncludingTax As gpos_price,
+  hec_bil_billpositions.HEC_BIL_BillPositionID as hec_bill_position_id,
+  hec_bil_potentialcode_catalogs.GlobalPropertyMatchingID as gpos_type,
+  bil_billposition_transmitionstatuses.BIL_BillPosition_TransmitionStatusID as fs_status_id
+From
+  hec_cas_cases Inner Join
+  hec_cas_case_billcodes
+    On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_billcodes.HEC_CAS_Case_RefID And hec_cas_case_billcodes.Tenant_RefID = @TenantID And
+    hec_cas_case_billcodes.IsDeleted = 0 Inner Join
+  hec_bil_billposition_billcodes
+    On hec_cas_case_billcodes.HEC_BIL_BillPosition_BillCode_RefID = hec_bil_billposition_billcodes.HEC_BIL_BillPosition_BillCodeID And
+    hec_bil_billposition_billcodes.Tenant_RefID = @TenantID And hec_bil_billposition_billcodes.IsDeleted = 0 Inner Join
+  hec_bil_billpositions
+    On hec_bil_billposition_billcodes.BillPosition_RefID = hec_bil_billpositions.HEC_BIL_BillPositionID And hec_bil_billpositions.Tenant_RefID = @TenantID And
+    hec_bil_billpositions.IsDeleted = 0 Inner Join
+  bil_billpositions
+    On hec_bil_billpositions.Ext_BIL_BillPosition_RefID = bil_billpositions.BIL_BillPositionID And bil_billpositions.Tenant_RefID = @TenantID And
+    bil_billpositions.IsDeleted = 0 Left Join
+  bil_billposition_transmitionstatuses
+    On bil_billpositions.BIL_BillPositionID = bil_billposition_transmitionstatuses.BillPosition_RefID And bil_billposition_transmitionstatuses.IsActive = 1 And
+    bil_billposition_transmitionstatuses.Tenant_RefID = @TenantID And bil_billposition_transmitionstatuses.IsDeleted = 0 Inner Join
+  hec_bil_potentialcodes
+    On hec_bil_billposition_billcodes.PotentialCode_RefID = hec_bil_potentialcodes.HEC_BIL_PotentialCodeID And hec_bil_potentialcodes.Tenant_RefID = @TenantID
+    And hec_bil_potentialcodes.IsDeleted = 0 Inner Join
+  hec_bil_potentialcode_catalogs
+    On hec_bil_potentialcodes.PotentialCode_Catalog_RefID = hec_bil_potentialcode_catalogs.HEC_BIL_PotentialCode_CatalogID And
+    hec_bil_potentialcode_catalogs.Tenant_RefID = @TenantID And
+    hec_bil_potentialcode_catalogs.IsDeleted = 0
+Where
+  hec_cas_cases.Tenant_RefID = @TenantID And
+  hec_cas_cases.IsDeleted = 0
+Order By
+  hec_cas_case_billcodes.Creation_Timestamp
+	</SQLStatement>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GCBDoT_1048" IsArray="true">
+      <Members>
+        <ClassMember Name="case_id" Type="Guid"  />
+        <ClassMember Name="case_number" Type="String"  />
+        <ClassMember Name="bill_position_id" Type="Guid"  />
+        <ClassMember Name="gpos_id" Type="Guid"  />
+        <ClassMember Name="fs_status_key" Type="String"  />
+        <ClassMember Name="fs_status_code" Type="int"  />
+        <ClassMember Name="bill_position_number" Type="String"  />
+        <ClassMember Name="gpos_code" Type="String"  />
+        <ClassMember Name="gpos_price" Type="double"  />
+        <ClassMember Name="gpos_type" Type="String"  />
+        <ClassMember Name="hec_bill_position_id" Type="Guid"  />
+        <ClassMember Name="fs_status_id" Type="Guid"  />        
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

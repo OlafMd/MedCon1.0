@@ -1,0 +1,48 @@
+﻿<div ng-init="initializeController()">
+    <ul class="table-header orders-table-mm">
+        <li class="unsorted" ng-class="setTableHeaderClass('treatment_date')" ng-click="SortFunction('treatment_date')">{{'LABEL_DATE_TIME' | translate }}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('patient_name')" ng-click="SortFunction('patient_name')">{{'LABEL_LAST_NAME_FIRST_NAME'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('diagnose')" ng-click="SortFunction('diagnose')">{{'LABEL_DIAGNOSE'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('drug')" ng-click="SortFunction('drug')">{{'LABEL_DRUG'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('pharmacy_name')" ng-click="SortFunction('pharmacy_name')">{{'LABEL_PHARMACY'| translate}}</li>
+        <li class="unsorted text-center" ng-class="setTableHeaderClass('localization')" ng-click="SortFunction('localization')">{{'LABEL_LOKALIZATION'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('treatment_doctor_name')" ng-click="SortFunction('treatment_doctor_name')">{{'LABEL_DOC_OR_PRACTICE'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('status_drug_order')" ng-click="SortFunction('status_drug_order')">{{'LABEL_ORDER_STATUS'| translate}}</li>
+        <li class="controls text-right"></li>
+    </ul>
+    <h2 id="stickyHeaderBox" class="first-letter-holder hide"></h2>
+
+    <div class="content-scroll clear" id="wrapper" ng-if="showData" sticky>
+        <div id="wrapper_inner" class="clearfix">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="item in orders | groupBy:'group_name'" ng-repeat-finished>
+                    <h2 id="tableGroup" class="first-letter-holder tableGroup" ng-if="item.group_name_CHANGED">{{::item.group_name| translate}}</h2>
+                    <div class="table-row">
+                        <ul id="list" class="table-content orders-table-mm" ng-class="getBorderClassName(item)">
+                            <li><big>{{::item.delivery_date_month}}</big></li>
+                            <li class="larger-font">
+                                {{::item.patient_name}}
+                                <a href="#/patient/patient_detail/{{item.patient_id}}" id="btnGoToPatientDetails_{{$index}}" title="{{ 'BUTTON_GO_TO_PATIENT_DETAILS' | translate}}"><i class="icons-preview-black"></i></a>
+                                <div class="normal-height-font gray-font-color">{{::item.patient_birthdate_string}}</div>
+                            </li>
+                            <li>{{::item.diagnose}}</li>
+                            <li>{{::item.drug}}</li>
+                            <li>{{::item.pharmacy_name}}<div class="normal-height-font gray-font-color">{{::item.delivery_date_string}} {{::item.delivery_time_string}}</div></li>
+                            <li class="text-center">{{::item.localization}}</li>
+                            <li>{{::item.treatment_doctor_name}}<div class="normal-height-font gray-font-color">{{::item.treatment_doctor_practice_name}}</div></li>
+                            <li class="table-row-color">
+                                <span>{{::item.status_drug_order |translate}}</span>
+                                <div class="normal-height-font gray-font-color">{{::item.order_modification_timestamp_string | translate}}</div>
+                            </li>
+                            <li class="controls text-right">
+                                <span ng-hide="item.status_drug_order == 'MO4' || item.status_drug_order == 'MO6' || item.status_drug_order == 'MO10'">
+                                    <a href class="icons-discard action-delete-button" ng-click="RejectOrder(item)" title="{{'BUTTON_REJECT_ORDER' | translate}}">{{'BUTTON_REJECT_ORDER' | translate}}</a>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

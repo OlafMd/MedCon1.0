@@ -1,0 +1,21 @@
+INSERT INTO 
+	tms_accountprofile_2_sks_skill
+	(
+		AssignmentID,
+		AccountProfile_RefID,
+		Skill_RefID,
+		Rating,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@AccountProfile_RefID,
+		@Skill_RefID,
+		@Rating,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

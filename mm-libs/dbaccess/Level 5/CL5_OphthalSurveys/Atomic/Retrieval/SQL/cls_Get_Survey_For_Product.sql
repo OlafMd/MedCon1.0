@@ -1,0 +1,42 @@
+
+Select
+  cmn_qst_questionnaire_template_versions.QuestionnaireTemplate_RefID,
+  cmn_qst_questionnaire_template_versions.CMN_QST_Questionnaire_Template_VersionID,
+  cmn_qst_questionnaire_questionitems.CMN_QST_Questionnaire_ItemID,
+  cmn_qst_questionnaire_questionitems.Questionnaire_Template_RefID,
+  cmn_qst_questionnaire_questionitems.QuestionItem_Label_DictID,
+  cmn_qst_questionnaire_questionitems.QuestionItem_Description_DictID,
+  cmn_qst_questionnaire_questionitems.QuestionItem_SequenceNumber,
+  cmn_qst_questionitem_enumerationanswertypes.EnumerationAnswerType_Name_DictID,
+  cmn_qst_questionitem_enumerationanswertypes.CMN_QST_QuestionItem_EnumerationAnswerTypeID,
+  cmn_qst_questionitem_enumerationanswers.EnumerationAnswer_Text_DictID,
+  cmn_qst_questionitem_enumerationanswers.EnumerationAnswerType_RefID,
+  cmn_qst_questionitem_enumerationanswers.CMN_QST_QuestionItem_EnumerationAnswerID,
+  cmn_pro_product_questionnaire_assignment.CMN_PRO_Product_Questionnaire_AssignmentID
+From
+  cmn_pro_product_questionnaire_assignment Inner Join
+  cmn_qst_questionnaire_template_versions
+    On
+    cmn_pro_product_questionnaire_assignment.CMN_QST_Questionnaire_Template_Version_RefID = cmn_qst_questionnaire_template_versions.CMN_QST_Questionnaire_Template_VersionID Inner Join
+  cmn_qst_questionnaire_questionitems
+    On
+    cmn_qst_questionnaire_template_versions.CMN_QST_Questionnaire_Template_VersionID = cmn_qst_questionnaire_questionitems.Questionnaire_Template_RefID Inner Join
+  cmn_qst_questionitem_enumerationanswertypes
+    On cmn_qst_questionnaire_questionitems.IfAnswer_EnumType_RefID =
+    cmn_qst_questionitem_enumerationanswertypes.CMN_QST_QuestionItem_EnumerationAnswerTypeID Inner Join
+  cmn_qst_questionitem_enumerationanswers
+    On
+    cmn_qst_questionitem_enumerationanswertypes.CMN_QST_QuestionItem_EnumerationAnswerTypeID = cmn_qst_questionitem_enumerationanswers.EnumerationAnswerType_RefID
+Where
+  cmn_qst_questionnaire_template_versions.IsDeleted = 0 And
+  cmn_qst_questionitem_enumerationanswertypes.IsDeleted = 0 And
+  cmn_qst_questionnaire_questionitems.IsDeleted = 0 And
+  cmn_pro_product_questionnaire_assignment.CMN_PRO_Product_RefID = @ProductID
+  And
+  cmn_qst_questionitem_enumerationanswers.IsDeleted = 0 And
+  cmn_pro_product_questionnaire_assignment.IsActive = 0 And
+  cmn_qst_questionnaire_template_versions.IsQuestionnaireVersion_Published = 0
+  Order By
+  cmn_qst_questionnaire_questionitems.QuestionItem_SequenceNumber,
+  cmn_qst_questionitem_enumerationanswers.Creation_Timestamp
+  

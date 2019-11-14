@@ -1,0 +1,10 @@
+UPDATE 
+	ord_prc_spb_supplierbill_2_receiptheaders
+SET 
+	ORD_PRC_SPB_SupplierBill_Header_RefID=@ORD_PRC_SPB_SupplierBill_Header_RefID,
+	LOG_RCP_Receipt_Header_RefID=@LOG_RCP_Receipt_Header_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	ORD_PRC_SPB_SupplierBill_2_ReceiptHeaderID = @ORD_PRC_SPB_SupplierBill_2_ReceiptHeaderID

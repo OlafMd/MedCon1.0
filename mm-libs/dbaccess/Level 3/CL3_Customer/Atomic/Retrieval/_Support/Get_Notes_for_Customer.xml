@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="29/9/2014 05:31:11">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Notes_for_Customer</Name>
+    <Namespace>CL3_Customer.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Customer.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Notes_for_Customer"
+                Method_Name="Get_Notes_for_Customer"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Notes_for_Customer"
+                />
+
+  <SQLStatement xml:space="preserve">
+		  SELECT cmn_bpt_memos.CMN_BPT_MemoID,
+		       usr_accounts.USR_AccountID,
+		       usr_accounts.Username,
+		       cmn_bpt_memos.Memo_Text,
+		       cmn_bpt_memos.Creation_Timestamp,
+		       cmn_bpt_memos.IsImportant,
+		       cmn_bpt_memo_relatedparticipants.CMN_BPT_Memo_RelatedParticipantID,
+		       cmn_bpt_memo_relatedparticipants.CMN_BPT_BusinessParticipant_RefID,
+		       cmn_bpt_memos.Tenant_RefID
+		  FROM cmn_bpt_memos 
+		        INNER JOIN
+		        cmn_bpt_memo_relatedparticipants
+		           ON cmn_bpt_memos.CMN_BPT_MemoID = cmn_bpt_memo_relatedparticipants.CMN_BPT_Memo_RefID 
+		           AND cmn_bpt_memo_relatedparticipants.IsDeleted = 0
+		           AND cmn_bpt_memo_relatedparticipants.Tenant_RefID = @TenantID
+		        INNER JOIN
+		        usr_accounts
+		        ON usr_accounts.USR_AccountID = cmn_bpt_memos.CreatedBy_Account_RefID
+		  WHERE cmn_bpt_memo_relatedparticipants.CMN_BPT_BusinessParticipant_RefID = @RelatedParticipantID
+		       AND cmn_bpt_memos.Tenant_RefID = @TenantID
+		       AND cmn_bpt_memos.IsDeleted = 0
+	         AND (@IsImportant is null OR cmn_bpt_memos.IsImportant = @IsImportant)
+
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3CU_GNfC_1730">
+    <Members>
+		<ClassMember Name="RelatedParticipantID" Type="Guid"  />
+		<ClassMember Name="IsImportant" Type="bool?"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3CU_GNfC_1730" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_BPT_MemoID" Type="Guid"  />
+				<ClassMember Name="USR_AccountID" Type="Guid"  />
+				<ClassMember Name="Username" Type="String"  />
+				<ClassMember Name="Memo_Text" Type="String"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="IsImportant" Type="bool"  />
+				<ClassMember Name="CMN_BPT_Memo_RelatedParticipantID" Type="Guid"  />
+				<ClassMember Name="CMN_BPT_BusinessParticipant_RefID" Type="Guid"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

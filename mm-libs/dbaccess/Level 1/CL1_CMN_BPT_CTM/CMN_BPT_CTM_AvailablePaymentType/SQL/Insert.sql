@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_bpt_ctm_availablepaymenttypes
+	(
+		CMN_BPT_CTM_AvailablePaymentTypeID,
+		ACC_PAY_Type_RefID,
+		Customer_RefID,
+		IsDefaultPaymentType,
+		SequenceNumber,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_CTM_AvailablePaymentTypeID,
+		@ACC_PAY_Type_RefID,
+		@Customer_RefID,
+		@IsDefaultPaymentType,
+		@SequenceNumber,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

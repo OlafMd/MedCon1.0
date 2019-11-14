@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_workarea_weeklyworktimetemplates
+	(
+		CMN_STR_WorkArea_WeeklyWorkTimeTemplateID,
+		CMN_CAL_WeeklyOfficeHours_Interval_RefID,
+		CMN_STR_PPS_WorkAreas,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_STR_WorkArea_WeeklyWorkTimeTemplateID,
+		@CMN_CAL_WeeklyOfficeHours_Interval_RefID,
+		@CMN_STR_PPS_WorkAreas,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

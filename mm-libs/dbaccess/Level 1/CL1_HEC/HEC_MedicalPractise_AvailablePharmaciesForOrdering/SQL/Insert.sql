@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_medicalpractise_availablepharmaciesforordering
+	(
+		HEC_MedicalPractise_AvailablePharmaciesForOrderingID,
+		HEC_MedicalPractise_RefID,
+		HEC_Pharmacy_RefID,
+		SequenceNumber,
+		IsDefault,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_MedicalPractise_AvailablePharmaciesForOrderingID,
+		@HEC_MedicalPractise_RefID,
+		@HEC_Pharmacy_RefID,
+		@SequenceNumber,
+		@IsDefault,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

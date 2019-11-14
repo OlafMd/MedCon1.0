@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_tenant_activeapprovalprocesstypes
+	(
+		CMN_Tenant_ActiveApprovalProcessTypeID,
+		Tenant_RefID,
+		CMN_CAL_Event_ApprovalProcess_Type_RefID,
+		IsActive,
+		Creation_Timestamp,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_Tenant_ActiveApprovalProcessTypeID,
+		@Tenant_RefID,
+		@CMN_CAL_Event_ApprovalProcess_Type_RefID,
+		@IsActive,
+		@Creation_Timestamp,
+		@IsDeleted
+	)

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/11/2012 9:19:08 AM">
+
+	<Meta>
+		<Name>Get_Projects_for_AccountID_and_RightPackIDList</Name>
+		<Description>Get all projects (with or without archived) for AccountID and RightPackageList of User</Description>
+		<Namespace>CL3_Project.Atomic.Retrieval</Namespace>
+		<Tags>Projects, Account, RightPackageList</Tags>
+	</Meta>
+
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="CL3_Project.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Projects_for_AccountID_and_RightPackIDList"
+								Method_Name="Get_Projects_for_AccountID_and_RightPackIDList"
+								ApplicationPlattform_WebServiceName="ProjectService"
+								ApplicationPlattform_Namespace="ProjectService.Get_Projects_for_AccountID_and_RightPackIDList"
+								/>
+  
+	<SQLStatement xml:space="preserve">
+		Select Distinct
+			tms_pro_projectmembers.TMS_PRO_ProjectMemberID,
+			tms_pro_projects.TMS_PRO_ProjectID,
+			tms_pro_projects.DOC_Structure_Header_RefID,
+			tms_pro_projects.Name_DictID,
+			tms_pro_projects.Status_RefID,
+			tms_pro_projects.IsArchived,
+			tms_pro_projects.Creation_Timestamp,
+			tms_pro_projects.Description_DictID,
+			tms_pro_members_2_rightpackage.ACC_RightsPackage_RefID
+		From
+			tms_pro_projectmembers Left Join
+			tms_pro_projects On tms_pro_projectmembers.Project_RefID =
+				tms_pro_projects.TMS_PRO_ProjectID Inner Join
+			tms_pro_members_2_rightpackage
+				On tms_pro_members_2_rightpackage.ProjectMember_RefID =
+				tms_pro_projectmembers.TMS_PRO_ProjectMemberID
+		Where
+			(tms_pro_projects.IsArchived = 0 Or
+				tms_pro_projects.IsArchived = @isArchived) And
+			tms_pro_projects.Tenant_RefID = @TenantID And
+			tms_pro_projectmembers.USR_Account_RefID = @AccountID And
+			tms_pro_projectmembers.IsDeleted = 0 And
+			tms_pro_projects.IsDeleted = 0 And
+			tms_pro_members_2_rightpackage.IsDeleted = 0 And
+			tms_pro_members_2_rightpackage.ACC_RightsPackage_RefID = @RightPackIDList
+	</SQLStatement>
+
+	<Parameters IsClass="true" Name="P_L3PR_GPfAaR_1344">
+		<Members>
+			<ClassMember  Name="IsArchived" Type="Boolean" />
+			<ClassMember  Name="RightPackIDList" Type="Guid" IsArray="true" />
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3PR_GPfAaR_1344" IsArray="true" GroupBy="TMS_PRO_ProjectMemberID">
+			<Members>
+				<ClassMember Name="TMS_PRO_ProjectMemberID" Type="Guid"  />
+				<ClassMember Name="TMS_PRO_ProjectID" Type="Guid"  />
+				<ClassMember Name="DOC_Structure_Header_RefID" Type="Guid"  />
+				<ClassMember Name="Name" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Name_DictID"  />
+				<ClassMember Name="Status_RefID" Type="Guid"  />
+				<ClassMember  Name="IsArchived" Type="Boolean" />
+				<ClassMember  Name="Creation_Timestamp" Type="DateTime" />
+				<ClassMember  Name="Description" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Description_DictID"  />
+				<ClassMember IsClass="true" IsArray="true" Name="RightsPackages" Type="L3PR_GPfAaR_1344a" GroupBy="ACC_RightsPackage_RefID">
+					<Members>
+						<ClassMember Name="ACC_RightsPackage_RefID" Type="Guid"  />
+					</Members>
+				</ClassMember>
+			</Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+</CodeGen>
+
+

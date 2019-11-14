@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_cas_case_relevantperformedactions
+WHERE 
+	HEC_CAS_Case_RelevantPerformedActionID = @HEC_CAS_Case_RelevantPerformedActionID

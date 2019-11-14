@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_patient_prescription_documents
+	(
+		HEC_Patient_Prescription_DocumentID,
+		PrescriptionHeader_RefID,
+		Document_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_Patient_Prescription_DocumentID,
+		@PrescriptionHeader_RefID,
+		@Document_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_str_office_2_costcenter
+	(
+		AssignmentID,
+		CostCenter_RefID,
+		Office_RefID,
+		IsDefault,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CostCenter_RefID,
+		@Office_RefID,
+		@IsDefault,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

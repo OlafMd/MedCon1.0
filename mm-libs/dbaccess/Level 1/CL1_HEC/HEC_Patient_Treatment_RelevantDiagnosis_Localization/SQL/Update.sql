@@ -1,0 +1,10 @@
+UPDATE 
+	hec_patient_treatment_relevantdiagnosis_localizations
+SET 
+	HEC_Patient_Treatment_RelevantDiagnoses_RefID=@HEC_Patient_Treatment_RelevantDiagnoses_RefID,
+	HEC_DIA_Diagnosis_Localization_RefID=@HEC_DIA_Diagnosis_Localization_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	HEC_Patient_Treatment_RelevantDiagnosis_LocalizationID = @HEC_Patient_Treatment_RelevantDiagnosis_LocalizationID

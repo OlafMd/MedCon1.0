@@ -1,0 +1,21 @@
+INSERT INTO 
+	acc_tax_taxoffice_codes
+	(
+		ACC_TAX_TaxOffice_CodeID,
+		TaxOffice_RefID,
+		CMN_EconomicRegion_RefID,
+		TaxOfficeCode,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ACC_TAX_TaxOffice_CodeID,
+		@TaxOffice_RefID,
+		@CMN_EconomicRegion_RefID,
+		@TaxOfficeCode,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4BE39269-BD42-4BBD-BCBA-ACA549AFE4DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL2_DeveloperTask</RootNamespace>
+    <AssemblyName>CL2_DeveloperTask</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDyMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDyMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_TMS_PRO_ DeveloperTask_Priority.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Update_TMS_PRO_DTPriorityLevels_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeveloperTaskStatuses_for_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeveloperTaskStatus_for_GlobalPropertyMatchingID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeveloperTask_Priorities_for_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeveloperTask_Priorities_for_Tenant_and_Acount.cs" />
+    <Compile Include="Complex\Manipulation\cls_Delete_Multiple_DeveloperTaskPriorities_for_Tenant.cs" />
+    <Compile Include="Complex\Manipulation\cls_Switch_DeveloperTaskPriorities.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_TMS_PRO\CL1_TMS_PRO.csproj">
+      <Project>{2EED773F-2351-47AC-92BF-2D9A58CB02F9}</Project>
+      <Name>CL1_TMS_PRO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Complex\Manipulation\_Support\Delete_Multiple_DeveloperTaskPriorities_for_Tenant.xml" />
+    <Content Include="Complex\Manipulation\_Support\Switch_DeveloperTaskPriorities.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeveloperTaskStatus_for_GlobalPropertyMatchingID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeveloperTask_Priorities_for_Tenant_and_Acount.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeveloperTaskStatuses_for_Tenant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeveloperTask_Priorities_for_Tenant.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_TMS_PRO_DeveloperTask_Priority.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Update_TMS_PRO_DTPriorityLevels_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DeveloperTaskStatuses_for_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_DeveloperTask_Priorities_for_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_DeveloperTask_Priorities_for_Tenant_and_Acount.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_DeveloperTaskStatus_for_GlobalPropertyMatchingID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

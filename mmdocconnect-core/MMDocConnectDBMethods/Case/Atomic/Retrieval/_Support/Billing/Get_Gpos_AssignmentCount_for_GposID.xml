@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_Gpos_AssignmentCount_for_GposID</Name>
+		<Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Gpos_AssignmentCount_for_GposID"
+								Method_Name="Get_Gpos_AssignmentCount_for_GposID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+    Select
+      Count(hec_bil_potentialcode_2_healthcareproduct.AssignmentID) as AssignmentCount
+    From
+      hec_bil_potentialcode_2_potentialdiagnosis
+      Inner Join hec_bil_potentialcode_2_healthcareproduct On hec_bil_potentialcode_2_healthcareproduct.HEC_BIL_PotentialCode_RefID =
+        hec_bil_potentialcode_2_potentialdiagnosis.HEC_BIL_PotentialCode_RefID And
+        hec_bil_potentialcode_2_healthcareproduct.IsDeleted = 0 And
+        hec_bil_potentialcode_2_healthcareproduct.Tenant_RefID = @TenantID 
+    Where
+      hec_bil_potentialcode_2_potentialdiagnosis.HEC_BIL_PotentialCode_RefID = @GposID And
+      hec_bil_potentialcode_2_potentialdiagnosis.Tenant_RefID = @TenantID And
+      hec_bil_potentialcode_2_potentialdiagnosis.IsDeleted = 0
+	</SQLStatement>
+	
+	<Parameters IsClass="true" Name="P_CAS_GGPOSACfGPOSID_1252">
+		<Members>
+			<ClassMember Name="GposID" Type="Guid"  />
+
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CAS_GGPOSACfGPOSID_1252">
+			<Members>
+				<ClassMember Name="AssignmentCount" Type="int"  />			 
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

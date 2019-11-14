@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_stu_study_participationrequireddocuments
+WHERE 
+	HEC_STU_Study_ParticipatingPatient_RequiredDocumentID = @HEC_STU_Study_ParticipatingPatient_RequiredDocumentID

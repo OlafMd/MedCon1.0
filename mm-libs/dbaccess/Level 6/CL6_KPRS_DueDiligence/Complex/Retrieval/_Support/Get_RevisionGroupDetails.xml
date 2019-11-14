@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/27/2012 11:51:28 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_DueDiligences.Complex.Retrieval"
+                Method_ClassName="cls_Get_RevisionGroupDetails"
+                Method_Name="Get_RevisionGroupDetails"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_RevisionGroupDetails"
+                />
+
+  <Parameters IsClass="true" Name="P_L6DD_RGD_1503">
+    <Members>
+      <ClassMember Name="RevisionGroupID" IsArray="false" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+        Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+        Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="L6DD_RGD_1503" IsArray="false">
+      <Members>
+        <ClassMember Name="Name" Type="String" />
+        <ClassMember Name="Comment" Type="String" />
+        <ClassMember Name="SubmittedByAccount" Type="Guid" />
+        <ClassMember Name="SubmittedByAccount_FirstName" Type="String" />
+        <ClassMember Name="SubmittedByAccount_LastName" Type="String" />
+        <ClassMember Name="Currency" Type="String" IsArray="false"/>
+        <ClassMember Name="CreationTimestamp" Type="DateTime" IsArray="false"/>
+        <ClassMember Name="RevisionGroupID" Type="Guid" IsArray="false"/>
+
+        <ClassMember Name="Country_Name" Type="String"  />
+        <ClassMember Name="City_Region" Type="String"  />
+        <ClassMember Name="City_PostalCode" Type="String"  />
+        <ClassMember Name="City_Name" Type="String"  />
+        <ClassMember Name="Street_Number" Type="String"  />
+        <ClassMember Name="Street_Name" Type="String"  />
+        
+        <ClassMember Name="Revisions" Type="Revisions" IsClass="true" IsArray="true">
+          <Members>
+            
+            <ClassMember Name="RevisionID" Type="Guid"/>
+            <ClassMember Name="QuestionnaireVersionID" Type="Guid"/>
+            <ClassMember Name="Comment" Type="String" />
+            <ClassMember Name="Title" Type="String" />
+            <ClassMember Name="CreationTimestamp" Type="DateTime" IsArray="false"/>
+            <ClassMember Name="Building" Type="L5BL_GBIfBI_1159"  IsArray="false" IsReference="true"/>
+            <ClassMember Name="ApartmentSubmissionInfo" Type="L5DD_GASIfRID_1007"  IsArray="true" IsReference ="true"/>
+            <ClassMember Name="AtticSubmissionInfo" Type="L5DD_GATTSIFRID_1411" IsArray="true" IsReference="true"/>
+            <ClassMember Name="BasementSubmissionInfo" Type="L5DD_GBSIfRID_1431"  IsArray="true" IsReference="true"/>
+            <ClassMember Name="OutdoorFascilitySubmissionInfo" Type="L5DD_GOFSIfRID_1454" IsArray="true" IsReference="true"/>
+            <ClassMember Name="RoofSubmissionInfo" Type="L5DD_GRSIfRID_1213"  IsArray="true" IsReference="true"/>
+            <ClassMember Name="HVACRSubmissionInfo" Type="L5DD_GHSIfRID_1448" IsArray="true" IsReference="true"/>
+            <ClassMember Name="StaircaseSubmissionInfo" Type="L5DD_GASIfRID_1507"  IsArray="true" IsReference="true"/>
+            <ClassMember Name="FacadeSubmissionInfo" Type="L5DD_GFSIfRID_1438"  IsArray="true" IsReference="true"/>
+          </Members>
+        </ClassMember>
+
+        <ClassMember Name="Images" Type="L3DO_GDfDH_1133"  IsArray="true" IsReference ="true"/>
+        <ClassMember Name="Prices" Type="L3PR_GPIfP_1135" IsArray="true" IsReference="true"/>
+      </Members>
+
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

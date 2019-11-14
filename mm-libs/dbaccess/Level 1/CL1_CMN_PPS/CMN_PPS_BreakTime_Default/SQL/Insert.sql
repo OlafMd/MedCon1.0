@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_pps_breaktime_defaults
+	(
+		CMN_PPS_BreakTime_DefaultID,
+		BreakTime_Template_RefID,
+		ExpectedWorkTime_in_sec,
+		ValidFromTimeOffset_in_sec,
+		ValidToTimeOffset_in_sec,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PPS_BreakTime_DefaultID,
+		@BreakTime_Template_RefID,
+		@ExpectedWorkTime_in_sec,
+		@ValidFromTimeOffset_in_sec,
+		@ValidToTimeOffset_in_sec,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

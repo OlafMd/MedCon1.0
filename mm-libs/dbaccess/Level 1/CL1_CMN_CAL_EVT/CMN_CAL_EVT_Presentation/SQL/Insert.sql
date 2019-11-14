@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_cal_evt_presentations
+	(
+		CMN_CAL_EVT_PresentationID,
+		Ext_CMN_CAL_Calendar_RefID,
+		PresentationLocation,
+		MaximumNumberOfParticipants,
+		PresentationTitle_DictID,
+		PresentationDescription_DictID,
+		IsFeaturedEvent,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_CAL_EVT_PresentationID,
+		@Ext_CMN_CAL_Calendar_RefID,
+		@PresentationLocation,
+		@MaximumNumberOfParticipants,
+		@PresentationTitle,
+		@PresentationDescription,
+		@IsFeaturedEvent,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

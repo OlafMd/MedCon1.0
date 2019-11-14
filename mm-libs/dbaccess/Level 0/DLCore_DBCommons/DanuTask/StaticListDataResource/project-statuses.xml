@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="project-status.in-preparation">
+    <Lang ISO="EN" Content="In Preparation" />
+    <Lang ISO="DE" Content="In Vorbereitung" />
+    <Lang ISO="RS" Content="U Pripremi" />
+  </Item>
+  <Item ID="project-status.ready">
+    <Lang ISO="EN" Content="Ready" />
+    <Lang ISO="DE" Content="Bereit" />
+    <Lang ISO="RS" Content="Spreman" />
+  </Item>
+  <Item ID="project-status.running">
+    <Lang ISO="EN" Content="Running" />
+    <Lang ISO="DE" Content="Läuft" />
+    <Lang ISO="RS" Content="U radu" />
+  </Item>
+  <Item ID="project-status.paused">
+    <Lang ISO="EN" Content="Paused" />
+    <Lang ISO="DE" Content="Angehalten" />
+    <Lang ISO="RS" Content="Pauziran" />
+  </Item>
+  <Item ID="project-status.completed">
+    <Lang ISO="EN" Content="Completed" />
+    <Lang ISO="DE" Content="Abgeschlossen" />
+    <Lang ISO="RS" Content="Kompletiran" />
+  </Item>
+  <Item ID="project-status.canceled">
+    <Lang ISO="EN" Content="Canceled" />
+    <Lang ISO="DE" Content="Abgebrochen" />
+    <Lang ISO="RS" Content="Obustavljen" />
+  </Item>
+</Resources>

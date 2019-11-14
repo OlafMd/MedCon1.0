@@ -1,0 +1,312 @@
+/*
+    Document   : main
+    Created on : Feb 11, 2013, 10:24:10 AM
+    Author     : Danulabs
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    display: inline-block;
+}
+/* Hides from IE-mac \*/ * html .clearfix {
+    height: 1%;
+}
+
+.clearfix {
+    display: block;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.redborder {
+    border: 1px solid red !important;
+}
+
+    .redborder:focus {
+        border: 1px solid #790032 !important;
+    }
+
+html {
+    height: 100%;
+    background: url('../images/login.png') no-repeat center;
+    background-size: cover;
+}
+
+body {
+    height: 100%;
+    width: 250px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-family: 'Helvetica', Arial, sans-serif;
+}
+
+#signInForm {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+    #signInForm input[type="text"],
+    #signInForm input[type="password"] {
+        width: 100%;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        outline: 0;
+        height: 34px;
+        padding-left: 30px;
+        font-size: 12px;
+    }
+
+    #signInForm input[type="text"] {
+        background: url('../images/icons/email.png') no-repeat 10px center #fff;
+    }
+
+    #signInForm input[type="password"] {
+        background: url('../images/icons/lock.png') no-repeat 10px center #fff;
+    }
+
+    #signInForm input.error {
+        border-right: 8px solid #c73030;
+    }
+
+.error-text {
+    color: #c73030;
+    font-size: 12px;
+}
+
+#signInForm > div {
+    margin-bottom: 10px;
+}
+
+#signInForm h2 {
+    color: #363636;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+#signInForm label {
+    color: #363636;
+}
+
+input:focus {
+    outline: 0;
+    border: 1px solid #439562 !important;
+}
+
+
+.logo a {
+    margin: 0 auto 10px;
+    background: url('../images/logo.png') no-repeat center;
+    display: block;
+    height: 57px;
+    width: 227px;
+    text-indent: -99999px;
+}
+
+/* .logo span {
+    margin-left: 31.5px;
+    font-weight: bold;
+    font-size: 11.7px;
+}*/
+
+.doc-logo {
+    background: url('../images/doc-app-logo.png') no-repeat center center;
+    text-indent: -99999px;
+    margin-bottom: 115px !important;
+}
+
+.mm-app-logo {
+    background: url('../images/mm-app-logo.png') no-repeat center center;
+    text-indent: -99999px;
+    margin-bottom: 115px !important;
+}
+
+.button {
+    height: 34px;
+    width: 100%;
+    line-height: 34px;
+    color: #fff;
+    background-color: #439562;
+    outline: 0;
+    border: 0;
+    border-radius: 3px;
+    margin: 10px 0 20px 0;
+    font-size: 12px;
+}
+
+.button:disabled {
+    background-color: #ccc !important;
+}
+
+    .button:hover,
+    .button:focus {
+        background-color: #2e6844;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+    }
+
+.fordgot-credentials {
+    margin-top: 20px;
+}
+
+    .fordgot-credentials a {
+        color: #80b4e1;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+        .fordgot-credentials a:hover {
+            text-decoration: underline;
+        }
+
+@media screen and (max-width: 480px) {
+    body {
+        width: 100%;
+    }
+}
+
+@media screen and (max-height: 480px) {
+    #signInForm {
+        top: 5%;
+    }
+
+    body, html {
+        min-height: 360px;
+    }
+}
+
+
+
+
+/*
++           Error Pages
+++++++++++++++++++++++++++++++++++++++*/
+#messages {
+    clear: both;
+}
+
+.not_found_error {
+    background: url('../images/404.png')no-repeat center center #a6d7ea;
+    background-size: 80%;
+}
+
+.server_error {
+    background: url('../images/500.png')no-repeat center center #a6d7ea;
+    background-size: 80%;
+}
+
+.forbidden_error {
+    background: url('../images/403.png')no-repeat center center #a6d7ea;
+    background-size: 80%;
+}
+
+.errors {
+    width: 960px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+    .errors h1 {
+        color: #fff;
+        font-size: 172px;
+        text-shadow: 2px 7px 7px #888888;
+        filter: dropshadow(color=#888888, offx=2, offy=7);
+    }
+
+.defaultCompany {
+    position: relative;
+    top: -3px;
+}
+
+
+/*
++   Application
+++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+.application {
+    clear: both;
+    overflow: hidden;
+    padding: 20px;
+}
+
+    .application a {
+        overflow: hidden;
+        color: #3D3D3D;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #E9E9E9;
+        padding: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    .application figure {
+        margin: 0;
+        float: left;
+        margin-right: 20px;
+    }
+
+        .application figure img {
+            max-width: 64px;
+        }
+
+
+/*
++   Checkboxes
+++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+input[type="checkbox"] {
+    opacity: 0;
+    background: none;
+    position: absolute;
+    z-index: 100;
+}
+
+    input[type='checkbox'] ~ i {
+        background: url("../images/icons/checkbox.png") no-repeat center left;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 24px;
+        height: 19px;
+    }
+
+    input[type='checkbox']:checked ~ i {
+        background: url("../images/icons/checkbox-checked.png") no-repeat center left;
+    }
+
+    input[type='checkbox']:focus ~ i {
+        background: url("../images/icons/checkbox-focus.png") no-repeat center left;
+    }
+
+    input[type='checkbox']:checked:focus ~ i {
+        background: url("../images/icons/checkbox-checked-focus.png") no-repeat center left;
+    }
+
+.mask-checkbox {
+    position: relative;
+    display: inline-block;
+    height: 19px;
+    width: 24px;
+    margin-right: 3px;
+    vertical-align: bottom;
+}

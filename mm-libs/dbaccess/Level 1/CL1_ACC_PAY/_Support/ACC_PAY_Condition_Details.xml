@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/18/2013 4:38:33 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="ACC_PAY_Condition_Detail"
+                IsClass="true"
+                IsClass_Namespace="CL1_ACC_PAY"
+                IsClass_Corresponding_DBTable="acc_pay_condition_details" >
+      <Members>
+		<ClassMember Name="ACC_PAY_Condition_DetailID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Conditions_RefID" Type="Guid" />
+		<ClassMember Name="DateInterval_From" Type="int" />
+		<ClassMember Name="DateInterval_To" Type="int" />
+		<ClassMember Name="DiscountPercentage" Type="double" />
+		<ClassMember Name="SequenceNumber" Type="int" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

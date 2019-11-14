@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_shippingposition_questionnairesubmissions
+	(
+		HEC_ShippingPosition_QuestionnaireSubmissionID,
+		LOG_SHP_Shipment_Position_RefID,
+		CMN_QST_Questionnaire_Submission_RefID,
+		Doctor_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_ShippingPosition_QuestionnaireSubmissionID,
+		@LOG_SHP_Shipment_Position_RefID,
+		@CMN_QST_Questionnaire_Submission_RefID,
+		@Doctor_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

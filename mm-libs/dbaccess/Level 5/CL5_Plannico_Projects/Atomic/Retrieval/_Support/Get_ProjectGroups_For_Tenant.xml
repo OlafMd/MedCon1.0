@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="28-Oct-13 13:15:37">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ProjectGroups_For_Tenant</Name>
+    <Namespace>CL5_Plannico_Projects.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_Projects.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ProjectGroups_For_Tenant"
+                Method_Name="Get_ProjectGroups_For_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ProjectGroups_For_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  tms_pro_project_groups.TMS_PRO_Project_GroupID,
+  tms_pro_project_groups.ProjectGroup_Name_DictID,
+  tms_pro_project_groups.ProjectGroup_Description_DictID
+From
+  tms_pro_project_groups
+Where
+  tms_pro_project_groups.Tenant_RefID = @TenantID And
+  tms_pro_project_groups.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PR_GPGFT_1315" IsArray="true">
+			<Members>
+				<ClassMember Name="TMS_PRO_Project_GroupID" Type="Guid"  />
+				<ClassMember Name="ProjectGroup_Name" Type="Dict" OriginTable="tms_pro_project_groups" Source_DBField="ProjectGroup_Name_DictID"  />
+        <ClassMember Name="ProjectGroup_Description" Type="Dict" OriginTable="tms_pro_project_groups" Source_DBField="ProjectGroup_Description_DictID"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

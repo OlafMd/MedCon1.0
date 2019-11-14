@@ -1,0 +1,23 @@
+INSERT INTO 
+	log_wrh_warehouse_groups
+	(
+		LOG_WRH_Warehouse_GroupID,
+		GlobalPropertyMatchingID,
+		Parent_RefID,
+		WarehouseGroup_Name,
+		WarehouseGroup_Description_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_WRH_Warehouse_GroupID,
+		@GlobalPropertyMatchingID,
+		@Parent_RefID,
+		@WarehouseGroup_Name,
+		@WarehouseGroup_Description,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_usr_user_groups
+	(
+		CMN_BPT_USR_User_GroupID,
+		GlobalPropertyMatchingID,
+		UserGroup_Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_BPT_USR_User_GroupID,
+		@GlobalPropertyMatchingID,
+		@UserGroup_Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

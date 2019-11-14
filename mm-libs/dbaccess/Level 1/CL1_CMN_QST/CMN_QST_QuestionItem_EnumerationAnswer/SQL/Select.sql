@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_qst_questionitem_enumerationanswers
+WHERE 
+	CMN_QST_QuestionItem_EnumerationAnswerID = @CMN_QST_QuestionItem_EnumerationAnswerID

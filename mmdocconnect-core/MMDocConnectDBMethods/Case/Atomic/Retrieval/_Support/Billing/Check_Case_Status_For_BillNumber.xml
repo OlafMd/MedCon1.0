@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Check_Case_Status_For_BillNumber</Name>
+		<Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Check_Case_Status_For_BillNumber"
+								Method_Name="Check_Case_Status_For_BillNumber"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+Select
+  bil_billposition_transmitionstatuses.TransmitionCode
+From
+  bil_billposition_transmitionstatuses Inner Join
+  bil_billpositions On bil_billpositions.BIL_BillPositionID =
+    bil_billposition_transmitionstatuses.BillPosition_RefID
+    And
+  bil_billposition_transmitionstatuses.IsDeleted = 0 And
+  bil_billposition_transmitionstatuses.IsActive = 1
+Where
+  bil_billpositions.IsDeleted = 0 And
+  bil_billpositions.Tenant_RefID = @TenantID And
+  cast(bil_billpositions.PositionNumber as unsigned) = cast(@PositionNumber as unsigned)
+	</SQLStatement>
+	
+	<Parameters IsClass="true" Name="P_CAS_GCSFBN_1539">
+		<Members>
+			<ClassMember Name="PositionNumber" Type="string"  />
+
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CAS_GCSFBN_1539">
+			<Members>
+				<ClassMember Name="TransmitionCode" Type="int"  />			 
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 11/26/2013 2:21:57 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_SLS_Price_Rounding"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_SLS"
+                IsClass_Corresponding_DBTable="cmn_sls_price_rounding" >
+      <Members>
+        <ClassMember Name="CMN_SLS_Price_RoundingID" Type="Guid" IsObjectPrimaryKey="true"/>
+        <ClassMember Name="PriceRoundingRuleSet_RefID" Type="Guid" />
+        <ClassMember Name="Amount_From" Type="Decimal" />
+        <ClassMember Name="Amount_To" Type="Decimal" />
+        <ClassMember Name="IsAmountTo_Specified" Type="Boolean" />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+        <ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+        <ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

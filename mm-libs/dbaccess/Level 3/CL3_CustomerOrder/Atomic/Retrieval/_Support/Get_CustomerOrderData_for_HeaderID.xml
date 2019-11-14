@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/28/2014 4:13:42 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CustomerOrderData_for_HeaderID</Name>
+    <Namespace>CL3_CustomerOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_CustomerOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_CustomerOrderData_for_HeaderID"
+                Method_Name="Get_CustomerOrderData_for_HeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_CustomerOrderData_for_HeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  ord_cuo_customerorder_headers.ORD_CUO_CustomerOrder_HeaderID,
+  ord_cuo_customerorder_headers.CustomerOrder_Number,
+  ord_cuo_customerorder_headers.CustomerOrder_Date,
+  ord_cuo_customerorder_headers.OrderingCustomer_BusinessParticipant_RefID As
+  CustomerId,
+  cmn_bpt_businessparticipants.DisplayName As CustomerName,
+  log_wrh_warehouses.Warehouse_Name,
+  ord_cuo_customerorder_headers.DeliveryDeadline,
+  ord_cuo_customerorder_headers.Creation_Timestamp
+From
+  ord_cuo_customerorder_headers Left Join
+  cmn_bpt_businessparticipants
+    On cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID =
+    ord_cuo_customerorder_headers.OrderingCustomer_BusinessParticipant_RefID And
+    cmn_bpt_businessparticipants.Tenant_RefID =
+    ord_cuo_customerorder_headers.Tenant_RefID And
+    cmn_bpt_businessparticipants.IsDeleted =
+    ord_cuo_customerorder_headers.IsDeleted Left Join
+  log_wrh_warehouses On log_wrh_warehouses.LOG_WRH_WarehouseID =
+    ord_cuo_customerorder_headers.DeliveryRequestedFrom_Warehouse_RefID And
+    log_wrh_warehouses.Tenant_RefID = ord_cuo_customerorder_headers.Tenant_RefID
+    And log_wrh_warehouses.IsDeleted = ord_cuo_customerorder_headers.IsDeleted
+Where
+  ord_cuo_customerorder_headers.ORD_CUO_CustomerOrder_HeaderID =
+  @CustomerOrderHeaderID And
+  ord_cuo_customerorder_headers.Tenant_RefID = @TenantID And
+  ord_cuo_customerorder_headers.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CL3_GCODfH_1537">
+    <Members>
+		<ClassMember Name="CustomerOrderHeaderID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CL3_GCODfH_1537" IsArray="false">
+			<Members>
+				<ClassMember Name="ORD_CUO_CustomerOrder_HeaderID" Type="Guid"  />
+				<ClassMember Name="CustomerOrder_Number" Type="String"  />
+				<ClassMember Name="CustomerOrder_Date" Type="DateTime"  />
+				<ClassMember Name="CustomerId" Type="Guid"  />
+				<ClassMember Name="CustomerName" Type="String"  />
+				<ClassMember Name="Warehouse_Name" Type="String"  />
+				<ClassMember Name="DeliveryDeadline" Type="DateTime"  />
+                <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

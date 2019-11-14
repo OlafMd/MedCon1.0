@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/29/2014 5:19:42 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_BookingAccount_Purpose_BPAssignment_for_BPID_List</Name>
+    <Namespace>CL3_BookingAccounts.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_BookingAccounts.Atomic.Retrieval"
+                Method_ClassName="cls_Get_BookingAccount_Purpose_BPAssignment_for_BPID_List"
+                Method_Name="Get_BookingAccount_Purpose_BPAssignment_for_BPID_List"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_BookingAccount_Purpose_BPAssignment_for_BPID_List"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+  acc_bok_bookingaccounts_purpose_bp_assignments.ACC_BOK_BookingAccounts_Purpose_BP_AssignmentID,
+  acc_bok_bookingaccounts_purpose_bp_assignments.BusinessParticipant_RefID,
+  acc_bok_bookingaccounts_purpose_bp_assignments.BookingAccount_RefID,
+  acc_bok_bookingaccounts.BookingAccountName,
+  acc_bok_bookingaccounts.BookingAccountNumber,
+  acc_bok_bookingaccounts_purpose_bp_assignments.Is_L1_BalanceSheet_Account,
+  acc_bok_bookingaccounts_purpose_bp_assignments.Is_L1_IncomeStatement_Account,
+  acc_bok_bookingaccounts_purpose_bp_assignments.Is_L2_AssetAccount,
+  acc_bok_bookingaccounts_purpose_bp_assignments.Is_L2_LiabilitiesAccount,
+  acc_bok_bookingaccounts_purpose_bp_assignments.Is_L2_RevenuesOrIncomeAccount,
+  acc_bok_bookingaccounts_purpose_bp_assignments.Is_L2_ExpensesOrLossesAccount,
+  acc_bok_bookingaccounts_purpose_bp_assignments.If_L3_AssetAccount_BankAccount_RefID,
+  acc_bok_bookingaccounts_purpose_bp_assignments.Is_L3_BankAccount,
+  acc_bok_bookingaccounts_purpose_bp_assignments.Is_L3_CustomerAccount,
+  acc_bok_bookingaccounts_purpose_bp_assignments.Is_L3_SupplierAccount,
+  acc_bok_bookingaccounts_purpose_bp_assignments.Is_L3_VATAccount
+From
+  acc_bok_bookingaccounts_purpose_bp_assignments Inner Join
+  acc_bok_bookingaccounts On acc_bok_bookingaccounts.ACC_BOK_BookingAccountID =
+    acc_bok_bookingaccounts_purpose_bp_assignments.BookingAccount_RefID And
+    acc_bok_bookingaccounts.FiscalYear_RefID = @FiscalYearID And
+    (@IsRevenueAccount Is Null Or
+      acc_bok_bookingaccounts_purpose_bp_assignments.Is_L2_RevenuesOrIncomeAccount = @IsRevenueAccount) 
+      And (@IsCustomerAccount Is Null Or acc_bok_bookingaccounts_purpose_bp_assignments.Is_L3_CustomerAccount = @IsCustomerAccount) 
+      And (@IsVATAccount Is Null Or acc_bok_bookingaccounts_purpose_bp_assignments.Is_L3_VATAccount = @IsVATAccount) 
+      And (@IsSupplierAccount Is Null Or acc_bok_bookingaccounts_purpose_bp_assignments.Is_L3_SupplierAccount = @IsSupplierAccount) 
+      And (@IsBankAccount Is Null Or (@IsBankAccount = False And acc_bok_bookingaccounts_purpose_bp_assignments.Is_L3_BankAccount = False) 
+            Or (@IsBankAccount = True And acc_bok_bookingaccounts_purpose_bp_assignments.Is_L3_BankAccount = True And acc_bok_bookingaccounts_purpose_bp_assignments.If_L3_AssetAccount_BankAccount_RefID Is Not Null)) And (@IsCashBox Is Null Or (@IsCashBox = False And acc_bok_bookingaccounts_purpose_bp_assignments.Is_L3_BankAccount = False) Or (@IsCashBox = True And acc_bok_bookingaccounts_purpose_bp_assignments.If_L3_AssetAccount_CashBox_RefID Is Not Null)
+          )
+Where
+  acc_bok_bookingaccounts_purpose_bp_assignments.BusinessParticipant_RefID = @BusinessParticipantID_List And
+  acc_bok_bookingaccounts_purpose_bp_assignments.Tenant_RefID = @TenantID And
+  acc_bok_bookingaccounts_purpose_bp_assignments.IsDeleted = 0
+
+
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3BA_GBAPBPAfBP_1717">
+    <Members>
+        <ClassMember Name="FiscalYearID" Type="Guid"  />
+        <ClassMember Name="BusinessParticipantID_List" Type="Guid" IsArray="true"  />
+        <ClassMember Name="IsRevenueAccount" Type="Boolean?"  />
+        <ClassMember Name="IsCustomerAccount" Type="Boolean?"  />
+        <ClassMember Name="IsVATAccount" Type="Boolean?"  />
+        <ClassMember Name="IsSupplierAccount" Type="Boolean?"  />
+        <ClassMember Name="IsBankAccount" Type="Boolean?"  />
+        <ClassMember Name="IsCashBox" Type="Boolean?"  />
+    </Members>
+  </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L3BA_GBAPBPAfBP_1717" IsArray="true">
+            <Members>
+                <ClassMember Name="ACC_BOK_BookingAccounts_Purpose_BP_AssignmentID" Type="Guid"  />
+                <ClassMember Name="BusinessParticipant_RefID" Type="Guid"  />
+                <ClassMember Name="BookingAccount_RefID" Type="Guid"  />
+                <ClassMember Name="BookingAccountName" Type="String"  />
+                <ClassMember Name="BookingAccountNumber" Type="String"  />
+                <ClassMember Name="Is_L1_BalanceSheet_Account" Type="Boolean" />
+                <ClassMember Name="Is_L1_IncomeStatement_Account" Type="Boolean" />
+                <ClassMember Name="Is_L2_AssetAccount" Type="Boolean" />
+                <ClassMember Name="Is_L2_LiabilitiesAccount" Type="Boolean" />
+                <ClassMember Name="Is_L2_RevenuesOrIncomeAccount" Type="Boolean" />
+                <ClassMember Name="Is_L2_ExpensesOrLossesAccount" Type="Boolean" />
+                <ClassMember Name="If_L3_AssetAccount_BankAccount_RefID" Type="Guid" />
+                <ClassMember Name="Is_L3_BankAccount" Type="Boolean" />
+                <ClassMember Name="Is_L3_CustomerAccount" Type="Boolean" />
+                <ClassMember Name="Is_L3_SupplierAccount" Type="Boolean" />
+                <ClassMember Name="Is_L3_VATAccount" Type="Boolean" />
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

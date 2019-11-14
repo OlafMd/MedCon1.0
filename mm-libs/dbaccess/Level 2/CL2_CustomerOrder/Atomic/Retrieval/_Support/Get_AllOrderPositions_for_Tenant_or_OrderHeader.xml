@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/16/2013 12:40:30 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllOrderPositions_for_Tenant_or_OrderHeader</Name>
+    <Namespace>CL2_CustomerOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_CustomerOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllOrderPositions_for_Tenant_or_OrderHeader"
+                Method_Name="Get_AllOrderPositions_for_Tenant_or_OrderHeader"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AllOrderPositions_for_Tenant_or_OrderHeader"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  ord_cuo_customerorder_positions.CMN_PRO_Product_RefID,
+	  cmn_pro_products.Product_Name_DictID,
+	  ord_cuo_customerorder_positions.CustomerOrder_Header_RefID
+	From
+	  ord_cuo_customerorder_positions Left Join
+	  cmn_pro_products On ord_cuo_customerorder_positions.CMN_PRO_Product_RefID =
+	    cmn_pro_products.CMN_PRO_ProductID And cmn_pro_products.IsDeleted = 0 
+	Where
+	  ord_cuo_customerorder_positions.CustomerOrder_Header_RefID = IfNull (@OrderHeaderID, ord_cuo_customerorder_positions.CustomerOrder_Header_RefID)  And
+	  ord_cuo_customerorder_positions.Tenant_RefID = @TenantID And
+	  ord_cuo_customerorder_positions.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2CO_GAOPfToO_1239">
+    <Members>
+		<ClassMember Name="OrderHeaderID" Type="Guid?"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2CO_GAOPfToO_1239" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_PRO_Product_RefID" Type="Guid"  />
+				<ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+				<ClassMember Name="CustomerOrder_Header_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

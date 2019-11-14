@@ -1,0 +1,21 @@
+INSERT INTO 
+	doc_structuretemplate_elements
+	(
+		DOC_StructureTemplate_ElementID,
+		Template_Header_RefID,
+		Label_DictID,
+		Parent_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@DOC_StructureTemplate_ElementID,
+		@Template_Header_RefID,
+		@Label,
+		@Parent_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

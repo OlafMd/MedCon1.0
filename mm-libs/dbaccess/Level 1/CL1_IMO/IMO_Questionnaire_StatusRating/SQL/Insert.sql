@@ -1,0 +1,23 @@
+INSERT INTO 
+	imo_questionnaire_statusratings
+	(
+		IMO_Questionnaire_StatusRatingID,
+		StatusRatingGroup_RefID,
+		Label_DictID,
+		Description_DictID,
+		SequenceNumber,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@IMO_Questionnaire_StatusRatingID,
+		@StatusRatingGroup_RefID,
+		@Label,
+		@Description,
+		@SequenceNumber,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

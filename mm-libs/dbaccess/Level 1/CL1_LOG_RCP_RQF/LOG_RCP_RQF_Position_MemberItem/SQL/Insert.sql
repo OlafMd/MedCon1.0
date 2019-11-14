@@ -1,0 +1,25 @@
+INSERT INTO 
+	log_rcp_rqf_position_memberitems
+	(
+		LOG_RCP_RQF_Position_MemberItemID,
+		RequestQuantityForwarding_Position_RefID,
+		Quantity,
+		BatchNumber,
+		SerialKey,
+		ExpiryDate,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_RCP_RQF_Position_MemberItemID,
+		@RequestQuantityForwarding_Position_RefID,
+		@Quantity,
+		@BatchNumber,
+		@SerialKey,
+		@ExpiryDate,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

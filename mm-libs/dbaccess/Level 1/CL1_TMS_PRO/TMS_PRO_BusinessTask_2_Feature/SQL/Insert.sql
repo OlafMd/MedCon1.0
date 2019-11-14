@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_pro_businesstask_2_feature
+	(
+		AssignmentID,
+		BusinessTask_RefID,
+		Feature_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@BusinessTask_RefID,
+		@Feature_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/12/2013 5:50:49 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CatalogProductExtensionRequests_for_TenantID</Name>
+    <Namespace>CL3_APOCatalog.Atomic</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_APOCatalog.Atomic.Retrieval"
+                Method_ClassName="cls_Get_CatalogProductExtensionRequests_for_TenantID"
+                Method_Name="Get_CatalogProductExtensionRequests_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_CatalogProductExtensionRequests_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_per_personinfo.FirstName As Doctor_FirstName,
+  cmn_per_personinfo.LastName As Doctor_LastName,
+  cmn_per_personinfo.Title As Doctor_Title,
+  cmn_bpt_businessparticipants1.DisplayName As CompanyName,
+  cmn_bpt_ctm_catalogproductextensionrequests.CMN_BPT_CTM_CatalogProductExtensionRequestID,
+  cmn_bpt_ctm_catalogproductextensionrequests.RequestCaseIdentifier,
+  cmn_bpt_ctm_catalogproductextensionrequests.CatalogProductExtensionRequestITL,
+  cmn_bpt_ctm_catalogproductextensionrequests.RequestedFor_Catalog_RefID,
+  cmn_bpt_ctm_catalogproductextensionrequests.RequestedBy_Person_BusinessParticipant_RefID,
+  cmn_bpt_ctm_catalogproductextensionrequests.RequestedBy_Customer_BusinessParticipant_RefID,
+  cmn_bpt_ctm_catalogproductextensionrequests.Request_Question,
+  cmn_bpt_ctm_catalogproductextensionrequests.Request_Answer,
+  cmn_bpt_ctm_catalogproductextensionrequests.IsAnswerSent,
+  cmn_bpt_ctm_catalogproductextensionrequests.IfAnswerSent_By_BusinessParticipant_RefID,
+  cmn_bpt_ctm_catalogproductextensionrequests.IfAnswerSent_Date,
+  cmn_bpt_ctm_catalogproductextensionrequests.Creation_Timestamp As RequestDate
+From
+  cmn_bpt_businessparticipants Inner Join
+  cmn_per_personinfo
+    On cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID Inner Join
+  cmn_bpt_ctm_catalogproductextensionrequests
+    On
+    cmn_bpt_ctm_catalogproductextensionrequests.RequestedBy_Person_BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID Inner Join
+  cmn_bpt_businessparticipants cmn_bpt_businessparticipants1
+    On cmn_bpt_businessparticipants1.CMN_BPT_BusinessParticipantID =
+    cmn_bpt_ctm_catalogproductextensionrequests.RequestedBy_Customer_BusinessParticipant_RefID
+Where
+  cmn_bpt_businessparticipants.IsNaturalPerson = 1 And
+  cmn_bpt_businessparticipants1.IsCompany = 1 And
+  cmn_bpt_businessparticipants.IsCompany = 0 And
+  cmn_bpt_businessparticipants.IsDeleted = 0 And
+  cmn_bpt_businessparticipants.IsTenant = 0 And
+  cmn_bpt_businessparticipants1.IsDeleted = 0 And
+  cmn_per_personinfo.IsDeleted = 0 And
+  cmn_bpt_ctm_catalogproductextensionrequests.IsDeleted = 0 And
+  cmn_bpt_ctm_catalogproductextensionrequests.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3CA_GCPERfT_1137" IsArray="true">
+		<Members>
+			<ClassMember Name="CMN_BPT_CTM_CatalogProductExtensionRequestID" Type="Guid"  />
+			<ClassMember Name="RequestCaseIdentifier" Type="String"  />
+			<ClassMember Name="RequestedBy_Person_BusinessParticipant_RefID" Type="Guid"  />
+			<ClassMember Name="RequestedBy_Customer_BusinessParticipant_RefID" Type="Guid"  />
+			<ClassMember Name="IfAnswerSent_By_BusinessParticipant_RefID" Type="Guid"  />
+			<ClassMember Name="RequestedFor_Catalog_RefID" Type="Guid"  />
+			<ClassMember Name="Doctor_FirstName" Type="String"  />
+			<ClassMember Name="Doctor_LastName" Type="String"  />
+			<ClassMember Name="Doctor_Title" Type="String"  />
+			<ClassMember Name="CompanyName" Type="String"  />
+			<ClassMember Name="CatalogProductExtensionRequestITL" Type="String"  />
+			<ClassMember Name="Request_Question" Type="String"  />
+			<ClassMember Name="Request_Answer" Type="String"  />
+			<ClassMember Name="IsAnswerSent" Type="bool"  />
+			<ClassMember Name="IfAnswerSent_Date" Type="DateTime"  />
+			<ClassMember Name="RequestDate" Type="DateTime"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

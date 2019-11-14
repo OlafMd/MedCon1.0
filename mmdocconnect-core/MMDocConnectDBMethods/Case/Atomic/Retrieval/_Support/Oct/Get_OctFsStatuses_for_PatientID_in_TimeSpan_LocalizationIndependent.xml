@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_OctFsStatuses_for_PatientID_in_TimeSpan_LocalizationIndependent</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_OctFsStatuses_for_PatientID_in_TimeSpan_LocalizationIndependent"
+								Method_Name="Get_OctFsStatuses_for_PatientID_in_TimeSpan_LocalizationIndependent"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+SELECT
+  bil_billposition_transmitionstatuses.TransmitionCode AS fs_status,
+  hec_cas_case_billcodes.HEC_CAS_Case_RefID AS case_id
+FROM
+  hec_cas_case_billcodes
+  INNER JOIN hec_bil_billposition_billcodes ON hec_cas_case_billcodes.HEC_BIL_BillPosition_BillCode_RefID =
+    hec_bil_billposition_billcodes.HEC_BIL_BillPosition_BillCodeID AND hec_bil_billposition_billcodes.Tenant_RefID =
+    @TenantID AND hec_bil_billposition_billcodes.IsDeleted = 0
+  INNER JOIN hec_bil_billpositions ON hec_bil_billposition_billcodes.BillPosition_RefID =
+    hec_bil_billpositions.HEC_BIL_BillPositionID AND hec_bil_billposition_billcodes.Tenant_RefID = @TenantID AND
+    hec_bil_billposition_billcodes.IsDeleted = 0
+  INNER JOIN bil_billposition_transmitionstatuses ON hec_bil_billpositions.Ext_BIL_BillPosition_RefID =
+    bil_billposition_transmitionstatuses.BillPosition_RefID AND
+    bil_billposition_transmitionstatuses.TransmitionStatusKey = 'oct' AND bil_billposition_transmitionstatuses.IsActive
+    = 1 AND bil_billposition_transmitionstatuses.Tenant_RefID = @TenantID AND
+    bil_billposition_transmitionstatuses.IsDeleted = 0
+  INNER JOIN hec_cas_case_relevantperformedactions ON hec_cas_case_billcodes.HEC_CAS_Case_RefID =
+    hec_cas_case_relevantperformedactions.Case_RefID
+  INNER JOIN hec_act_plannedactions ON hec_cas_case_relevantperformedactions.PerformedAction_RefID =
+    hec_act_plannedactions.IfPlannedFollowup_PreviousAction_RefID AND hec_act_plannedactions.PlannedFor_Date BETWEEN
+    @DateFrom AND @DateTo AND hec_act_plannedactions.Patient_RefID = @PatientID AND hec_act_plannedactions.Tenant_RefID
+    = @TenantID AND hec_act_plannedactions.IsDeleted = 0  
+WHERE
+  hec_cas_case_billcodes.Tenant_RefID = @TenantID AND
+  hec_cas_case_billcodes.IsDeleted = 0
+ORDER BY
+  hec_bil_billpositions.Creation_Timestamp
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GOctFSSfPIDiTSLI_1117">
+    <Members>
+      <ClassMember Name="PatientID" Type="Guid" />
+      <ClassMember Name="DateFrom" Type="DateTime" />
+      <ClassMember Name="DateTo" Type="DateTime" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GOctFSSfPIDiTSLI_1117" IsArray="true">
+      <Members>
+        <ClassMember Name="fs_status" Type="int"  />
+        <ClassMember Name="case_id" Type="Guid" />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

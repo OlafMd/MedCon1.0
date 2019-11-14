@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 11/21/2013 10:11:27 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_PPS_ShiftTemplate"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_PPS"
+                IsClass_Corresponding_DBTable="cmn_pps_shifttemplates" >
+      <Members>
+		<ClassMember Name="CMN_PPS_ShiftTemplateID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ShiftTemplate_ShortName" Type="String" />
+		<ClassMember Name="ShiftTemplate_Name" Type="Dict" Source_DBField="ShiftTemplate_Name_DictID" OriginTable="cmn_pps_shifttemplates"/>
+		<ClassMember Name="CMN_STR_Office_RefID" Type="Guid" />
+		<ClassMember Name="CMN_STR_Workarea_RefID" Type="Guid" />
+		<ClassMember Name="CMN_STR_Workplace_RefID" Type="Guid" />
+		<ClassMember Name="Default_StartTime_in_sec" Type="int" />
+		<ClassMember Name="IsWorkPattern" Type="Boolean" />
+		<ClassMember Name="Default_AllowedBreakTimeTemplate_RefID" Type="Guid" />
+		<ClassMember Name="DisplayColor" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

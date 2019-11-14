@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/19/2014 11:41:17 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShippmentHeaders_with_BasicInfo_for_TenantID</Name>
+    <Namespace>CL5_APOLogistic_ShippingOrder.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_Storage.Complex.Retrieval"
+                Method_ClassName="cls_Get_ShippmentHeaders_with_BasicInfo_for_TenantID"
+                Method_Name="Get_ShippmentHeaders_with_BasicInfo_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShippmentHeaders_with_BasicInfo_for_TenantID"
+                />
+
+  <Parameters IsClass="true" Name="P_L5SO_GSHwBIfT_1533">
+    <Members>
+      <ClassMember Name="IsPartiallyReadyForPicking" Type="Boolean?"  />
+      <ClassMember Name="IsReadyForPicking" Type="Boolean?"  />
+      <ClassMember Name="HasPickingStarted" Type="Boolean?"  />
+      <ClassMember Name="HasPickingFinished" Type="Boolean?"  />
+      <ClassMember Name="IsManuallyCleared_ForPicking" Type="Boolean?"  />
+      <ClassMember Name="IsBilled" Type="Boolean?"  />
+      <ClassMember Name="IsShipped" Type="Boolean?"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5SO_GSHwBIfT_1533" IsArray="true">
+      <Members>
+        <ClassMember Name="LOG_SHP_Shipment_HeaderID" Type="Guid"  />
+        <ClassMember Name="ORD_CUO_CustomerOrder_HeaderID" Type="Guid"  />
+        <ClassMember Name="ShipmentHeader_Number" Type="String"  />
+        <ClassMember Name="CustomerOrder_Number" Type="String"  />
+        <ClassMember Name="CustomerOrderCreationDate" Type="DateTime"  />
+        <ClassMember Name="ShippingCreationDate" Type="DateTime"  />
+        <ClassMember Name="IsPartiallyReadyForPicking" Type="Boolean"  />
+        <ClassMember Name="IsReadyForPicking" Type="Boolean"  />
+        <ClassMember Name="HasPickingStarted" Type="Boolean"  />
+        <ClassMember Name="HasPickingFinished" Type="Boolean"  />
+        <ClassMember Name="IsManuallyCleared_ForPicking" Type="Boolean"  />
+        <ClassMember Name="IsBilled" Type="Boolean"  />
+        <ClassMember Name="IsShipped" Type="Boolean"  />
+        <ClassMember Name="CompanyName_Line1" Type="String"  />
+        <ClassMember Name="NotesCount" Type="int"  />
+        <ClassMember Name="CMN_BPT_CTM_OrganizationalUnitID" Type="Guid"  />
+        <ClassMember Name="InternalOrganizationalUnitNumber" Type="String"  />
+        <ClassMember Name="InternalOrganizationalUnitSimpleName" Type="String"  />
+        <ClassMember Name="ShipmentHeaderAddress" Type="Guid"  />
+        <ClassMember Name="AllProductIDsInHeader" Type="Guid" IsArray="true" />
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

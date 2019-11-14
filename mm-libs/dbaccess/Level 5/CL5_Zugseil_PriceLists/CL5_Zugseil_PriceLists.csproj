@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E5ED8E15-EA66-4ED2-9104-EA1EFF9299A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_Zugseil_PriceLists</RootNamespace>
+    <AssemblyName>CL5_Zugseil_PriceLists</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_Number_Of_DefinedPriselists_for_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PriceLists_with_Versions_and_Prices.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PriceListVersions_with_Versions_and_Prices_for_ProductID_and_PriceListID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Prices_for_ProductID_and_PriceListVersionID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Prices_for_PricelistRelease_and_ProductVariant.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Number_Of_DefinedPriselists_for_Tenant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Prices_for_ProductID_and_PriceListVersionID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Number_Of_DefinedPriselists_for_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PriceListVersions_with_Versions_and_Prices_for_ProductID_and_PriceListID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PriceListVersions_with_Versions_and_Prices_for_ProductID_and_PriceListID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Prices_for_ProductID_and_PriceListVersionID.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_Prices_for_PricelistRelease_and_ProductVariant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PriceLists_with_Versions_and_Prices.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PriceLists_with_Versions_and_Prices.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06AB1C3C-339F-4E31-8408-232DC283308C}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_SLS\CL1_CMN_SLS.csproj">
+      <Project>{86752CE8-6442-4C3F-A316-98FADBB38BE1}</Project>
+      <Name>CL1_CMN_SLS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

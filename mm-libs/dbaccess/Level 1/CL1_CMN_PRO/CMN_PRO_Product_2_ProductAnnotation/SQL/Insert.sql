@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_pro_product_2_productannotation
+	(
+		AssignmentID,
+		CMN_PRO_Product_RefID,
+		CMN_PRO_Product_Annotation_RefID,
+		CMN_PRO_Product_Variant_RefID,
+		CMN_PRO_Product_Release_RefID,
+		ProductAnnotation_Value,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_PRO_Product_RefID,
+		@CMN_PRO_Product_Annotation_RefID,
+		@CMN_PRO_Product_Variant_RefID,
+		@CMN_PRO_Product_Release_RefID,
+		@ProductAnnotation_Value,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

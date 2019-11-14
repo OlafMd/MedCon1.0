@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 5:02:53 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="IMO_Questionnaire_StatusRating"
+                IsClass="true"
+                IsClass_Namespace="CL1_IMO"
+                IsClass_Corresponding_DBTable="imo_questionnaire_statusratings" >
+      <Members>
+		<ClassMember Name="IMO_Questionnaire_StatusRatingID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="StatusRatingGroup_RefID" Type="Guid" />
+		<ClassMember Name="Label" Type="Dict" Source_DBField="Label_DictID" OriginTable="imo_questionnaire_statusratings"/>
+		<ClassMember Name="Description" Type="Dict" Source_DBField="Description_DictID" OriginTable="imo_questionnaire_statusratings"/>
+		<ClassMember Name="SequenceNumber" Type="int" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

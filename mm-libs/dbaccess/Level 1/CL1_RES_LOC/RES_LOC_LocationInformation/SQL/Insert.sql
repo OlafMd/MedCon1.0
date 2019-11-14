@@ -1,0 +1,25 @@
+INSERT INTO 
+	res_loc_locationinformation
+	(
+		RES_LOC_LocationInformationID,
+		CMN_LOC_Location_RefID,
+		IsPublicTransportation_InWalkingDistance,
+		LocationInformation_MapImage_DocID,
+		LocationInformation_SatelliteImage_DocID,
+		LocationInformation_AddressImage_DocID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_LOC_LocationInformationID,
+		@CMN_LOC_Location_RefID,
+		@IsPublicTransportation_InWalkingDistance,
+		@LocationInformation_MapImage_DocID,
+		@LocationInformation_SatelliteImage_DocID,
+		@LocationInformation_AddressImage_DocID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

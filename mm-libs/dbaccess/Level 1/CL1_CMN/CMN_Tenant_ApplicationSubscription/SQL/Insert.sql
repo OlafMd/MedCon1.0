@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_tenant_applicationsubscriptions
+	(
+		CMN_Tenant_ApplicationSubscriptionID,
+		ExternalSubscriptionID,
+		Tenant_RefID,
+		Application_RefID,
+		UpdatedOn,
+		IsDisabled,
+		IfDisabled_Reason,
+		Configuration,
+		Creation_Timestamp,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_Tenant_ApplicationSubscriptionID,
+		@ExternalSubscriptionID,
+		@Tenant_RefID,
+		@Application_RefID,
+		@UpdatedOn,
+		@IsDisabled,
+		@IfDisabled_Reason,
+		@Configuration,
+		@Creation_Timestamp,
+		@IsDeleted
+	)

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="22/11/2013 02:40:07">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PriceDiscounts_for_PriceListID</Name>
+    <Namespace>CL2_Price.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Price.Atomic.Retrieval"
+                Method_ClassName="cls_Get_PriceDiscounts_for_PriceListID"
+                Method_Name="Get_PriceDiscounts_for_PriceListID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PriceDiscounts_for_PriceListID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT
+	  cmn_sls_pricelist_discounts.CMN_SLS_Pricelist_DiscountID,
+	  cmn_sls_pricelist.CMN_SLS_PricelistID,
+    cmn_sls_pricelist.Pricelist_Name_DictID,
+    cmn_sls_pricelist_releases.CMN_SLS_Pricelist_ReleaseID,
+    cmn_sls_pricelist_releases.Release_Version,
+	  cmn_sls_pricelist_discounts.Product_RefID,
+	  cmn_sls_pricelist_discounts.Product_Variant_RefID,
+	  cmn_sls_pricelist_discounts.Product_Release_RefID,
+	  cmn_sls_pricelist_discounts.DiscountPercentAmount,
+	  cmn_sls_pricelist_discounts.DiscountValid_From,
+	  cmn_sls_pricelist_discounts.DiscountValid_To,
+    cmn_sls_pricelist_discounts.IsDeleted
+	FROM
+	  cmn_sls_pricelist_discounts
+	  INNER JOIN cmn_sls_pricelist_releases
+	    ON cmn_sls_pricelist_discounts.PricelistVersion_RefID = cmn_sls_pricelist_releases.CMN_SLS_Pricelist_ReleaseID
+	       AND cmn_sls_pricelist_releases.IsDeleted = 0
+	  INNER JOIN cmn_sls_pricelist
+	    ON cmn_sls_pricelist_releases.Pricelist_RefID = cmn_sls_pricelist.CMN_SLS_PricelistID
+	       AND cmn_sls_pricelist.IsDeleted = 0
+	 WHERE
+	  cmn_sls_pricelist_discounts.IsDeleted = 0
+	  AND cmn_sls_pricelist_discounts.Tenant_RefID = @TenantID
+	  AND cmn_sls_pricelist.CMN_SLS_PricelistID = IFNULL(@PriceListID, cmn_sls_pricelist.CMN_SLS_PricelistID)
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2PL_GPDfPL_1439">
+    <Members>
+      <ClassMember Name="PriceListID" Type="Guid?"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2PL_GPDfPL_1439" IsArray="true">
+      <Members>
+        <ClassMember Name="CMN_SLS_Pricelist_DiscountID" Type="Guid"  />
+        <ClassMember Name="CMN_SLS_PricelistID" Type="Guid"  />
+        <ClassMember Name="CMN_SLS_Pricelist_ReleaseID" Type="Guid"  />
+        <ClassMember Name="Pricelist_Name" Type="Dict" OriginTable="cmn_sls_pricelist" Source_DBField="Pricelist_Name_DictID"  />
+        <ClassMember Name="Release_Version" Type="String"  />
+        <ClassMember Name="Product_RefID" Type="Guid"  />
+        <ClassMember Name="Product_Variant_RefID" Type="Guid"  />
+        <ClassMember Name="Product_Release_RefID" Type="Guid"  />
+        <ClassMember Name="DiscountPercentAmount" Type="decimal"  />
+        <ClassMember Name="DiscountValid_From" Type="DateTime"  />
+        <ClassMember Name="DiscountValid_To" Type="DateTime"  />
+        <ClassMember Name="IsDeleted" Type="Boolean"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+</CodeGen>
+
+

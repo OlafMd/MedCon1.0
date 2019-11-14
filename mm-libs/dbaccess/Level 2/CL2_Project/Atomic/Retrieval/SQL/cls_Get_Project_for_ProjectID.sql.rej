@@ -1,0 +1,18 @@
+diff a/Level 2/CL2_Project/Atomic/Retrieval/SQL/cls_Get_Project_for_ProjectID.sql b/Level 2/CL2_Project/Atomic/Retrieval/SQL/cls_Get_Project_for_ProjectID.sql	(rejected hunks)
+@@ -1,13 +1,14 @@
+ 
+ 	Select
+ 	  tms_pro_projects.TMS_PRO_ProjectID,
+ 	  tms_pro_projects.Name_DictID,
+-	  tms_pro_projects.Description_DictID
++	  tms_pro_projects.Description_DictID,
++    tms_pro_projects.DOC_Structure_Header_RefID
+ 	From
+ 	  tms_pro_projects
+ 	Where
+ 	  tms_pro_projects.TMS_PRO_ProjectID = @ProjectID And
+ 	  tms_pro_projects.IsDeleted = 0 And
+ 	  tms_pro_projects.Tenant_RefID = @TenantID And
+ 	  tms_pro_projects.IsArchived = 0
+   
+\ No newline at end of file

@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E995943D-2B87-4114-B861-00B45FF00501}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_HEC_ACT</RootNamespace>
+    <AssemblyName>CL1_HEC_ACT</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LynxPocDoc|AnyCPU'">
+    <OutputPath>bin\LynxPocDoc\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HEC_ACT_ApplicableBillCode\ORM_HEC_ACT_ApplicableBillCode.cs" />
+    <Compile Include="HEC_ACT_PerformedAction\ORM_HEC_ACT_PerformedAction.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_DiagnosisUpdate\ORM_HEC_ACT_PerformedAction_DiagnosisUpdate.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_DiagnosisUpdate_Localization\ORM_HEC_ACT_PerformedAction_DiagnosisUpdate_Localization.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_Doctor\ORM_HEC_ACT_PerformedAction_Doctor.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_MadeObservation\ORM_HEC_ACT_PerformedAction_MadeObservation.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_MadeObservation_Document\ORM_HEC_ACT_PerformedAction_MadeObservation_Document.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_MedicationUpdate\ORM_HEC_ACT_PerformedAction_MedicationUpdate.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_PatientComplaint\ORM_HEC_ACT_PerformedAction_PatientComplaint.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_PatientParameter\ORM_HEC_ACT_PerformedAction_PatientParameter.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_Procedure\ORM_HEC_ACT_PerformedAction_Procedure.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_Procedure_LogEntry\ORM_HEC_ACT_PerformedAction_Procedure_LogEntry.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_Procedure_Participant\ORM_HEC_ACT_PerformedAction_Procedure_Participant.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_Procedure_RelevantPotentialDiagnosis\ORM_HEC_ACT_PerformedAction_Procedure_RelevantPotentialDiagnosis.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_Referral\ORM_HEC_ACT_PerformedAction_Referral.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_Referral_2_Procedure\ORM_HEC_ACT_PerformedAction_Referral_2_Procedure.cs" />
+    <Compile Include="HEC_ACT_PerformedAction_Referral_RequestedPotentialProcedure\ORM_HEC_ACT_PerformedAction_Referral_RequestedPotentialProcedure.cs" />
+    <Compile Include="HEC_ACT_PlannedAction\ORM_HEC_ACT_PlannedAction.cs" />
+    <Compile Include="HEC_ACT_PlannedAction_Doctor\ORM_HEC_ACT_PlannedAction_Doctor.cs" />
+    <Compile Include="HEC_ACT_PlannedAction_PotentialProcedure\ORM_HEC_ACT_PlannedAction_PotentialProcedure.cs" />
+    <Compile Include="HEC_ACT_UsedProduct\ORM_HEC_ACT_UsedProduct.cs" />
+    <Compile Include="HEC_ACT_UsedProduct_2_ProcurementOrderPosition\ORM_HEC_ACT_UsedProduct_2_ProcurementOrderPosition.cs" />
+    <Compile Include="HEC_ACT_UsedProduct_2_ProductTrackingInstance\ORM_HEC_ACT_UsedProduct_2_ProductTrackingInstance.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HEC_ACT_ApplicableBillCode\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_ApplicableBillCode\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_ApplicableBillCode\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_UsedProduct\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_UsedProduct\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_UsedProduct\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_DiagnosisUpdate_Localization\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_DiagnosisUpdate_Localization\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_DiagnosisUpdate_Localization\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_DiagnosisUpdate\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_DiagnosisUpdate\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_DiagnosisUpdate\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Doctor\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Doctor\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Doctor\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_MadeObservation_Document\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_MadeObservation_Document\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_MadeObservation_Document\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_MadeObservation\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_MadeObservation\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_MadeObservation\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_MedicationUpdate\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_MedicationUpdate\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_MedicationUpdate\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_PatientComplaint\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_PatientComplaint\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_PatientComplaint\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_PatientParameter\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_PatientParameter\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_PatientParameter\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Procedure_LogEntry\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Procedure_LogEntry\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Procedure_LogEntry\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Procedure_Participant\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Procedure_Participant\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Procedure_Participant\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Procedure_RelevantPotentialDiagnosis\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Procedure_RelevantPotentialDiagnosis\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Procedure_RelevantPotentialDiagnosis\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Procedure\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Procedure\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Procedure\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Referral_2_Procedure\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Referral_2_Procedure\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Referral_2_Procedure\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Referral_RequestedPotentialProcedure\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Referral_RequestedPotentialProcedure\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Referral_RequestedPotentialProcedure\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Referral\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Referral\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction_Referral\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PerformedAction\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PlannedAction_Doctor\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PlannedAction_Doctor\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PlannedAction_Doctor\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PlannedAction_PotentialProcedure\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PlannedAction_PotentialProcedure\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PlannedAction_PotentialProcedure\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_PlannedAction\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_PlannedAction\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_PlannedAction\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_UsedProduct_2_ProcurementOrderPosition\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_UsedProduct_2_ProcurementOrderPosition\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_UsedProduct_2_ProcurementOrderPosition\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ACT_UsedProduct_2_ProductTrackingInstance\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ACT_UsedProduct_2_ProductTrackingInstance\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ACT_UsedProduct_2_ProductTrackingInstance\SQL\Select.sql" />
+    <Content Include="_Support\HEC_ACT_ApplicableBillCodes.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedActions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\HEC_ACT_PerformedAction_DiagnosisUpdates.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_DiagnosisUpdate_Localizations.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_Doctors.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_MadeObservations.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_MadeObservation_Documents.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_MedicationUpdates.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_PatientComplaints.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_PatientParameters.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_Procedures.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_Procedure_LogEntries.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_Procedure_Participants.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_Procedure_RelevantPotentialDiagnoses.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_Referrals.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_Referral_2_Procedure.xml" />
+    <Content Include="_Support\HEC_ACT_PerformedAction_Referral_RequestedPotentialProcedures.xml" />
+    <Content Include="_Support\HEC_ACT_PlannedActions.xml" />
+    <Content Include="_Support\HEC_ACT_PlannedAction_Doctors.xml" />
+    <Content Include="_Support\HEC_ACT_PlannedAction_PotentialProcedures.xml" />
+    <Content Include="_Support\HEC_ACT_UsedProducts.xml" />
+    <Content Include="_Support\HEC_ACT_UsedProduct_2_ProcurementOrderPosition.xml" />
+    <Content Include="_Support\HEC_ACT_UsedProduct_2_ProductTrackingInstance.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

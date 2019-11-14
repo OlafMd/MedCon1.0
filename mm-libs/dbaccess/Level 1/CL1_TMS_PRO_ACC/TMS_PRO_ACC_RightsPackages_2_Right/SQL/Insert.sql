@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_pro_acc_rightspackages_2_rights
+	(
+		AssignmentID,
+		RightsPackage_RefID,
+		Right_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@RightsPackage_RefID,
+		@Right_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

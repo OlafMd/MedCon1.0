@@ -1,0 +1,21 @@
+INSERT INTO 
+	usr_account_functionlevelrights
+	(
+		USR_Account_FunctionLevelRightID,
+		GlobalPropertyMatchingID,
+		FunctionLevelRights_Group_RefID,
+		RightName,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@USR_Account_FunctionLevelRightID,
+		@GlobalPropertyMatchingID,
+		@FunctionLevelRights_Group_RefID,
+		@RightName,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

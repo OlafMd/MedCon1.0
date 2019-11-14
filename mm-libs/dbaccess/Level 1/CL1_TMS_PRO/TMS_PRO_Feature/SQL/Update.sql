@@ -1,0 +1,20 @@
+UPDATE 
+	tms_pro_feature
+SET 
+	IdentificationNumber=@IdentificationNumber,
+	DOC_Structure_Header_RefID=@DOC_Structure_Header_RefID,
+	Project_RefID=@Project_RefID,
+	Component_RefID=@Component_RefID,
+	Parent_RefID=@Parent_RefID,
+	Type_RefID=@Type_RefID,
+	Status_RefID=@Status_RefID,
+	Name_DictID=@Name,
+	Description_DictID=@Description,
+	Feature_Deadline=@Feature_Deadline,
+	IsArchived=@IsArchived,
+	CreatedByAccount_RefID=@CreatedByAccount_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	TMS_PRO_FeatureID = @TMS_PRO_FeatureID

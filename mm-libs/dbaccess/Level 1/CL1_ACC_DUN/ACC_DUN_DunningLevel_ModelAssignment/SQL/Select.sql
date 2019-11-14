@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	acc_dun_dunninglevel_modelassignments
+WHERE 
+	ACC_DUN_DunningLevel_ModelAssignmentID = @ACC_DUN_DunningLevel_ModelAssignmentID

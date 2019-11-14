@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="09/24/2014 09:38:20 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Articles_for_SearchCriteria_for_Tenant</Name>
+    <Namespace>CL5_Zugseil_Articles.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_Articles.Complex.Retrieval"
+                Method_ClassName="cls_Get_Articles_for_SearchCriteria_for_Tenant"
+                Method_Name="Get_Articles_for_SearchCriteria_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <Parameters IsClass="true" Name="P_L5AR_GAfSCfT_0938">
+    <Members>
+      <ClassMember Name="LanguageID" Type="Guid"  />
+      <ClassMember Name="PageSize" Type="int"  />
+      <ClassMember Name="ActivePage" Type="int"  />
+      <ClassMember Name="SearchCriteria" Type="String"  />
+      <ClassMember Name="OrderByCriteria" Type="String"  />
+
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5AR_GAfSCfT_0938" IsArray="false">
+      <Members>
+        <ClassMember IsReference="true" Type="L5AR_GNoAfT_0936"       Name="NumberOfArticles"                  IsArray="false"/>
+        <ClassMember IsReference="true" Type="L5AR_GAfT_1108"          Name="AritclesList"                  IsArray="true"/>
+ 
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 7/23/2014 10:39:04 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_SHP_ReturnShipment_ReceivableCreditNote_Header"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_SHP"
+                IsClass_Corresponding_DBTable="log_shp_returnshipment_receivablecreditnote_headers" >
+      <Members>
+		<ClassMember Name="LOG_SHP_ReturnShipment_ReceivableCreditNote_HeaderID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Ext_ACC_CRN_ReceivedCreditNote_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

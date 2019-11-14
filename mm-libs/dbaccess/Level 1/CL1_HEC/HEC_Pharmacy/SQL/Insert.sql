@@ -1,0 +1,19 @@
+INSERT INTO 
+	hec_pharmacies
+	(
+		HEC_PharmacyID,
+		Ext_CompanyInfo_RefID,
+		ContactPerson_BusinessParticipant_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_PharmacyID,
+		@Ext_CompanyInfo_RefID,
+		@ContactPerson_BusinessParticipant_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

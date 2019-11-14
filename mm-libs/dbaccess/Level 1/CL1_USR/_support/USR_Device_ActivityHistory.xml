@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 3/20/2015 9:01:34 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="USR_Device_ActivityHistory"
+                IsClass="true"
+                IsClass_Namespace="CL1_USR"
+                IsClass_Corresponding_DBTable="usr_device_activityhistory" >
+      <Members>
+		<ClassMember Name="USR_Device_ActivityHistoryID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Device_RefID" Type="Guid" />
+		<ClassMember Name="Performing_Account_RefID" Type="Guid" />
+		<ClassMember Name="DateOfActivity" Type="DateTime" />
+		<ClassMember Name="WasDevice_Configured" Type="Boolean" />
+		<ClassMember Name="WasDevice_Configured_WithConfigurationCode_RefID" Type="Guid" />
+		<ClassMember Name="WasDevice_RequestingDSC" Type="Boolean" />
+		<ClassMember Name="WasBanned" Type="Boolean" />
+		<ClassMember Name="WasUnbanned" Type="Boolean" />
+		<ClassMember Name="WasCreatedSession" Type="Boolean" />
+		<ClassMember Name="WasOtherRelevantActivity" Type="Boolean" />
+		<ClassMember Name="ActivityComment" Type="String" />
+		<ClassMember Name="AccountComment" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

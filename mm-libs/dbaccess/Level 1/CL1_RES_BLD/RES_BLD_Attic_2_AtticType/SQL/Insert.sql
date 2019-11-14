@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_bld_attic_2_attictype
+	(
+		AssignmentID,
+		RES_BLD_Attic_RefID,
+		RES_BLD_Attic_Type_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@RES_BLD_Attic_RefID,
+		@RES_BLD_Attic_Type_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

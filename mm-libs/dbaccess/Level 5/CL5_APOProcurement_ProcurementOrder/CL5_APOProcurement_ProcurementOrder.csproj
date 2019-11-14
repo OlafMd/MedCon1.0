@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0DFD4681-1AE7-46A2-AFB6-FE89EE3A72C4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_APOProcurement_ProcurementOrder</RootNamespace>
+    <AssemblyName>CL5_APOProcurement_ProcurementOrder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_CashDiscount_for_Header_or_Position.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Count_ExtraDemandProducts_for_SupplierID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Discounts_for_ProcurementOrderPositions.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DiscountValues_for_HeaderID_and_DiscountType.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ExpectedDeliveries_for_ProcurementOrderPositions.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Open_ExtraDemandProducts.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProcurementOrderHeader_for_HeaderID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProcurementOrder_for_TenantID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Add_ExtraDemandProduct_to_ProcurementOrder.cs" />
+    <Compile Include="Complex\Manipulation\cls_Create_ExpectedDelivery.cs" />
+    <Compile Include="Complex\Manipulation\cls_Create_ExtraDemandProduct.cs" />
+    <Compile Include="Complex\Manipulation\cls_Change_Quantity_for_ExtraDemandProducts.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_PositionDiscounts.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Open_ExtraDemandProducts_with_ArticleData.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_ProcurementOrderPositions_for_HeaderID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProcurementOrderHeader_for_HeaderID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Open_ExtraDemandProducts.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Count_ExtraDemandProducts_for_SupplierID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Discounts_for_ProcurementOrderPositions.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DiscountValues_for_HeaderID_and_DiscountType.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_CashDiscount_for_Header_or_Position.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ExpectedDeliveries_for_ProcurementOrderPositions.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Count_ExtraDemandProducts_for_SupplierID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Discounts_for_ProcurementOrderPositions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_DiscountValues_for_HeaderID_and_DiscountType.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ExpectedDeliveries_for_ProcurementOrderPositions.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Open_ExtraDemandProducts.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_ProcurementOrderHeader_for_HeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Change_Quantity_for_ExtraDemandProducts.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Add_ExtraDemandProduct_to_ProcurementOrder.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Create_ExpectedDelivery.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Create_ExtraDemandProduct.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_PositionDiscounts.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Open_ExtraDemandProducts_with_ArticleData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_ProcurementOrderPositions_for_HeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProcurementOrder_for_TenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProcurementOrder_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06AB1C3C-339F-4E31-8408-232DC283308C}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO_PAC\CL1_CMN_PRO_PAC.csproj">
+      <Project>{022F0501-41A8-4206-9007-374D9155E23D}</Project>
+      <Name>CL1_CMN_PRO_PAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_SLS\CL1_CMN_SLS.csproj">
+      <Project>{86752CE8-6442-4C3F-A316-98FADBB38BE1}</Project>
+      <Name>CL1_CMN_SLS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_RCP\CL1_LOG_RCP.csproj">
+      <Project>{2C396733-6EF3-43BC-8C37-8959C59B2535}</Project>
+      <Name>CL1_LOG_RCP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_PRC\CL1_ORD_PRC.csproj">
+      <Project>{2ED9EC1F-4C36-4790-B8AE-6C03F4B40588}</Project>
+      <Name>CL1_ORD_PRC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{FEAB6F0E-56F1-43D4-BEF0-988B26474DD2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Currency\CL2_Currency.csproj">
+      <Project>{CACC6DDF-D4E9-4EE9-9C75-E1A65071A37C}</Project>
+      <Name>CL2_Currency</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_DiscountType\CL2_DiscountType.csproj">
+      <Project>{562D592F-4C27-4275-9967-BF12F35047F8}</Project>
+      <Name>CL2_DiscountType</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_NumberRange\CL2_NumberRange.csproj">
+      <Project>{430ED362-7290-4A5F-9A7C-BCF3E90A72B3}</Project>
+      <Name>CL2_NumberRange</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_ProcurementOrder\CL2_ProcurementOrder.csproj">
+      <Project>{24D25F86-90E8-4390-9DCE-FD2A464646B5}</Project>
+      <Name>CL2_ProcurementOrder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_APOStatistic\CL3_APOStatistic.csproj">
+      <Project>{1ED70C95-295E-4868-A2FA-E32AEC225DDD}</Project>
+      <Name>CL3_APOStatistic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Articles\CL3_Articles.csproj">
+      <Project>{B6DFA294-6413-463B-AD21-1F6EC75F8196}</Project>
+      <Name>CL3_Articles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Price\CL3_Price.csproj">
+      <Project>{A47E5B89-3CCF-407A-97AF-2ABA2558B3DB}</Project>
+      <Name>CL3_Price</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_ProcurementOrder\CL3_ProcurementOrder.csproj">
+      <Project>{A1B6F8F6-24A3-4426-892F-7752F846BF70}</Project>
+      <Name>CL3_ProcurementOrder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Warehouse\CL3_Warehouse.csproj">
+      <Project>{A3A3BD1F-A206-4C65-BD16-526F6F77495B}</Project>
+      <Name>CL3_Warehouse</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

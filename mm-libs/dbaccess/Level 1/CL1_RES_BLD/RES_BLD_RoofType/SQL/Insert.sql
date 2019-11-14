@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_bld_rooftype
+	(
+		RES_BLD_RoofTypeID,
+		RoofType_Name_DictID,
+		RoofType_Dictionary_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_BLD_RoofTypeID,
+		@RoofType_Name,
+		@RoofType_Dictionary,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

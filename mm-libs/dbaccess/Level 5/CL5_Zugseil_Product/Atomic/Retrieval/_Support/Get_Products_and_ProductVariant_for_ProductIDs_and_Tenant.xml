@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/26/2014 16:09:01">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Products_and_ProductVariant_for_ProductIDs_and_Tenant</Name>
+    <Namespace>CL5_Zugseil_Product.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_Product.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Products_and_ProductVariant_for_ProductIDs_and_Tenant"
+                Method_Name="Get_Products_and_ProductVariant_for_ProductIDs_and_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Products_and_ProductVariant_for_ProductIDs_and_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_pro_products.CMN_PRO_ProductID,
+	  cmn_pro_products.Product_Name_DictID,
+	  cmn_pro_products.Product_Description_DictID,
+	  cmn_pro_products.Product_Number,
+	  cmn_pro_products.Product_DocumentationStructure_RefID,
+	  cmn_pro_product_variants.CMN_PRO_Product_VariantID,
+	  cmn_pro_product_variants.IsStandardProductVariant,
+	  cmn_pro_product_variants.ProductVariantITL,
+	  cmn_pro_product_variants.IsImportedFromExternalCatalog,
+	  cmn_pro_product_variants.IsProductAvailableForOrdering,
+	  cmn_pro_product_variants.IsObsolete,
+	  cmn_pro_product_variants.VariantName_DictID
+	From
+	  cmn_pro_products Join
+	  cmn_pro_product_variants On cmn_pro_product_variants.CMN_PRO_Product_RefID =
+	    cmn_pro_products.CMN_PRO_ProductID And
+	     cmn_pro_products.IsProductForInternalDistributionOnly = 0 And
+	       cmn_pro_product_variants.Tenant_RefID = @TenantID
+	Where
+	  cmn_pro_products.CMN_PRO_ProductID = @ProductIDs And
+	  cmn_pro_product_variants.IsImportedFromExternalCatalog = 0 And
+	  cmn_pro_products.IsDeleted = 0 And
+	  cmn_pro_products.Tenant_RefID = @TenantID And
+	  cmn_pro_products.IsImportedFromExternalCatalog = 0 
+	 
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5PR_GPaPVfPaT_1602">
+    <Members>
+		<ClassMember Name="ProductIDs" Type="Guid" IsArray="true" />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PR_GPaPVfPaT_1602" IsArray="true" GroupBy="CMN_PRO_ProductID">
+			<Members>
+				<ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+				<ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+				<ClassMember Name="Product_Description" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Description_DictID"  />
+				<ClassMember Name="Product_Number" Type="String"  />
+				<ClassMember Name="Product_DocumentationStructure_RefID" Type="Guid"  />
+        <ClassMember Name="Variants" IsClass="true" IsArray="true" Type="L5PR_GPaPVfPaT_1602a" OrderBy="VariantName">
+          <Members>
+				<ClassMember Name="CMN_PRO_Product_VariantID" Type="Guid"  />
+				<ClassMember Name="IsStandardProductVariant" Type="bool"  />
+				<ClassMember Name="ProductVariantITL" Type="String"  />
+				<ClassMember Name="IsImportedFromExternalCatalog" Type="bool"  />
+				<ClassMember Name="IsProductAvailableForOrdering" Type="bool"  />
+				<ClassMember Name="IsObsolete" Type="bool"  />
+				<ClassMember Name="VariantName" Type="Dict" OriginTable="cmn_pro_product_variants" Source_DBField="VariantName_DictID"  />
+          </Members>
+        </ClassMember>
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

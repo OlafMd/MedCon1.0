@@ -1,0 +1,19 @@
+INSERT INTO 
+	log_rcp_receiptheader_2_procurementorderheader
+	(
+		AssignmentID,
+		LOG_RCP_Receipt_Header_RefID,
+		ORD_PRO_ProcurementOrder_Header_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@LOG_RCP_Receipt_Header_RefID,
+		@ORD_PRO_ProcurementOrder_Header_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

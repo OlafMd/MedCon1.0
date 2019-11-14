@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A227C38E-0AC4-4F0F-8991-C8B81411A209}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_CMN_CAL</RootNamespace>
+    <AssemblyName>CL1_CMN_CAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="CMN_CAL_CalculationTimeframe\ORM_CMN_CAL_CalculationTimeframe.cs" />
+    <Compile Include="CMN_CAL_CalendarInstance\ORM_CMN_CAL_CalendarInstance.cs" />
+    <Compile Include="CMN_CAL_Calendar_LockedEvent\ORM_CMN_CAL_Calendar_LockedEvent.cs" />
+    <Compile Include="CMN_CAL_Calendar_LockPeriod\ORM_CMN_CAL_Calendar_LockPeriod.cs" />
+    <Compile Include="CMN_CAL_Event\ORM_CMN_CAL_Event.cs" />
+    <Compile Include="CMN_CAL_Event_ApprovalProcess_Type\ORM_CMN_CAL_Event_ApprovalProcess_Type.cs" />
+    <Compile Include="CMN_CAL_Event_Approval\ORM_CMN_CAL_Event_Approval.cs" />
+    <Compile Include="CMN_CAL_Event_Approval_Action\ORM_CMN_CAL_Event_Approval_Action.cs" />
+    <Compile Include="CMN_CAL_RepetitionPatterns_Daily\ORM_CMN_CAL_RepetitionPatterns_Daily.cs" />
+    <Compile Include="CMN_CAL_RepetitionPatterns_Monthly\ORM_CMN_CAL_RepetitionPatterns_Monthly.cs" />
+    <Compile Include="CMN_CAL_RepetitionPatterns_Relative\ORM_CMN_CAL_RepetitionPatterns_Relative.cs" />
+    <Compile Include="CMN_CAL_RepetitionPatterns_Weekly\ORM_CMN_CAL_RepetitionPatterns_Weekly.cs" />
+    <Compile Include="CMN_CAL_RepetitionPatterns_Yearly\ORM_CMN_CAL_RepetitionPatterns_Yearly.cs" />
+    <Compile Include="CMN_CAL_Repetition\ORM_CMN_CAL_Repetition.cs" />
+    <Compile Include="CMN_CAL_Repetition_Ranx\ORM_CMN_CAL_Repetition_Ranx.cs" />
+    <Compile Include="CMN_CAL_WeeklyOfficeHours_Interval\ORM_CMN_CAL_WeeklyOfficeHours_Interval.cs" />
+    <Compile Include="CMN_CAL_WeeklyOfficeHours_Template\ORM_CMN_CAL_WeeklyOfficeHours_Template.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\dlFramework\CSharpV2\Core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\dlFramework\CSharpV2\Core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_CAL_CalculationTimeframe\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_CalculationTimeframe\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_CalculationTimeframe\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_Calendar_LockedEvent\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_Calendar_LockedEvent\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_Calendar_LockedEvent\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_Calendar_LockPeriod\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_Calendar_LockPeriod\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_Calendar_LockPeriod\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_CalendarInstance\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_CalendarInstance\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_CalendarInstance\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_Event_ApprovalProcess_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_Event_ApprovalProcess_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_Event_ApprovalProcess_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_Event_Approval_Action\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_Event_Approval_Action\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_Event_Approval_Action\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_Event_Approval\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_Event_Approval\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_Event_Approval\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_Event\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_Event\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_Event\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_Repetition_Ranx\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_Repetition_Ranx\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_Repetition_Ranx\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Daily\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Daily\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Daily\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Monthly\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Monthly\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Monthly\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Weekly\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Weekly\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Weekly\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Relative\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Relative\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Relative\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Yearly\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Yearly\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_RepetitionPatterns_Yearly\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_Repetition\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_Repetition\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_Repetition\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_WeeklyOfficeHours_Template\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_WeeklyOfficeHours_Template\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_WeeklyOfficeHours_Template\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CAL_WeeklyOfficeHours_Interval\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CAL_WeeklyOfficeHours_Interval\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CAL_WeeklyOfficeHours_Interval\SQL\Select.sql" />
+    <Content Include="_Support\CMN_CAL_CalculationTimeframes.xml" />
+    <Content Include="_Support\CMN_CAL_CalendarInstances.xml" />
+    <Content Include="_Support\CMN_CAL_Calendar_LockedEvents.xml" />
+    <Content Include="_Support\CMN_CAL_Calendar_LockPeriods.xml" />
+    <Content Include="_Support\CMN_CAL_Events.xml" />
+    <Content Include="_Support\CMN_CAL_Event_ApprovalProcess_Types.xml" />
+    <Content Include="_Support\CMN_CAL_Event_Approvals.xml" />
+    <Content Include="_Support\CMN_CAL_Event_Approval_Actions.xml" />
+    <Content Include="_Support\CMN_CAL_RepetitionPatterns_Daily.xml" />
+    <Content Include="_Support\CMN_CAL_RepetitionPatterns_Monthly.xml" />
+    <Content Include="_Support\CMN_CAL_RepetitionPatterns_Relative.xml" />
+    <Content Include="_Support\CMN_CAL_RepetitionPatterns_Weekly.xml" />
+    <Content Include="_Support\CMN_CAL_RepetitionPatterns_Yearly.xml" />
+    <Content Include="_Support\CMN_CAL_Repetitions.xml" />
+    <Content Include="_Support\CMN_CAL_Repetition_Ranges.xml" />
+    <Content Include="_Support\CMN_CAL_WeeklyOfficeHours_Intervals.xml" />
+    <Content Include="_Support\CMN_CAL_WeeklyOfficeHours_Templates.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

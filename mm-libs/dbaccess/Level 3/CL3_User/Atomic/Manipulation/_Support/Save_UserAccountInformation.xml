@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="16-Dec-14 4:33:00 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_UserAccountInformation</Name>
+    <Namespace>CL3_User.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_User.Atomic.Manipulation"
+                Method_ClassName="cls_Save_UserAccountInformation"
+                Method_Name="Save_UserAccountInformation"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_UserAccountInformation"
+                />
+
+  <Parameters IsClass="true" Name="P_L3US_SUAI_1642">
+    <Members>
+      <ClassMember Name="AccountID" Type="Guid"  />
+      <ClassMember Name="FirstName" Type="String"  />
+      <ClassMember Name="LastName" Type="String"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

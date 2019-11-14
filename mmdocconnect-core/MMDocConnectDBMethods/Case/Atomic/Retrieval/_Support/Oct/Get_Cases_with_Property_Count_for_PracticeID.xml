@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Cases_with_Property_Count_for_PracticeID</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Cases_with_Property_Count_for_PracticeID"
+								Method_Name="Get_Cases_with_Property_Count_for_PracticeID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    Select
+      count(distinct hec_cas_cases.Patient_RefID) As case_count
+    From
+      hec_cas_case_universalpropertyvalue Inner Join
+      hec_cas_cases
+        On hec_cas_case_universalpropertyvalue.HEC_CAS_Case_RefID = hec_cas_cases.HEC_CAS_CaseID And
+        hec_cas_cases.Tenant_RefID = @TenantID And
+        hec_cas_cases.IsDeleted = 0 Inner Join
+      hec_patient_medicalpractices
+        On hec_cas_cases.Patient_RefID = hec_patient_medicalpractices.HEC_Patient_RefID And
+  	    hec_patient_medicalpractices.HEC_MedicalPractices_RefID = @PracticeID And
+        hec_patient_medicalpractices.Tenant_RefID = @TenantID And
+        hec_patient_medicalpractices.IsDeleted = 0
+    Where
+      hec_cas_case_universalpropertyvalue.HEC_CAS_Case_UniversalProperty_RefID = @CaseUniversalPropertyID And
+      hec_cas_case_universalpropertyvalue.Tenant_RefID = @TenantID And
+      hec_cas_case_universalpropertyvalue.IsDeleted = 0
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GCwPCfPID_1140">
+    <Members>
+      <ClassMember Name="CaseUniversalPropertyID" Type="Guid"  />
+      <ClassMember Name="PracticeID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GCwPCfPID_1140">
+      <Members>
+        <ClassMember Name="case_count" Type="int"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

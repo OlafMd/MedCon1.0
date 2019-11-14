@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_units
+	(
+		CMN_UnitID,
+		Label_DictID,
+		Abbreviation_DictID,
+		ISOCode,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_UnitID,
+		@Label,
+		@Abbreviation,
+		@ISOCode,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

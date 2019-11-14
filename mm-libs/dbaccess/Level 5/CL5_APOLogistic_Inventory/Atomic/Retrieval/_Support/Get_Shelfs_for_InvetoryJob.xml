@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/18/2014 10:55:42 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Shelfs_for_InvetoryJob</Name>
+    <Namespace>CL5_APOLogistic_Inventory.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_Inventory.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Shelfs_for_InvetoryJob"
+                Method_Name="Get_Shelfs_for_InvetoryJob"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Shelfs_for_InvetoryJob"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT
+	  log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_Shelf_RefID
+	FROM
+	  log_wrh_inj_inventoryjob_processes
+	  LEFT JOIN log_wrh_inj_inventoryjobs
+	    ON log_wrh_inj_inventoryjobs.LOG_WRH_INJ_InventoryJobID =
+	         log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_RefID AND
+	       log_wrh_inj_inventoryjob_processes.Tenant_RefID =
+	         log_wrh_inj_inventoryjobs.Tenant_RefID AND
+	       log_wrh_inj_inventoryjob_processes.IsDeleted = 0
+	  LEFT JOIN log_wrh_inj_inventoryjob_process_shelves
+	    ON log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_ProcessID =
+	         log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_INJ_InventoryJob_Process_RefID AND
+	       log_wrh_inj_inventoryjob_process_shelves.Tenant_RefID =
+	         log_wrh_inj_inventoryjob_processes.Tenant_RefID AND
+	       log_wrh_inj_inventoryjob_process_shelves.IsDeleted = 0
+	WHERE
+	  log_wrh_inj_inventoryjobs.LOG_WRH_INJ_InventoryJobID = @InventoryJobID AND
+	  log_wrh_inj_inventoryjobs.Tenant_RefID = @TenantID AND
+	  log_wrh_inj_inventoryjobs.IsDeleted = 0
+
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5IN_GSfIJ_1053">
+    <Members>
+		<ClassMember Name="InventoryJobID" Type="Guid" />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5IN_GSfIJ_1053" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_WRH_Shelf_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,19 @@
+INSERT INTO 
+	ord_prc_office_shoppingcarts
+	(
+		ORD_PRC_Office_ShoppingCartID,
+		CMN_STR_Office_RefID,
+		ORD_PRC_ShoppingCart_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ORD_PRC_Office_ShoppingCartID,
+		@CMN_STR_Office_RefID,
+		@ORD_PRC_ShoppingCart_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

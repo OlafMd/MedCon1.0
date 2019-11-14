@@ -1,0 +1,124 @@
+﻿<div class="clearfix  content" ng-init="initializeController()">
+    <div class="white-content-holder clearfix">
+        <a class="back-button no-margin" ng-click="redirectToMainPage()" href=""><span translate="BUTTON_BACK"></span></a>
+    </div>
+
+    <div class="gray-content-holder doctors-data-lists doctor-list">
+        <form id="contractForm" name="contractForm" ng-submit="saveContract()" novalidate>
+            <div name="messageContainer" class="error-msg-container" ng-if="divContainer">
+                <span class="error" ng-if="validFromDateInvalid">{{ 'LABEL_VALID_FROM_INVALID_DATE' | translate }}</span>
+                <span class="error" ng-if="validThroughDateInvalid">{{ 'LABEL_VALID_THROUGH_INVALID_DATE' | translate }}</span>
+                <span class="error" ng-if="validThroughDateBeforeValidFromDate">{{ 'LABEL_VALID_THROUGH_DATE_BEFORE_VALID_FROM_DATE' | translate }}</span>
+                <span class="error" ng-if="validFromDateNotEntered">{{ 'LABEL_CONTRACT_START_DATE_NOT_ENTERED' | translate }}</span>
+            </div>
+            <ul class="first-class-data contract-row">
+                <li class="no-margin-bottom">
+                    <label>{{ 'LABEL_CONTRACT_TITLE' | translate }}<span class="error" ng-if="contractForm.inContractName.$error.required">*</span></label>
+                    <input id="inContractName" name="inContractName" type="text" ng-model="contract.contract_name" required />
+                </li>
+                <li class="no-margin-bottom">
+                    <label>{{ 'LABEL_VALID_FROM' | translate }}<span class="error" ng-if="contractForm.contractValidFrom.$error.required">*</span></label>
+                    <datepicker date-format="dd.MM.yyyy" date-model="contract.contract_valid_from">
+                        <input type="text" id="contractValidFrom" ng-focus="setClass()" name="contractValidFrom" class="2000Year" ng-model="contract.contract_valid_from"
+                               placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}" ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'" required ng-class="{'redborder': validFromDateInvalid || validFromDateNotEntered }" />
+                    </datepicker>
+                </li>
+                <li class="no-margin-bottom">
+                    <label>{{ 'LABEL_VALID_THROUGH' | translate }}<span class="error" ng-if="contractForm.contractValidThrough.$error.required">*</span></label>
+                    <datepicker date-format="dd.MM.yyyy" date-model="contract.contract_valid_through" date-min-limit="{{today}}">
+                        <input type="text" id="contractValidThrough" ng-focus="setClass()" name="contractValidThrough" class="2000Year"
+                               ng-model="contract.contract_valid_through" placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}" ng-datefilter
+                               valid-date="false" ng-bind="date | date:'dd.MM.yyyy'" validate-date="true" date-min-limit="today" ng-class="{'redborder': validThroughDateInvalid || validThroughDateBeforeValidFromDate }" />
+                    </datepicker>
+                </li>
+                <li class="margin-bottom-10">
+                    <label>{{ 'LABEL_CONTRACT_CHARACTERISTIC_ID' | translate }}</label>
+                    <input id="inCharacteristicId" type="text" ng-model="contract.characteristic_id" />
+                </li>
+                <li class="margin-bottom-10">
+                    <label>{{ 'LABEL_EDIFACT_TYPE' | translate }}</label>
+                    <dropdown-list id="selEdifactType" items="edifact_types" ng-model="contract.edifact_type" dropdown-class="'dd196'"></dropdown-list>
+                </li>
+                <li class="margin-bottom-10">
+                    <label>{{ 'LABEL_NEXT_EDIFACT_NUMBER' | translate }}</label>
+                    <input id="inIncreaseEdifactCounterBy" type="text" ng-model="contract.next_edifact_number" />
+                </li>
+                <li class="toggler">
+                    <label>{{ 'LABEL_ENCRYPT_EDIFACT' | translate }}</label>
+                    <span class="mask-toggle">
+                        <input id="cbEncrtyptEdifact" type="checkbox" ng-model="contract.encrypt_edifact">
+                        <i class="icon"></i>
+                    </span>
+                </li>
+                <li>
+                    <label>{{'LABEL_CONTRACT_TYPE'|translate}}</label>
+                    <dropdown-list id="selContractType" items="contract_types" ng-model="contract.contract_type" dropdown-class="'dd196'"></dropdown-list>
+                </li>
+
+                <li>
+                    <label>{{'LABEL_MESSAGE_TYPE'|translate}}</label>
+                    <dropdown-list id="selMessageType" items="message_types" ng-model="contract.message_type" dropdown-class="'dd196'"></dropdown-list>
+                </li>
+                <li class="toggler">
+                    <label>{{ 'LABEL_MERGE_HIPS' | translate }}</label>
+                    <span class="mask-toggle">
+                        <input id="cbMergeForAllHIPs" type="checkbox" ng-model="contract.merger_for_all_hips">
+                        <i class="icon"></i>
+                    </span>
+                </li>
+                <li>
+                    <label>{{'LABEL_IK_NUMBER'|translate}}</label>
+                    <dropdown-list disable-input="!contract.merger_for_all_hips" id="selIKNumber" items="ik_numbers" ng-model="contract.ik_number" dropdown-class="'dd196'"></dropdown-list>
+                </li>
+                <li class="toggler">
+                    <label>{{ "LABEL_USE_K_FOR_CORRECTION" | translate }}</label>
+                    <span class="mask-toggle">
+                        <input id="ckUseKForCorrection" type="checkbox" ng-model="contract.use_k_for_correction">
+                        <i class="icon"></i>
+                    </span>
+                </li>
+            </ul>
+            <div class="buttons">
+                <button class="button wide confirm no-margin-bottom" name="btnSaveContract" id="btnSaveContract" type="submit" translate="BUTTON_SAVE"
+                        ng-disabled="contractForm.$invalid"></button>
+                <button class="button narrow reject no-margin-bottom" id="btnCancel" onclick="return false;" ng-click="redirectToMainPage()" translate="BUTTON_CANCEL" title="{{'BUTTON_CANCEL' | translate}}"></button>
+            </div>
+        </form>
+    </div>
+    <div class="content-holder">
+        <ul class="left-sidebar">
+            <li ng-class="{'selected-item': isSelected('hip')}">
+                <input type="radio" class="hidden" value="hip" name="content_view" id="content_view_hip" ng-model="view_content" />
+                <label for="content_view_hip">{{ 'LABEL_HIP_NAMES' | translate }}</label>
+            </li>
+            <li ng-class="{'selected-item': isSelected('drug')}">
+                <input type="radio" class="hidden" value="drug" name="content_view" id="content_view_drug" ng-model="view_content" />
+                <label for="content_view_drug">{{ 'LABEL_DRUGS' | translate }}</label>
+            </li>
+            <li ng-class="{'selected-item': isSelected('diagnose')}">
+                <input type="radio" class="hidden" value="diagnose" name="content_view" id="content_view_diagnose" ng-model="view_content" />
+                <label for="content_view_diagnose">{{ 'LABEL_DIAGNOSES' | translate }}</label>
+            </li>
+            <li ng-class="{'selected-item': isSelected('gpos')}">
+                <input type="radio" class="hidden" value="gpos" name="content_view" id="content_view_gpos" ng-model="view_content" />
+                <label for="content_view_gpos">{{ 'LABEL_GPOSES' | translate }}</label>
+            </li>
+            <li ng-class="{'selected-item': isSelected('due_dates')}">
+                <input type="radio" class="hidden" value="due_dates" name="content_view" id="content_view_due_dates" ng-model="view_content" />
+                <label for="content_view_due_dates">{{ 'LABEL_DUE_DATES' | translate }}</label>
+            </li>
+            <li ng-class="{'selected-item': isSelected('doctor')}">
+                <input type="radio" class="hidden" value="doctor" name="content_view" id="content_view_doctor" ng-model="view_content" />
+                <label for="content_view_doctor">{{ 'LABEL_DOCTORS' | translate }}</label>
+            </li>
+        </ul>
+        <div class="content-right">
+            <covered-hips-directive ng-if="isSelected('hip')"></covered-hips-directive>
+            <covered-drugs-directive ng-if="isSelected('drug')"></covered-drugs-directive>
+            <gpos-detail-directive ng-if="isSelected('gpos')"></gpos-detail-directive>
+            <covered-diagnoses-directive ng-if="isSelected('diagnose')"></covered-diagnoses-directive>
+            <participating-doctors-directive ng-if="isSelected('doctor')"></participating-doctors-directive>
+            <due-dates-overview-directive ng-if="isSelected('due_dates')"></due-dates-overview-directive>
+        </div>
+    </div>
+</div>

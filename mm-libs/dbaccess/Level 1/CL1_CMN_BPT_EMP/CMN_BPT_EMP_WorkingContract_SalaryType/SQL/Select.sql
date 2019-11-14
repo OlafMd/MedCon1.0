@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_workingcontract_salarytypes
+WHERE 
+	CMN_BPT_EMP_WorkingContract_SalaryTypeID = @CMN_BPT_EMP_WorkingContract_SalaryTypeID

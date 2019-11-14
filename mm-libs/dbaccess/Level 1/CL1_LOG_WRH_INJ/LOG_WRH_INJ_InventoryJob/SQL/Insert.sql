@@ -1,0 +1,21 @@
+INSERT INTO 
+	log_wrh_inj_inventoryjobs
+	(
+		LOG_WRH_INJ_InventoryJobID,
+		Warehouse_RefID,
+		InventoryJob_DisplayName,
+		InventoryJob_Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_WRH_INJ_InventoryJobID,
+		@Warehouse_RefID,
+		@InventoryJob_DisplayName,
+		@InventoryJob_Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,116 @@
+.error-msg-container{
+	@include clearfix;
+	@include border-radius(3px);
+
+	width: 100%;
+	float: left;
+	clear: left;
+	padding: 5px 15px 0;
+	margin-bottom: 20px;
+	font-size: 0.75rem;
+	font-weight: bold;
+	text-align: left;
+	color: $error-color;
+	background-color: $error-bck-color;
+	border: 1px solid $error-color;
+
+	.error{
+		display: block;
+		margin-bottom: 5px;
+	}
+}
+
+.error-msg{
+     @extend .error-msg-container;
+      width: 91%;
+      width: calc(100% - 60px);
+      margin: 10px 30px 20px;
+  }
+.border-warning{
+	border: 1px solid $error-color !important;
+}
+
+.bubble-notification-holder{
+	@include border-radius(3px);
+
+	min-width: 340px;
+	position: fixed;
+	top: 190px;
+	left: 50%;
+	transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+	padding: 24px 48px;
+	-webkit-box-shadow: 7px -1px 30px -5px rgba(0,0,0,0.25);
+	-moz-box-shadow: 7px -1px 30px -5px rgba(0,0,0,0.25);
+	box-shadow: 7px -1px 30px -5px rgba(0,0,0,0.25);
+	color: #fff;
+
+	h2{
+		margin: 0;
+	}
+
+	.ngdialog-close{
+		display: none;
+	}
+}
+
+.bubble-accepted{
+	@extend .bubble-notification-holder;
+
+	background-color: $active-color;
+}
+
+.bubble-rejected{
+	@extend .bubble-notification-holder;
+
+	background-color: $error-color;
+}
+
+.bubble-information{
+	@extend .bubble-notification-holder;
+	
+	background-color: $warning-color !important;
+	border-radius: 3px;
+/*	min-width: 340px;
+	position: fixed;
+	top: 190px;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 24px 48px;
+	-webkit-box-shadow: 7px -1px 30px -5px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 7px -1px 30px -5px rgba(0, 0, 0, 0.25);
+	box-shadow: 7px -1px 30px -5px rgba(0, 0, 0, 0.25);
+	color: #fff;*/
+}
+
+label{
+	.error{
+		display: inline-block;
+		color: transparent;
+		position: absolute;
+
+		&:after{
+			content: '*';
+			display: inline-block;
+			color: $error-color;
+			margin-left: -5px;
+		}
+
+		&.hidden{
+			visibility: hidden;
+		}
+	}
+}
+
+.order-msg-container{
+    @extend .error-msg-container;
+   
+    border: 1px solid #cd9a12;
+    background-color: rgba(205,154,0,0.2);
+    
+    span{
+          color: #cd9a12 !important; 
+          display: block;
+          margin-bottom: 5px;
+    }
+}

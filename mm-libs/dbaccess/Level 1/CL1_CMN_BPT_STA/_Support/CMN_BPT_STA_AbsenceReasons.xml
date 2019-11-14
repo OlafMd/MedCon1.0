@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/5/2014 2:33:56 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_BPT_STA_AbsenceReason"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_BPT_STA"
+                IsClass_Corresponding_DBTable="cmn_bpt_sta_absencereasons" >
+      <Members>
+		<ClassMember Name="CMN_BPT_STA_AbsenceReasonID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ShortName" Type="String" />
+		<ClassMember Name="Name" Type="Dict" Source_DBField="Name_DictID" OriginTable="cmn_bpt_sta_absencereasons"/>
+		<ClassMember Name="Description" Type="Dict" Source_DBField="Description_DictID" OriginTable="cmn_bpt_sta_absencereasons"/>
+		<ClassMember Name="AbsenceReason_Type_RefID" Type="Guid" />
+		<ClassMember Name="ColorCode" Type="String" />
+		<ClassMember Name="Parent_RefID" Type="Guid" />
+		<ClassMember Name="IsAuthorizationRequired" Type="Boolean" />
+		<ClassMember Name="IsIncludedInCapacityCalculation" Type="Boolean" />
+		<ClassMember Name="IsAllowedAbsence" Type="Boolean" />
+		<ClassMember Name="IsDeactivated" Type="Boolean" />
+		<ClassMember Name="IsCarryOverEnabled" Type="Boolean" />
+		<ClassMember Name="IsCaryOverLimited" Type="Boolean" />
+		<ClassMember Name="IfCarryOverLimited_MaximumAmount_Hrs" Type="Double" />
+		<ClassMember Name="IsLeaveTimeReducing_WorkingHours" Type="Boolean" />
+		<ClassMember Name="IsLeaveTimeReducing_OverHours" Type="Boolean" />
+		<ClassMember Name="IsLeaveTimeReducing_OverDays" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

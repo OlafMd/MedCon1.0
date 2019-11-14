@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/13/2014 11:55:05 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CustomerOrderPosition_for_ShipmentPositionList</Name>
+    <Namespace>CL6_APOLogistic_ShippingOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_APOLogistic_ShippingOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_CustomerOrderPosition_for_ShipmentPositionList"
+                Method_Name="Get_CustomerOrderPosition_for_ShipmentPositionList"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_CustomerOrderPosition_for_ShipmentPositionList"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  ord_cuo_customerorder_positions.ORD_CUO_CustomerOrder_PositionID,
+	  log_shp_shipment_positions.LOG_SHP_Shipment_PositionID
+	From
+	  ord_cuo_customerorder_positions Left Join
+	  ord_cuo_customerorder_position_2_shipmentposition
+	    On
+	    ord_cuo_customerorder_position_2_shipmentposition.ORD_CUO_CustomerOrder_Position_RefID = ord_cuo_customerorder_positions.ORD_CUO_CustomerOrder_PositionID Left Join
+	  log_shp_shipment_positions
+	    On log_shp_shipment_positions.LOG_SHP_Shipment_PositionID =
+	    ord_cuo_customerorder_position_2_shipmentposition.LOG_SHP_Shipment_Position_RefID
+	Where
+	  ord_cuo_customerorder_positions.Tenant_RefID = @TenantID And
+	  log_shp_shipment_positions.LOG_SHP_Shipment_PositionID = @ShipmentPositionID
+	  And
+	  ord_cuo_customerorder_positions.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6SO_GCOPfSPL_1152">
+    <Members>
+		<ClassMember Name="ShipmentPositionID" Type="Guid" IsArray="true" />
+	
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6SO_GCOPfSPL_1152" IsArray="true">
+			<Members>
+				<ClassMember Name="ORD_CUO_CustomerOrder_PositionID" Type="Guid"  />
+				<ClassMember Name="LOG_SHP_Shipment_PositionID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

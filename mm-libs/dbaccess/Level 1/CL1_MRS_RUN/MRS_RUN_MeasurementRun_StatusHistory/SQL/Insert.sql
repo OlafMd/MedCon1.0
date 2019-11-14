@@ -1,0 +1,25 @@
+INSERT INTO 
+	mrs_run_measurementrun_statushistory
+	(
+		MRS_RUN_MeasurementRun_StatusHistoryID,
+		MeasurementRun_RefID,
+		MeasurementRun_Status_RefID,
+		TriggeredBy_BusinessParticipant_RefID,
+		Comment,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@MRS_RUN_MeasurementRun_StatusHistoryID,
+		@MeasurementRun_RefID,
+		@MeasurementRun_Status_RefID,
+		@TriggeredBy_BusinessParticipant_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

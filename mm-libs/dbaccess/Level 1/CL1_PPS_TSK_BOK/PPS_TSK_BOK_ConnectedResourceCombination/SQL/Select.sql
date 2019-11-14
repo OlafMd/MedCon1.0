@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	pps_tsk_bok_connectedresourcecombinations
+WHERE 
+	PPS_TSK_BOK_ConnectedResourceCombinationID = @PPS_TSK_BOK_ConnectedResourceCombinationID

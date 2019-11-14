@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/13/2014 11:49:27 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_CMN_Tenant</Name>
+    <Namespace>CL2_Tenant.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Tenant.Atomic.Manipulation"
+                Method_ClassName="cls_Save_CMN_Tenant"
+                Method_Name="Save_CMN_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_CMN_Tenant"
+                />
+  <SQLLimitation_CSharp_Extension>
+			var returnValue = new FR_Guid();
+
+			var item = new CL1_CMN.CMN_Tenant.ORM_CMN_Tenant();
+			if (Parameter.CMN_TenantID != Guid.Empty)
+			{
+			    var result = item.Load(Connection, Transaction, Parameter.CMN_TenantID);
+			    if (result.Status != FR_Status.Success || item.CMN_TenantID == Guid.Empty)
+			    {
+			        var error = new FR_Guid();
+			        error.ErrorMessage = "No Such ID";
+			        error.Status =  FR_Status.Error_Internal;
+			        return error;
+			    }
+			}
+
+			if(Parameter.IsDeleted == true){
+				item.IsDeleted = true;
+				return new FR_Guid(item.Save(Connection, Transaction),item.CMN_TenantID);
+			}
+
+			//Creation specific parameters (Tenant, Account ... )
+			if (Parameter.CMN_TenantID == Guid.Empty)
+			{
+				item.Tenant_RefID = securityTicket.TenantID;
+			}
+
+			item.TenantITL = Parameter.TenantITL;
+			item.UniversalContactDetail_RefID = Parameter.UniversalContactDetail_RefID;
+			item.CMN_CAL_CalendarInstance_RefID = Parameter.CMN_CAL_CalendarInstance_RefID;
+			item.IsUsing_Offices = Parameter.IsUsing_Offices;
+			item.IsUsing_WorkAreas = Parameter.IsUsing_WorkAreas;
+			item.IsUsing_Workplaces = Parameter.IsUsing_Workplaces;
+			item.IsUsing_CostCenters = Parameter.IsUsing_CostCenters;
+			item.CMN_BPT_STA_SettingProfile_RefID = Parameter.CMN_BPT_STA_SettingProfile_RefID;
+			item.DocumentServerRootURL = Parameter.DocumentServerRootURL;
+			item.Customers_DefaultPricelist_RefID = Parameter.Customers_DefaultPricelist_RefID;
+
+
+			return new FR_Guid(item.Save(Connection, Transaction),item.CMN_TenantID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2_ST_1149">
+    <Members>
+		<ClassMember IsIdentificator="True" Name="CMN_TenantID" Type="Guid"  />
+		<ClassMember Name="TenantITL" Type="String"  />
+		<ClassMember Name="UniversalContactDetail_RefID" Type="Guid"  />
+		<ClassMember Name="CMN_CAL_CalendarInstance_RefID" Type="Guid"  />
+		<ClassMember Name="IsUsing_Offices" Type="Boolean"  />
+		<ClassMember Name="IsUsing_WorkAreas" Type="Boolean"  />
+		<ClassMember Name="IsUsing_Workplaces" Type="Boolean"  />
+		<ClassMember Name="IsUsing_CostCenters" Type="Boolean"  />
+		<ClassMember Name="CMN_BPT_STA_SettingProfile_RefID" Type="Guid"  />
+		<ClassMember Name="DocumentServerRootURL" Type="String"  />
+		<ClassMember Name="Customers_DefaultPricelist_RefID" Type="Guid"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

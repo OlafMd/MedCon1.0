@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{06AB1C3C-339F-4E31-8408-232DC283308C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_CMN_PRO</RootNamespace>
+    <AssemblyName>CL1_CMN_PRO</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDtMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDtMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDyMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDyMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CMN_PRO_Catalog\ORM_CMN_PRO_Catalog.cs" />
+    <Compile Include="CMN_PRO_Catalog_ProductGroup\ORM_CMN_PRO_Catalog_ProductGroup.cs" />
+    <Compile Include="CMN_PRO_Catalog_Product\ORM_CMN_PRO_Catalog_Product.cs" />
+    <Compile Include="CMN_PRO_Catalog_Product_2_ProductGroup\ORM_CMN_PRO_Catalog_Product_2_ProductGroup.cs" />
+    <Compile Include="CMN_PRO_Catalog_Revision\ORM_CMN_PRO_Catalog_Revision.cs" />
+    <Compile Include="CMN_PRO_Dimension\ORM_CMN_PRO_Dimension.cs" />
+    <Compile Include="CMN_PRO_Dimension_Value\ORM_CMN_PRO_Dimension_Value.cs" />
+    <Compile Include="CMN_PRO_DistributionCenter\ORM_CMN_PRO_DistributionCenter.cs" />
+    <Compile Include="CMN_PRO_MasterCatalog\ORM_CMN_PRO_MasterCatalog.cs" />
+    <Compile Include="CMN_PRO_MasterCatalog_ProductGroup\ORM_CMN_PRO_MasterCatalog_ProductGroup.cs" />
+    <Compile Include="CMN_PRO_MasterCatalog_Product\ORM_CMN_PRO_MasterCatalog_Product.cs" />
+    <Compile Include="CMN_PRO_MasterCatalog_Product_2_ProductGroup\ORM_CMN_PRO_MasterCatalog_Product_2_ProductGroup.cs" />
+    <Compile Include="CMN_PRO_ProductCode\ORM_CMN_PRO_ProductCode.cs" />
+    <Compile Include="CMN_PRO_ProductCode_Type\ORM_CMN_PRO_ProductCode_Type.cs" />
+    <Compile Include="CMN_PRO_ProductGroup\ORM_CMN_PRO_ProductGroup.cs" />
+    <Compile Include="CMN_PRO_Product\ORM_CMN_PRO_Product.cs" />
+    <Compile Include="CMN_PRO_Product_2_ProductAnnotation\ORM_CMN_PRO_Product_2_ProductAnnotation.cs" />
+    <Compile Include="CMN_PRO_Product_2_ProductCode\ORM_CMN_PRO_Product_2_ProductCode.cs" />
+    <Compile Include="CMN_PRO_Product_2_ProductGroup\ORM_CMN_PRO_Product_2_ProductGroup.cs" />
+    <Compile Include="CMN_PRO_Product_Annotations\ORM_CMN_PRO_Product_Annotations.cs" />
+    <Compile Include="CMN_PRO_Product_CustomerInquiry\ORM_CMN_PRO_Product_CustomerInquiry.cs" />
+    <Compile Include="CMN_PRO_Product_Note\ORM_CMN_PRO_Product_Note.cs" />
+    <Compile Include="CMN_PRO_Product_Questionnaire_Assignment\ORM_CMN_PRO_Product_Questionnaire_Assignment.cs" />
+    <Compile Include="CMN_PRO_Product_Release\ORM_CMN_PRO_Product_Release.cs" />
+    <Compile Include="CMN_PRO_Product_Release_2_DeveloperTask\ORM_CMN_PRO_Product_Release_2_DeveloperTask.cs" />
+    <Compile Include="CMN_PRO_Product_SalesTaxAssignmnet\ORM_CMN_PRO_Product_SalesTaxAssignmnet.cs" />
+    <Compile Include="CMN_PRO_Product_SupplierAreaBinding\ORM_CMN_PRO_Product_SupplierAreaBinding.cs" />
+    <Compile Include="CMN_PRO_Product_Supplier\ORM_CMN_PRO_Product_Supplier.cs" />
+    <Compile Include="CMN_PRO_Product_Supplier_DiscountValue\ORM_CMN_PRO_Product_Supplier_DiscountValue.cs" />
+    <Compile Include="CMN_PRO_Product_Type\ORM_CMN_PRO_Product_Type.cs" />
+    <Compile Include="CMN_PRO_Product_Variant\ORM_CMN_PRO_Product_Variant.cs" />
+    <Compile Include="CMN_PRO_SubscribedCatalog\ORM_CMN_PRO_SubscribedCatalog.cs" />
+    <Compile Include="CMN_PRO_Variant_DimensionValue\ORM_CMN_PRO_Variant_DimensionValue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_PRO_SubscribedCatalog\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_SubscribedCatalog\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_SubscribedCatalog\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_MasterCatalog\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_MasterCatalog\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_MasterCatalog\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Supplier\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Supplier\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Supplier\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Supplier_DiscountValue\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Supplier_DiscountValue\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Supplier_DiscountValue\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Note\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Note\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Note\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_CustomerInquiry\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_CustomerInquiry\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_CustomerInquiry\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Dimension\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Dimension\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Dimension\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Dimension_Value\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Dimension_Value\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Dimension_Value\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Variant_DimensionValue\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Variant_DimensionValue\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Variant_DimensionValue\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_DistributionCenter\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_DistributionCenter\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_DistributionCenter\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_SupplierAreaBinding\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_SupplierAreaBinding\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_SupplierAreaBinding\SQL\Update.sql" />
+    <Content Include="_Support\CMN_PRO_Dimensions.xml" />
+    <Content Include="_Support\CMN_PRO_Dimension_Values.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\CMN_PRO_DistributionCenters.xml" />
+    <Content Include="_Support\CMN_PRO_MasterCatalogs.xml" />
+    <Content Include="_Support\CMN_PRO_Products.xml" />
+    <Content Include="_Support\CMN_PRO_Product_CustomerInquiries.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\CMN_PRO_Product_Notes.xml" />
+    <Content Include="_Support\CMN_PRO_Product_SupplierAreaBindings.xml" />
+    <Content Include="_Support\CMN_PRO_Product_Suppliers.xml" />
+    <Content Include="_Support\CMN_PRO_Product_Supplier_DiscountValues.xml" />
+    <Content Include="_Support\CMN_PRO_SubscribedCatalogs.xml" />
+    <EmbeddedResource Include="CMN_PRO_Product_Annotations\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Annotations\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Annotations\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_2_ProductAnnotation\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_2_ProductAnnotation\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_2_ProductAnnotation\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog_Product_2_ProductGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog_Product_2_ProductGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog_Product_2_ProductGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog_ProductGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog_ProductGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog_ProductGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog_Product\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog_Product\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog_Product\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog_Revision\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog_Revision\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog_Revision\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Catalog\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_MasterCatalog_Product_2_ProductGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_MasterCatalog_Product_2_ProductGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_MasterCatalog_Product_2_ProductGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_MasterCatalog_ProductGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_MasterCatalog_ProductGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_MasterCatalog_ProductGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_MasterCatalog_Product\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_MasterCatalog_Product\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_MasterCatalog_Product\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_PRO_Catalogs.xml" />
+    <Content Include="_Support\CMN_PRO_Catalog_ProductGroups.xml" />
+    <Content Include="_Support\CMN_PRO_Catalog_Product_2_ProductGroup.xml" />
+    <Content Include="_Support\CMN_PRO_Catalog_Revisions.xml" />
+    <Content Include="_Support\CMN_PRO_MasterCatalog_ProductGroups.xml" />
+    <Content Include="_Support\CMN_PRO_MasterCatalog_Products.xml" />
+    <Content Include="_Support\CMN_PRO_MasterCatalog_Product_2_ProductGroup.xml" />
+    <Content Include="_Support\CMN_PRO_Product_2_ProductAnnotation.xml" />
+    <Content Include="_Support\CMN_PRO_Product_Annotations.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="CMN_PRO_Product\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_ProductGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_ProductGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_ProductGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_ProductCode\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_ProductCode\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_ProductCode\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_ProductCode_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_ProductCode_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_ProductCode_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Release\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Release\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Release\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Variant\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Variant\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Variant\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Release_2_DeveloperTask\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Release_2_DeveloperTask\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Release_2_DeveloperTask\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Questionnaire_Assignment\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Questionnaire_Assignment\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Questionnaire_Assignment\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_2_ProductGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_2_ProductGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_2_ProductGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_2_ProductCode\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_2_ProductCode\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_2_ProductCode\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_SalesTaxAssignmnet\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_SalesTaxAssignmnet\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_PRO_Product_SalesTaxAssignmnet\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_PRO_ProductCodes.xml" />
+    <Content Include="_Support\CMN_PRO_ProductCode_Types.xml" />
+    <Content Include="_Support\CMN_PRO_ProductGroups.xml" />
+    <Content Include="_Support\CMN_PRO_Product_2_ProductCode.xml" />
+    <Content Include="_Support\CMN_PRO_Product_2_ProductGroup.xml" />
+    <Content Include="_Support\CMN_PRO_Product_Questionnaire_Assignment.xml" />
+    <Content Include="_Support\CMN_PRO_Product_Releases.xml" />
+    <Content Include="_Support\CMN_PRO_Product_Release_2_DeveloperTask.xml" />
+    <Content Include="_Support\CMN_PRO_Product_SalesTaxAssignmnets.xml" />
+    <Content Include="_Support\CMN_PRO_Product_Types.xml" />
+    <Content Include="_Support\CMN_PRO_Product_Variants.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

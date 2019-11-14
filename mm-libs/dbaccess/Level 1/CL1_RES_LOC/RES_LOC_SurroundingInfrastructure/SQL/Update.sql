@@ -1,0 +1,10 @@
+UPDATE 
+	res_loc_surroundinginfrastructures
+SET 
+	SurroundingInfrastructure_Name_DictID=@SurroundingInfrastructure_Name,
+	SurroundingInfrastructure_Description_DictID=@SurroundingInfrastructure_Description,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_LOC_SurroundingInfrastructureID = @RES_LOC_SurroundingInfrastructureID

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/1/2014 5:32:25 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Localization_for_DiagnosisID</Name>
+    <Namespace>CL5_MyHealthClub_Diagnosis.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Diagnosis.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Localization_for_DiagnosisID"
+                Method_Name="Get_Localization_for_DiagnosisID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Localization_for_DiagnosisID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  hec_dia_diagnosis_localizations.HEC_DIA_Diagnosis_LocalizationID,
+	  hec_dia_diagnosis_localizations.DiagnosisLocalization_Name_DictID
+	From
+	  hec_dia_diagnosis_localizations
+	Where
+	  hec_dia_diagnosis_localizations.IsDeleted = 0 And
+	  hec_dia_diagnosis_localizations.Tenant_RefID = @TenantID And
+	  hec_dia_diagnosis_localizations.Diagnosis_RefID = @DiagnosisID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5DI_GLfDID_1731">
+    <Members>
+		<ClassMember Name="DiagnosisID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5DI_GLfDID_1731" IsArray="true">
+			<Members>
+				<ClassMember Name="HEC_DIA_Diagnosis_LocalizationID" Type="Guid"  />
+				<ClassMember Name="DiagnosisLocalization_Name" Type="Dict" OriginTable="hec_dia_diagnosis_localizations" Source_DBField="DiagnosisLocalization_Name_DictID"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

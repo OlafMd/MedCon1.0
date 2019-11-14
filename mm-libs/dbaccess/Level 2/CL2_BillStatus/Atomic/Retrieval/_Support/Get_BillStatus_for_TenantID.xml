@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/18/2013 4:16:15 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_BillStatus_for_TenantID</Name>
+		<Namespace>CL2_BillStatus.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+	<CreationInfo Method_Namespace="CL2_BillStatus.Atomic.Retrieval"
+				  Method_ClassName="cls_Get_BillStatus_for_TenantID"
+				  Method_Name="Get_BillStatus_for_TenantID"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Get_BillStatus_for_TenantID"
+                />
+
+	<SQLStatement xml:space="preserve">
+	Select
+	  bil_billstatuses.BIL_BillStatusID,
+	  bil_billstatuses.BillStatus_Name_DictID,
+	  bil_billstatuses.GlobalPropertyMatchingID,
+	  bil_billstatuses.Creation_Timestamp
+	From
+	  bil_billstatuses
+	Where
+	  bil_billstatuses.IsDeleted = 0 And
+	  bil_billstatuses.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2_BS_GBSfT_1615" IsArray="true">
+			<Members>
+				<ClassMember Name="BIL_BillStatusID" Type="Guid"  />
+				<ClassMember Name="BillStatus_Name" Type="Dict" OriginTable="bil_billstatuses" Source_DBField="BillStatus_Name_DictID"  />
+				<ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

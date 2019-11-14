@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/30/2014 16:24:59 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Projects_for_TenantID</Name>
+    <Namespace>CL3_Project.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Project.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Projects_for_TenantID"
+                Method_Name="Get_Projects_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Projects_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+    
+Select
+  tms_pro_projects.TMS_PRO_ProjectID,
+  tms_pro_projects.Name_DictID
+From
+  tms_pro_projects
+Where
+  tms_pro_projects.IsArchived = 0 And
+  tms_pro_projects.IsDeleted = 0 And
+  tms_pro_projects.Tenant_RefID = @TenantID
+  
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3PR_GpfT_1627" IsArray="true">
+        <Members>
+        <ClassMember Name="TMS_PRO_ProjectID" Type="Guid"  />
+        <ClassMember Name="ProjectName" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Name_DictID"/>
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+
+

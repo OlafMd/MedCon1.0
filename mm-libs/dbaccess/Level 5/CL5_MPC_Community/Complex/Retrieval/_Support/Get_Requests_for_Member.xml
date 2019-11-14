@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/22/2014 4:13:06 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Dosage</Name>
+    <Namespace>CL5_MyHealthClub_Medication.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MPC_Community.Complex.Retrieval"
+                Method_ClassName="cls_Get_Requests_for_Member"
+                Method_Name="Get_Requests_for_Member"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Requests_for_Member"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L5AC_GRfMID_1641">
+    <Members>
+      <ClassMember Name="CMN_BPT_USR_UserID" Type="Guid"  />
+    </Members>
+  </Parameters>
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5AC_GRfMID_1641" IsArray="true">
+      <Members>
+        <ClassMember Name="Request_By_MemberID" Type="Guid"  />
+        <ClassMember Name="IsGroupJoinRequest" Type="bool"  />
+        <ClassMember Name="CMN_BPT_USR_UserID" Type="Guid"  />
+        <ClassMember Name="HEC_CMT_GroupSubscription_RequestID" Type="Guid"  />
+        <ClassMember Name="Role_GlobalPropertyMatchingID" Type="string"  />
+        <ClassMember Name="CommunityGroup_RefID" Type="Guid" />
+        <ClassMember Name="CommunityGroup_Name" Type="Dict" OriginTable="hec_cmt_communitygroups" Source_DBField="CommunityGroup_Name_DictID"  />
+        <ClassMember Name="Member_FirstName" Type="string"  />
+        <ClassMember Name="Member_LastName" Type="string"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,21 @@
+INSERT INTO 
+	pps_dev_device_types
+	(
+		PPS_DEV_Device_TypeID,
+		GlobalPropertyMatchingID,
+		DeviceTypeDisplayName,
+		DeviceTypeName_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@PPS_DEV_Device_TypeID,
+		@GlobalPropertyMatchingID,
+		@DeviceTypeDisplayName,
+		@DeviceTypeName,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

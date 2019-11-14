@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/18/2013 4:38:33 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="ACC_PAY_Condition"
+                IsClass="true"
+                IsClass_Namespace="CL1_ACC_PAY"
+                IsClass_Corresponding_DBTable="acc_pay_conditions" >
+      <Members>
+		<ClassMember Name="ACC_PAY_ConditionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="PaymentCondition_Name" Type="Dict" Source_DBField="PaymentCondition_Name_DictID" OriginTable="acc_pay_conditions"/>
+		<ClassMember Name="MaximumPaymentTreshold_InDays" Type="int" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

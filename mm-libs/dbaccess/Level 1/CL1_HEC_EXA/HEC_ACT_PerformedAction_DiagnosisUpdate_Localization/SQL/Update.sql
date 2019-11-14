@@ -1,0 +1,11 @@
+UPDATE 
+	hec_act_performedaction_diagnosisupdate_localizations
+SET 
+	HEX_EXC_Action_DiagnosisUpdate_RefID=@HEX_EXC_Action_DiagnosisUpdate_RefID,
+	HEC_DIA_Diagnosis_Localization_RefID=@HEC_DIA_Diagnosis_Localization_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_ACT_PerformedAction_DiagnosisUpdate_LocalizationID = @HEC_ACT_PerformedAction_DiagnosisUpdate_LocalizationID

@@ -1,0 +1,21 @@
+INSERT INTO 
+	tms_accountprofiles
+	(
+		TMS_AccountProfileID,
+		Account_RefID,
+		Description,
+		AutomaticTaskPrioritization,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@TMS_AccountProfileID,
+		@Account_RefID,
+		@Description,
+		@AutomaticTaskPrioritization,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

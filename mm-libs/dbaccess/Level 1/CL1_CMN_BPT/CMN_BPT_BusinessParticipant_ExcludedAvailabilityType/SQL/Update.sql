@@ -1,0 +1,10 @@
+UPDATE 
+	cmn_bpt_businessparticipant_excludedavailabilitytypes
+SET 
+	CMN_BPT_BusinessParticipant_RefID=@CMN_BPT_BusinessParticipant_RefID,
+	Excluded_Availability_Type_RefID=@Excluded_Availability_Type_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	CMN_BPT_BusinessParticipant_ExcludedAvailabilityTypeID = @CMN_BPT_BusinessParticipant_ExcludedAvailabilityTypeID

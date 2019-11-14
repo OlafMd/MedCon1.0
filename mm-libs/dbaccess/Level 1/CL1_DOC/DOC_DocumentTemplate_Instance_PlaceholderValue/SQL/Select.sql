@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	doc_documenttemplate_instance_placeholdervalues
+WHERE 
+	DOC_DocumentTemplate_Instance_PlaceholderValueID = @DOC_DocumentTemplate_Instance_PlaceholderValueID

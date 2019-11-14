@@ -1,0 +1,25 @@
+INSERT INTO 
+	ord_prc_procurementorder_position_discounts
+	(
+		ORD_PRC_ProcurementOrder_Position_DiscountID,
+		ORD_PRC_ProcurementOrder_Position_RefID,
+		ORD_PRC_DiscountType_RefID,
+		IsDiscountRelative,
+		IsDiscountAbsolute,
+		DiscountValue,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ORD_PRC_ProcurementOrder_Position_DiscountID,
+		@ORD_PRC_ProcurementOrder_Position_RefID,
+		@ORD_PRC_DiscountType_RefID,
+		@IsDiscountRelative,
+		@IsDiscountAbsolute,
+		@DiscountValue,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

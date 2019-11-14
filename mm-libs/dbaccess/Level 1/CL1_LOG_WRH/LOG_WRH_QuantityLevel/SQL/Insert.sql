@@ -1,0 +1,27 @@
+INSERT INTO 
+	log_wrh_quantitylevels
+	(
+		LOG_WRH_QuantityLevelID,
+		Quantity_Minimum,
+		Quantity_RecommendedMinimumCalculation,
+		Quantity_Maximum,
+		Product_RefID,
+		Product_Variant_RefID,
+		Product_Release_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_WRH_QuantityLevelID,
+		@Quantity_Minimum,
+		@Quantity_RecommendedMinimumCalculation,
+		@Quantity_Maximum,
+		@Product_RefID,
+		@Product_Variant_RefID,
+		@Product_Release_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

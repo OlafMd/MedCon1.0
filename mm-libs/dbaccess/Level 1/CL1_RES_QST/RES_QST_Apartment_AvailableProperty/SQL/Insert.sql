@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_qst_apartment_availableproperties
+	(
+		RES_QST_Apartment_AvailablePropertyID,
+		RES_QST_Questionnaire_Version_RefID,
+		RES_STR_Apartment_Property_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_QST_Apartment_AvailablePropertyID,
+		@RES_QST_Questionnaire_Version_RefID,
+		@RES_STR_Apartment_Property_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/12/2013 05:36:34">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Get_All_ShoppingCarts_Approved</Name>
+        <Namespace>CL5_APOWebShop_ShoppingCart.Atomic.Retrieval</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_APOWebShop_ShoppingCart.Atomic.Retrieval"
+                  Method_ClassName="cls_Get_All_ShoppingCarts"
+                  Method_Name="Get_All_ShoppingCarts"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Get_All_ShoppingCarts"
+                />
+
+    <SQLStatement xml:space="preserve">
+    	SELECT DISTINCT
+		  ord_prc_shoppingcart.ORD_PRC_ShoppingCartID,
+		  ord_prc_shoppingcart.IsProcurementOrderCreated,
+	    ord_prc_shoppingcart.InternalIdentifier,
+		  ord_prc_shoppingcart.Creation_Timestamp AS ShoppingCart_CreationDate,
+      ord_prc_shoppingcart_statuses.GlobalPropertyMatchingID as Status_GlobalPropertyMatchingID,
+		  cmn_str_offices.CMN_STR_OfficeID,
+		  cmn_str_offices.Office_Name_DictID,
+	    cmn_str_offices.Office_InternalName,
+		  ord_prc_procurementorder_headers.ProcurementOrder_Date,
+      ord_prc_procurementorder_statuses.GlobalPropertyMatchingID aS ProcurementOrderStatus
+		FROM
+		  ord_prc_shoppingcart
+      INNER JOIN ord_prc_shoppingcart_statuses
+        ON ord_prc_shoppingcart.ShoppingCart_CurrentStatus_RefID = ord_prc_shoppingcart_statuses.ORD_PRC_ShoppingCart_StatusID
+        AND ord_prc_shoppingcart_statuses.IsDeleted = 0
+		  INNER JOIN ord_prc_office_shoppingcarts
+		    ON ord_prc_shoppingcart.ORD_PRC_ShoppingCartID = ord_prc_office_shoppingcarts.ORD_PRC_ShoppingCart_RefID AND
+		       ord_prc_office_shoppingcarts.IsDeleted = 0
+		  LEFT JOIN ord_prc_shoppingcart_products    
+		    ON ord_prc_shoppingcart.ORD_PRC_ShoppingCartID = ord_prc_shoppingcart_products.ORD_PRC_ShoppingCart_RefID
+		    AND ord_prc_shoppingcart_products.IsDeleted = 0
+		    AND ord_prc_shoppingcart_products.IsCanceled = 0
+      LEFT JOIN cmn_pro_products
+        ON ord_prc_shoppingcart_products.CMN_PRO_Product_RefID = cmn_pro_products.CMN_PRO_ProductID
+        AND cmn_pro_products.IsDeleted = 0
+      LEFT JOIN cmn_pro_products_de
+        ON cmn_pro_products.Product_Name_DictID = cmn_pro_products_de.DictID
+        AND cmn_pro_products_de.IsDeleted = 0
+		  LEFT JOIN ord_prc_shoppingcart_2_procurementorderposition
+		    ON ord_prc_shoppingcart_products.ORD_PRC_ShoppingCart_ProductID = ord_prc_shoppingcart_2_procurementorderposition.ORD_PRC_ShoppingCart_Product_RefID AND
+		       ord_prc_shoppingcart_2_procurementorderposition.IsDeleted = 0
+		  LEFT JOIN ord_prc_procurementorder_positions
+		    ON ord_prc_shoppingcart_2_procurementorderposition.ORD_PRC_ProcurementOrder_Position_RefID =ord_prc_procurementorder_positions.ORD_PRC_ProcurementOrder_PositionID AND
+		       ord_prc_procurementorder_positions.IsDeleted = 0
+		  LEFT JOIN ord_prc_procurementorder_headers
+		    ON ord_prc_procurementorder_positions.ProcurementOrder_Header_RefID = ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID AND
+		       ord_prc_procurementorder_headers.IsDeleted = 0
+      LEFT JOIN ord_prc_procurementorder_statuses
+        ON ord_prc_procurementorder_headers.Current_ProcurementOrderStatus_RefID = ord_prc_procurementorder_statuses.ORD_PRC_ProcurementOrder_StatusID
+        AND ord_prc_procurementorder_statuses.IsDeleted = 0
+		  INNER JOIN cmn_str_offices
+		    ON ord_prc_office_shoppingcarts.CMN_STR_Office_RefID = cmn_str_offices.CMN_STR_OfficeID AND
+		       cmn_str_offices.IsDeleted = 0
+      INNER JOIN cmn_bpt_emp_employee_2_office
+        ON cmn_str_offices.CMN_STR_OfficeID = cmn_bpt_emp_employee_2_office.CMN_STR_Office_RefID AND
+           cmn_bpt_emp_employee_2_office.IsDeleted = 0
+      INNER JOIN cmn_bpt_emp_employees
+        ON cmn_bpt_emp_employee_2_office.CMN_BPT_EMP_Employee_RefID = cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID AND
+           cmn_bpt_emp_employees.IsDeleted = 0
+      INNER JOIN cmn_bpt_businessparticipants
+        ON cmn_bpt_emp_employees.BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID AND
+           cmn_bpt_businessparticipants.IsDeleted = 0
+      INNER JOIN usr_accounts
+        ON usr_accounts.BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+        AND usr_accounts.IsDeleted = 0
+        AND usr_accounts.USR_AccountID = @AccountID
+		WHERE
+		  ord_prc_shoppingcart.IsDeleted = 0 
+		  AND ord_prc_shoppingcart.Tenant_RefID = @TenantID 
+      AND (@NumberOfLastDays IS NOT NULL 
+           AND ord_prc_shoppingcart.Creation_Timestamp > date_add(curdate(), INTERVAL - @NumberOfLastDays DAY)
+           OR @NumberOfLastDays IS NULL 
+           OR ord_prc_shoppingcart.IsProcurementOrderCreated = 0)
+      AND ord_prc_shoppingcart_statuses.GlobalPropertyMatchingID = @Status_GlobalPropertyMatchingID_List
+      AND (@ProductNameContains IS NULL OR @ProductNameContains IS NOT NULL AND LOWER(cmn_pro_products_de.Content) LIKE CONCAT('%', LOWER(@ProductNameContains), '%'))
+	  ORDER BY ord_prc_shoppingcart.Creation_Timestamp DESC
+	  
+  </SQLStatement>
+
+    <Parameters IsClass="true" Name="P_L5AWSSC_GASC_1413">
+        <Members>
+            <ClassMember Name="NumberOfLastDays" Type="int?"  />
+            <ClassMember Name="Status_GlobalPropertyMatchingID_List" Type="string" IsArray="true"  />
+            <ClassMember Name="ProductNameContains" Type="string"   />
+        </Members>
+    </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                  Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                  Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5AWSSC_GASC_1413" IsArray="true">
+            <Members>
+                <ClassMember Name="ORD_PRC_ShoppingCartID" Type="Guid"  />
+                <ClassMember Name="IsProcurementOrderCreated" Type="bool"  />
+                <ClassMember Name="InternalIdentifier" Type="String"  />
+                <ClassMember Name="ShoppingCart_CreationDate" Type="DateTime"  />
+                <ClassMember Name="CMN_STR_OfficeID" Type="Guid"  />
+                <ClassMember Name="Office_Name" Type="Dict" OriginTable="cmn_str_offices" Source_DBField="Office_Name_DictID"  />
+                <ClassMember Name="Office_InternalName" Type="String"  />
+                <ClassMember Name="ProcurementOrder_Date" Type="DateTime"  />
+                <ClassMember Name="ProcurementOrderStatus" Type="String"  />
+                <ClassMember Name="Status_GlobalPropertyMatchingID" Type="String"  />
+                
+            </Members>
+        </ObjectReturnType_Definition>
+    </ResultInfo>
+</CodeGen>
+
+

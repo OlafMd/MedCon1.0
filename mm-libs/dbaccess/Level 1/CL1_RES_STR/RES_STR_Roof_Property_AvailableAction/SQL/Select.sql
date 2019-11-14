@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_roof_property_availableactions
+WHERE 
+	RES_STR_Roof_Property_AvailableActionID = @RES_STR_Roof_Property_AvailableActionID

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/16/2015 12:22:17 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_PatientBaseData_withDeleteCheck_and_PatientHealthInsurance_withBankData</Name>
+    <Namespace>CL6_MyHealthClub_Patient.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_MyHealthClub_Patient.Complex.Manipulation"
+                Method_ClassName="cls_Save_PatientBaseData_withDeleteCheck_and_PatientHealthInsurance_withBankData"
+                Method_Name="Save_PatientBaseData_withDeleteCheck_and_PatientHealthInsurance_withBankData"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_PatientBaseData_withDeleteCheck_and_PatientHealthInsurance_withBankData"
+                />
+
+  <Parameters IsClass="true" Name="P_L6PA_SPBDwDCaPHIwBD_1222">
+    <Members>
+      <ClassMember Name="BaseData" Type="P_L6PA_SPBDwDC_1323" IsReference="true" />
+      <ClassMember IsClass="true" IsArray="false" Type="P_L5PA_SPHIaBD_1143" IsReference="true" Name="InsuranceAndBankDataInfo" >
+        <Members>
+          <ClassMember Name="HealthInsurance_Number" Type="String"  />
+          <ClassMember Name="InsuranceValidFrom" Type="DateTime"  />
+          <ClassMember Name="InsuranceValidThrough" Type="DateTime"  />
+          <ClassMember Name="IsNotSelfInsured" Type="bool"  />
+          <ClassMember Name="IsNotSelfInsured_InsuredPersonName" Type="String"  />
+          <ClassMember Name="IsNotSelfInsured_InsuredPersonBirthday" Type="DateTime"  />
+          <ClassMember Name="CompanyName" Type="String"  />
+          <ClassMember Name="AccountNumber" Type="String"  />
+          <ClassMember Name="OwnerText" Type="String"  />
+          <ClassMember Name="BICCode" Type="String"  />
+          <ClassMember Name="IBAN" Type="String"  />
+          <ClassMember Name="BankName" Type="String"  />
+          <ClassMember Name="HEC_Patient_HealthInsurance_StateID" Type="Guid"  />
+          <ClassMember Name="HEC_HealthInsurance_CompanyID" Type="Guid"  />
+          <ClassMember Name="IsDeleted" Type="bool"  />
+          <ClassMember Name="PatientID" Type="Guid"  />
+        </Members>
+      </ClassMember>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+     Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+     Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6PA_SPBDwDCaPHIwBD_1222" IsArray="false">
+      <Members>
+        <ClassMember Name="ID" Type="Guid"  />
+        <ClassMember IsArray="true" IsClass="true" Type="L6PA_SPBDwDC_1323_UsedInAppointment" IsReference="true" Name="UsedInAppointment" >
+          <Members>
+            <ClassMember Name="AppointmentName" Type="String" />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

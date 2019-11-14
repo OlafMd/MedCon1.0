@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_pro_project_2_projecttargetworkload
+	(
+		AssignmentID,
+		TMS_PRO_Project_RefID,
+		TMS_PRO_Project_TargetWorkload_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@TMS_PRO_Project_RefID,
+		@TMS_PRO_Project_TargetWorkload_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

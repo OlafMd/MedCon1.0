@@ -1,0 +1,19 @@
+INSERT INTO 
+	tmp_pro_projectmember_types
+	(
+		TMP_PRO_ProjectMember_TypeID,
+		ProjectMemberType_Name_DictID,
+		Color,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@TMP_PRO_ProjectMember_TypeID,
+		@ProjectMemberType_Name,
+		@Color,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

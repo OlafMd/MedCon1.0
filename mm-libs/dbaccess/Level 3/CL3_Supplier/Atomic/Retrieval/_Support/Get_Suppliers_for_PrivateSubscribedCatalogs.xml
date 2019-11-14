@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="16/4/2014 06:06:43">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Suppliers_for_PrivateSubscribedCatalogs</Name>
+    <Namespace>CL3_Supplier.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Supplier.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Suppliers_for_PrivateSubscribedCatalogs"
+                Method_Name="Get_Suppliers_for_PrivateSubscribedCatalogs"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Suppliers_for_PrivateSubscribedCatalogs"
+                />
+
+  <SQLStatement xml:space="preserve">
+	    SELECT cmn_pro_subscribedcatalogs.CMN_PRO_SubscribedCatalogID,
+	           cmn_pro_subscribedcatalogs.CatalogCodeITL,
+	           cmn_bpt_suppliers.CMN_BPT_SupplierID,
+	           cmn_bpt_suppliers.ExternalSupplierProvidedIdentifier,
+	           cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID,
+	           cmn_tenants.CMN_TenantID,
+	           cmn_tenants.TenantITL
+	      FROM cmn_bpt_suppliers
+	           INNER JOIN cmn_pro_subscribedcatalogs
+	              ON cmn_pro_subscribedcatalogs.PublishingSupplier_RefID =
+	                    cmn_bpt_suppliers.CMN_BPT_SupplierID
+	           INNER JOIN cmn_bpt_businessparticipants
+	              ON cmn_bpt_suppliers.Ext_BusinessParticipant_RefID =
+	                    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+	           LEFT JOIN cmn_tenants
+	              ON cmn_bpt_businessparticipants.IfTenant_Tenant_RefID =
+	                    cmn_tenants.CMN_TenantID
+	                    AND cmn_tenants.IsDeleted = 0
+	     WHERE cmn_pro_subscribedcatalogs.IsCatalogPublic = 0
+	           AND cmn_bpt_suppliers.IsDeleted = 0
+	           AND cmn_bpt_businessparticipants.IsDeleted = 0
+	           AND cmn_pro_subscribedcatalogs.IsDeleted = 0
+	           AND cmn_pro_subscribedcatalogs.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5SP_GSfPSC_1805" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_PRO_SubscribedCatalogID" Type="Guid"  />
+				<ClassMember Name="CatalogCodeITL" Type="String"  />
+				<ClassMember Name="CMN_BPT_SupplierID" Type="Guid"  />
+				<ClassMember Name="ExternalSupplierProvidedIdentifier" Type="String"  />
+				<ClassMember Name="CMN_BPT_BusinessParticipantID" Type="Guid"  />
+				<ClassMember Name="CMN_TenantID" Type="Guid"  />
+				<ClassMember Name="TenantITL" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

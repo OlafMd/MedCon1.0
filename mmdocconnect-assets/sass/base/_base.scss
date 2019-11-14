@@ -1,0 +1,49 @@
+body{
+    height: 100vh;
+    font-size: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: $font-color;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+/*.loader{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 32px;
+    height: 32px;
+    text-indent: -99999px;
+    background: url("../images/loader.gif") no-repeat center center;
+}*/
+
+select::-ms-expand {
+    display: none;
+}
+
+select{
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #fff url("../images/icons/select-dd.png") no-repeat center right 8px;
+
+  /*overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 25px; */
+}
+
+.no-padding-top{
+    padding-top: 0px !important;
+}

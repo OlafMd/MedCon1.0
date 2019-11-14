@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="27/5/2014 03:16:36">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_DunningLevel_for_Tenant</Name>
+    <Namespace>CL2_BillDunning.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_BillDunning.Complex.Manipulation"
+                Method_ClassName="cls_Save_DunningLevel_for_Tenant"
+                Method_Name="Save_DunningLevel_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_DunningLevel_for_Tenant"
+                />
+
+  <Parameters IsClass="true" Name="P_L2BD_SDLfT_1514">
+    <Members>
+      <ClassMember Name="ParentLevelID" Type="Guid"  />
+      <ClassMember Name="DunningLevelName" Type="String"  />
+      <ClassMember Name="DunningFee" Type="Decimal" />
+      <ClassMember Name="OrderSequence" Type="int" />
+      <ClassMember Name="WaitPeriod" Type="int" />
+      <ClassMember Name="LanguageID" Type="Guid"  />
+      <ClassMember Name="DunningID" Type="Guid" />
+      <ClassMember Name="Deleting" Type="Boolean" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+      Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+      Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+
+

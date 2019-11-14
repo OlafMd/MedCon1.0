@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_act_performedaction_procedure_logentries
+WHERE 
+	HEC_ACT_PerformedAction_Procedure_LogEntryID = @HEC_ACT_PerformedAction_Procedure_LogEntryID

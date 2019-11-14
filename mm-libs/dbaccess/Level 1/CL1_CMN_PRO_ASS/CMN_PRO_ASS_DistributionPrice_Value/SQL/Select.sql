@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_pro_ass_distributionprice_values
+WHERE 
+	CMN_PRO_ASS_DistributionPrice_ValueID = @CMN_PRO_ASS_DistributionPrice_ValueID

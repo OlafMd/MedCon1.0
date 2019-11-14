@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/25/2013 9:37:45 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_BusinessTaskStatuses_for_Tenant</Name>
+    <Namespace>CL2_BusinessTask.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_BusinessTask.Atomic.Retrieval"
+                Method_ClassName="cls_Get_BusinessTaskStatuses_for_Tenant"
+                Method_Name="Get_BusinessTaskStatuses_for_Tenant"
+                ApplicationPlattform_WebServiceName="BusinessTaskService"
+                ApplicationPlattform_Namespace="BusinessTaskService.Get_BusinessTaskStatuses_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  tms_pro_businesstask_status.TMS_PRO_BusinessTask_StatusID AS BusinessTaskStatus_ID,
+	  tms_pro_businesstask_status.Label_DictID,
+    tms_pro_businesstask_status.GlobalPropertyMatchingID AS BusinessTaskStatus_GlobalPropertyMatchingID
+	From
+	  tms_pro_businesstask_status
+	Where
+	  tms_pro_businesstask_status.Tenant_RefID = @TenantID And
+	  tms_pro_businesstask_status.IsDeleted = 0
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2BT_GBTSfT_1549" IsArray="true">
+      <Members>
+        <ClassMember Name="BusinessTaskStatus_ID" Type="Guid"  />
+        <ClassMember Name="Label_DictID" Type="Dict" OriginTable="tms_pro_businesstask_status" Source_DBField="Label_DictID"  />
+        <ClassMember Name="BusinessTaskStatus_GlobalPropertyMatchingID" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

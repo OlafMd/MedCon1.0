@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/22/2014 9:10:19 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_OrderCollectiveMembers_with_PendingInvites_for_OrderCollective</Name>
+    <Namespace>CL5_APOAdmin_OrderCollective.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOAdmin_OrderCollective.Complex.Retrieval"
+                Method_ClassName="cls_Get_OrderCollectiveMembers_with_PendingInvites_for_OrderCollective"
+                Method_Name="Get_OrderCollectiveMembers_with_PendingInvites_for_OrderCollective"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_OrderCollectiveMembers_with_PendingInvites_for_OrderCollective"
+                />
+
+  <Parameters IsClass="true" Name="P_L5OC_GOCMwPIfOC_0903">
+    <Members>
+		<ClassMember Name="OrderCollectiveId" Type="Guid"  />
+        <!-- THIS FIELD IS USED FOR PENDING INVITATIONS LOGIC -->
+        <ClassMember Name="IsPendingInvitationListIncluded" Type="bool"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+		<ObjectReturnType_Definition Name="L5OC_GOCMwPIfOC_0903" IsArray="true">
+			<Members>
+                <ClassMember Name="IsPendingInvitation" Type="bool"  />
+				<ClassMember Name="OrderCollectiveMember" Type="CL3_OrderCollective.Atomic.Retrieval.L3OC_GOCMfOC_1329"  />
+                <!-- THESE FIELDS ARE USED FOR PENDING INVITATIONS LOGIC, THEY ARE NOT QUERIED FROM THE DB -->
+                <ClassMember Name="OrderCollectiveInvitation" IsClass="true" Type="L5OC_GOCMwPIfOC_0903a">
+                    <Members>
+                        <ClassMember Name="InvitationId" Type="Guid"  />
+				        <ClassMember Name="InvitationEmail" Type="String"  />
+                        <ClassMember Name="InvitationCode" Type="String"  />
+                        <ClassMember Name="InvitationSent" Type="DateTime"  />
+                    </Members>
+                </ClassMember>
+			</Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	log_wrh_inj_inventoryjob_countingruns
+WHERE 
+	LOG_WRH_INJ_InventoryJob_CountingRunID = @LOG_WRH_INJ_InventoryJob_CountingRunID

@@ -1,0 +1,11 @@
+UPDATE 
+	res_str_staircase_propertyassessmentstates
+SET 
+	StaircasePropertyAssessmentState_Name_DictID=@StaircasePropertyAssessmentState_Name,
+	StaircasePropertyAssessmentState_Description_DictID=@StaircasePropertyAssessmentState_Description,
+	StaircasePropertyAssessmentState_OrdinalPosition=@StaircasePropertyAssessmentState_OrdinalPosition,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_STR_Staircase_PropertyAssessmentStateID = @RES_STR_Staircase_PropertyAssessmentStateID

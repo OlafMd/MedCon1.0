@@ -1,0 +1,21 @@
+INSERT INTO 
+	ord_cuo_customerorder_statuses
+	(
+		ORD_CUO_CustomerOrder_StatusID,
+		GlobalPropertyMatchingID,
+		Status_Code,
+		Status_Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ORD_CUO_CustomerOrder_StatusID,
+		@GlobalPropertyMatchingID,
+		@Status_Code,
+		@Status_Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/12/2014 5:48:48 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>GetBilledTreatmentsForTenantID</Name>
+    <Namespace>CL5_Lucentis_Import_and_BugFixes.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Import_and_BugFixes.Atomic.Retrieval"
+                Method_ClassName="cls_GetBilledTreatmentsForTenantID"
+                Method_Name="GetBilledTreatmentsForTenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".GetBilledTreatmentsForTenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  bil_billposition_transmitionstatuses.TransmitionCode As TCode,
+	  Cast(bil_billpositions.External_PositionReferenceField As SIGNED) As
+	  PositionNumber,
+	  Cast(bil_billheaders.BillNumber As SIGNED) As BillID,
+	  hec_patient_treatment.IfTreatmentPerformed_Date As TreatmentDate,
+	  hec_patient_healthinsurances.HealthInsurance_Number,
+	  hec_patient_healthinsurances.InsuranceStateCode,
+	  cmn_per_personinfo.FirstName As PatientFirstName,
+	  cmn_per_personinfo.LastName As PatientLastName,
+	  cmn_com_companyinfo.CompanyInfo_EstablishmentNumber As BSNR,
+	  hec_doctors.DoctorIDNumber As LANR,
+	  bil_billpositions.External_PositionCode As GPOS,
+	  bil_billpositions.PositionValue_IncludingTax,
+	  cmn_per_personinfo.BirthDate,
+	  hec_patients.HEC_PatientID As PatientID,
+	  hec_patient_treatment.IsTreatmentBilled,
+	  doctor_personInfo.FirstName As DoctorFirstName,
+	  doctor_personInfo.LastName As DoctorLastName,
+	  doctor_personInfo.Title As DoctorsTitle,
+	  hec_patient_treatment.HEC_Patient_TreatmentID,
+	  bil_billposition_transmitionstatuses.TransmittedOnDate,
+	  bil_billposition_transmitionstatuses.SecondaryComment As AOKComment,
+	  bil_billpositions.External_PositionType,
+	  bil_billposition_transmitionstatuses.BIL_BillPosition_TransmitionStatusID,
+	  bil_billpositions.BIL_BillPositionID,
+	  bil_billposition_transmitionstatuses.PrimaryComment,
+	  bil_billposition_transmitionstatuses.IsActive,
+	  bil_billposition_transmitionstatuses.IsDeleted
+	From
+	  hec_patient_treatment Left Join
+	  hec_patient_2_patienttreatment
+	    On hec_patient_treatment.HEC_Patient_TreatmentID =
+	    hec_patient_2_patienttreatment.HEC_Patient_Treatment_RefID And
+	    hec_patient_2_patienttreatment.IsDeleted = 0 And
+	    hec_patient_2_patienttreatment.Tenant_RefID =
+	    0xc7b0fb86d661e24f8b8d4e1191614ec0 Inner Join
+	  hec_patients On hec_patient_2_patienttreatment.HEC_Patient_RefID =
+	    hec_patients.HEC_PatientID And hec_patients.IsDeleted = 0 And
+	    hec_patients.Tenant_RefID = 0xc7b0fb86d661e24f8b8d4e1191614ec0 Inner Join
+	  hec_patient_healthinsurances On hec_patients.HEC_PatientID =
+	    hec_patient_healthinsurances.Patient_RefID And
+	    hec_patient_healthinsurances.Tenant_RefID =
+	    0xc7b0fb86d661e24f8b8d4e1191614ec0 Inner Join
+	  cmn_bpt_businessparticipants On hec_patients.CMN_BPT_BusinessParticipant_RefID
+	    = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And
+	    cmn_bpt_businessparticipants.IsDeleted = 0 And
+	    cmn_bpt_businessparticipants.IsNaturalPerson = 1 And
+	    cmn_bpt_businessparticipants.IsCompany = 0 And
+	    cmn_bpt_businessparticipants.Tenant_RefID =
+	    0xc7b0fb86d661e24f8b8d4e1191614ec0 Inner Join
+	  cmn_per_personinfo
+	    On cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID =
+	    cmn_per_personinfo.CMN_PER_PersonInfoID And cmn_per_personinfo.IsDeleted = 0
+	    And cmn_per_personinfo.Tenant_RefID = 0xc7b0fb86d661e24f8b8d4e1191614ec0
+	  Inner Join
+	  hec_patient_medicalpractices On hec_patients.HEC_PatientID =
+	    hec_patient_medicalpractices.HEC_Patient_RefID And
+	    hec_patient_medicalpractices.IsDeleted = 0 And
+	    hec_patient_medicalpractices.Tenant_RefID =
+	    0xc7b0fb86d661e24f8b8d4e1191614ec0 Inner Join
+	  hec_medicalpractises
+	    On hec_patient_medicalpractices.HEC_MedicalPractices_RefID =
+	    hec_medicalpractises.HEC_MedicalPractiseID And
+	    hec_medicalpractises.IsDeleted = 0 And hec_medicalpractises.Tenant_RefID =
+	    0xc7b0fb86d661e24f8b8d4e1191614ec0 Inner Join
+	  cmn_com_companyinfo On hec_medicalpractises.Ext_CompanyInfo_RefID =
+	    cmn_com_companyinfo.CMN_COM_CompanyInfoID And cmn_com_companyinfo.IsDeleted
+	    = 0 And cmn_com_companyinfo.Tenant_RefID =
+	    0xc7b0fb86d661e24f8b8d4e1191614ec0 Left Join
+	  hec_doctors On hec_patient_treatment.IfTreatmentPerformed_ByDoctor_RefID =
+	    hec_doctors.HEC_DoctorID And hec_doctors.IsDeleted = 0 And
+	    hec_doctors.Tenant_RefID = 0xc7b0fb86d661e24f8b8d4e1191614ec0 Inner Join
+	  cmn_bpt_businessparticipants cmn_bpt_businessparticipants1
+	    On hec_doctors.BusinessParticipant_RefID =
+	    cmn_bpt_businessparticipants1.CMN_BPT_BusinessParticipantID And
+	    cmn_bpt_businessparticipants1.IsDeleted = 0 And
+	    cmn_bpt_businessparticipants1.Tenant_RefID =
+	    0xc7b0fb86d661e24f8b8d4e1191614ec0 Inner Join
+	  cmn_per_personinfo doctor_personInfo
+	    On cmn_bpt_businessparticipants1.IfNaturalPerson_CMN_PER_PersonInfo_RefID =
+	    doctor_personInfo.CMN_PER_PersonInfoID And doctor_personInfo.IsDeleted = 0
+	    And doctor_personInfo.Tenant_RefID = 0xc7b0fb86d661e24f8b8d4e1191614ec0
+	  Left Join
+	  bil_billposition_2_patienttreatment
+	    On bil_billposition_2_patienttreatment.HEC_Patient_Treatment_RefID =
+	    hec_patient_treatment.HEC_Patient_TreatmentID And
+	    bil_billposition_2_patienttreatment.IsDeleted = 0 And
+	    bil_billposition_2_patienttreatment.Tenant_RefID =
+	    0xc7b0fb86d661e24f8b8d4e1191614ec0 Left Join
+	  bil_billpositions On bil_billpositions.BIL_BillPositionID =
+	    bil_billposition_2_patienttreatment.BIL_BillPosition_RefID And
+	    bil_billpositions.IsDeleted = 0 And bil_billpositions.Tenant_RefID =
+	    0xc7b0fb86d661e24f8b8d4e1191614ec0 Left Join
+	  bil_billheaders On bil_billpositions.BIL_BilHeader_RefID =
+	    bil_billheaders.BIL_BillHeaderID And bil_billheaders.IsDeleted = 0
+	    And bil_billheaders.Tenant_RefID = 0xc7b0fb86d661e24f8b8d4e1191614ec0
+	  Left Join
+	  bil_billposition_transmitionstatuses On bil_billpositions.BIL_BillPositionID =
+	    bil_billposition_transmitionstatuses.BillPosition_RefID And
+	    bil_billposition_transmitionstatuses.IsDeleted = 0 And
+	    bil_billposition_transmitionstatuses.IsActive = 1 And
+	    bil_billposition_transmitionstatuses.Tenant_RefID =
+	    0xc7b0fb86d661e24f8b8d4e1191614ec0
+	Where
+	  hec_patient_treatment.IsDeleted = 0 And
+	  hec_patient_treatment.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5TR_GBTFTID_1748" IsArray="true">
+			<Members>
+				<ClassMember Name="TCode" Type="String"  />
+				<ClassMember Name="PositionNumber" Type="String"  />
+				<ClassMember Name="BillID" Type="String"  />
+				<ClassMember Name="TreatmentDate" Type="DateTime"  />
+				<ClassMember Name="HealthInsurance_Number" Type="String"  />
+				<ClassMember Name="InsuranceStateCode" Type="String"  />
+				<ClassMember Name="PatientFirstName" Type="String"  />
+				<ClassMember Name="PatientLastName" Type="String"  />
+				<ClassMember Name="BSNR" Type="String"  />
+				<ClassMember Name="LANR" Type="String"  />
+				<ClassMember Name="GPOS" Type="String"  />
+				<ClassMember Name="PositionValue_IncludingTax" Type="String"  />
+				<ClassMember Name="BirthDate" Type="DateTime"  />
+				<ClassMember Name="PatientID" Type="Guid"  />
+				<ClassMember Name="IsTreatmentBilled" Type="bool"  />
+				<ClassMember Name="DoctorFirstName" Type="String"  />
+				<ClassMember Name="DoctorLastName" Type="String"  />
+				<ClassMember Name="DoctorsTitle" Type="String"  />
+				<ClassMember Name="HEC_Patient_TreatmentID" Type="Guid"  />
+				<ClassMember Name="TransmittedOnDate" Type="DateTime"  />
+				<ClassMember Name="AOKComment" Type="String"  />
+				<ClassMember Name="External_PositionType" Type="String"  />
+				<ClassMember Name="BIL_BillPosition_TransmitionStatusID" Type="Guid"  />
+				<ClassMember Name="BIL_BillPositionID" Type="Guid"  />
+				<ClassMember Name="PrimaryComment" Type="String"  />
+				<ClassMember Name="IsActive" Type="bool"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

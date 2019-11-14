@@ -1,0 +1,25 @@
+INSERT INTO 
+	hec_crt_insurancetobrokercontract_participatingdoctors
+	(
+		HEC_CRT_InsuranceToBrokerContract_ParticipatingDoctorID,
+		InsuranceToBrokerContract_RefID,
+		Doctor_RefID,
+		ValidFrom,
+		ValidThrough,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CRT_InsuranceToBrokerContract_ParticipatingDoctorID,
+		@InsuranceToBrokerContract_RefID,
+		@Doctor_RefID,
+		@ValidFrom,
+		@ValidThrough,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_sls_dynamicpricingformula_types
+	(
+		CMN_SLS_DynamicPricingFormula_TypeID,
+		GlobalPropertyMatchingID,
+		DynamicPricingFormulaType_Name_DictID,
+		DefaultDynamicPricingFormula,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_SLS_DynamicPricingFormula_TypeID,
+		@GlobalPropertyMatchingID,
+		@DynamicPricingFormulaType_Name,
+		@DefaultDynamicPricingFormula,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

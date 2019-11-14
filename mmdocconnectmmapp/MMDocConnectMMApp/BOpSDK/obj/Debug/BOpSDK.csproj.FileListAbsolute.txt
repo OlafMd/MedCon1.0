@@ -1,0 +1,10 @@
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\BOpSDK\bin\Debug\BOpSDK.dll
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\BOpSDK\bin\Debug\BOpSDK.pdb
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\BOpSDK\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\BOpSDK\bin\Debug\RestSharp.dll
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\BOpSDK\bin\Debug\Newtonsoft.Json.xml
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\BOpSDK\bin\Debug\RestSharp.xml
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\BOpSDK\obj\Debug\BOpSDK.csproj.CopyComplete
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\BOpSDK\obj\Debug\BOpSDK.dll
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\BOpSDK\obj\Debug\BOpSDK.pdb
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\BOpSDK\obj\Debug\BOpSDK.csprojAssemblyReference.cache

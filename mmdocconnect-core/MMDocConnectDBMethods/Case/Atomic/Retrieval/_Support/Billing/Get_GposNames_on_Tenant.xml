@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_GposNames_on_Tenant</Name>
+		<Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_GposNames_on_Tenant"
+								Method_Name="Get_GposNames_on_Tenant"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+    Select
+      hec_bil_potentialcodes.HEC_BIL_PotentialCodeID as gpos_id,
+      hec_bil_potentialcodes_de.Content as gpos_name
+    From
+      hec_bil_potentialcodes Inner Join
+      hec_bil_potentialcodes_de
+        On hec_bil_potentialcodes.CodeName_DictID = hec_bil_potentialcodes_de.DictID And
+        hec_bil_potentialcodes_de.Language_RefID = @LanguageID And
+        hec_bil_potentialcodes_de.IsDeleted = 0
+    Where
+	    hec_bil_potentialcodes.Tenant_RefID = @TenantID And
+	    hec_bil_potentialcodes.IsDeleted = 0
+	</SQLStatement>
+	
+	<Parameters IsClass="true" Name="P_CAS_GGposNoT_1525">
+		<Members>
+      <ClassMember Name="LanguageID" Type="Guid"  />      
+    </Members>
+	</Parameters>
+
+	<ResultInfo Returns_an_Object_or_ObjectArray="true">
+		<ObjectReturnType_Definition Name="CAS_GGposNoT_1525" IsArray="true">
+			<Members>
+        <ClassMember Name="gpos_name" Type="String"  />
+        <ClassMember Name="gpos_id" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+	</ResultInfo>
+</CodeGen>

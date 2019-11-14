@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_bld_building_types
+	(
+		RES_BLD_Building_TypeID,
+		BuildingType_Name_DictID,
+		BuildingType_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_BLD_Building_TypeID,
+		@BuildingType_Name,
+		@BuildingType_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

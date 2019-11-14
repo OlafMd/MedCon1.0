@@ -1,0 +1,32 @@
+﻿<div  ng-init="initializeController()">
+
+    <add-medication-directive id="medicationDirective" ng-if="showMedicationDirective"></add-medication-directive>
+
+    <div class="gray-content-holder  clear"  ng-hide="hideMedicationButton">
+        <button id="btnMedicationDir" class="wide-add-button" ng-click="OpenFormAddMedication()" translate="LABEL_ADD_MEDICATION" ng-model="showMedicationDirective"  ng-init="showMedicationDirective=false"></button>
+    </div>
+
+    <ul class="medication-list-header">
+        <li class="unsorted" ng-class="setTableHeaderClass('Medication')" ng-click="SortFunction('Medication')">{{'LABEL_MEDICATION' | translate }}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('ProprietaryDrug')" ng-click="SortFunction('ProprietaryDrug')">{{'LABEL_PROPRIETARY_DRUG' | translate }}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('PZNScheme')" ng-click="SortFunction('PZNScheme')">{{'LABEL_PZN_SCHEME'| translate}}</li>
+    </ul>
+    <div class="content-scroll clear" id="wrapper">
+        <div id="wrapper_inner">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div class="clearfix" ng-repeat="item in Medications">
+                    <add-medication-directive ng-if="showEditMedicationDirective && editMedicationID === item.MedicationID" fromedit="fromEdit"></add-medication-directive>
+                    <ul class="medication-list-item" ng-if="item.MedicationID !== editMedicationID">
+                        <li class="larger-font"><span>{{::item.Medication}}</span> </li>
+                        <li><span>{{(item.ProprietaryDrug ? 'LABEL_YES' : 'LABEL_NEIN') | translate}}</span></li>
+                        <li><span>{{::item.PZNScheme }} </span></li>
+                        <li ng-hide="SetVisibility">
+                            <a class="icons-edit jsblockClose" href="" ng-click="OpenFormEditMedication(item)" ng-class="{disabled:SetVisibility ==true}" title="{{ 'BUTTON_EDIT' | translate}}">{{'BUTTON_EDIT' | translate}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

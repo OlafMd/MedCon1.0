@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_tre_potentialprocedures
+	(
+		HEC_TRE_PotentialProcedureID,
+		PotentialProcedureITL,
+		PotentialProcedure_Name_DictID,
+		PotentialProcedure_Description_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_TRE_PotentialProcedureID,
+		@PotentialProcedureITL,
+		@PotentialProcedure_Name,
+		@PotentialProcedure_Description,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

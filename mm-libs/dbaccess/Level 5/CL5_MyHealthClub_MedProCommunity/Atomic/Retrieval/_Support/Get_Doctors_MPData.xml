@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/28/2014 4:15:32 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Doctors_and_Staff_allData_for_TenantID</Name>
+    <Namespace>CL5_MyHealthClub_DoctorsAndStaff.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_MedProCommunity.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Doctors_MPData"
+                Method_Name="Get_Doctors_MPData"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Doctors_MPData"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID,
+  cmn_bpt_businessparticipants.DisplayName,
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.LastName,
+  cmn_per_personinfo.PrimaryEmail,
+  cmn_per_personinfo.Title,
+  hec_doctors.IsTreatingChildren,
+  cmn_per_personinfo.Gender,
+  hec_doctors.DoctorIDNumber,
+  cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID,
+  cmn_bpt_emp_employees.Staff_Number,
+  cmn_str_professions.CMN_STR_ProfessionID,
+  cmn_str_professions.ProfessionName_DictID,
+  cmn_bpt_businessparticipants.DisplayImage_RefID,
+  cmn_bpt_emp_employee_2_profession.IsPrimary,
+  cmn_per_personinfo.Gender,
+  cmn_per_personinfo.Initials,
+  hec_doctors.Account_RefID,
+  
+  hec_cmt_memberships.HEC_CMT_MembershipID,
+  hec_cmt_groupsubscriptions.HEC_CMT_GroupSubscriptionID,
+  hec_cmt_communitygroups.HEC_CMT_CommunityGroupID,
+  hec_cmt_communitygroups.CommunityGroupCode
+From
+  cmn_bpt_businessparticipants Inner Join
+  cmn_bpt_emp_employees On cmn_bpt_emp_employees.BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID Inner Join
+  cmn_per_personinfo On cmn_per_personinfo.CMN_PER_PersonInfoID =
+    cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID
+  Inner Join
+  hec_doctors On hec_doctors.BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID Inner Join
+  cmn_bpt_emp_employee_2_profession
+    On cmn_bpt_emp_employee_2_profession.Employee_RefID =
+    cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID Inner Join
+  cmn_str_professions On cmn_bpt_emp_employee_2_profession.Profession_RefID =
+    cmn_str_professions.CMN_STR_ProfessionID Left Join
+  hec_cmt_memberships On hec_cmt_memberships.BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And
+    (hec_cmt_memberships.IsDeleted Is Null Or hec_cmt_memberships.IsDeleted = 0)
+  Left Join
+  hec_cmt_groupsubscriptions On hec_cmt_groupsubscriptions.Membership_RefID =
+    hec_cmt_memberships.HEC_CMT_MembershipID And
+    (hec_cmt_groupsubscriptions.IsDeleted Is Null Or
+      hec_cmt_groupsubscriptions.IsDeleted = 0) Left Join
+  hec_cmt_communitygroups On hec_cmt_groupsubscriptions.CommunityGroup_RefID =
+    hec_cmt_communitygroups.HEC_CMT_CommunityGroupID
+    and ( hec_cmt_communitygroups.IsDeleted is null or  hec_cmt_communitygroups.IsDeleted = 0)
+Where
+  cmn_bpt_businessparticipants.Tenant_RefID = @TenantID And
+  cmn_bpt_businessparticipants.IsDeleted = 0 And
+  cmn_per_personinfo.IsDeleted = 0 And
+  cmn_bpt_emp_employees.IsDeleted = 0 And
+  cmn_bpt_emp_employee_2_profession.IsDeleted = 0 And
+  cmn_str_professions.IsDeleted = 0 And
+  cmn_bpt_businessparticipants.IsNaturalPerson = 1
+ 
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5MPC_GDMPDfT_1922" IsArray="true" GroupBy="CMN_BPT_BusinessParticipantID">
+      <Members>
+        <ClassMember Name="CMN_BPT_BusinessParticipantID" Type="Guid"  />
+        <ClassMember Name="CMN_BPT_EMP_EmployeeID" Type="Guid"  />
+        <ClassMember Name="DisplayName" Type="String"  />
+        <ClassMember Name="FirstName" Type="String"  />
+        <ClassMember Name="LastName" Type="String"  />
+        <ClassMember Name="Gender" Type="int"  />
+        <ClassMember Name="IsTreatingChildren" Type="Boolean"  />
+        <ClassMember Name="PrimaryEmail" Type="String"  />
+        <ClassMember Name="Initials" Type="String"  />
+        <ClassMember Name="Title" Type="String"  />
+        <ClassMember Name="DoctorIDNumber" Type="String"  />
+        <ClassMember Name="Staff_Number" Type="String"  />
+        <ClassMember Name="DisplayImage_RefID" Type="Guid"  />
+        <ClassMember Name="Account_RefID" Type="Guid"  />  
+        <ClassMember IsClass="true" IsArray="true" Type="L5MPC_GDMPDfT_1922_StaffProfesions" Name="StaffProfesions" GroupBy="CMN_STR_ProfessionID" >
+          <Members>
+            <ClassMember Name="CMN_STR_ProfessionID" Type="Guid"  />
+            <ClassMember Name="IsPrimary" Type="bool"  />
+            <ClassMember Name="ProfessionName" Type="Dict" OriginTable="cmn_str_professions" Source_DBField="ProfessionName_DictID"  />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="false" Type="L5MPC_GDMPDfT_1922_Membership" Name="Membership" GroupBy="HEC_CMT_MembershipID" >
+          <Members>
+            <ClassMember Name="HEC_CMT_MembershipID" Type="Guid"  />
+            <ClassMember IsClass="true" IsArray="true" Type="L5MPC_GDMPDfT_1922_Membership_Group" Name="Groups" GroupBy="HEC_CMT_GroupSubscriptionID" >
+              <Members>
+                <ClassMember Name="HEC_CMT_GroupSubscriptionID" Type="Guid"  />
+                <ClassMember Name="HEC_CMT_CommunityGroupID" Type="Guid"  />
+                <ClassMember Name="CommunityGroupCode" Type="String"  />
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

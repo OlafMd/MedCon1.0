@@ -1,0 +1,27 @@
+INSERT INTO 
+	log_wrh_shelf_predefinedproductlocations
+	(
+		LOG_WRH_Shelf_PredefinedProductLocationID,
+		Shelf_RefID,
+		Product_RefID,
+		Product_Variant_RefID,
+		Product_Release_RefID,
+		LocationPriority,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@LOG_WRH_Shelf_PredefinedProductLocationID,
+		@Shelf_RefID,
+		@Product_RefID,
+		@Product_Variant_RefID,
+		@Product_Release_RefID,
+		@LocationPriority,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

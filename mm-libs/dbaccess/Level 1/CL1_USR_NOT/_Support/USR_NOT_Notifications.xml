@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/25/2013 12:00:08 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="USR_NOT_Notification"
+                IsClass="true"
+                IsClass_Namespace="CL1_USR_NOT"
+                IsClass_Corresponding_DBTable="usr_not_notifications" >
+      <Members>
+		<ClassMember Name="USR_NOT_NotificationID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="NotificationSubscription_RefID" Type="Guid" />
+		<ClassMember Name="R_Account_RefID" Type="Guid" />
+		<ClassMember Name="R_NotificationKey" Type="String" />
+		<ClassMember Name="Notification_Link" Type="String" />
+		<ClassMember Name="Notification_Text" Type="String" />
+		<ClassMember Name="IsViewed" Type="Boolean" />
+		<ClassMember Name="ViewedOn_Date" Type="DateTime" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

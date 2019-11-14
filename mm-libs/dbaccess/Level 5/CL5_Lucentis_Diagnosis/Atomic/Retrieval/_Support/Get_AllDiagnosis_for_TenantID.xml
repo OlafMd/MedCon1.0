@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/6/2013 2:23:30 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllDiagnosis_for_TenantID</Name>
+    <Namespace>CL5_Lucentis_Diagnosis.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Diagnosis.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllDiagnosis_for_TenantID"
+                Method_Name="Get_AllDiagnosis_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AllDiagnosis_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID,
+  hec_dia_potentialdiagnoses.ICD10_Code,
+  hec_dia_diagnosis_states.HEC_DIA_Diagnosis_StateID,
+  hec_dia_diagnosis_states.DiagnosisState_Abbreviation,
+  hec_dia_diagnosis_states.DiagnosisState_Name_DictID,
+  hec_dia_diagnosis_localizations.HEC_DIA_Diagnosis_LocalizationID,
+  hec_dia_diagnosis_localizations.DiagnosisLocalization_Name_DictID,
+  hec_dia_potentialdiagnoses.PotentialDiagnosis_Name_DictID
+From
+  hec_dia_diagnosis_localizations Inner Join
+  hec_dia_potentialdiagnoses
+    On hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID =
+    hec_dia_diagnosis_localizations.Diagnosis_RefID Inner Join
+  hec_dia_diagnosis_states On hec_dia_diagnosis_states.Diagnose_RefID =
+    hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID
+Where
+  hec_dia_potentialdiagnoses.IsDeleted = 0 And
+  hec_dia_potentialdiagnoses.Tenant_RefID = @TenantID And
+  hec_dia_diagnosis_localizations.IsDeleted = 0 And
+  hec_dia_diagnosis_states.IsDeleted = 0 And
+  hec_dia_diagnosis_localizations.Tenant_RefID = @TenantID And
+  hec_dia_diagnosis_states.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5DG_GADfT_1422" IsArray="true" GroupBy="HEC_DIA_PotentialDiagnosisID">
+			<Members>
+				<ClassMember Name="HEC_DIA_PotentialDiagnosisID" Type="Guid"  />
+				<ClassMember Name="ICD10_Code" Type="String"  />
+                <ClassMember Name="PotentialDiagnosis_Name_DictID" Type="Dict" OriginTable="hec_dia_potentialdiagnoses" Source_DBField="PotentialDiagnosis_Name_DictID"/>
+                
+        <ClassMember IsClass="true" IsArray="true" Name="States" Type="L5DG_GADfT_1422a" GroupBy="HEC_DIA_Diagnosis_StateID">
+          <Members>
+            <ClassMember Name="HEC_DIA_Diagnosis_StateID" Type="Guid"  />
+            <ClassMember Name="DiagnosisState_Abbreviation" Type="String"  />
+            <ClassMember Name="DiagnosisState_Name" Type="Dict" OriginTable="hec_dia_diagnosis_states" Source_DBField="DiagnosisState_Name_DictID"  />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Name="Localizations" Type="L5DG_GADfT_1422b" GroupBy="HEC_DIA_Diagnosis_LocalizationID">
+          <Members>
+            <ClassMember Name="HEC_DIA_Diagnosis_LocalizationID" Type="Guid"  />
+            <ClassMember Name="DiagnosisLocalization_Name" Type="Dict" OriginTable="hec_dia_diagnosis_localizations" Source_DBField="DiagnosisLocalization_Name_DictID"  />
+          </Members>
+        </ClassMember>
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

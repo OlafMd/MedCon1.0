@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_dia_potentialdiagnosis_catalog_access
+	(
+		HEC_DIA_PotentialDiagnosis_Catalog_AccessID,
+		PotentialDiagnosis_Catalog_RefID,
+		BusinessParticipant_RefID,
+		IsContributor,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_DIA_PotentialDiagnosis_Catalog_AccessID,
+		@PotentialDiagnosis_Catalog_RefID,
+		@BusinessParticipant_RefID,
+		@IsContributor,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

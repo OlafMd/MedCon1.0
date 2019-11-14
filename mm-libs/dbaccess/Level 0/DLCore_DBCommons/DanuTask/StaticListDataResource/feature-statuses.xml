@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="feature-status.ready">
+    <Lang ISO="EN" Content="Ready" />
+    <Lang ISO="DE" Content="Bereitet" />
+    <Lang ISO="RS" Content="Spreman" />
+  </Item>
+  <Item ID="feature-status.started">
+    <Lang ISO="EN" Content="Started" />
+    <Lang ISO="DE" Content="Gestartet" />
+    <Lang ISO="RS" Content="Startovan" />
+  </Item>
+  <Item ID="feature-status.paused">
+    <Lang ISO="EN" Content="Paused" />
+    <Lang ISO="DE" Content="Pausiert" />
+    <Lang ISO="RS" Content="Pauziran" />
+  </Item>
+  <Item ID="feature-status.completed">
+    <Lang ISO="EN" Content="Completed" />
+    <Lang ISO="DE" Content="fertiggestellt" />
+    <Lang ISO="RS" Content="Kompletiran" />
+  </Item>
+  <Item ID="feature-status.canceled">
+    <Lang ISO="EN" Content="Canceled" />
+    <Lang ISO="DE" Content="Gestrichen" />
+    <Lang ISO="RS" Content="Obustavljen" />
+  </Item>
+  <Item ID="feature-status.in-preparation">
+    <Lang ISO="EN" Content="In Preparation" />
+    <Lang ISO="DE" Content="In Vorbereitung" />
+    <Lang ISO="RS" Content="U Pripremi" />
+  </Item>
+</Resources>

@@ -1,0 +1,25 @@
+INSERT INTO 
+	doc_documenttemplate_placeholders
+	(
+		DOC_DocumentTemplate_PlaceholderID,
+		DocumentTemplate_RefID,
+		Placeholder,
+		DisplayName,
+		PlaceholderName_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@DOC_DocumentTemplate_PlaceholderID,
+		@DocumentTemplate_RefID,
+		@Placeholder,
+		@DisplayName,
+		@PlaceholderName,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="number-range-usage-area.shoping-cart-number">
+    <Lang ISO="EN" Content="Shopping cart number" />
+    <Lang ISO="DE" Content="Warenkorbnummer" />
+  </Item>
+  <Item ID="number-range-usage-area.customer-order-number">
+    <Lang ISO="EN" Content="Customer Order Number" />
+    <Lang ISO="DE" Content="Kundenbestellnummer" />
+  </Item>
+  <Item ID="number-range-usage-area.customer-interaction-number">
+    <Lang ISO="EN" Content="Customer Interaction Number" />
+    <Lang ISO="DE" Content="Kundeninteraktionsnummer" />
+  </Item>
+  <Item ID="number-range-usage-area.procurement-order-number">
+    <Lang ISO="EN" Content="Procurement Order Number" />
+    <Lang ISO="DE" Content="Lieferantenbestellnummer" />
+  </Item>
+  <Item ID="number-range-usage-area.expected-delivery-number">
+    <Lang ISO="EN" Content="Expected Delivery Number" />
+    <Lang ISO="DE" Content="Voraussichtlichnummer" />
+  </Item>
+  <Item ID="number-range-usage-area.stock-receipt-number">
+    <Lang ISO="EN" Content="Stock receipt number" />
+    <Lang ISO="DE" Content="Wareneingangsnummer" />
+  </Item>
+  <Item ID="number-range-usage-area.shipment-number">
+    <Lang ISO="EN" Content="Shipment number" />
+    <Lang ISO="DE" Content="Liefauftragsnummer" />
+  </Item>
+  <Item ID="number-range-usage-area.bill-number">
+    <Lang ISO="EN" Content="Bill number" />
+    <Lang ISO="DE" Content="Rechnungsnummer" />
+  </Item>
+  <Item ID="number-range-usage-area.customer-return-number">
+    <Lang ISO="EN" Content="Customer return number" />
+    <Lang ISO="DE" Content="Kundenretourennummer" />
+  </Item>
+  <Item ID="number-range-usage-area.supplier-return-shipment-number">
+    <Lang ISO="EN" Content="Supplier return shipment number" />
+    <Lang ISO="DE" Content="Lieferantenretourennummer" />
+  </Item>
+  <Item ID="number-range-usage-area.prc-request-proposal-number">
+    <Lang ISO="EN" Content="Request proposal number" />
+    <Lang ISO="DE" Content="Bestellanfragennummer" />
+  </Item>
+  <Item ID="number-range-usage-area.cuo-request-proposal-number">
+    <Lang ISO="EN" Content="Request proposal number on customer side" />
+    <Lang ISO="DE" Content="Bestellanfragennummer auf Kundenseite" /> 
+  </Item>
+</Resources>

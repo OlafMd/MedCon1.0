@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/15/2013 10:14:20 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="TMS_PRO_Comment_AttachedFile"
+                IsClass="true"
+                IsClass_Namespace="CL1_TMS_PRO"
+                IsClass_Corresponding_DBTable="tms_pro_comment_attachedfiles" >
+      <Members>
+		<ClassMember Name="TMS_PRO_Comment_AttachedFileID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Comment_RefID" Type="Guid" />
+		<ClassMember Name="AttachedFile_Document_RefID" Type="Guid" />
+		<ClassMember Name="AttachedFile_DisplayName" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

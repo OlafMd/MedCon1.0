@@ -1,0 +1,147 @@
+/*
++  language reset
+---------------------------------------------------------------------------- */
+.language span,  .language img,  .language dl, .language dt, .language dd, .language ul, .language li, .language form, .language label, .language legend, .language table, .language caption, .language tbody, .language tfoot, .language thead, .language tr, .language th, .language td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit;}
+
+.language{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    background: #EEE;
+    width: 100%;
+    border: 1px solid #BBB;
+}
+
+.lang_name_class {
+    padding-bottom: 1px;
+}
+
+.language_holder
+{
+    width: auto;
+    position: relative;
+    background: #EEE;
+}
+
+/*
++  language list and active
+---------------------------------------------------------------------------- */
+.lang_primar
+{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+    .language dt{
+        width: 38px;
+        height: 22px;
+        line-height: 22px;
+        position: absolute;
+        cursor: pointer;
+        margin-left: 2px;
+    }
+        .language dt img{
+            display: inline;
+            position: relative;
+            top: 1px;
+            width: 16px;
+            height: 11px;
+        }
+            .language dt img:first-child
+            {
+                margin-right: 3px;
+                top: 0px;
+            }
+
+    .language dd{
+        margin-left: 40px;
+        height: 22px;
+    }
+        .language dd input,
+        .language dd textarea{
+            width: 100%;
+            background: #EEE;
+            border:none;
+        }
+        .language dd input
+        {
+            padding: 0px;
+            height: 100%;
+        }
+/*
++  language textarea style
+---------------------------------------------------------------------------- */
+.lang_description{
+    height: 100px;
+}
+
+    .lang_description dd{
+        height: 100%;
+    }
+
+        .lang_description dd textarea{
+            padding: 0px;
+            height: 100%;
+            resize: none; 
+        }
+
+
+
+/*
++  edit mode on
+---------------------------------------------------------------------------- */
+.inline-edit-input{
+    margin: 0px;
+}
+
+/*
++  hidden languages
+---------------------------------------------------------------------------- */
+
+.lagn_choices,
+.lagn_desc_choices{
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+.lagn_desc_choices{
+    top: 22px;
+}
+
+    .lagn_choices li:hover,
+    .lagn_desc_choices li:hover{
+        background: #dfdfdf;
+        cursor: pointer;
+    }
+    
+    .lagn_choices dt,
+    .lagn_desc_choices dt{
+        width: 100px;
+    }
+        
+
+    .lagn_choices dd,
+    .lagn_desc_choices dd{
+        margin-left: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .lagn_choices dt span,
+    .lagn_desc_choices dt span{
+        display: inline-block;
+        width: 80px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    ul.language dt{ padding-left: 17px; } 
+    ul.language dl dt img:first-child { position: absolute; top: 6px; left: 0;}
+    
+.language_holder .lagn_desc_choices,
+.language_holder .lagn_choices
+{
+    margin: 0px;
+}

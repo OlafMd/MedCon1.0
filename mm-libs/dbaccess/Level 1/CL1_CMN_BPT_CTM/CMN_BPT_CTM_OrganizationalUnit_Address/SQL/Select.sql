@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_ctm_organizationalunit_addresses
+WHERE 
+	CMN_BPT_CTM_OrganizationalUnit_AddressID = @CMN_BPT_CTM_OrganizationalUnit_AddressID

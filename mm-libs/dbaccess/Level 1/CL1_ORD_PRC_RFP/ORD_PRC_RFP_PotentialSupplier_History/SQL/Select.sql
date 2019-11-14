@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	ord_prc_rfp_potentialsupplier_history
+WHERE 
+	ORD_PRC_RFP_PotentialSupplier_HistoryID = @ORD_PRC_RFP_PotentialSupplier_HistoryID

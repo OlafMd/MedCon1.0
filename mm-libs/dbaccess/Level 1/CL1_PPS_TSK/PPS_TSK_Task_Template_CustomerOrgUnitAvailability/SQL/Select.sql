@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	pps_tsk_task_template_customerorgunitavailabilities
+WHERE 
+	PPS_TSK_Task_Template_CustomerOrgUnitAvailabilityID = @PPS_TSK_Task_Template_CustomerOrgUnitAvailabilityID

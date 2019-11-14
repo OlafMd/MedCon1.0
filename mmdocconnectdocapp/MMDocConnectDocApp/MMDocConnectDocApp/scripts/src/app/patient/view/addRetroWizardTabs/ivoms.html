@@ -1,0 +1,132 @@
+<div class="row">
+    <div class="col-sm-12">
+        <p class="margin-bottom-20">{{'LABEL_RETRO_CASES_IVOMS_DESCRIPTION' | translate}}</p>
+    </div>
+    <div class="col-sm-6">
+        <h3>{{'LABEL_LEFT_EYE' | translate}}</h3>
+        <form name="formHolder.leftEyeIvoms" ng-if="!left_eye.disable" novalidate>
+            <div class="error-msg-container" ng-if="left_eye.validations.length">
+                <span class="error" ng-repeat="validation in left_eye.validations" translate="{{ validation.label }}" translate-values="validation.values"></span>
+            </div>
+            <ul class="list-table" ng-hide="left_eye.disable">
+                <li>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>{{'LABEL_IVOM_DATE' | translate}}:</label>
+                                <datepicker2 name="lefteyeIvomDate"
+                                   datepicker-id="lefteyeIvomDate"
+                                   ng-model="left_eye.ivom.date"
+                                   placeholder="'LABEL_DATE_PLACEHOLDER'"
+                                   date-validate="true"
+                                   date-max-limit="today"
+                                   date-invalid="left_eye.ivom.invalid"
+                                   required>
+                                </datepicker2>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>{{'LABEL_OP_DOCTOR' | translate}}:</label>
+                                <dropdown-list id="lefteyeOpDoctor" items="opDoctors" ng-model="left_eye.ivom.doctor" additional-class="'dropdown-min-width'" params="{has_prefix: true, is_model_object: true}" required></dropdown-list>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>{{'LABEL_DIAGNOSIS' | translate}}:</label>
+                                <dropdown-list id="lefteyeDiagnose" items="all_diagnoses" ng-model="left_eye.ivom.diagnose_id" additional-class="'dropdown-min-width'" required></dropdown-list>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>{{'LABEL_DRUG' | translate}}:</label>
+                                <dropdown-list id="lefteyeDrug" items="all_drugs" ng-model="left_eye.ivom.drug_id" additional-class="'dropdown-min-width'" ng-change="verifyTreatmentEligibilityForDrug()" required></dropdown-list>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </li>
+                <li class="controls-add-button">
+                    <button type="submit" class="button narrow confirm ng-scope ng-binding" id="saveMultiLeftEye" ng-click="addOps('left_eye')" translate="BUTTON_SAVE" title="Speichern" ng-disabled="formHolder.leftEyeIvoms.$invalid"></button>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="col-sm-6">
+        <h3>{{'LABEL_RIGHT_EYE' | translate}}</h3>
+        <form name="formHolder.rightEyeIvoms" ng-if="!right_eye.disable" novalidate>
+            <div class="error-msg-container" ng-if="right_eye.validations.length">
+                <span class="error" ng-repeat="validation in right_eye.validations" translate="{{ validation.label }}" translate-values="validation.values"></span>
+            </div>
+            <ul class="list-table" ng-hide="right_eye.disable">
+                <li>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>{{'LABEL_IVOM_DATE' | translate}}:</label>
+                                <datepicker2 name="righteyeIvomDate"
+                                    datepicker-id="righteyeIvomDate"
+                                    ng-model="right_eye.ivom.date"
+                                    placeholder="'LABEL_DATE_PLACEHOLDER'"
+                                    date-validate="true"
+                                    date-max-limit="today"
+                                    date-invalid="right_eye.ivom.invalid"
+                                    required>
+                                </datepicker2>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>{{'LABEL_OP_DOCTOR' | translate}}:</label>
+                                <dropdown-list id="righteyeOpDoctor" items="opDoctors" ng-model="right_eye.ivom.doctor" additional-class="'dropdown-min-width'" params="{has_prefix: true, is_model_object: true}" required></dropdown-list>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>{{'LABEL_DIAGNOSIS' | translate}}:</label>
+                                <dropdown-list id="righteyeDiagnose" items="all_diagnoses" ng-model="right_eye.ivom.diagnose_id" additional-class="'dropdown-min-width'" required></dropdown-list>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>{{'LABEL_DRUG' | translate}}:</label>
+                                <dropdown-list id="righteyeDrug" items="all_drugs" ng-model="right_eye.ivom.drug_id" additional-class="'dropdown-min-width'" ng-change="verifyTreatmentEligibilityForDrug()" required></dropdown-list>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </li>
+                <li class="controls-add-button">
+                    <button type="submit" class="button narrow confirm ng-scope ng-binding" id="saveMultiRightEye" ng-click="addOps('right_eye')" translate="BUTTON_SAVE" title="Speichern" ng-disabled="formHolder.rightEyeIvoms.$invalid"></button>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-6">
+        <div class="scroll-container" ng-if="!left_eye.disable">
+            <ul class="list-table table-overview" ng-repeat="op in left_eye.ops | orderBy:'date'">
+                <li id="lefteyeOpDate_{{$index}}">{{op.date | date:'dd.MM.yyyy' }}</li>
+                <li id="lefteyeOpDiagnosis_{{$index}}">{{getDiagnoseName(op, 'left_eye')}}<div id="lefteyeOpMedication_{{$index}}" class="normal-height-font gray-font-color">{{getDrugName(op.drug_id)}}</div></li>
+                <li id="lefteyeOpDoctor_{{$index}}">{{op.doctor.name || op.doctor.display_name}}<div class="normal-height-font gray-font-color">{{op.doctor.secondary_display_name}}</div></li>
+                <li class="text-right"><a href id="cancelLefteyeOP_{{$index}}" class="icons-discard" ng-click="removeOps('left_eye', op.id)" ng-if="!op.read_only" title="Stornieren"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="scroll-container" ng-if="!right_eye.disable">
+            <ul class="list-table table-overview" ng-repeat="op in right_eye.ops | orderBy:'date'">
+                <li id="righteyeOpDate_{{$index}}">{{op.date | date:'dd.MM.yyyy' }}</li>
+                <li id="righteyeOpDiagnosis_{{$index}}">{{getDiagnoseName(op, 'right_eye')}}<div id="righteyeOpMedication_{{$index}}" class="normal-height-font gray-font-color">{{getDrugName(op.drug_id)}}</div></li>
+                <li id="righteyeOpDoctor_{{$index}}">{{op.doctor.name || op.doctor.display_name}}<div class="normal-height-font gray-font-color">{{op.doctor.secondary_display_name}}</div></li>
+                <li class="text-right"><a href id="cancelRighteyeOP_{{$index}}" class="icons-discard" ng-click="removeOps('right_eye', op.id)" ng-if="!op.read_only" title="Stornieren"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>

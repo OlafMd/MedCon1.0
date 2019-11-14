@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="4/22/2014 10:36:52 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_DynamicPricingFormula</Name>
+    <Namespace>CL2_Price.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Price.Atomic.Manipulation"
+                Method_ClassName="cls_Save_DynamicPricingFormula"
+                Method_Name="Save_DynamicPricingFormula"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_DynamicPricingFormula"
+                />
+
+  <Parameters IsClass="true" Name="P_L2PR_SDPF_1036">
+    <Members>
+      <ClassMember Name="CMN_SLS_DynamicPricingFormula_TypeID" Type="Guid"  />
+      <ClassMember Name="DynamicPricingFormulaType_Name" Type="Dict"  />
+      <ClassMember Name="DefaultDynamicPricingFormula" Type="String"  />
+      <ClassMember Name="IsDeleted" Type="Boolean"  />
+      
+      <ClassMember Name="PriceRanges" IsClass="true" Type="P_L2PR_SDPF_1036a" IsArray="true">
+        <Members>
+          <ClassMember Name="CMN_SLS_DPF_Type_ProcurementPriceDependencyID" Type="Guid"  />
+          <ClassMember Name="ApplicableFrom_ProcurementPrice" Type="Decimal"  />
+          <ClassMember Name="ApplicableThrough_ProcurementPrice" Type="Decimal"  />
+          <ClassMember Name="DynamicPricingFormula" Type="String"  />
+          <ClassMember Name="IsDeleted" Type="Boolean"  />
+        </Members>
+      </ClassMember>
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+
+

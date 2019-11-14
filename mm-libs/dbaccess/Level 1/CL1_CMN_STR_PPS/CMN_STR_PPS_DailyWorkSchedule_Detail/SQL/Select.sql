@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_str_pps_dailyworkschedule_details
+WHERE 
+	CMN_STR_PPS_DailyWorkSchedule_DetailID = @CMN_STR_PPS_DailyWorkSchedule_DetailID

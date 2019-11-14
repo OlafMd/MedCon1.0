@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="16-12-14 15:12:27">
+
+  <Meta>
+    <Name>Get_Logistic_Provider_for_ProviderID_and_Tenant</Name>
+    <Description>Get_Logistic_Provider_for_ProviderID_and_Tenant</Description>
+    <Namespace>CL2_Logistic.Atomic.Retrieval</Namespace>
+    <Tags></Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Logistic.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Logistic_Provider_for_ProviderID_and_Tenant"
+                Method_Name="Get_Logistic_Provider_for_ProviderID_and_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Logistic_Provider_for_ProviderID_and_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+   
+Select
+  log_logisticsproviders.LOG_LogisticsProviderID,
+  log_logisticsproviders.IsTrackingAvailable,
+  log_logisticsproviders.IsProviding_TransportServices,
+  cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID,
+  cmn_bpt_businessparticipants.DisplayName
+From
+  log_logisticsproviders Inner Join
+  cmn_bpt_businessparticipants
+    On log_logisticsproviders.Ext_CMN_BPT_BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+Where
+  log_logisticsproviders.LOG_LogisticsProviderID = @LogisticProviderID And
+  log_logisticsproviders.IsDeleted = 0 And
+  log_logisticsproviders.Tenant_RefID = @TenantID
+     
+ </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2L_GLPfPaT_1629">
+    <Members>
+      <ClassMember  Name="LogisticProviderID" Type="Guid" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+      Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+      Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2L_GLPfPaT_1629">
+      <Members>
+        <ClassMember Name="LOG_LogisticsProviderID" Type="Guid"  />
+        <ClassMember Name="IsTrackingAvailable" Type="bool"  />
+        <ClassMember Name="IsProviding_TransportServices" Type="bool"  />
+        <ClassMember Name="CMN_BPT_BusinessParticipantID" Type="Guid"  />
+        <ClassMember Name="DisplayName" Type="string"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+
+

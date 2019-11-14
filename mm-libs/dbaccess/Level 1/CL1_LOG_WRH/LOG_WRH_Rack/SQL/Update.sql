@@ -1,0 +1,20 @@
+UPDATE 
+	log_wrh_racks
+SET 
+	GlobalPropertyMatchingID=@GlobalPropertyMatchingID,
+	Area_RefID=@Area_RefID,
+	Rack_Name=@Rack_Name,
+	Shelf_NamePrefix=@Shelf_NamePrefix,
+	CoordinateCode=@CoordinateCode,
+	Shelves_Use_XCoordinate=@Shelves_Use_XCoordinate,
+	Shelves_Use_YCoordinate=@Shelves_Use_YCoordinate,
+	Shelves_Use_ZCoordinate=@Shelves_Use_ZCoordinate,
+	Shelves_XLabel=@Shelves_XLabel,
+	Shelves_YLabel=@Shelves_YLabel,
+	Shelves_ZLabel=@Shelves_ZLabel,
+	IsStructureHidden=@IsStructureHidden,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	LOG_WRH_RackID = @LOG_WRH_RackID

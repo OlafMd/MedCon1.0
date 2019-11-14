@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/14/2014 3:56:26 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>MeasurementNotes_by_AccountCode</Name>
+    <Namespace>CL3_Measurements.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Measurements.Atomic.Retrieval"
+                Method_ClassName="cls_MeasurementNotes_by_AccountCode"
+                Method_Name="MeasurementNotes_by_AccountCode"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".MeasurementNotes_by_AccountCode"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select Distinct
+  mrs_run_measurement_notes.MRS_RUN_Measurement_NoteID,
+  mrs_run_measurement_notes.MRS_RUN_Measurement_RefID,
+  mrs_run_measurement_notes.NoteText,
+  mrs_run_measurement_notes.Creation_Timestamp,
+  mrs_run_measurement_notes.Tenant_RefID,
+  mrs_run_measurement_notes.IsDeleted
+From
+  mrs_run_measurementrun_accountdownloadcodes Inner Join
+  mrs_run_measurementrun_routes
+    On mrs_run_measurementrun_accountdownloadcodes.MeasurementRun_RefID =
+    mrs_run_measurementrun_routes.MeasurementRun_RefID And
+    mrs_run_measurementrun_accountdownloadcodes.Account_RefID =
+    mrs_run_measurementrun_routes.BoundTo_Account_RefID Inner Join
+  mrs_rut_routes On mrs_rut_routes.MRS_RUT_RouteID =
+    mrs_run_measurementrun_routes.Route_RefID Inner Join
+  mrs_rut_route_measuringpoints On mrs_rut_routes.MRS_RUT_RouteID =
+    mrs_rut_route_measuringpoints.Route_RefID Inner Join
+  mrs_run_measurements
+    On mrs_rut_route_measuringpoints.MRS_RUT_Route_MeasuringPointID =
+    mrs_run_measurements.MeasuringPoint_RefID And
+    mrs_run_measurements.MeasurementRun_RefID =
+    mrs_run_measurementrun_routes.MeasurementRun_RefID Inner Join
+  mrs_run_measurement_notes On mrs_run_measurements.MRS_RUN_MeasurementID =
+    mrs_run_measurement_notes.MRS_RUN_Measurement_RefID Inner Join
+  cmn_bpt_businessparticipant_accesscodes
+    On cmn_bpt_businessparticipant_accesscodes.BusinessParticipant_RefID =
+    mrs_run_measurementrun_accountdownloadcodes.Account_RefID
+Where
+  mrs_run_measurement_notes.IsDeleted = 0 And
+  mrs_run_measurementrun_routes.IsDeleted = 0 And
+  mrs_rut_routes.IsDeleted = 0 And
+  mrs_rut_route_measuringpoints.IsDeleted = 0 And
+  mrs_run_measurements.IsMeasured = 0 And
+  mrs_run_measurements.IsDeleted = 0 And
+  mrs_run_measurementrun_accountdownloadcodes.DownloadCode = @DownloadCode And
+  mrs_run_measurementrun_accountdownloadcodes.IsDeleted = 0 And
+  cmn_bpt_businessparticipant_accesscodes.Code = @AccountCode
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3_MNbAC_1556">
+    <Members>
+		<ClassMember Name="AccountCode" Type="string"  />
+      <ClassMember Name="DownloadCode" Type="string"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3_MNbAC_1556" IsArray="true">
+			<Members>
+				<ClassMember Name="MRS_RUN_Measurement_NoteID" Type="Guid"  />
+				<ClassMember Name="MRS_RUN_Measurement_RefID" Type="Guid"  />
+				<ClassMember Name="NoteText" Type="String"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

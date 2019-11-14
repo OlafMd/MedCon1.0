@@ -1,0 +1,57 @@
+﻿<div class="gray-content-holder">
+   <!--<h3 translate="LABEL_NOT_IMPLEMENTED"> </h3>
+
+    <img class="picture" src="Content/images/construction1.png">-->
+ 
+    
+       <form id="appSettings" ng-submit="submitAppSettingsForm()" class="doctors-data-lists patients-list clearfix" name="appSettingsForm" novalidate >
+
+        <div name="messageContainer" class="error-msg-container" ng-if="divContainer ||(appSettingsForm.inOrderInterval.$error.number || appSettingsForm.inImmediateOrderIntervalnumber.$error.number)">
+            <span class=" error" ng-if="EmailNotValid">{{ 'LABEL_EMAIL_NOT_VALID' | translate }}</span>
+            <span class="error" ng-if="passwordInvalidEmpty">{{ 'LABEL_ENTER_PASSWORD' | translate }}</span>
+            <span class="error" ng-if="passwordDontValidForm">{{ 'LABEL_CREDENTIALS_NOT_VERIFIED' | translate }}</span>
+            <span class="error" ng-if="appSettingsForm.inOrderInterval.$error.number">{{ 'LABEL_INVALID_NUMBER_ORDER' | translate }}</span>
+            <span class="error" ng-if="appSettingsForm.inImmediateOrderIntervalnumber.$error.number">{{ 'LABEL_INVALID_NUMBER_IMORDER' | translate }}</span>
+        </div>
+        <ul class="third-class-data first-row-edit">
+            <li>
+                <label id="lblDefaultEmail">{{ 'LABEL_DEFAULT_EMAIL' | translate }}</label>
+                <input id="inDefaultEmail" name="inEmail" type="text" ng-model="appSettings.Email" ng-class="{redborder:EmailNotValid}" />
+            </li>
+            <li>
+                <label id="lblOrderInterval">{{ 'LABEL_ORDER_INTERVAL' | translate }}</label>
+                <label class="inline padding-aside" id="lblOrderInterval">{{ 'LABEL_IN' | translate }}</label>
+                <input id="inOrderInterval" name="inOrderInterval" type="number" min="0" ng-model="appSettings.OrderInterval" />
+                <label class="inline" id="lblOrderInterval">{{ 'LABEL_MINUTES' | translate }}</label>
+            </li>
+            <li>
+                <label id="lblImmediateOrderInterval">{{ 'LABEL_IMMEDIATE_ORDER_INTERVAL' | translate }}</label>
+                <label class="inline padding-aside" id="lblOrderInterval">{{ 'LABEL_IN' | translate }}</label>
+                <input id="inImmediateOrderInterval" name="inImmediateOrderInterval" type="number" min="0" ng-model="appSettings.ImmediateOrderInterval" />
+                <label class="inline" id="lblOrderInterval">{{ 'LABEL_MINUTES' | translate }}</label>
+            </li>
+        </ul>
+   
+        <ul class="first-class-data second-row-edit">
+            <li>
+                <label class="bolded-text" id="lblPleasePassword" translate="LABEL_PLEASE_PASSWORD"></label>
+            </li>
+            <li>
+                <label id="lblUser">{{ 'LABEL_EMPLOYEE' | translate }}</label>
+                <dropdown-list id="ddUser" name="ddMUser" items="user" ng-model="appSettings.User" params="{display_name: 'name', id: 'id', is_model_object: true}"></dropdown-list>
+            </li>
+            <li>
+                <label id="lblPassword">{{ 'LABEL_PASSWORD' | translate }}<span class="error" ng-show="appSettingsForm.Password.$error.required">*</span></label>
+                <input id="Password" name="Password" type="password" ng-model="appSettings.Password" auto-fill-sync required />
+            </li>
+        </ul>
+
+            <div class="buttons-with-text-button padding-top-22">
+             <span  class="abort"><a href="" id="btnCancelSubmitAppSettings" ng-click="closeAppSettingsForm()" onclick="return false;" translate="BUTTON_CANCEL">{{ 'LABEL_CANCEL' | translate }}</a></span>
+           <!-- <button class="button wide reject" id="btnCancelSubmitAppSettings" onclick="return false;" ng-click="closeAppSettingsForm()" translate="BUTTON_CANCELSETTINGS" ></button>  -->
+            <button class="button wide confirm" id="btnSubmitUser" type="submit" translate="BUTTON_SAVESETTINGS" ng-disabled="appSettingsForm.$invalid"></button>
+           </div>
+
+    </form>
+</div>
+

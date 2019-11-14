@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	ord_prc_procurementorder_position_history
+WHERE 
+	ORD_PRC_ProcurementOrder_Position_HistoryID = @ORD_PRC_ProcurementOrder_Position_HistoryID

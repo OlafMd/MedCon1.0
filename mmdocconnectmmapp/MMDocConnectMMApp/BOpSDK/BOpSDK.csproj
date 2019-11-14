@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B5AA6031-A2A9-4642-ABF6-2290C8DEEDC6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BOp</RootNamespace>
+    <AssemblyName>BOpSDK</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\example-application\ExampleApp\</SolutionDir>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\RestSharp.105.2.3\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\BOpConfiguration.cs" />
+    <Compile Include="Exceptions\SDKServiceException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\BaseProvider.cs" />
+    <Compile Include="Providers\PCH\Data\EPrinterType.cs" />
+    <Compile Include="Providers\PCH\Data\EPrintingAgentStatus.cs" />
+    <Compile Include="Providers\PCH\Data\EPrintJobStatus.cs" />
+    <Compile Include="Providers\PCH\Data\EPrintJobType.cs" />
+    <Compile Include="Providers\PCH\Data\PrintingAgent.cs" />
+    <Compile Include="Providers\PCH\Data\PrintingAgentStatus.cs" />
+    <Compile Include="Providers\PCH\Data\PrintJobRequest.cs" />
+    <Compile Include="Providers\PCH\Data\PrintJob.cs" />
+    <Compile Include="Providers\PCH\Data\PrintJobStatus.cs" />
+    <Compile Include="Providers\PCH\PrintingServiceProvider.cs" />
+    <Compile Include="Providers\PCH\IPrintingServiceProvider.cs" />
+    <Compile Include="Providers\TMS\AccountServiceProvider.cs" />
+    <Compile Include="Providers\TMS\IAccountServiceProvider.cs" />
+    <Compile Include="Providers\TMS\ITenantServiceProvider.cs" />
+    <Compile Include="Providers\TMS\Requests\Account.cs" />
+    <Compile Include="Providers\TMS\Requests\AccountStatus.cs" />
+    <Compile Include="Providers\TMS\Requests\ChangePasswordRequest.cs" />
+    <Compile Include="Providers\TMS\Requests\CommunicationContact.cs" />
+    <Compile Include="Providers\TMS\Requests\DefaultTenantRequest.cs" />
+    <Compile Include="Providers\TMS\Requests\Reason.cs" />
+    <Compile Include="Providers\TMS\Requests\RegistraionRequest.cs" />
+    <Compile Include="Providers\TMS\Requests\ResetPasswordRequest.cs" />
+    <Compile Include="Providers\TMS\Requests\TemporaryTokenRequest.cs" />
+    <Compile Include="Providers\TMS\Responses\ChangePasswordResponse.cs" />
+    <Compile Include="Providers\TMS\Responses\Tenant.cs" />
+    <Compile Include="Providers\TMS\TenantServiceProvider.cs" />
+    <Compile Include="Providers\DOC\DTO\Request\ShareDocumentRequest.cs" />
+    <Compile Include="Providers\DOC\DTO\Response\DocumentInfo.cs" />
+    <Compile Include="Providers\DOC\DTO\Response\DocumentPermission.cs" />
+    <Compile Include="Providers\DOC\DocumentServiceProvider.cs" />
+    <Compile Include="Providers\DOC\DTO\Response\ShareDocumentResponse.cs" />
+    <Compile Include="Providers\DOC\IDocumentServiceProvider.cs" />
+    <Compile Include="Providers\IConfigurationService.cs" />
+    <Compile Include="Providers\Configuration.cs" />
+    <Compile Include="Providers\Message\Exceptions\MessageProviderExceptions.cs" />
+    <Compile Include="Providers\Message\IMessageServiceProvider.cs" />
+    <Compile Include="Providers\Message\MessageListener.cs" />
+    <Compile Include="Providers\Message\MessageHandlerRepository.cs" />
+    <Compile Include="Providers\Message\MessageListenerService.cs" />
+    <Compile Include="Providers\Message\MessageServiceProvider.cs" />
+    <Compile Include="Providers\Message\Message.cs" />
+    <Compile Include="Providers\Message\IntroductionRequest.cs" />
+    <Compile Include="Providers\Message\IntroductionResponse.cs" />
+    <Compile Include="Providers\ProviderFactory.cs" />
+    <Compile Include="Providers\ProviderType.cs" />
+    <Compile Include="Providers\RAA\BOpCookieUtility.cs" />
+    <Compile Include="Providers\RAA\Data\CookieInfo.cs" />
+    <Compile Include="Providers\RAA\RedirectionUrlUtility.cs" />
+    <Compile Include="Providers\TD\ITenantIntroductionServiceProvider.cs" />
+    <Compile Include="Providers\TD\TenantIntroductionServiceProvider.cs" />
+    <Compile Include="Providers\TrustRelation\Data\Invitation\InvitationStatus.cs" />
+    <Compile Include="Providers\TrustRelation\Data\Invitation\TrustRelationRequestInvitation.cs" />
+    <Compile Include="Providers\TrustRelation\Data\Request\TrustRelationRequest.cs" />
+    <Compile Include="Providers\TrustRelation\Data\Request\TrustRelationRequestStatus.cs" />
+    <Compile Include="Providers\TrustRelation\Data\TrustRelation.cs" />
+    <Compile Include="Providers\TrustRelation\Data\Types\TrustRelationType.cs" />
+    <Compile Include="Providers\TrustRelation\Data\Types\TrustRelationTypeGroup.cs" />
+    <Compile Include="Providers\TrustRelation\ITrustRelationRequestInvitationServiceProvider.cs" />
+    <Compile Include="Providers\TrustRelation\ITrustRelationServiceProvider.cs" />
+    <Compile Include="Providers\TrustRelation\TrustRelationRequestServiceProvider.cs" />
+    <Compile Include="Providers\TrustRelation\ITrustRelationRequestServiceProvider.cs" />
+    <Compile Include="Providers\TrustRelation\ITrustRelationTypeServiceProvider.cs" />
+    <Compile Include="Providers\TrustRelation\TrustRelationRequestBuilder.cs" />
+    <Compile Include="Providers\TrustRelation\TrustRelationRequestInvivationServiceProvider.cs" />
+    <Compile Include="Providers\TrustRelation\TrustRelationServiceProvider.cs" />
+    <Compile Include="Providers\TrustRelation\TrustRelationTypeServiceProvider.cs" />
+    <Compile Include="Services\Auth\DefaultAuthentication.cs" />
+    <Compile Include="Services\Auth\DigestAuthentication.cs" />
+    <Compile Include="Services\Auth\IAuthentication.cs" />
+    <Compile Include="Providers\TMS\ISessionServiceProvider.cs" />
+    <Compile Include="Providers\TMS\Requests\SignInRequest.cs" />
+    <Compile Include="Providers\TMS\Requests\SwitchTenantRequest.cs" />
+    <Compile Include="Providers\TMS\Session.cs" />
+    <Compile Include="Providers\TMS\SessionServiceProvider.cs" />
+    <Compile Include="Services\IAuthenticationProvider.cs" />
+    <Compile Include="Services\Rest\JSONClient.cs" />
+    <Compile Include="Services\Serialization\JSONDeserializer.cs" />
+    <Compile Include="Services\Serialization\JSONSerializer.cs" />
+    <Compile Include="Utility\DateConverter.cs" />
+    <Compile Include="Utility\HashingUtil.cs" />
+    <Compile Include="Services\Rest\JSONRestRequest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,21 @@
+INSERT INTO 
+	log_wrh_inventorychangereasons
+	(
+		LOG_WRH_InventoryChangeReasonID,
+		GlobalPropertyMatchingID,
+		InventoryChange_Name_DictID,
+		InventoryChange_Description_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_WRH_InventoryChangeReasonID,
+		@GlobalPropertyMatchingID,
+		@InventoryChange_Name,
+		@InventoryChange_Description,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

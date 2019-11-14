@@ -1,0 +1,25 @@
+INSERT INTO 
+	tms_quicktask_type
+	(
+		TMS_QuickTask_TypeID,
+		GlobalPropertyMatchingID,
+		QuickTaskType_ExternalID,
+		QuickTaskType_Name_DictID,
+		QuickTaskType_Description_DictID,
+		IsPersistent,
+		Tenant_RefID,
+		Creation_Timestamp,
+		IsDeleted
+	)
+VALUES 
+	(
+		@TMS_QuickTask_TypeID,
+		@GlobalPropertyMatchingID,
+		@QuickTaskType_ExternalID,
+		@QuickTaskType_Name,
+		@QuickTaskType_Description,
+		@IsPersistent,
+		@Tenant_RefID,
+		@Creation_Timestamp,
+		@IsDeleted
+	)

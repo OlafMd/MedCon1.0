@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/25/2015 11:02:12 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ConsentValidForMonths_for_LatestConsent_before_TreatmentDate_for_PatientID</Name>
+    <Namespace>MMDocConnectDBMethods.Patient.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Patient.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ConsentValidForMonths_for_LatestConsent_before_TreatmentDate_for_PatientID"
+                Method_Name="Get_ConsentValidForMonths_for_LatestConsent_before_TreatmentDate_for_PatientID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ConsentValidForMonths_for_LatestConsent_before_TreatmentDate_for_PatientID"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+      cmn_ctr_contract_parameters.IfNumericValue_Value as consent_valid_for_months
+    From
+      hec_crt_insurancetobrokercontract_participatingpatients Inner Join
+      hec_crt_insurancetobrokercontracts
+        On hec_crt_insurancetobrokercontract_participatingpatients.InsuranceToBrokerContract_RefID =
+        hec_crt_insurancetobrokercontracts.HEC_CRT_InsuranceToBrokerContractID And
+        hec_crt_insurancetobrokercontracts.Tenant_RefID = @TenantID And
+        hec_crt_insurancetobrokercontracts.IsDeleted = 0 Inner Join
+      cmn_ctr_contract_parameters
+        On hec_crt_insurancetobrokercontracts.Ext_CMN_CTR_Contract_RefID = cmn_ctr_contract_parameters.Contract_RefID And
+  	    cmn_ctr_contract_parameters.ParameterName = 'Duration of participation consent – Month' And
+  	    cmn_ctr_contract_parameters.Tenant_RefID = @TenantID And
+  	    cmn_ctr_contract_parameters.IsDeleted = 0
+    Where
+      hec_crt_insurancetobrokercontract_participatingpatients.Patient_RefID = @PatientID And
+      hec_crt_insurancetobrokercontract_participatingpatients.ValidFrom &lt;= @TreatmentDate And
+      hec_crt_insurancetobrokercontract_participatingpatients.Tenant_RefID = @TenantID And
+      hec_crt_insurancetobrokercontract_participatingpatients.IsDeleted = 0
+    Order by
+	    hec_crt_insurancetobrokercontract_participatingpatients.ValidFrom desc
+    Limit 1
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_PA_GCVfMfLCbTDfPID_0930">
+    <Members>
+		  <ClassMember Name="PatientID" Type="Guid"  />
+      <ClassMember Name="TreatmentDate" Type="DateTime"  />	
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_an_Object_or_ObjectArray="true">
+		<ObjectReturnType_Definition Name="PA_GCVfMfLCbTDfPID_0930">
+			<Members>
+				<ClassMember Name="consent_valid_for_months" Type="double"  />
+      </Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+</CodeGen>
+
+

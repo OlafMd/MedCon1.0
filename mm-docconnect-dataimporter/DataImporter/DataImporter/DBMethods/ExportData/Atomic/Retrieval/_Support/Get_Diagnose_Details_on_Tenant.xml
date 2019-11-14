@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Diagnose_Details_on_Tenant</Name>
+    <Namespace>DataImporter.DBMethods.ExportData.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="DataImporter.DBMethods.ExportData.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Diagnose_Details_on_Tenant"
+								Method_Name="Get_Diagnose_Details_on_Tenant"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    Select
+      hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID As diagnose_id,
+      hec_dia_potentialdiagnoses_de.Content As diagnose_name,
+      hec_dia_potentialdiagnosis_catalogcodes.Code As diagnose_icd_10,
+      hec_dia_potentialdiagnosis_catalogs.Catalog_DisplayName As catalog_display_name
+    From
+      hec_dia_potentialdiagnoses Inner Join
+      hec_dia_potentialdiagnoses_de
+        On hec_dia_potentialdiagnoses.PotentialDiagnosis_Name_DictID =
+        hec_dia_potentialdiagnoses_de.DictID And
+        hec_dia_potentialdiagnoses_de.IsDeleted = 0 Inner Join
+      hec_dia_potentialdiagnosis_catalogcodes
+        On hec_dia_potentialdiagnosis_catalogcodes.PotentialDiagnosis_RefID = hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID And
+        hec_dia_potentialdiagnosis_catalogcodes.Tenant_RefID = @TenantID And
+        hec_dia_potentialdiagnosis_catalogcodes.IsDeleted = 0 Inner Join
+      hec_dia_potentialdiagnosis_catalogs
+        On hec_dia_potentialdiagnosis_catalogs.HEC_DIA_PotentialDiagnosis_CatalogID
+        = hec_dia_potentialdiagnosis_catalogcodes.PotentialDiagnosis_Catalog_RefID
+        And hec_dia_potentialdiagnosis_catalogs.Tenant_RefID = @TenantID And
+        hec_dia_potentialdiagnosis_catalogs.IsDeleted = 0
+    Where
+      hec_dia_potentialdiagnoses.Tenant_RefID = @TenantID And
+      hec_dia_potentialdiagnoses.IsDeleted = 0 
+    Group By
+      hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID
+	</SQLStatement>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GDDoT_1115" IsArray="true">
+      <Members>
+        <ClassMember Name="diagnose_id" Type="Guid"  />
+        <ClassMember Name="diagnose_name" Type="String"  />
+        <ClassMember Name="diagnose_icd_10" Type="String"  />
+        <ClassMember Name="catalog_display_name" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

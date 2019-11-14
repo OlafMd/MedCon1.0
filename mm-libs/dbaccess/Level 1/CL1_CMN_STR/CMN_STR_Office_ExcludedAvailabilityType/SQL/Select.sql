@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_str_office_excludedavailabilitytypes
+WHERE 
+	CMN_STR_Office_ExcludedAvailabilityTypeID = @CMN_STR_Office_ExcludedAvailabilityTypeID

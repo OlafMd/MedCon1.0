@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/16/2012 11:57:35 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_TypesOfWork.Atomic.Manipulation"
+                Method_ClassName="cls_Save_WorkingTime"
+                Method_Name="Save_WorkingTime"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_WorkingTime"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L5WT_SWT_1135">
+    <Members>
+      <ClassMember Name="CMN_STR_Office_RefID" Type="Guid"  />
+      <ClassMember Name="CMN_BPT_EMP_EmploymentRelationship_TemplateID" Type="Guid"  />
+      <ClassMember Name="Template_StartDate" Type="DateTime"  />
+      <ClassMember Name="Template_EndDate" Type="DateTime"  />
+      <ClassMember Name="Template_Name" Type="Dict" OriginTable="cmn_bpt_emp_employmentrelationship_templates" Source_DBField="Template_Name_DictID"  />
+      <ClassMember Name="RequiredMonthlyHours" Type="double"  />
+      <ClassMember Name="RequiredWeeklyHours" Type="double"  />
+      <ClassMember Name="RequiredDailyHours" Type="double"  />
+      <ClassMember Name="ExtraWorkCalculation_RefID" Type="Guid"  />
+      <ClassMember Name="R_WeeklyWorkPattern" Type="String"  />
+      <!-- Derived Tables -->
+      <ClassMember IsClass="true" IsArray="true" Name="ExtraWorkSurcharges" Type="L5WT_SWT_1135_ExtraWorkSurcharges">
+        <Members>
+          <ClassMember Name="CMN_BPT_EMP_ExtraWorkCalculation_Surcharge_RefID" Type="Guid"  />
+          <ClassMember Name="R_IsSpecialEventSurcharge" Type="bool"  />
+          <ClassMember Name="R_IsNightTimeSurcharge" Type="bool"  />
+        </Members>
+      </ClassMember>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

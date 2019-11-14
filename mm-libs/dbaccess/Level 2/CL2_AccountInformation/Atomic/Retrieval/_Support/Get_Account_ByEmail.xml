@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="23.11.2012 10:58:29">
+  <Meta>
+    <Name>Get_ActiveAccount_PersonalInformation</Name>
+    <Description>Get Personal information for ActiveAccount</Description>
+    <Namespace>CLE_L3_TMS_User.Atomic.Retrieval</Namespace>
+    <Tags>Personal information, ActiveAccount</Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_AccountInformation.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Account_ByEmail"
+                Method_Name="Get_Account_ByEmail"
+                ApplicationPlattform_WebServiceName="UserService"
+                ApplicationPlattform_Namespace="UserService.Get_Account_ByEmail"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  usr_accounts.USR_AccountID,
+  usr_accounts.Username,
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.LastName,
+  usr_accounts.AccountType
+From
+  usr_accounts Inner Join
+  cmn_per_personinfo_2_account On cmn_per_personinfo_2_account.USR_Account_RefID
+    = usr_accounts.USR_AccountID Inner Join
+  cmn_per_personinfo On cmn_per_personinfo_2_account.CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID
+Where
+  usr_accounts.IsDeleted = 0 And
+  cmn_per_personinfo_2_account.IsDeleted = 0 And
+  cmn_per_personinfo.IsDeleted = 0 And
+  UPPER(cmn_per_personinfo.PrimaryEmail) = UPPER(@Email) And
+    cmn_per_personinfo.Tenant_RefID = @TenantID 
+  </SQLStatement>
+
+
+  <Parameters IsClass="true" Name="P_L2AI_GAPIfE_1401">
+    <Members>
+      <ClassMember Name="Email" Type="String"  />
+
+    </Members>
+  </Parameters>
+  
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2AI_GAPIfE_1401" IsArray="false">
+      <Members>
+        <ClassMember Name="USR_AccountID" Type="Guid"  />
+        <ClassMember Name="Username" Type="String"  />
+        <ClassMember Name="FirstName" Type="String"  />
+        <ClassMember Name="LastName" Type="String"  />
+        <ClassMember Name="AccountType" Type="int"  />
+
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

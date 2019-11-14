@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{52194759-ECED-4969-864B-CBF1AC8EEC51}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL6_Plannico_DailyWorkSchedule</RootNamespace>
+    <AssemblyName>CL6_Plannico_DailyWorkSchedule</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Delete_DailyWorkSchedule.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Delete_DailyWorkSchedule_Detail.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Delete_DailyWorkSchedule_Details.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Load_PlanningData.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_DailyWorkSchedule.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_DailyWorkSchedule_Detail.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_DailyWorkSchedule_Details.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_DailyWorkSchedule_HeaderTimesOnly.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_DailyWorkSchedule_LeaveType.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_EffectiveWorkTime_Header_LeaveType.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Update_DailyWorkSchedule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Retrieval\_Support\" />
+    <Folder Include="Complex\Manipulation\_Support\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\apps\plannico.urlabsplaner.core\PlannicoModel\PlannicoModel.csproj">
+      <Project>{305EE153-084B-4596-9ADC-FA04D5A45DD6}</Project>
+      <Name>PlannicoModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\apps\plannico.urlabsplaner.core\VacationPlannerCore\VacationPlannerCore.csproj">
+      <Project>{ED5AF06A-93C1-42B1-AD3A-F17FD5455517}</Project>
+      <Name>VacationPlannerCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\external\log4net\log4net.csproj">
+      <Project>{181FE707-E161-4722-9F38-6AAAB6FAA106}</Project>
+      <Name>log4net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_EMP\CL1_CMN_BPT_EMP.csproj">
+      <Project>{2385DE36-25FE-49CE-B27B-E70E7E2EB0A1}</Project>
+      <Name>CL1_CMN_BPT_EMP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL\CL1_CMN_CAL.csproj">
+      <Project>{C6107EF8-3603-4EDA-B158-42404049F249}</Project>
+      <Name>CL1_CMN_CAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PPS\CL1_CMN_PPS.csproj">
+      <Project>{DB54257E-EAF0-443C-9EBC-3CFA0B1AA597}</Project>
+      <Name>CL1_CMN_PPS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR_PPS\CL1_CMN_STR_PPS.csproj">
+      <Project>{B6295F04-6656-4635-B473-B475E5FFDF6D}</Project>
+      <Name>CL1_CMN_STR_PPS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Events\CL3_Events.csproj">
+      <Project>{DA55F8FD-98C3-4E00-81F6-3C8360CA65AF}</Project>
+      <Name>CL3_Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_Plannico_DailyWorkSchedules\CL5_Plannico_DailyWorkSchedules.csproj">
+      <Project>{31AB563E-E018-4B06-8919-C0BD4DDAFA03}</Project>
+      <Name>CL5_Plannico_DailyWorkSchedules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_VacationPlanner_Absence\CL5_VacationPlanner_Absence.csproj">
+      <Project>{23372EB6-ED52-46D4-8378-3FCB9967AA9F}</Project>
+      <Name>CL5_VacationPlanner_Absence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_VacationPlanner_Contract\CL5_VacationPlanner_Contract.csproj">
+      <Project>{3CAB99EC-30E6-4C23-9C2B-4876B6D9E29B}</Project>
+      <Name>CL5_VacationPlanner_Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_VacationPlanner_LeaveRequest\CL5_VacationPlanner_LeaveRequest.csproj">
+      <Project>{4CBD7692-56F0-4EA1-ABA2-2F4A2215BC64}</Project>
+      <Name>CL5_VacationPlanner_LeaveRequest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_VacationPlanner_Tenant\CL5_VacationPlanner_Tenant.csproj">
+      <Project>{7ABB059C-8AA5-4A23-8FCE-67D3EB8CADBE}</Project>
+      <Name>CL5_VacationPlanner_Tenant</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL6_VacationPlanner_Tenant\CL6_VacationPlanner_Tenant.csproj">
+      <Project>{872C3CBE-87D2-481C-A092-FBEE9291036C}</Project>
+      <Name>CL6_VacationPlanner_Tenant</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Delete_DailyWorkSchedule_Details.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_DailyWorkSchedule_Details.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_DailyWorkSchedule_LeaveType.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_EffectiveWorkTime_Header_LeaveType.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Update_DailyWorkSchedule.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_DailyWorkSchedule_HeaderTimesOnly.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Delete_DailyWorkSchedule.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Delete_DailyWorkSchedule_Detail.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Load_PlanningData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_DailyWorkSchedule.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_DailyWorkSchedule_Detail.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

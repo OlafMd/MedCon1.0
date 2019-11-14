@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	ord_cuo_rfp_requestforproposal_headers
+WHERE 
+	ORD_CUO_RFO_RequestForProposal_HeaderID = @ORD_CUO_RFO_RequestForProposal_HeaderID

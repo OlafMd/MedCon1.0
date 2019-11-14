@@ -1,0 +1,86 @@
+﻿<div>
+    <ul class="table-header settlement-table-header" ng-class="{'table-header-active': selected_count !== 0}">
+        <li>
+            <span class="mask-checkbox">
+                <input id="cbSelectAll" name="cbSelectAll" type="checkbox" ng-model="all_selected" ng-change="checkAll()" />
+                <i class="icon"></i>
+            </span>
+            <span class="num-of-selected-item" ng-if="selected_count !== 0" ng-cloak>[ {{ selected_count }} ]</span>
+        </li>
+        <li class="unsorted" ng-class="setTableHeaderClass('surgery_date')" ng-click="SortFunction('surgery_date')">{{'LABEL_DATE' | translate }}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('patient_name')" ng-click="SortFunction('patient_name')">{{'LABEL_LAST_NAME_FIRST_NAME'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('case_type')" ng-click="SortFunction('case_type')">{{'LABEL_CASE'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('diagnose')" ng-click="SortFunction('diagnose')">{{'LABEL_DIAGNOSE_DRUG'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('localization')" ng-click="SortFunction('localization')">{{'LABEL_LOKALIZATION'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('doctor')" ng-click="SortFunction('doctor')">{{'LABEL_DOCTOR'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('status')" ng-click="SortFunction('status')" ng-if="selected_count === 0">{{'LABEL_STATUS'| translate}}</li>
+        <li ng-if="selected_count !== 0">
+            <dropdown-list class="table-header-dropdown" id="selStatus" name="selStatus" items="statuses" ng-change="selectedStatus(status)" ng-model="status" required params="{display_name: 'name', id: 'id', is_model_object: false}"></dropdown-list>
+        </li>
+        <li class="unsorted" ng-class="setTableHeaderClass('ac_status')" ng-click="SortFunction('ac_status')">{{'LABEL_AFTERCARE'| translate}}</li>
+        <li class="controls text-right">
+            <ul class="list-table" ng-if="selected_count === 0 && isDownloadAllNonDownloadedReportsVisible">
+                <li><a href class="pdf-button report-not-downloaded-button-color" ng-click="downloadAllNonDowloadedReports()" title="{{'BUTTON_DOWNLOAD' | translate}}"></a></li>
+            </ul>
+            <ul class="list-table" ng-if="selected_count !== 0">
+                <li><a href id="cancelMultiEdit" class="btn-link" ng-click="cancelMultiEdit()" translate="BUTTON_CANCEL" title="{{ 'BUTTON_CANCEL' | translate}}">{{ 'LABEL_CANCEL' | translate }}</a></li>
+                <li><button class="button narrow confirm" id="saveMulti" ng-click="multiEditSaveCase()" translate="BUTTON_SAVE" title="{{ 'BUTTON_SAVE' | translate}}" ng-disabled="SaveButtonDisabled"></button></li>
+                <li><a href id="downloadMulti" class="pdf-button" ng-click="downloadReport()" title="{{'BUTTON_DOWNLOAD' | translate}}"></a></li>
+            </ul>
+        </li>
+    </ul>
+    <h2 id="stickyHeaderBox" class="first-letter-holder has-checkbox hide"></h2>
+
+    <div class="content-scroll clear" id="wrapper" sticky>
+        <div id="wrapper_inner">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="item in settlement| groupBy:'group_name'" ng-repeat-finished>
+                    <h2 id="tableGroup" class="first-letter-holder has-checkbox tableGroup" ng-if="item.group_name_CHANGED && item.id !== edit_case_id">
+                        <span>
+                            {{::item.group_name | translate}}
+                        </span>
+                    </h2>
+                    <add-case-directive ng-if="showEditTreatmentForm(item)" mode="'edit'" id="item.case_id" type="'settlement'" status="item.status" show_error="item.status === 'FS6'" action-id="item.id" is-ac-editable="isAcEditable(item)"></add-case-directive>
+                    <edit-settlement-directive ng-if="showAftercareForm(item)" aftercare="item"></edit-settlement-directive>
+                    <edit-oct-directive oct="item" ng-if="showOctForm(item)"></edit-oct-directive>
+                    <div class="table-row">
+                        <ul id="list" class="table-content settlement-table-content" ng-hide="show_edit_case_form && item.id === edit_case_id" ng-class="getBorderClassName(item)">
+                            <li>
+                                <span class="mask-checkbox">
+                                    <input id="cbSelect_{{::item.id}}" name="cbSelect_{{::item.id}}" type="checkbox" ng-model="item.is_selected" ng-change="checkSelected(item)" />
+                                    <i class="icon"></i>
+                                </span>
+                            </li>
+                            <li><big id="surgeryDate_{{$index}}">{{::item.surgery_date_string}}</big><div class="normal-height-font gray-font-color" ng-if="item.case_type === 'ac'">{{ 'LABEL_OP' | translate }}: {{::item.if_aftercare_treatment_date }}</div></li>
+                            <li class="larger-font" id="patientName_{{$index}}">
+                                {{::item.patient_full_name}}
+                                <a href="#/patient/patient_detail/{{item.patient_id}}" id="btnGoToPatientDetails_{{$index}}" title="{{ 'BUTTON_GO_TO_PATIENT_DETAILS' | translate}}"><i class="icons-preview-black"></i></a>   
+                                <div class="normal-height-font gray-font-color" id="patientBday_{{$index}}">{{::item.birthday}}</div>
+                            </li>
+                            <li class="text-center"><span ng-class="{'icons-treatment-item': item.case_type === 'op', 'icons-aftercare-item': item.case_type === 'ac', 'icons-preexamination-item': item.case_type === 'oct' }"></span></li>
+                            <li id="caseDiagnosis_{{$index}}">{{::item.diagnose}} <span class="normal-height-font gray-font-color" id="caseDrug_{{$index}}">{{::item.drug}}</span></li>
+                            <li class="text-center">{{::item.localization}}</li>
+                            <li id="doctorName_{{$index}}">{{::item.doctor}}</li>
+                            <li id="settlementStatus_{{$index}}" class="table-row-color"> {{::item.status | translate}} <div class="normal-height-font gray-font-color" ng-show="showItemStatus(item)">{{::item.status_date | date:'dd.MM.yyyy' }}</div></li>
+                            <li>
+                                <span ng-show="item.case_type === 'op' && item.status !== 'FS13'">
+                                    {{::item.acpractice}}
+                                    <div class="normal-height-font gray-font-color">{{::item.ac_status | translate}}</div>
+                                </span>
+                                <span ng-show="item.case_type !== 'op' || item.status === 'FS13'">
+                                    -
+                                </span>
+                            </li>
+                            <li class="controls text-right">
+                                <a href id="edit_{{$index}}" ng-if="item.is_edit_button_visible" class="icons-edit action-buttons" ng-click="openCaseEditForm(item.id)" title="{{'BUTTON_EDIT' | translate}}">{{'BUTTON_EDIT' | translate}}</a>
+                                <a href id="cancel_{{$index}}" ng-if="setCancelButton(item.status)" class="icons-discard action-delete-button" ng-click="cancelCase(item)" title="{{'BUTTON_CANCEL_CASE' | translate}}">{{'BUTTON_CANCEL_CASE' | translate}}</a>
+                                <a href id="download_{{$index}}" class="pdf-button" ng-if="isDownloadVisible(item.status)" ng-class="{'report-not-downloaded-button-color': !item.is_report_downloaded}" ng-click="downloadReport(item)" title="{{'BUTTON_DOWNLOAD' | translate}}"></a>
+                                <a href id="submit_{{$index}}" class="icons-submit jsblockClose action-submit-button" ng-click="submitCase(item)" ng-if="item.is_submit_button_visible && item.is_edit_button_visible && item.diagnose !== ''" title="{{'BUTTON_SUBMIT' | translate}}">{{'BUTTON_SUBMIT' | translate}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

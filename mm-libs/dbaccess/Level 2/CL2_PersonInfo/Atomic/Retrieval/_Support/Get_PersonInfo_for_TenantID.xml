@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="18/10/2013 12:34:47">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PersonInfo_for_TenantID</Name>
+    <Namespace>CL2_PersonInfo.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_PersonInfo.Atomic.Retrieval"
+                Method_ClassName="cls_Get_PersonInfo_for_TenantID"
+                Method_Name="Get_PersonInfo_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PersonInfo_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT CMN_PER_PersonInfoID,
+	       FirstName,
+	       LastName,
+	       PrimaryEmail,
+	       Title,
+	       ProfileImage_Document_RefID,
+	       BirthDate,
+	       Address_RefID,
+	       Salutation_General,
+	       Salutation_Letter,
+	       Gender
+	  FROM cmn_per_personinfo
+	where IsDeleted = 0 and Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2PI_GPIfT_1234" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_PER_PersonInfoID" Type="Guid"  />
+				<ClassMember Name="FirstName" Type="String"  />
+				<ClassMember Name="LastName" Type="String"  />
+				<ClassMember Name="PrimaryEmail" Type="String"  />
+				<ClassMember Name="Title" Type="String"  />
+				<ClassMember Name="ProfileImage_Document_RefID" Type="Guid"  />
+				<ClassMember Name="BirthDate" Type="DateTime"  />
+				<ClassMember Name="Address_RefID" Type="Guid"  />
+				<ClassMember Name="Salutation_General" Type="String"  />
+				<ClassMember Name="Salutation_Letter" Type="String"  />
+				<ClassMember Name="Gender" Type="String"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

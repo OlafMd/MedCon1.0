@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_patient_finding_2_parametervalues
+	(
+		AssignmentID,
+		HEC_Patient_Finding_RefID,
+		HEC_Patient_ParameterValue_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@HEC_Patient_Finding_RefID,
+		@HEC_Patient_ParameterValue_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

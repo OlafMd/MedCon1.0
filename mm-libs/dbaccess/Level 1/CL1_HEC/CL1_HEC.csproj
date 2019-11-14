@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{768C60E8-0C7F-42B2-B8C9-D327C6BF334A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_HEC</RootNamespace>
+    <AssemblyName>CL1_HEC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDtMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDtMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDyMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDyMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DBACCESREFACTOR|AnyCPU'">
+    <OutputPath>bin\DBACCESREFACTOR\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LynxPocDoc|AnyCPU'">
+    <OutputPath>bin\LynxPocDoc\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HEC_Doctor\ORM_HEC_Doctor.cs" />
+    <Compile Include="HEC_Doctor_AssignableAppointmentType\ORM_HEC_Doctor_AssignableAppointmentType.cs" />
+    <Compile Include="HEC_Doctor_RequiredProduct\ORM_HEC_Doctor_RequiredProduct.cs" />
+    <Compile Include="HEC_Doctor_UniversalPropertyValue\ORM_HEC_Doctor_UniversalPropertyValue.cs" />
+    <Compile Include="HEC_Doctor_UniversalProperty\ORM_HEC_Doctor_UniversalProperty.cs" />
+    <Compile Include="HEC_Dosage\ORM_HEC_Dosage.cs" />
+    <Compile Include="HEC_MedicalPractice_2_PracticeType\ORM_HEC_MedicalPractice_2_PracticeType.cs" />
+    <Compile Include="HEC_MedicalPractice_2_UniversalProperty\ORM_HEC_MedicalPractice_2_UniversalProperty.cs" />
+    <Compile Include="HEC_MedicalPractice_OfferedService\ORM_HEC_MedicalPractice_OfferedService.cs" />
+    <Compile Include="HEC_MedicalPractice_Type\ORM_HEC_MedicalPractice_Type.cs" />
+    <Compile Include="HEC_MedicalPractice_UniversalProperty\ORM_HEC_MedicalPractice_UniversalProperty.cs" />
+    <Compile Include="HEC_MedicalPractise_AvailablePharmaciesForOrdering\ORM_HEC_MedicalPractise_AvailablePharmaciesForOrdering.cs" />
+    <Compile Include="HEC_MedicalPractis\ORM_HEC_MedicalPractis.cs" />
+    <Compile Include="HEC_MedicalService\ORM_HEC_MedicalService.cs" />
+    <Compile Include="HEC_Patient\ORM_HEC_Patient.cs" />
+    <Compile Include="HEC_Patient_2_PatientTreatment\ORM_HEC_Patient_2_PatientTreatment.cs" />
+    <Compile Include="HEC_Patient_Diagnosis\ORM_HEC_Patient_Diagnosis.cs" />
+    <Compile Include="HEC_Patient_Diagnosis_2_PatientMedication\ORM_HEC_Patient_Diagnosis_2_PatientMedication.cs" />
+    <Compile Include="HEC_Patient_Diagnosis_Localization\ORM_HEC_Patient_Diagnosis_Localization.cs" />
+    <Compile Include="HEC_Patient_Document\ORM_HEC_Patient_Document.cs" />
+    <Compile Include="HEC_Patient_Event\ORM_HEC_Patient_Event.cs" />
+    <Compile Include="HEC_Patient_Event_Type\ORM_HEC_Patient_Event_Type.cs" />
+    <Compile Include="HEC_Patient_Finding\ORM_HEC_Patient_Finding.cs" />
+    <Compile Include="HEC_Patient_Finding_2_ParameterValue\ORM_HEC_Patient_Finding_2_ParameterValue.cs" />
+    <Compile Include="HEC_Patient_Finding_Document\ORM_HEC_Patient_Finding_Document.cs" />
+    <Compile Include="HEC_Patient_HealthInsurance\ORM_HEC_Patient_HealthInsurance.cs" />
+    <Compile Include="HEC_Patient_HealthInsurance_State\ORM_HEC_Patient_HealthInsurance_State.cs" />
+    <Compile Include="HEC_Patient_MadeObservation\ORM_HEC_Patient_MadeObservation.cs" />
+    <Compile Include="HEC_Patient_MadeObservation_Document\ORM_HEC_Patient_MadeObservation_Document.cs" />
+    <Compile Include="HEC_Patient_MedicalPractice\ORM_HEC_Patient_MedicalPractice.cs" />
+    <Compile Include="HEC_Patient_Medication\ORM_HEC_Patient_Medication.cs" />
+    <Compile Include="HEC_Patient_ParameterType\ORM_HEC_Patient_ParameterType.cs" />
+    <Compile Include="HEC_Patient_ParameterType_2_ParameterTypeGroup\ORM_HEC_Patient_ParameterType_2_ParameterTypeGroup.cs" />
+    <Compile Include="HEC_Patient_ParameterType_AvailableUnit\ORM_HEC_Patient_ParameterType_AvailableUnit.cs" />
+    <Compile Include="HEC_Patient_ParameterType_Group\ORM_HEC_Patient_ParameterType_Group.cs" />
+    <Compile Include="HEC_Patient_ParameterValue\ORM_HEC_Patient_ParameterValue.cs" />
+    <Compile Include="HEC_Patient_Parameter\ORM_HEC_Patient_Parameter.cs" />
+    <Compile Include="HEC_Patient_Prescription_2_PrescriptionTransaction\ORM_HEC_Patient_Prescription_2_PrescriptionTransaction.cs" />
+    <Compile Include="HEC_Patient_Prescription_Document\ORM_HEC_Patient_Prescription_Document.cs" />
+    <Compile Include="HEC_Patient_Prescription_Header\ORM_HEC_Patient_Prescription_Header.cs" />
+    <Compile Include="HEC_Patient_Prescription_Position\ORM_HEC_Patient_Prescription_Position.cs" />
+    <Compile Include="HEC_Patient_Prescription_Transaction\ORM_HEC_Patient_Prescription_Transaction.cs" />
+    <Compile Include="HEC_Patient_Referral\ORM_HEC_Patient_Referral.cs" />
+    <Compile Include="HEC_Patient_Treatment\ORM_HEC_Patient_Treatment.cs" />
+    <Compile Include="HEC_Patient_Treatment_OcularExtension\ORM_HEC_Patient_Treatment_OcularExtension.cs" />
+    <Compile Include="HEC_Patient_Treatment_RelevantDiagnosis\ORM_HEC_Patient_Treatment_RelevantDiagnosis.cs" />
+    <Compile Include="HEC_Patient_Treatment_RelevantDiagnosis_Localization\ORM_HEC_Patient_Treatment_RelevantDiagnosis_Localization.cs" />
+    <Compile Include="HEC_Patient_Treatment_RequiredProduct\ORM_HEC_Patient_Treatment_RequiredProduct.cs" />
+    <Compile Include="HEC_Patient_UniversalPropertyValue\ORM_HEC_Patient_UniversalPropertyValue.cs" />
+    <Compile Include="HEC_Patient_UniversalProperty\ORM_HEC_Patient_UniversalProperty.cs" />
+    <Compile Include="HEC_Pharmacy\ORM_HEC_Pharmacy.cs" />
+    <Compile Include="HEC_PotentialMedication\ORM_HEC_PotentialMedication.cs" />
+    <Compile Include="HEC_PotentialObservation\ORM_HEC_PotentialObservation.cs" />
+    <Compile Include="HEC_Product\ORM_HEC_Product.cs" />
+    <Compile Include="HEC_Product_DosageForm\ORM_HEC_Product_DosageForm.cs" />
+    <Compile Include="HEC_PublicHealthcare_PhysitianAssociation\ORM_HEC_PublicHealthcare_PhysitianAssociation.cs" />
+    <Compile Include="HEC_ShippingPosition_BarcodeLabel\ORM_HEC_ShippingPosition_BarcodeLabel.cs" />
+    <Compile Include="HEC_ShippingPosition_QuestionnaireSubmission\ORM_HEC_ShippingPosition_QuestionnaireSubmission.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HEC_ShippingPosition_QuestionnaireSubmission\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ShippingPosition_QuestionnaireSubmission\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ShippingPosition_QuestionnaireSubmission\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_ShippingPosition_BarcodeLabel\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_ShippingPosition_BarcodeLabel\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_ShippingPosition_BarcodeLabel\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_PublicHealthcare_PhysitianAssociation\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_PublicHealthcare_PhysitianAssociation\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_PublicHealthcare_PhysitianAssociation\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Product\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Product\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Product\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Pharmacy\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Pharmacy\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Pharmacy\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment_RelevantDiagnosis_Localization\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment_RelevantDiagnosis_Localization\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment_RelevantDiagnosis_Localization\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment_RequiredProduct\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment_RequiredProduct\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment_RequiredProduct\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment_RelevantDiagnosis\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment_RelevantDiagnosis\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment_RelevantDiagnosis\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_Position\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_Position\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_Position\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_Header\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_Header\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_Header\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_MedicalPractice\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_MedicalPractice\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_MedicalPractice\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_HealthInsurance\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_HealthInsurance\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_HealthInsurance\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_HealthInsurance_State\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_HealthInsurance_State\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_HealthInsurance_State\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Event\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Event\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Event\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Event_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Event_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Event_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Document\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Document\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Document\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Diagnosis_Localization\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Diagnosis_Localization\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Diagnosis_Localization\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Diagnosis\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Diagnosis\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Diagnosis\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_2_PatientTreatment\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_2_PatientTreatment\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_2_PatientTreatment\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractise_AvailablePharmaciesForOrdering\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractise_AvailablePharmaciesForOrdering\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractise_AvailablePharmaciesForOrdering\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractis\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractis\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractis\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Doctor\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Doctor\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Doctor\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Doctor_RequiredProduct\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Doctor_RequiredProduct\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Doctor_RequiredProduct\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_Transaction\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_Transaction\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_Transaction\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_2_PrescriptionTransaction\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_2_PrescriptionTransaction\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_2_PrescriptionTransaction\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_Document\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_Document\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Prescription_Document\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment_OcularExtension\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment_OcularExtension\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Treatment_OcularExtension\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Product_DosageForm\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Product_DosageForm\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Product_DosageForm\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_2_PracticeType\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_2_PracticeType\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_2_PracticeType\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_PotentialMedication\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_PotentialMedication\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_PotentialMedication\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterValue\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterValue\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterValue\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Parameter\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Parameter\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Parameter\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Medication\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Medication\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Medication\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_MadeObservation\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_MadeObservation\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_MadeObservation\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_MadeObservation_Document\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_MadeObservation_Document\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_MadeObservation_Document\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_PotentialObservation\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_PotentialObservation\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_PotentialObservation\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Dosage\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Dosage\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Dosage\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Referral\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Referral\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Referral\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Doctor_AssignableAppointmentType\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Doctor_AssignableAppointmentType\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Doctor_AssignableAppointmentType\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_OfferedService\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_OfferedService\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_OfferedService\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_MedicalService\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_MedicalService\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_MedicalService\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Diagnosis_2_PatientMedication\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Diagnosis_2_PatientMedication\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Diagnosis_2_PatientMedication\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterType_2_ParameterTypeGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterType_2_ParameterTypeGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterType_2_ParameterTypeGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterType_Group\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterType_Group\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterType_Group\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterType\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterType\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterType\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterType_AvailableUnit\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterType_AvailableUnit\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_ParameterType_AvailableUnit\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Finding_Document\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Finding_Document\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Finding_Document\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Finding_2_ParameterValue\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Finding_2_ParameterValue\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Finding_2_ParameterValue\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_UniversalProperty\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_UniversalProperty\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_UniversalProperty\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_2_UniversalProperty\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_2_UniversalProperty\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_MedicalPractice_2_UniversalProperty\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_Finding\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_Finding\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_Finding\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Doctor_UniversalProperty\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Doctor_UniversalProperty\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Doctor_UniversalProperty\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Doctor_UniversalPropertyValue\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Doctor_UniversalPropertyValue\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Doctor_UniversalPropertyValue\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_UniversalProperty\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_UniversalProperty\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_UniversalProperty\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_Patient_UniversalPropertyValue\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_Patient_UniversalPropertyValue\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_Patient_UniversalPropertyValue\SQL\Insert.sql" />
+    <Content Include="_Support\HEC_Doctor_AssignableAppointmentTypes.xml" />
+    <Content Include="_Support\HEC_Doctors.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\HEC_Doctor_RequiredProduct.xml" />
+    <Content Include="_Support\HEC_Doctor_UniversalProperties.xml" />
+    <Content Include="_Support\HEC_Doctor_UniversalPropertyValues.xml" />
+    <Content Include="_Support\HEC_Dosages.xml" />
+    <Content Include="_Support\HEC_MedicalPractice_2_PracticeType.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\HEC_MedicalPractice_2_UniversalProperty.xml" />
+    <Content Include="_Support\HEC_MedicalPractice_OfferedServices.xml" />
+    <Content Include="_Support\HEC_MedicalPractice_Types.xml" />
+    <Content Include="_Support\HEC_MedicalPractice_UniversalProperties.xml" />
+    <Content Include="_Support\HEC_MedicalPractises.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\HEC_MedicalPractise_AvailablePharmaciesForOrdering.xml" />
+    <Content Include="_Support\HEC_MedicalServices.xml" />
+    <Content Include="_Support\HEC_Patients.xml" />
+    <Content Include="_Support\HEC_Patient_2_PatientTreatment.xml" />
+    <Content Include="_Support\HEC_Patient_Diagnoses.xml" />
+    <Content Include="_Support\HEC_Patient_Diagnosis_2_PatientMedication.xml" />
+    <Content Include="_Support\HEC_Patient_Diagnosis_Localizations.xml" />
+    <Content Include="_Support\HEC_Patient_Documents.xml" />
+    <Content Include="_Support\HEC_Patient_Events.xml" />
+    <Content Include="_Support\HEC_Patient_Event_Types.xml" />
+    <Content Include="_Support\HEC_Patient_Findings.xml" />
+    <Content Include="_Support\HEC_Patient_HealthInsurances.xml" />
+    <Content Include="_Support\HEC_Patient_HealthInsurance_States.xml" />
+    <Content Include="_Support\HEC_Patient_MadeObservations.xml" />
+    <Content Include="_Support\HEC_Patient_MadeObservation_Documents.xml" />
+    <Content Include="_Support\HEC_Patient_MedicalPractices.xml" />
+    <Content Include="_Support\HEC_Patient_Medications.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\HEC_Patient_Parameters.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\HEC_Patient_ParameterTypes.xml" />
+    <Content Include="_Support\HEC_Patient_ParameterType_2_ParameterTypeGroup.xml" />
+    <Content Include="_Support\HEC_Patient_ParameterType_AvailableUnits.xml" />
+    <Content Include="_Support\HEC_Patient_ParameterType_Groups.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\HEC_Patient_ParameterValues.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\HEC_Patient_Prescription_2_PrescriptionTransaction.xml" />
+    <Content Include="_Support\HEC_Patient_Prescription_Documents.xml" />
+    <Content Include="_Support\HEC_Patient_Prescription_Headers.xml" />
+    <Content Include="_Support\HEC_Patient_Prescription_Positions.xml" />
+    <Content Include="_Support\HEC_Patient_Prescription_Transactions.xml" />
+    <Content Include="_Support\HEC_Patient_Referrals.xml" />
+    <Content Include="_Support\HEC_Patient_Treatment.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\HEC_Patient_Treatment_OcularExtension.xml" />
+    <Content Include="_Support\HEC_Patient_Treatment_RelevantDiagnoses.xml" />
+    <Content Include="_Support\HEC_Patient_Treatment_RelevantDiagnosis_Localizations.xml" />
+    <Content Include="_Support\HEC_Patient_Treatment_RequiredProducts.xml" />
+    <Content Include="_Support\HEC_Patient_UniversalProperties.xml" />
+    <Content Include="_Support\HEC_Patient_UniversalPropertyValues.xml" />
+    <Content Include="_Support\HEC_Pharmacies.xml" />
+    <Content Include="_Support\HEC_PotentialMedications.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\HEC_PotentialObservations.xml" />
+    <Content Include="_Support\HEC_Products.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\HEC_Product_DosageForms.xml" />
+    <Content Include="_Support\HEC_PublicHealthcare_PhysitianAssociations.xml" />
+    <Content Include="_Support\HEC_ShippingPosition_BarcodeLabels.xml" />
+    <Content Include="_Support\HEC_ShippingPosition_QuestionnaireSubmissions.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

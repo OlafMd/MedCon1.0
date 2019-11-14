@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_employee_dailyovertimeentries
+WHERE 
+	CMN_BPT_EMP_Employee_DailyOvertimeEntryID = @CMN_BPT_EMP_Employee_DailyOvertimeEntryID

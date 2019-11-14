@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_pps_breaktime_template_assignments
+	(
+		CMN_PPS_BreakTime_Template_AssignmentID,
+		BreakTime_Template_RefID,
+		BreakTime_RefID,
+		StartTimeOffset_in_sec,
+		Duration_in_sec,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PPS_BreakTime_Template_AssignmentID,
+		@BreakTime_Template_RefID,
+		@BreakTime_RefID,
+		@StartTimeOffset_in_sec,
+		@Duration_in_sec,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

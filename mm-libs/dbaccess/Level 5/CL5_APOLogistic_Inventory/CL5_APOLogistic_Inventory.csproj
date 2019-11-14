@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ED955A87-A9B9-459F-8F1F-1019535E6FD5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_APOLogistic_Inventory</RootNamespace>
+    <AssemblyName>CL5_APOLogistic_Inventory</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Delete_InvetoryJobAndInvetoryProcess.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Delete_InvetoryJobSeries.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_InventoryJob_Process_ShelfContent_and_TrackingInstance.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_CountedShelfContent_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_CountingResults_for_CountingRun.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_InventoryJobSeries_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_InventoryJobs_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_InventoryJob_Series.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_InvetoryJob_for_InvetoryProcessID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_InvetoryProcess_for_InvetoryJobID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_InvetoryProcess_for_JobSeriesID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Results_for_CountingRun.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ShelfContent_with_Quantity_for_InventoryJob_ProcessID.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Atomic\Retrieval\cls_Get_Shelfs_for_InvetoryJob.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_TotalShelfContent_for_TenantID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Finish_CountingRun.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_CountingRun_Results.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_InventoryProcess.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Inventory_Job_Series.cs" />
+    <Compile Include="Complex\Manipulation\cls_Update_CountingRun_Differences.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_AllData_for_ContinousInventoryOverview.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_AllData_for_FullInventoryPage.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_StoragePlaces_for_InvetoryJob.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\MathUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_CountingResults_for_CountingRun.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_CountedShelfContent_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_TotalShelfContent_for_TenantID.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Delete_InvetoryJobSeries.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_InventoryJobSeries_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_InventoryJob_Series.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_InvetoryJob_for_InvetoryProcessID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_InvetoryProcess_for_JobSeriesID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_CountingResults_for_CountingRun.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_InventoryJobSeries_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_InventoryJob_Series.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_InvetoryJob_for_InvetoryProcessID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_InvetoryProcess_for_JobSeriesID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_TotalShelfContent_for_TenantID.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_Inventory_Job_Series.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_AllData_for_ContinousInventoryOverview.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_StoragePlaces_for_InvetoryJob.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_InvetoryProcess_for_InvetoryJobID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ShelfContent_with_Quantity_for_InventoryJob_ProcessID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Results_for_CountingRun.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_InventoryJob_Process_ShelfContent_and_TrackingInstance.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Results_for_CountingRun.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Shelfs_for_InvetoryJob.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_InventoryJob_Process_ShelfContent_and_TrackingInstance.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Results_for_CountingRun.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ShelfContent_with_Quantity_for_InventoryJob_ProcessID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_InvetoryProcess_for_InvetoryJobID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Delete_InvetoryJobAndInvetoryProcess.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Shelfs_for_InvetoryJob.xml" />
+    <Content Include="Complex\Manipulation\_Support\Update_CountingRun_Differences.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_InventoryProcess.xml" />
+    <Content Include="Complex\Manipulation\_Support\Finish_CountingRun.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_CountingRun_Results.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_AllData_for_FullInventoryPage.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_InventoryJobs_for_TenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_CountedShelfContent_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_InventoryJobs_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06AB1C3C-339F-4E31-8408-232DC283308C}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG\CL1_LOG.csproj">
+      <Project>{5FF8E7C7-57C2-48AE-BC70-8F6B957DABC6}</Project>
+      <Name>CL1_LOG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_WRH\CL1_LOG_WRH.csproj">
+      <Project>{BB08DBAD-494E-4689-9467-BBDDAEBC1EB0}</Project>
+      <Name>CL1_LOG_WRH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_WRH_INJ\CL1_LOG_WRH_INJ.csproj">
+      <Project>{0D3AEFA0-0168-49CE-87AB-760966293044}</Project>
+      <Name>CL1_LOG_WRH_INJ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_InventoryCountingRun\CL2_InventoryCountingRun.csproj">
+      <Project>{0254DCA7-137B-4F5D-AA67-134A7B1CC9DC}</Project>
+      <Name>CL2_InventoryCountingRun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Articles\CL3_Articles.csproj">
+      <Project>{B6DFA294-6413-463B-AD21-1F6EC75F8196}</Project>
+      <Name>CL3_Articles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_TrackingInstance\CL3_TrackingInstance.csproj">
+      <Project>{860FBAE0-1CFD-4AA4-98E9-30700C7EC39A}</Project>
+      <Name>CL3_TrackingInstance</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Warehouse\CL3_Warehouse.csproj">
+      <Project>{A3A3BD1F-A206-4C65-BD16-526F6F77495B}</Project>
+      <Name>CL3_Warehouse</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_APOLogistic_Storage\CL5_APOLogistic_Storage.csproj">
+      <Project>{444533C1-EE01-4CCA-8FFB-ED5BDFD098A0}</Project>
+      <Name>CL5_APOLogistic_Storage</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

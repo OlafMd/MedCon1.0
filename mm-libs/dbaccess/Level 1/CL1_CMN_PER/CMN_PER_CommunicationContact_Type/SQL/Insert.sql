@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_per_communicationcontact_types
+	(
+		CMN_PER_CommunicationContact_TypeID,
+		CommunicationContact_Name_DictID,
+		Type,
+		IsPersistent,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PER_CommunicationContact_TypeID,
+		@CommunicationContact_Name,
+		@Type,
+		@IsPersistent,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

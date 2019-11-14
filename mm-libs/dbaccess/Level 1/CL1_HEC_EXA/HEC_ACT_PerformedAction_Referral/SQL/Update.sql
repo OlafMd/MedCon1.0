@@ -1,0 +1,16 @@
+UPDATE 
+	hec_act_performedaction_referrals
+SET 
+	HEC_ACT_PerformedAction_RefID=@HEC_ACT_PerformedAction_RefID,
+	IsReferral_ForFollowup=@IsReferral_ForFollowup,
+	ReferralTo_MedicalPracticeType_RefID=@ReferralTo_MedicalPracticeType_RefID,
+	ReferralTo_MedicalPractice_RefID=@ReferralTo_MedicalPractice_RefID,
+	ReferralTo_BusinessParticipant_RefID=@ReferralTo_BusinessParticipant_RefID,
+	PatientEffectivelyWentTo_MedicalPractice_RefID=@PatientEffectivelyWentTo_MedicalPractice_RefID,
+	ReferralComment=@ReferralComment,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_ACT_PerformedAction_ReferralID = @HEC_ACT_PerformedAction_ReferralID

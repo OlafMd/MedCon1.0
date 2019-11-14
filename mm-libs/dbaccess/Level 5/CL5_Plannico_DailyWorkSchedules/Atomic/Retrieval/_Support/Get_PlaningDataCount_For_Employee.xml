@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="03/09/2014 10:36:18">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PlaningDataCount_For_Employee</Name>
+    <Namespace>CL5_Plannico_DailyWorkSchedules.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_DailyWorkSchedules.Atomic.Retrieval"
+                Method_ClassName="cls_Get_PlaningDataCount_For_Employee"
+                Method_Name="Get_PlaningDataCount_For_Employee"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PlaningDataCount_For_Employee"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  Count(cmn_str_pps_dailyworkschedules.CMN_STR_PPS_DailyWorkScheduleID) As
+  itemCount
+From
+  cmn_str_pps_dailyworkschedules
+Where
+  cmn_str_pps_dailyworkschedules.Employee_RefID = @EmployeeID
+Union
+Select
+  Count(cmn_bpt_emp_effectiveworktime_headers.CMN_STR_PPS_EffectiveWorkTime_HeaderID) As itemCount
+From
+  cmn_bpt_emp_effectiveworktime_headers
+Where
+  cmn_bpt_emp_effectiveworktime_headers.Employee_RefID = @EmployeeID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5DW_GPDCFE_1035">
+    <Members>
+		<ClassMember Name="EmployeeID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5DW_GPDCFE_1035" IsArray="false">
+			<Members>
+				<ClassMember Name="itemCount" Type="int"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

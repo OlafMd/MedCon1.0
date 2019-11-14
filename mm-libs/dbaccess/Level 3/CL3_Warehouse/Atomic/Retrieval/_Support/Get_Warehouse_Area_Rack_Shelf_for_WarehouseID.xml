@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/10/2015 10:51:46">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Warehouse_Area_Rack_Shelf_for_WarehouseID</Name>
+    <Namespace>CL3_Warehouse.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Warehouse.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Warehouse_Area_Rack_Shelf_for_WarehouseID"
+                Method_Name="Get_Warehouse_Area_Rack_Shelf_for_WarehouseID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Warehouse_Area_Rack_Shelf_for_WarehouseID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT
+	  log_wrh_warehouses.LOG_WRH_WarehouseID,
+	  log_wrh_warehouses.Warehouse_Name,
+	  log_wrh_warehouses.IsStructureHidden AS IsWarehouseHidden,
+	  log_wrh_areas.LOG_WRH_AreaID,
+	  log_wrh_areas.Area_Name,
+	  log_wrh_areas.Rack_NamePrefix,
+	  log_wrh_areas.IsStructureHidden AS IsAreaHidden,
+	  log_wrh_racks.LOG_WRH_RackID,
+	  log_wrh_racks.Rack_Name,
+	  log_wrh_racks.Shelf_NamePrefix,
+	  log_wrh_racks.IsStructureHidden AS IsRackHidden,
+	  log_wrh_shelves.LOG_WRH_ShelfID,
+	  log_wrh_shelves.Shelf_Name
+	FROM
+	  log_wrh_warehouses
+	  LEFT JOIN log_wrh_areas
+	    ON log_wrh_warehouses.LOG_WRH_WarehouseID = log_wrh_areas.Warehouse_RefID AND
+	       log_wrh_areas.IsDeleted = 0
+	  LEFT JOIN log_wrh_racks
+	    ON log_wrh_areas.LOG_WRH_AreaID = log_wrh_racks.Area_RefID AND
+	       log_wrh_racks.IsDeleted = 0
+	  LEFT JOIN log_wrh_shelves
+	    ON log_wrh_racks.LOG_WRH_RackID = log_wrh_shelves.Rack_RefID AND
+	       log_wrh_shelves.IsDeleted = 0
+	WHERE 
+	log_wrh_warehouses.LOG_WRH_WarehouseID = @WarehouseID
+	AND log_wrh_warehouses.IsDeleted = 0
+	AND log_wrh_warehouses.Tenant_RefID = @TenantID
+
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3WH_GWARSfW_1050">
+    <Members>
+		<ClassMember Name="WarehouseID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3WH_GWARSfW_1050" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_WRH_WarehouseID" Type="Guid"  />
+				<ClassMember Name="Warehouse_Name" Type="String"  />
+				<ClassMember Name="IsWarehouseHidden" Type="bool"  />
+				<ClassMember Name="LOG_WRH_AreaID" Type="Guid"  />
+				<ClassMember Name="Area_Name" Type="String"  />
+				<ClassMember Name="Rack_NamePrefix" Type="String"  />
+				<ClassMember Name="IsAreaHidden" Type="bool"  />
+				<ClassMember Name="LOG_WRH_RackID" Type="Guid"  />
+				<ClassMember Name="Rack_Name" Type="String"  />
+				<ClassMember Name="Shelf_NamePrefix" Type="String"  />
+				<ClassMember Name="IsRackHidden" Type="bool"  />
+				<ClassMember Name="LOG_WRH_ShelfID" Type="Guid"  />
+				<ClassMember Name="Shelf_Name" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/27/2014 1:39:56 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Skills_for_TenantID</Name>
+    <Namespace>CL3_Skills.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_BookableTimeSlot.Atomic.Retrieval"
+                Method_ClassName="cls_Get_SlotData_for_AppointmentID"
+                Method_Name="Get_SlotData_for_AppointmentID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_SlotData_for_AppointmentID"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L5BTS_GSDfAID_1524">
+    <Members>
+      <ClassMember Name="AppointmentID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5BTS_GSDfAID_1524" IsArray="false" >
+			<Members>
+				<ClassMember Name="SlotID" Type="Guid"  />
+        <ClassMember Name="SelectedCombinaitonID" Type="Guid"  />
+        <ClassMember Name="OfficeID" Type="Guid"  />
+        <ClassMember Name="PatientID" Type="Guid"  />
+        <ClassMember Name="Date" Type="DateTime"  />
+        <ClassMember Name="AppointmentTypeID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

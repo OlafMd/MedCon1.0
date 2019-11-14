@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PracticeID_for_BSNR</Name>
+    <Namespace>DataImporter.DBMethods.Doctor.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+ 
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="DataImporter.DBMethods.Doctor.Atomic.Retrieval"
+                Method_ClassName="cls_Get_PracticeID_for_BSNR"
+                Method_Name="Get_PracticeID_for_BSNR"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+      cmn_bpt_ctm_organizationalunits.IfMedicalPractise_HEC_MedicalPractice_RefID as practice_id
+    From
+      cmn_com_companyinfo Inner Join
+      cmn_bpt_businessparticipants On cmn_com_companyinfo.CMN_COM_CompanyInfoID =
+        cmn_bpt_businessparticipants.IfCompany_CMN_COM_CompanyInfo_RefID And
+        cmn_bpt_businessparticipants.Tenant_RefID = @TenantID And
+        cmn_bpt_businessparticipants.IsDeleted = 0 
+         Inner Join
+      cmn_bpt_ctm_customers
+        On cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID =
+        cmn_bpt_ctm_customers.Ext_BusinessParticipant_RefID And
+        cmn_bpt_ctm_customers.Tenant_RefID = @TenantID And 
+        cmn_bpt_ctm_customers.IsDeleted = 0
+        Inner Join
+      cmn_bpt_ctm_organizationalunits
+        On cmn_bpt_ctm_customers.CMN_BPT_CTM_CustomerID =
+        cmn_bpt_ctm_organizationalunits.Customer_RefID And
+        cmn_bpt_ctm_organizationalunits.Tenant_RefID = @TenantID And
+        cmn_bpt_ctm_organizationalunits.IsDeleted = 0 
+    Where
+      cmn_com_companyinfo.CompanyInfo_EstablishmentNumber = @BSNR And
+      cmn_com_companyinfo.IsDeleted = 0 And
+      cmn_com_companyinfo.Tenant_RefID = @TenantID   
+  </SQLStatement>
+  
+  <Parameters IsClass="true" Name="P_DO_GPIDfBSNR_1011">
+    <Members>
+      <ClassMember Name="BSNR" Type="String"  />
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+
+    <ObjectReturnType_Definition Name="DO_GPIDfBSNR_1011">
+      <Members>
+        <ClassMember Name="practice_id" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/23/2013 11:56:23 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ArticleGroups_for_SubscribedCatalog</Name>
+    <Namespace>CL5_APOAdmin_Catalogs.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOAdmin_Catalogs.Complex.Retrieval"
+                Method_ClassName="cls_Get_ArticleGroups_for_SubscribedCatalog"
+                Method_Name="Get_ArticleGroups_for_SubscribedCatalog"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+
+	<Parameters IsClass="true" Name="P_L5CA_GAGfSC_1456">
+		<Members>
+			<ClassMember Name="SubscribedCatalogID" Type="Guid"  />
+		</Members>
+	</Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5CA_GAGfSC_1456" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_PRO_ProductGroupID" Type="Guid"  />
+				<ClassMember Name="Parent_RefID" Type="Guid"  />
+				<ClassMember Name="ProductGroup_Name" Type="Dict" OriginTable="cmn_pro_productgroups" Source_DBField="ProductGroup_Name_DictID"  />
+				<ClassMember Name="ProductGroup_Description" Type="Dict" OriginTable="cmn_pro_productgroups" Source_DBField="ProductGroup_Description_DictID"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+	</ResultInfo>
+
+</CodeGen>
+
+

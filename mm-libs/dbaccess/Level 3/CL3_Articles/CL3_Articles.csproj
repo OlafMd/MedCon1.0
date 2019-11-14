@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B6DFA294-6413-463B-AD21-1F6EC75F8196}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL3_Articles</RootNamespace>
+    <AssemblyName>CL3_Articles</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_ActiveReservedQuantity_for_ProductID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ActiveReservedQuantity_for_ProductID_List.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllProducerNames_for_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_All_ArticleGroups_and_ArticleCount_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ArticleID_for_ArticleITLs.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ArticlesQuantities_for_ProductIDList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Articles_for_ArticleList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Articles_for_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_CurrentQuantity_for_ProductIDList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_If_Has_Expected_Delivery_for_ProductIDList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_LocalArticles_for_AutoCompleteSearch.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_LocalArticles_for_SearchConditions.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProductIdentifiers_for_ProductGroupGlobalPropertyID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Shipped_Quantities_by_Month_and_Year.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_StockQuantities_for_ProductID.cs" />
+    <Compile Include="Complex\Manipulation\cls_ImportOrUpdate_Products_BaseData.cs" />
+    <Compile Include="Complex\Manipulation\cls_ImportOrUpdate_Products_for_SubscribedCatalog.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_ArticlesMainTableModel_for_SearchContitions.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Articles_for_AutocompleteSearch.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Articles_with_StandardPrices_for_ArticleList.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Articles_with_StandardPrices_for_Tenant.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Article_Sale_Statistics_for_ProductIDList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\SearchCondition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_ArticleGroups_and_ArticleCount_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllProducerNames_for_Tenant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_StockQuantities_for_ProductID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ArticleID_for_ArticleITLs.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ActiveReservedQuantity_for_ProductID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ActiveReservedQuantity_for_ProductID_List.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_If_Has_Expected_Delivery_for_ProductIDList.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_LocalArticles_for_SearchConditions.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_LocalArticles_for_AutoCompleteSearch.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ArticlesQuantities_for_ProductIDList.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ArticlesQuantities_for_ProductIDList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_LocalArticles_for_AutoCompleteSearch.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_LocalArticles_for_SearchConditions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_ActiveReservedQuantity_for_ProductID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_ActiveReservedQuantity_for_ProductID_List.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_AllProducerNames_for_Tenant.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_ArticleGroups_and_ArticleCount_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ArticleID_for_ArticleITLs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_If_Has_Expected_Delivery_for_ProductIDList.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_StockQuantities_for_ProductID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Articles_with_StandardPrices_for_ArticleList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_ArticlesMainTableModel_for_SearchContitions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Articles_for_AutocompleteSearch.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Articles_with_StandardPrices_for_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Article_Sale_Statistics_for_ProductIDList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Articles_for_ArticleList.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProductIdentifiers_for_ProductGroupGlobalPropertyID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_CurrentQuantity_for_ProductIDList.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Shipped_Quantities_by_Month_and_Year.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Articles_for_ArticleList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_CurrentQuantity_for_ProductIDList.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProductIdentifiers_for_ProductGroupGlobalPropertyID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Shipped_Quantities_by_Month_and_Year.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\ImportOrUpdate_Products_BaseData.xml" />
+    <Content Include="Complex\Manipulation\_Support\ImportOrUpdate_Products_for_SubscribedCatalog.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Articles_for_Tenant.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Articles_for_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\utils\DLUtils_Common\DLUtils_Common.csproj">
+      <Project>{E7D06880-7054-4045-9B0B-6AFE3DB5185C}</Project>
+      <Name>DLUtils_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_TAX\CL1_ACC_TAX.csproj">
+      <Project>{E2A9FD01-BAC1-4A56-9062-B8F30237590E}</Project>
+      <Name>CL1_ACC_TAX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06AB1C3C-339F-4E31-8408-232DC283308C}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO_PAC\CL1_CMN_PRO_PAC.csproj">
+      <Project>{022F0501-41A8-4206-9007-374D9155E23D}</Project>
+      <Name>CL1_CMN_PRO_PAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_SLS\CL1_CMN_SLS.csproj">
+      <Project>{86752CE8-6442-4C3F-A316-98FADBB38BE1}</Project>
+      <Name>CL1_CMN_SLS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768C60E8-0C7F-42B2-B8C9-D327C6BF334A}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_SHP\CL1_LOG_SHP.csproj">
+      <Project>{E43DE7B7-3C37-46B1-8824-D7313CCD8273}</Project>
+      <Name>CL1_LOG_SHP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_WRH\CL1_LOG_WRH.csproj">
+      <Project>{BB08DBAD-494E-4689-9467-BBDDAEBC1EB0}</Project>
+      <Name>CL1_LOG_WRH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_AccountInformation\CL2_AccountInformation.csproj">
+      <Project>{94993A0B-42D0-427D-B342-84C3F6A4480F}</Project>
+      <Name>CL2_AccountInformation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Country\CL2_Country.csproj">
+      <Project>{0F1DCDD3-19BB-44B1-8058-DB5B69B81784}</Project>
+      <Name>CL2_Country</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Language\CL2_Language.csproj">
+      <Project>{58245A4D-887C-4AA1-B01E-7E6779C4F096}</Project>
+      <Name>CL2_Language</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_MedicalProduct\CL2_MedicalProduct.csproj">
+      <Project>{0EA53685-9CC7-410A-B933-841696044F60}</Project>
+      <Name>CL2_MedicalProduct</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Products\CL2_Products.csproj">
+      <Project>{37478B9B-FEA7-4E84-93C3-D6AF7E11B39E}</Project>
+      <Name>CL2_Products</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_APOStatistic\CL3_APOStatistic.csproj">
+      <Project>{1ED70C95-295E-4868-A2FA-E32AEC225DDD}</Project>
+      <Name>CL3_APOStatistic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_Components\CL3_Components.csproj">
+      <Project>{814CFFC3-9485-42CE-8BCC-579996C626B0}</Project>
+      <Name>CL3_Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_Price\CL3_Price.csproj">
+      <Project>{A47E5B89-3CCF-407A-97AF-2ABA2558B3DB}</Project>
+      <Name>CL3_Price</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_Taxes\CL3_Taxes.csproj">
+      <Project>{A92AEE16-967C-41DB-A0CA-77E71DA06E10}</Project>
+      <Name>CL3_Taxes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

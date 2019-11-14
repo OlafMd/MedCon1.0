@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="19/12/2013 01:49:29">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShoppingProducts_for_ShoppingCartID</Name>
+    <Namespace>CL5_APOWebShop_ShoppingCart.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOWebShop_ShoppingCart.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ShoppingProducts_for_ShoppingCartID"
+                Method_Name="Get_ShoppingProducts_for_ShoppingCartID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShoppingProducts_for_ShoppingCartID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  ord_prc_shoppingcart.ORD_PRC_ShoppingCartID,
+  ord_prc_shoppingcart.IsProcurementOrderCreated,
+  ord_prc_shoppingcart_statuses.GlobalPropertyMatchingID As ShoppingCartStatus,
+  ord_prc_office_shoppingcarts.ORD_PRC_Office_ShoppingCartID,
+  ord_prc_office_shoppingcarts.CMN_STR_Office_RefID,
+  cmn_str_offices.Office_InternalName,
+  shoppingcart_products.Group_GlobalPropertyMatchingID,
+  shoppingcart_products.Price,
+  shoppingcart_products.CurrencyISO,
+  shoppingcart_products.CurrencySymbol,
+  shoppingcart_products.TaxRate,
+  shoppingcart_products.Product_Name_DictID,
+  shoppingcart_products.Product_Number,
+  shoppingcart_products.SubscribedCatalog_PricelistRelease_RefID,
+  shoppingcart_products.ORD_PRC_ShoppingCart_ProductID,
+  shoppingcart_products.CMN_PRO_Product_RefID,
+  shoppingcart_products.CMN_PRO_Product_Variant_RefID,
+  shoppingcart_products.CMN_PRO_Product_Release_RefID,
+  shoppingcart_products.SequenceNumber,
+  shoppingcart_products.Quantity,
+  shoppingcart_products.IsCanceled as IsProductCanceled,
+  shoppingcart_products.IsDeleted as IsProductDeleted,
+  shoppingcart_products.Comment,
+  shoppingcart_products.IsProductReplacementAllowed
+From
+  ord_prc_shoppingcart Inner Join
+  ord_prc_office_shoppingcarts On ord_prc_shoppingcart.ORD_PRC_ShoppingCartID =
+    ord_prc_office_shoppingcarts.ORD_PRC_ShoppingCart_RefID And
+    ord_prc_office_shoppingcarts.IsDeleted = 0 Inner Join
+  cmn_str_offices On ord_prc_office_shoppingcarts.CMN_STR_Office_RefID =
+    cmn_str_offices.CMN_STR_OfficeID And cmn_str_offices.IsDeleted = 0 Left Join
+  (Select
+    cmn_pro_productgroups.GlobalPropertyMatchingID As
+    Group_GlobalPropertyMatchingID,
+    cmn_sls_prices.PriceAmount As Price,
+    cmn_currencies.ISO4127 As CurrencyISO,
+    cmn_currencies.Symbol As CurrencySymbol,
+    acc_tax_taxes.TaxRate,
+    cmn_pro_products.Product_Name_DictID,
+    cmn_pro_products.Product_Number,
+    cmn_pro_subscribedcatalogs.SubscribedCatalog_PricelistRelease_RefID,
+    ord_prc_shoppingcart_products.*,
+    cmn_pro_products.CMN_PRO_ProductID
+  From
+    cmn_pro_product_2_productgroup Left Join
+    cmn_pro_productgroups
+      On cmn_pro_product_2_productgroup.CMN_PRO_ProductGroup_RefID =
+      cmn_pro_productgroups.CMN_PRO_ProductGroupID And
+      cmn_pro_productgroups.IsDeleted = 0 Left Join
+    cmn_sls_prices On cmn_sls_prices.IsDeleted = 0 Left Join
+    cmn_currencies On cmn_sls_prices.CMN_Currency_RefID =
+      cmn_currencies.CMN_CurrencyID And cmn_currencies.IsDeleted = 0 Left Join
+    cmn_pro_product_salestaxassignmnets
+      On cmn_pro_product_salestaxassignmnets.IsDeleted = 0 Left Join
+    acc_tax_taxes
+      On cmn_pro_product_salestaxassignmnets.ApplicableSalesTax_RefID =
+      acc_tax_taxes.ACC_TAX_TaxeID And acc_tax_taxes.IsDeleted = 0 Inner Join
+    cmn_pro_subscribedcatalogs
+      On cmn_pro_subscribedcatalogs.SubscribedCatalog_PricelistRelease_RefID =
+      cmn_sls_prices.PricelistRelease_RefID Right Join
+    cmn_pro_products On cmn_pro_product_salestaxassignmnets.Product_RefID =
+      cmn_pro_products.CMN_PRO_ProductID And cmn_pro_products.CMN_PRO_ProductID
+      = cmn_sls_prices.CMN_PRO_Product_RefID And
+      cmn_pro_products.CMN_PRO_ProductID =
+      cmn_pro_product_2_productgroup.CMN_PRO_Product_RefID Left Join
+    ord_prc_shoppingcart_products On cmn_pro_products.CMN_PRO_ProductID =
+      ord_prc_shoppingcart_products.CMN_PRO_Product_RefID And
+      cmn_pro_products.IsDeleted = 0
+  Where
+    ord_prc_shoppingcart_products.ORD_PRC_ShoppingCart_RefID = @ShoppingCartID
+    And
+    cmn_pro_products.Tenant_RefID = @TenantID And
+    cmn_sls_prices.Tenant_RefID = @TenantID) shoppingcart_products
+    On ord_prc_shoppingcart.ORD_PRC_ShoppingCartID =
+    shoppingcart_products.ORD_PRC_ShoppingCart_RefID And
+    shoppingcart_products.IsDeleted = 0 And shoppingcart_products.IsCanceled = 0
+  Left Join
+  ord_prc_shoppingcart_statuses
+    On ord_prc_shoppingcart.ShoppingCart_CurrentStatus_RefID =
+    ord_prc_shoppingcart_statuses.ORD_PRC_ShoppingCart_StatusID And
+    ord_prc_shoppingcart_statuses.IsDeleted = 0
+Where
+  ord_prc_shoppingcart.ORD_PRC_ShoppingCartID = @ShoppingCartID And
+  ord_prc_shoppingcart.IsDeleted = 0 And
+  ord_prc_shoppingcart.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5AWSSC_GSPfSC_1650">
+    <Members>
+      <ClassMember Name="ShoppingCartID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5AWSSC_GSPfSC_1650" IsArray="false" GroupBy="ORD_PRC_ShoppingCartID">
+      <Members>
+        <ClassMember Name="ORD_PRC_ShoppingCartID" Type="Guid"  />
+        <ClassMember Name="IsProcurementOrderCreated" Type="bool"  />
+        <ClassMember Name="ORD_PRC_Office_ShoppingCartID" Type="Guid"  />
+        <ClassMember Name="CMN_STR_Office_RefID" Type="Guid"  />
+        <ClassMember Name="Office_InternalName" Type="string"  />
+        <ClassMember Name="ShoppingCartStatus" Type="string"  />
+        <ClassMember Name="Products" IsClass="true" IsArray="true" Type="L5AWSSC_GSPfSC_1650_Product" GroupBy="ORD_PRC_ShoppingCart_ProductID">
+          <Members>
+            <ClassMember Name="ORD_PRC_ShoppingCart_ProductID" Type="Guid"  />
+            <ClassMember Name="CMN_PRO_Product_RefID" Type="Guid"  />
+            <ClassMember Name="CMN_PRO_Product_Variant_RefID" Type="Guid"  />
+            <ClassMember Name="CMN_PRO_Product_Release_RefID" Type="Guid"  />
+            <ClassMember Name="Quantity" Type="double"  />
+            <ClassMember Name="IsProductCanceled" Type="bool"  />
+            <ClassMember Name="IsProductDeleted" Type="bool"  />
+            <ClassMember Name="IsProductReplacementAllowed" Type="bool"  />
+            <ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+            <ClassMember Name="Product_Number" Type="string"  />
+            <ClassMember Name="Comment" Type="string"  />
+            
+            <ClassMember Name="Price" Type="decimal"  />
+            <ClassMember Name="CurrencyISO" Type="string"  />
+            <ClassMember Name="CurrencySymbol" Type="string"  />
+            <ClassMember Name="TaxRate" Type="decimal"  />
+            <ClassMember Name="Groups" IsClass="true" IsArray="true" Type="L5AWSSC_GSPfSC_1650_Groups" GroupBy="Group_GlobalPropertyMatchingID">
+              <Members>
+                <ClassMember Name="Group_GlobalPropertyMatchingID" Type="string"  />
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

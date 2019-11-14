@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F166F9B1-BA1E-4E7E-ADDC-EE66BD3397BC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_CMN_BPT_USR</RootNamespace>
+    <AssemblyName>CL1_CMN_BPT_USR</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CMN_BPT_USR_User\ORM_CMN_BPT_USR_User.cs" />
+    <Compile Include="CMN_BPT_USR_User_2_FunctionLevelRight\ORM_CMN_BPT_USR_User_2_FunctionLevelRight.cs" />
+    <Compile Include="CMN_BPT_USR_User_2_UserGroup\ORM_CMN_BPT_USR_User_2_UserGroup.cs" />
+    <Compile Include="CMN_BPT_USR_User_FunctionLevelRight\ORM_CMN_BPT_USR_User_FunctionLevelRight.cs" />
+    <Compile Include="CMN_BPT_USR_User_Groups_2_FunctionLevelRight\ORM_CMN_BPT_USR_User_Groups_2_FunctionLevelRight.cs" />
+    <Compile Include="CMN_BPT_USR_User_Group\ORM_CMN_BPT_USR_User_Group.cs" />
+    <Compile Include="CMN_BPT_USR_User_Password\ORM_CMN_BPT_USR_User_Password.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_BPT_USR_User_2_FunctionLevelRight\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_2_FunctionLevelRight\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_2_FunctionLevelRight\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_2_UserGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_2_UserGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_2_UserGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_FunctionLevelRight\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_FunctionLevelRight\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_FunctionLevelRight\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_Group\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_Group\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_Group\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_Groups_2_FunctionLevelRight\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_Groups_2_FunctionLevelRight\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_Groups_2_FunctionLevelRight\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_Password\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_Password\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_USR_User_Password\SQL\Select.sql" />
+    <Content Include="_Support\CMN_BPT_USR_Users.xml" />
+    <Content Include="_Support\CMN_BPT_USR_User_2_FunctionLevelRight.xml" />
+    <Content Include="_Support\CMN_BPT_USR_User_2_UserGroups.xml" />
+    <Content Include="_Support\CMN_BPT_USR_User_FunctionLevelRights.xml" />
+    <Content Include="_Support\CMN_BPT_USR_User_Groups.xml" />
+    <Content Include="_Support\CMN_BPT_USR_User_Groups_2_FunctionLevelRights.xml" />
+    <Content Include="_Support\CMN_BPT_USR_User_Passwords.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

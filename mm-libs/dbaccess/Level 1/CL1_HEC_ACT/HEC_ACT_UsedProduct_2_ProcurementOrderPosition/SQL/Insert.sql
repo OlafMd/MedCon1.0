@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_act_usedproduct_2_procurementorderposition
+	(
+		AssignmentID,
+		HEC_ACT_UsedProduct_RefID,
+		ORD_PRC_ProcurementOrder_Position_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@HEC_ACT_UsedProduct_RefID,
+		@ORD_PRC_ProcurementOrder_Position_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

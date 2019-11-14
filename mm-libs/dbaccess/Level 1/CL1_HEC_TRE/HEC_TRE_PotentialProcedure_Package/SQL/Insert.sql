@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_tre_potentialprocedure_packages
+	(
+		HEC_TRE_PotentialProcedure_PackageID,
+		GlobalPropertyMatchingID,
+		Parent_RefID,
+		Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_TRE_PotentialProcedure_PackageID,
+		@GlobalPropertyMatchingID,
+		@Parent_RefID,
+		@Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

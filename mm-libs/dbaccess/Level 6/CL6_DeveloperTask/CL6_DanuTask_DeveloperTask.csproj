@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7E2232CF-8076-4D11-A99D-E71A3E4AF45B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL6_DanuTask_DeveloperTask</RootNamespace>
+    <AssemblyName>CL6_DanuTask_DeveloperTask</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_DeveloperModule_Comments_for_DTaskID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeveloperModule_Mentions_for_CommentID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeveloperTaskInfo_for_DeveloperTaskID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeveloperModule_TasksTableData_for_TaskID_List.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeveloperTaskInvestedWorkTime_for_ActiveAcount_and_Date.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeveloperTaskStartStopTime_for_Date_and_AccountID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeveloperTaskStatusHistory_for_DeveloperTaskID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_InvestedWorkTime_for_DeveloperTaskID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Activate_DeveloperTask.cs" />
+    <Compile Include="Complex\Manipulation\cls_AssignDeassignDeveloperTaskByDevelopers.cs" />
+    <Compile Include="Complex\Manipulation\cls_Assign_DeveloperTask_by_Developer.cs" />
+    <Compile Include="Complex\Manipulation\cls_Change_Active_DeveloperTask.cs" />
+    <Compile Include="Complex\Manipulation\cls_Deassign_DeveloperTask_by_Developer.cs" />
+    <Compile Include="Complex\Manipulation\cls_Recommend_DeveloperTasks.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_DeveloperTask.cs" />
+    <Compile Include="Complex\Manipulation\cls_Update_DeveloperTaskStatusHistoryWithAddDocument.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DeveloperModule_CommentsAndMentions_for_DTaskID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DeveloperTask_Info_for_Tenant.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DevTasks_Features_BizTasks_for_Project_by_ProjectID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DTaskInfo_and_InvestedWorkTime_for_DTaskID_and_AccountID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DTStatusHistory_and_InvestedWorkTime_for_DeveloperTaskID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeveloperTaskStatusHistory_for_DeveloperTaskID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeveloperTaskInfo_for_DeveloperTaskID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeveloperTaskStartStopTime_for_Date_and_AccountID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeveloperModule_Comments_for_DTaskID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeveloperModule_Mentions_for_CommentID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeveloperTaskInvestedWorkTime_for_ActiveAcount_and_Date.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DeveloperModule_Mentions_for_CommentID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_DeveloperTaskInfo_for_DeveloperTaskID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_DeveloperTaskInvestedWorkTime_for_ActiveAcount_and_Date.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_DeveloperTaskStartStopTime_for_Date_and_AccountID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Activate_DeveloperTask.xml" />
+    <Content Include="Complex\Manipulation\_Support\AssignDeassignDeveloperTaskByDevelopers.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Assign_DeveloperTask_by_Developer.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Change_Active_DeveloperTask.xml" />
+    <Content Include="Complex\Manipulation\_Support\Deassign_DeveloperTask_by_Developer.xml" />
+    <Content Include="Complex\Manipulation\_Support\Recommend_DeveloperTasks.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_DeveloperTask.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_DeveloperModule_CommentsAndMentions_for_DTaskID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_DeveloperTask_Info_for_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_DevTasks_Features_BizTasks_for_Project_by_ProjectID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_DTaskInfo_and_InvestedWorkTime_for_DTaskID_and_AccountID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeveloperModule_TasksTableData_for_TaskID_List.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DeveloperModule_Comments_for_DTaskID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_DeveloperModule_TasksTableData_for_TaskID_List.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_DTStatusHistory_and_InvestedWorkTime_for_DeveloperTaskID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_InvestedWorkTime_for_DeveloperTaskID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DeveloperTaskStatusHistory_for_DeveloperTaskID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_InvestedWorkTime_for_DeveloperTaskID.xml" />
+    <Content Include="Complex\Manipulation\_Support\Update_DeveloperTaskStatusHistoryWithAddDocument.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06AB1C3C-339F-4E31-8408-232DC283308C}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_TMS_PRO\CL1_TMS_PRO.csproj">
+      <Project>{2EED773F-2351-47AC-92BF-2D9A58CB02F9}</Project>
+      <Name>CL1_TMS_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_BusinessTask\CL2_BusinessTask.csproj">
+      <Project>{07393F57-E78B-4C32-B475-20F24644E34B}</Project>
+      <Name>CL2_BusinessTask</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_DeveloperTask\CL2_DeveloperTask.csproj">
+      <Project>{4BE39269-BD42-4BBD-BCBA-ACA549AFE4DC}</Project>
+      <Name>CL2_DeveloperTask</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Feature\CL2_Feature.csproj">
+      <Project>{1BC0416E-F643-4454-84B2-16420CB33D70}</Project>
+      <Name>CL2_Feature</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Project\CL2_Project.csproj">
+      <Project>{F32C0922-9895-4F3B-A23A-5055C67A4E38}</Project>
+      <Name>CL2_Project</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_DeveloperTasks\CL3_DeveloperTask.csproj">
+      <Project>{73813F09-69FB-46BA-82AF-3ED85EECF63F}</Project>
+      <Name>CL3_DeveloperTask</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_ProjectMember\CL3_ProjectMember.csproj">
+      <Project>{48D922C8-CF9F-442F-91BE-DCEE39F9548C}</Project>
+      <Name>CL3_ProjectMember</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Projects\CL3_Project.csproj">
+      <Project>{2A82796F-7E01-4847-94A3-DB02F4BC3B83}</Project>
+      <Name>CL3_Project</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_User\CL3_User.csproj">
+      <Project>{1F158903-D6B3-4FD9-AE52-CCA418366F9A}</Project>
+      <Name>CL3_User</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

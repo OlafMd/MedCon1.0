@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	log_rcp_rqf_requestquantityforwarding_positions
+WHERE 
+	LOG_RCP_RQF_RequestQuantityForwarding_PositionID = @LOG_RCP_RQF_RequestQuantityForwarding_PositionID

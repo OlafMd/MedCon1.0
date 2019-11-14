@@ -1,0 +1,33 @@
+﻿<ul class="global-filter">
+    <li class="search-input-holder">
+        <input type="text" class="form-control" id="globalSearchInput" ng-model="global_search.text_search" ng-keyup="search($event)" placeholder="{{ 'LABEL_SEARCH' | translate }}">
+        <span class="icon-search"></span>
+    </li>
+    <li class="search-dropdown-holder">
+        <dropdown-list id="selHip" items="hips" ng-model="filter.hip" additional-class="'dropdown-min-width'" params="{display_name: 'display_name', id: 'name', is_model_object: false}" ng-change="search({ which: 13 }, true)" placeholder="'LABEL_HEALTH_INSURANCE_PROVIDER'"></dropdown-list>
+    </li>
+    <li>
+        <ul class="global-filter-items">
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.all" id="all" ng-change="prepareSearch(true)">
+                <label id="patientFilterAll" for="all" class="filter-item" ng-class="{'active': filter.all}">{{ 'LABEL_ALL' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.thisPractice" id="thisPractice" ng-change="prepareSearch(false, false, 'different')" />
+                <label id="patientFilterRejected" for="thisPractice" class="filter-item" ng-class="{'active': filter.thisPractice}">{{ 'LABEL_THIS_PRACTICE' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.differentPractice" id="differentPractice" ng-change="prepareSearch(false, false, 'this')" />
+                <label id="patientFilterRejected" for="differentPractice" class="filter-item" ng-class="{'active': filter.differentPractice}">{{ 'LABEL_DIFFERENT_PRACTICE' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.invalidConsent" id="invalidConsent" ng-change="prepareSearch(false)" />
+                <label for="invalidConsent" class="filter-item" ng-class="{'active': filter.invalidConsent}">{{ 'LABEL_INVALID_CONSENT' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.show_only_with_rejected_octs" id="rejectedOcts" ng-change="prepareSearch(false)" />
+                <label for="rejectedOcts" class="filter-item" ng-class="{'active': filter.show_only_with_rejected_octs}">{{ 'LABEL_PATIENTS_WITH_REJECTED_OCTS' | translate }}</label>
+            </li>            
+        </ul>
+    </li>
+</ul>

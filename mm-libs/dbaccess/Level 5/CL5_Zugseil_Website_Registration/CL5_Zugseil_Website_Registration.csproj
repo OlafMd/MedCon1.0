@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{68172FE8-853B-4B3C-9515-0DC15D34B372}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_Zugseil_Website_Registration</RootNamespace>
+    <AssemblyName>CL5_Zugseil_Website_Registration</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CL1_CMN_PRO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Level 1\CL1_CMN_PRO\bin\Debug\CL1_CMN_PRO.dll</HintPath>
+    </Reference>
+    <Reference Include="CL1_LOG_SHP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Level 1\CL1_LOG_SHP\bin\Debug\CL1_LOG_SHP.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\apps\zugseil.website.data\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Complex\Manipulation\cls_Save_Data_for_NewCustomer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Atomic\Retrieval\_Support\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Complex\Manipulation\_Support\Save_Data_for_NewCustomer.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8a936290-4628-4f28-9639-9b65915a0c8c}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3c164500-bf5f-4173-b1a8-154a38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031c04c9-08cd-4833-af41-a9b64d337ca6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_WRH\CL1_LOG_WRH.csproj">
+      <Project>{bb08dbad-494e-4689-9467-bbddaebc1eb0}</Project>
+      <Name>CL1_LOG_WRH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_CUO\CL1_ORD_CUO.csproj">
+      <Project>{08b298c5-2b62-46ea-964f-98109e5b288c}</Project>
+      <Name>CL1_ORD_CUO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_PRC\CL1_ORD_PRC.csproj">
+      <Project>{2ed9ec1f-4c36-4790-b8ae-6c03f4b40588}</Project>
+      <Name>CL1_ORD_PRC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{feab6f0e-56f1-43d4-bef0-988b26474dd2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_CostCenter\CL2_CostCenter.csproj">
+      <Project>{fd5c6ced-1ba8-429f-bac3-b04f044f8251}</Project>
+      <Name>CL2_CostCenter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Language\CL2_Language.csproj">
+      <Project>{58245a4d-887c-4aa1-b01e-7e6779c4f096}</Project>
+      <Name>CL2_Language</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Office\CL2_Office.csproj">
+      <Project>{a2743af2-47c0-4645-b383-a1418f3627ba}</Project>
+      <Name>CL2_Office</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Warehouse\CL2_Warehouse.csproj">
+      <Project>{7dc3647a-c68f-42dd-af1b-0b02957e73cd}</Project>
+      <Name>CL2_Warehouse</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

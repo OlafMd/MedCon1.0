@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_profession_2_areaofbusiness
+	(
+		AssignmentID,
+		AreaOfBusiness_RefID,
+		Profession_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@AreaOfBusiness_RefID,
+		@Profession_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/12/2014 3:56:34 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DiagnosesCatalog_for_CatalogID</Name>
+    <Namespace>CL5_MyHealthClub_Diagnosis.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MPC_DIagnosisCatalog.Complex.Manipulation"
+                Method_ClassName="cls_Make_DiagnosisCatalogExportFiles"
+                Method_Name="Make_DiagnosisCatalogExportFiles"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Make_DiagnosisCatalogExportFiles"
+                />
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="bool" IsArray="false" />
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

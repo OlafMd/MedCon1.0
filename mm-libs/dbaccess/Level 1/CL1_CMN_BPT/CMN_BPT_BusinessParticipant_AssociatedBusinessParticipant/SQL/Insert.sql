@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_businessparticipant_associatedbusinessparticipants
+	(
+		CMN_BPT_BusinessParticipant_AssociatedBusinessParticipantID,
+		BusinessParticipant_RefID,
+		AssociatedBusinessParticipant_RefID,
+		AssociatedParticipant_FunctionName,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_BusinessParticipant_AssociatedBusinessParticipantID,
+		@BusinessParticipant_RefID,
+		@AssociatedBusinessParticipant_RefID,
+		@AssociatedParticipant_FunctionName,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

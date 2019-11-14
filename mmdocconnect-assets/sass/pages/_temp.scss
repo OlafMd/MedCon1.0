@@ -1,0 +1,35 @@
+h2{
+	margin: 45px 0;
+	text-align: center;
+}
+
+div > img{
+	display: block;
+	margin: 0 auto;
+}
+
+/*.animate-if.ng-enter, .animate-if.ng-leave {
+  -webkit-transition: max-height ease(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition: max-height ease(0.250, 0.460, 0.450, 0.940) 0.5s;
+}*/
+
+.animate-if.ng-enter,
+.animate-if.ng-leave.ng-leave-active {
+  -webkit-transition: max-height 0.25s ease-out;
+  transition: max-height 0.25s ease-out; 
+  max-height: 0;
+  display: none;
+}
+
+.animate-if {
+  -webkit-transition: max-height 0.25s ease-in;
+  transition: max-height 0.25s ease-in;
+  max-height: 9999px;
+}
+
+.align-fix{
+	display: block;
+	min-height: 10px;
+}
+
+

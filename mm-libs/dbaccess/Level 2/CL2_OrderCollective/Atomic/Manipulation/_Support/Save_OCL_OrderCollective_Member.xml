@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/13/2014 9:22:38 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_OCL_OrderCollective_Member</Name>
+    <Namespace>CL2_OrderCollective.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_OrderCollective.Atomic.Manipulation"
+                Method_ClassName="cls_Save_OCL_OrderCollective_Member"
+                Method_Name="Save_OCL_OrderCollective_Member"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_OCL_OrderCollective_Member"
+                />
+  <SQLLimitation_CSharp_Extension>
+      var returnValue = new FR_Guid();
+
+      var item = new ORM_OCL_OrderCollective_Member();
+      if (Parameter.OCL_OrderCollective_MemberID != Guid.Empty)
+      {
+      var result = item.Load(Connection, Transaction, Parameter.OCL_OrderCollective_MemberID);
+      if (result.Status != FR_Status.Success || item.OCL_OrderCollective_MemberID == Guid.Empty)
+      {
+      var error = new FR_Guid();
+      error.ErrorMessage = "No Such ID";
+      error.Status =  FR_Status.Error_Internal;
+      return error;
+      }
+      }
+
+      if(Parameter.IsDeleted == true){
+      item.IsDeleted = true;
+      return new FR_Guid(item.Save(Connection, Transaction),item.OCL_OrderCollective_MemberID);
+      }
+
+      //Creation specific parameters (Tenant, Account ... )
+      if (Parameter.OCL_OrderCollective_MemberID == Guid.Empty)
+      {
+      item.Tenant_RefID = securityTicket.TenantID;
+      }
+
+      item.OrderCollective_RefID = Parameter.OrderCollective_RefID;
+      item.OrderCollectiveMemberITL = Parameter.OrderCollectiveMemberITL;
+      item.IsOrderCollectiveLead = Parameter.IsOrderCollectiveLead;
+      item.BusinessParticipant_RefID = Parameter.BusinessParticipant_RefID;
+      item.MemberSince = Parameter.MemberSince;
+      item.EndOfMembership = Parameter.EndOfMembership;
+      item.Modification_Timestamp = Parameter.Modification_Timestamp;
+
+      return new FR_Guid(item.Save(Connection, Transaction),item.OCL_OrderCollective_MemberID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2OC_SOCM_0922">
+    <Members>
+		<ClassMember Name="OCL_OrderCollective_MemberID" IsIdentificator="True" Type="Guid"  />
+		<ClassMember Name="OrderCollective_RefID" Type="Guid"  />
+		<ClassMember Name="OrderCollectiveMemberITL" Type="String"  />
+		<ClassMember Name="IsOrderCollectiveLead" Type="Boolean"  />
+		<ClassMember Name="BusinessParticipant_RefID" Type="Guid"  />
+		<ClassMember Name="MemberSince" Type="DateTime"  />
+		<ClassMember Name="EndOfMembership" Type="DateTime"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+		<ClassMember Name="Modification_Timestamp" Type="DateTime"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

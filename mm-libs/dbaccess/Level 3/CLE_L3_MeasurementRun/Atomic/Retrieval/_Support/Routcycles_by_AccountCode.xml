@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/14/2014 3:06:46 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Routcycles_by_AccountCode</Name>
+    <Namespace>CL3_MeasurementRun.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_MeasurementRun.Atomic.Retrieval"
+                Method_ClassName="cls_Routcycles_by_AccountCode"
+                Method_Name="Routcycles_by_AccountCode"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Routcycles_by_AccountCode"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select Distinct
+  mrs_rut_routecycles.MRS_RUT_RouteCycleID,
+  mrs_rut_routecycles.Route_RefID,
+  mrs_rut_routecycles.ValidFrom,
+  mrs_rut_routecycles.ValidThrough,
+  mrs_rut_routecycles.CronExpressions,
+  mrs_rut_routecycles.Creation_Timestamp,
+  mrs_rut_routecycles.Tenant_RefID,
+  mrs_rut_routecycles.IsDeleted
+From
+  mrs_run_measurementrun_accountdownloadcodes Inner Join
+  mrs_run_measurementrun_routes
+    On mrs_run_measurementrun_accountdownloadcodes.MeasurementRun_RefID =
+    mrs_run_measurementrun_routes.MeasurementRun_RefID Inner Join
+  mrs_rut_routes On mrs_rut_routes.MRS_RUT_RouteID =
+    mrs_run_measurementrun_routes.Route_RefID Inner Join
+  mrs_rut_routecycles On mrs_rut_routecycles.Route_RefID =
+    mrs_rut_routes.MRS_RUT_RouteID Inner Join
+  cmn_bpt_businessparticipant_accesscodes
+    On cmn_bpt_businessparticipant_accesscodes.BusinessParticipant_RefID =
+    mrs_run_measurementrun_accountdownloadcodes.Account_RefID
+Where
+  mrs_rut_routecycles.IsDeleted = 0 And
+  mrs_run_measurementrun_routes.IsDeleted = 0 And
+  mrs_rut_routes.IsDeleted = 0 And
+  mrs_run_measurementrun_accountdownloadcodes.IsDeleted = 0 And
+  mrs_run_measurementrun_accountdownloadcodes.DownloadCode = @DownloadCode And
+  cmn_bpt_businessparticipant_accesscodes.Code = @AccountCode
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3_RCbAC_1506">
+    <Members>
+		<ClassMember Name="AccountCode" Type="string"  />
+      <ClassMember Name="DownloadCode" Type="string"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3_RCbAC_1506" IsArray="true">
+			<Members>
+				<ClassMember Name="MRS_RUT_RouteCycleID" Type="Guid"  />
+				<ClassMember Name="Route_RefID" Type="Guid"  />
+				<ClassMember Name="ValidFrom" Type="DateTime"  />
+				<ClassMember Name="ValidThrough" Type="DateTime"  />
+				<ClassMember Name="CronExpressions" Type="String"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

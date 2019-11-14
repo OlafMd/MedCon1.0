@@ -1,0 +1,23 @@
+UPDATE 
+	ord_prc_procurementorder_headers
+SET 
+	SupplierCustomeOrderITL=@SupplierCustomeOrderITL,
+	Current_ProcurementOrderStatus_RefID=@Current_ProcurementOrderStatus_RefID,
+	ProcurementOrder_Number=@ProcurementOrder_Number,
+	ProcurementOrder_Date=@ProcurementOrder_Date,
+	CreatedBy_BusinessParticipant_RefID=@CreatedBy_BusinessParticipant_RefID,
+	CanceledBy_BusinessParticipant_RefID=@CanceledBy_BusinessParticipant_RefID,
+	ProcurementOrder_Currency_RefID=@ProcurementOrder_Currency_RefID,
+	ProcurementOrder_Supplier_RefID=@ProcurementOrder_Supplier_RefID,
+	TotalValue_BeforeTax=@TotalValue_BeforeTax,
+	IsCreatedForExpectedDelivery=@IsCreatedForExpectedDelivery,
+	IsCreatedDueToReturnShipment=@IsCreatedDueToReturnShipment,
+	ApplicableSupplierPaymentCondition_RefID=@ApplicableSupplierPaymentCondition_RefID,
+	BillingAddressUCD_RefID=@BillingAddressUCD_RefID,
+	ShippingAddressUCD_RefID=@ShippingAddressUCD_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	ORD_PRC_ProcurementOrder_HeaderID = @ORD_PRC_ProcurementOrder_HeaderID

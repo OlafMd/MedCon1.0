@@ -1,0 +1,34 @@
+<ul class="global-filter">
+    <li class="search-input-holder">
+        <input type="text" class="form-control" id="globalSearchInput" ng-model="global_search.text_search" ng-model-options="{debounce:500}" ng-change="search()" placeholder="{{ 'LABEL_SEARCH' | translate }}">
+        <span class="icon-search"></span>
+    </li>
+    <li>
+        <ul class="global-filter-items">
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.all" id="all" value="" ng-change="prepareSearch(true)" />
+                <label for="all" ng-class="{'active': filter.all}" class="filter-item">{{ 'LABEL_ALL' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.doctor" id="doctor" value="doctor" ng-change="prepareSearch(false)" />
+                <label for="doctor" ng-class="{'active': filter.doctor}" class="filter-item">{{ 'LABEL_DOCTORS' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.practice" id="practice" value="practice" ng-change="prepareSearch(false)" />
+                <label for="practice" ng-class="{'active': filter.practice}" class="filter-item">{{ 'LABEL_PRACTICES' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.inaktiv" id="inaktiv" value="inaktiv" ng-change="prepareSearch(false)" />
+                <label for="inaktiv" ng-class="{'active': filter.inaktiv}" class="filter-item">{{ 'LABEL_INACTIVE' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.aktiv" id="aktiv" value="aktiv" ng-change="prepareSearch(false)" />
+                <label for="aktiv" ng-class="{'active': filter.aktiv}" class="filter-item">{{ 'LABEL_ACTIVE' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.temp" id="temp" value="temp" ng-change="prepareSearch(false)" />
+                <label for="temp" ng-class="{'active': filter.temp}" class="filter-item">{{ 'LABEL_TEMP' | translate }}</label>
+            </li>
+        </ul>
+    </li>
+</ul>

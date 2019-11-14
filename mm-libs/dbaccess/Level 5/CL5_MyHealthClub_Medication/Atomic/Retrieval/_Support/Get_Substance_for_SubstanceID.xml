@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/13/2014 1:02:25 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Substance_for_SubstanceID</Name>
+    <Namespace>CL5_MyHealthClub_Medication.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Medication.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Substance_for_SubstanceID"
+                Method_Name="Get_Substance_for_SubstanceID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Substance_for_SubstanceID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  hec_sub_substance_names.SubstanceName_Label_DictID
+	From
+	  hec_sub_substances Inner Join
+	  hec_sub_substance_names On hec_sub_substances.HEC_SUB_SubstanceID =
+	    hec_sub_substance_names.HEC_SUB_Substance_RefID And
+	  hec_sub_substance_names.Tenant_RefID = @TenantID And
+	  hec_sub_substance_names.IsDeleted = 0
+	Where
+	  hec_sub_substances.Tenant_RefID = @TenantID And
+	  hec_sub_substances.IsDeleted = 0 And
+	  hec_sub_substances.HEC_SUB_SubstanceID = @SubstanceID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5ME_GSfSID_1302">
+    <Members>
+		<ClassMember Name="SubstanceID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5ME_GSfSID_1302" IsArray="false">
+			<Members>
+				<ClassMember Name="SubstanceName_Label" Type="Dict" OriginTable="hec_sub_substance_names" Source_DBField="SubstanceName_Label_DictID"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

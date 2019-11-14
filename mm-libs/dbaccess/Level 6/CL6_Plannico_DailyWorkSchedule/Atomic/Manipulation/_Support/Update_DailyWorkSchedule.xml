@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="09-Jan-14 10:55:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Update_DailyWorkSchedule</Name>
+    <Namespace>CL5_Plannico_DailyWorkSchedules.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_DailyWorkSchedules.Atomic.Manipulation"
+                Method_ClassName="cls_Update_DailyWorkSchedule"
+                Method_Name="Update_DailyWorkSchedule"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Update_DailyWorkSchedule"
+                />
+
+  <Parameters IsClass="true" Name="P_L6DWS_UDWS_1129">
+    <Members>
+      <ClassMember Name="LeaveTypeID" Type="Guid"  />
+      <ClassMember Name="WorkplaceID" Type="Guid"  />
+      <ClassMember Name="WorkscheduleDate" Type="DateTime"  />
+      <ClassMember Name="EmployeeID" Type="Guid"  />
+      <ClassMember Name="SheduleBreakTemplate_RefID" Type="Guid"  />
+      <ClassMember Name="Events" Type="List&lt;List&lt;L3EV_GSEFT_1647&gt;&gt;"/>
+      <ClassMember Name="Employees" IsArray="true" Type="L5EM_GEALRDFIDL_1138"/>
+      
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+  
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/12/2014 3:56:34 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DiagnosesCatalog_for_CatalogID</Name>
+    <Namespace>CL5_MyHealthClub_Diagnosis.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MPC_ProceduresCatalog.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ProceduresCatalog_for_Tenant"
+                Method_Name="Get_ProceduresCatalog_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ProceduresCatalog_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_tre_potentialprocedure_catalogs.HEC_TRE_PotentialProcedure_CatalogID,
+  hec_tre_potentialprocedure_catalogcodes.HEC_TRE_PotentialProcedure_CatalogCodeID,
+  hec_tre_potentialprocedure_catalogcodes.Code,
+  hec_tre_potentialprocedures.PotentialProcedureITL,
+  hec_tre_potentialprocedures.PotentialProcedure_Name_DictID,
+  hec_tre_potentialprocedures.HEC_TRE_PotentialProcedureID
+From
+  hec_tre_potentialprocedure_catalogs Inner Join
+  hec_tre_potentialprocedure_catalogcodes
+    On hec_tre_potentialprocedure_catalogcodes.PotentialProcedure_Catalog_RefID
+    = hec_tre_potentialprocedure_catalogs.HEC_TRE_PotentialProcedure_CatalogID
+  Inner Join
+  hec_tre_potentialprocedures
+    On hec_tre_potentialprocedures.HEC_TRE_PotentialProcedureID =
+    hec_tre_potentialprocedure_catalogcodes.PotentialProcedure_RefID
+Where
+  hec_tre_potentialprocedure_catalogs.IsDeleted = 0 And
+  hec_tre_potentialprocedure_catalogs.Tenant_RefID = @TenantID And
+  hec_tre_potentialprocedure_catalogcodes.IsDeleted = 0 And
+  hec_tre_potentialprocedures.IsDeleted = 0 and
+  hec_tre_potentialprocedure_catalogs.HEC_TRE_PotentialProcedure_CatalogID = @CatalogID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5DC_GPCfT_1451">
+    <Members>
+      <ClassMember Name="CatalogID" Type="Guid"  />
+    </Members>
+  </Parameters>
+  
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5DC_GPCfT_1451" IsArray="true">
+      <Members>
+        <ClassMember Name="PotentialProcedure_Name" Type="Dict" OriginTable="hec_tre_potentialprocedures" Source_DBField="PotentialProcedure_Name_DictID"  />
+        <ClassMember Name="Code" Type="string"  />
+        <ClassMember Name="PotentialProcedureITL" Type="string"  />
+        <ClassMember Name="HEC_TRE_PotentialProcedureID" Type="Guid"  />
+        <ClassMember Name="HEC_TRE_PotentialProcedure_CatalogCodeID" Type="Guid"  />
+        <ClassMember Name="HEC_TRE_PotentialProcedure_CatalogID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

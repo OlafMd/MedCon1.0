@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DDD3BD5B-AFB1-41A8-83CA-D519EA3B4E1C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_APOAdmin_Articles</RootNamespace>
+    <AssemblyName>CL5_APOAdmin_Articles</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Change_DummyArticle_to_Article.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Articles_in_ArticleGroup.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Article_in_ArticleGroup.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Price_for_ArticleID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_GetArticles_for_ArticleGroupID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_All_DummyArticles_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Annotations_for_ArticleID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ArticleBasicInfo_for_ArticleID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ArticleStorages_for_ArticleID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Pricelists_and_Prices_for_ArticleID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Pricelists_and_Prices_for_Article_and_Currency_ID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProductSuppliers_for_ProductID.cs" />
+    <Compile Include="Complex\Manipulation\cls_ExchangeArticleStorages_for_PredefinedLocation.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_AllPrices_for_ArticleID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Article.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_ArticleAnnotation.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_ArticleStorageQuantityLevel.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_ProductSupplier.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_SupplierPriority_for_ProductSupplier.cs" />
+    <Compile Include="Complex\Manipulation\cls_Update_Article_IsDefaultStock_Field.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Additional_ArticleData_for_ArticleList.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_ArticleReference_PreloadingData_for_ProductID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_PreloadingData_for_ArticleBasicInfo.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_PreloadingData_for_ArticleSellingPrice.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\utils\DLUtils_Common\DLUtils_Common.csproj">
+      <Project>{E7D06880-7054-4045-9B0B-6AFE3DB5185C}</Project>
+      <Name>DLUtils_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06AB1C3C-339F-4E31-8408-232DC283308C}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO_PAC\CL1_CMN_PRO_PAC.csproj">
+      <Project>{022F0501-41A8-4206-9007-374D9155E23D}</Project>
+      <Name>CL1_CMN_PRO_PAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_SLS\CL1_CMN_SLS.csproj">
+      <Project>{86752CE8-6442-4C3F-A316-98FADBB38BE1}</Project>
+      <Name>CL1_CMN_SLS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_WRH\CL1_LOG_WRH.csproj">
+      <Project>{BB08DBAD-494E-4689-9467-BBDDAEBC1EB0}</Project>
+      <Name>CL1_LOG_WRH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_PRC\CL1_ORD_PRC.csproj">
+      <Project>{2ED9EC1F-4C36-4790-B8AE-6C03F4B40588}</Project>
+      <Name>CL1_ORD_PRC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Country\CL2_Country.csproj">
+      <Project>{0F1DCDD3-19BB-44B1-8058-DB5B69B81784}</Project>
+      <Name>CL2_Country</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Currency\CL2_Currency.csproj">
+      <Project>{CACC6DDF-D4E9-4EE9-9C75-E1A65071A37C}</Project>
+      <Name>CL2_Currency</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_DiscountType\CL2_DiscountType.csproj">
+      <Project>{562D592F-4C27-4275-9967-BF12F35047F8}</Project>
+      <Name>CL2_DiscountType</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_MedicalProduct\CL2_MedicalProduct.csproj">
+      <Project>{0EA53685-9CC7-410A-B933-841696044F60}</Project>
+      <Name>CL2_MedicalProduct</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Price\CL2_Price.csproj">
+      <Project>{6630A96E-18C8-4FC3-97DF-E6815B4B92C4}</Project>
+      <Name>CL2_Price</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Products\CL2_Products.csproj">
+      <Project>{37478B9B-FEA7-4E84-93C3-D6AF7E11B39E}</Project>
+      <Name>CL2_Products</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Unit\CL2_Unit.csproj">
+      <Project>{E9EAE021-7C1C-45B7-8BBD-04AA7376AD34}</Project>
+      <Name>CL2_Unit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Warehouse\CL2_Warehouse.csproj">
+      <Project>{7DC3647A-C68F-42DD-AF1B-0B02957E73CD}</Project>
+      <Name>CL2_Warehouse</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_APOStatistic\CL3_APOStatistic.csproj">
+      <Project>{1ED70C95-295E-4868-A2FA-E32AEC225DDD}</Project>
+      <Name>CL3_APOStatistic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Articles\CL3_Articles.csproj">
+      <Project>{B6DFA294-6413-463B-AD21-1F6EC75F8196}</Project>
+      <Name>CL3_Articles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Price\CL3_Price.csproj">
+      <Project>{A47E5B89-3CCF-407A-97AF-2ABA2558B3DB}</Project>
+      <Name>CL3_Price</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Supplier\CL3_Supplier.csproj">
+      <Project>{2ED42AC0-9A96-4B36-AEB3-CA26CA8F7478}</Project>
+      <Name>CL3_Supplier</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Taxes\CL3_Taxes.csproj">
+      <Project>{A92AEE16-967C-41DB-A0CA-77E71DA06E10}</Project>
+      <Name>CL3_Taxes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Warehouse\CL3_Warehouse.csproj">
+      <Project>{A3A3BD1F-A206-4C65-BD16-526F6F77495B}</Project>
+      <Name>CL3_Warehouse</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ArticleBasicInfo_for_ArticleID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Annotations_for_ArticleID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ArticleStorages_for_ArticleID.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Change_DummyArticle_to_Article.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_DummyArticles_for_TenantID.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Price_for_ArticleList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Articles_in_ArticleGroup.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Price_for_ArticleID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Pricelists_and_Prices_for_ArticleID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Pricelists_and_Prices_for_Article_and_Currency_ID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_GetArticles_for_ArticleGroupID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProductSuppliers_for_ProductID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_DummyArticles_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Pricelists_and_Prices_for_ArticleID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Pricelists_and_Prices_for_Article_and_Currency_ID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_ProductSuppliers_for_ProductID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\ExchangeArticleStorages_for_PredefinedLocation.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_AllPrices_for_ArticleID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_ArticleStorageQuantityLevel.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Article_in_ArticleGroup.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Articles_for_ArticleGroupID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Annotations_for_ArticleID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_ArticleBasicInfo_for_ArticleID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_Article.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_ArticleAnnotation.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_ProductSupplier.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_SupplierPriority_for_ProductSupplier.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Update_Article_IsDefaultStock_Field.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Additional_ArticleData_for_ArticleList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_ArticleReference_PreloadingData_for_ProductID.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_PreloadingData_for_ArticleSellingPrice.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_PreloadingData_for_ArticleBasicInfo.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_ArticleStorages_for_ArticleID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

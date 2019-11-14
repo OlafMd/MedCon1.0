@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/10/2014 2:03:06 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_BillStatus_for_BillHeaderID</Name>
+    <Namespace>CL5_Lucentis_BillingHistory.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_BillingHistory.Atomic.Retrieval"
+                Method_ClassName="cls_Get_BillStatus_for_BillHeaderID"
+                Method_Name="Get_BillStatus_for_BillHeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_BillStatus_for_BillHeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  bil_billheader_2_billstatus.BIL_BillHeader_RefID,
+	  bil_billheader_2_billstatus.BIL_BillStatus_RefID
+	From
+	  bil_billheader_2_billstatus
+	Where
+	  bil_billheader_2_billstatus.BIL_BillHeader_RefID = @BillHeaderID And
+	  bil_billheader_2_billstatus.Tenant_RefID = @TenantID And
+	  bil_billheader_2_billstatus.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5BH_GBSfSHID_1402">
+    <Members>
+		<ClassMember Name="BillHeaderID" Type="Guid"  IsArray="true" />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5BH_GBSfSHID_1402" IsArray="true">
+			<Members>
+				<ClassMember Name="BIL_BillHeader_RefID" Type="Guid"  />
+				<ClassMember Name="BIL_BillStatus_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

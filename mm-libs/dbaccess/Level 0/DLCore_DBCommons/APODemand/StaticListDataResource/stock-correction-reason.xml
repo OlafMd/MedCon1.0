@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="stock-correction-reason.broken-or-expired">
+    <Lang ISO="EN" Content="Broken/Expired" />
+    <Lang ISO="DE" Content="Bruch/Verfall" />
+  </Item>
+</Resources>

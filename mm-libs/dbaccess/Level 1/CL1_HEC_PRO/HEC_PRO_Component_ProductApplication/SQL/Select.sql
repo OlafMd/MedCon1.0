@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_pro_component_productapplications
+WHERE 
+	HEC_PRO_Component_ProductApplicationID = @HEC_PRO_Component_ProductApplicationID

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<CodeGen>
+  <Meta>
+    <Name>Get_Documents_for_DHeaderID</Name>
+    <Description>Get Documents  for DocumentHeaderID</Description>
+    <Namespace>CL3_Document.Atomic.Retrieval</Namespace>
+    <Tags>Documents, DocumentHeaderID</Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Document.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Documents_for_DHeaderID"
+                Method_Name="Get_Documents_for_DHeaderID"
+                ApplicationPlattform_WebServiceName="documentService"
+                ApplicationPlattform_Namespace="documentService.Get_Documents_for_DHeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  doc_documents.DOC_DocumentID,
+  doc_documents.Alias,
+  doc_document_2_structure.AssignmentID,
+  doc_document_2_structure.Structure_RefID,
+  doc_documentrevisions.Revision,
+  doc_documentrevisions.File_ServerLocation,
+  doc_documentrevisions.File_Name,
+  doc_documentrevisions.DOC_DocumentRevisionID,
+  doc_documentrevisions.IsLastRevision,
+  doc_document_2_structure.StructureHeader_RefID,
+  doc_documentrevisions.IsLocked,
+  doc_documentrevisions.File_Description,
+  doc_documentrevisions.File_SourceLocation,
+  doc_documentrevisions.File_Size_Bytes,
+  doc_documentrevisions.File_MIMEType,
+  doc_documentrevisions.File_Extension,
+  doc_documents.PrimaryType,
+  doc_documentrevisions.Document_RefID,
+  doc_documentrevisions.Creation_Timestamp
+From
+  doc_documents Inner Join
+  doc_document_2_structure On doc_document_2_structure.Document_RefID =
+    doc_documents.DOC_DocumentID Left Join
+  doc_documentrevisions On doc_documents.DOC_DocumentID =
+    doc_documentrevisions.Document_RefID
+Where
+  doc_document_2_structure.StructureHeader_RefID = @DHeaderID And
+  doc_document_2_structure.IsDeleted = 0 And
+  doc_documents.IsDeleted = 0 And
+  doc_documentrevisions.IsDeleted = 0
+Order By
+  doc_documents.Alias,
+  doc_document_2_structure.Structure_RefID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3DO_GDfDH_1133" >
+    <Members>
+      <ClassMember Name="DHeaderID" Type="Guid" />
+    </Members>
+  </Parameters>
+  
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+              Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+              Returns_an_Object_or_ObjectArray="true">
+
+
+    <ObjectReturnType_Definition Name="L3DO_GDfDH_1133" IsArray="true"  GroupBy="DOC_DocumentID">
+      <Members>
+        <ClassMember Name="AssignmentID" Type="Guid"  />
+        <ClassMember Name="Structure_RefID" Type="Guid"  />
+        <ClassMember Name="StructureHeader_RefID" Type="Guid"  />
+        <ClassMember Name="DOC_DocumentID" Type="Guid"  />
+        <ClassMember Name="Alias" Type="String"  />
+        <ClassMember Name="PrimaryType" Type="String"  />
+        <ClassMember IsClass="true" IsArray="true" Name="Revisions" Type="L3DO_GDfDH_1133a" GroupBy="DOC_DocumentRevisionID">
+          <Members>
+            <ClassMember Name="DOC_DocumentRevisionID" Type="Guid"  />
+            <ClassMember Name="Document_RefID" Type="Guid"  />
+            <ClassMember Name="Revision" Type="int"  />
+            <ClassMember Name="File_ServerLocation" Type="String"  />
+            <ClassMember Name="File_Name" Type="String"  />
+            <ClassMember Name="IsLastRevision" Type="bool"  />
+            <ClassMember Name="IsLocked" Type="bool"  />
+            <ClassMember Name="File_Description" Type="String"  />
+            <ClassMember Name="File_SourceLocation" Type="String"  />
+            <ClassMember Name="File_Size_Bytes" Type="int"  />
+            <ClassMember Name="File_MIMEType" Type="String"  />
+            <ClassMember Name="File_Extension" Type="String"  />
+            <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+          </Members>
+        </ClassMember>
+            
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+  
+  
+
+</CodeGen>
+
+

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	ord_prc_rfp_issuedproposalresponse_positions
+WHERE 
+	ORD_PRC_RFP_IssuedProposalResponse_PositionID = @ORD_PRC_RFP_IssuedProposalResponse_PositionID

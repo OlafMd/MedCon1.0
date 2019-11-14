@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Medios Connect DocApp</title>
+    <!--<link href="http://localhost:8080/mmdocconnect-resources/content/style.css" rel="stylesheet" type="text/css" />-->
+    <!--Load CSS - for developers and publishing-->
+    <script type="text/javascript">
+        var styles = ["angular-datepicker", "custom", "ngDialog", "angular-block-ui", "angular-dropdowns", "docapp"];
+        var head = document.getElementsByTagName('head')[0];
+        for (var i = 0; i < styles.length; i++) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'Content/css/' + styles[i] + '.css?v2.3.7';
+            link.media = 'all';
+            head.appendChild(link);
+        }
+    </script>
+    <!-- build:lib scripts/lib.js -->
+    <script src="scripts/vendor/jquery-2.1.3.js?v=702c5950c13d2184caae264518ada264"></script>
+    <script src="scripts/vendor/jquery.signalR-2.2.0.js?v=fe63e4268cf6261869bb100d98e9452c"></script>
+    <script src="scripts/vendor/angular.js?v=8cda44c2060cf32f9dc97ff8910eaf4e"></script>
+    <script src="scripts/vendor/angucomplete-ac.js?v=06f5015cf03ee096e31982f76b7ba561"></script>
+    <script src="scripts/vendor/angucomplete-alt.js?v=00e1df27f7e2fbbd50755d7655879598"></script>
+    <script src="scripts/vendor/angular-animate.js?v=a20158d01c9aacd97ec17f7f795824d2"></script>
+    <script src="scripts/vendor/angular-block-ui.js?v=7672e37a69fc04a64761c8c4321e26cf"></script>
+    <script src="scripts/vendor/angular-datepicker.js?v=acf2eec3ac30450fc6974f3bd43233b2"></script>
+    <script src="scripts/vendor/angular-route.js?v=dd1ecd804a9ab9e0c781de8a9ec6a834"></script>
+    <script src="scripts/vendor/angular-translate.js?v=edc51cb185f87f1c45ed86cdbc4c9713"></script>
+    <script src="scripts/vendor/jQuery.maskSelect.js?v=13cc0ceed0ff9fe197c7c5902403e31f"></script>
+    <script src="scripts/vendor/ngDialog.js?v=83a1128c4e999c1bfff9135488ae55d5"></script>
+    <script src="scripts/vendor/offClick.js?v=1e6ff69ca0105c4925c67177d93a95ee"></script>
+    <script src="scripts/vendor/ui-bootstrap-tpls-2.2.0.js?v=b8ffd0418c5b5060384a79452095d179"></script>
+    <!-- endbuild -->
+    <script type="text/javascript">
+        angular.module('templates', []);
+    </script>
+    <!-- build:app scripts/app.js -->
+    <!-- inject:js -->
+    <script src="scripts/src/common/application-configuration.js?v=eee16ac6fc6f03244ac8a3ebfd44de56"></script>
+    <script src="scripts/src/common/controllers/404Controller.js?v=e9d75dc8f71a701ae03e67bc5d2d6f6e"></script>
+    <script src="scripts/src/common/controllers/changePassController.js?v=7284cf94ef8267abb549f5e980f0a619"></script>
+    <script src="scripts/src/common/controllers/indexController.js?v=ecaa88f7fa0bf610a5a26cf545dcd3aa"></script>
+    <script src="scripts/src/common/controllers/loginController.js?v=a49ee6010ddadb0f83c463add63e0e6f"></script>
+    <script src="scripts/src/common/directives/autocompleteAcDoctor.js?v=87a661f6c50c1e7a78f90b1f5b737122"></script>
+    <script src="scripts/src/common/directives/autocompleteOctDoctor.js?v=0bccbe02cbcc6eac424d09d27eb0fd07"></script>
+    <script src="scripts/src/common/directives/dateAdaptation.js?v=62973929e6ed7e04157494cf214a33d3"></script>
+    <script src="scripts/src/common/directives/datepicker2.js?v=41c4572e4621310e929858d0af647137"></script>
+    <script src="scripts/src/common/directives/dropdownListDirective.js?v=27c9db895b7db665d653154e2d51929e"></script>
+    <script src="scripts/src/common/directives/globalSearchDirective.js?v=4b1b5d873d76fcf8805e419325fc4d22"></script>
+    <script src="scripts/src/common/directives/groupByFilter.js?v=9551de1abaa313b7e7a3cf8228b8828d"></script>
+    <script src="scripts/src/common/directives/infiniteScroll.js?v=11fd56ae7171b6ea090472915c19fb4a"></script>
+    <script src="scripts/src/common/directives/ngDatefilter.js?v=e324df051d0c7d65469014abdf9c0200"></script>
+    <script src="scripts/src/common/directives/sticky.js?v=e2c04422b6509fa99744e4ff430eb914"></script>
+    <script src="scripts/src/common/directives/timeInput.js?v=a844b6ef182c8399f5b0f91a8c9fd5a8"></script>
+    <script src="scripts/src/common/services/ajaxServices.js?v=35a8703e4388cd39607a9c7bb4019cfa"></script>
+    <script src="scripts/src/common/services/alertService.js?v=d33ac6adc55870c14f4b09937a125f18"></script>
+    <script src="scripts/src/common/services/cases.service.js?v=0152fc148eeda1de6e70f31d7d70bad3"></script>
+    <script src="scripts/src/common/services/diagnoses.service.js?v=7886b787aca3e93f642cbf904d437003"></script>
+    <script src="scripts/src/common/services/doctors.service.js?v=cba681aae536a09e59854b265ead925e"></script>
+    <script src="scripts/src/common/services/drugs.service.js?v=477148d73f53ae7a3818f31fb9a95c70"></script>
+    <script src="scripts/src/common/services/pharmacy.service.js?v=b8917123857d7e2e087a8cc0854cf245"></script>
+    <script src="scripts/src/common/services/practice-settings.service.js?v=a49a3f5c2cbcf74831adb91df4886462"></script>
+    <script src="scripts/src/common/services/service.common.js?v=2e1ec69fa1c67f665ddbba278e81a317"></script>
+    <script src="scripts/src/common/services/validationService.js?v=309ae8153bf88e6cf30044c9bc1e709f"></script>
+    <script src="scripts/src/common/view/templates.js?v=642da92a3ef6eb045104e116f28357f3"></script>
+    <script src="scripts/src/app/aftercare/services/aftercareService.js?v=c9da53823a130fb23b8d71256324e44a"></script>
+    <script src="scripts/src/app/aftercare/controllers/aftercareController.js?v=6fe8cded6c2c9743a9f645929cd517bf"></script>
+    <script src="scripts/src/app/oct/controllers/octController.js?v=537de3df4cd4c823406dcc882dbd1b33"></script>
+    <script src="scripts/src/app/oct/service/octService.js?v=bac3302392ba864dcdc71611ebcdd2c6"></script>
+    <script src="scripts/src/app/orders/controllers/ordersController.js?v=53d824f0b16ba2b6ec3d3eb313e489c3"></script>
+    <script src="scripts/src/app/orders/services/ordersService.js?v=185944d99b22ebd4b9bd1e36299b7e97"></script>
+    <script src="scripts/src/app/planning/controllers/planningController.js?v=60a0946e449a1cd4755a2ec9411af6ef"></script>
+    <script src="scripts/src/app/planning/directives/addCaseDirective.js?v=52187df268f33559cc30ae381de49b22"></script>
+    <script src="scripts/src/app/planning/directives/addTemporaryAftercareDirective.js?v=f60dbdfb8e3ae62c729dde4904e7212e"></script>
+    <script src="scripts/src/app/planning/services/planningService.js?v=c88b33edf22d8378d99b57bf308c4f0f"></script>
+    <script src="scripts/src/app/patient/services/documentationOnlyService.js?v=75c5e35a9c6d2773bcf13aba4e87998d"></script>
+    <script src="scripts/src/app/patient/services/patientService.js?v=557c5562484ce8dcd073739a9108c31f"></script>
+    <script src="scripts/src/app/patient/controllers/addRetroCasesPopupController.js?v=2b68604c3c71ab2eb899e06c1dc824bf"></script>
+    <script src="scripts/src/app/patient/controllers/patientController.js?v=161032d562d7e7b13f9c1978de1526c8"></script>
+    <script src="scripts/src/app/patient/controllers/patientDetailViewController.js?v=dad2ffc4697b3992ef26a0ebc17df06e"></script>
+    <script src="scripts/src/app/patient/directives/addParticipationConsentDirective.js?v=d04bdde08c6bec2c26ad51e423a6550f"></script>
+    <script src="scripts/src/app/patient/directives/addPatientDirective.js?v=d3c5c208e9a087f2eb5b459289cba991"></script>
+    <script src="scripts/src/app/patient/directives/addPatientFeeWaiverDirective.js?v=7469acc1a52a2cffefbed81b0ec49245"></script>
+    <script src="scripts/src/app/patient/directives/addRetroCasesDirective.js?v=5cf464cee5dad395aeba70f2dc203031"></script>
+    <script src="scripts/src/app/receipt/controllers/receiptController.js?v=aafd295e4db3520244f57aa268787d50"></script>
+    <script src="scripts/src/app/receipt/services/receiptService.js?v=b4d483889cde532576ca3330c7e06c57"></script>
+    <script src="scripts/src/app/settings/controllers/my_accountController.js?v=b1497dfa584bfe02291a019c220b78aa"></script>
+    <script src="scripts/src/app/settings/controllers/praxisController.js?v=34ed1e33213e35f4e17500a5f29dfc8f"></script>
+    <script src="scripts/src/app/settings/services/my_accountService.js?v=7b7087d72173b35fee65f1a9bb310230"></script>
+    <script src="scripts/src/app/settings/services/praxisService.js?v=7d55f260b63f319c887cc4064ccd72de"></script>
+    <script src="scripts/src/app/settlement/controllers/settlementController.js?v=d7f2d2ccee32b93b684e0f12c9aa678a"></script>
+    <script src="scripts/src/app/settlement/services/settlementService.js?v=330cd7160d18640a5475d799f9a6bf99"></script>
+    <script src="scripts/src/app/settlement/directives/editOctDirective.js?v=a9bcc1f0a900ee7be1480d6b5ff094b8"></script>
+    <script src="scripts/src/app/settlement/directives/editSettlementDirective.js?v=9fad289e5d29bcbc94ecd5b52ba01d76"></script>
+    <script src="scripts/src/app/shoppingCart/directives/editOrderDirective.js?v=10179b8a58cf93bf6867def2f31e57f0"></script>
+    <script src="scripts/src/app/shoppingCart/controllers/shoppingCartController.js?v=31fd1767dfd018a2b679ef7db6659447"></script>
+    <!-- endinject -->
+    <!-- endbuild -->
+    <!-- build:translations scripts/translations.js -->
+    <script src="scripts/src/resource_files/global/resources.global.js?v=867bdb44468ad4abc6c70ea6911eb3c5"></script>
+    <script src="scripts/src/resource_files/pages/aftercarePageResources.js?v=41b0232f0d1f2898468ef9aca0f61069"></script>
+    <script src="scripts/src/resource_files/pages/doctorPageResources.js?v=da31eb34526a8f918109dbdfbb2b12ae"></script>
+    <script src="scripts/src/resource_files/pages/octResources.js?v=ebc9ed8cbc6da1dd04cddd3d8d473954"></script>
+    <script src="scripts/src/resource_files/pages/orderPageResources.js?v=8a451b638f5dc9e143d91e3736dfc69b"></script>
+    <script src="scripts/src/resource_files/pages/patientPageResources.js?v=d004f5b15f8ac23ba5289a439ac5e95a"></script>
+    <script src="scripts/src/resource_files/pages/planningPageResources.js?v=2e6308979621d08f43548ebe81546249"></script>
+    <script src="scripts/src/resource_files/pages/settlementPageResources.js?v=2e381ead90a56b95042eaac2b3fb2b2c"></script>
+    <script src="scripts/src/resource_files/pages/shoppingCartResources.js?v=365aa20166382c8906840cfacec69e46"></script>
+    <!-- endbuild -->
+</head>
+<body ng-cloak class="ng-cloak" ng-controller="indexController" ng-click="hideDropdown($event)">
+    <div ng-show="IsloggedIn">
+        <div class="fixed-header">
+            <header>
+                <div class="clearfix">
+                    <h1 class="logo">
+                        <a href="" ng-click="clickLogo()">Medios Connect  <span>Planen, Bestellen, Abrechnen</span></a>
+                    </h1>
+                    <ul class="navbar">
+                        <li><a id="btnPlanning" ng-if="isOpRole" ng-class="setMenuItemClass('planning')" ng-click="getClickMenuItem('planning')" class="icon-planning" href="#/planning">{{'LABEL_PLANNING'|translate}}</a></li>
+                        <li><a id="btnAftercare" ng-class="setMenuItemClass('aftercare')" ng-click="getClickMenuItem('aftercare')" class="icon-follow-up" href="#/aftercare">{{'LABEL_AFTERCARES'|translate}}</a></li>
+                        <li ng-if="canAddPreexaminations"><a id="btnOCT" class="icon-preexamination" ng-class="setMenuItemClass('oct')" ng-click="getClickMenuItem('oct')" href="#/oct">{{'LABEL_OCT' | translate}}</a></li>
+                        <li>
+                            <a id="btnSettlement" ng-class="setMenuItemClass('settlement')" ng-click="getClickMenuItem('settlement')" class="icon-settlement" href="#/settlement">{{'LABEL_SETTLEMENT'|translate}}</a>
+                            <div class="navbar-notification" ng-if="sett_not && sett_not != 0">{{sett_not}}</div>
+                        </li>
+                        <li>
+                            <a id="btnShoppingCart" ng-class="setMenuItemClass('shoppingcart')" ng-click="getClickMenuItem('shoppingcart')" class="icons-shopping-cart" href="#/shoppingcart">{{'LABEL_SHOPPING_CART'|translate}}</a>
+                            <div class="navbar-notification" ng-if="shoping_cart_not && shoping_cart_not != 0">{{rec_not}}</div>
+                        </li>
+                        <li>
+                            <a id="btnOrder" ng-class="setMenuItemClass('order')" ng-click="getClickMenuItem('order')" class="icon-orders" href="#/order">{{'LABEL_ORDERS'|translate}}</a>
+                        </li>
+                        <li>
+                            <a id="btnPatient" ng-class="setMenuItemClass('patient')" ng-click="getClickMenuItem('patient')" class="icon-patients" href="#/patient">{{'LABEL_PATIENT'|translate}}</a>
+                            <div id="patientNotification" class="navbar-notification" ng-if="patient_nott && patient_nott != 0">{{patient_nott}}</div>
+                        </li>
+                        <li>
+                            <a id="btnReceipt" ng-if="isDoctor" ng-class="setMenuItemClass('receipt')" ng-click="getClickMenuItem('receipt')" class="icon-evidence" href="#/receipt">{{'LABEL_RECEIPT'|translate}}</a>
+                            <div class="navbar-notification" ng-if="rec_not && rec_not != 0">{{rec_not}}</div>
+                        </li>
+                    </ul>
+                    <ul class="user-menu">
+                        <li class="member-since" ng-repeat="item in data"><span>{{item.name}} {{item.duration}} als</span></li>
+                        <li class="see-more-btn">
+                            <a ng-click="showMoreOptions()" href id="showMoreOptions">{{user_name}}</a>
+                            <div>
+                                <ul off-click="moreOptionsVisible()" ng-if="areMoreOptionsVisible" class="see-more-dd">
+                                    <li ng-if="isDoctor"><a id="btnMy_account" ng-class="setSelected('/my_account/')" ng-click="getClickMenuItem('my_account')" href>{{'LABEL_MYACCOUNT'|translate}}</a></li>
+                                    <li><a id="btnPraxis_account" href ng-click="getClickMenuItem('praxis_account')" ng-class="setSelected('/praxis_account/')">Praxis-Account</a></li>
+                                    <li><a id="btnHelp" ng-click="redirectToHelp()" href="">{{'LABEL_HELP'|translate}}</a></li>
+                                    <li><a id="btnLogout" ng-click="logout()" href="">{{'LABEL_LOGOUT'|translate}}</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <global-search-directive></global-search-directive>
+            <div ng-view class="content clearfix" ng-cloak></div>
+        </div>
+</body>
+</html>

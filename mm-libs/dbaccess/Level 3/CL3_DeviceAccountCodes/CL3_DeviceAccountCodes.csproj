@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1AF62E78-1ECF-4279-A9B2-568C45EC8E76}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL3_DeviceAccountCodes</RootNamespace>
+    <AssemblyName>CL3_DeviceAccountCodes</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_USR_AccountCode_UsageHistory.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Retrive_Account_Code_Details.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Retrive_Account_Code_Details_byAccID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Retrive_Account_Code_Details_byBParticipantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Retrive_Account_Code_Details_forTenant.cs" />
+    <Compile Include="Complex\Retrieval\cls_GetDeviceAccountCodeForTenantAndCodeValue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Save_USR_AccountCode_UsageHistory.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Retrive_Account_Code_Details.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Retrive_Account_Code_Details_byAccID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Retrive_Account_Code_Details_forTenant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Retrive_Account_Code_Details_byBParticipantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Retrive_Account_Code_Details_byBParticipantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Retrive_Account_Code_Details_forTenant.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Retrive_Account_Code_Details_byAccID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Retrive_Account_Code_Details.xml" />
+    <Content Include="Complex\Retrieval\_Support\GetDeviceAccountCodeForTenantAndCodeValue.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{FEAB6F0E-56F1-43D4-BEF0-988B26474DD2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

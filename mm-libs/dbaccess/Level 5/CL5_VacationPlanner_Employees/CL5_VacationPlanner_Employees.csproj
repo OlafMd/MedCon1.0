@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{08D1F13A-1618-40C4-BAFF-91A875A2A0A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_VacationPlanner_Employees</RootNamespace>
+    <AssemblyName>CL5_VacationPlanner_Employees</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Change_WorkplaceHistory_PlanGroup_And_Position.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Change_WorkplaceHistory_Workplace.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Delete_Employee.cs" />
+    <Compile Include="Atomic\Manipulation\cls_EmployFirstUser.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Employee.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_EmployeeFunctionHistory.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Employee_Adjustment.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Employee_BankAccount.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Employee_QualificationSkills.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Employee_SocialSecurity.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Employee_TaxInformation.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Employee_WorkPatterns.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_FirstEmployee.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Uploaded_Employee_Document.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_WorkplaceHistories.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Active_EmployeeRelationshipTimeFrame_For_EmployeeID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_get_Adjustments_For_Employee.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_EmployeePhoneNumbers.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Employee_WorktimeIntervals.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Employee_WorktimeIntervals_extensions.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_EmployeeNames_For_ManagerEmployeeID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_EmployeeNames_For_Tenant.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Employees_and_LeaveRequestData_For_IDList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_EmployeeWorkingContractTimes_For_EmployeeID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Employee_For_StaffNumber.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_EmploymentRelationshipTimeFrame_For_Employee_And_TimeFrame.cs" />
+    <Compile Include="Complex\Retrieval\cls_Check_If_Employee_Is_Manager.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Employees_And_ActiveWorkingContracts_For_Tenant.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Employees_And_ActiveWorkingContracts_For_Tenant_And_EmployeID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Employees_For_Tenant.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Employees_For_Tenant_And_ManagerEmployeeID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Employees_With_PlanGroups_For_SelectedDate.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Employee_BankAccountInformation_For_BusinessParticipantID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Employee_For_EmployeeID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Employee_For_LoggedAccount.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Employee_WorkPatterns.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_FunctionHistoryNames_For_Tenant.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Change_WorkplaceHistory_Workplace.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Change_WorkplaceHistory_PlanGroup_And_Position.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Employee_SocialSecurity.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Employee_WorkPatterns.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Employee_QualificationSkills.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_EmployeeFunctionHistory.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Employee_BankAccount.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Employee_TaxInformation.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Delete_Employee.xml" />
+    <Content Include="Atomic\Manipulation\_Support\EmployFirstUser.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Employee.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Employee_Adjustment.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_FirstEmployee.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Uploaded_Employee_Document.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_WorkplaceHistories.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Employee_For_LoggedAccount.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_EmployeeWorkingContractTimes_For_EmployeeID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_EmploymentRelationshipTimeFrame_For_Employee_And_TimeFrame.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Employee_WorktimeIntervals.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_EmployeePhoneNumbers.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_EmployeeTermTimes_For_EmployeeID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Employee_WorktimeIntervals.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_FunctionHistoryNames_For_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_EmployeeNames_For_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_EmployeeNames_For_ManagerEmployeeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Employees_With_PlanGroups_For_SelectedDate.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Employee_WorkPatterns.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Employee_BankAccountInformation_For_BusinessParticipantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Employees_And_LeaveRequestData_For_IDList.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_EmployeeWorkingContractTimes_For_EmployeeID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_EmploymentRelationshipTimeFrame_For_Employee_And_TimeFrame.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_Employees_And_ActiveWorkingContracts_For_Tenant.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_Employees_And_ActiveWorkingContracts_For_Tenant_And_EmployeID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Active_EmployeeRelationshipTimeFrame_For_EmployeeID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Active_EmployeeRelationshipTimeFrame_For_EmployeeID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\get_Adjustments_For_Employee.xml" />
+    <Content Include="Complex\Retrieval\_Support\Check_If_Employee_Is_Manager.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_Employees_For_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Employees_For_Tenant_And_ManagerEmployeeID.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_Employee_For_EmployeeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_EmployeePhoneNumbers.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Employee_For_StaffNumber.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_get_Adjustments_For_Employee.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Employee_For_StaffNumber.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Employee_For_LoggedAccount.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\apps\plannico.urlabsplaner.core\PlannicoModel\PlannicoModel.csproj">
+      <Project>{305EE153-084B-4596-9ADC-FA04D5A45DD6}</Project>
+      <Name>PlannicoModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\arch\infrastructure.csharp-api\BOp-CoreAPI\BOp-CoreAPI.csproj">
+      <Project>{64BB878F-E099-4DFC-955F-AD0E9DDBBA51}</Project>
+      <Name>BOp-CoreAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\apps\plannico.urlabsplaner.core\VacationPlannerCore\VacationPlannerCore.csproj">
+      <Project>{ED5AF06A-93C1-42B1-AD3A-F17FD5455517}</Project>
+      <Name>VacationPlannerCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_BNK\CL1_ACC_BNK.csproj">
+      <Project>{6C90052F-9EBC-48F7-806B-6D5430AECFBF}</Project>
+      <Name>CL1_ACC_BNK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_TAX\CL1_ACC_TAX.csproj">
+      <Project>{E2A9FD01-BAC1-4A56-9062-B8F30237590E}</Project>
+      <Name>CL1_ACC_TAX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_EMP\CL1_CMN_BPT_EMP.csproj">
+      <Project>{2385DE36-25FE-49CE-B27B-E70E7E2EB0A1}</Project>
+      <Name>CL1_CMN_BPT_EMP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_STA\CL1_CMN_BPT_STA.csproj">
+      <Project>{B15D38AC-4D53-4DDD-9D62-F4077498ECA1}</Project>
+      <Name>CL1_CMN_BPT_STA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL\CL1_CMN_CAL.csproj">
+      <Project>{C6107EF8-3603-4EDA-B158-42404049F249}</Project>
+      <Name>CL1_CMN_CAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL_APR\CL1_CMN_CAL_APR.csproj">
+      <Project>{5FB54AB2-B742-403F-9DE7-1547C88D76D3}</Project>
+      <Name>CL1_CMN_CAL_APR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PER\CL1_CMN_PER.csproj">
+      <Project>{6BDA1EB4-FA2A-41A1-8B83-171ED9B85ADD}</Project>
+      <Name>CL1_CMN_PER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR\CL1_CMN_STR.csproj">
+      <Project>{B6524266-049E-4266-981E-FCFCEBB8C86C}</Project>
+      <Name>CL1_CMN_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR_PPS\CL1_CMN_STR_PPS.csproj">
+      <Project>{B6295F04-6656-4635-B473-B475E5FFDF6D}</Project>
+      <Name>CL1_CMN_STR_PPS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR_SCE\CL1_CMN_STR_SCE.csproj">
+      <Project>{EFC1DF6B-4B7C-4219-A6A8-4D692ACF419A}</Project>
+      <Name>CL1_CMN_STR_SCE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_DOC\CL1_DOC.csproj">
+      <Project>{08FEF49E-52A6-4C81-89EA-CB0679804159}</Project>
+      <Name>CL1_DOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768C60E8-0C7F-42B2-B8C9-D327C6BF334A}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{FEAB6F0E-56F1-43D4-BEF0-988B26474DD2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_Absence\CL5_VacationPlanner_Absence.csproj">
+      <Project>{23372EB6-ED52-46D4-8378-3FCB9967AA9F}</Project>
+      <Name>CL5_VacationPlanner_Absence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_Company\CL5_VacationPlanner_Company.csproj">
+      <Project>{B3A40118-6ECE-47A9-84A4-065907ED7C9E}</Project>
+      <Name>CL5_VacationPlanner_Company</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_Office\CL5_VacationPlanner_Office.csproj">
+      <Project>{016A5BB0-C2AA-4545-840A-002620E51F0F}</Project>
+      <Name>CL5_VacationPlanner_Office</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_Tenant\CL5_VacationPlanner_Tenant.csproj">
+      <Project>{7ABB059C-8AA5-4A23-8FCE-67D3EB8CADBE}</Project>
+      <Name>CL5_VacationPlanner_Tenant</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_WorkArea\CL5_VacationPlanner_WorkArea.csproj">
+      <Project>{2CE4AE2B-5490-434F-A288-15B962EF2F31}</Project>
+      <Name>CL5_VacationPlanner_WorkArea</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_WorkPlace\CL5_VacationPlanner_WorkPlace.csproj">
+      <Project>{F603CF53-7220-4BC4-8AC3-C27B9297DB3E}</Project>
+      <Name>CL5_VacationPlanner_WorkPlace</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

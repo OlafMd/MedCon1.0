@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/21/2014 3:16:59 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_BPT_CTM_OrganizationalUnit"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_BPT_CTM"
+                IsClass_Corresponding_DBTable="cmn_bpt_ctm_organizationalunits" >
+      <Members>
+		<ClassMember Name="CMN_BPT_CTM_OrganizationalUnitID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="CustomerTenant_OfficeITL" Type="String" />
+		<ClassMember Name="InternalOrganizationalUnitNumber" Type="String" />
+		<ClassMember Name="InternalOrganizationalUnitSimpleName" Type="String" />
+		<ClassMember Name="ExternalOrganizationalUnitNumber" Type="String" />
+		<ClassMember Name="Customer_RefID" Type="Guid" />
+		<ClassMember Name="Parent_OrganizationalUnit_RefID" Type="Guid" />
+		<ClassMember Name="OrganizationalUnit_SimpleName" Type="String" />
+		<ClassMember Name="OrganizationalUnit_Name" Type="Dict" Source_DBField="OrganizationalUnit_Name_DictID" OriginTable="cmn_bpt_ctm_organizationalunits"/>
+		<ClassMember Name="OrganizationalUnit_Description" Type="Dict" Source_DBField="OrganizationalUnit_Description_DictID" OriginTable="cmn_bpt_ctm_organizationalunits"/>
+		<ClassMember Name="Default_PhoneNumber" Type="String" />
+		<ClassMember Name="Default_FaxNumber" Type="String" />
+		<ClassMember Name="DisplayImage_Document_RefID" Type="Guid" />
+		<ClassMember Name="IsMedicalPractice" Type="Boolean" />
+		<ClassMember Name="IfMedicalPractise_HEC_MedicalPractice_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

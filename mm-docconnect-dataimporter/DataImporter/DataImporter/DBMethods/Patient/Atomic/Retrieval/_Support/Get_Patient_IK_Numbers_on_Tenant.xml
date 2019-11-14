@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="03/09/2017 12:08 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Patient_IK_Numbers_on_Tenant</Name>
+    <Namespace>DataImporter.DBMethods.Patient.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="DataImporter.DBMethods.Patient.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Patient_IK_Numbers_on_Tenant"
+                Method_Name="Get_Patient_IK_Numbers_on_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Patient_IK_Numbers_on_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_patient_healthinsurances.Patient_RefID As patient_id,
+  hec_his_healthinsurance_companies.HealthInsurance_IKNumber As ik_number,
+  cmn_bpt_businessparticipants.DisplayName As hip_name
+From
+  hec_patient_healthinsurances Inner Join
+  hec_his_healthinsurance_companies
+    On hec_patient_healthinsurances.HIS_HealthInsurance_Company_RefID =
+    hec_his_healthinsurance_companies.HEC_HealthInsurance_CompanyID And
+    hec_his_healthinsurance_companies.Tenant_RefID = @TenantID And
+    hec_his_healthinsurance_companies.IsDeleted = 0 Inner Join
+  cmn_bpt_businessparticipants
+    On hec_his_healthinsurance_companies.CMN_BPT_BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+Where
+  hec_patient_healthinsurances.Tenant_RefID = @TenantID And
+  hec_patient_healthinsurances.IsDeleted = 0 And
+  cmn_bpt_businessparticipants.Tenant_RefID = @TenantID And
+  cmn_bpt_businessparticipants.IsDeleted = 0
+  </SQLStatement>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="PA_GPIKNoT_1208" IsArray="true">
+      <Members>
+        <ClassMember Name="patient_id" Type="Guid"  />
+        <ClassMember Name="ik_number" Type="String"  />
+        <ClassMember Name="hip_name" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

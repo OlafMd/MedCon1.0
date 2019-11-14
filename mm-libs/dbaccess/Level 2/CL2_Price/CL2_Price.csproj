@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6630A96E-18C8-4FC3-97DF-E6815B4B92C4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL2_Price</RootNamespace>
+    <AssemblyName>CL2_Price</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_CMN_SLS_Price.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_CMN_SLS_Pricelist.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_CMN_SLS_Pricelist_Release.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_DynamicPricingFormula.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllDynamicPricingFormulas_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllGeneralAverageProcurementPrices_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllPricelists_For_TenantID_or_PricelistID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllReleases_for_TenantID_ID_or_PricelistID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DefaultPriceList_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PriceDiscounts_for_PriceListID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PriceDiscounts_for_ProductGroupID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PriceInformation_For_PriceID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PriceList_With_Versions_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PriceValues_for_DefaultPricelist_and_CurrentDate.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PriceValues_for_PriceListReleaseID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PriceValues_for_SubscribedCatalogITL.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PriceValue_For_PriceID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Pricelist_Discount.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Save_DynamicPricingFormula.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_CMN_SLS_Price.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_CMN_SLS_Pricelist.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PriceList_With_Versions_for_TenantID.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_CMN_SLS_Pricelist_Release.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllPricelists_For_TenantID_or_PricelistID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllReleases_for_Tenant_or_PricelistID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllReleases_for_TenantID_ID_or_PricelistID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllDynamicPricingFormulas_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PriceValues_for_SubscribedCatalogITL.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllGeneralAverageProcurementPrices_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PriceValues_for_PriceListReleaseID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PriceValues_for_DefaultPricelist_and_CurrentDate.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DefaultPriceList_for_TenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllGeneralAverageProcurementPrices_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DefaultPriceList_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PriceValues_for_DefaultPricelist_and_CurrentDate.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PriceValues_for_PriceListReleaseID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PriceValues_for_SubscribedCatalogITL.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllDynamicPricingFormulas_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_AllReleases_for_TenantID_ID_or_PricelistID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PriceList_With_Versions_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_Pricelist_Discount.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PriceValue_For_PriceID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PriceInformation_For_PriceID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PriceDiscounts_for_ProductGroupID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PriceDiscounts_for_PriceListID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PriceDiscounts_for_PriceListID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_PriceDiscounts_for_ProductGroupID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PriceInformation_For_PriceID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PriceValue_For_PriceID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllPricelists_For_TenantID_or_PricelistID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\utils\DLUtils_Common\DLUtils_Common.csproj">
+      <Project>{E7D06880-7054-4045-9B0B-6AFE3DB5185C}</Project>
+      <Name>DLUtils_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_SLS\CL1_CMN_SLS.csproj">
+      <Project>{86752CE8-6442-4C3F-A316-98FADBB38BE1}</Project>
+      <Name>CL1_CMN_SLS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_SLS_DPF\CL1_CMN_SLS_DPF.csproj">
+      <Project>{027EAF06-A974-49FB-B09A-AC841F8F31AD}</Project>
+      <Name>CL1_CMN_SLS_DPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL2_Currency\CL2_Currency.csproj">
+      <Project>{CACC6DDF-D4E9-4EE9-9C75-E1A65071A37C}</Project>
+      <Name>CL2_Currency</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

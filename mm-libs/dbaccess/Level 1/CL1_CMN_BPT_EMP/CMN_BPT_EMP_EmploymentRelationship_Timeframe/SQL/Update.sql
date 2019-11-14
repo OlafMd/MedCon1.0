@@ -1,0 +1,10 @@
+UPDATE 
+	cmn_bpt_emp_employmentrelationship_timeframes
+SET 
+	EmploymentRelationship_RefID=@EmploymentRelationship_RefID,
+	CalculationTimeframe_RefID=@CalculationTimeframe_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_BPT_EMP_EmploymentRelationship_TimeframeID = @CMN_BPT_EMP_EmploymentRelationship_TimeframeID

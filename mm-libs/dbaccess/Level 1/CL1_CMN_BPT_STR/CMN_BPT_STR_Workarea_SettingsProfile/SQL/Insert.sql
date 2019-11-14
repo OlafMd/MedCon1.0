@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_bpt_str_workarea_settingsprofiles
+	(
+		CMN_BPT_STR_Workarea_SettingsProfileID,
+		Workarea_RefID,
+		WorkdayStart_in_mins,
+		RoosterGridMinimumPlanningUnit_in_mins,
+		MaximumPreWork_Period_in_mins,
+		MaximumPostWork_Period_in_mins,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_STR_Workarea_SettingsProfileID,
+		@Workarea_RefID,
+		@WorkdayStart_in_mins,
+		@RoosterGridMinimumPlanningUnit_in_mins,
+		@MaximumPreWork_Period_in_mins,
+		@MaximumPostWork_Period_in_mins,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

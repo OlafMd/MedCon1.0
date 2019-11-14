@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CasePropertyValue_for_CaseIDs_and_CasePropertyGpmID</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_CasePropertyValue_for_CaseIDs_and_CasePropertyGpmID"
+								Method_Name="Get_CasePropertyValue_for_CaseIDs_and_CasePropertyGpmID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+  Select
+    hec_cas_case_universalpropertyvalue.Value_String,
+    hec_cas_case_universalpropertyvalue.Value_Boolean,
+    hec_cas_case_universalpropertyvalue.Value_Number,
+    hec_cas_case_universalpropertyvalue.HEC_CAS_Case_UniversalPropertyValueID As ID,
+    hec_cas_case_universalpropertyvalue.HEC_CAS_Case_RefID as CaseID
+  From
+    hec_cas_case_universalpropertyvalue Inner Join
+    hec_cas_case_universalproperties
+      On hec_cas_case_universalpropertyvalue.HEC_CAS_Case_UniversalProperty_RefID = hec_cas_case_universalproperties.HEC_CAS_Case_UniversalPropertyID And
+ 	   hec_cas_case_universalproperties.GlobalPropertyMatchingID = @PropertyGpmID And
+ 	   hec_cas_case_universalproperties.Tenant_RefID = @TenantID And
+ 	   hec_cas_case_universalproperties.IsDeleted = 0
+  Where
+    hec_cas_case_universalpropertyvalue.HEC_CAS_Case_RefID = @CaseIDs And
+    hec_cas_case_universalpropertyvalue.Tenant_RefID = @TenantID And
+    (hec_cas_case_universalpropertyvalue.IsDeleted = 0 Or
+     hec_cas_case_universalpropertyvalue.IsDeleted = @IncludeDeleted)
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GCPVfCIDsaCGpmID_0832">
+    <Members>
+      <ClassMember Name="CaseIDs" Type="Guid" IsArray="true" />
+      <ClassMember Name="PropertyGpmID" Type="String"  />
+      <ClassMember Name="IncludeDeleted" Type="Boolean"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GCPVfCIDsaCGpmID_0832" IsArray="true">
+      <Members>
+        <ClassMember Name="Value_String" Type="String"  />
+        <ClassMember Name="Value_Boolean" Type="Boolean"  />
+        <ClassMember Name="Value_Number" Type="Double"  />
+        <ClassMember Name="ID" Type="Guid"  />
+        <ClassMember Name="CaseID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

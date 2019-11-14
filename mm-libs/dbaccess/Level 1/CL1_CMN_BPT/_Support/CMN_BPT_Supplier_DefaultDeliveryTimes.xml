@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 2/18/2014 10:15:30 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_BPT_Supplier_DefaultDeliveryTime"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_BPT"
+                IsClass_Corresponding_DBTable="cmn_bpt_supplier_defaultdeliverytimes" >
+      <Members>
+		    <ClassMember Name="CMN_BPT_Supplier_DefaultDeliveryTimeID" Type="Guid" IsObjectPrimaryKey="true"/>
+		    <ClassMember Name="Supplier_RefID" Type="Guid" />
+		    <ClassMember Name="CRONExpression" Type="String" />
+		    <ClassMember Name="Specified_Product_Group_RefID" Type="Guid" />
+		    <ClassMember Name="Specified_Product_RefID" Type="Guid" />
+		    <ClassMember Name="Specified_Product_Variant_RefID" Type="Guid" />
+		    <ClassMember Name="Specified_Product_Release_RefID" Type="Guid" />
+        <ClassMember Name="TimeToDelivery_in_min" Type="Double" />
+		    <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		    <ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		    <ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

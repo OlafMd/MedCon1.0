@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_str_profession_calendartemplates
+	(
+		CMN_STR_Profession_CalendarTemplateID,
+		Profession_RefID,
+		CalendarInstance_RefID,
+		Label_DictID,
+		Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_STR_Profession_CalendarTemplateID,
+		@Profession_RefID,
+		@CalendarInstance_RefID,
+		@Label,
+		@Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

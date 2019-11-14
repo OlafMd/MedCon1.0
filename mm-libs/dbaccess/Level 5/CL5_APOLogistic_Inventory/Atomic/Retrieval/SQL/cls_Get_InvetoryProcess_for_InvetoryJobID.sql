@@ -1,0 +1,30 @@
+
+Select
+  log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_ProcessID,
+  log_wrh_inj_inventoryjob_countingruns.IsCounting_Started,
+  log_wrh_inj_inventoryjob_countingruns.IsCounting_Completed,
+  log_wrh_inj_inventoryjob_countingruns.IsCountingListPrinted,
+  log_wrh_inj_inventoryjob_countingruns.IsDifferenceFound,
+  log_wrh_inj_inventoryjob_countingruns.SequenceNumber,
+  log_wrh_inj_inventoryjob_processes.SequenceNumber As processSequenceNumber,
+  log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_Shelf_RefID,
+  log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_INJ_InventoryJob_Process_ShelfID,
+  log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_INJ_InventoryJob_Process_RefID,
+  log_wrh_inj_inventoryjob_countingruns.LOG_WRH_INJ_InventoryJob_CountingRunID
+From
+  log_wrh_inj_inventoryjob_processes Left Join
+  log_wrh_inj_inventoryjob_countingruns
+    On log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_ProcessID =
+    log_wrh_inj_inventoryjob_countingruns.InventoryJob_Process_RefID And
+    log_wrh_inj_inventoryjob_countingruns.Tenant_RefID = @TenantID And
+    log_wrh_inj_inventoryjob_countingruns.IsDeleted = 0 Left Join
+  log_wrh_inj_inventoryjob_process_shelves
+    On log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_ProcessID =
+    log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_INJ_InventoryJob_Process_RefID And log_wrh_inj_inventoryjob_process_shelves.Tenant_RefID = @TenantID And log_wrh_inj_inventoryjob_process_shelves.IsDeleted = 0
+Where
+  log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_RefID =
+  @InvetoryJobID And
+  log_wrh_inj_inventoryjob_processes.Tenant_RefID = @TenantID And
+  log_wrh_inj_inventoryjob_processes.IsDeleted = 0
+Order by log_wrh_inj_inventoryjob_countingruns.SequenceNumber
+  

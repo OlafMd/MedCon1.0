@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_pro_product_types
+	(
+		CMN_PRO_Product_TypeID,
+		ProductType_Name_DictID,
+		ProductType_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_PRO_Product_TypeID,
+		@ProductType_Name,
+		@ProductType_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

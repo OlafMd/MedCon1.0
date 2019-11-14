@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_suppliers
+	(
+		CMN_BPT_SupplierID,
+		Ext_BusinessParticipant_RefID,
+		SupplierType_RefID,
+		ExternalSupplierProvidedIdentifier,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_SupplierID,
+		@Ext_BusinessParticipant_RefID,
+		@SupplierType_RefID,
+		@ExternalSupplierProvidedIdentifier,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

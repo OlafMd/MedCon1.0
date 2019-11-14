@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="07/29/2013 14:37:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Practice</Name>
+    <Namespace>MMDocConnectDBMethods.Doctor.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Doctor.Atomic.Manipulation"
+                Method_ClassName="cls_Save_Practice"
+                Method_Name="Save_Practice"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <Parameters IsClass="true" Name="P_DO_SP_1547">
+    <Members>
+      <ClassMember Name="PracticeID" Type="Guid" />
+      <ClassMember Name="Practice_Name" Type="String" />
+      <ClassMember Name="Street" Type="String" />
+      <ClassMember Name="No" Type="String" />
+      <ClassMember Name="Zip" Type="String" />
+      <ClassMember Name="City" Type="String" />
+      <ClassMember Name="BSNR" Type="String" />
+      <ClassMember Name="Main_Email" Type="String" />
+      <ClassMember Name="Main_Phone" Type="String" />
+      <ClassMember Name="Fax" Type="String" />
+      <ClassMember Name="Contact_PersonFirstName" Type="String" />
+      <ClassMember Name="Contact_PersonLastName" Type="String" />
+      <ClassMember Name="Email" Type="String" />
+      <ClassMember Name="Phone" Type="String" />
+      <ClassMember Name="Surgery_Practice" Type="bool" />
+      <ClassMember Name="Orders_Drugs" Type="bool" />
+      <ClassMember Name="Only_Label_Required" Type="bool"/>
+      <ClassMember Name="Default_Shipping_Date_Offset" Type="String" />
+      <ClassMember Name="Waive_Service_Fee" Type="bool" />
+      <ClassMember Name="Account_Holder" Type="String" />
+      <ClassMember Name="Practice_NameAccount" Type="String" />
+      <ClassMember Name="IBAN" Type="String" />
+      <ClassMember Name="BIC" Type="String" />
+      <ClassMember Name="Bank" Type="String" />
+      <ClassMember Name="Login_Email" Type="String" />
+      <ClassMember Name="Account_Password" Type="String" />
+      <ClassMember Name="Account_PasswordForEmail" Type="String" />
+      <ClassMember Name="Account_Deactivated" Type="bool" />
+      <ClassMember Name="Change_Doctor_Account_Statuses" Type="bool" />
+      <ClassMember Name="ShouldDownloadReportUponSubmission" Type="bool" />
+      <ClassMember Name="PressEnterToSearch" Type="bool" />
+      <ClassMember Name="PracticeHasOctDevice" Type="bool?" />
+      <ClassMember Name="DefaultPharmacy" Type="String" />
+      <ClassMember Name="IsQuickOrderActive" Type="bool" />
+      <ClassMember Name="DeliveryDateFrom" Type="String" />
+      <ClassMember Name="DeliveryDateTo" Type="String" />
+      <ClassMember Name="UseGracePeriod" Type="bool" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_a_StandardDataType_or_StadardDataTypeArray="true">
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+</CodeGen>
+

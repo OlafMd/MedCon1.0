@@ -1,0 +1,22 @@
+UPDATE 
+	bil_billheaders
+SET 
+	BillRecipient_BuisnessParticipant_RefID=@BillRecipient_BuisnessParticipant_RefID,
+	CreatedBy_BusinessParticipant_RefID=@CreatedBy_BusinessParticipant_RefID,
+	Currency_RefID=@Currency_RefID,
+	BillNumber=@BillNumber,
+	DateOnBill=@DateOnBill,
+	TotalValue_BeforeTax=@TotalValue_BeforeTax,
+	TotalValue_IncludingTax=@TotalValue_IncludingTax,
+	SourceEconomicRegion_RefID=@SourceEconomicRegion_RefID,
+	TargetEconomicRegion_RefID=@TargetEconomicRegion_RefID,
+	BillingAddress_UCD_RefID=@BillingAddress_UCD_RefID,
+	BillHeader_PaymentCondition_RefID=@BillHeader_PaymentCondition_RefID,
+	BillComment=@BillComment,
+	IsFullyPaid=@IsFullyPaid,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	BIL_BillHeaderID = @BIL_BillHeaderID

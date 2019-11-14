@@ -1,0 +1,30 @@
+﻿<div class="popup-wrapper">
+    <div class="popup popup-large add-new-patient">
+        <h2>{{ 'LABEL_ENTER_DATE_PERIOD' | translate }}</h2>
+        <ul class="inline-fields-warning clearfix">
+            <li>
+                <label id="lblIssue_date">{{ 'LABEL_DATE_FROM' | translate }}<span class="error" ng-show="patientForm.dpIssue_date.$error.required">*</span></label>
+                <datepicker date-format="dd.MM.yyyy" validate-date="true" date-model="global_search.date_from" date-max-limit={{today}}>
+                    <input class="2000Year" id="dpIssue_date" ng-focus="SetClass()" name="dpIssue_date" ng-model="global_search.date_from"
+                            ng-datefilter type="text" change="typedDAte" ng-bind="date | date:'dd.MM.yyyy'" validate-date="true"
+                            placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}" date-max-limit="today" />
+                </datepicker>
+            </li>
+            <li>
+                <label id="lblIssue_date">{{ 'LABEL_DATE_TO' | translate }}<span class="error" ng-show="patientForm.dpIssue_date.$error.required">*</span></label>
+                <datepicker date-format="dd.MM.yyyy"
+                            validate-date="true"
+                            date-max-limit={{today}}
+                            date-model="global_search.date_to">
+                    <input class="2000Year" id="dpIssue_date" ng-focus="SetClass()" name="dpIssue_date" ng-model="global_search.date_to" ng-datefilter type="text"
+                           change="typedDAte" ng-bind="date | date:'dd.MM.yyyy'" validate-date="true" placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                           date-max-limit="today" />
+                </datepicker>
+            </li>
+        </ul>
+        <div class="buttons fright">
+            <button class="button wide reject jsblockClose" id="btnCancel" onclick="return false;" ng-click="closeSetPeriodDialog()" translate="BUTTON_CANCEL"></button>
+            <button class="button wide confirm-smaller jsblockClose" id="btnSubmitDates" translate="BUTTON_CONFIRM_NORMALCASE" ng-click="submitDatePeriod()" ng-disabled="isSubmitDisabled()"></button>
+        </div>
+    </div>
+</div>

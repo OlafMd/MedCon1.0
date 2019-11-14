@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_cal_ava_availabilities
+	(
+		CMN_CAL_AVA_AvailabilityID,
+		AvailabilityType_RefID,
+		AvailabilityComment,
+		IsAvailabilityExclusionItem,
+		Office_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_CAL_AVA_AvailabilityID,
+		@AvailabilityType_RefID,
+		@AvailabilityComment,
+		@IsAvailabilityExclusionItem,
+		@Office_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_bpt_sta_staffings
+	(
+		CMN_BPT_STA_StaffingID,
+		Employee_RefID,
+		CMN_STR_PPS_Shift_CapacityRequirement_RefID,
+		StartDate,
+		Duration_min,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_STA_StaffingID,
+		@Employee_RefID,
+		@CMN_STR_PPS_Shift_CapacityRequirement_RefID,
+		@StartDate,
+		@Duration_min,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

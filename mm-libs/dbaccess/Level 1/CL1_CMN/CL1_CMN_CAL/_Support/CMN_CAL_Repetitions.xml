@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:35:12 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_CAL_Repetition"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_CAL"
+                IsClass_Corresponding_DBTable="cmn_cal_repetitions" >
+      <Members>
+		<ClassMember Name="CMN_CAL_RepetitionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="R_CronExpression" Type="String" />
+		<ClassMember Name="IsDaily" Type="Boolean" />
+		<ClassMember Name="IsWeekly" Type="Boolean" />
+		<ClassMember Name="IsMonthly" Type="Boolean" />
+		<ClassMember Name="IsYearly" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

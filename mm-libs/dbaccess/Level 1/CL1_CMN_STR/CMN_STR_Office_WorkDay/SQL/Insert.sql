@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_office_workdays
+	(
+		CMN_STR_Office_WorkDayID,
+		WorkDay_Start,
+		WorkDay_End,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_STR_Office_WorkDayID,
+		@WorkDay_Start,
+		@WorkDay_End,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

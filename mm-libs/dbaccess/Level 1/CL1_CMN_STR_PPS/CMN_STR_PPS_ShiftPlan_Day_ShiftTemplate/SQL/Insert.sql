@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_str_pps_shiftplan_day_shifttemplates
+	(
+		CMN_STR_PPS_ShiftPlan_Day_ShiftTemplateID,
+		CMN_PPS_ShiftTemplate_RefID,
+		CMN_STR_PPS_ShiftPlan_Day_RefID,
+		RequiredHeadCount,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_STR_PPS_ShiftPlan_Day_ShiftTemplateID,
+		@CMN_PPS_ShiftTemplate_RefID,
+		@CMN_STR_PPS_ShiftPlan_Day_RefID,
+		@RequiredHeadCount,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

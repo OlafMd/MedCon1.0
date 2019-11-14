@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/27/2012 11:51:28 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_VacationPlanner_LeaveRequest.Complex.Retrieval"
+                Method_ClassName="cls_Get_RemainingAllowances_EmployeeData"
+                Method_Name="Get_RemainingAllowances_EmployeeData"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace="Get_RemainingAllowances_EmployeeData"
+                />
+
+  <Parameters IsClass="true" Name="P_L6LR_GRAED_1400">
+    <Members>
+      <ClassMember Name="ListOfEmployees" IsArray="true" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="L6LR_GRAED_1400" IsArray="false">
+      <Members>
+        <ClassMember Name="Company" Type="L5CM_GCSFT_1157" isArray="false" isReference="true"/>
+        <ClassMember Name="Employees" Type="L5EM_GEFT_0959[]" isArray="true" isReference="true"/>
+       // <ClassMember Name="Numbers" Type="L5EM_GEPN_1235[]" isArray="true" isReference="true"/>
+
+      </Members>
+
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

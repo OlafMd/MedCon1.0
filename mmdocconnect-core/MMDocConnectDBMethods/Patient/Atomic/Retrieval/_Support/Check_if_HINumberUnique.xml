@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Check_Bsnr</Name>
+		<Namespace>MMDocConnectDBMethods.Patient.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.Patient.Atomic.Retrieval"
+								Method_ClassName="cls_Check_if_HINumberUnique"
+								Method_Name="Check_if_HINumberUnique"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+    Select
+      If(Count(hec_patient_healthinsurances.HealthInsurance_Number) > 0, 'false',
+      'true') As isHINumberUnique,
+      cmn_per_personinfo.FirstName,
+      cmn_per_personinfo.LastName
+    From
+      hec_patient_healthinsurances Inner Join
+      hec_patients On hec_patient_healthinsurances.Patient_RefID =
+        hec_patients.HEC_PatientID And hec_patients.IsDeleted = 0 And
+        hec_patients.Tenant_RefID = @TenantID Inner Join
+      hec_patient_medicalpractices On hec_patient_medicalpractices.HEC_Patient_RefID
+        = hec_patients.HEC_PatientID And hec_patient_medicalpractices.IsDeleted = 0
+        And hec_patient_medicalpractices.Tenant_RefID = @TenantID Inner Join
+      cmn_bpt_businessparticipants On hec_patients.CMN_BPT_BusinessParticipant_RefID
+        = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And
+        cmn_bpt_businessparticipants.IsNaturalPerson = 1 And
+        cmn_bpt_businessparticipants.IsCompany = 0 And
+        cmn_bpt_businessparticipants.IsDeleted = 0 And
+        cmn_bpt_businessparticipants.Tenant_RefID = @TenantID Inner Join
+      cmn_per_personinfo
+        On cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID =
+        cmn_per_personinfo.CMN_PER_PersonInfoID And cmn_per_personinfo.IsDeleted = 0
+        And cmn_per_personinfo.Tenant_RefID = @TenantID
+    Where
+      hec_patients.HEC_PatientID != @PatientID And
+      hec_patient_healthinsurances.HealthInsurance_Number = @InsuranceNumber And
+      hec_patient_healthinsurances.IsDeleted = 0 And
+      hec_patient_healthinsurances.Tenant_RefID = @TenantID And
+      hec_patient_medicalpractices.HEC_MedicalPractices_RefID = @MedicalPracticeID  
+	</SQLStatement>
+  
+	<Parameters IsClass="true" Name="P_PA_CIHINU_1023">
+		<Members>
+			<ClassMember Name="InsuranceNumber" Type="String"  />
+    <ClassMember Name="MedicalPracticeID" Type="Guid"  />
+    <ClassMember Name="PatientID" Type="Guid"  />
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_an_Object_or_ObjectArray="true">
+		<ObjectReturnType_Definition Name="PA_CIHINU_1023" IsArray="true">
+			<Members>
+				<ClassMember Name="isHINumberUnique" Type="bool"  />	
+        <ClassMember Name="FirstName" Type="String"  />
+        <ClassMember Name="LastName" Type="String"  />
+			</Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+</CodeGen>

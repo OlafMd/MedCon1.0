@@ -1,0 +1,11 @@
+UPDATE 
+	hec_act_performedaction_referral_relevantdiagnosisupdates
+SET 
+	PerformedAction_Referral_RefID=@PerformedAction_Referral_RefID,
+	PerformedAction_DiagnosisUpdate_RefID=@PerformedAction_DiagnosisUpdate_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_ACT_PerformedAction_Referral_RelevantDiagnosisUpdateID = @HEC_ACT_PerformedAction_Referral_RelevantDiagnosisUpdateID

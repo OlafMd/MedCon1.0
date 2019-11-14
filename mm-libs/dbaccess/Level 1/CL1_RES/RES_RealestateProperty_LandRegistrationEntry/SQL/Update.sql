@@ -1,0 +1,16 @@
+UPDATE 
+	res_realestateproperty_landregistrationentries
+SET 
+	RealestateProperty_RefID=@RealestateProperty_RefID,
+	LandRegistrationEntry_LandTitleRegister=@LandRegistrationEntry_LandTitleRegister,
+	LandRegistrationEntry_Marking=@LandRegistrationEntry_Marking,
+	LandRegistrationEntry_LandLot=@LandRegistrationEntry_LandLot,
+	LandRegistrationEntry_Parcel_FromNumber=@LandRegistrationEntry_Parcel_FromNumber,
+	LandRegistrationEntry_Parcel_ToNumber=@LandRegistrationEntry_Parcel_ToNumber,
+	LandRegistrationEntry_Sheet=@LandRegistrationEntry_Sheet,
+	LandRegistrationEntry_GroundAreaSize_in_sqm=@LandRegistrationEntry_GroundAreaSize_in_sqm,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_RealestateProperty_LandRegistrationEntryID = @RES_RealestateProperty_LandRegistrationEntryID

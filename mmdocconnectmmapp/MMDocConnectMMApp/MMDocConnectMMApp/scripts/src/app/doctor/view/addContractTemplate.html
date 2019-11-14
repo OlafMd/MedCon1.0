@@ -1,0 +1,41 @@
+﻿<div class="gray-content-holder doctors-data-lists doctor-list animate-if">
+    <form id="contractForm" name="contractForm" ng-submit="saveContract()" novalidate off-click="closeContractForm()" >
+        <h3>{{'LABEL_ADD_CONTRACT' | translate}}</h3>
+        <div name="messageContainer" class="error-msg-container" ng-if="divContainer">
+            <span class="error" ng-repeat="overlap in overlaps" ng-if="overlaps || overlaps.length !== 0" translate="LABEL_CONTRACT_DATES_OVERLAPS" translate-values="overlap"></span>
+            <span class="error" ng-if="contractStartDateInvalid">{{ 'LABEL_CONTRACT_START_DATE_INVALID' | translate }}</span>
+            <span class="error" ng-if="contractEndDateInvalid">{{ 'LABEL_CONTRACT_END_DATE_INVALID' | translate }}</span>
+            <span class="error" ng-if="consentEndDateBeforeConsentStartDate">{{ 'LABEL_CONTRACT_END_DATE_BEFORE_CONTRACT_START_DATE' | translate }}</span>      
+            <span class="error" ng-if="contractStartDateNotInContractValidityTimespan" translate="LABEL_CONTRACT_START_DATE_NOT_IN_CONTRACT_VALIDITY_TIMESPAN" translate-values="{ 'contractValidityTimespan': contractValidityTimespan }"></span>    
+            <span class="error" ng-if="contractEndDateNotInContractValidityTimespan" translate="LABEL_CONTRACT_END_DATE_NOT_IN_CONTRACT_VALIDITY_TIMESPAN" translate-values="{ 'contractValidityTimespan': contractValidityTimespan }"></span>
+        </div>
+        <ul class="first-class-data contract-row ">
+            <li class="no-margin-bottom">
+                <label>{{'LABEL_CONTRACT'|translate}}<span class="error" ng-show="contractForm.Contract.$error.required">*</span></label>
+                <dropdown-list id="Contract" name="Contract" items="contracts" ng-change="selectedContract()" ng-model="contract.Contract" required disable-input="contractsDisabled" params="{display_name: 'ContractName', id: 'contractID', is_model_object: true}"></dropdown-list>
+            </li>
+            <li class="no-margin-bottom">
+                <label>{{'LABEL_START_DATE'|translate}}<span class="error" ng-show="contractForm.startDateContract.$error.required">*</span></label>
+                <datepicker date-format="dd.MM.yyyy" date-min-limit={{contractValidFrom}} date-max-limit={{contractValidThrough}} date-model="contract.consentStartDate">
+                    <input type="text" id="startdatecontract" ng-focus="SetClass()" name="startDateContract" class="2000Year" ng-model="contract.consentStartDate" placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                           ng-class="{'redborder': contractStartDateInvalid || contractStartDateNotInContractValidityTimespan }" ng-change="selectedFromDate()" ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'" required
+                           date-min-limit="contractValidFrom" date-max-limit="contractValidThrough" validate-date="true" />
+                </datepicker>
+            </li>
+            <li class="no-margin-bottom">
+                <label>{{'LABEL_END_DATE'|translate}}</label>
+                <datepicker date-format="dd.MM.yyyy" date-min-limit={{consentFromDate}} date-max-limit={{contractValidThrough}} date-model="contract.consentEndDate">
+                    <input type="text" id="endDateContract" ng-focus="SetClass()" name="endDateContract" class="2000Year" ng-model="contract.consentEndDate" placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                           ng-class="{'redborder': contractEndDateInvalid || consentEndDateBeforeConsentStartDate || contractEndDateNotInContractValidityTimespan }" ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'"
+                           date-min-limit="consentFromDate" date-max-limit="contractValidThrough" validate-date="true" />
+                </datepicker>
+            </li>
+        </ul>
+        <div class="buttons">
+            <button class="button wide confirm" name="btnSubmit" id="btnSubmitContract" type="submit" translate="BUTTON_SAVE"
+                    ng-disabled="contractForm.$invalid && valid-date==false"></button>
+            <button class="button narrow reject" id="btnCancelSubmitDoctor" onclick="return false;" ng-click="closeContractForm()" translate="BUTTON_CANCEL"></button>
+        </div>
+
+    </form>
+</div>

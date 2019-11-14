@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_bpt_sta_employee_timeframe_absencecarryovers
+	(
+		CMN_BPT_STA_Employee_AbsenceCarryOverID,
+		CalculationTimeframe_RefID,
+		Employee_RefID,
+		AbsenceReason_RefID,
+		R_CarryOverAmount_InMinutes,
+		R_TotalAbsenceTimeUsed_InMinutes,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_STA_Employee_AbsenceCarryOverID,
+		@CalculationTimeframe_RefID,
+		@Employee_RefID,
+		@AbsenceReason_RefID,
+		@R_CarryOverAmount_InMinutes,
+		@R_TotalAbsenceTimeUsed_InMinutes,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

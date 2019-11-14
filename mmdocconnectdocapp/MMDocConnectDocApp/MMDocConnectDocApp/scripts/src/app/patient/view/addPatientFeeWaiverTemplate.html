@@ -1,0 +1,28 @@
+﻿<div class="gray-content-holder-visible clear">
+    <form id="feeWaiverForm" ng-submit="submitPatientFeeWaiverForm()" class="doctors-data-lists participation-form patients-list clearfix" name="feeWaiverForm" novalidate>
+        <div class="clearfix">
+            <div name="messageContainer" class="error-msg-container" ng-if="showMessageContainer">
+                <span class="error" ng-if="!isIssueDateValid">{{ 'LABEL_DATE_NOT_VALID' | translate }}</span>
+                <span class="error" ng-if="feeWaiverExistsForSelectedYear" translate="LABEL_FEE_WAIVER_EXISTS_FOR_YEAR" translate-values="{ year: feeWaiver.existsForYear }"></span>
+            </div>
+
+            <h3 id="ParticipationConsentFormId">{{ 'BUTTON_ADD_PATIENT_FEE_WAIVER' | translate }}</h3>
+
+            <ul class="first-class-data third-row">
+                <li>
+                    <label id="lblIssue_date">{{ 'LABEL_ISSUE_DATE' | translate }}<span class="error" ng-if="feeWaiverForm.dpIssue_date.$error.required">*</span></label>
+                    <datepicker date-format="dd.MM.yyyy" date-min-limit={{ValidFrom}} date-max-limit={{ValidThrough}} date-model="feeWaiver.issue_date">
+                        <input class="2000Year" id="dpIssue_date" ng-focus="SetClass()" name="dpIssue_date" ng-model="feeWaiver.issue_date"
+                               ng-datefilter type="text" change="typedDAte" ng-bind="date | date:'dd.MM.yyyy'" required ng-class="{ 'redborder': !isIssueDateValid }"
+                               date-min-limit="ValidFrom" date-max-limit="ValidThrough" validate-date="true" />
+                    </datepicker>
+                </li>
+            </ul>
+
+            <div class="buttons padding-top-20">
+                <button class="button wide confirm jsblockClose" id="btnSubmitParticipationConsent" type="submit" translate="BUTTON_SAVE" ng-disabled="feeWaiverForm.$invalid"></button>
+                <button class="button narrow reject jsblockClose" id="btnCancelSubmitCase" onclick="return false;" ng-click="closefeeWaiverForm()" translate="BUTTON_CANCEL"></button>
+            </div>
+        </div>
+    </form>
+</div>

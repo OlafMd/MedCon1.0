@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/13/2014 3:14:58 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ProductQuantities_for_UnshippedAndUnfinishedShipments</Name>
+    <Namespace>CL2_Shipment.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Shipment.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ProductQuantities_for_UnshippedAndUnfinishedShipments"
+                Method_Name="Get_ProductQuantities_for_UnshippedAndUnfinishedShipments"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ProductQuantities_for_UnshippedAndUnfinishedShipments"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  log_shp_shipment_positions.CMN_PRO_Product_RefID,
+	  Sum(log_shp_shipment_positions.QuantityToShip) as  QuantityToShip
+	From
+	  log_shp_shipment_positions Inner Join
+	  log_shp_shipment_headers On log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID
+	    = log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID
+	Where
+	  log_shp_shipment_positions.IsDeleted = 0 And
+	  log_shp_shipment_headers.IsShipped = 0 And
+	  log_shp_shipment_headers.IsDeleted = 0 And
+	  log_shp_shipment_headers.HasPickingFinished = 0 And
+  log_shp_shipment_headers.IsCustomerReturnShipment = 0 And
+	  log_shp_shipment_headers.Tenant_RefID = @TenantID
+	Group By
+	  log_shp_shipment_positions.CMN_PRO_Product_RefID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2SH_GPQfUaUS_1513" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_PRO_Product_RefID" Type="Guid"  />
+				<ClassMember Name="QuantityToShip" Type="Double"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

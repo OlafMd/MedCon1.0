@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7980DCE8-1E54-4F1F-928E-B18CF12F2349}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL6_APOLogistic_StockReceipt</RootNamespace>
+    <AssemblyName>CL6_APOLogistic_StockReceipt</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Complex\Manipulation\cls_Save_HeaderChanges_for_ConditionCheck.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Data_for_StockReceiptConditionCheck.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Header_and_Positions_for_StockReceipt.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_StockReceiptHeaderInfo_for_ReceiptHeaderID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_RCP\CL1_LOG_RCP.csproj">
+      <Project>{2C396733-6EF3-43BC-8C37-8959C59B2535}</Project>
+      <Name>CL1_LOG_RCP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_PRC\CL1_ORD_PRC.csproj">
+      <Project>{2ED9EC1F-4C36-4790-B8AE-6C03F4B40588}</Project>
+      <Name>CL1_ORD_PRC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_PRC_SPB\CL1_ORD_PRC_SPB.csproj">
+      <Project>{B5CB1C74-FD62-41AA-B80F-2D7133702ABD}</Project>
+      <Name>CL1_ORD_PRC_SPB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_BillHeader\CL2_BillHeader.csproj">
+      <Project>{99EC746A-28F0-4FF0-96E0-567E1A3BA95B}</Project>
+      <Name>CL2_BillHeader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_DiscountType\CL2_DiscountType.csproj">
+      <Project>{562D592F-4C27-4275-9967-BF12F35047F8}</Project>
+      <Name>CL2_DiscountType</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Account\CL3_Account.csproj">
+      <Project>{683E9E5E-16DE-4CB3-8D80-D87468291694}</Project>
+      <Name>CL3_Account</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_APOStatistic\CL3_APOStatistic.csproj">
+      <Project>{1ED70C95-295E-4868-A2FA-E32AEC225DDD}</Project>
+      <Name>CL3_APOStatistic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_APOLogistic_StockReceipt\CL5_APOLogistic_StockReceipt.csproj">
+      <Project>{016301B3-480E-41D7-A340-BC28A0E25282}</Project>
+      <Name>CL5_APOLogistic_StockReceipt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_APOLogistic_Supplier\CL5_APOLogistic_Supplier.csproj">
+      <Project>{B8C8E7D6-F98F-4A66-B90E-27BE2CC85AE4}</Project>
+      <Name>CL5_APOLogistic_Supplier</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Complex\Manipulation\_Support\Save_HeaderChanges_for_ConditionCheck.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_Data_for_StockReceiptConditionCheck.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_Header_and_Positions_for_StockReceipt.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_StockReceiptHeaderInfo_for_ReceiptHeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Atomic\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

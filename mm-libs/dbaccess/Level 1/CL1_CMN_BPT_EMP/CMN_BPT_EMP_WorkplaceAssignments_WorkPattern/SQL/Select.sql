@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_workplaceassignments_workpatterns
+WHERE 
+	CMN_BPT_EMP_WorkplaceAssignments_WorkPatternID = @CMN_BPT_EMP_WorkplaceAssignments_WorkPatternID

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 4/28/2014 9:40:09 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_RCP_Receipt_Poisition_FreeOfCharge"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_RCP"
+                IsClass_Corresponding_DBTable="log_rcp_receipt_poisition_freeofcharge" >
+      <Members>
+		<ClassMember Name="LOG_RCP_Receipt_Poisition_FreeOfChargeID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="DiscountDueTo_Receipt_Position_RefID" Type="Guid" />
+		<ClassMember Name="GeneratedDiscountAt_Receipt_Position_RefID" Type="Guid" />
+		<ClassMember Name="QuantityFreeOfCharge" Type="Double" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

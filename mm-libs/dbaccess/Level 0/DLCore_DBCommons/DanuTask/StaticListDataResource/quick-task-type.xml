@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="quick-task-type.phone-call">
+    <Lang ISO="EN" Content="Phone Call" />
+    <Lang ISO="DE" Content="Telefongespräch" />
+    <Lang ISO="RS" Content="Telefonski Poziv" />
+  </Item>
+  <Item ID="quick-task-type.discussion">
+    <Lang ISO="EN" Content="Discussion" />
+    <Lang ISO="DE" Content="Diskussion" />
+    <Lang ISO="RS" Content="Diskusija" />
+  </Item>
+  <Item ID="quick-task-type.meeting">
+    <Lang ISO="EN" Content="Meeting" />
+    <Lang ISO="DE" Content="Meeting" />
+    <Lang ISO="RS" Content="Sastanak" />
+  </Item>
+  <Item ID="quick-task-type.email">
+    <Lang ISO="EN" Content="Email" />
+    <Lang ISO="DE" Content="Email" />
+    <Lang ISO="RS" Content="Email" />
+  </Item>
+  <Item ID="quick-task-type.other">
+    <Lang ISO="EN" Content="Other" />
+    <Lang ISO="DE" Content="Andere" />
+    <Lang ISO="RS" Content="Other" />
+  </Item>
+</Resources>

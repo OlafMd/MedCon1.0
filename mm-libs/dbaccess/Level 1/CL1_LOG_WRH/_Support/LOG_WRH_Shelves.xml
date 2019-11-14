@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 5/9/2014 11:18:46 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_WRH_Shelf"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_WRH"
+                IsClass_Corresponding_DBTable="log_wrh_shelves" >
+      <Members>
+		<ClassMember Name="LOG_WRH_ShelfID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="GlobalPropertyMatchingID" Type="String" />
+		<ClassMember Name="Rack_RefID" Type="Guid" />
+		<ClassMember Name="R_Warehouse_RefID" Type="Guid" />
+		<ClassMember Name="R_Area_RefID" Type="Guid" />
+		<ClassMember Name="Shelf_Name" Type="String" />
+		<ClassMember Name="CoordinateCode" Type="String" />
+		<ClassMember Name="CoordinateX" Type="String" />
+		<ClassMember Name="CoordinateY" Type="String" />
+		<ClassMember Name="CoordinateZ" Type="String" />
+		<ClassMember Name="ShelfCapacity_Unit_RefID" Type="Guid" />
+		<ClassMember Name="ShelfCapacity_Maximum" Type="decimal" />
+		<ClassMember Name="R_ShelfCapacity_Free" Type="decimal" />
+		<ClassMember Name="R_ShelfCapacity_Used" Type="decimal" />
+		<ClassMember Name="LimitShelfContent_ToOneProduct" Type="Boolean" />
+		<ClassMember Name="LimitShelfContent_ToOneProductVariant" Type="Boolean" />
+		<ClassMember Name="LimitShelfContent_ToOneProductRelease" Type="Boolean" />
+		<ClassMember Name="IsShelfLocked" Type="Boolean" />
+		<ClassMember Name="Predefined_Product_RefID" Type="Guid" />
+		<ClassMember Name="Predefined_Product_Variant_RefID" Type="Guid" />
+		<ClassMember Name="Predefined_Product_Release_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

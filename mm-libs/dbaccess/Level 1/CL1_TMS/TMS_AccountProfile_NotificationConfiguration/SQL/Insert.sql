@@ -1,0 +1,25 @@
+INSERT INTO 
+	tms_accountprofile_notificationconfiguration
+	(
+		TMS_SubscriptionNotificationFrequencyID,
+		AccountProfile_RefID,
+		IsEveryNotification,
+		IsDaily,
+		IsWeekly,
+		IsDisabled,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@TMS_SubscriptionNotificationFrequencyID,
+		@AccountProfile_RefID,
+		@IsEveryNotification,
+		@IsDaily,
+		@IsWeekly,
+		@IsDisabled,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

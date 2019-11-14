@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_cal_weeklyofficehours_templates
+	(
+		CMN_CAL_WeeklyOfficeHours_TemplateID,
+		OfficeHoursTemplate_Name,
+		FormattedOfficeHours,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_CAL_WeeklyOfficeHours_TemplateID,
+		@OfficeHoursTemplate_Name,
+		@FormattedOfficeHours,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

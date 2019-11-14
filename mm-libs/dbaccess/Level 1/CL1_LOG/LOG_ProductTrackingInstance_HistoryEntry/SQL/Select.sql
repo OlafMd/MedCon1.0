@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	log_producttrackinginstance_historyentries
+WHERE 
+	LOG_ProductTrackingInstance_HistoryEntryID = @LOG_ProductTrackingInstance_HistoryEntryID

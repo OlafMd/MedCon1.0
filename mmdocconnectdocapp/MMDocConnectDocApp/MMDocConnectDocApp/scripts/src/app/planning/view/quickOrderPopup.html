@@ -1,0 +1,85 @@
+<div class="popup-wrapper">
+    <div class="popup popup-medium warning-popup">
+        <div class="warning-msg"><h2>{{::'CONFIRM_ORDER_POPUP_TITLE' | translate}}</h2></div>
+
+        <div class="error-msg" ng-if="credentials_not_verified"><span class="error">{{::'LABEL_CREDENTIALS_NOT_VERIFIED' | translate}}</span></div>
+        <form class="popup-content margin-top-30" id="orderSubmitForm" name="orderSubmitForm" novalidate>
+            <div class="row margin-bottom-10">
+                <div class="col-xs-4">
+                    <div class="form-group">
+                        <label>{{::'LABEL_DELIVERY_DATE' | translate}}:</label>
+                    </div>
+                </div>
+                <div class="col-xs-8">
+                    <div class="form-group">
+                        <p>{{order_to_submit.delivery_date}} {{ 'LABEL_FROM' | translate }} {{order_to_submit.delivery_date_from}} {{ 'LABEL_TO' | translate }} {{order_to_submit.delivery_date_to}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-bottom-10">
+                <div class="col-xs-4">
+                    <div class="form-group">
+                        <label>{{::'LABEL_RECIVER' | translate}}:</label>
+                    </div>
+                </div>
+                <div class="col-xs-8">
+                    <div class="form-group">
+                        <p>{{order_to_submit.receiver}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-bottom-10">
+                <div class="col-xs-4">
+                    <div class="form-group">
+                        <label>{{::'LABEL_ADDRESS' | translate}}:</label>
+                    </div>
+                </div>
+                <div class="col-xs-8">
+                    <div class="form-group">
+                        <p>{{order_to_submit.street}} {{order_to_submit.number}}</p>
+                        <p>{{order_to_submit.zip}} {{order_to_submit.city}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-bottom-20">
+                <div class="col-xs-4">
+                    <div class="form-group">
+                        <label>{{::'LABEL_PHARMACY' | translate}}:</label>
+                    </div>
+                </div>
+                <div class="col-xs-8">
+                    <div class="form-group">
+                        <p>{{default_pharamacy_name}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="larger-font bolded-text margin-bottom-20">{{::'LABEL_PLEASE_ENTER_PASSWORD_TO_CONFIRM_ORDER' | translate}}</p>
+
+            <ul class="inline-fields clearfix" ng-if="isAutentificationNeeded">
+                <li class="doc-name">
+                    <label>
+                        {{::'LABEL_DOCTOR_RESPONSIBLE' | translate}}
+                        <span class="error" ng-if="orderSubmitForm.selPasswordDoctor.$error.required">*</span>
+                    </label>
+                    <dropdown-list disable-input="$root.isDoctor" id="selPasswordDoctor" name="selPasswordDoctor" items="doctors" ng-model="order_to_submit.doctor_id" required params="{has_prefix: true}"></dropdown-list>
+                </li>
+                <li class="password">
+                    <label>{{::'LABEL_PASSWORD' | translate}}</label>
+                    <input type="password" ng-model="order_to_submit.password" id="inPassword" required />
+                </li>
+            </ul>
+
+            <div class="checkbox">
+                <input type="checkbox" id="cbFacilityConsent" ng-model="farmacy_consent">
+                <label for="cbFacilityConsent">{{::'LABEL_FARMACY_OPTIONS_CONSENT' | translate}}</label>
+            </div>
+
+            <div class="buttons text-right no-padding">
+                <button type="button" class="button wide reject" ng-click="cancelSubmitOrder()" id="btnCancel" translate="BUTTON_CANCEL"></button>
+                <button type="submit" class="button wide confirm-yellow-smaller" id="btnAddToShoppingCart" ng-click="addOrderToShoppingCart()" translate="LABEL_ADD_TO_CART" ng-disabled="passwordIsRequired && orderSubmitForm.$invalid"></button>
+                <button type="submit" class="button wide confirm-smaller" id="btnQuickOrder" ng-click="submitOrder()" translate="LABEL_SUBMIT_AND_CLOSE" ng-disabled="orderSubmitForm.$invalid || !farmacy_consent"></button>
+            </div>
+        </form>
+    </div>
+</div>

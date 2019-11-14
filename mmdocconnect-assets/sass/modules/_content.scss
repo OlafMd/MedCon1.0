@@ -1,0 +1,85 @@
+body{
+
+
+    @media screen and (max-width:1199px){
+
+    width: 1199px;
+    overflow-x: auto;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar{
+        height: 16px;
+       // overflow: visible;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(204,204,204,0.9);
+        background-clip: padding-box;
+        //width: 50px;
+    }
+    &::-webkit-scrollbar-track{
+        background-color: #fff;
+        border-top: 1px solid #e5e5e5;
+        //margin-right: 9px;
+
+    }
+  }
+}
+
+
+
+.content{
+	color: $sub-header;
+//move content down because header needs to be bigger
+	/*@media screen and (max-width: 1600px){
+		top: 127px;
+		}*/
+	}
+
+.content-scroll{
+    overflow-y: scroll;
+    width: 100%;
+     -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        border-left: 1px solid #e5e5e5;
+        height: 0;
+        overflow: visible;
+        width: 16px;
+        }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(204,204,204,0.9);
+        background-clip: padding-box;
+        min-height: 28px;
+        border-width: 1px 1px 1px 6px;
+        //width: 10px;
+        }
+    &::-webkit-scrollbar-corner {
+        background: transparent;
+        overflow: visible;
+         }
+
+     @media screen and (max-width:1199px){
+         padding-bottom: 9px;
+     }
+}
+
+.gray-content-holder{
+	padding: 15px 25px;
+	background-color: #ebebeb;
+}
+
+.gray-content-half {
+    width: 50%;
+    float: left;
+}
+
+.gray-content-holder-visible{
+	@extend .gray-content-holder;
+	overflow: visible !important;
+}
+
+.white-content-holder{
+	padding: 15px 25px;
+	background-color: #fff;
+}

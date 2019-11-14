@@ -1,0 +1,16 @@
+
+Select
+  usr_account_applicationsetting_definitions.ItemKey,
+  usr_account_applicationsettings.ItemValue,
+  usr_account_applicationsetting_definitions.USR_Account_ApplicationSetting_DefinitionID,
+  usr_account_applicationsettings.USR_Account_ApplicationSettingID
+From
+  usr_account_applicationsetting_definitions Inner Join
+  usr_account_applicationsettings
+    On usr_account_applicationsettings.ApplicationSetting_Definition_RefID =
+    usr_account_applicationsetting_definitions.USR_Account_ApplicationSetting_DefinitionID
+Where
+  usr_account_applicationsetting_definitions.IsDeleted = 0 And
+  usr_account_applicationsetting_definitions.Tenant_RefID = @TenantID And
+  usr_account_applicationsettings.Account_RefID = @AccountID
+  

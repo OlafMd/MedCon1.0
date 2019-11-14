@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4DB86239-F20F-43AD-BE5F-E964DBDF1FD7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_MyHealthClub_MedProCommunity</RootNamespace>
+    <AssemblyName>CL5_MyHealthClub_MedProCommunity</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\..\apps\myhealthclub.pbp.data\MHC_PBProcesses_Data\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_DiagnosisCatalogSubscription.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_MembershipCredential.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_ProcedureCatalogSubscription.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DoctorMemershipData_for_BusinessParticipantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Doctors_MPData.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PotentialDiagnosisCatalogSubscriptions_for_MembershipID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PotentialProcedureCatalogSubscriptions_for_MembershipID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_TenantBusinessParticipantsID_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_TenantMemershipData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_CMT\CL1_HEC_CMT.csproj">
+      <Project>{FA4D5021-6E3E-4C1E-97B9-474D9465450E}</Project>
+      <Name>CL1_HEC_CMT</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\_Support\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Save_ProcedureCatalogSubscription.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_MembershipCredential.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_TenantBusinessParticipantsID_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_TenantMemershipData.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Doctors_MPData.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DoctorMemershipData_for_BusinessParticipantID.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_DiagnosisCatalogSubscription.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PotentialDiagnosisCatalogSubscriptions_for_MembershipID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PotentialProcedureCatalogSubscriptions_for_MembershipID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DoctorMemershipData_for_BusinessParticipantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Doctors_MPData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_PotentialDiagnosisCatalogSubscriptions_for_MembershipID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PotentialProcedureCatalogSubscriptions_for_MembershipID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_TenantMemershipData.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_TenantBusinessParticipantsID_for_TenantID.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

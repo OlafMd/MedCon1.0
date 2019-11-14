@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/13/2013 1:14:27 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_ProjectMemberTypes_for_Tenant</Name>
+    <Namespace>CL2_Project.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Project.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_ProjectMemberTypes_for_Tenant"
+                Method_Name="Get_All_ProjectMemberTypes_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_ProjectMemberTypes_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select Distinct
+  tmp_pro_projectmember_types.TMP_PRO_ProjectMember_TypeID,
+  tmp_pro_projectmember_types.ProjectMemberType_Name_DictID
+From
+  tmp_pro_projectmember_types
+Where
+  tmp_pro_projectmember_types.IsDeleted = 0 and
+  tmp_pro_projectmember_types.Tenant_RefID = @TenantID
+  </SQLStatement>
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2PR_GAPIDfTID_1314" IsArray="true">
+      <Members>
+        <ClassMember Name="TMP_PRO_ProjectMember_TypeID" Type="Guid"  />
+        <ClassMember Name="Name" Type="Dict" OriginTable="tmp_pro_projectmember_types" Source_DBField="ProjectMemberType_Name_DictID"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

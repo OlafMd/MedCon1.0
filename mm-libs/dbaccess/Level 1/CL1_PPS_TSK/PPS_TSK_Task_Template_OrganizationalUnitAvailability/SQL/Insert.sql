@@ -1,0 +1,19 @@
+INSERT INTO 
+	pps_tsk_task_template_organizationalunitavailabilities
+	(
+		PPS_TSK_Task_Template_OrganizationalUnitAvailabilityID,
+		PPS_TSK_Task_Template_RefID,
+		CMN_STR_Office_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@PPS_TSK_Task_Template_OrganizationalUnitAvailabilityID,
+		@PPS_TSK_Task_Template_RefID,
+		@CMN_STR_Office_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

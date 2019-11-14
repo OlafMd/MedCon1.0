@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_bpt_availableshipmenttypes
+	(
+		CMN_BPT_AvailableShipmentTypeID,
+		CMN_BPT_BusinessParticipant_RefID,
+		LOG_SHP_Shipment_Type_RefID,
+		IsPrimaryShipmentType,
+		SequenceNumber,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_BPT_AvailableShipmentTypeID,
+		@CMN_BPT_BusinessParticipant_RefID,
+		@LOG_SHP_Shipment_Type_RefID,
+		@IsPrimaryShipmentType,
+		@SequenceNumber,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,346 @@
+.planning-table {
+	> li {
+		&:nth-child(1) {
+			width: 35px;
+		}
+
+		&:nth-child(2) {
+			width: 120px;
+		}
+
+		&:nth-child(3) {
+			width: 15%;
+		}
+
+		&:nth-child(4) {
+			width: 15%;
+		}
+
+		&:nth-child(5) {
+			width: 90px;
+		}
+
+		&:nth-child(6),
+		&:nth-child(7),
+		&:nth-child(8) {
+			width: 13%;
+		}
+	}
+
+	.controls {
+		width: 203px;
+	}
+}
+
+.doctors-data-lists.planning-list {
+	background-color: #ebebeb;
+
+	input,
+	select {
+		border: 1px solid transparent;
+		outline: 0;
+		@include border-radius(3px);
+
+		&:focus {
+			border: 1px solid $active-color;
+		}
+	}
+
+	input[type="email"],
+	input[type="number"],
+	input[type="password"],
+	input[type="text"],
+	input[type="time"],
+	select {
+		height: 34px;
+		padding: 2px 5px;
+	}
+
+	.first-class-data {
+		width: 100%;
+	}
+
+	.second-class-data-wrapper {
+		.gray-content-holder {
+			padding: 0;
+			overflow: visible;
+		}
+
+		.hidden-row {
+			clear: both;
+			border-top: 1px solid #b7b7b7;
+			padding-top: 15px;
+		}
+	}
+
+	.rejected-border {
+		@extend .rejected-border;
+
+		&:before {
+			top: 0;
+			margin-left: -25px;
+			height: 420px !important;
+		}
+	}
+
+	.rejected-border-small {
+		@extend .rejected-border;
+
+		&:before {
+			height: 175px !important;
+
+		}
+	}
+
+	.error-msg-container {
+		margin-top: 10px;
+		padding-bottom: 5px;
+	}
+
+	.second-class-data-wrapper {
+		width: 100%;
+	}
+
+	.second-class-data {
+		width: 100%;
+	}
+
+	.first-class-data,
+	.second-class-data {
+		float: left;
+		clear: left;
+		margin-top: 10px;
+
+		> li {
+			float: left;
+			margin-right: 10px;
+			margin-bottom: 20px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			label {
+				display: block;
+				margin-bottom: 10px;
+			}
+
+			input {
+				width: 100% !important;
+			}
+		}
+	}
+
+	.second-class-data-wrapper {
+		padding-left: 40px;
+		border-top: 1px solid #b7b7b7;
+		clear: left;
+		float: left;
+		padding-top: 15px;
+	}
+
+	h3 {
+		float: left;
+		clear: left;
+		margin-bottom: 10px;
+	}
+
+	.buttons {
+		float: left;
+		width: 250px;
+		margin-top: 21px;
+
+		.button {
+			margin-bottom: 0;
+		}
+	}
+
+	.centered-checkbox {
+		.mask-checkbox {
+			display: block;
+			margin: 15px auto 0;
+		}
+
+		.mask-toggle {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+	.first-row {
+		> li {
+			&:first-child {
+				width: 30%;
+
+				.angucomplete-holder input {
+					height: 34px;
+
+				}
+			}
+
+			&.centered-checkbox {
+				margin: 0 30px;
+				@media screen and (max-width: 1300px) {
+					margin: 0 10px;
+				}
+			}
+
+			&:nth-child(02) {
+				width: 10%;
+				margin-right: 10px;
+			}
+
+			&:nth-child(04) {
+				width: 85px;
+			}
+
+			&:nth-child(05),
+			&:nth-child(07),
+			&:nth-child(09) {
+				padding-top: 33px;
+			}
+
+			&:nth-child(08) {
+				padding-top: 22px;
+			}
+
+			&:nth-child(06),
+			&:nth-child(08) {
+				width: 3%;
+			}
+
+			&:last-child {
+				float: right;
+
+				.buttons {
+					margin-right: 0;
+				}
+			}
+
+			&:nth-child(02) {
+				@media screen and (max-width: 1200px) {
+					width: 11%;
+				}
+			}
+
+			&:nth-child(04) {
+				@media screen and (max-width: 1200px) {
+					width: 8%;
+				}
+			}
+
+			&:nth-child(06),
+			&:nth-child(08) {
+
+				width: 45px;
+			}
+
+		}
+	}
+
+	.second-row {
+		> li {
+			margin-right: 30px;
+
+			&:first-child {
+				width: 29.5%;
+				margin-right: 30px;
+
+				select {
+					width: 100%;
+				}
+			}
+
+			.mask-checkbox,
+			.mask-toggle {
+				display: block;
+				margin: 0 auto;
+			}
+
+			.mask-checkbox {
+				display: block;
+				margin-top: 17px;
+			}
+		}
+	}
+
+	.third-row {
+		> li {
+			&:first-child {
+				width: 29.5%;
+				margin-right: 30px;
+
+				select {
+					width: 100%;
+				}
+			}
+
+			&:nth-child(02) {
+				div {
+					margin-top: 8px;
+				}
+
+				.mask-checkbox {
+					width: 18px;
+					margin-right: 0;
+				}
+
+				label {
+					display: inline-block;
+					margin-right: 15px;
+				}
+
+				select {
+					&:focus {
+						border: 1px solid #439562;
+					}
+				}
+			}
+
+			&:nth-child(03) {
+				margin: 0 20px 0 5px;
+
+				.mask-checkbox {
+					display: block;
+					margin: 18px auto;
+				}
+			}
+
+			&:nth-child(04) {
+				margin-right: 30px;
+
+				.mask-toggle {
+					display: block;
+					margin: 0 auto;
+				}
+			}
+
+			&:last-child {
+				float: right;
+				padding-top: 22px;
+				margin-bottom: 0;
+
+			}
+		}
+	}
+
+	.fourth-row {
+		> li {
+			width: 29.5%;
+			margin-right: 30px;
+		}
+	}
+
+	.add-case-template-controls {
+		.button {
+			margin-right: 0;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.consent-link {
+	color: rgb(149, 149, 149);
+	border-bottom: 1px solid #959595;
+	margin-left: 5px;
+}

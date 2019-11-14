@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/9/2014 3:45:38 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_OrderCollective_for_Member</Name>
+    <Namespace>CL3_OrderCollective.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_OrderCollective.Atomic.Retrieval"
+                Method_ClassName="cls_Get_OrderCollective_for_Member"
+                Method_Name="Get_OrderCollective_for_Member"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_OrderCollective_for_Member"
+                />
+
+  <SQLStatement xml:space="preserve">
+SELECT
+  ocl_ordercollectives.OCL_OrderCollectiveID,
+  ocl_ordercollectives.OrderCollective_Name_DictID,
+  ocl_ordercollectives.Creation_Timestamp,
+  LeadMember.OCL_OrderCollective_MemberID AS LeadMemberID,
+  LeadMemberBusinessParticipant.DisplayName AS LeadBusinessParticipantName,
+  LeadUniversalContactDetail.CompanyName_Line1 AS LeadCompanyName,
+  COUNT(ocl_ordercollective_members.OCL_OrderCollective_MemberID) AS OrderCollectiveMembersCount
+FROM ocl_ordercollectives
+INNER JOIN ocl_ordercollective_members
+  ON ocl_ordercollective_members.OrderCollective_RefID = ocl_ordercollectives.OCL_OrderCollectiveID
+  AND ocl_ordercollective_members.Tenant_RefID = @TenantID
+  AND ocl_ordercollective_members.IsDeleted = 0
+INNER JOIN cmn_bpt_businessparticipants AS CurrentBusinessParticipant
+  ON CurrentBusinessParticipant.IfTenant_Tenant_RefID = @TenantID
+  AND CurrentBusinessParticipant.Tenant_RefID = @TenantID
+  AND CurrentBusinessParticipant.IsDeleted = 0
+INNER JOIN ocl_ordercollective_members AS LeadMember
+  ON LeadMember.OrderCollective_RefID = ocl_ordercollectives.OCL_OrderCollectiveID
+  AND LeadMember.IsOrderCollectiveLead = 1
+  AND LeadMember.Tenant_RefID = @TenantID
+  AND LeadMember.IsDeleted = 0
+INNER JOIN cmn_bpt_businessparticipants AS LeadMemberBusinessParticipant
+  ON LeadMemberBusinessParticipant.CMN_BPT_BusinessParticipantID = LeadMember.BusinessParticipant_RefID
+  AND LeadMemberBusinessParticipant.Tenant_RefID = @TenantID
+  AND LeadMemberBusinessParticipant.IsDeleted = 0
+LEFT JOIN cmn_tenants AS LeadTenant
+  ON LeadTenant.CMN_TenantID = LeadMemberBusinessParticipant.IfTenant_Tenant_RefID
+  AND LeadTenant.Tenant_RefID = @TenantID
+  AND LeadTenant.IsDeleted = 0 
+LEFT JOIN cmn_universalcontactdetails AS LeadUniversalContactDetail
+  ON LeadUniversalContactDetail.CMN_UniversalContactDetailID = LeadTenant.UniversalContactDetail_RefID
+  AND LeadUniversalContactDetail.Tenant_RefID = @TenantID
+  AND LeadUniversalContactDetail.IsDeleted = 0 
+WHERE
+  ocl_ordercollectives.Tenant_RefID = @TenantID
+  AND ocl_ordercollectives.IsDeleted = 0
+  AND EXISTS (
+    SELECT 1 FROM ocl_ordercollective_members
+    WHERE
+      ocl_ordercollective_members.OrderCollective_RefID = ocl_ordercollectives.OCL_OrderCollectiveID
+      AND ocl_ordercollective_members.Tenant_RefID = @TenantID
+      AND ocl_ordercollective_members.IsOrderCollectiveLead = @IsMemberLead
+      AND ocl_ordercollective_members.BusinessParticipant_RefID = CurrentBusinessParticipant.CMN_BPT_BusinessParticipantID)
+GROUP BY 
+  ocl_ordercollectives.OCL_OrderCollectiveID;
+  </SQLStatement>
+
+    <Parameters IsClass="true" Name="P_L3OC_GOCfM_1544">
+        <Members>
+            <ClassMember Name="IsMemberLead" Type="bool"  />
+        </Members>
+    </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3OC_GOCfM_1544" IsArray="true">
+			<Members>
+				<ClassMember Name="OCL_OrderCollectiveID" Type="Guid"  />
+				<ClassMember Name="OrderCollective_Name" Type="Dict" OriginTable="ocl_ordercollectives" Source_DBField="OrderCollective_Name_DictID"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="OrderCollectiveMembersCount" Type="int"  />
+                <ClassMember Name="LeadMemberID" Type="Guid"  />
+                <ClassMember Name="LeadBusinessParticipantName" Type="string"  />
+                <ClassMember Name="LeadCompanyName" Type="string"  />
+			</Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+</CodeGen>
+
+

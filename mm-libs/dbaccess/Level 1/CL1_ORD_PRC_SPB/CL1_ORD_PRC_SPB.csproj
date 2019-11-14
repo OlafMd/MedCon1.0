@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B5CB1C74-FD62-41AA-B80F-2D7133702ABD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_ORD_PRC_SPB</RootNamespace>
+    <AssemblyName>CL1_ORD_PRC_SPB</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ORD_PRC_SPB_SupplierBill_2_ReceiptHeader\ORM_ORD_PRC_SPB_SupplierBill_2_ReceiptHeader.cs" />
+    <Compile Include="ORD_PRC_SPB_SupplierBill_Header\ORM_ORD_PRC_SPB_SupplierBill_Header.cs" />
+    <Compile Include="ORD_PRC_SPB_SupplierBill_Position\ORM_ORD_PRC_SPB_SupplierBill_Position.cs" />
+    <Compile Include="ORD_PRC_SPB_SupplierBill_Position_2_ProcurementOrderPosition\ORM_ORD_PRC_SPB_SupplierBill_Position_2_ProcurementOrderPosition.cs" />
+    <Compile Include="ORD_PRC_SPB_SupplierBill_Position_Discount\ORM_ORD_PRC_SPB_SupplierBill_Position_Discount.cs" />
+    <Compile Include="ORD_PRC_SupplierBill_2_ProcurementOrderHeader\ORM_ORD_PRC_SupplierBill_2_ProcurementOrderHeader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_2_ReceiptHeader\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_2_ReceiptHeader\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_2_ReceiptHeader\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_PRC_SupplierBill_2_ProcurementOrderHeader\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_SupplierBill_2_ProcurementOrderHeader\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_SupplierBill_2_ProcurementOrderHeader\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_Header\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_Header\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_Header\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_Position_2_ProcurementOrderPosition\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_Position_2_ProcurementOrderPosition\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_Position_2_ProcurementOrderPosition\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_Position_Discount\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_Position_Discount\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_Position_Discount\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_Position\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_Position\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_SPB_SupplierBill_Position\SQL\Select.sql" />
+    <Content Include="_Support\ORD_PRC_SPB_SupplierBill_2_ReceiptHeaders.xml" />
+    <Content Include="_Support\ORD_PRC_SPB_SupplierBill_Headers.xml" />
+    <Content Include="_Support\ORD_PRC_SPB_SupplierBill_Positions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\ORD_PRC_SPB_SupplierBill_Position_2_ProcurementOrderPosition.xml" />
+    <Content Include="_Support\ORD_PRC_SPB_SupplierBill_Position_Discounts.xml" />
+    <Content Include="_Support\ORD_PRC_SupplierBill_2_ProcurementOrderHeader.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

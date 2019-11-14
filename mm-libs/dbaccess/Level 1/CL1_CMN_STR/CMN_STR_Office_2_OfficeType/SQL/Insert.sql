@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_office_2_officetype
+	(
+		AssignmentID,
+		Office_Type_RefID,
+		Office_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@Office_Type_RefID,
+		@Office_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

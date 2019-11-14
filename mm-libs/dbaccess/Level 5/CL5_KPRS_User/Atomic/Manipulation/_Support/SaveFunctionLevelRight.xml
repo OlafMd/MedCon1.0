@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/3/2013 3:15:04 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PersonalInformation_for_Account_FunctionLevelRights</Name>
+    <Namespace>CL2_FunctionLevelRight.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_User.Atomic.Manipulation"
+                Method_ClassName="cls_SaveFunctionLevelRight"
+                Method_Name="SaveFunctionLevelRight"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".SaveFunctionLevelRight"
+                />
+
+ 
+    <Parameters IsClass="true" Name="P_L5US_SFLR_1313" >
+      <Members>
+
+        <ClassMember Name="USR_AccountID" Type="Guid" IsIdentificator="True" />
+        <!-- Derived Tables -->
+        <ClassMember IsClass="true" IsArray="true" Name="functionLevelRights" Type="P_L6_SFLR_1313_USR_Account_FunctionLevelRights" >
+          <Members>
+            <ClassMember Name="FunctionLevelRightID" Type="Guid"  />
+            <ClassMember Name="hasRight" Type="bool"  />
+          </Members>
+        </ClassMember>
+
+
+      </Members>
+    </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+         Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+         Returns_an_Object_or_ObjectArray="false">
+    <StandardReturnType_Definition IsArray="false" returnType="Guid"/>
+
+  </ResultInfo>
+
+</CodeGen>
+
+
+

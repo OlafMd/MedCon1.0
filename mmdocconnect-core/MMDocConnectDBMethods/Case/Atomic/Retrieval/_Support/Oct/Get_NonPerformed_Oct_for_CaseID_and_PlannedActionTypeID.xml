@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_NonPerformed_Oct_for_CaseID_and_PlannedActionTypeID</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_NonPerformed_Oct_for_CaseID_and_PlannedActionTypeID"
+								Method_Name="Get_NonPerformed_Oct_for_CaseID_and_PlannedActionTypeID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    Select
+      hec_act_plannedactions.HEC_ACT_PlannedActionID as action_id
+    From
+      hec_cas_case_relevantplannedactions Inner Join
+      hec_act_plannedactions
+        On hec_cas_case_relevantplannedactions.PlannedAction_RefID = hec_act_plannedactions.HEC_ACT_PlannedActionID And
+ 	     hec_act_plannedactions.IsPerformed = 0 And
+ 	     hec_act_plannedactions.IsCancelled = 0 And
+ 	     hec_act_plannedactions.Tenant_RefID = @TenantID And
+ 	     hec_act_plannedactions.IsDeleted = 0 Inner Join
+      hec_act_plannedaction_2_actiontype
+        On hec_act_plannedactions.HEC_ACT_PlannedActionID = hec_act_plannedaction_2_actiontype.HEC_ACT_PlannedAction_RefID And
+ 	     hec_act_plannedaction_2_actiontype.HEC_ACT_ActionType_RefID = @OctPlannedActionTypeID And
+        hec_act_plannedaction_2_actiontype.Tenant_RefID = @TenantID And
+        hec_act_plannedaction_2_actiontype.IsDeleted = 0 
+    Where
+      hec_cas_case_relevantplannedactions.Case_RefID = @CaseID And
+      hec_cas_case_relevantplannedactions.Tenant_RefID = @TenantID And
+      hec_cas_case_relevantplannedactions.IsDeleted = 0 
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GNPOctfCIDaPATID_1240">
+    <Members>
+      <ClassMember Name="CaseID" Type="Guid"  />
+      <ClassMember Name="OctPlannedActionTypeID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GNPOctfCIDaPATID_1240">
+      <Members>
+        <ClassMember Name="action_id" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

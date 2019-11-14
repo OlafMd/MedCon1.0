@@ -1,0 +1,23 @@
+INSERT INTO 
+	log_rcp_rqf_requestquantityforwarding_positions
+	(
+		LOG_RCP_RQF_RequestQuantityForwarding_PositionID,
+		ReceivedQuantityForwarding_Header_RefID,
+		TotalReceivedQuantity,
+		ExpectedQuantity,
+		CreatedFrom_PositionForwardingInstruction_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_RCP_RQF_RequestQuantityForwarding_PositionID,
+		@ReceivedQuantityForwarding_Header_RefID,
+		@TotalReceivedQuantity,
+		@ExpectedQuantity,
+		@CreatedFrom_PositionForwardingInstruction_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

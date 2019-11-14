@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/23/2012 3:53:16 PM">
+
+  <Componenttype>AtomicMethod</Componenttype>
+  <Meta>
+    <Name>Get_DeveloperModuleDashboardMenuData_for_ActiveUser</Name>
+    <Description>
+    </Description>
+    <Namespace>CL6_DanuTask_DeveloperModule.Complex.Retrieval</Namespace>
+    <Tags>PreloadingData</Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_DanuTask_DeveloperModule.Complex.Retrieval"
+                Method_ClassName="cls_Get_DeveloperModuleDashboardMenuData_for_ActiveUser"
+                Method_Name="cls_Get_DeveloperModuleDashboardMenuData_for_ActiveUser"
+                ApplicationPlattform_WebServiceName="UserService"
+                ApplicationPlattform_Namespace="UserService.Get_DeveloperModuleDashboardMenuData_for_ActiveUser"
+                />
+
+  <Parameters IsClass="true" Name="P_L6US_GDMDMDfAU_1802">
+    <Members>
+      <ClassMember Name="IsArchived" Type="Boolean" />
+      <ClassMember Name="RightPackIDList" Type="Guid" IsArray="true" />
+      <ClassMember Name="IsBeingPrepared_Only" Type="Boolean"  />
+      <ClassMember Name="ProjectStatusDifferenFromThis" Type="Guid"  />
+      <ClassMember Name="FeatureStatusDifferentFromThis" Type="Guid"  />
+      <ClassMember Name="BusinessTaskStatusDifferentFromThis" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6US_GDMDMDfAU_1802" IsArray="false">
+      <Members>
+        <ClassMember IsReference="true" Type="L3DT_GADTfAU_1505" Name="ActiveTask" IsArray="false"/>
+        <ClassMember IsReference="true" Type="L3DT_GADTLfAUaPL_1559" Name="AssignedTasks" IsArray="true"/>
+        <ClassMember IsReference="true" Type="L3DT_GCDTfAUaPL_1610" Name="CompletedTasks" IsArray="true"/>
+        <ClassMember IsReference="true" Type="L3DT_GDTIDwAUiM_1712" Name="MentionTasks" IsArray="true"/>
+        <ClassMember IsReference="true" Type="L3DT_GFDTLfAUIDaPL_1643" Name="FreeTasks" IsArray="true"/>
+        <ClassMember IsReference="true" Type="L3DT_GRDTLfAU_1408" Name="RecomendedTasks" IsArray="true"/>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

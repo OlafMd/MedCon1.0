@@ -1,0 +1,19 @@
+INSERT INTO 
+	usr_account_2_group
+	(
+		AssignmentID,
+		USR_Account_RefID,
+		USR_Group_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@USR_Account_RefID,
+		@USR_Group_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

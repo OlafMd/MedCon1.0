@@ -1,0 +1,21 @@
+INSERT INTO 
+	bil_billposition_groups
+	(
+		BIL_BillPosition_GroupID,
+		BIL_BillHeader_RefID,
+		PositionGroup_Title,
+		PositionGroup_Description,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@BIL_BillPosition_GroupID,
+		@BIL_BillHeader_RefID,
+		@PositionGroup_Title,
+		@PositionGroup_Description,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

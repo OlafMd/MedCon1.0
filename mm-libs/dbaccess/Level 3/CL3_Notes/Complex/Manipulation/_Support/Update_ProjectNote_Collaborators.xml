@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="20/11/2014 9:21:45 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_NewNote</Name>
+    <Namespace>CL3_Notes.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Notes.Complex.Manipulation"
+                Method_ClassName="cls_Update_ProjectNote_Collaborators"
+                Method_Name="Update_ProjectNote_Collaborators"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Update_ProjectNote_Collaborators"
+                />
+  <Parameters IsClass="true" Name="P_L3N_UPNC_1521">
+    <Members>
+      <ClassMember Name="ProjectNote_ID" Type="Guid" />
+      <ClassMember Name="ProjectNote_Collaborators" Type="Guid" IsArray="true"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

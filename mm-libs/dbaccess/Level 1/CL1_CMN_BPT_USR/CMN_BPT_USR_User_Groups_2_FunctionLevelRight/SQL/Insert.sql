@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_usr_user_groups_2_functionlevelrights
+	(
+		AssignmentID,
+		CMN_BPT_USR_User_Group_RefID,
+		CMN_BPT_USR_User_FunctionLevelRight_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_BPT_USR_User_Group_RefID,
+		@CMN_BPT_USR_User_FunctionLevelRight_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

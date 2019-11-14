@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/25/2013 9:39:06 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PharmaciesForOrderingProcess</Name>
+    <Namespace>CL5_Lucentis_Pharmacies.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Pharmacies.Atomic.Retrieval"
+                Method_ClassName="cls_Get_PharmaciesForOrderingProcess"
+                Method_Name="Get_PharmaciesForOrderingProcess"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PharmaciesForOrderingProcess"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  ContactPerson.ContactTypePhoneNumber,
+  ContactPerson.ContactTypeFirstName,
+  ContactPerson.ContactTypeLastName,
+  ContactPerson.CMN_PER_PersonInfoID,
+  ContactPerson.ContactTypeEmail,
+  hec_pharmacies.HEC_PharmacyID,
+  cmn_bpt_businessparticipants.DisplayName
+From
+  (Select
+    cmn_per_communicationcontacts.Content As ContactTypePhoneNumber,
+    cmn_per_personinfo.FirstName As ContactTypeFirstName,
+    cmn_per_personinfo.LastName As ContactTypeLastName,
+    cmn_per_personinfo.PrimaryEmail As ContactTypeEmail,
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID,
+    cmn_per_personinfo.CMN_PER_PersonInfoID
+  From
+    cmn_per_personinfo Inner Join
+    cmn_per_communicationcontacts On cmn_per_personinfo.CMN_PER_PersonInfoID =
+      cmn_per_communicationcontacts.PersonInfo_RefID Inner Join
+    cmn_bpt_businessparticipants
+      On cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID =
+      cmn_per_personinfo.CMN_PER_PersonInfoID
+  Where
+    cmn_per_personinfo.Tenant_RefID = @TenantID And
+    cmn_per_communicationcontacts.IsDeleted = 0 And
+    cmn_per_personinfo.IsDeleted = 0 And
+    cmn_bpt_businessparticipants.IsCompany = 0 And
+    cmn_bpt_businessparticipants.IsNaturalPerson = 1 And
+    cmn_bpt_businessparticipants.IsDeleted = 0 And
+    cmn_bpt_businessparticipants.IsTenant = 0) ContactPerson Right Join
+  hec_pharmacies On hec_pharmacies.ContactPerson_BusinessParticipant_RefID =
+    ContactPerson.CMN_BPT_BusinessParticipantID Inner Join
+  cmn_com_companyinfo On hec_pharmacies.Ext_CompanyInfo_RefID =
+    cmn_com_companyinfo.CMN_COM_CompanyInfoID Inner Join
+  cmn_bpt_businessparticipants
+    On cmn_bpt_businessparticipants.IfCompany_CMN_COM_CompanyInfo_RefID =
+    cmn_com_companyinfo.CMN_COM_CompanyInfoID
+Where
+  cmn_com_companyinfo.IsDeleted = 0 And
+  hec_pharmacies.IsDeleted = 0 And
+  cmn_bpt_businessparticipants.IsDeleted = 0 And
+  cmn_bpt_businessparticipants.IsCompany = 1 And
+  cmn_bpt_businessparticipants.IsNaturalPerson = 0 And
+  cmn_bpt_businessparticipants.IsTenant = 0 And
+  hec_pharmacies.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PH_GPFOP_0936" IsArray="true">
+			<Members>
+				<ClassMember Name="HEC_PharmacyID" Type="Guid"  />
+				<ClassMember Name="DisplayName" Type="String"  />
+
+                <ClassMember Name="ContactTypePhoneNumber" Type="String"  />
+						<ClassMember Name="ContactTypeFirstName" Type="String"  /> 
+						<ClassMember Name="ContactTypeLastName" Type="String"  />
+						<ClassMember Name="CMN_PER_PersonInfoID" Type="Guid"  />
+						<ClassMember Name="ContactTypeEmail" Type="String"  />
+
+	
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

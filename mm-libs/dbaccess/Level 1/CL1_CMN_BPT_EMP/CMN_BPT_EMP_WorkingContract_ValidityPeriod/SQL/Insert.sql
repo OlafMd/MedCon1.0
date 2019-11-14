@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_bpt_emp_workingcontract_validityperiod
+	(
+		CMN_BPT_EMP_WorkingContract_ValidityPeriodID,
+		WorkingContract_RefID,
+		ValidityPeriod_StartDate,
+		ValidityPeriod_EndDate,
+		ValidityPeriod_Duration_days,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_EMP_WorkingContract_ValidityPeriodID,
+		@WorkingContract_RefID,
+		@ValidityPeriod_StartDate,
+		@ValidityPeriod_EndDate,
+		@ValidityPeriod_Duration_days,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

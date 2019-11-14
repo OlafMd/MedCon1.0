@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_publicoffices
+	(
+		CMN_BPT_PublicOfficeID,
+		GlobalPropertyMatchingID,
+		CMN_BPT_BusinessParticipant_RefID,
+		PublicOffice_InternalKey,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_PublicOfficeID,
+		@GlobalPropertyMatchingID,
+		@CMN_BPT_BusinessParticipant_RefID,
+		@PublicOffice_InternalKey,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

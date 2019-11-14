@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="26-Aug-13 10:39:55">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_USR_Account_ApplicationSetting</Name>
+    <Namespace>CLE_L2_USR_ApplicationSettings.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_ApplicationSettings.Atomic.Manipulation"
+                Method_ClassName="cls_Save_USR_Account_ApplicationSetting"
+                Method_Name="Save_USR_Account_ApplicationSetting"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_USR_Account_ApplicationSetting"
+                />
+  <SQLLimitation_CSharp_Extension>
+			var returnValue = new FR_Guid();
+
+			var item = new CLE_L1_USR.USR_Account_ApplicationSetting.ORM_USR_Account_ApplicationSetting();
+			if (Parameter.USR_Account_ApplicationSettingID != Guid.Empty)
+			{
+			    var result = item.Load(Connection, Transaction, Parameter.USR_Account_ApplicationSettingID);
+			    if (result.Status != FR_Status.Success || item.USR_Account_ApplicationSettingID == Guid.Empty)
+			    {
+			        var error = new FR_Guid();
+			        error.ErrorMessage = "No Such ID";
+			        error.Status =  FR_Status.Error_Internal;
+			        return error;
+			    }
+			}
+
+			if(Parameter.IsDeleted == true){
+				item.IsDeleted = true;
+				return new FR_Guid(item.Save(Connection, Transaction),item.USR_Account_ApplicationSettingID);
+			}
+
+			//Creation specific parameters (Tenant, Account ... )
+			if (Parameter.USR_Account_ApplicationSettingID == Guid.Empty)
+			{
+				item.Tenant_RefID = securityTicket.TenantID;
+			}
+
+			item.Account_RefID = Parameter.Account_RefID;
+			item.ApplicationSetting_Definition_RefID = Parameter.ApplicationSetting_Definition_RefID;
+			item.ItemValue = Parameter.ItemValue;
+			item.Audit_UpdatedByAccount_RefID = Parameter.Audit_UpdatedByAccount_RefID;
+			item.Audit_UpdatedOn = Parameter.Audit_UpdatedOn;
+			item.Audit_CreatedByAccount_RefID = Parameter.Audit_CreatedByAccount_RefID;
+
+
+			return new FR_Guid(item.Save(Connection, Transaction),item.USR_Account_ApplicationSettingID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2USR_SAS_1039">
+    <Members>
+		<ClassMember Name="USR_Account_ApplicationSettingID" IsIdentificator="True" Type="Guid"  />
+		<ClassMember Name="Account_RefID" Type="Guid"  />
+		<ClassMember Name="ApplicationSetting_Definition_RefID" Type="Guid"  />
+		<ClassMember Name="ItemValue" Type="String"  />
+		<ClassMember Name="Audit_UpdatedByAccount_RefID" Type="Guid"  />
+		<ClassMember Name="Audit_UpdatedOn" Type="String"  />
+		<ClassMember Name="Audit_CreatedByAccount_RefID" Type="Guid"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 8/16/2013 10:43:39 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="RES_STR_Facade_RequiredAction"
+                IsClass="true"
+                IsClass_Namespace="CL1_RES_STR"
+                IsClass_Corresponding_DBTable="res_str_facade_requiredactions" >
+      <Members>
+		<ClassMember Name="RES_STR_Facade_RequiredActionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="FacadePropertyAssestment_RefID" Type="Guid" />
+		<ClassMember Name="SelectedActionVersion_RefID" Type="Guid" />
+		<ClassMember Name="EffectivePrice_RefID" Type="Guid" />
+		<ClassMember Name="Action_PricePerUnit_RefID" Type="Guid" />
+		<ClassMember Name="Action_Unit_RefID" Type="Guid" />
+		<ClassMember Name="Action_UnitAmount" Type="Double" />
+		<ClassMember Name="IsCustom" Type="Boolean" />
+		<ClassMember Name="IfCustom_Name" Type="String" />
+		<ClassMember Name="IfCustom_Description" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="Action_Timeframe_RefID" Type="Guid" />
+		<ClassMember Name="Comment" Type="String" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

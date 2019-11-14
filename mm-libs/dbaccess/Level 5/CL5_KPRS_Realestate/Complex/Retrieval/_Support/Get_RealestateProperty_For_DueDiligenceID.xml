@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/11/2013 4:16:31 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DueDiligence_For_DueDiligenceID</Name>
+    <Namespace>CL5_KPRS_DueDiligences.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_Realestate.Complex.Retrieval"
+                Method_ClassName="cls_Get_RealestateProperty_For_DueDiligenceID"
+                Method_Name="Get_RealestateProperty_For_DueDiligenceID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_RealestateProperty_For_DueDiligenceID"
+                />
+
+
+
+  <Parameters IsClass="true" Name="P_L5RP_GRPFDD_1148">
+    <Members>
+		<ClassMember Name="DueDiligenceID" Type="Guid"  />	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5RP_GRPFDD_1148" IsArray="false" GroupBy="RES_DUD_Revision_GroupID">
+			<Members>
+				<ClassMember Name="RES_RealestatePropertyID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

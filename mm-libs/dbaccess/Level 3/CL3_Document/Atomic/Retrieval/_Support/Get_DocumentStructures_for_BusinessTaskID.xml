@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/14/2014 03:00:30 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DocumentStructures_for_BusinessTaskID</Name>
+    <Namespace>CL3_Document.Atomic.Retrieval</Namespace>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Document.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DocumentStructures_for_BusinessTaskID"
+                Method_Name="Get_DocumentStructures_for_BusinessTaskID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DocumentStructures_for_BusinessTaskID"
+                />
+
+  <SQLStatement xml:space="preserve">
+  Select
+    doc_structures.DOC_StructureID,
+    doc_structures.Label,
+    doc_structures.Parent_RefID,
+    doc_structures.Structure_Header_RefID
+  From
+    doc_structures Inner Join
+    doc_structure_headers On doc_structures.Structure_Header_RefID =
+    doc_structure_headers.DOC_Structure_HeaderID Inner Join
+    tms_pro_businesstasks On tms_pro_businesstasks.DOC_Structure_Header_RefID =
+    doc_structure_headers.DOC_Structure_HeaderID
+  Where
+    doc_structures.IsDeleted = 0 And
+    doc_structure_headers.IsDeleted = 0 And
+    tms_pro_businesstasks.IsDeleted = 0 And
+    tms_pro_businesstasks.Tenant_RefID = @TenantID And
+    tms_pro_businesstasks.TMS_PRO_BusinessTaskID = @ID  
+  </SQLStatement>
+
+
+
+  <Parameters IsClass="true" Name="P_L3DO_GDSfBTID_1117">
+    <Members>
+      <ClassMember Name="ID" Type="Guid" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3DO_GDSfBTID_1117" IsArray="true">
+      <Members>
+        <ClassMember Name="DOC_StructureID" Type="Guid"  />
+        <ClassMember Name="Label" Type="string"  />
+        <ClassMember Name="Parent_RefID" Type="Guid"  />
+        <ClassMember Name="Structure_Header_RefID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

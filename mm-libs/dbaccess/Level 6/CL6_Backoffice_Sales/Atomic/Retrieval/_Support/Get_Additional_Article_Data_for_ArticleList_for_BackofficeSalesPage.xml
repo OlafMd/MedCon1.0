@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="18/3/2014 02:32:11">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Additional_Article_Data_for_ArticleList_for_BackofficeSalesPage</Name>
+    <Namespace>CL6_Backoffice_Sales.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_Backoffice_Sales.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Additional_Article_Data_for_ArticleList_for_BackofficeSalesPage"
+                Method_Name="Get_Additional_Article_Data_for_ArticleList_for_BackofficeSalesPage"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Additional_Article_Data_for_ArticleList_for_BackofficeSalesPage"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT 
+		cmn_pro_products.CMN_PRO_ProductID,
+		cmn_pro_products.IsStorage_BatchNumberMandatory,
+		cmn_pro_products.IsStorage_ExpiryDateMandatory,
+		SUM(log_wrh_shelf_contents.Quantity_Current) AS StockQuantity
+	FROM
+		cmn_pro_products
+		LEFT OUTER JOIN log_wrh_shelf_contents ON log_wrh_shelf_contents.Product_RefID = cmn_pro_products.CMN_PRO_ProductID
+		AND log_wrh_shelf_contents.Tenant_RefID = @TenantID
+	WHERE
+		cmn_pro_products.IsDeleted = 0
+		AND cmn_pro_products.Tenant_RefID = @TenantID
+		AND cmn_pro_products.CMN_PRO_ProductID = @ArticleList
+	GROUP BY cmn_pro_products.CMN_PRO_ProductID
+	
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6SA_GAADfALfBSP_1115">
+    <Members>
+		<ClassMember Name="ArticleList" Type="Guid" IsArray="true"  />
+	
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6SA_GAADfALfBSP_1115" IsArray="true">
+      <Members>
+        <ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+        <ClassMember Name="IsStorage_BatchNumberMandatory" Type="Boolean"  />
+        <ClassMember Name="IsStorage_ExpiryDateMandatory" Type="Boolean"  />
+        <ClassMember Name="StockQuantity" Type="Double"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

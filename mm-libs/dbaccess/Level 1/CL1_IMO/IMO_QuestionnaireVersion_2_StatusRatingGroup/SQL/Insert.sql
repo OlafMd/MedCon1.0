@@ -1,0 +1,21 @@
+INSERT INTO 
+	imo_questionnaireversion_2_statusratinggroup
+	(
+		AssignmentID,
+		Questionnaire_StatusRatingGroup_RefID,
+		QuestionnaireVersion_RefID,
+		IsDefault,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@Questionnaire_StatusRatingGroup_RefID,
+		@QuestionnaireVersion_RefID,
+		@IsDefault,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

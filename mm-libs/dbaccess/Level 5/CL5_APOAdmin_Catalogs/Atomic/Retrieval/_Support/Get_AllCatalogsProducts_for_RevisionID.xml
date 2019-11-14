@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/23/2013 3:59:15 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllCatalogsProducts_for_RevisionID</Name>
+    <Namespace>CL5_APOAdmin_Catalogs.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOAdmin_Catalogs.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllCatalogsProducts_for_RevisionID"
+                Method_Name="Get_AllCatalogsProducts_for_RevisionID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AllCatalogsProducts_for_RevisionID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_pro_products.Product_Name_DictID,
+  cmn_pro_products.Product_Number,
+  cmn_pro_products.Product_Description_DictID,
+  cmn_pro_products.ProductITL,
+  cmn_units.ISOCode,
+  cmn_pro_products.CMN_PRO_ProductID,
+  acc_tax_taxes.TaxRate,
+  hec_product_dosageforms.GlobalPropertyMatchingID As DosageForm,
+  cmn_bpt_businessparticipants.DisplayName As Producer_DisplayName,
+  hec_products.ProductDistributionStatus,
+  hec_products.HEC_ProductID,
+  cmn_pro_products.IsStorage_CoolingRequired,
+  cmn_pro_products.DefaultExpirationPeriod_in_sec,
+  cmn_pro_products.DefaultStorageTemperature_max_in_kelvin,
+  cmn_pro_products.DefaultStorageTemperature_min_in_kelvin,
+  hec_products.IsProduct_AddictiveDrug,
+  cmn_pro_products.ProductAdditionalInfoXML,
+  cmn_pro_pac_packageinfo.PackageContent_DisplayLabel
+From
+  cmn_pro_catalog_products Inner Join
+  cmn_pro_products On cmn_pro_catalog_products.CMN_PRO_Product_RefID =
+    cmn_pro_products.CMN_PRO_ProductID Left Join
+  cmn_pro_pac_packageinfo On cmn_pro_products.PackageInfo_RefID =
+    cmn_pro_pac_packageinfo.CMN_PRO_PAC_PackageInfoID Left Join
+  cmn_bpt_businessparticipants
+    On cmn_pro_products.ProducingBusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And
+    cmn_bpt_businessparticipants.IsDeleted = 0 Inner Join
+  cmn_units
+    On cmn_units.CMN_UnitID =
+    cmn_pro_pac_packageinfo.PackageContent_MeasuredInUnit_RefID Inner Join
+  hec_products On hec_products.Ext_PRO_Product_RefID =
+    cmn_pro_products.CMN_PRO_ProductID Inner Join
+  hec_product_dosageforms On hec_products.ProductDosageForm_RefID =
+    hec_product_dosageforms.HEC_Product_DosageFormID Inner Join
+  cmn_pro_product_salestaxassignmnets
+    On cmn_pro_product_salestaxassignmnets.Product_RefID =
+    cmn_pro_products.CMN_PRO_ProductID Inner Join
+  acc_tax_taxes On cmn_pro_product_salestaxassignmnets.ApplicableSalesTax_RefID
+    = acc_tax_taxes.ACC_TAX_TaxeID
+Where
+  cmn_pro_catalog_products.IsDeleted = 0 And
+  cmn_pro_catalog_products.CMN_PRO_Catalog_Revision_RefID = @RevisionID And
+  cmn_pro_products.IsDeleted = 0 And
+  cmn_pro_product_salestaxassignmnets.IsDeleted = 0 And
+  acc_tax_taxes.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5CA_GACPfR_1558">
+    <Members>
+		<ClassMember Name="RevisionID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5CA_GACPfR_1558" IsArray="true">
+			<Members>
+
+        <ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+        <ClassMember Name="HEC_ProductID" Type="Guid"  />
+        <ClassMember Name="ProductITL" Type="String"  />
+        <ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+        <ClassMember Name="Product_Number" Type="String"  />
+        <ClassMember Name="Product_Description" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Description_DictID"  />
+        <ClassMember Name="ISOCode" Type="String"  />
+        <ClassMember Name="PackageContent_DisplayLabel" Type="String"  />
+        <ClassMember Name="DosageForm" Type="String" />
+        <ClassMember Name="TaxRate" Type="Decimal"  />
+        <ClassMember Name="Producer_DisplayName" Type="String" />
+        <ClassMember Name="ProductDistributionStatus" Type="int" />
+
+        <ClassMember Name="IsStorage_CoolingRequired" Type="bool" />
+        <ClassMember Name="DefaultExpirationPeriod_in_sec" Type="long" />
+        <ClassMember Name="DefaultStorageTemperature_max_in_kelvin" Type="Double" />
+        <ClassMember Name="DefaultStorageTemperature_min_in_kelvin" Type="Double" />
+        <ClassMember Name="IsProduct_AddictiveDrug" Type="bool" />
+        <ClassMember Name="ProductAdditionalInfoXML" Type="String" />
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

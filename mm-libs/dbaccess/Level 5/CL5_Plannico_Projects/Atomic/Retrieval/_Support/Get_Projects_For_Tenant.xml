@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="28-Oct-13 12:00:20">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Projects_For_Tenant</Name>
+    <Namespace>CL5_Plannico_Projects.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_Projects.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Projects_For_Tenant"
+                Method_Name="Get_Projects_For_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Projects_For_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  tms_pro_projects.Name_DictID,
+  tms_pro_projects.Description_DictID,
+  tms_pro_projects.TMS_PRO_ProjectID,
+  tms_pro_projects.IsArchived,
+  tms_pro_project_2_projectgroup.AssignmentID,
+  tms_pro_project_2_projectgroup.TMS_PRO_Project_Group_RefID,
+  tms_pro_projects.Default_CostCenter_RefID
+From
+  tms_pro_projects Left Join
+  tms_pro_project_2_projectgroup On tms_pro_projects.TMS_PRO_ProjectID =
+    tms_pro_project_2_projectgroup.TMS_PRO_Project_RefID And
+    tms_pro_project_2_projectgroup.IsDeleted = 0
+Where
+  tms_pro_projects.Tenant_RefID = @TenantID And
+  tms_pro_projects.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PR_GPFT_1200" IsArray="true">
+			<Members>
+				<ClassMember Name="Name" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Name_DictID"  />
+				<ClassMember Name="Description" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Description_DictID"  />
+				<ClassMember Name="TMS_PRO_ProjectID" Type="Guid"  />
+				<ClassMember Name="IsArchived" Type="bool"  />
+				<ClassMember Name="AssignmentID" Type="Guid"  />
+				<ClassMember Name="TMS_PRO_Project_Group_RefID" Type="Guid"  />
+        <ClassMember Name="Default_CostCenter_RefID" Type="Guid"  />
+  		</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

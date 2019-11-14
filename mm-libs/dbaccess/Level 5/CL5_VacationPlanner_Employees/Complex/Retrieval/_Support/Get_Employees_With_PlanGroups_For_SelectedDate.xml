@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="13/01/2014 9:23:25 AM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_VacationPlanner_Employees.Complex.Retrieval"
+                  Method_ClassName="cls_Get_Employees_With_PlanGroups_For_SelectedDate"
+                  Method_Name="Get_Employees_With_PlanGroups_For_SelectedDate"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Get_Employees_With_PlanGroups_For_SelectedDate"
+                />
+
+    <Parameters IsClass="true" Name="P_L5EM_GEWPGFSD_1437">
+      <Members>
+        <ClassMember Name="SelectedDate" Type="DateTime"  />
+      </Members>
+    </Parameters>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5EM_GEWPGFSD_1437" IsArray="true">
+            <Members>
+              <ClassMember Name="EmployeeID" Type="Guid"  />
+              <ClassMember Name="FirstName" Type="String"  />
+              <ClassMember Name="LastName" Type="String"  />
+              <ClassMember Name="PlanGroupID" Type="Guid"  />
+              <ClassMember Name="PlanGroupName" Type="Dict"  />
+              <ClassMember Name="Position" Type="int"  />
+              <ClassMember Name="ContractSpecifiedWorkTime_InMinutes" Type="int"  />
+              <ClassMember Name="Age" Type="int"  />
+              <ClassMember Name="WeeklyOfficeHours" Type="WeeklyOfficeHours" IsArray="true"  />
+              <ClassMember Name="IsBreakTimeCalculated_Planning" Type="bool"/>
+              <ClassMember Name="IsBreakTimeCalculated_Actual" Type="bool"/>
+              <ClassMember Name="IsWorkTimeCalculated_InHours" Type="bool"/>
+              <ClassMember Name="IsWorkTimeCalculated_InDays" Type="bool"/>
+              <ClassMember Name="AllWorkingContracts" Type="L5EM_GEFE_1150_WorkingContract" IsArray="true" IsReference="true"/>
+              <ClassMember Name="AllWorkplaceHistories" Type="L5EM_GEFE_1150_EmployeeWorkplaceHistory" IsArray="true" IsReference="true"/>
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

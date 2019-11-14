@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_str_basement_properties
+	(
+		RES_STR_Basement_PropertyID,
+		GlobalPropertyMatchingID,
+		BasementProperty_Name_DictID,
+		BasementProperty_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_Basement_PropertyID,
+		@GlobalPropertyMatchingID,
+		@BasementProperty_Name,
+		@BasementProperty_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

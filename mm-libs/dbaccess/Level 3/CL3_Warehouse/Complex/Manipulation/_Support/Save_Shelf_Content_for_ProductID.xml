@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="16/7/2014 04:36:46">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Shelf_Content_for_ProductID</Name>
+    <Namespace>CL3_Warehouse.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Warehouse.Complex.Manipulation"
+                Method_ClassName="cls_Save_Shelf_Content_for_ProductID"
+                Method_Name="Save_Shelf_Content_for_ProductID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Shelf_Content_for_ProductID"
+                />
+
+  <Parameters IsClass="true" Name="P_L3WH_SSCfP_1635">
+    <Members>
+      <ClassMember Name="ProductID" Type="Guid" />
+      <ClassMember Name="ShelfID" Type="Guid" />
+      <ClassMember Name="Quantity" Type="double" />
+      <ClassMember Name="BatchNumber" Type="String" />
+      <ClassMember Name="ExpirationDate" Type="DateTime" />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3WH_SSCfP_1635" IsArray="false">
+			<Members>
+        <ClassMember Name="ShelfContentID" Type="Guid" />
+        <ClassMember Name="TrackingInstanceID" Type="Guid" />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_employmentrelationship_templates
+WHERE 
+	CMN_BPT_EMP_EmploymentRelationship_TemplateID = @CMN_BPT_EMP_EmploymentRelationship_TemplateID

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ElasticRefresh_TreatmentData_for_CaseIDs</Name>
+    <Namespace>MMDocConnectDBMethods.ElasticRefresh</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.ElasticRefresh"
+								Method_ClassName="cls_Get_ElasticRefresh_TreatmentData_for_CaseIDs"
+								Method_Name="Get_ElasticRefresh_TreatmentData_for_CaseIDs"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    SELECT
+      hec_act_performedaction_diagnosisupdates.PotentialDiagnosis_RefID AS diagnose_id,
+      hec_act_performedaction_diagnosisupdate_localizations.IM_PotentialDiagnosisLocalization_Code AS localization,
+      hec_act_plannedactions.ToBePerformedBy_BusinessParticipant_RefID AS op_doctor_bpt_id,
+      hec_cas_case_relevantperformedactions.Case_RefID AS case_id
+    FROM
+      hec_cas_case_relevantperformedactions
+      INNER JOIN hec_act_plannedactions ON hec_cas_case_relevantperformedactions.PerformedAction_RefID =
+        hec_act_plannedactions.IfPlannedFollowup_PreviousAction_RefID AND hec_act_plannedactions.Tenant_RefID = @TenantID
+        AND hec_act_plannedactions.IsDeleted = 0
+      INNER JOIN hec_act_performedaction_diagnosisupdates ON hec_cas_case_relevantperformedactions.PerformedAction_RefID =
+        hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_RefID AND
+        hec_act_performedaction_diagnosisupdates.Tenant_RefID = @TenantID AND
+        hec_act_performedaction_diagnosisupdates.IsDeleted = 0
+      INNER JOIN hec_act_performedaction_diagnosisupdate_localizations
+        ON hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_DiagnosisUpdateID =
+        hec_act_performedaction_diagnosisupdate_localizations.HEX_EXC_Action_DiagnosisUpdate_RefID AND
+        hec_act_performedaction_diagnosisupdate_localizations.Tenant_RefID = @TenantID AND
+        hec_act_performedaction_diagnosisupdate_localizations.IsDeleted = 0
+    WHERE
+      hec_cas_case_relevantperformedactions.Case_RefID = @CaseIDs AND
+      hec_cas_case_relevantperformedactions.Tenant_RefID = @TenantID AND
+      hec_cas_case_relevantperformedactions.IsDeleted = 0
+    GROUP BY
+      hec_cas_case_relevantperformedactions.Case_RefID
+    ORDER BY
+      NULL
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_ER_GERTDfCIDs_1200">
+    <Members>
+      <ClassMember Name="CaseIDs" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="ER_GERTDfCIDs_1200" IsArray="true">
+      <Members>
+        <ClassMember Name="localization" Type="String"  />
+        <ClassMember Name="diagnose_id" Type="Guid"  />
+        <ClassMember Name="op_doctor_bpt_id" Type="Guid"  />
+        <ClassMember Name="case_id" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

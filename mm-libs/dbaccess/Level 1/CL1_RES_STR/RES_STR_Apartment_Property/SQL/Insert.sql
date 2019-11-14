@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_str_apartment_properties
+	(
+		RES_STR_Apartment_PropertyID,
+		GlobalPropertyMatchingID,
+		ApartmentProperty_Name_DictID,
+		ApartmentProperty_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_Apartment_PropertyID,
+		@GlobalPropertyMatchingID,
+		@ApartmentProperty_Name,
+		@ApartmentProperty_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

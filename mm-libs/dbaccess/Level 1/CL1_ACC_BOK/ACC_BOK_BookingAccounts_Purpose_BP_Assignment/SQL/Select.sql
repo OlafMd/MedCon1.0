@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	acc_bok_bookingaccounts_purpose_bp_assignments
+WHERE 
+	ACC_BOK_BookingAccounts_Purpose_BP_AssignmentID = @ACC_BOK_BookingAccounts_Purpose_BP_AssignmentID

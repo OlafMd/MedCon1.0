@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Case_BaseData_for_CaseID</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Case_BaseData_for_CaseID"
+								Method_Name="Get_Case_BaseData_for_CaseID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    Select
+      hec_cas_cases.Patient_RefID As patient_id,
+      hec_cas_cases.HEC_CAS_CaseID As case_id,
+      Concat(hec_cas_cases.Patient_FirstName, ' ', hec_cas_cases.Patient_LastName, ' (', Date_Format(hec_cas_cases.Patient_BirthDate, '%d.%m.%Y'), ')') As
+      patient_display_name,
+      hec_act_plannedaction_potentialprocedure_requiredproduct.HealthcareProduct_RefID As drug_id,
+      hec_act_plannedactions.PlannedFor_Date As treatment_date,
+      hec_act_plannedactions.ToBePerformedBy_BusinessParticipant_RefID As treatment_doctor_bpt_id,
+      hec_act_plannedaction_potentialprocedure_requiredproduct.BoundTo_HealthcareProcurementOrderPosition_RefID as drug_order_position_id,  
+      hec_cas_cases.Patient_FirstName as patient_first_name,
+      hec_cas_cases.Patient_LastName as patient_last_name, 
+      hec_cas_cases.Patient_Gender as patient_gender,
+      hec_cas_cases.Patient_BirthDate as patient_birthdate,
+      hec_cas_cases.Patient_Age as patient_age,
+      hec_act_plannedactions.HEC_ACT_PlannedActionID as treatment_planned_action_id,
+      hec_act_plannedactions.MedicalPractice_RefID As practice_id,
+      hec_cas_cases.CaseNumber as case_number
+    From
+      hec_cas_cases Inner Join
+      hec_cas_case_relevantperformedactions
+        On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_relevantperformedactions.Case_RefID And hec_cas_case_relevantperformedactions.Tenant_RefID = @TenantID And
+        hec_cas_case_relevantperformedactions.IsDeleted = 0 Inner Join
+      hec_act_plannedactions
+        On hec_cas_case_relevantperformedactions.PerformedAction_RefID = hec_act_plannedactions.IfPlannedFollowup_PreviousAction_RefID And
+        hec_act_plannedactions.Tenant_RefID = @TenantID And hec_act_plannedactions.IsDeleted = 0 Inner Join
+      hec_act_plannedaction_potentialprocedures
+        On hec_act_plannedactions.HEC_ACT_PlannedActionID = hec_act_plannedaction_potentialprocedures.PlannedAction_RefID And
+        hec_act_plannedaction_potentialprocedures.Tenant_RefID = @TenantID And hec_act_plannedaction_potentialprocedures.IsDeleted = 0 Inner Join
+      hec_act_plannedaction_potentialprocedure_requiredproduct
+        On hec_act_plannedaction_potentialprocedures.HEC_ACT_PlannedAction_PotentialProcedureID =
+        hec_act_plannedaction_potentialprocedure_requiredproduct.PlannedAction_PotentialProcedure_RefID And
+        hec_act_plannedaction_potentialprocedure_requiredproduct.Tenant_RefID = @TenantID And hec_act_plannedaction_potentialprocedure_requiredproduct.IsDeleted = 0
+    Where
+      hec_cas_cases.HEC_CAS_CaseID = @CaseID And
+      hec_cas_cases.Tenant_RefID = @TenantID 
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GCBDfCID_1054">
+    <Members>
+      <ClassMember Name="CaseID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GCBDfCID_1054">
+      <Members>
+        <!-- Case base data -->
+        <ClassMember Name="case_id" Type="Guid"  />
+        <ClassMember Name="drug_id" Type="Guid"  />
+        <ClassMember Name="treatment_date" Type="DateTime"  />
+        <ClassMember Name="drug_order_position_id" Type="Guid"  />
+        <ClassMember Name="treatment_planned_action_id" Type="Guid"  />
+        <ClassMember Name="treatment_doctor_bpt_id" Type="Guid"  />
+        <ClassMember Name="practice_id" Type="Guid"  />
+        <ClassMember Name="case_number" Type="String"  />
+
+        <!-- Patient -->
+        <ClassMember Name="patient_id" Type="Guid"  />
+        <ClassMember Name="patient_display_name" Type="String"  />
+        <ClassMember Name="patient_first_name" Type="String"  />
+        <ClassMember Name="patient_last_name" Type="String"  />
+        <ClassMember Name="patient_gender" Type="int"  />
+        <ClassMember Name="patient_birthdate" Type="DateTime"  />
+        <ClassMember Name="patient_age" Type="int"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

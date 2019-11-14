@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="03-Dec-14 11:38:34 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Archive_Features_for_FeaturesID</Name>
+    <Namespace>CL2_Feature.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Feature.Atomic.Manipulation"
+                Method_ClassName="cls_Archive_Features_for_FeaturesID"
+                Method_Name="Archive_Features_for_FeaturesID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Archive_Features_for_FeaturesID"
+                />
+
+  <Parameters IsClass="true" Name="P_L2FE_AFfFID_1136">
+    <Members>
+		<ClassMember Name="FeatureID" Type="String" IsArray="true" />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

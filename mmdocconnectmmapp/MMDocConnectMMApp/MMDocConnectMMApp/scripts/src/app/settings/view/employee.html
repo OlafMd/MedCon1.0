@@ -1,0 +1,42 @@
+﻿<div ng-init="initializeController()"  id="view">
+    <div class="gray-content-holder" ng-if="!showUserForm">
+        <button id="btnAddEmployee" class="wide-add-button" ng-click="openFormAddUser()" translate="BUTTON_ADD_NEW_USER"></button>
+    </div>
+
+    <add-user-directive ng-if="showUserForm"></add-user-directive>
+
+    <ul class="employee-list-header" id="listHeader">
+        <li class="unsorted" ng-class="setTableHeaderClass('name')" ng-click="SortFunction('name')">{{'LABEL_LAST_NAME_FIRST_NAME' | translate }}</li>
+        <li>{{'LABEL_EMAIL_ADDRESS' | translate }}</li>
+        <li>{{'LABEL_PHONE_NUMBER'| translate}}</li>
+    </ul>
+    <h2 id="stickyHeaderBox" class="first-letter-holder hide"></h2>
+
+    <div class="content-scroll clear" id="wrapper" ng-if="showData" sticky>
+        <div id="wrapper_inner" class="clearfix">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="item in employees | groupBy:'group_name'" ng-repeat-finished>
+                    <h2 id="tableGroup" class="first-letter-holder tableGroup" ng-if="item.group_name_CHANGED">{{::item.group_name}}</h2>
+                    <add-user-directive ng-if="showEditUserForm && editUserID ==item.id"></add-user-directive>
+                    <ul id="list" class="employee-list-item" ng-if="item.id !== editUserID">
+                        <li class="larger-font">
+                            {{ ::item.name }}
+                            <span class="normal-height-font gray-font-color margin-top-3" ng-if="item.is_admin"> {{ 'LABEL_ADMIN' | translate }} </span>
+                        </li>
+                        <li class="larger-font">
+                            {{:: item.email }}
+                        </li>
+                        <li>
+                            <span class="padding-top-6">
+                                {{:: item.phone }}
+                            </span>
+                        </li>
+                        <li>
+                            <a class="icons-edit jsblockClose" ng-click="openEditForm(item)" href="" title="{{ 'BUTTON_EDIT' | translate }}">{{'BUTTON_EDIT' | translate}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

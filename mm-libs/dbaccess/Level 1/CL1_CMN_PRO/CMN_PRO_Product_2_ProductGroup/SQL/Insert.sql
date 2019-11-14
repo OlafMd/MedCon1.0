@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_pro_product_2_productgroup
+	(
+		AssignmentID,
+		CMN_PRO_ProductGroup_RefID,
+		CMN_PRO_Product_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_PRO_ProductGroup_RefID,
+		@CMN_PRO_Product_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

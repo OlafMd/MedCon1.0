@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_all_Orders_without_Pharmacy</Name>
+    <Namespace>DataImporter.DBMethods.Order.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="DataImporter.DBMethods.Order.Atomic.Retrieval"
+                Method_ClassName="cls_Get_all_Orders_without_Pharmacy"
+                Method_Name="Get_all_Orders_without_Pharmacy"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+  <SQLStatement xml:space="preserve">
+Select
+  ord_prc_procurementorder_statuses.Status_Code As status,
+  ord_prc_procurementorder_headers.ProcurementOrder_Number As number,
+  ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID As id
+From
+  ord_prc_procurementorder_headers Inner Join
+  ord_prc_procurementorder_statuses
+    On ord_prc_procurementorder_headers.Current_ProcurementOrderStatus_RefID = ord_prc_procurementorder_statuses.ORD_PRC_ProcurementOrder_StatusID And
+    ord_prc_procurementorder_headers.ProcurementOrder_Supplier_RefID = x'00000000000000000000000000000000' And ord_prc_procurementorder_statuses.Status_Code Not
+    In (0, 9) And ord_prc_procurementorder_statuses.Tenant_RefID = @TenantID And ord_prc_procurementorder_statuses.IsDeleted = 0
+Where
+  ord_prc_procurementorder_headers.Tenant_RefID = @TenantID And
+  ord_prc_procurementorder_headers.IsDeleted = 0
+Order By
+  Cast(ord_prc_procurementorder_headers.ProcurementOrder_Number as unsigned)
+  </SQLStatement>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="OR_GaOwP_1024" IsArray="true">
+      <Members>
+        <ClassMember Name="status" Type="int" />
+        <ClassMember Name="number" Type="String" />
+        <ClassMember Name="id" Type="Guid" />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

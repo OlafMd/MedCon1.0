@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/2/2014 10:19:00">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_SupplierTypes_for_Tenant</Name>
+    <Namespace>CL2_Supplier.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Supplier.Atomic.Retrieval"
+                Method_ClassName="cls_Get_SupplierTypes_for_Tenant"
+                Method_Name="Get_SupplierTypes_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_SupplierTypes_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT
+	  cmn_bpt_supplier_types.CMN_BPT_Supplier_TypeID,
+	  cmn_bpt_supplier_types.GlobalPropertyMatchingID,
+	  cmn_bpt_supplier_types.SupplierType_Name_DictID,
+	  cmn_bpt_supplier_types.Creation_Timestamp,
+	  cmn_bpt_supplier_types.IsDeleted
+	FROM
+	  cmn_bpt_supplier_types
+	WHERE
+	  cmn_bpt_supplier_types.Tenant_RefID = @TenantID AND
+	  cmn_bpt_supplier_types.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2SP_GSTfT_1017" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_BPT_Supplier_TypeID" Type="Guid"  />
+				<ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+				<ClassMember Name="SupplierType_Name" Type="Dict" Source_DBField="SupplierType_Name_DictID"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

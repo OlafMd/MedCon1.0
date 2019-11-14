@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/19/2014 4:21:03 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Treatments_and_Followups_for_SelectedMonth_and_Year</Name>
+    <Namespace>CL5_Lucentis_Treatments.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Treatments.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Treatments_and_Followups_for_SelectedMonth_and_Year"
+                Method_Name="Get_Treatments_and_Followups_for_SelectedMonth_and_Year"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Treatments_and_Followups_for_SelectedMonth_and_Year"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_patient_treatment.HEC_Patient_TreatmentID,
+  hec_patient_treatment.IsTreatmentFollowup,
+  hec_patient_treatment.IfTreatmentPerformed_Date,
+  hec_patient_treatment.IfTreatmentFollowup_FromTreatment_RefID
+From
+  hec_patient_treatment
+Where
+  hec_patient_treatment.IsTreatmentPerformed = 1 And
+  hec_patient_treatment.IsDeleted = 0 And
+  hec_patient_treatment.Tenant_RefID = @TenantID And
+  Month(hec_patient_treatment.IfTreatmentPerformed_Date) = @SelectedMounth And
+  Year(hec_patient_treatment.IfTreatmentPerformed_Date) = @SelectedYear And
+  hec_patient_treatment.IsTreatmentBilled = 1
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5TR_GTaFfSMaY_1619">
+    <Members>
+		<ClassMember Name="SelectedMounth" Type="int"  />
+		<ClassMember Name="SelectedYear" Type="int"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5TR_GTaFfSMaY_1619" IsArray="true">
+			<Members>
+				<ClassMember Name="HEC_Patient_TreatmentID" Type="Guid"  />
+				<ClassMember Name="IsTreatmentFollowup" Type="bool"  />
+                <ClassMember Name="IfTreatmentPerformed_Date" Type="DateTime"  />
+                <ClassMember Name="IfTreatmentFollowup_FromTreatment_RefID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

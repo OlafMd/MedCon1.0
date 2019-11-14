@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 12/13/2013 2:24:27 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_PRO_Catalog_Revision"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_PRO"
+                IsClass_Corresponding_DBTable="cmn_pro_catalog_revisions" >
+      <Members>
+		<ClassMember Name="CMN_PRO_Catalog_RevisionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="CMN_PRO_Catalog_RefID" Type="Guid" />
+		<ClassMember Name="CatalogRevision_Name" Type="String" />
+		<ClassMember Name="CatalogRevision_Description" Type="String" />
+		<ClassMember Name="RevisionNumber" Type="int" />
+		<ClassMember Name="Valid_From" Type="DateTime" />
+		<ClassMember Name="Valid_Through" Type="DateTime" />
+		<ClassMember Name="PublishedBy_BusinessParticipant_RefID" Type="Guid" />
+		<ClassMember Name="Default_PricelistRelease_RefID" Type="Guid" />
+		<ClassMember Name="PublishedOn_Date" Type="DateTime" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

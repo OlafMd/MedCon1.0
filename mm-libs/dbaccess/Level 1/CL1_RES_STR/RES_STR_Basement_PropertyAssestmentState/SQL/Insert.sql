@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_str_basement_propertyassestmentstates
+	(
+		RES_STR_Basement_PropertyAssestmentStateID,
+		BasementPropertyAssessmentState_Name_DictID,
+		BasementPropertyAssessmentState_Description_DictID,
+		BasementPropertyAssessmentState_OrdinalPosition,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_Basement_PropertyAssestmentStateID,
+		@BasementPropertyAssessmentState_Name,
+		@BasementPropertyAssessmentState_Description,
+		@BasementPropertyAssessmentState_OrdinalPosition,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="comment.article-replaced">
+    <Lang ISO="EN" Content="Product {0} with number {1} is changed with product {2} with number {3}." />
+    <Lang ISO="DE" Content="Das Produkt {0} mit der PZN {1} wurde ersetzt durch das Produkt {2} mit der PZN {3}." />
+  </Item>  
+</Resources>

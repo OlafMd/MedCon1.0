@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/14/2014 4:12:14 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Customer_by_AccountCode</Name>
+    <Namespace>CL3_MeasurementsMisc.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_MeasurementsMisc.Atomic.Retrieval"
+                Method_ClassName="cls_Customer_by_AccountCode"
+                Method_Name="Customer_by_AccountCode"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Customer_by_AccountCode"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  DISTINCT cmn_bpt_ctm_customers.CMN_BPT_CTM_CustomerID,
+  cmn_bpt_ctm_customers.CustomerOrderDefaultShipmentWarehouse_RefID,
+  cmn_bpt_ctm_customers.InternalCustomerNumber,
+  cmn_bpt_ctm_customers.Tenant_RefID,
+  cmn_bpt_ctm_customers.IsDeleted,
+  cmn_bpt_ctm_customers.Creation_Timestamp,
+  cmn_bpt_ctm_customers.Ext_BusinessParticipant_RefID,
+  cmn_bpt_ctm_customers.CustomerAffinityStatus_RefID
+From
+  usr_device_accountcodes Inner Join
+  mrs_run_measurementrun_accountdownloadcodes
+    On usr_device_accountcodes.Account_RefID =
+    mrs_run_measurementrun_accountdownloadcodes.Account_RefID Inner Join
+  mrs_run_measurementrun_routes
+    On mrs_run_measurementrun_accountdownloadcodes.MeasurementRun_RefID =
+    mrs_run_measurementrun_routes.MeasurementRun_RefID Inner Join
+  mrs_rut_routes On mrs_rut_routes.MRS_RUT_RouteID =
+    mrs_run_measurementrun_routes.Route_RefID Inner Join
+  mrs_rut_route_measuringpoints On mrs_rut_routes.MRS_RUT_RouteID =
+    mrs_rut_route_measuringpoints.Route_RefID Inner Join
+  mrs_mpt_measuringpoints On mrs_rut_route_measuringpoints.MeasuringPoint_RefID
+    = mrs_mpt_measuringpoints.MRS_MPT_MeasuringPointID Inner Join
+  mrs_mpt_customerownerships On mrs_mpt_measuringpoints.MRS_MPT_MeasuringPointID
+    = mrs_mpt_customerownerships.MeasuringPoint_RefID Inner Join
+  cmn_bpt_ctm_customers On mrs_mpt_customerownerships.Customer_RefID =
+    cmn_bpt_ctm_customers.CMN_BPT_CTM_CustomerID
+Where
+  cmn_bpt_ctm_customers.IsDeleted = 0 And
+  mrs_run_measurementrun_routes.IsDeleted = 0 And
+  usr_device_accountcodes.IsDeleted = 0 And
+  usr_device_accountcodes.AccountCode_Value = @AccountCode And
+  mrs_rut_routes.IsDeleted = 0 And
+  mrs_rut_route_measuringpoints.IsDeleted = 0 And
+  mrs_mpt_measuringpoints.IsDeleted = 0 And
+  mrs_mpt_customerownerships.IsDeleted = 0 And
+  mrs_run_measurementrun_accountdownloadcodes.DownloadCode = @DownloadCode And
+  mrs_run_measurementrun_accountdownloadcodes.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3_CbAC_1611">
+    <Members>
+		<ClassMember Name="AccountCode" Type="string"  />
+      <ClassMember Name="DownloadCode" Type="string"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3_CbAC_1611" IsArray="true">
+			<Members>
+				<ClassMember Name="CustomerOrderDefaultShipmentWarehouse_RefID" Type="Guid"  />
+				<ClassMember Name="InternalCustomerNumber" Type="String"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Ext_BusinessParticipant_RefID" Type="Guid"  />
+				<ClassMember Name="CustomerAffinityStatus_RefID" Type="Guid"  />
+				<ClassMember Name="CMN_BPT_CTM_CustomerID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,14 @@
+
+	SELECT log_shp_shipment_statushistory.Creation_Timestamp
+		,cmn_bpt_businessparticipants.DisplayName
+		,log_shp_shipment_statuses.GlobalPropertyMatchingID
+	FROM log_shp_shipment_positions
+	INNER JOIN log_shp_shipment_statushistory ON log_shp_shipment_statushistory.LOG_SHP_Shipment_Header_RefID = @ShipmentHeaderID
+	INNER JOIN log_shp_shipment_statuses ON log_shp_shipment_statushistory.LOG_SHP_Shipment_Status_RefID = log_shp_shipment_statuses.LOG_SHP_Shipment_StatusID
+    AND log_shp_shipment_statuses.Tenant_RefID = log_shp_shipment_statushistory.Tenant_RefID
+	INNER JOIN cmn_bpt_businessparticipants ON log_shp_shipment_statushistory.PerformedBy_BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+    AND cmn_bpt_businessparticipants.Tenant_RefID = log_shp_shipment_statushistory.Tenant_RefID
+	WHERE log_shp_shipment_positions.LOG_SHP_Shipment_PositionID = @ShipmentPositionID
+		AND log_shp_shipment_positions.Tenant_RefID = @TenantID
+		AND log_shp_shipment_positions.IsDeleted = 0
+  

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/17/2013 3:32:52 PM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Save_Data_for_NewCustomer</Name>
+        <Namespace>CL5_zugseil_Website_Registration.Complex.Manipulation</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_Zugseil_Website_Registration.Complex.Manipulation"
+                  Method_ClassName="cls_Save_Data_for_NewCustomer"
+                  Method_Name="Save_Data_for_NewCustomer"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Save_Data_for_NewCustomer"
+                />
+
+    <Parameters IsClass="true" Name="P_L5ZW_SDfNC_1707">
+        <Members>
+            <ClassMember Name="OrganisationalUnitParameters" Type="P_L2O_SO_1529" IsArray="true" IsReference="true" />
+            <ClassMember Name="CostCenterParameters" Type="P_L2CC_SCC_1356" IsArray="true" IsReference="true" />
+            <ClassMember Name="WarehousesParameters" Type="P_L2WH_SWH_1339" IsArray="true" IsReference="true" />
+            <ClassMember IsClass="true" Name="DefaultCountry" Type="P_L5ZW_SDfNC_1707_Country" IsArray="false" IsReference="false">
+                <Members>
+                    <ClassMember Name="Code" Type="String" IsArray="false"/>
+                    <ClassMember Name="Name" Type="String" IsArray="false"/>
+                </Members>
+            </ClassMember>
+          <ClassMember IsClass="true" Name="DefaultCurrency" Type="P_L5ZW_SDfNC_1707_Currency" IsArray="false" IsReference="false">
+            <Members>
+              <ClassMember Name="Code" Type="String" IsArray="false"/>
+              <ClassMember Name="Name" Type="String" IsArray="false"/>
+            </Members>
+          </ClassMember>
+          <ClassMember Name="AccountID" Type="Guid" IsArray="false"/>
+          <ClassMember Name="DefaultLanguageCode" Type="String" IsArray="false"/>
+          <ClassMember Name="IsCustomerRegistration" Type="Boolean" IsArray="false"/>
+        </Members>
+    </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+        <StandardReturnType_Definition returnType="bool" IsArray="false" />
+    </ResultInfo>
+
+</CodeGen>
+
+

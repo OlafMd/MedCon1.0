@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Medios Connect MMApp</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="Content//css/login.css" type="text/css">
+
+    <script type="text/javascript" src="scripts/vendor/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="scripts/vendor/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/src/common/controllers/loginController.js"></script>
+
+
+
+</head>
+<body ng-controller="loginController">
+    <form id="signInForm" ng-submit="login()" role="form" novalidate>
+        <h1 class="logo">
+            <a>logo</a>
+        </h1>
+
+        <div class="mm-app-logo">mm-app logo</div>
+
+        <h2>	Login:	</h2>
+
+        <div class="email">
+            <input ng-change="deletePasswordForFirstLoad()" id="email" name="email" placeholder="E-Mail" type="text" value="" ng-model="username" required ng-class="{'redborder': loginUnsuccessful}">
+        </div>
+
+        <div class="password">
+            <input id="password" type="password" name="password" placeholder="Passwort" ng-model="password" required ng-class="{'redborder': loginUnsuccessful}">
+        </div>
+
+        <div class="error-text" ng-if="loginUnsuccessful">{{ loginMessage }}</div>
+        <button class="button" type="submit" ng-disabled="!password || !username">Anmelden</button>
+    </form>
+</body>
+</html>

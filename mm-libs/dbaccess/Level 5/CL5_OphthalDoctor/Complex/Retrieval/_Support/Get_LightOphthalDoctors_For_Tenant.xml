@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/26/2013 4:11:47 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>RetriveProductsForTenant</Name>
+    <Namespace>CLE_L3_CMN_Product.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_OphthalDoctors.Complex.Retrieval"
+                Method_ClassName="cls_Get_LightOphthalDoctors_For_Tenant"
+                Method_Name="Get_LightOphthalDoctors_For_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_LightOphthalDoctors_For_Tenant"
+                />
+
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5OD_GLDfT_1111" IsArray="true" GroupBy="CMN_BPT_BusinessParticipantID">
+      <Members>
+        <ClassMember Name="BaseInfo"  isReferenct="true" Type="L3MD_GDBIfT_1149" />
+       
+        <ClassMember IsClass="true" IsArray="false" Name="SalesRepresentative" Type="L5OD_GLDfT_1111_SalesRepresentative">
+          <Members>
+            <ClassMember Name="SalesRepresentative_RefID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+        <ClassMember Name="FirstName" Type="String"  />
+        <ClassMember Name="LastName" Type="String"   />
+        <ClassMember Name="Title" Type="String"  />
+        <ClassMember Name="HEC_DoctorID" Type="Guid"  />
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

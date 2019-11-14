@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_bpt_ctm_organizationalunit_addresses
+	(
+		CMN_BPT_CTM_OrganizationalUnit_AddressID,
+		UniversalContactDetail_Address_RefID,
+		OrganizationalUnit_RefID,
+		IsPrimary,
+		AddressType,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_BPT_CTM_OrganizationalUnit_AddressID,
+		@UniversalContactDetail_Address_RefID,
+		@OrganizationalUnit_RefID,
+		@IsPrimary,
+		@AddressType,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/13/2015 4:18:55 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Existing_ContractName_for_ContractName</Name>
+    <Namespace>MMDocConnectDBMethods.MainData.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.MainData.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Existing_ContractName_for_ContractName"
+                Method_Name="Get_Existing_ContractName_for_ContractName"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Existing_ContractName_for_ContractName"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+      cmn_ctr_contracts.ContractName
+    From
+      cmn_ctr_contracts
+    Where
+      cmn_ctr_contracts.ContractName Like @ContractName And
+      cmn_ctr_contracts.IsDeleted = 0 And
+      cmn_ctr_contracts.Tenant_RefID = @TenantID
+    Order By
+      cmn_ctr_contracts.Creation_Timestamp desc
+    Limit 1
+  </SQLStatement>
+  
+  <Parameters IsClass="true" Name="P_MD_GECNfCN_1119">
+    <Members>
+      <ClassMember Name="ContractName" Type="String"  />
+      
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="MD_GECNfCN_1119">
+      <Members>
+        <ClassMember Name="ContractName" Type="String"  />
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

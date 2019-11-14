@@ -1,0 +1,19 @@
+INSERT INTO 
+	acc_ipl_installmentplan_status
+	(
+		ACC_IPL_InstallmentPlan_StatusID,
+		GlobalPropertyMatchingID,
+		InstallmentPlanStatus_Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ACC_IPL_InstallmentPlan_StatusID,
+		@GlobalPropertyMatchingID,
+		@InstallmentPlanStatus_Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

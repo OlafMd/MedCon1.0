@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_bil_potentialcode_2_potentialprocedure
+	(
+		AssignmentID,
+		HEC_BIL_PotentialCode_RefID,
+		HEC_TRE_PotentialProcedure_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@HEC_BIL_PotentialCode_RefID,
+		@HEC_TRE_PotentialProcedure_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

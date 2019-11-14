@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/24/2014 14:39:56">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Products_for_Tenant</Name>
+    <Namespace>CL5_Zugseil_Product.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_Product.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Products_for_Tenant"
+                Method_Name="Get_Products_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Products_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+      
+Select
+  cmn_pro_products.CMN_PRO_ProductID,
+  cmn_pro_products.Product_Name_DictID,
+  cmn_pro_products_de.Content,
+  cmn_pro_products.Product_Description_DictID,
+  cmn_pro_products.Product_Number,
+  cmn_pro_products.IsPlaceholderArticle
+From
+  cmn_pro_products Left Join
+  cmn_pro_products_de On cmn_pro_products.Product_Name_DictID =
+    cmn_pro_products_de.DictID And cmn_pro_products_de.Language_RefID =
+    @LanguageID And cmn_pro_products_de.IsDeleted = 0
+Where
+  cmn_pro_products.CMN_PRO_ProductID NOT = @ExcludedProducts And
+  cmn_pro_products.IsDeleted = 0 And
+  cmn_pro_products.Tenant_RefID = @TenantID And
+  (@SearchCriteria Is Null Or
+    Upper(cmn_pro_products_de.Content) Like CONCAT('%',Upper(@SearchCriteria),'%') Or
+    Upper(cmn_pro_products.Product_Number) Like CONCAT('%',Upper(@SearchCriteria),'%')) And
+  cmn_pro_products.IsProductForInternalDistributionOnly = 0 And
+  cmn_pro_products.IsProductHiddenFromDisplay = 0
+Order By
+  cmn_pro_products_de.Content  
+LIMIT @PageSize OFFSET @ActivePage
+	                 
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5PR_GPfT_1439">
+    <Members>
+	  <ClassMember Name="LanguageID" Type="Guid"  />
+      <ClassMember Name="SearchCriteria" Type="String"  />
+      <ClassMember Name="PageSize" Type="int"  />
+      <ClassMember Name="ActivePage" Type="int"  />
+      <ClassMember Name="ExcludedProducts" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PR_GPfT_1439" IsArray="true" GroupBy="CMN_PRO_ProductID">
+			<Members>
+				<ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+				<ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+				<ClassMember Name="Content" Type="String"  />
+				<ClassMember Name="Product_Description" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Description_DictID"  />
+				<ClassMember Name="Product_Number" Type="String"  />
+				<ClassMember Name="IsPlaceholderArticle" Type="bool"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

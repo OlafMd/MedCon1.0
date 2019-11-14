@@ -1,0 +1,33 @@
+.orders-table-mm {
+  > li {
+    &:nth-child(1) {
+      width: 110px;
+    }
+
+    &:nth-child(2) {
+      width: auto;
+    }
+
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5) {
+      width: 10%;
+    }
+
+    &:nth-child(6) {
+      width: 90px;
+    }
+
+    &:nth-child(7) {
+      width: 180px;
+    }
+
+    &:nth-child(8) {
+      width: 200px;
+    }
+  }
+
+  .controls {
+    width: 80px;
+  }
+}

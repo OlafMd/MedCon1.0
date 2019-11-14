@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/15/2013 9:25:03 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_BPT_InvestedWorkTime"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_BPT"
+                IsClass_Corresponding_DBTable="cmn_bpt_investedworktimes" >
+      <Members>
+		<ClassMember Name="CMN_BPT_InvestedWorkTimeID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="BusinessParticipant_RefID" Type="Guid" />
+		<ClassMember Name="ChargingLevel_RefID" Type="Guid" />
+		<ClassMember Name="WorkTime_InternalIdentifier" Type="String" />
+		<ClassMember Name="WorkTime_Source" Type="String" />
+		<ClassMember Name="WorkTime_Comment" Type="Dict" Source_DBField="WorkTime_Comment_DictID" OriginTable="cmn_bpt_investedworktimes"/>
+		<ClassMember Name="WorkTime_Amount_min" Type="long" />
+		<ClassMember Name="WorkTime_Start" Type="DateTime" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

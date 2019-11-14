@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeGen createdOn="10/17/2014 16:55:25">
+  <Componenttype>AtomicMethod</Componenttype>
+  <Meta>
+    <Name>Get_Number_of_Published_Catalogs_for_TenantID_and_PriceListID</Name>
+    <Namespace>CL2_Catalog.Atomic.Retrieval</Namespace>
+    <Description />
+    <Tags />
+  </Meta>
+  <PlattformInfo Target_Method_ProgrammingLanguage="C#" Target_Method_ProgrammingLanguage_Revision="3.5" Target_SQL="MySQL" Target_SQL_Revision="8" Create_Webservice_Interface="true" Create_Webservice_Interface_ServerPlattform="C#" Create_Webservice_Interface_ServerPlattform_Revision="3.5" Create_Webservice_Interface_ApplicationPlattform="FLEX" Create_Webservice_Interface_ApplicationPlattform_Revision="4.5" />
+  <CreationInfo Method_Namespace="CL2_Catalog.Atomic.Retrieval" Method_ClassName="cls_Get_Number_of_Published_Catalogs_for_TenantID_and_PriceListID" Method_Name="Get_Number_of_Published_Catalogs_for_TenantID_and_PriceListID" ApplicationPlattform_WebServiceName="" ApplicationPlattform_Namespace=".Get_Number_of_Published_Catalogs_for_TenantID_and_PriceListID" />
+  <SQLStatement xml:space="preserve">
+	SELECT count(cmn_pro_catalog_revisions.CMN_PRO_Catalog_RevisionID) as PublishedCatalogsNumber
+	FROM cmn_pro_catalog_revisions
+	WHERE PublishedBy_BusinessParticipant_RefID!=0x00000000000000000000000000000000
+	  AND cmn_pro_catalog_revisions.IsDeleted=FALSE
+	  AND Tenant_RefID=@TenantID
+	  AND Default_PricelistRelease_RefID=@PriceListID
+  </SQLStatement>
+  <Parameters IsClass="true" Name="P_L2CA_GNoPCfTaPL_1650">
+    <Members>
+      <ClassMember Name="PriceListID" Type="Guid" />
+    </Members>
+  </Parameters>
+  <ResultInfo Returns_just_the_status_of_the_operation="false" Returns_a_StandardDataType_or_StadardDataTypeArray="true" Returns_an_Object_or_ObjectArray="false">
+    <StandardReturnType_Definition returnType="int" IsArray="false" />
+  </ResultInfo>
+</CodeGen>

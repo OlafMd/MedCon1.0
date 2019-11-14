@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="23/10/2013 01:46:44">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Area</Name>
+    <Namespace>CL2_Warehouse.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Warehouse.Complex.Manipulation"
+                Method_ClassName="cls_Save_Area"
+                Method_Name="Save_Area"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Area"
+                />
+  <SQLLimitation_CSharp_Extension>
+      var returnValue = new FR_Guid();
+
+      var item = new CL1_LOG_WRH.ORM_LOG_WRH_Area();
+      if (Parameter.LOG_WRH_AreaID != Guid.Empty)
+      {
+      var result = item.Load(Connection, Transaction, Parameter.LOG_WRH_AreaID);
+      }
+
+      if(Parameter.IsDeleted == true){
+      item.IsDeleted = true;
+      return new FR_Guid(item.Save(Connection, Transaction),item.LOG_WRH_AreaID);
+      }
+
+      //Creation specific parameters (Tenant, Account ... )
+      if (Parameter.LOG_WRH_AreaID == Guid.Empty)
+      {
+      item.Tenant_RefID = securityTicket.TenantID;
+      }
+
+      item.CoordinateCode = Parameter.CoordinateCode;
+      item.Area_Name = Parameter.Area_Name;
+      item.Warehouse_RefID = Parameter.Warehouse_RefID;
+      item.IsStructureHidden = Parameter.IsStructureHidden;
+      item.IsConsignmentArea = Parameter.IsConsignmentArea;
+      item.IfConsignmentArea_DefaultOwningSupplier_RefID = Parameter.IfConsignmentArea_DefaultOwningSupplier_RefID;
+
+      return new FR_Guid(item.Save(Connection, Transaction),item.LOG_WRH_AreaID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2WH_SAR_1346">
+    <Members>
+      <ClassMember Name="LOG_WRH_AreaID" IsIdentificator="True" Type="Guid"  />
+      <ClassMember Name="CoordinateCode" Type="String"  />
+      <ClassMember Name="Area_Name" Type="String"  />
+      <ClassMember Name="Warehouse_RefID" Type="Guid"  />
+      <ClassMember Name="IsStructureHidden" Type="Boolean"  />
+      <ClassMember Name="IsConsignmentArea" Type="Boolean"  />
+      <ClassMember Name="IfConsignmentArea_DefaultOwningSupplier_RefID" Type="Guid"  />
+      <ClassMember Name="Default_Supplier_RefID" Type="Guid" />
+      <ClassMember Name="Rack_NamePrefix" Type="String" />
+      <ClassMember Name="IsDeleted" Type="Boolean"  />
+      <ClassMember Name="IsPointOfSalesArea" Type="Boolean"  />
+      <ClassMember Name="IsDefaultIntakeArea" Type="Boolean"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

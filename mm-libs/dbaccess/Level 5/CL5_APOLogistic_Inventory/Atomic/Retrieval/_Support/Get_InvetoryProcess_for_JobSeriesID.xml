@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/3/2014 3:41:24 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_InvetoryProcess_for_JobSeriesID</Name>
+    <Namespace>CL5_APOLogistic_Inventory.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_Inventory.Atomic.Retrieval"
+                Method_ClassName="cls_Get_InvetoryProcess_for_JobSeriesID"
+                Method_Name="Get_InvetoryProcess_for_JobSeriesID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_InvetoryProcess_for_JobSeriesID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  log_wrh_inj_inventoryjobs.LOG_WRH_INJ_InventoryJobID,
+    log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_ProcessID,
+	  log_wrh_inj_inventoryjob_processes.Creation_Timestamp,
+	  log_wrh_inj_inventoryjob_countingruns.SequenceNumber,
+    log_wrh_inj_inventoryjob_countingruns.LOG_WRH_INJ_InventoryJob_CountingRunID,
+	  log_wrh_inj_inventoryjob_countingruns.IsCounting_Started,
+	  log_wrh_inj_inventoryjob_countingruns.IsCounting_Completed,
+	  log_wrh_inj_inventoryjob_countingruns.IsCountingListPrinted
+	From
+	  log_wrh_inj_inventoryjobs Inner Join
+	  log_wrh_inj_inventoryjob_processes
+	    On log_wrh_inj_inventoryjobs.MemberOf_InventoryJobSeries_RefID =
+	    log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_ProcessID And
+	    log_wrh_inj_inventoryjob_processes.Tenant_RefID = @TenantID And
+	    log_wrh_inj_inventoryjob_processes.IsDeleted = 0
+	  Inner Join
+	  log_wrh_inj_inventoryjob_countingruns
+	    On log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_ProcessID =
+	    log_wrh_inj_inventoryjob_countingruns.InventoryJob_Process_RefID And
+	    log_wrh_inj_inventoryjob_countingruns.Tenant_RefID = @TenantID And
+	    log_wrh_inj_inventoryjob_countingruns.IsDeleted = 0
+	Where
+	  log_wrh_inj_inventoryjobs.MemberOf_InventoryJobSeries_RefID = @InventoryJobSeries_RefID And
+	  log_wrh_inj_inventoryjobs.Tenant_RefID = @TenantID And
+	  log_wrh_inj_inventoryjobs.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5IN_GIPfJS_1539">
+    <Members>
+      <ClassMember Name="InventoryJobSeries_RefID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5IN_GIPfJS_1539" IsArray="true" GroupBy="LOG_WRH_INJ_InventoryJob_ProcessID">
+      <Members>
+        <ClassMember Name="LOG_WRH_INJ_InventoryJob_ProcessID" Type="Guid"  />
+        <ClassMember Name="LOG_WRH_INJ_InventoryJobID" Type="Guid"  />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+        <ClassMember Name="CountingRun" IsClass="true" IsArray="true" GroupBy="LOG_WRH_INJ_InventoryJob_CountingRunID" Type="L5IN_GIPfJS_1539_CountingRuns">
+          <Members>
+            <ClassMember Name="LOG_WRH_INJ_InventoryJob_CountingRunID" Type="Guid"/>
+            <ClassMember Name="SequenceNumber" Type="int"  />
+            <ClassMember Name="IsCounting_Started" Type="bool"  />
+            <ClassMember Name="IsCounting_Completed" Type="bool"  />
+            <ClassMember Name="IsCountingListPrinted" Type="bool"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

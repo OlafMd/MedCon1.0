@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/4/2014 11:58:31 AM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Get_CountriesWithRegions_for_TenantID</Name>
+        <Namespace>CL2_Country.Complex.Retrieval</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL2_Country.Complex.Retrieval"
+                  Method_ClassName="cls_Get_CountriesWithRegions_for_TenantID"
+                  Method_Name="Get_CountriesWithRegions_for_TenantID"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Get_CountriesWithRegions_for_TenantID"
+                />
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5CM_GCWRfT_0938" IsArray="true" GroupBy="CMN_CountryID">
+            <Members>
+                <ClassMember Name="CMN_CountryID" Type="Guid"  />
+                <ClassMember Name="Default_Language_RefID" Type="Guid"  />
+                <ClassMember Name="Default_Currency_RefID" Type="Guid"  />
+                <ClassMember Name="Country_Name" Type="Dict" OriginTable="cmn_countries" Source_DBField="Country_Name_DictID"  />
+                <ClassMember Name="Country_ISOCode_Alpha3" Type="String"  />
+                <ClassMember Name="Country_ISOCode_Alpha2" Type="String"  />
+                <ClassMember Name="Country_ISOCode_Numeric" Type="int"  />
+                <ClassMember IsClass="true" IsArray="true" Name="Regions" Type="L5CM_GCWRfT_0938_Region" GroupBy="CMN_LOC_RegionID">
+                    <Members>
+                        <ClassMember Name="CMN_LOC_RegionID" Type="Guid"  />
+                        <ClassMember Name="Region_Name" Type="Dict" OriginTable="cmn_loc_regions" Source_DBField="Region_Name_DictID"  />
+                        <ClassMember Name="RegionExternalID" Type="String"  />
+                        <ClassMember Name="Parent_RefID" Type="Guid"  />
+                    </Members>
+                </ClassMember>
+
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

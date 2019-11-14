@@ -1,0 +1,13 @@
+﻿<div class="popup-wrapper">
+    <div class="popup popup-medium">
+        <div class="bck-warning"><h2>{{ 'LABEL_MERGE_DOCTOR_TITLE' | translate }} </h2></div>
+        <div>
+            <h4 translate="{{'LABEL_MERGE_DOCTOR_MESSAGE_SINGLE'}}" translate-values="{doctor: $parent.content.doctors[0].doctor_name, practice: $parent.content.doctors[0].practice_name}"></h4>
+        </div>
+
+        <div class="buttons text-right">
+            <button type="button" class="button wide reject jsblockClose" ng-click="$parent.cancelMergeDoctor()" id="btnCancel" translate="{{ 'BUTTON_NO' }}"></button>
+            <button type="submit" class="button wide confirm-smaller jsblockClose" ng-click="$parent.confirmMergeDoctor()" id="btnConfirm" translate="{{ 'BUTTON_YES' }}"></button>
+        </div>
+    </div>
+</div>

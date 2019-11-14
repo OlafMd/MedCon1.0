@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="8/25/2014 2:19:13 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_RequestProposals_Customer_for_HeaderIdList</Name>
+    <Namespace>CL5_APOProcurement_Proposals.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOProcurement_Proposals.Atomic.Retrieval"
+                Method_ClassName="cls_Get_RequestProposals_Customer_for_HeaderIdList"
+                Method_Name="Get_RequestProposals_Customer_for_HeaderIdList"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_RequestProposals_Customer_for_HeaderIdList"
+                />
+
+  <SQLStatement xml:space="preserve">
+		Select
+	  ord_cuo_rfp_requestforproposal_headers.ORD_CUO_RFO_RequestForProposal_HeaderID,
+	  ord_cuo_rfp_requestforproposal_headers.RequestingBusinessParticipant_RefID,
+	  ord_cuo_rfp_requestforproposal_headers.RequestForProposal_Number,
+	  ord_cuo_rfp_requestforproposal_headers.DateOfPublish,
+	  ord_cuo_rfp_requestforproposal_headers.ProposalDeadline,
+	  ord_cuo_rfp_requestforproposal_headers.CompleteDeliveryUntillDate,
+	  ord_cuo_rfp_requestforproposal_headers.RequestForProposalHeaderITPL,
+	  ord_cuo_rfp_requestforproposal_positions.ORD_CUO_RFP_RequestForProposal_PositionID,
+	  ord_cuo_rfp_requestforproposal_positions.CMN_PRO_Product_RefID,
+	  ord_cuo_rfp_requestforproposal_positions.Quantity,
+	  ord_cuo_rfp_requestforproposal_positions.IsReplacementPermitted,
+	  ord_cuo_rfp_requestforproposal_positions.OrderSequence,
+	  ord_cuo_rfp_requestforproposal_positions.DeliveryUntillDate,
+	  ord_cuo_rfp_requestforproposal_positions.RequestForProposalPositionITPL
+	From
+	  ord_cuo_rfp_requestforproposal_headers Inner Join
+	  ord_cuo_rfp_requestforproposal_positions
+	    On ord_cuo_rfp_requestforproposal_positions.RequestForProposal_Header_RefID
+	    =
+	    ord_cuo_rfp_requestforproposal_headers.ORD_CUO_RFO_RequestForProposal_HeaderID
+	Where
+	  ord_cuo_rfp_requestforproposal_headers.ORD_CUO_RFO_RequestForProposal_HeaderID
+	  = @HeaderID_List And   
+	  ord_cuo_rfp_requestforproposal_headers.Tenant_RefID = @TenantID And
+	  ord_cuo_rfp_requestforproposal_headers.IsDeleted = 0
+
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5PR_GRPCfHL_1418">
+    <Members>
+		<ClassMember Name="HeaderID_List" Type="Guid" IsArray="true"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PR_GRPCfHL_1418" IsArray="true">
+			<Members>
+				<ClassMember Name="ORD_CUO_RFO_RequestForProposal_HeaderID" Type="Guid"  />
+				<ClassMember Name="RequestingBusinessParticipant_RefID" Type="Guid"  />
+				<ClassMember Name="RequestForProposal_Number" Type="String"  />
+				<ClassMember Name="DateOfPublish" Type="DateTime"  />
+				<ClassMember Name="ProposalDeadline" Type="String"  />
+				<ClassMember Name="CompleteDeliveryUntillDate" Type="DateTime"  />
+				<ClassMember Name="RequestForProposalHeaderITPL" Type="String"  />
+				<ClassMember Name="ORD_CUO_RFP_RequestForProposal_PositionID" Type="Guid"  />
+				<ClassMember Name="CMN_PRO_Product_RefID" Type="Guid"  />
+				<ClassMember Name="Quantity" Type="double"  />
+				<ClassMember Name="IsReplacementPermitted" Type="bool"  />
+				<ClassMember Name="OrderSequence" Type="int"  />
+				<ClassMember Name="DeliveryUntillDate" Type="DateTime"  />
+				<ClassMember Name="RequestForProposalPositionITPL" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

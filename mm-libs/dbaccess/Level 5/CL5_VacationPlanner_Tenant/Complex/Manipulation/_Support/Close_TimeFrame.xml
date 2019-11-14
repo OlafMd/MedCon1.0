@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/15/2012 4:47:04 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="CL5_VacationPlanner_Tenant.Complex.Manipulation"
+								Method_ClassName="cls_Close_TimeFrame"
+								Method_Name="Close_TimeFrame"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=".Close_TimeFrame"
+								/>
+
+
+
+  <Parameters IsClass="true" Name="P_L5TN_CTF_1341">
+    <Members>
+      <ClassMember Name="year" Type="int"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

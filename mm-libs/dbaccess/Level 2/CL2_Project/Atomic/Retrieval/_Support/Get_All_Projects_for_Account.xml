@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/17/2014 10:17:27 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_Projects_for_Account</Name>
+    <Namespace>CL2_Project.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Project.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_Projects_for_Account"
+                Method_Name="Get_All_Projects_for_Account"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_Projects_for_Account"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+tms_pro_projects.TMS_PRO_ProjectID,
+tms_pro_projects.Name_DictID,
+tms_pro_projectmembers.TMS_PRO_ProjectMemberID
+From
+tms_pro_projects Inner Join
+tms_pro_projectmembers On tms_pro_projectmembers.Project_RefID =
+tms_pro_projects.TMS_PRO_ProjectID
+Where
+tms_pro_projects.IsDeleted = 0 And
+tms_pro_projectmembers.IsDeleted = 0 And
+tms_pro_projectmembers.USR_Account_RefID =@UserAccountID And
+tms_pro_projectmembers.Tenant_RefID =@TenantID
+  </SQLStatement>
+  <Parameters IsClass="true" Name="P_L2PR_GaPfA_1017">
+    <Members>
+      <ClassMember Name="UserAccountID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2PR_GaPfA_1017" IsArray="true">
+      <Members>
+        <ClassMember Name="TMS_PRO_ProjectID" Type="Guid"  />
+        <ClassMember Name="Name" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Name_DictID"  />
+        <ClassMember Name="TMS_PRO_ProjectMemberID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+
+

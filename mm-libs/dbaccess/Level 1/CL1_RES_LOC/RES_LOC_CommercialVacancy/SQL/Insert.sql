@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_loc_commercialvacancies
+	(
+		RES_LOC_CommercialVacancyID,
+		CommercialVacancy_Name_DictID,
+		CommercialVacancy_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_LOC_CommercialVacancyID,
+		@CommercialVacancy_Name,
+		@CommercialVacancy_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

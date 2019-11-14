@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:35:12 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_CAL_Event_Approval"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_CAL"
+                IsClass_Corresponding_DBTable="cmn_cal_event_approvals" >
+      <Members>
+		<ClassMember Name="CMN_CAL_Event_ApprovalID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ApprovalProcess_Type_RefID" Type="Guid" />
+		<ClassMember Name="Event_RefID" Type="Guid" />
+		<ClassMember Name="IsApproved" Type="Boolean" />
+		<ClassMember Name="IsApprovalProcessOpened" Type="Boolean" />
+		<ClassMember Name="IsApprovalProcessDenied" Type="Boolean" />
+		<ClassMember Name="IsApprovalProcessCanceledByUser" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

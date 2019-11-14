@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_pps_workplace_activity_professionassignments
+	(
+		CMN_STR_PPS_Workplace_Activity_ProfessionAssignmentID,
+		CMN_STR_Profession_RefID,
+		Workplace_Activity_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_STR_PPS_Workplace_Activity_ProfessionAssignmentID,
+		@CMN_STR_Profession_RefID,
+		@Workplace_Activity_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

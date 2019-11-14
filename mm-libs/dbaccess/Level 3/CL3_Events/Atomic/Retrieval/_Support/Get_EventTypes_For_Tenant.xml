@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/1/2013 11:03:58 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_EventTypes_For_Tenant</Name>
+    <Namespace>CLE_L3_CMN_STE_Events.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Events.Atomic.Retrieval"
+                Method_ClassName="cls_Get_EventTypes_For_Tenant"
+                Method_Name="Get_EventTypes_For_Tenant"
+                ApplicationPlattform_WebServiceName="EventService"
+                ApplicationPlattform_Namespace="EventService.Get_EventTypes_For_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_str_sce_structurecalendarevent_types.CMN_STR_SCE_StructureCalendarEvent_TypeID,
+  cmn_str_sce_structurecalendarevent_types.CalendaEventName_DictID,
+  cmn_str_sce_structurecalendarevent_types.EventIcon_RefID,
+  cmn_str_sce_structurecalendarevent_types.PriorityOrdinal,
+  cmn_str_sce_structurecalendarevent_types.ColorCode_Foreground,
+  cmn_str_sce_structurecalendarevent_types.ColorCode_Background,
+  cmn_str_sce_structurecalendarevent_types.ColorCode_Alpha,
+  cmn_str_sce_structurecalendarevent_types.IsShowingNotification,
+  cmn_str_sce_structurecalendarevent_types.IsWorkingDay,
+  cmn_str_sce_structurecalendarevent_types.IsHalfWorkingDay,
+  cmn_str_sce_structurecalendarevent_types.IsNonWorkingDay,
+  cmn_str_sce_structurecalendarevent_types.IsDeleted,
+  cmn_str_sce_structurecalendarevent_types.Tenant_RefID,
+  cmn_str_sce_structurecalendarevent_types.InternalEventTypeID,
+  cmn_str_sce_structurecalendarevent_types.IsEventType_Imported
+From
+  cmn_str_sce_structurecalendarevent_types
+Where
+  cmn_str_sce_structurecalendarevent_types.IsDeleted = 0 And
+  cmn_str_sce_structurecalendarevent_types.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3EV_GETFT_1059" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_STR_SCE_StructureCalendarEvent_TypeID" Type="Guid"  />
+				<ClassMember Name="CalendaEventName" Type="Dict" OriginTable="cmn_str_sce_structurecalendarevent_types" Source_DBField="CalendaEventName_DictID"  />
+				<ClassMember Name="EventIcon_RefID" Type="Guid"  />
+				<ClassMember Name="PriorityOrdinal" Type="int"  />
+				<ClassMember Name="ColorCode_Foreground" Type="String"  />
+				<ClassMember Name="ColorCode_Background" Type="String"  />
+				<ClassMember Name="ColorCode_Alpha" Type="double"  />
+				<ClassMember Name="IsShowingNotification" Type="bool"  />
+        <ClassMember Name="IsEventType_Imported" Type="bool"  />
+				<ClassMember Name="IsWorkingDay" Type="bool"  />
+				<ClassMember Name="IsHalfWorkingDay" Type="bool"  />
+				<ClassMember Name="IsNonWorkingDay" Type="bool"  />
+        <ClassMember Name="InternalEventTypeID" Type="String"  />
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

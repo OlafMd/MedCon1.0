@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="4/11/2014 4:24:36 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllCustomerOrderPositions_and_OrganizationalUnitDistributions_for_CustomerOrderHeaderID</Name>
+    <Namespace>CL5_APOBackoffice_CustomerOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBackoffice_CustomerOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllCustomerOrderPositions_and_OrganizationalUnitDistributions_for_CustomerOrderHeaderID"
+                Method_Name="Get_AllCustomerOrderPositions_and_OrganizationalUnitDistributions_for_CustomerOrderHeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AllCustomerOrderPositions_and_OrganizationalUnitDistributions_for_CustomerOrderHeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  ord_cuo_customerorder_positions.ORD_CUO_CustomerOrder_PositionID,
+	  ord_cuo_customerorder_positions.CMN_PRO_Product_RefID,
+	  ord_cuo_customerorder_positions.Position_Quantity,
+	  ord_cuo_customerorder_positions.Position_ValuePerUnit,
+	  ord_cuo_position_customerorganizationalunitdistribution.ORD_CUO_Position_CustomerOrganizationalUnitDistributionID,
+	  ord_cuo_position_customerorganizationalunitdistribution.Quantity,
+	  ord_cuo_position_customerorganizationalunitdistribution.CMN_BPT_CTM_OrganizationalUnit_RefID
+	From
+	  ord_cuo_customerorder_positions Left Join
+	  ord_cuo_position_customerorganizationalunitdistribution
+	    On ord_cuo_customerorder_positions.ORD_CUO_CustomerOrder_PositionID =
+	    ord_cuo_position_customerorganizationalunitdistribution.ORD_CUO_CustomerOrder_Position_RefID And ord_cuo_position_customerorganizationalunitdistribution.IsDeleted = 0
+	Where
+	  ord_cuo_customerorder_positions.IsDeleted = 0 And
+	  ord_cuo_customerorder_positions.CustomerOrder_Header_RefID =
+	  @CustomerOrderHeaderID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5CO_GACOPaOUDfCH_1623">
+    <Members>
+		<ClassMember Name="CustomerOrderHeaderID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5CO_GACOPaOUDfCH_1623" IsArray="true" GroupBy="ORD_CUO_CustomerOrder_PositionID">
+			<Members>
+				<ClassMember Name="ORD_CUO_CustomerOrder_PositionID" Type="Guid"  />
+				<ClassMember Name="CMN_PRO_Product_RefID" Type="Guid"  />
+				<ClassMember Name="Position_Quantity" Type="Double"  />
+				<ClassMember Name="Position_ValuePerUnit" Type="Decimal"  />
+
+        
+        <ClassMember Name="OrgUnitAssigments" Type="L5CO_GACOPaOUDfCH_1623a" IsClass="true" IsArray="true" GroupBy="ORD_CUO_Position_CustomerOrganizationalUnitDistributionID">
+          <Members>
+            <ClassMember Name="ORD_CUO_Position_CustomerOrganizationalUnitDistributionID" Type="Guid"  />
+            <ClassMember Name="CMN_BPT_CTM_OrganizationalUnit_RefID" Type="Guid"  />
+            <ClassMember Name="Quantity" Type="Double"  />
+          </Members>
+        </ClassMember>
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

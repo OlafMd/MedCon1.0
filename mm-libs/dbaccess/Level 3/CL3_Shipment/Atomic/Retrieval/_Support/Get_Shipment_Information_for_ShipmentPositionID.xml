@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2-27-15 14:35:27">
+
+  <Meta>
+    <Name>Get_Shipment_Information_for_ShipmentPositionID</Name>
+    <Description>Get_Shipment_Information_for_ShipmentPositionID</Description>
+    <Namespace>Get_Shipment_Information_for_ShipmentPositionID</Namespace>
+    <Tags></Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Shipment.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Shipment_Information_for_ShipmentPositionID"
+                Method_Name="Get_Shipment_Information_for_ShipmentPositionID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Shipment_Information_for_ShipmentPositionID"
+                />
+
+  <SQLStatement xml:space="preserve">
+   
+Select
+  log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID,
+  log_shp_shipment_positions.LOG_SHP_Shipment_PositionID,
+  log_shp_shipment_headers.ShipmentHeader_Number,
+  log_shp_shipment_types_de.Content As ShipmentType,
+  log_wrh_warehouses.Warehouse_Name,
+  Concat_Ws(' ', cmn_addresses.Street_Name, cmn_addresses.Street_Number,
+  cmn_addresses.City_Region, cmn_addresses.City_Name,
+  cmn_addresses.City_PostalCode, cmn_addresses.Country_Name,
+  cmn_addresses.Province_Name) As Shipping_Address
+From
+  log_shp_shipment_positions Left Join
+  log_shp_shipment_headers
+    On log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID =
+    log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID And
+    log_shp_shipment_headers.IsDeleted = 0 Left Join
+  log_shp_shipment_types On log_shp_shipment_headers.ShipmentType_RefID =
+    log_shp_shipment_types.LOG_SHP_Shipment_TypeID Left Join
+  log_wrh_warehouses On log_shp_shipment_headers.Source_Warehouse_RefID =
+    log_wrh_warehouses.LOG_WRH_WarehouseID Left Join
+  cmn_addresses On log_shp_shipment_headers.Shippipng_AddressUCD_RefID =
+    cmn_addresses.CMN_AddressID Left Join
+  log_shp_shipment_types_de On log_shp_shipment_types.ShipmentType_Name_DictID =
+    log_shp_shipment_types_de.DictID And
+    log_shp_shipment_types_de.Language_RefID = @LanguageID
+Where
+  log_shp_shipment_positions.LOG_SHP_Shipment_PositionID = @ShipmentPositionID
+  And
+  log_shp_shipment_positions.IsDeleted = 0 And
+  log_shp_shipment_positions.Tenant_RefID = @TenantID
+    
+    
+</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3S_GSIfSP_1437">
+    <Members>
+      <ClassMember  Name="ShipmentPositionID" Type="Guid" />
+      <ClassMember  Name="LanguageID" Type="Guid" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+      Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+      Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3S_GSIfSP_1437" IsArray="false">
+      <Members>
+        <ClassMember Name="LOG_SHP_Shipment_HeaderID" Type="Guid"  />
+        <ClassMember Name="LOG_SHP_Shipment_PositionID" Type="Guid"  />
+        <ClassMember Name="ShipmentHeader_Number" Type="string"  />
+        <ClassMember Name="ShipmentType" Type="string" />
+        <ClassMember Name="Warehouse_Name" Type="string" />
+        <ClassMember Name="Shipping_Address" Type="string" />
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+
+

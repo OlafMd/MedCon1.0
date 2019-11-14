@@ -1,0 +1,30 @@
+﻿<div ng-init="initializeController()">
+    <div class="gray-content-holder clear">
+        <button id="btnAddContract" class="wide-add-button" ng-click="redirect(0)" translate="LABEL_ADD_CONTRACT"></button>
+    </div>
+
+    <ul class="contracts-list-header">
+        <li class="unsorted" ng-class="setTableHeaderClass('contract_name')" ng-click="SortFunction('contract_name')">{{'LABEL_CONTRACT_NAME' | translate }}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('valid_from')" ng-click="SortFunction('valid_from')">{{'LABEL_VALID_FROM' | translate }}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('valid_through')" ng-click="SortFunction('valid_through')">{{'LABEL_VALID_THROUGH'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('hip_names')" ng-click="SortFunction('hip_names')">{{'LABEL_HIP_NAMES' | translate }}</li>
+    </ul>
+    <div class="content-scroll clear" id="wrapper">
+        <div id="wrapper_inner" class="clearfix">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="item in contracts">
+                    <ul class="contracts-list-item">
+                        <li class="larger-font"><span>{{ ::item.contract_name }}</span> </li>
+                        <li><span>{{ ::item.contract_valid_from }}</span></li>
+                        <li><span>{{ ::item.contract_valid_through }} </span></li>
+                        <li style="max-width: 780px;"><span elipsis-directive data="item.hip_names">{{ ::item.hip_names }} </span></li>
+                        <li class="fright">
+                            <a href="" ng-click="copyContract(item)" class="icons-print" title="{{ 'BUTTON_COPY' | translate }}"></a>
+                            <a href="" ng-click="redirect(item.contract_id)" class="icons-edit" title="{{ 'BUTTON_EDIT' | translate }}"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

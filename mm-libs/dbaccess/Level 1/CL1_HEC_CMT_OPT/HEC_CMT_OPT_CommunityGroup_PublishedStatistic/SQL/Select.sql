@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_cmt_opt_communitygroup_publishedstatistics
+WHERE 
+	HEC_CMT_OPT_CommunityGroup_PublishedStatisticID = @HEC_CMT_OPT_CommunityGroup_PublishedStatisticID

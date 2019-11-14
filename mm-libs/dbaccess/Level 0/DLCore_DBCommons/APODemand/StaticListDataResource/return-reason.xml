@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+    <Item ID="return-reason.ordering-error">
+        <Lang ISO="EN" Content="Bestellfehler" />
+        <Lang ISO="DE" Content="Bestellfehler" />
+    </Item>
+    <Item ID="return-reason.">
+        <Lang ISO="EN" Content="" />
+        <Lang ISO="DE" Content="" />
+    </Item>
+    <Item ID="return-reason.">
+        <Lang ISO="EN" Content="" />
+        <Lang ISO="DE" Content="" />
+    </Item>
+    <Item ID="return-reason.">
+        <Lang ISO="EN" Content="" />
+        <Lang ISO="DE" Content="" />
+    </Item>
+    <Item ID="return-reason.">
+        <Lang ISO="EN" Content="" />
+        <Lang ISO="DE" Content="" />
+    </Item>
+    <Item ID="return-reason.">
+        <Lang ISO="EN" Content="" />
+        <Lang ISO="DE" Content="" />
+    </Item>
+    <Item ID="return-reason.">
+        <Lang ISO="EN" Content="" />
+        <Lang ISO="DE" Content="" />
+    </Item>
+    <Item ID="return-reason.">
+        <Lang ISO="EN" Content="" />
+        <Lang ISO="DE" Content="" />
+    </Item>
+    <Item ID="return-reason.">
+        <Lang ISO="EN" Content="" />
+        <Lang ISO="DE" Content="" />
+    </Item>
+    <Item ID="return-reason.">
+        <Lang ISO="EN" Content="" />
+        <Lang ISO="DE" Content="" />
+    </Item>
+    <Item ID="return-reason.">
+        <Lang ISO="EN" Content="" />
+        <Lang ISO="DE" Content="" />
+    </Item>
+    <Item ID="return-reason.">
+        <Lang ISO="EN" Content="" />
+        <Lang ISO="DE" Content="" />
+    </Item>
+    <Item ID="return-reason.">
+        <Lang ISO="EN" Content="" />
+        <Lang ISO="DE" Content="" />
+    </Item>
+</Resources>

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_dia_potentialdiagnosis_catalog_access
+WHERE 
+	HEC_DIA_PotentialDiagnosis_Catalog_AccessID = @HEC_DIA_PotentialDiagnosis_Catalog_AccessID

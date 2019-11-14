@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{402E1799-BEA1-45D5-9EB2-6F094C1D8700}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MMDocConnectDocApp</RootNamespace>
+    <AssemblyName>MMDocConnectDocApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <IgnoreDeployManagedRuntimeVersion>True</IgnoreDeployManagedRuntimeVersion>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AttributeRouting">
+      <HintPath>$(SolutionDir)\packages\AttributeRouting.Core.3.5.6\lib\net40\AttributeRouting.dll</HintPath>
+    </Reference>
+    <Reference Include="AttributeRouting.Web">
+      <HintPath>$(SolutionDir)\packages\AttributeRouting.Core.Web.3.5.6\lib\net40\AttributeRouting.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="AttributeRouting.Web.Http">
+      <HintPath>$(SolutionDir)\packages\AttributeRouting.Core.Http.3.5.6\lib\net40\AttributeRouting.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="AttributeRouting.Web.Http.WebHost">
+      <HintPath>$(SolutionDir)\packages\AttributeRouting.WebApi.3.5.6\lib\net40\AttributeRouting.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>$(SolutionDir)\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>$(SolutionDir)\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>$(SolutionDir)\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>$(SolutionDir)\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>$(SolutionDir)\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>$(SolutionDir)\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\Microsoft.AspNet.WebApi.Client.5.2.0-rc\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\Microsoft.AspNet.WebApi.Core.5.2.0-rc\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\Microsoft.AspNet.WebApi.WebHost.5.2.0-rc\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivator">
+      <HintPath>$(SolutionDir)\packages\WebActivator.1.0.0.0\lib\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\angular-block-ui.css" />
+    <Content Include="Content\css\angular-block-ui.min.css" />
+    <Content Include="Content\css\angular-datepicker.css" />
+    <Content Include="Content\css\angular-dropdowns.css" />
+    <Content Include="Content\css\custom.css" />
+    <Content Include="Content\css\docapp.css" />
+    <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\ngDialog.css" />
+    <Content Include="Content\images\doc-app-logo.png" />
+    <Content Include="Content\images\icons-sc3ae9110a5.png" />
+    <Content Include="Content\images\icons\accept-orders.png" />
+    <Content Include="Content\images\icons\add-button.png" />
+    <Content Include="Content\images\icons\add-thin-dd.png" />
+    <Content Include="Content\images\icons\add-thin-disabled.png" />
+    <Content Include="Content\images\icons\add-thin.png" />
+    <Content Include="Content\images\icons\add.png" />
+    <Content Include="Content\images\icons\archive.png" />
+    <Content Include="Content\images\icons\archive_hover.png" />
+    <Content Include="Content\images\icons\arrow-left.png" />
+    <Content Include="Content\images\icons\back-button-white.png" />
+    <Content Include="Content\images\icons\back-button.png" />
+    <Content Include="Content\images\icons\check-sign.png" />
+    <Content Include="Content\images\icons\checkbox-checked-focus.png" />
+    <Content Include="Content\images\icons\checkbox-checked.png" />
+    <Content Include="Content\images\icons\checkbox-disabled-checked.png" />
+    <Content Include="Content\images\icons\checkbox-disabled.png" />
+    <Content Include="Content\images\icons\checkbox-focus.png" />
+    <Content Include="Content\images\icons\checkbox.png" />
+    <Content Include="Content\images\icons\confirm.png" />
+    <Content Include="Content\images\icons\dashboard.png" />
+    <Content Include="Content\images\icons\dashboard_hover.png" />
+    <Content Include="Content\images\icons\datepicker-next.png" />
+    <Content Include="Content\images\icons\datepicker-next_hover.png" />
+    <Content Include="Content\images\icons\datepicker-prev.png" />
+    <Content Include="Content\images\icons\datepicker-prev_hover.png" />
+    <Content Include="Content\images\icons\deliver-orders.png" />
+    <Content Include="Content\images\icons\discard.png" />
+    <Content Include="Content\images\icons\doctor-item.png" />
+    <Content Include="Content\images\icons\doctors.png" />
+    <Content Include="Content\images\icons\doctors_hover.png" />
+    <Content Include="Content\images\icons\download.png" />
+    <Content Include="Content\images\icons\dropdown-icon.png" />
+    <Content Include="Content\images\icons\dropdown-icon_hover.png" />
+    <Content Include="Content\images\icons\edit.png" />
+    <Content Include="Content\images\icons\email.png" />
+    <Content Include="Content\images\icons\evidence-white.png" />
+    <Content Include="Content\images\icons\evidence.png" />
+    <Content Include="Content\images\icons\evidence_hover.png" />
+    <Content Include="Content\images\icons\eye.png" />
+    <Content Include="Content\images\icons\folder.png" />
+    <Content Include="Content\images\icons\follow-up.png" />
+    <Content Include="Content\images\icons\follow-up_hover.png" />
+    <Content Include="Content\images\icons\forward.png" />
+    <Content Include="Content\images\icons\forward2.png" />
+    <Content Include="Content\images\icons\hospital-item.png" />
+    <Content Include="Content\images\icons\info-icon-hover.png" />
+    <Content Include="Content\images\icons\info-icon.png" />
+    <Content Include="Content\images\icons\lock.png" />
+    <Content Include="Content\images\icons\magnifier.png" />
+    <Content Include="Content\images\icons\magnifier_black.png" />
+    <Content Include="Content\images\icons\more-icon.png" />
+    <Content Include="Content\images\icons\orders.png" />
+    <Content Include="Content\images\icons\orders_hover.png" />
+    <Content Include="Content\images\icons\origin-date.png" />
+    <Content Include="Content\images\icons\origin-date_hover.png" />
+    <Content Include="Content\images\icons\patients.png" />
+    <Content Include="Content\images\icons\patients_hover.png" />
+    <Content Include="Content\images\icons\pencil.png" />
+    <Content Include="Content\images\icons\planning.png" />
+    <Content Include="Content\images\icons\planning_hover.png" />
+    <Content Include="Content\images\icons\preview-black.png" />
+    <Content Include="Content\images\icons\preview.png" />
+    <Content Include="Content\images\icons\print.png" />
+    <Content Include="Content\images\icons\radio-button-checked.png" />
+    <Content Include="Content\images\icons\radio-button.png" />
+    <Content Include="Content\images\icons\radio-checked-focus.png" />
+    <Content Include="Content\images\icons\radio-disabled-checked.png" />
+    <Content Include="Content\images\icons\radio-disabled.png" />
+    <Content Include="Content\images\icons\radio-focus.png" />
+    <Content Include="Content\images\icons\reject.png" />
+    <Content Include="Content\images\icons\select-dd.png" />
+    <Content Include="Content\images\icons\settlement.png" />
+    <Content Include="Content\images\icons\settlement_hover.png" />
+    <Content Include="Content\images\icons\shopping-cart-hover.png" />
+    <Content Include="Content\images\icons\shopping-cart.png" />
+    <Content Include="Content\images\icons\sort-asc.png" />
+    <Content Include="Content\images\icons\sort-dsc.png" />
+    <Content Include="Content\images\icons\submit-disable.png" />
+    <Content Include="Content\images\icons\submit-hover.png" />
+    <Content Include="Content\images\icons\submit.png" />
+    <Content Include="Content\images\icons\toggle-inactive.png" />
+    <Content Include="Content\images\icons\toggle-no.png" />
+    <Content Include="Content\images\icons\toggle-of-inactive.png" />
+    <Content Include="Content\images\icons\toggle-yes.png" />
+    <Content Include="Content\images\icons\treatments.png" />
+    <Content Include="Content\images\icons\treatments_hover.png" />
+    <Content Include="Content\images\login.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\medioslogo.jpg" />
+    <Content Include="Content\images\mm-app-logo.png" />
+    <Content Include="EmailTemplates\AftercareDoctorMismatch.html" />
+    <Content Include="EmailTemplates\AftercareCancelledFromSettlementPageEmailTemplate.html" />
+    <Content Include="EmailTemplates\NewTemporaryDoctorEmailTemplate.html" />
+    <Content Include="EmailTemplates\PasswordChangedEmailTemplate.html" />
+    <Content Include="EmailTemplates\TreatmentCancelledFromSettlementPageOctSubmittedEmailTemplate .html" />
+    <Content Include="EmailTemplates\TreatmentCancelledFromSettlementPageEmailTemplate.html" />
+    <Content Include="EmailTemplates\UrgentOrderEmailTemplate.html" />
+    <Content Include="Global.asax" />
+    <None Include="package.json" />
+    <None Include="log4net.xml" />
+    <None Include="gulpfile.js" />
+    <Content Include="ReportContent\DocumentationOnlySubmissionReportContent.xml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="scripts\src\app\oct\controllers\octController.js" />
+    <None Include="scripts\src\app\oct\service\octService.js" />
+    <Content Include="ReportContent\SubmitOrderPdfReportContent.xml" />
+    <Content Include="scripts\app.js" />
+    <Content Include="scripts\lib.js" />
+    <Content Include="scripts\src\app\oct\view\oct.html" />
+    <None Include="scripts\src\app\patient\controllers\addRetroCasesPopupController.js" />
+    <None Include="scripts\src\app\patient\directives\addPatientFeeWaiverDirective.js" />
+    <None Include="scripts\src\app\patient\directives\addRetroCasesDirective.js" />
+    <None Include="scripts\src\app\patient\services\documentationOnlyService.js" />
+    <Content Include="scripts\src\app\patient\view\addPatientFeeWaiverTemplate.html" />
+    <Content Include="scripts\src\app\patient\view\addRetroCases.html" />
+    <Content Include="scripts\src\app\patient\view\addRetroWizardTabs\confirm.html" />
+    <Content Include="scripts\src\app\patient\view\addRetroWizardTabs\intro.html" />
+    <Content Include="scripts\src\app\patient\view\addRetroWizardTabs\ivoms.html" />
+    <Content Include="scripts\src\app\patient\view\addRetroWizardTabs\octs.html" />
+    <Content Include="scripts\src\app\planning\view\quickOrderPopup.html" />
+    <None Include="scripts\src\app\settlement\directives\editOctDirective.js" />
+    <Content Include="scripts\src\app\settlement\view\editOct.html" />
+    <None Include="scripts\src\app\orders\controllers\ordersController.js" />
+    <None Include="scripts\src\app\orders\services\ordersService.js" />
+    <Content Include="scripts\src\app\orders\view\orders.html" />
+    <None Include="scripts\src\app\shoppingCart\controllers\shoppingCartController.js" />
+    <None Include="scripts\src\app\shoppingCart\directives\editOrderDirective.js" />
+    <Content Include="scripts\src\app\shoppingCart\view\confirmOrderPopup.html" />
+    <Content Include="scripts\src\app\shoppingCart\view\editOrder.html" />
+    <Content Include="scripts\src\app\orders\view\ordersTooltip.html" />
+    <Content Include="scripts\src\app\shoppingCart\view\shoppingCartTooltip.html" />
+    <Content Include="scripts\src\app\shoppingCart\view\shoppingCart.html" />
+    <None Include="scripts\src\common\directives\autocompleteAcDoctor.js" />
+    <None Include="scripts\src\common\directives\autocompleteOctDoctor.js" />
+    <None Include="scripts\src\common\directives\dateAdaptation.js" />
+    <None Include="scripts\src\common\directives\datepicker2.js" />
+    <None Include="scripts\src\common\directives\infiniteScroll.js" />
+    <None Include="scripts\src\common\services\drugs.service.js" />
+    <None Include="scripts\src\common\services\diagnoses.service.js" />
+    <None Include="scripts\src\common\services\doctors.service.js" />
+    <None Include="scripts\src\common\services\cases.service.js" />
+    <None Include="scripts\src\common\services\practice-settings.service.js" />
+    <Content Include="scripts\src\common\services\pharmacy.service.js" />
+    <Content Include="scripts\src\common\view\autocompleteAcDoctor.html" />
+    <Content Include="scripts\src\common\view\autocompleteOctDoctor.html" />
+    <Content Include="scripts\src\common\view\datepicker2.html" />
+    <Content Include="scripts\src\common\view\globalSearchTemplates\globalSearchOctTemplate.html" />
+    <Content Include="scripts\src\common\view\globalSearchTemplates\globalSearchShoppingCartTemplate.html" />
+    <Content Include="scripts\src\common\view\globalSearchTemplates\globalSearchOrderTemplate.html" />
+    <Content Include="scripts\src\common\view\octDoctorChangePopup.html" />
+    <Content Include="scripts\src\common\view\uibTemplates\datepickerPopup\popup.html" />
+    <Content Include="scripts\src\common\view\uibTemplates\datepicker\datepicker.html" />
+    <Content Include="scripts\src\common\view\uibTemplates\datepicker\day.html" />
+    <None Include="scripts\src\resource_files\pages\orderPageResources.js" />
+    <None Include="scripts\src\resource_files\pages\shoppingCartResources.js" />
+    <None Include="scripts\src\resource_files\pages\octResources.js" />
+    <None Include="scripts\vendor\jquery.signalR-2.2.0.js" />
+    <None Include="scripts\vendor\jquery.signalR-2.2.0.min.js" />
+    <Content Include="scripts\src\common\controllers\loginController.js" />
+    <Content Include="login.html" />
+    <Content Include="index.html" />
+    <None Include="scripts\src\app\aftercare\controllers\aftercareController.js" />
+    <None Include="scripts\src\app\aftercare\services\aftercareService.js" />
+    <Content Include="scripts\src\app\aftercare\view\aftercare.html" />
+    <None Include="scripts\src\app\patient\controllers\patientDetailViewController.js" />
+    <None Include="scripts\src\app\patient\directives\addParticipationConsentDirective.js" />
+    <None Include="scripts\src\app\patient\directives\addPatientDirective.js" />
+    <Content Include="scripts\src\app\patient\view\addParticipationConsentTemplate.html" />
+    <Content Include="scripts\src\app\patient\view\addPatientFromCaseTemplate.html" />
+    <Content Include="scripts\src\app\patient\view\addPatientTemplate.html" />
+    <Content Include="scripts\src\app\patient\view\patient.html" />
+    <Content Include="scripts\src\app\patient\view\patientDetailView.html" />
+    <None Include="scripts\src\app\planning\controllers\planningController.js" />
+    <None Include="scripts\src\app\planning\directives\addTemporaryAftercareDirective.js" />
+    <None Include="scripts\src\app\planning\directives\addCaseDirective.js" />
+    <None Include="scripts\src\app\planning\services\planningService.js" />
+    <Content Include="scripts\src\app\planning\view\addCaseTemplate.html" />
+    <Content Include="scripts\src\app\planning\view\addTemporaryAftercarePopupTemplate.html" />
+    <Content Include="scripts\src\app\planning\view\cancelCasePopupTemplate.html" />
+    <Content Include="scripts\src\app\planning\view\planning.html" />
+    <None Include="scripts\src\app\receipt\controllers\receiptController.js" />
+    <None Include="scripts\src\app\receipt\services\receiptService.js" />
+    <Content Include="scripts\src\app\receipt\view\receipt.html" />
+    <None Include="scripts\src\app\settings\controllers\my_accountController.js" />
+    <None Include="scripts\src\app\settings\controllers\praxisController.js" />
+    <None Include="scripts\src\app\settings\services\my_accountService.js" />
+    <None Include="scripts\src\app\settings\services\praxisService.js" />
+    <Content Include="scripts\src\app\settings\view\praxis_account.html" />
+    <Content Include="scripts\src\app\settings\view\my_account.html" />
+    <None Include="scripts\src\app\settlement\controllers\settlementController.js" />
+    <None Include="scripts\src\app\settlement\directives\editSettlementDirective.js" />
+    <None Include="scripts\src\app\settlement\services\settlementService.js" />
+    <Content Include="scripts\src\app\settlement\view\cancelCasePopup.html" />
+    <Content Include="scripts\src\app\settlement\view\editSettlementAC.html" />
+    <Content Include="scripts\src\app\settlement\view\settlement.html" />
+    <None Include="scripts\src\common\controllers\404Controller.js" />
+    <None Include="scripts\src\common\controllers\changePassController.js" />
+    <None Include="scripts\src\common\controllers\indexController.js" />
+    <None Include="scripts\src\common\directives\dropdownListDirective.js" />
+    <None Include="scripts\src\common\directives\globalSearchDirective.js" />
+    <None Include="scripts\src\common\directives\groupByFilter.js" />
+    <None Include="scripts\src\common\directives\ngDatefilter.js" />
+    <None Include="scripts\src\common\directives\sticky.js" />
+    <None Include="scripts\src\common\services\alertService.js" />
+    <None Include="scripts\src\common\services\service.common.js" />
+    <None Include="scripts\src\common\services\validationService.js" />
+    <Content Include="scripts\src\common\view\404.html" />
+    <Content Include="scripts\src\common\view\changePasswordPopup.html" />
+    <Content Include="scripts\src\common\view\dropdownListTemplate.html" />
+    <Content Include="scripts\src\common\view\globalSearchTemplates\globalSearchAftercareTemplate.html" />
+    <Content Include="scripts\src\common\view\globalSearchTemplates\globalSearchPlanningTemplate.html" />
+    <Content Include="scripts\src\common\view\globalSearchTemplates\globalSearchSettlementTemplate.html" />
+    <Content Include="scripts\src\common\view\globalSearchTemplates\globalSearchPatientTemplate.html" />
+    <Content Include="scripts\src\common\view\notificationPopupTemplate.html" />
+    <Content Include="scripts\src\common\view\errorNoAppRights.html" />
+    <Content Include="scripts\src\common\view\globalSearchTemplates\globalSearchTemplate.html" />
+    <Content Include="scripts\src\common\view\confirmationPopupTemplate.html" />
+    <Content Include="scripts\src\common\view\passwordConfirmationPopupTemplate.html" />
+    <Content Include="scripts\src\common\view\warningPopupTemplateRadioButtons.html" />
+    <Content Include="scripts\src\common\view\warningPopupTemplate.html" />
+    <None Include="scripts\src\resource_files\global\resources.global.js" />
+    <None Include="scripts\src\resource_files\pages\aftercarePageResources.js" />
+    <None Include="scripts\src\resource_files\pages\planningPageResources.js" />
+    <None Include="scripts\src\resource_files\pages\patientPageResources.js" />
+    <None Include="scripts\src\resource_files\pages\doctorPageResources.js" />
+    <None Include="scripts\src\resource_files\pages\settlementPageResources.js" />
+    <None Include="scripts\vendor\angucomplete-ac.js" />
+    <None Include="scripts\vendor\angucomplete-alt.js" />
+    <None Include="scripts\vendor\angular-animate.js" />
+    <None Include="scripts\vendor\angular-block-ui.js" />
+    <None Include="scripts\vendor\angular-block-ui.min.js" />
+    <None Include="scripts\vendor\angular-datepicker.js" />
+    <None Include="scripts\vendor\angular-route.js" />
+    <None Include="scripts\vendor\angular-route.min.js" />
+    <None Include="scripts\vendor\angular-route.min.js.map" />
+    <Content Include="Content\css\angular-block-ui.css.map" />
+    <Content Include="EmailTemplates\EmailSubjects.json" />
+    <None Include="Properties\PublishProfiles\Deploy-local.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="scripts\vendor\angular-block-ui.js.map" />
+    <None Include="scripts\vendor\angular-block-ui.min.js.map" />
+    <None Include="scripts\vendor\angular-translate.js" />
+    <None Include="scripts\vendor\jquery-2.1.3.js" />
+    <Content Include="scripts\translations.js" />
+    <Content Include="scripts\vendor\jquery-2.1.3.min.js" />
+    <None Include="scripts\src\app\patient\controllers\patientController.js" />
+    <None Include="scripts\vendor\jQuery.maskSelect.js" />
+    <None Include="scripts\vendor\ngDialog.js" />
+    <None Include="scripts\vendor\offClick.js" />
+    <None Include="scripts\src\app\patient\services\patientService.js" />
+    <None Include="scripts\src\common\application-configuration.js" />
+    <None Include="scripts\src\common\services\ajaxServices.js" />
+    <Content Include="scripts\vendor\angular.js" />
+    <None Include="scripts\src\common\directives\timeInput.js" />
+    <None Include="scripts\vendor\ui-bootstrap-tpls-2.2.0.js" />
+    <Content Include="scripts\vendor\view\angucompleteCaseACTemplate.html" />
+    <Content Include="scripts\vendor\view\angucompleteCaseTemplate.html" />
+    <Content Include="ReportContent\SubmissionReportContent.xml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AttributeRoutingHttpConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
+    <Compile Include="Controllers\DocumentationOnlyController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OctController.cs" />
+    <Compile Include="Controllers\MainApiController.cs" />
+    <Compile Include="Controllers\AftercareController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\PharmacyController.cs" />
+    <Compile Include="Controllers\PlanningController.cs" />
+    <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\ReceiptController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\SettlementController.cs" />
+    <Compile Include="Filters\AuthenticationFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Autocomplete_Data.cs" />
+    <Compile Include="Models\LoginApiModel.cs" />
+    <Compile Include="Models\BicIbanApiModel.cs" />
+    <Compile Include="Models\DoctorApiModel.cs" />
+    <Compile Include="Models\HealthInsuranceCheckApiModel.cs" />
+    <Compile Include="Models\InitalPatientDataApiModel.cs" />
+    <Compile Include="Models\MultiOrderSubmitParameter.cs" />
+    <Compile Include="Models\OrdersParameter.cs" />
+    <Compile Include="Models\PracticeApiModel.cs" />
+    <Compile Include="Models\ReceiptApiModel.cs" />
+    <Compile Include="Models\SubmitOctParameter.cs" />
+    <Compile Include="Models\TemporaryAftercareDoctor.cs" />
+    <Compile Include="Models\Parameter.cs" />
+    <Compile Include="Models\PasswordVerificationDoctors.cs" />
+    <Compile Include="Models\PasswordVerificationParameter.cs" />
+    <Compile Include="Models\PatientApiModel.cs" />
+    <Compile Include="Models\PatientDetailsApiModel.cs" />
+    <Compile Include="Models\SettlementApiModel.cs" />
+    <Compile Include="Models\UserApiModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SessionHub.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="scripts\vendor\jquery-2.1.3.min.map" />
+    <None Include="scripts\vendor\jquery-2.1.3.min.js.map">
+      <DependentUpon>jquery-2.1.3.min.js</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\fonts\" />
+    <Folder Include="scripts\src\app\orders\directives\" />
+    <Folder Include="scripts\src\app\shoppingCart\services\" />
+    <Folder Include="scripts\src\common\factories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\mm-libs\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mm-libs\dbaccess\Level 0\DLCore_TokenVerificationV3\DLCore_TokenVerificationV3.csproj">
+      <Project>{63a878ac-69ff-45f8-8194-f27d7ddec716}</Project>
+      <Name>DLCore_TokenVerificationV3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mmdocconnect-core\MMDocConnectDBMethods\MMDocConnectDBMethods.csproj">
+      <Project>{0f2fdac6-f460-4012-8a29-08c7e5cdabcd}</Project>
+      <Name>MMDocConnectDBMethods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mmdocconnect-core\MMDocConnectElasticSearchMethods\MMDocConnectElasticSearchMethods.csproj">
+      <Project>{e99e90be-66e5-4412-b67c-ebfe6a5286ad}</Project>
+      <Name>MMDocConnectElasticSearchMethods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mmdocconnect-core\MMDocConnectLogUtils\LogUtils\LogUtils.csproj">
+      <Project>{3b9f11bc-018f-4f4e-ac96-708a2b1f86fc}</Project>
+      <Name>LogUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\mmdocconnect-core\MMDocConnectUtils\MMDocConnectUtils.csproj">
+      <Project>{723f3602-7c25-4f63-813e-5731f820ef4b}</Project>
+      <Name>MMDocConnectUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BOpSDK\BOpSDK.csproj">
+      <Project>{b5aa6031-a2a9-4642-abf6-2290c8deedc6}</Project>
+      <Name>BOpSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMDocConnectDocAppInterfaces\MMDocConnectDocAppInterfaces.csproj">
+      <Project>{c4e41f89-5805-4441-b4a1-a56c92037a05}</Project>
+      <Name>MMDocConnectDocAppInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMDocConnectDocAppModels\MMDocConnectDocAppModels.csproj">
+      <Project>{8b59789c-5ffa-4db4-93f5-78f642642aef}</Project>
+      <Name>MMDocConnectDocAppModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMDocConnectDocAppServices\MMDocConnectDocAppServices.csproj">
+      <Project>{977aa6b3-270e-4af9-9397-5ce6bce0c657}</Project>
+      <Name>MMDocConnectDocAppServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52444</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52444/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>call xcopy "$(SolutionDir)\..\..\mmdocconnect-resources\content\docapp.css" "$(SolutionDir)\MMDocConnectDocApp\Content\css"  /r /s /i /y
+call xcopy "$(SolutionDir)\..\..\mmdocconnect-resources\images\*" "$(SolutionDir)\MMDocConnectDocApp\Content\images"  /r /s /i /y
+		
+call npm install
+
+if not "$(ConfigurationName)"=="Debug" (
+	call gulp release
+	call xcopy "$(SolutionDir)\MMDocConnectDocApp\static-release" "$(SolutionDir)\MMDocConnectDocApp\"  /r /s /i /y
+)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

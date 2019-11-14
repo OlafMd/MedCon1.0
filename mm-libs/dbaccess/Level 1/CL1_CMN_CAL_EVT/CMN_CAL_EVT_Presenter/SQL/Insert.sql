@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_cal_evt_presenters
+	(
+		CMN_CAL_EVT_PresenterID,
+		Presentation_RefID,
+		CMN_PersonInfo_RefID,
+		PresenterDisplayName,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_CAL_EVT_PresenterID,
+		@Presentation_RefID,
+		@CMN_PersonInfo_RefID,
+		@PresenterDisplayName,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

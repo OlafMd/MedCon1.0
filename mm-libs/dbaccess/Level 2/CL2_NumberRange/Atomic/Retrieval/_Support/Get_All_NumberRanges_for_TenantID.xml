@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="08/11/2013 16:28:20">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_All_NumberRanges_for_TenantID</Name>
+		<Namespace>CL2_NumberRange.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+	<CreationInfo Method_Namespace="CL2_NumberRange.Atomic.Retrieval"
+				  Method_ClassName="cls_Get_All_NumberRanges_for_TenantID"
+				  Method_Name="Get_All_NumberRanges_for_TenantID"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Get_All_NumberRanges_for_TenantID"
+                />
+
+	<SQLStatement xml:space="preserve">
+		SELECT
+		  cmn_numberranges.CMN_NumberRangeID,
+		  cmn_numberranges.NumberRange_UsageArea_RefID,
+		  cmn_numberranges.NumberRange_Name,
+		  cmn_numberranges.Value_Current,
+		  cmn_numberranges.Value_Start,
+		  cmn_numberranges.Value_End,
+		  cmn_numberranges.FixedPrefix,
+		  cmn_numberranges.Formatting_NumberLength,
+		  cmn_numberranges.Formatting_LeadingFillCharacter,
+		  cmn_numberranges.Creation_Timestamp,
+		  cmn_numberranges.IsDeleted,
+		  cmn_numberranges.Tenant_RefID
+		FROM
+		  cmn_numberranges
+		WHERE
+		  Tenant_RefID = @TenantID AND
+		  IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2NR_GANRfT_1628" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_NumberRangeID" Type="Guid"  />
+				<ClassMember Name="NumberRange_UsageArea_RefID" Type="Guid"  />
+				<ClassMember Name="NumberRange_Name" Type="String"  />
+				<ClassMember Name="Value_Current" Type="long"  />
+				<ClassMember Name="Value_Start" Type="long"  />
+				<ClassMember Name="Value_End" Type="long"  />
+				<ClassMember Name="FixedPrefix" Type="String"  />
+				<ClassMember Name="Formatting_NumberLength" Type="int"  />
+				<ClassMember Name="Formatting_LeadingFillCharacter" Type="String"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="IsDeleted" Type="Boolean"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

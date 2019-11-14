@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/27/2012 11:51:28 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CLE_L6_PlannicoMobile_LeaveRequest.Complex.Retrieval"
+                Method_ClassName="cls_View_LeaveRequest_Data"
+                Method_Name="View_LeaveRequest_Data"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".View_LeaveRequest_Data"
+                />
+
+  <Parameters IsClass="true" Name="P_L6LR_NLRD_1505">
+    <Members>
+      <ClassMember Name="LeaveID" IsArray="false" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="L6LR_NLRD_1505" IsArray="false">
+      <Members>
+        <ClassMember Name="Statistics" Type="L6LR_GLRS_M_1706" isArray="false" isReference="true"/>
+        
+        <ClassMember IsClass="true" IsArray="true" Name="Covers" Type="L6LR_NLRD_1505_Covers" >
+          <Members>
+            <ClassMember Name="FirstName" Type="string" />
+            <ClassMember Name="LastName" Type="string" />
+            <ClassMember Name="ID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+        
+        <ClassMember IsClass="true" IsArray="true" Name="ForEmployees" Type="L6LR_NLRD_1505_ForEmployees" >
+          <Members>
+            <ClassMember Name="FirstName" Type="string" />
+            <ClassMember Name="LastName" Type="string" />
+            <ClassMember Name="ID" Type="Guid"  />
+            <ClassMember IsClass="true" IsArray="true" Name="LeaveTypes" Type="L6LR_NLRD_1505_LeaveTypes" >
+              <Members>
+                <ClassMember Name="Name" Type="Dict" />
+                <ClassMember Name="ID" Type="Guid"  />
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsArray="false" Name="Leave" Type="L6LR_GLR_ID_1339" isReference="true"/>
+          
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

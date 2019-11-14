@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E99961B6-F824-4A72-81E1-D673D3C153EC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_APOBilling_Dunning</RootNamespace>
+    <AssemblyName>CL5_APOBilling_Dunning</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_DunningDetails_for_BillHeaderID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DunningDetails_for_BillHeaderList.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_CreateDunningProcess.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_DunningProcessLevelChange.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_BillsWithDunningDetails_for_TenantID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_DunningLevels_for_TenantID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DunningDetails_for_BillHeaderList.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DunningDetails_for_BillHeaderList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DunningDetails_for_BillHeaderID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DunningDetails_for_BillHeaderID.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_DunningProcessLevelChange.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_CreateDunningProcess.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_DunningLevels_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_BillsWithDunningDetails_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_DUN\CL1_ACC_DUN.csproj">
+      <Project>{C475675E-DA3D-403E-9304-D50BE6DADBED}</Project>
+      <Name>CL1_ACC_DUN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_BIL\CL1_BIL.csproj">
+      <Project>{D4F4B377-8C25-466F-B42F-315FC44A6D33}</Project>
+      <Name>CL1_BIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_CTM\CL1_CMN_BPT_CTM.csproj">
+      <Project>{C453F5A9-9877-4197-A5E3-403EF6A0455D}</Project>
+      <Name>CL1_CMN_BPT_CTM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_BillDunning\CL2_BillDunning.csproj">
+      <Project>{B23BAE63-0EC5-41D9-A5D9-E1E784452C22}</Project>
+      <Name>CL2_BillDunning</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Payments\CL3_Payments.csproj">
+      <Project>{BD19973B-7473-41A3-910B-E22DB146EA6E}</Project>
+      <Name>CL3_Payments</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_APOBilling_Bill\CL5_APOBilling_Bill.csproj">
+      <Project>{0AF74496-AEE2-424B-B5DA-DFB1332E4807}</Project>
+      <Name>CL5_APOBilling_Bill</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_APOBilling_Shipment\CL5_APOBilling_Shipment.csproj">
+      <Project>{0F241CD9-3162-43A5-976F-7B6E6D5221D4}</Project>
+      <Name>CL5_APOBilling_Shipment</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

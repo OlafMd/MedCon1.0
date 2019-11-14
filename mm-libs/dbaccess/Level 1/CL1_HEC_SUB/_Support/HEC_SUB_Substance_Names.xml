@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 3/13/2014 1:14:15 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_SUB_Substance_Name"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC_SUB"
+                IsClass_Corresponding_DBTable="hec_sub_substance_names" >
+      <Members>
+		<ClassMember Name="HEC_SUB_Substance_NameID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="HEC_SUB_Substance_RefID" Type="Guid" />
+		<ClassMember Name="IsPrimarySubstanceName" Type="Boolean" />
+		<ClassMember Name="SubstanceName_Origin" Type="Dict" Source_DBField="SubstanceName_Origin_DictID" OriginTable="hec_sub_substance_names"/>
+		<ClassMember Name="SubstanceName_Label" Type="Dict" Source_DBField="SubstanceName_Label_DictID" OriginTable="hec_sub_substance_names"/>
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		  <ClassMember Name="Modification_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+	  </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

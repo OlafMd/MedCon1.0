@@ -1,0 +1,8 @@
+﻿{"NumberRanges":
+[{"Name":"Distribution orders","CurrentValue":0,"StartValue":0,"EndValue":0,"FixedPrefix":"DO","Length":0,"FillCharacter":"0", "GlobalStaticMatchingID":"zugseil-numberrange-distributionorder"},
+{"Name":"Shipments","CurrentValue":0,"StartValue":0,"EndValue":0,"FixedPrefix":"SH","Length":0,"FillCharacter":"0","GlobalStaticMatchingID":"zugseil-numberrange-shipment"},
+{"Name":"Return shipments","CurrentValue":0,"StartValue":0,"EndValue":0,"FixedPrefix":"RS","Length":0,"FillCharacter":"0","GlobalStaticMatchingID":"zugseil-numberrange-returnshipment"},
+{"Name":"Procurement orders","CurrentValue":0,"StartValue":0,"EndValue":0,"FixedPrefix":"PO","Length":0,"FillCharacter":"0","GlobalStaticMatchingID":"zugseil-numberrange-procurementorder"},
+{"Name":"Expected deliveries","CurrentValue":0,"StartValue":0,"EndValue":0,"FixedPrefix":"ED","Length":0,"FillCharacter":"0","GlobalStaticMatchingID":"zugseil-numberrange-expecteddeliverie"},
+{"Name":"Bills","CurrentValue":0,"StartValue":0,"EndValue":0,"FixedPrefix":"BI","Length":0,"FillCharacter":"0","GlobalStaticMatchingID":"zugseil-numberrange-bill"},
+{"Name":"Customer orders","CurrentValue":0,"StartValue":0,"EndValue":0,"FixedPrefix":"CO","Length":0,"FillCharacter":"0","GlobalStaticMatchingID":"zugseil-numberrange-customerorder"}]}

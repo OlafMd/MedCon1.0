@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 1/27/2014 2:12:23 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_PER_PersonInfo"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_PER"
+                IsClass_Corresponding_DBTable="cmn_per_personinfo" >
+      <Members>
+		  <ClassMember Name="CMN_PER_PersonInfoID" Type="Guid" IsObjectPrimaryKey="true"/>
+		  <ClassMember Name="Address_RefID" Type="Guid" />
+		  <ClassMember Name="Title" Type="String" />
+		  <ClassMember Name="Salutation_General" Type="String" />
+		  <ClassMember Name="Salutation_Letter" Type="String" />
+		  <ClassMember Name="Initials" Type="String" />
+		  <ClassMember Name="FirstName" Type="String" />
+		  <ClassMember Name="LastName" Type="String" />
+		  <ClassMember Name="PrimaryEmail" Type="String" />
+		  <ClassMember Name="ProfileImage_Document_RefID" Type="Guid" />
+		  <ClassMember Name="BirthDate" Type="DateTime" />
+		  <ClassMember Name="Gender" Type="int" />
+		  <ClassMember Name="NumberOfChildren" Type="int" />
+		  <ClassMember Name="IsRepresentedByLegalGuardian" Type="Boolean" />
+		  <ClassMember Name="IsDead" Type="Boolean" />
+		  <ClassMember Name="DateOfDeath" Type="DateTime" />
+		  <ClassMember Name="AgeCalculation_YearOfBirth" Type="int" />
+		  <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		  <ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		  <ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		  <ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

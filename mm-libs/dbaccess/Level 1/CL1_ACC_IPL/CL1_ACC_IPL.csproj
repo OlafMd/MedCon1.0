@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B7A1AF6B-3CFB-46EA-BCC4-3237FA26C703}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_ACC_IPL</RootNamespace>
+    <AssemblyName>CL1_ACC_IPL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACC_IPL_InstallmentPlan\ORM_ACC_IPL_InstallmentPlan.cs" />
+    <Compile Include="ACC_IPL_InstallmentPlan_StatusHistory\ORM_ACC_IPL_InstallmentPlan_StatusHistory.cs" />
+    <Compile Include="ACC_IPL_InstallmentPlan_Status\ORM_ACC_IPL_InstallmentPlan_Status.cs" />
+    <Compile Include="ACC_IPL_Installment\ORM_ACC_IPL_Installment.cs" />
+    <Compile Include="ACC_IPL_Installment_2_AccountTransactionPairBatch\ORM_ACC_IPL_Installment_2_AccountTransactionPairBatch.cs" />
+    <Compile Include="ACC_IPL_Installment_2_AssignedPayment\ORM_ACC_IPL_Installment_2_AssignedPayment.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ACC_IPL_Installment_2_AssignedPayment\SQL\Select.sql" />
+    <EmbeddedResource Include="ACC_IPL_Installment_2_AssignedPayment\SQL\Update.sql" />
+    <EmbeddedResource Include="ACC_IPL_Installment_2_AssignedPayment\SQL\Insert.sql" />
+    <EmbeddedResource Include="ACC_IPL_Installment_2_AccountTransactionPairBatch\SQL\Select.sql" />
+    <EmbeddedResource Include="ACC_IPL_Installment_2_AccountTransactionPairBatch\SQL\Update.sql" />
+    <EmbeddedResource Include="ACC_IPL_Installment_2_AccountTransactionPairBatch\SQL\Insert.sql" />
+    <Content Include="_Support\ACC_IPL_Installment_2_AccountTransactionPairBatch.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\ACC_IPL_Installment_2_AssignedPayments.xml" />
+    <EmbeddedResource Include="ACC_IPL_InstallmentPlan_Status\SQL\Insert.sql" />
+    <EmbeddedResource Include="ACC_IPL_InstallmentPlan_Status\SQL\Update.sql" />
+    <EmbeddedResource Include="ACC_IPL_InstallmentPlan_Status\SQL\Select.sql" />
+    <EmbeddedResource Include="ACC_IPL_Installment\SQL\Insert.sql" />
+    <EmbeddedResource Include="ACC_IPL_Installment\SQL\Update.sql" />
+    <EmbeddedResource Include="ACC_IPL_Installment\SQL\Select.sql" />
+    <EmbeddedResource Include="ACC_IPL_InstallmentPlan_StatusHistory\SQL\Insert.sql" />
+    <EmbeddedResource Include="ACC_IPL_InstallmentPlan_StatusHistory\SQL\Update.sql" />
+    <EmbeddedResource Include="ACC_IPL_InstallmentPlan_StatusHistory\SQL\Select.sql" />
+    <EmbeddedResource Include="ACC_IPL_InstallmentPlan\SQL\Insert.sql" />
+    <EmbeddedResource Include="ACC_IPL_InstallmentPlan\SQL\Update.sql" />
+    <EmbeddedResource Include="ACC_IPL_InstallmentPlan\SQL\Select.sql" />
+    <Content Include="_Support\ACC_IPL_InstallmentPlans.xml" />
+    <Content Include="_Support\ACC_IPL_InstallmentPlan_Status.xml" />
+    <Content Include="_Support\ACC_IPL_InstallmentPlan_StatusHistory.xml" />
+    <Content Include="_Support\ACC_IPL_Installments.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,19 @@
+
+Select
+  cmn_sls_dynamicpricingformula_types.CMN_SLS_DynamicPricingFormula_TypeID,
+  cmn_sls_dynamicpricingformula_types.DynamicPricingFormulaType_Name_DictID,
+  cmn_sls_dynamicpricingformula_types.DefaultDynamicPricingFormula,
+  cmn_sls_dpf_type_procurementpricedependencies.CMN_SLS_DPF_Type_ProcurementPriceDependencyID,
+  cmn_sls_dpf_type_procurementpricedependencies.ApplicableFrom_ProcurementPrice,
+  cmn_sls_dpf_type_procurementpricedependencies.ApplicableThrough_ProcurementPrice,
+  cmn_sls_dpf_type_procurementpricedependencies.DynamicPricingFormula,
+  cmn_sls_dpf_type_procurementpricedependencies.IsDeleted
+From
+  cmn_sls_dynamicpricingformula_types Left Join
+  cmn_sls_dpf_type_procurementpricedependencies
+    On
+    cmn_sls_dpf_type_procurementpricedependencies.DynamicPricingFormula_Type_RefID = cmn_sls_dynamicpricingformula_types.CMN_SLS_DynamicPricingFormula_TypeID And cmn_sls_dpf_type_procurementpricedependencies.IsDeleted = 0
+Where
+  cmn_sls_dynamicpricingformula_types.Tenant_RefID = @TenantID And
+  cmn_sls_dynamicpricingformula_types.IsDeleted = 0
+  

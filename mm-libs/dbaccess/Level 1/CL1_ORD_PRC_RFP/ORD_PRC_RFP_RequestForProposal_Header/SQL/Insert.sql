@@ -1,0 +1,27 @@
+INSERT INTO 
+	ord_prc_rfp_requestforproposal_headers
+	(
+		ORD_PRC_RFO_RequestForProposal_HeaderID,
+		RequestForProposalHeaderITPL,
+		RequestForProposal_Number,
+		DefaultCurrency_RefID,
+		DateOfPublish,
+		ProposalDeadline,
+		CompleteDeliveryUntillDate,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ORD_PRC_RFO_RequestForProposal_HeaderID,
+		@RequestForProposalHeaderITPL,
+		@RequestForProposal_Number,
+		@DefaultCurrency_RefID,
+		@DateOfPublish,
+		@ProposalDeadline,
+		@CompleteDeliveryUntillDate,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/7/2014 05:42:54">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Default_SupplierName_for_Area</Name>
+    <Namespace>CL3_Warehouse.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Warehouse.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Default_SupplierName_for_Area"
+                Method_Name="Get_Default_SupplierName_for_Area"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Default_SupplierName_for_Area"
+                />
+
+  <SQLStatement xml:space="preserve">
+SELECT cmn_bpt_businessparticipants.DisplayName AreaSupplierName, 
+log_wrh_area_defaultSuppliers.CMN_BPT_Supplier_RefID
+FROM log_wrh_area_defaultSuppliers
+INNER JOIN CMN_BPT_Suppliers ON log_wrh_area_defaultsuppliers.CMN_BPT_Supplier_RefID = cmn_bpt_suppliers.CMN_BPT_SupplierID
+	AND cmn_bpt_suppliers.IsDeleted = 0
+INNER JOIN cmn_bpt_businessparticipants ON cmn_bpt_suppliers.Ext_BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+	AND cmn_bpt_businessparticipants.IsDeleted = 0
+WHERE log_wrh_area_defaultSuppliers.Area_RefID = @AreaID
+	AND log_wrh_area_defaultsuppliers.Tenant_RefID = @TenantID
+	AND log_wrh_area_defaultsuppliers.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3WH_GDSNfA_1741">
+    <Members>
+		<ClassMember Name="AreaID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3WH_GDSNfA_1741" IsArray="true">
+			<Members>
+				<ClassMember Name="AreaSupplierName" Type="String"  />
+        <ClassMember Name="CMN_BPT_Supplier_RefID" Type="Guid"  />
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

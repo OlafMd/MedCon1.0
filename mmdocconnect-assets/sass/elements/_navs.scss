@@ -1,0 +1,25 @@
+.nav-tabs-justified,
+.nav-tabs.nav-justified {
+  > li > a {
+    @include border-radius(0);
+  }
+}
+
+.nav-tabs {
+  > li {
+    > a {
+      font-size: 14px;
+    }
+
+    &.active {
+       > a,
+       > a:hover,
+      > a:focus {
+        color: #fff;
+        border-top: 0;
+        border-bottom-color: #ddd;
+        background-color: #790032;
+      }
+    }
+  }
+}

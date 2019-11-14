@@ -1,0 +1,11 @@
+<input type="text"
+    class="form-control"
+    id="{{datepickerId}}"
+    uib-datepicker-popup
+    datepicker-options="datepickerOptions"
+    ng-focus="open()"
+    is-open="datepickerOpen"
+    ng-model="datepickerModel"
+    ng-class="{'redborder': dateInvalid}"
+    ng-change="updateDatepicker()"
+    placeholder="{{datepickerPlaceholder}}">

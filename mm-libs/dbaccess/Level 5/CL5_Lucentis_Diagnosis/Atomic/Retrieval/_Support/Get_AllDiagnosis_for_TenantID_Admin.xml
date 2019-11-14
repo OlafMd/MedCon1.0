@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="8/2/2013 4:13:17 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllDiagnosis_for_TenantID_Admin</Name>
+    <Namespace>CL5_Lucentis_Diagnosis.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Diagnosis.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllDiagnosis_for_TenantID_Admin"
+                Method_Name="Get_AllDiagnosis_for_TenantID_Admin"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AllDiagnosis_for_TenantID_Admin"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID,
+  hec_dia_potentialdiagnoses.ICD10_Code,
+  hec_dia_potentialdiagnoses.PotentialDiagnosis_Description_DictID,
+  hec_dia_potentialdiagnoses.PotentialDiagnosis_Name_DictID,
+  States.DiagnosisState_Name_DictID,
+  States.DiagnosisState_Abbreviation,
+  States.HEC_DIA_Diagnosis_StateID,
+  Localization.DiagnosisLocalization_Name_DictID,
+  Localization.HEC_DIA_Diagnosis_LocalizationID
+From
+  hec_dia_potentialdiagnoses Left Join
+  (Select
+    hec_dia_diagnosis_states.HEC_DIA_Diagnosis_StateID,
+    hec_dia_diagnosis_states.DiagnosisState_Name_DictID,
+    hec_dia_diagnosis_states.DiagnosisState_Abbreviation,
+    hec_dia_diagnosis_states.Diagnose_RefID
+  From
+    hec_dia_diagnosis_states
+  Where
+    hec_dia_diagnosis_states.IsDeleted = 0) States
+    On hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID =
+    States.Diagnose_RefID Left Join
+  (Select
+    hec_dia_diagnosis_localizations.DiagnosisLocalization_Name_DictID,
+    hec_dia_diagnosis_localizations.HEC_DIA_Diagnosis_LocalizationID,
+    hec_dia_diagnosis_localizations.Diagnosis_RefID
+  From
+    hec_dia_diagnosis_localizations
+  Where
+    hec_dia_diagnosis_localizations.IsDeleted = 0) Localization
+    On hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID =
+    Localization.Diagnosis_RefID
+Where
+  hec_dia_potentialdiagnoses.IsDeleted = 0 And
+  hec_dia_potentialdiagnoses.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="GADfTID_1605" IsArray="true" GroupBy="HEC_DIA_PotentialDiagnosisID">
+			<Members>
+				<ClassMember Name="HEC_DIA_PotentialDiagnosisID" Type="Guid"  />
+				<ClassMember Name="ICD10_Code" Type="String"  />
+				<ClassMember Name="PotentialDiagnosis_Description" Type="Dict" OriginTable="hec_dia_potentialdiagnoses" Source_DBField="PotentialDiagnosis_Description_DictID"  />
+				<ClassMember Name="PotentialDiagnosis_Name" Type="Dict" OriginTable="hec_dia_potentialdiagnoses" Source_DBField="PotentialDiagnosis_Name_DictID"  />
+			
+
+				<!-- Derived Tables -->
+				<ClassMember IsClass="true" IsArray="true" Name="States" Type="GADfTID_1605_States" GroupBy="HEC_DIA_Diagnosis_StateID">
+					<Members>
+						<ClassMember Name="DiagnosisState_Name" Type="Dict" OriginTable="hec_dia_diagnosis_states" Source_DBField="DiagnosisState_Name_DictID"  />
+						<ClassMember Name="DiagnosisState_Abbreviation" Type="String"  />
+						<ClassMember Name="HEC_DIA_Diagnosis_StateID" Type="Guid"  />
+					</Members>
+				</ClassMember>
+				<ClassMember IsClass="true" IsArray="true" Name="Localization" Type="GADfTID_1605_Localization" GroupBy="HEC_DIA_Diagnosis_LocalizationID">
+					<Members>
+						<ClassMember Name="DiagnosisLocalization_Name" Type="Dict" OriginTable="hec_dia_diagnosis_localizations" Source_DBField="DiagnosisLocalization_Name_DictID"  />
+						<ClassMember Name="HEC_DIA_Diagnosis_LocalizationID" Type="Guid"  />
+					</Members>
+				</ClassMember>
+	
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,21 @@
+INSERT INTO 
+	ord_dis_distributionorder_header_documents
+	(
+		ORD_DIS_DistributionOrder_Header_DocumentID,
+		DistributionOrder_Header_RefID,
+		Document_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@ORD_DIS_DistributionOrder_Header_DocumentID,
+		@DistributionOrder_Header_RefID,
+		@Document_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

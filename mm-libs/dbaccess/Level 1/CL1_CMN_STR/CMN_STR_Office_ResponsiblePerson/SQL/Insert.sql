@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_office_responsiblepersons
+	(
+		CMN_STR_Office_ResponsiblePersonID,
+		Office_RefID,
+		CMN_BPT_EMP_Employee_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_STR_Office_ResponsiblePersonID,
+		@Office_RefID,
+		@CMN_BPT_EMP_Employee_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

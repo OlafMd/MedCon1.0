@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/20/2013 3:08:32 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="USR_Device_AccountCode"
+                IsClass="true"
+                IsClass_Namespace="CL1_USR"
+                IsClass_Corresponding_DBTable="usr_device_accountcodes" >
+      <Members>
+		<ClassMember Name="USR_Device_AccountCodeID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Account_RefID" Type="Guid" />
+		<ClassMember Name="AccountCode_Value" Type="String" />
+		<ClassMember Name="AccountCode_ValidFrom" Type="DateTime" />
+		<ClassMember Name="AccountCode_ValidTo" Type="DateTime" />
+		<ClassMember Name="IsAccountCode_Expirable" Type="Boolean" />
+		<ClassMember Name="AccountCode_CurrentStatus_RefID" Type="Guid" />
+		<ClassMember Name="AccountCode_NumberOfAccesses_MaximumValue" Type="int" />
+		<ClassMember Name="AccountCode_NumberOfAccesses_CurrentValue" Type="int" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

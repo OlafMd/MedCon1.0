@@ -1,0 +1,19 @@
+INSERT INTO 
+	doc_slt_documentslot_allowedmimetypes
+	(
+		DOC_SLT_DocumentSlot_AllowedMimeTypeID,
+		DOC_SLT_DocumentSlot_RefID,
+		DOC_MimeType_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@DOC_SLT_DocumentSlot_AllowedMimeTypeID,
+		@DOC_SLT_DocumentSlot_RefID,
+		@DOC_MimeType_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

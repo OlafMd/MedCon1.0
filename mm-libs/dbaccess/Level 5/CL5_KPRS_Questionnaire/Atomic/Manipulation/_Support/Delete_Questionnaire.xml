@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/6/2013 10:08:39 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Questionnaires_For_Tenant</Name>
+    <Namespace>CLE_L5_Questionnaire.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_Questionnaire.Atomic.Manipulation"
+                Method_ClassName="cls_Delete_Questionnaire"
+                Method_Name="Delete_Questionnaire"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Delete_Questionnaire"
+                />
+
+  <Parameters IsClass="true" Name="P_L5SQ_DU_1137">
+    <Members>
+      <ClassMember Name="RES_QST_QuestionnaireID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+
+  </ResultInfo>
+
+</CodeGen>
+
+

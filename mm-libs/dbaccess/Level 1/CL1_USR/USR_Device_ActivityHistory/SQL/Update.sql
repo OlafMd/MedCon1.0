@@ -1,0 +1,21 @@
+UPDATE 
+	usr_device_activityhistory
+SET 
+	Device_RefID=@Device_RefID,
+	Performing_Account_RefID=@Performing_Account_RefID,
+	DateOfActivity=@DateOfActivity,
+	WasDevice_Configured=@WasDevice_Configured,
+	WasDevice_Configured_WithConfigurationCode_RefID=@WasDevice_Configured_WithConfigurationCode_RefID,
+	WasDevice_RequestingDSC=@WasDevice_RequestingDSC,
+	WasBanned=@WasBanned,
+	WasUnbanned=@WasUnbanned,
+	WasCreatedSession=@WasCreatedSession,
+	WasOtherRelevantActivity=@WasOtherRelevantActivity,
+	ActivityComment=@ActivityComment,
+	AccountComment=@AccountComment,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	USR_Device_ActivityHistoryID = @USR_Device_ActivityHistoryID

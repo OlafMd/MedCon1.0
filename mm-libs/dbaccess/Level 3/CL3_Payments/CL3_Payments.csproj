@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BD19973B-7473-41A3-910B-E22DB146EA6E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL3_Payments</RootNamespace>
+    <AssemblyName>CL3_Payments</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_All_AccountingTransactions_Not_Fully_Assigned_to_Payments.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Payed_Amount_for_Bills.cs" />
+    <Compile Include="Complex\Manipulation\cls_Assign_AccountingTransaction_to_Bill.cs" />
+    <Compile Include="Complex\Manipulation\cls_Assign_Free_Value_from_AccountingTransaction_to_Bill.cs" />
+    <Compile Include="Complex\Manipulation\cls_Create_AccountingTransaction_for_Dunning_Fee.cs" />
+    <Compile Include="Complex\Manipulation\cls_Create_BalanceChange_for_AccountingTransaction.cs" />
+    <Compile Include="Complex\Manipulation\cls_Create_Bookings_for_Bill_on_Closing.cs" />
+    <Compile Include="Complex\Manipulation\cls_Create_Payments_for_Bill.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Booking_Accounts_for_Bill_Participants.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_AccountingTransactions_Not_Fully_Assigned_to_Payments.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Payed_Amount_for_Bills.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Payed_Amount_for_Bills.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_AccountingTransactions_Not_Fully_Assigned_to_Payments.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Assign_Free_Value_from_AccountingTransaction_to_Bill.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Assign_AccountingTransaction_to_Bill.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Create_AccountingTransaction_for_Dunning_Fee.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Create_BalanceChange_for_AccountingTransaction.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Create_Payments_for_Bill.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Create_Bookings_for_Bill_on_Closing.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Booking_Accounts_for_Bill_Participants.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_BNK\CL1_ACC_BNK.csproj">
+      <Project>{6C90052F-9EBC-48F7-806B-6D5430AECFBF}</Project>
+      <Name>CL1_ACC_BNK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_BOK\CL1_ACC_BOK.csproj">
+      <Project>{D0B9A1D4-A8A4-4AF9-B8AE-98546DDAC055}</Project>
+      <Name>CL1_ACC_BOK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_CBX\CL1_ACC_CBX.csproj">
+      <Project>{FC5412DA-37ED-4CDA-8CB5-63B5D8260F95}</Project>
+      <Name>CL1_ACC_CBX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_DUN\CL1_ACC_DUN.csproj">
+      <Project>{C475675E-DA3D-403E-9304-D50BE6DADBED}</Project>
+      <Name>CL1_ACC_DUN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_IPL\CL1_ACC_IPL.csproj">
+      <Project>{B7A1AF6B-3CFB-46EA-BCC4-3237FA26C703}</Project>
+      <Name>CL1_ACC_IPL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_PAY\CL1_ACC_PAY.csproj">
+      <Project>{A58202A6-0921-4994-9076-F909ECAC7428}</Project>
+      <Name>CL1_ACC_PAY</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_TAX\CL1_ACC_TAX.csproj">
+      <Project>{E2A9FD01-BAC1-4A56-9062-B8F30237590E}</Project>
+      <Name>CL1_ACC_TAX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_BIL\CL1_BIL.csproj">
+      <Project>{D4F4B377-8C25-466F-B42F-315FC44A6D33}</Project>
+      <Name>CL1_BIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_CTM\CL1_CMN_BPT_CTM.csproj">
+      <Project>{C453F5A9-9877-4197-A5E3-403EF6A0455D}</Project>
+      <Name>CL1_CMN_BPT_CTM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{FEAB6F0E-56F1-43D4-BEF0-988B26474DD2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_FiscalYear\CL2_FiscalYear.csproj">
+      <Project>{2B8B4033-A934-4DF2-AB0F-0AC69DEE74DA}</Project>
+      <Name>CL2_FiscalYear</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_BookingAccounts\CL3_BookingAccounts.csproj">
+      <Project>{55696B50-09DA-4C0B-9D0D-C75DBDEA0308}</Project>
+      <Name>CL3_BookingAccounts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_InstallmentPlans\CL3_InstallmentPlans.csproj">
+      <Project>{32243696-3071-4871-95E6-7E333101F0EF}</Project>
+      <Name>CL3_InstallmentPlans</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

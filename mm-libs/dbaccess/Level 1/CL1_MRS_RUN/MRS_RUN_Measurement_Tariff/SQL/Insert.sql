@@ -1,0 +1,21 @@
+INSERT INTO 
+	mrs_run_measurement_tariffs
+	(
+		MRS_RUN_Measurement_TariffID,
+		GlobalPropertyMatchingID,
+		MeasurementTariffName_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@MRS_RUN_Measurement_TariffID,
+		@GlobalPropertyMatchingID,
+		@MeasurementTariffName,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

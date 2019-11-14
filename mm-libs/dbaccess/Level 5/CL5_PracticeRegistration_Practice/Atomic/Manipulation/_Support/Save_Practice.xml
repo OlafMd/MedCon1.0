@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/30/2012 6:04:49 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="CL5_PracticeRegistration_Practice.Atomic.Manipulation"
+								Method_ClassName="cls_Save_Practice"
+								Method_Name="Save_Practice"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=".Save_Practice"
+								/>
+
+  <Parameters IsClass="true" Name="P_L5PR_SP_1538">
+    <Members>
+      <ClassMember Name="User_Title" Type="String"  />
+      <ClassMember Name="User_FirstName" Type="String"  />
+      <ClassMember Name="User_LastName" Type="String"  />
+      <ClassMember Name="User_Email" Type="String"  />
+      <ClassMember Name="User_Password" Type="String"  />
+
+      <ClassMember Name="Practice_Name" Type="String"  />
+      <ClassMember Name="Practice_BSNR" Type="String"  />
+      <ClassMember Name="Practice_Street" Type="String"  />
+      <ClassMember Name="Practice_StreetNumber" Type="String"  />
+      <ClassMember Name="Practice_ZIP" Type="String"  />
+      <ClassMember Name="Practice_Town" Type="String"  />
+
+      <ClassMember Name="Doctor" IsClass="true" IsArray="false" Type="P_L5PR_SP_1538_Doctor" >
+        <Members>
+          <ClassMember Name="AccountID" Type="Guid" />
+          <ClassMember Name="FirstName" Type="String" />
+          <ClassMember Name="Email" Type="String" />
+          <ClassMember Name="Password" Type="String" />
+          <ClassMember Name="LastName" Type="String" />
+          <ClassMember Name="IsAdminAccount" Type="bool" />
+          <ClassMember Name="LANR" Type="String" />
+          <ClassMember Name="Title" Type="String" />
+          <ClassMember Name="BankData" IsClass="true" IsArray="false" Type="P_L5PR_SP_1538_Doctor_BankData" >
+            <Members>
+              <ClassMember Name="AccountHolder" Type="String"  />
+              <ClassMember Name="BankName" Type="String"  />
+              <ClassMember Name="AccountNumber" Type="String"  />
+              <ClassMember Name="BankNumber" Type="String"  />
+              <ClassMember Name="IBAN" Type="String"  />
+              <ClassMember Name="BIC" Type="String"  />
+            </Members>
+          </ClassMember>
+        </Members>
+      </ClassMember>
+
+      <ClassMember Name="ImportWebshopCatalog" IsClass="true" IsArray="false" Type="P_L5PR_SP_1538_ImportWebshopCatalog" >
+        <Members>
+          <ClassMember Name="CatalogCode" Type="string"  />
+          <ClassMember Name="CustomerTRCompany" Type="Guid"  />
+        </Members>
+      </ClassMember>
+
+      <ClassMember Name="ImportTreatmentCatalog" IsClass="true" IsArray="false" Type="P_L5PR_SP_1538_ImportTreatmentCatalog" >
+        <Members>
+          <ClassMember Name="CatalogCode" Type="string"  />
+          <ClassMember Name="BillingTRCompany" Type="Guid"  />
+        </Members>
+      </ClassMember>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

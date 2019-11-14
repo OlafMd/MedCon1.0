@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/15/2012 4:47:04 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="CL5_VacationPlanner_LeaveRequest.Atomic.Manipulation"
+								Method_ClassName="cls_Save_Employee_LeaveRequest"
+								Method_Name="Save_Employee_LeaveRequest"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=".Save_Employee_LeaveRequest"
+								/>
+
+  <Parameters IsClass="true" Name="P_L5LR_SELR_255">
+    <Members>
+      <ClassMember Name="RequestedFor_Employee_RefID" Type="Guid"/>
+      <ClassMember Name="RequestedBy_Employee_RefID" Type="Guid" />
+      <ClassMember Name="Tenant" Type="Guid" />
+      <ClassMember Name="Comment" Type="string" />
+      <ClassMember Name="AbsenceReason_RefID" Type="Guid" />
+      <ClassMember Name="Event_Approval_RefID" Type="Guid" />
+      <ClassMember Name="ApprovalProcessTypeID" Type="Guid" />
+      <ClassMember Name="Employee_LeaveRequestID" Type="Guid" />
+      <ClassMember Name="Employee_LeaveRequest_EmployeeCoverID" Type="Guid" />
+      <ClassMember Name="EmployeeCover_RefID" Type="Guid" />
+      <ClassMember Name="SequenceNumber" Type="int"/>   
+      <ClassMember Name="EventID" Type="Guid" />
+      <ClassMember Name="Repetition_RefID" Type="Guid" />
+      <ClassMember Name="CalendarInstance_RefID" Type="Guid" />
+      <ClassMember Name="IsRepetitive" Type="bool"/>
+      <ClassMember Name="StartTime" Type="DateTime"/>
+      <ClassMember Name="EndTime" Type="DateTime"/>
+      <ClassMember Name="R_EventDuration_sec" Type="long"/>
+      <ClassMember Name="IsApprovalProcessOpened" Type="bool"/>
+      <ClassMember Name="IsApprovalProcessDenied" Type="bool"/>
+      <ClassMember Name="IsApprovalProcessCanceledByUser" Type="bool"/>
+      <ClassMember Name="IsApproved" Type="bool"/>
+      <ClassMember Name="NumberOfResponsiblePersonsRequiredToApprove" Type="int"/>
+      <ClassMember Name="LeaveRequestCreationSource" Type="String"/>
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

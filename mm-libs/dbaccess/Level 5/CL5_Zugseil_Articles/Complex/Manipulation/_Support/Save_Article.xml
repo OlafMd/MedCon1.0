@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="09/12/2014 04:14:18 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Article</Name>
+    <Namespace>CL5_Zugseil_Articles.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_Articles.Complex.Manipulation"
+                Method_ClassName="cls_Save_Article"
+                Method_Name="Save_Article"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <Parameters IsClass="true" Name="P_L5AR_SA_1614">
+    <Members>
+      <ClassMember Name="ArticleID" Type="Guid"  />
+      <ClassMember Name="ProductNumber" Type="String"  />
+      <ClassMember Name="ArticleName" Type="String"  />
+      <ClassMember Name="Description" Type="String"  />
+      <ClassMember Name="IsDummy" Type="bool"  />
+      <!-- This is for creation only-->
+      <ClassMember Name="IsRegularArticle" Type="bool"  />
+      <!-- This is for creation only-->
+      <ClassMember Name="IsDeleted" Type="Boolean" />
+      <ClassMember Name="Image" Type="P_L5AR_SA_1614_Image" IsClass="true" IsArray="false">
+         <Members>
+          <ClassMember  Name="Document_ID" Type="Guid"  />
+          <ClassMember  Name="File_Name" Type="string" />
+          <ClassMember  Name="File_Description" Type="string" />
+          <ClassMember  Name="File_Source_Location" Type="string" />
+          <ClassMember  Name="File_Server_Location" Type="string" />
+          <ClassMember  Name="File_MimeType" Type="string" />
+          <ClassMember  Name="File_Extension" Type="string" />
+          <ClassMember  Name="File_Size_Bytes" Type="int" />
+        </Members>
+      </ClassMember>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+

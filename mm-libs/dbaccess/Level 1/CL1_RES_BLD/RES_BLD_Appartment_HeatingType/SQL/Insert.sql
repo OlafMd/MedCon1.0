@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_bld_appartment_heatingtypes
+	(
+		RES_BLD_Appartment_HeatingTypeID,
+		GlobalPropertyMatchingID,
+		HeatingType_Name_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_BLD_Appartment_HeatingTypeID,
+		@GlobalPropertyMatchingID,
+		@HeatingType_Name,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

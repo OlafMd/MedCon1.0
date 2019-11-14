@@ -1,0 +1,11 @@
+UPDATE 
+	res_str_basement_propertyassestmentstates
+SET 
+	BasementPropertyAssessmentState_Name_DictID=@BasementPropertyAssessmentState_Name,
+	BasementPropertyAssessmentState_Description_DictID=@BasementPropertyAssessmentState_Description,
+	BasementPropertyAssessmentState_OrdinalPosition=@BasementPropertyAssessmentState_OrdinalPosition,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_STR_Basement_PropertyAssestmentStateID = @RES_STR_Basement_PropertyAssestmentStateID

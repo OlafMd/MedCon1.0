@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/18/2014 04:49:58 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_InvestedWorkTime_for_DeveloperTaskID</Name>
+    <Namespace>CL6_DeveloperTask.Atomic.Retrieval</Namespace>
+    <Description>Get invested work time for Developer task ID</Description>
+    <Tags>InvestedWorkTime, DeveloperTaskID</Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_DeveloperTask.Atomic.Retrieval"
+                Method_ClassName="cls_Get_InvestedWorkTime_for_DeveloperTaskID"
+                Method_Name="Get_InvestedWorkTime_for_DeveloperTaskID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_InvestedWorkTime_for_DeveloperTaskID"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+  cmn_bpt_investedworktimes.WorkTime_Amount_min As InvestedWorkTime,
+  usr_accounts.USR_AccountID
+From
+  tms_pro_developertasks Inner Join
+  tms_pro_developertask_involvements
+    On tms_pro_developertasks.TMS_PRO_DeveloperTaskID =
+    tms_pro_developertask_involvements.DeveloperTask_RefID Inner Join
+  tms_pro_developertask_involvements_investedworktime
+    On
+    tms_pro_developertask_involvements_investedworktime.TMS_PRO_DeveloperTask_Involvement_RefID = tms_pro_developertask_involvements.TMS_PRO_DeveloperTask_InvolvementID Inner Join
+  cmn_bpt_investedworktimes
+    On
+    tms_pro_developertask_involvements_investedworktime.CMN_BPT_InvestedWorkTime_RefID = cmn_bpt_investedworktimes.CMN_BPT_InvestedWorkTimeID Inner Join
+  usr_accounts On usr_accounts.BusinessParticipant_RefID =
+    cmn_bpt_investedworktimes.BusinessParticipant_RefID
+Where
+  tms_pro_developertasks.TMS_PRO_DeveloperTaskID = @DeveloperTaskID And
+  tms_pro_developertasks.Tenant_RefID = @TenantID
+
+  </SQLStatement>
+
+
+
+  <Parameters IsClass="true" Name="P_L6DT_GIWTfDT_1649">
+    <Members>
+      <ClassMember Name="DeveloperTaskID" Type="Guid" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6DT_GIWTfDT_1649" IsArray="true">
+      <Members>
+        <ClassMember Name="USR_AccountID" Type="Guid"  />
+        <ClassMember Name="InvestedWorkTime" Type="long"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

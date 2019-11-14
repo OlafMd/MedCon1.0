@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	ord_prc_procurementorder_position_forwardinginstructions
+WHERE 
+	ORD_PRC_ProcurementOrder_Position_ForwardingInstructionID = @ORD_PRC_ProcurementOrder_Position_ForwardingInstructionID

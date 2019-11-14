@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/27/2015 1:55:38 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Curent_Patient_Substances</Name>
+    <Namespace>CL5_MyHealthClub_Examanations.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Examanations.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Curent_Patient_Substances"
+                Method_Name="Get_Curent_Patient_Substances"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Curent_Patient_Substances"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  hec_patient_medications.R_DateOfAdding,
+  hec_patient_medications.R_ActiveUntill,
+  hec_patient_medications.R_IfSubstance_Strength,
+  hec_patient_medications.R_DosageText,
+  hec_patient_medications.HEC_Patient_MedicationID,
+  hec_sub_substances.GlobalPropertyMatchingID
+From
+  hec_patient_medications Inner Join
+  hec_sub_substances On hec_patient_medications.R_IfSubstance_Substance_RefiD =
+    hec_sub_substances.HEC_SUB_SubstanceID And
+  hec_sub_substances.IsDeleted = 0 And
+  hec_sub_substances.Tenant_RefID = @TenantID
+Where
+  hec_patient_medications.R_ActiveUntill > CurDate() And
+  hec_patient_medications.Patient_RefID = @PatientID And
+  hec_patient_medications.IsDeleted = 0 And
+  hec_patient_medications.Tenant_RefID = @TenantID And
+  hec_patient_medications.R_IsActive = 1 And
+  hec_patient_medications.R_IsSubstance = 1 
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5EX_GCPS_1354">
+    <Members>
+		<ClassMember Name="PatientID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5EX_GCPS_1354" IsArray="true">
+			<Members>
+				<ClassMember Name="HEC_Patient_MedicationID" Type="Guid"  />
+				<ClassMember Name="R_DateOfAdding" Type="DateTime"  />
+				<ClassMember Name="R_ActiveUntill" Type="DateTime"  />
+				<ClassMember Name="R_IfSubstance_Strength" Type="String"  />
+				<ClassMember Name="R_DosageText" Type="String"  />
+        <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

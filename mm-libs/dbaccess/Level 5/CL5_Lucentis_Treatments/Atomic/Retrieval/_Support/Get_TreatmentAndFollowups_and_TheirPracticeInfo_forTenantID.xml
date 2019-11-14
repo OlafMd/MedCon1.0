@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/19/2014 1:12:08 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_TreatmentAndFollowups_and_TheirPracticeInfo_forTenantID</Name>
+    <Namespace>CL5_Lucentis_Treatments.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Treatments.Atomic.Retrieval"
+                Method_ClassName="cls_Get_TreatmentAndFollowups_and_TheirPracticeInfo_forTenantID"
+                Method_Name="Get_TreatmentAndFollowups_and_TheirPracticeInfo_forTenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_TreatmentAndFollowups_and_TheirPracticeInfo_forTenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  followup.TreatmentPractice_RefID As followup_practiceID,
+  treatment.TreatmentPractice_RefID,
+  treatment.IfSheduled_Date,
+  treatment.IfTreatmentPerformed_Date,
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.LastName,
+  cmn_bpt_businessparticipants1.DisplayName As TreatmentPracticeName
+From
+  hec_patient_treatment treatment Inner Join
+  hec_patient_treatment followup On treatment.HEC_Patient_TreatmentID =
+    followup.IfTreatmentFollowup_FromTreatment_RefID And
+    followup.IsTreatmentFollowup = 1 And followup.IsDeleted = 0 And
+    followup.Tenant_RefID = @TenantID Inner Join
+  hec_patient_2_patienttreatment
+    On hec_patient_2_patienttreatment.HEC_Patient_Treatment_RefID =
+    treatment.HEC_Patient_TreatmentID Inner Join
+  hec_patients On hec_patient_2_patienttreatment.HEC_Patient_RefID =
+    hec_patients.HEC_PatientID And hec_patients.IsDeleted = 0 Inner Join
+  cmn_bpt_businessparticipants
+    On cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID =
+    hec_patients.CMN_BPT_BusinessParticipant_RefID Inner Join
+  cmn_per_personinfo On cmn_per_personinfo.CMN_PER_PersonInfoID =
+    cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID
+  Inner Join
+  hec_medicalpractises On treatment.TreatmentPractice_RefID =
+    hec_medicalpractises.HEC_MedicalPractiseID Inner Join
+  cmn_com_companyinfo On hec_medicalpractises.Ext_CompanyInfo_RefID =
+    cmn_com_companyinfo.CMN_COM_CompanyInfoID Inner Join
+  cmn_bpt_businessparticipants cmn_bpt_businessparticipants1
+    On cmn_bpt_businessparticipants1.IfCompany_CMN_COM_CompanyInfo_RefID =
+    cmn_com_companyinfo.CMN_COM_CompanyInfoID
+Where
+  treatment.IsTreatmentFollowup = 0 And
+  treatment.IsDeleted = 0 And
+  treatment.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5TR_GTaFaTPIfTID_1310" IsArray="true">
+			<Members>
+
+                <ClassMember Name="TreatmentPractice_RefID" Type="Guid"  />
+                <ClassMember Name="IfSheduled_Date" Type="DateTime"  />
+                <ClassMember Name="IfTreatmentPerformed_Date" Type="DateTime"  />
+                <ClassMember Name="FirstName" Type="String"  />
+                <ClassMember Name="LastName" Type="String"  />
+                <ClassMember Name="TreatmentPracticeName" Type="String"  />
+                <ClassMember Name="followup_practiceID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

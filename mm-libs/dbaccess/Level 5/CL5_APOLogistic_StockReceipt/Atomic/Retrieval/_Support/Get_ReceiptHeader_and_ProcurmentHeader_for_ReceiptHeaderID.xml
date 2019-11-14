@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/6/2014 4:37:51 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ReceiptHeader_and_ProcurmentHeader_for_ReceiptHeaderID</Name>
+    <Namespace>CL5_APOLogistic_StockReceipt.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_StockReceipt.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ReceiptHeader_and_ProcurmentHeader_for_ReceiptHeaderID"
+                Method_Name="Get_ReceiptHeader_and_ProcurmentHeader_for_ReceiptHeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ReceiptHeader_and_ProcurmentHeader_for_ReceiptHeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+    SELECT log_rcp_receipt_headers.LOG_RCP_Receipt_HeaderID,
+           log_rcp_receipt_headers.QualityControlPerformed_AtDate,
+           log_rcp_receipt_headers.TakenIntoStock_AtDate,
+           ord_prc_procurementorder_headers.ProcurementOrder_Number,
+           log_rcp_receipt_headers.IsTakenIntoStock,
+           log_rcp_receipt_headers.IsPriceConditionsManuallyCleared,
+           log_rcp_receipt_headers.IsReceiptForwardedToBookkeeping,
+           log_rcp_receipt_headers.IsQualityControlPerformed,
+           log_rcp_receipt_headers.ReceiptNumber,
+           log_rcp_receipt_headers.ProvidingSupplier_RefID,
+           log_rcp_receipt_headers.PriceConditionsManuallyCleared_ByAccount_RefID,
+           log_rcp_receipt_headers.PriceConditionsManuallyCleared_AtDate,
+           log_rcp_receipt_headers.TakenIntoStock_ByAccount_RefID,
+           log_rcp_receipt_headers.ReceiptForwardedToBookkeeping_ByAccount_RefID,
+           log_rcp_receipt_headers.ReceiptForwardedToBookkeeping_AtDate,
+           log_rcp_receipt_headers.QualityControlPerformed_ByAccount_RefID
+      FROM log_rcp_receipt_headers
+           INNER JOIN log_rcp_receiptheader_2_procurementorderheader
+              ON     log_rcp_receipt_headers.LOG_RCP_Receipt_HeaderID =
+                        log_rcp_receiptheader_2_procurementorderheader.LOG_RCP_Receipt_Header_RefID
+                 AND log_rcp_receiptheader_2_procurementorderheader.Tenant_RefID =
+                        @TenantID
+                 AND log_rcp_receiptheader_2_procurementorderheader.IsDeleted = 0
+           INNER JOIN ord_prc_procurementorder_headers
+              ON     ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID =
+                        log_rcp_receiptheader_2_procurementorderheader.ORD_PRO_ProcurementOrder_Header_RefID
+                 AND ord_prc_procurementorder_headers.Tenant_RefID = @TenantID
+                 AND ord_prc_procurementorder_headers.IsDeleted = 0
+     WHERE     log_rcp_receipt_headers.LOG_RCP_Receipt_HeaderID =
+                  @ReceiptHeaderID
+           AND log_rcp_receipt_headers.Tenant_RefID = @TenantID
+           AND log_rcp_receipt_headers.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5SR_GRaPHfRH_1636">
+    <Members>
+		<ClassMember Name="ReceiptHeaderID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5SR_GRaPHfRH_1636" IsArray="false">
+			<Members>
+				<ClassMember Name="LOG_RCP_Receipt_HeaderID" Type="Guid"  />
+				<ClassMember Name="QualityControlPerformed_AtDate" Type="DateTime"  />
+				<ClassMember Name="TakenIntoStock_AtDate" Type="DateTime"  />
+				<ClassMember Name="ProcurementOrder_Number" Type="String"  />
+				<ClassMember Name="IsTakenIntoStock" Type="bool"  />
+				<ClassMember Name="IsPriceConditionsManuallyCleared" Type="bool"  />
+				<ClassMember Name="IsReceiptForwardedToBookkeeping" Type="bool"  />
+				<ClassMember Name="IsQualityControlPerformed" Type="bool"  />
+				<ClassMember Name="ReceiptNumber" Type="String"  />
+				<ClassMember Name="ProvidingSupplier_RefID" Type="Guid"  />
+				<ClassMember Name="PriceConditionsManuallyCleared_ByAccount_RefID" Type="Guid"  />
+				<ClassMember Name="PriceConditionsManuallyCleared_AtDate" Type="DateTime"  />
+				<ClassMember Name="TakenIntoStock_ByAccount_RefID" Type="Guid"  />
+				<ClassMember Name="ReceiptForwardedToBookkeeping_ByAccount_RefID" Type="Guid"  />
+				<ClassMember Name="ReceiptForwardedToBookkeeping_AtDate" Type="DateTime"  />
+				<ClassMember Name="QualityControlPerformed_ByAccount_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

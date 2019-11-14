@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/6/2014 10:46:33">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CustomerOrderReturnPosition_for_BillHeader</Name>
+    <Namespace>CL5_APOBilling_CustomerOrderReturn.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBilling_CustomerOrderReturn.Atomic.Retrieval"
+                Method_ClassName="cls_Get_CustomerOrderReturnPosition_for_BillHeader"
+                Method_Name="Get_CustomerOrderReturnPosition_for_BillHeader"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_CustomerOrderReturnPosition_for_BillHeader"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  bil_billpositions.BIL_BillPositionID,
+  bil_billpositions.Quantity,
+  bil_billpositions.PositionValue_BeforeTax,
+  bil_billpositions.PositionValue_IncludingTax,
+  ord_cuo_customerorderreturn_positions.CMN_PRO_Product_RefID,
+  ord_cuo_customerorderreturn_positions.Position_ValuePerUnit,
+  ord_cuo_customerorderreturn_positions.ORD_CUO_CustomerOrderReturn_PositionID,
+  ord_cuo_customerorderreturn_headers.CustomerOrderReturnNumber,
+  cmn_bpt_businessparticipants.DisplayName,
+  cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID,
+  cmn_currencies.Symbol As CurrencySymbol,
+  cmn_bpt_ctm_organizationalunits.CMN_BPT_CTM_OrganizationalUnitID,
+  cmn_bpt_ctm_organizationalunits.OrganizationalUnit_SimpleName,
+  cmn_bpt_ctm_organizationalunits.OrganizationalUnit_Name_DictID,
+  cmn_bpt_ctm_organizationalunits.OrganizationalUnit_Description_DictID,
+  cmn_bpt_ctm_organizationalunits.InternalOrganizationalUnitNumber,
+  cmn_bpt_ctm_organizationalunits.InternalOrganizationalUnitSimpleName,
+  cmn_bpt_ctm_organizationalunits.ExternalOrganizationalUnitNumber,
+  ord_cuo_customerorderreturn_headers.ORD_CUO_CustomerOrderReturn_HeaderID,
+  ord_cuo_customerorderreturn_headers.Creation_Timestamp,
+  ord_cuo_customerorderreturn_headers.DateOfCustomerReturn,
+  bil_billpositions.PositionPricePerUnitValue_BeforeTax,
+  bil_billpositions.PositionPricePerUnitValue_IncludingTax
+From
+  bil_billheaders Inner Join
+  bil_billpositions On bil_billpositions.BIL_BilHeader_RefID =
+    bil_billheaders.BIL_BillHeaderID And bil_billpositions.IsDeleted = 0 And
+    bil_billpositions.Tenant_RefID = @TenantID Inner Join
+  bil_billposition_2_customerorderreturnposition
+    On bil_billposition_2_customerorderreturnposition.BIL_BillPosition_RefID =
+    bil_billpositions.BIL_BillPositionID And
+    bil_billposition_2_customerorderreturnposition.IsDeleted = 0 And
+    bil_billposition_2_customerorderreturnposition.Tenant_RefID = @TenantID
+  Inner Join
+  ord_cuo_customerorderreturn_positions
+    On
+    bil_billposition_2_customerorderreturnposition.ORD_CUO_CustomerOrderReturn_Position_RefID = ord_cuo_customerorderreturn_positions.ORD_CUO_CustomerOrderReturn_PositionID And ord_cuo_customerorderreturn_positions.IsDeleted = 0 And ord_cuo_customerorderreturn_positions.Tenant_RefID = @TenantID Inner Join
+  ord_cuo_customerorderreturn_headers
+    On ord_cuo_customerorderreturn_positions.CustomerOrderReturnHeader_RefID =
+    ord_cuo_customerorderreturn_headers.ORD_CUO_CustomerOrderReturn_HeaderID And
+    ord_cuo_customerorderreturn_headers.IsDeleted = 0 And
+    ord_cuo_customerorderreturn_headers.Tenant_RefID = @TenantID Inner Join
+  cmn_bpt_ctm_customers On ord_cuo_customerorderreturn_headers.Customer_RefID =
+    cmn_bpt_ctm_customers.CMN_BPT_CTM_CustomerID And
+    cmn_bpt_ctm_customers.IsDeleted = 0 And cmn_bpt_ctm_customers.Tenant_RefID =
+    @TenantID Inner Join
+  cmn_bpt_businessparticipants
+    On cmn_bpt_ctm_customers.Ext_BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And
+    cmn_bpt_businessparticipants.IsDeleted = 0 And
+    cmn_bpt_businessparticipants.Tenant_RefID = @TenantID Left Join
+  cmn_currencies On bil_billheaders.Currency_RefID =
+    cmn_currencies.CMN_CurrencyID And cmn_currencies.IsDeleted = 0 Left Join
+  bil_billposition_2_shipmentposition On bil_billpositions.BIL_BillPositionID =
+    bil_billposition_2_shipmentposition.BIL_BillPosition_RefID And
+    bil_billposition_2_shipmentposition.Tenant_RefID = @TenantID Left Join
+  log_shp_shipment_positions
+    On log_shp_shipment_positions.LOG_SHP_Shipment_PositionID =
+    bil_billposition_2_shipmentposition.LOG_SHP_Shipment_Position_RefID And
+    log_shp_shipment_positions.IsDeleted = 0 And
+    log_shp_shipment_positions.Tenant_RefID = @TenantID Left Join
+  ord_cuo_position_customerorganizationalunitdistribution
+    On
+    ord_cuo_customerorderreturn_positions.ORD_CUO_CustomerOrderReturn_PositionID
+    =
+    ord_cuo_position_customerorganizationalunitdistribution.ORD_CUO_CustomerOrder_Position_RefID Inner Join
+  cmn_bpt_ctm_organizationalunits
+    On cmn_bpt_ctm_organizationalunits.CMN_BPT_CTM_OrganizationalUnitID =
+    ord_cuo_position_customerorganizationalunitdistribution.CMN_BPT_CTM_OrganizationalUnit_RefID
+Where
+  bil_billheaders.BIL_BillHeaderID = @BillHeaderID And
+  bil_billheaders.IsDeleted = 0 And
+  bil_billheaders.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5OR_GCORPfBH_1045">
+    <Members>
+		<ClassMember Name="BillHeaderID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5OR_GCORPfBH_1045" IsArray="true">
+			<Members>
+				<ClassMember Name="BIL_BillPositionID" Type="Guid"  />
+				<ClassMember Name="Quantity" Type="Double"  />
+				<ClassMember Name="PositionValue_BeforeTax" Type="Decimal"  />
+				<ClassMember Name="PositionValue_IncludingTax" Type="Decimal"  />
+				<ClassMember Name="CMN_PRO_Product_RefID" Type="Guid"  />
+				<ClassMember Name="Position_ValuePerUnit" Type="Decimal"  />
+				<ClassMember Name="ORD_CUO_CustomerOrderReturn_PositionID" Type="Guid"  />
+				<ClassMember Name="CustomerOrderReturnNumber" Type="String"  />
+				<ClassMember Name="DisplayName" Type="String"  />
+				<ClassMember Name="CMN_BPT_BusinessParticipantID" Type="Guid"  />
+				<ClassMember Name="CurrencySymbol" Type="String"  />
+                <ClassMember Name="CMN_BPT_CTM_OrganizationalUnitID" Type="Guid"  />
+                <ClassMember Name="OrganizationalUnit_SimpleName" Type="String"  />
+                <ClassMember Name="OrganizationalUnit_Name_DictID" Type="Dict" OriginTable="cmn_bpt_ctm_organizationalunits" Source_DBField="OrganizationalUnit_Name_DictID"  />
+                <ClassMember Name="OrganizationalUnit_Description_DictID" Type="Dict" OriginTable="cmn_bpt_ctm_organizationalunits" Source_DBField="OrganizationalUnit_Description_DictID"  />
+                <ClassMember Name="InternalOrganizationalUnitNumber" Type="String"  />
+                <ClassMember Name="InternalOrganizationalUnitSimpleName" Type="String"  />
+                <ClassMember Name="ExternalOrganizationalUnitNumber" Type="String"  />
+                <ClassMember Name="ORD_CUO_CustomerOrderReturn_HeaderID" Type="Guid"  />
+                <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+                <ClassMember Name="DateOfCustomerReturn" Type="DateTime"  />
+                <ClassMember Name="PositionPricePerUnitValue_BeforeTax" Type="Decimal"  />
+                <ClassMember Name="PositionPricePerUnitValue_IncludingTax" Type="Decimal"  />
+            </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

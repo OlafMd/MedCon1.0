@@ -1,0 +1,342 @@
+.contracts-list-header,
+.contracts-list-item{
+	@include clearfix;
+	float: left;
+	clear: left;
+	width: 100%;
+	padding-left: 30px;
+
+	li{
+		float: left;
+		margin-right: 10px;
+		/*overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;*/
+
+		&:last-child{
+			margin-right: 0;
+		}
+
+		&:first-child{
+			width: 16%;
+
+			@media screen and (max-width: 1200px){
+				width: 12.5%;
+			}
+		}
+
+		&:nth-child(02){
+			width: 70px;
+			text-align: center;
+		}
+
+		&:nth-child(03){
+			width: 90px;
+			text-align: center;
+		}
+
+		&:nth-child(04){
+            max-width: 800px;
+		}
+
+		.icons-edit{
+			position: absolute;
+			/*right: 30px;*/
+			right: 20px;
+			top: 50%;
+			margin-top: -17px;
+		}
+	}
+}
+
+.contracts-details-lists{
+    background-color: #ebebeb;
+    float: left;
+	clear: left;
+	width: 100%;   
+
+    select,
+	input{
+		border: 1px solid transparent;
+		outline: 0;
+		@include border-radius(3px);
+		height: 34px;
+		padding: 2px 5px;
+        
+         &:focus{
+                    border: 1px solid $active-color;
+                    outline: 0;
+                }
+	}
+    
+    .first-class-data{
+        width: calc(100% - 125px);
+    }
+    
+    .first-row{
+        padding: 10px 0;
+        border-bottom: 1px solid #d7d7d7;
+        display: inline-block;
+        
+        li{
+            line-height: 30px;
+            margin-right: 10px;
+            display: inline-block;
+            position: relative;
+            
+            &:nth-child(02),
+            &:nth-child(05){
+                max-width: 80px;
+            }
+            
+            &:nth-child(03){
+                max-width: 100px;
+            }
+            
+             &:nth-child(04){
+                 width: 10%;
+                 text-align: center;
+                input{
+                    max-width: 50px;
+                }
+                 @media screen and(max-width: 1400px){
+                        width: 12%;
+                 }
+            }
+            
+        
+            &:nth-child(06){
+                  width: 16%;
+                  text-align: center;
+                input{
+                    max-width: 80px;
+                }
+            }
+            
+            &:nth-child(07){
+                text-align: center;
+                vertical-align: top;
+                
+            }
+        
+            input{
+                width: 100%;
+            }
+            label{
+                display: block;
+               // margin-bottom: 5px;
+            }
+        }
+    }
+    
+    .second-row{
+        padding: 20px 0 0 40px ;      
+    }  
+    .buttons-right-gpos{
+            width: 120px;
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 20px;
+            
+        span{
+            display: block;
+            float: right;
+        }
+            button{
+                margin: 0;
+            }
+    }
+} 
+
+.medication-list-header{
+    @extend .contracts-list-header;
+}
+
+.medication-list-item{
+    @extend .contracts-list-item;
+}
+.medication-list-header,
+.medication-list-item{
+   
+     li{
+         width: 18% !important;
+    
+         /*&:last-child{
+            width: 10%; 
+         }*/
+         &:nth-child(03){
+             span{
+                 float: right;
+                 text-align: left;
+                 width: 55%;
+             }
+         }
+     }
+    
+}
+
+.diagnosis-list-header{
+    padding-left: 30px;  
+    padding-right: 16px;
+	background-color: #ccc;
+
+	li{
+		color: $btn-hover-color;
+		line-height: 50px;
+		white-space: nowrap;
+	}
+}
+
+.diagnosis-list-item{
+    position: relative;
+	padding-left: 25px;      
+	@extend .default-font-color;
+	background-color: #fff;
+	border-bottom: 1px solid #d7d7d7;
+	height: 82px;
+
+	li{
+		padding: 30px 0 25px;
+
+		&:first-child{
+			padding-top: 33px;
+		}
+
+        &:last-child{
+            float: right;
+            text-align: right;
+            margin-right: 18px;
+            padding-top: 25px;
+        }
+	}
+}
+.diagnosis-list-header,
+.diagnosis-list-item{
+    float: left;
+	clear: left;
+	width: 100%;
+	padding-left: 30px;
+
+	li{
+		float: left;
+		margin-right: 10px;
+        
+        &:first-child{
+           width: 50%; 
+        
+        }
+    }
+}
+
+.gpos-list-header{
+    @extend .diagnosis-list-header;
+}
+.gpos-list-item{
+    @extend .diagnosis-list-item;
+    
+    li{
+     &:first-child{
+            padding-top: 27px;
+        }
+    }
+}
+.gpos-list-header,
+.gpos-list-item{
+    li{
+      width: 12% !important;
+    
+      &:nth-child(03),
+      &:nth-child(04) {
+            width: 29% !important;
+        }
+        a{
+            &.icons-edit{
+                margin-right: 7px;
+            }
+        }
+    }
+}
+.gpos-elipsis{
+    display: block;
+    color: $sub-header;
+    line-height: 15px;
+}
+
+.doctor-participation-list-header{
+    @extend .diagnosis-list-header;
+}
+.doctor-participation-list-item{
+    @extend .diagnosis-list-item;
+    
+    li{
+         &:first-child{
+            padding-top: 27px;
+        }
+        span{
+            word-wrap: break-word;
+        }
+    }
+}
+.doctor-participation-list-header,
+.doctor-participation-list-item{
+    li{
+        
+      width: 13% !important;
+      &:nth-child(02){
+            width: 12% !important;
+        }
+        
+        span{
+            display: block;
+        }
+    }
+}
+
+.disabled-list{
+    li{
+        color: #959595;
+    }
+}
+
+.autocomplete-row{
+    
+    input{
+        @extend .input-popup;
+        width: 91%;
+        @media screen and(max-width: 1750px){
+            width: 86%;
+        }
+    }
+    button{
+        float: right;
+        margin: 0;
+    }
+    
+    label{
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    div{
+    &.angucomplete-dropdown{
+        width: 50% !important; 
+    }
+ }
+}
+.due-dates-list{
+    li{
+        line-height: 40px;
+        padding: 10px 0;
+        
+        &:first-child{
+            margin-top: 15px;
+        }
+        input{
+            @extend .input-popup;
+            width: 50px;
+            margin: 0 5px;
+            padding: 5px;
+        }
+    }
+}
+

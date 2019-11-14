@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<CodeGen createdOn="07/25/2014 02:53:13 PM">
+  <Meta>
+    <Name>Change_Active_DeveloperTask</Name>
+    <Description>
+
+    </Description>
+    <Namespace>CLE_L6_TMS_PRO_DeveloperTask.Complex.Manipulation</Namespace>
+    <Tags>Activate, DeveloperTask</Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CLE_L6_TMS_PRO_DeveloperTask.Complex.Manipulation"
+                Method_ClassName="cls_Change_Active_DeveloperTask"
+                Method_Name="Change_Active_DeveloperTask"
+                ApplicationPlattform_WebServiceName="DeveloperTaskService"
+                ApplicationPlattform_Namespace="DeveloperTaskService.Change_Active_DeveloperTask"
+                />
+
+  <!-- !!! Do not forget to post a unique ParameterClass-Name here !!!-->
+  <Parameters IsClass="true" Name="P_L6DT_CADT_1453">
+    <Members>
+      <ClassMember Name="AssignmentID_newActive" Type="Guid"  />
+      <ClassMember Name="AssignmentID_oldActive" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+           Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+           Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+
+

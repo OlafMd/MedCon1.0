@@ -1,0 +1,21 @@
+INSERT INTO 
+	acc_bnk_bankaccount_types
+	(
+		ACC_BNK_BankAccount_TypeID,
+		GlobalPropertyMatchingID,
+		BankAccountType_Name_DictID,
+		BankAccountType_Description_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ACC_BNK_BankAccount_TypeID,
+		@GlobalPropertyMatchingID,
+		@BankAccountType_Name,
+		@BankAccountType_Description,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

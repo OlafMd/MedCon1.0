@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/5/2013 4:31:14 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_ReturnPolicy_for_TennantID</Name>
+    <Namespace>CL2_ReturnPolicy.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_ReturnPolicy.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_ReturnPolicy_for_TennantID"
+                Method_Name="Get_All_ReturnPolicy_for_TennantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_ReturnPolicy_for_TennantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select distinct
+  log_ret_returnpolicies.LOG_RET_ReturnPolicyID,
+  log_ret_returnpolicies.Creation_Timestamp,
+  log_ret_returnpolicies.GlobalPropertyMatchingID,
+  log_ret_returnpolicies.ReturnPolicy_Abbreviation,
+  log_ret_returnpolicies.ReturnPolicy_Reason_DictID,
+  log_ret_returnpolicies.Tenant_RefID,
+  cmn_price_values.PriceValue_Amount,
+  cmn_price_values.PriceValue_Currency_RefID
+From
+  log_ret_returnpolicies Inner Join
+  cmn_price_values On log_ret_returnpolicies.ReturnPolicy_Cost_RefID =
+    cmn_price_values.Price_RefID
+Where
+  log_ret_returnpolicies.Tenant_RefID = @TenantID And
+  log_ret_returnpolicies.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2RP_GARPfT_1630" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_RET_ReturnPolicyID" Type="Guid"  />
+				<ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+				<ClassMember Name="ReturnPolicy_Abbreviation" Type="String"  />
+				<ClassMember Name="ReturnPolicy_Reason" Type="Dict" OriginTable="log_ret_returnpolicies" Source_DBField="ReturnPolicy_Reason_DictID"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+        <ClassMember Name="PriceValue_Amount" Type="Double"  />
+        <ClassMember Name="PriceValue_Currency_RefID" Type="Guid"  />
+
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

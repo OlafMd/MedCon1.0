@@ -1,0 +1,11 @@
+UPDATE 
+	log_wrh_inj_inventoryjob_process_shelfcontents
+SET 
+	LOG_WRH_INJ_InventoryJob_Process_Shelf_RefID=@LOG_WRH_INJ_InventoryJob_Process_Shelf_RefID,
+	LOG_WRH_Shelf_Content_RefID=@LOG_WRH_Shelf_Content_RefID,
+	ExpectedQuantityOnShelfContent=@ExpectedQuantityOnShelfContent,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	LOG_WRH_INJ_InventoryJob_Process_ShelfContentID = @LOG_WRH_INJ_InventoryJob_Process_ShelfContentID

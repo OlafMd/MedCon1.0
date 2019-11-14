@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_Submitted_CaseIDs</Name>
+		<Namespace>DataImporter.DBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="DataImporter.DBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Submitted_CaseIDs"
+								Method_Name="Get_Submitted_CaseIDs"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+    Select
+      hec_cas_cases.HEC_CAS_CaseID As case_id,
+      hec_bil_potentialcode_catalogs.GlobalPropertyMatchingID As gpos_type,
+      hec_cas_cases.CaseNumber As case_number
+    From
+      hec_cas_cases Left Join
+      hec_cas_case_relevantplannedactions
+        On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_relevantplannedactions.Case_RefID Left Join
+      hec_act_plannedactions
+        On hec_cas_case_relevantplannedactions.PlannedAction_RefID = hec_act_plannedactions.HEC_ACT_PlannedActionID Inner Join
+      hec_cas_case_billcodes
+        On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_billcodes.HEC_CAS_Case_RefID Inner Join
+      hec_bil_billposition_billcodes
+        On hec_cas_case_billcodes.HEC_BIL_BillPosition_BillCode_RefID = hec_bil_billposition_billcodes.HEC_BIL_BillPosition_BillCodeID Inner Join
+      hec_bil_potentialcodes
+        On hec_bil_billposition_billcodes.PotentialCode_RefID = hec_bil_potentialcodes.HEC_BIL_PotentialCodeID Inner Join
+      hec_bil_potentialcode_catalogs
+        On hec_bil_potentialcodes.PotentialCode_Catalog_RefID = hec_bil_potentialcode_catalogs.HEC_BIL_PotentialCode_CatalogID Inner Join
+      hec_cas_case_relevantperformedactions
+        On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_relevantperformedactions.Case_RefID Inner Join
+      hec_act_plannedactions hec_act_plannedactions1
+        On hec_cas_case_relevantperformedactions.PerformedAction_RefID = hec_act_plannedactions1.IfPlannedFollowup_PreviousAction_RefID
+    Where
+      hec_cas_case_billcodes.Tenant_RefID = @TenantID And
+      hec_cas_case_billcodes.IsDeleted = 0 And
+      Cast(hec_cas_cases.CaseNumber As Unsigned) > 9999 And
+      hec_act_plannedactions1.IsPerformed = 1
+    Order By
+      Cast(hec_cas_cases.CaseNumber as unsigned)
+	</SQLStatement>
+  
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CAS_GSCIDs_1712" IsArray="true">
+			<Members>
+				<ClassMember Name="case_id" Type="Guid"  />
+        <ClassMember Name="gpos_type" Type="String"  />
+        <ClassMember Name="case_number" Type="String"  />
+        
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

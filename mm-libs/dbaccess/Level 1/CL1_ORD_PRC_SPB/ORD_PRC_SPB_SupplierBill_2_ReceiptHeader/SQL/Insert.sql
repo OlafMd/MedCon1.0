@@ -1,0 +1,19 @@
+INSERT INTO 
+	ord_prc_spb_supplierbill_2_receiptheaders
+	(
+		ORD_PRC_SPB_SupplierBill_2_ReceiptHeaderID,
+		ORD_PRC_SPB_SupplierBill_Header_RefID,
+		LOG_RCP_Receipt_Header_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ORD_PRC_SPB_SupplierBill_2_ReceiptHeaderID,
+		@ORD_PRC_SPB_SupplierBill_Header_RefID,
+		@LOG_RCP_Receipt_Header_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

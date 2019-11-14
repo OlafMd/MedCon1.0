@@ -1,0 +1,21 @@
+INSERT INTO 
+	log_reg_distributionarea_2_country
+	(
+		AssignmentID,
+		LOG_REG_DistributionArea_RefID,
+		CMN_Country_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@LOG_REG_DistributionArea_RefID,
+		@CMN_Country_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_pps_workplace_2_workplace_activities
+	(
+		AssignmentID,
+		Workplace_RefID,
+		Workplace_Activity_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@Workplace_RefID,
+		@Workplace_Activity_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

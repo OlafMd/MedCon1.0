@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FBA90096-278F-4203-BD7E-6E4E48D15EC4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MMDocConnectMMAppModels</RootNamespace>
+    <AssemblyName>MMDocConnectMMAppModels</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DoctorContractConsent.cs" />
+    <Compile Include="ContractDueDatesModel.cs" />
+    <Compile Include="ContractParticipatingDoctorModel.cs" />
+    <Compile Include="CoveredItemModel.cs" />
+    <Compile Include="GposDetailModel.cs" />
+    <Compile Include="ContractViewModel.cs" />
+    <Compile Include="EmployeeVerificationObjects.cs" />
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="CaseStatusChangeParameter.cs" />
+    <Compile Include="CaseStatusEnum.cs" />
+    <Compile Include="Employee_Model.cs" />
+    <Compile Include="InitialPatientDataModel.cs" />
+    <Compile Include="LanrValidationResponse.cs" />
+    <Compile Include="MedicationModel.cs" />
+    <Compile Include="Order_Model_for_Tile.cs" />
+    <Compile Include="PatientDataWithInitalData.cs" />
+    <Compile Include="PatientDetail.cs" />
+    <Compile Include="PatientDetailViewData.cs" />
+    <Compile Include="TemporaryDoctorDashboardTileModel.cs" />
+    <Compile Include="FilterObject.cs" />
+    <Compile Include="Case_Settlement_Model.cs" />
+    <Compile Include="ChangePasswordModel.cs" />
+    <Compile Include="DoctorDetail.cs" />
+    <Compile Include="NegativeResponseCaseModel.cs" />
+    <Compile Include="NegativeResponseModel.cs" />
+    <Compile Include="OrderForStatusChange.cs" />
+    <Compile Include="Payment_Model.cs" />
+    <Compile Include="PositiveResponseModel.cs" />
+    <Compile Include="PostiveResponseCaseModel.cs" />
+    <Compile Include="Practice.cs" />
+    <Compile Include="PracticeDetails.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

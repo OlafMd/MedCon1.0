@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="18/01/2017 11:02:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CaseIDs_for_PlannedActionIDs</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_CaseIDs_for_PlannedActionIDs"
+								Method_Name="Get_CaseIDs_for_PlannedActionIDs"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_cas_case_relevantplannedactions.Case_RefID as case_id,
+  hec_cas_case_relevantplannedactions.PlannedAction_RefID as planned_action_id
+From
+  hec_cas_case_relevantplannedactions
+Where
+  hec_cas_case_relevantplannedactions.PlannedAction_RefID = @ActionIDs And
+  hec_cas_case_relevantplannedactions.Tenant_RefID = @TenantID
+	</SQLStatement>
+  
+  <Parameters IsClass="true" Name="P_CAS_GCIDsfPAIDs_1102">
+    <Members>
+      <ClassMember Type="Guid"  Name="ActionIDs" IsArray="true"/>
+    </Members>
+  </Parameters>
+  
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GCIDsfPAIDs_1102" IsArray="true">
+      <Members>
+        <ClassMember Name="case_id" Type="Guid" />
+        <ClassMember Name="planned_action_id" Type="Guid" />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

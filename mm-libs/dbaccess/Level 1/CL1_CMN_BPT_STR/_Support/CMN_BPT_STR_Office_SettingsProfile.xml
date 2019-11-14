@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 11/13/2013 5:14:19 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_BPT_STR_Office_SettingsProfile"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_BPT_STR"
+                IsClass_Corresponding_DBTable="cmn_bpt_str_office_settingsprofile" >
+      <Members>
+		<ClassMember Name="CMN_BPT_STR_Office_SettingsProfileID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Office_RefID" Type="Guid" />
+		<ClassMember Name="AdulthoodAge" Type="int" />
+		<ClassMember Name="RestWarningThreshold_Adults_in_mins" Type="int" />
+		<ClassMember Name="RestWarningThreshold_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="RestMinimumThresholdl_Adults_in_mins" Type="int" />
+		<ClassMember Name="RestMinimumThresholdl_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="WorkTimeWarningTreshold_Adults_in_mins" Type="int" />
+		<ClassMember Name="WorkTimeWarningTreshold_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="WorkTimeMaximumTreshold_Adults_in_mins" Type="int" />
+		<ClassMember Name="WorkTimeMaximumTreshold_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="WorkStartTimeWarning_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="WorkStartTimeMinimum_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="WorkEndTimeWarning_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="WorkEndTimeMaximum_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="WorktimeBalancePeriod_in_months" Type="int" />
+		<ClassMember Name="WorkdayStart_in_mins" Type="int" />
+		<ClassMember Name="RoosterGridMinimumPlanningUnit_in_mins" Type="int" />
+		<ClassMember Name="MaximumPreWork_Period_in_mins" Type="int" />
+		<ClassMember Name="MaximumPostWork_Period_in_mins" Type="int" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

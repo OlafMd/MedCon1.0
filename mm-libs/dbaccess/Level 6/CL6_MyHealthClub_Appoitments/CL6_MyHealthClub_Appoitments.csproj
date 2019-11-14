@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{20CD7C8F-226B-46C7-83B0-A05FD20E45C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL6_MyHealthClub_Appoitments</RootNamespace>
+    <AssemblyName>CL6_MyHealthClub_Appoitments</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Complex\Manipulation\cls_Save_TaskTemplate_wihtDeleteCheck.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_AllTimeExceptionsNeededForWebAppointment.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_FilteredAppointmentMainData_for_TenantID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_FilteredAppointmentWebMainData_for_TenantID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Atomic\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_EMP\CL1_CMN_BPT_EMP.csproj">
+      <Project>{2385DE36-25FE-49CE-B27B-E70E7E2EB0A1}</Project>
+      <Name>CL1_CMN_BPT_EMP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL_AVA\CL1_CMN_CAL_AVA.csproj">
+      <Project>{72AEE3BD-CCAB-4FA3-9029-DEC9CAD6D1D5}</Project>
+      <Name>CL1_CMN_CAL_AVA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR\CL1_CMN_STR.csproj">
+      <Project>{B6524266-049E-4266-981E-FCFCEBB8C86C}</Project>
+      <Name>CL1_CMN_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_PPS_TSK\CL1_PPS_TSK.csproj">
+      <Project>{DE84E7DB-3CD8-465E-9FBD-35CC77285849}</Project>
+      <Name>CL1_PPS_TSK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Contact\CL2_Contact.csproj">
+      <Project>{26CFBA51-B354-4D11-9208-61EEA7509319}</Project>
+      <Name>CL2_Contact</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Proffesion\CL3_Profession.csproj">
+      <Project>{6D64BDD0-09D6-4A87-BE1D-9038D337E9B5}</Project>
+      <Name>CL3_Profession</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Skills\CL3_Skills.csproj">
+      <Project>{06C6ACC1-5A56-4AC1-A588-DAE7B37EAFC4}</Project>
+      <Name>CL3_Skills</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_MyHealthClub_BookableTimeSlot\CL5_MyHealthClub_BookableTimeSlot.csproj">
+      <Project>{1A9591D0-6AC0-4711-80DC-0A2A20633BFC}</Project>
+      <Name>CL5_MyHealthClub_BookableTimeSlot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_MyHealthClub_DoctorsAndStaff\CL5_MyHealthClub_DoctorsAndStaff.csproj">
+      <Project>{E712E532-8BAD-48E0-98A8-746769F89C80}</Project>
+      <Name>CL5_MyHealthClub_DoctorsAndStaff</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_MyHealthClub_OrgUnits\CL5_MyHealthClub_OrgUnits.csproj">
+      <Project>{FE8D5EE5-BE82-4278-85BF-6DFC76FBCC39}</Project>
+      <Name>CL5_MyHealthClub_OrgUnits</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_MyHealthClub_TaskTemplate\CL5_MyHealthClub_Appoitments.csproj">
+      <Project>{E3E23F83-F85B-4E90-A385-DE2A7A7C9C25}</Project>
+      <Name>CL5_MyHealthClub_Appoitments</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Complex\Manipulation\_Support\Save_TaskTemplate_wihtDeleteCheck.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_AllTimeExceptionsNeededForWebAppointment.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_FilteredAppointmentWebMainData_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_FilteredAppointmentMainData_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

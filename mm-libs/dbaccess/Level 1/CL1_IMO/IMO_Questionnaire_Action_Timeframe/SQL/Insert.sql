@@ -1,0 +1,23 @@
+INSERT INTO 
+	imo_questionnaire_action_timeframes
+	(
+		IMO_Questionnaire_Action_TimeframeID,
+		ActionTimeframeGroup_RefID,
+		Label_DictID,
+		Description_DictID,
+		SequenceNumber,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@IMO_Questionnaire_Action_TimeframeID,
+		@ActionTimeframeGroup_RefID,
+		@Label,
+		@Description,
+		@SequenceNumber,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

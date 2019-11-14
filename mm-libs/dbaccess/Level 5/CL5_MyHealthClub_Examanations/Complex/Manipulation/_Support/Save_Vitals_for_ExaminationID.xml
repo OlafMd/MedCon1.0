@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/26/2015 2:40:38 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Vitals_for_ExaminationID</Name>
+    <Namespace>CL5_MyHealthClub_Examanations.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Examanations.Complex.Manipulation"
+                Method_ClassName="cls_Save_Vitals_for_ExaminationID"
+                Method_Name="Save_Vitals_for_ExaminationID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Vitals_for_ExaminationID"
+                />
+
+  <Parameters IsClass="true" Name="P_L5EX_SVfEID_1440">
+    <Members>
+      <ClassMember Name="ExaminationID" Type="Guid"  />
+      <ClassMember Name="HeartRate" Type="P_L5EX_SVfEID_1440HeartPressure" IsClass="true" IsArray="false">
+        <Members>
+          <ClassMember Name="Volume" Type="String" />
+          <ClassMember Name="Rhythm" Type="String" />
+          <ClassMember Name="Frequency" Type="String" />
+        </Members>
+      </ClassMember>
+      <ClassMember Name="BloodPressure" Type="P_L5EX_SVfEID_1440BloodPressure" IsClass="true" IsArray="false">
+        <Members>
+          <ClassMember Name="Systolic" Type="String" />
+          <ClassMember Name="Diastolic" Type="String" />
+        </Members>
+      </ClassMember>
+      <ClassMember Name="BodyTemperature" Type="String" />
+      <ClassMember Name="BMI" Type="P_L5EX_SVfEID_1440BMI" IsClass="true" IsArray="false">
+        <Members>
+          <ClassMember Name="Height" Type="String" />
+          <ClassMember Name="Weight" Type="String" />
+        </Members>
+      </ClassMember>
+      <ClassMember  IsClass="true" Name="CustomVitals" Type="P_L5EX_SVfEID_1440_CustomVitals" IsArray="true">
+        <Members>
+          <ClassMember Name="PatientParameter_RefID" Type="Guid"  />
+          <ClassMember Name="Value" Type="string"  />
+        </Members>
+      </ClassMember>
+      
+      <ClassMember Name="Oxygen_saturation" Type="String" />
+      <ClassMember Name="Respiration" Type="String"/>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+    Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+    Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+
+

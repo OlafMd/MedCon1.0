@@ -1,0 +1,33 @@
+﻿<ul class="global-filter">
+    <li class="search-input-holder">
+        <input type="text" class="form-control" id="globalSearchInput" ng-model="global_search.text_search" ng-keyup="search($event)" placeholder="{{ 'LABEL_SEARCH' | translate }}">
+        <span class="icon-search"></span>
+    </li>
+    <li class="search-dropdown-holder">
+        <dropdown-list id="selHip" items="hips" ng-model="filter.hip" additional-class="'dropdown-min-width'" params="{display_name: 'display_name', id: 'name', is_model_object: false}" ng-change="search({ which: 13 }, true)" placeholder="'LABEL_HEALTH_INSURANCE_PROVIDER'"></dropdown-list>
+    </li>
+    <li>
+        <ul class="global-filter-items">
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.ordered" id="ordered" value="true" ng-change="prepareSearch(false)">
+                <label id="ordered" for="ordered" class="filter-item" ng-class="{'active': filter.ordered}">{{ 'LABEL_ORDERED_DRUGS' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.mo4" id="mo4" value="mo4" ng-change="prepareSearch(false)">
+                <label id="rejected" for="mo4" class="filter-item" ng-class="{'active': filter.mo4}">{{ 'LABEL_DRUG_NOT_AVAILABLE' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.mo6" id="mo6" value="mo6" ng-change="prepareSearch(false)">
+                <label id="canceled" for="mo6" class="filter-item" ng-class="{'active': filter.mo6}">{{ 'LABEL_CANCELED_ORDERS' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.mo9" id="mo9" value="mo9" ng-change="prepareSearch(false)">
+                <label id="deleted" for="mo9" class="filter-item" ng-class="{'active': filter.mo9}">{{ 'LABEL_DELETED_ORDERS' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.orders" id="orders" value="true" ng-change="prepareSearch(false, 'onlyOrders')">
+                <label id="onlyOrders" for="orders" class="filter-item" ng-class="{'active': filter.orders}">{{ 'LABEL_ELIGIBLE_FOR_SETTLEMENT' | translate }}</label>
+            </li>
+        </ul>
+    </li>
+</ul>

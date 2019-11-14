@@ -1,0 +1,49 @@
+﻿﻿<ul class="global-filter">
+    <li class="search-input-holder">
+        <input type="text" class="form-control" id="globalSearchInput" ng-model="global_search.text_search" ng-model-options="{debounce:500}" ng-change="search()" placeholder="{{ 'LABEL_SEARCH' | translate }}">
+        <span class="icon-search"></span>
+    </li>
+    <li>
+        <ul class="global-filter-items">
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.all" id="all" value="" ng-change="prepareSearch(true)" />
+                <label for="all" ng-class="{'active': filter.all}" class="filter-item">{{ 'LABEL_ALL' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.mo1" id="mo1" value="mo1" ng-change="prepareSearch(false)" />
+                <label for="mo1" ng-class="{'active': filter.mo1}" class="filter-item">{{ 'LABEL_ORDERED' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.mo10" id="mo10" value="mo10" ng-change="prepareSearch(false)" />
+                <label for="mo10" ng-class="{'active': filter.mo10}" class="filter-item">{{ 'LABEL_EXTERNALLY_ORDERED' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.mo2" id="mo2" value="mo2" ng-change="prepareSearch(false)" />
+                <label for="mo2" ng-class="{'active': filter.mo2}" class="filter-item">{{ 'LABEL_ACCEPTED' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.mo4" id="mo4" value="mo4" ng-change="prepareSearch(false)" />
+                <label for="mo4" ng-class="{'active': filter.mo4}" class="filter-item">{{ 'LABEL_REJECTED2' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.mo3" id="mo3" value="mo3" ng-change="prepareSearch(false)" />
+                <label for="mo3" ng-class="{'active': filter.mo3}" class="filter-item">{{ 'LABEL_SHIPPED' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.overdue" id="overdue" value="overdue" ng-change="prepareSearch(false)" />
+                <label for="overdue" ng-class="{'active': filter.overdue}" class="filter-item">{{ 'LABEL_OVERDUE' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.mo6" id="mo6" value="mo6" ng-change="prepareSearch(false)" />
+                <label for="mo6" ng-class="{'active': filter.mo6}" class="filter-item">{{ 'LABEL_CANCELED' | translate }}</label>
+            </li>
+            <li>
+                <a href class="filter-item dropdown-list-arrow" ng-class="{'active': getIsDateSelected()}" id="btnMasterData" ng-click="showDateDropdown()" ng-blur="closeDateDropdown()">{{'LABEL_DATE_PERIOD' | translate}}</a>
+                <ul ng-if="show_date_dropdown" class="origin-date-tr">
+                    <li ng-repeat="item in date_dropdown_items"><a id="{{ item.id }}" ng-click="select(item.id)">{{ item.display_name | translate }}</a></li>
+                    <li><div id="btnSetPeriod" class="wide-dotted-btn" ng-click="setPeriod()">{{ 'LABEL_ENTER_DATE_PERIOD' | translate }}</div></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

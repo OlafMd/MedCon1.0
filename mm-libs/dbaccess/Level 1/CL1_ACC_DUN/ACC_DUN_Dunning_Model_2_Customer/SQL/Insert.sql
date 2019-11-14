@@ -1,0 +1,19 @@
+INSERT INTO 
+	acc_dun_dunning_model_2_customer
+	(
+		AssignmentID,
+		ACC_DUN_DunningModel_RefID,
+		CMN_BPT_CTM_Customer_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@ACC_DUN_DunningModel_RefID,
+		@CMN_BPT_CTM_Customer_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,12 @@
+UPDATE 
+	hec_stu_study_participationrequireddocuments
+SET 
+	DOC_SLT_DocumentSlot_RefID=@DOC_SLT_DocumentSlot_RefID,
+	Study_RefID=@Study_RefID,
+	IsRequiredFor_MedicalPractiseParticipation=@IsRequiredFor_MedicalPractiseParticipation,
+	IsRequiredFor_PatientParticipation=@IsRequiredFor_PatientParticipation,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	HEC_STU_Study_ParticipatingPatient_RequiredDocumentID = @HEC_STU_Study_ParticipatingPatient_RequiredDocumentID

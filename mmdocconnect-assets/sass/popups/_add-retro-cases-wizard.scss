@@ -1,0 +1,92 @@
+.add-retro-cases-wizard {
+  h3 {
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  datepicker {
+    float: none;
+
+    ._720kb-datepicker-calendar {
+      top: 8px;
+    }
+  }
+
+  .scroll-container {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+
+  .octs-tab {
+    .scroll-container {
+      height: 297px;
+    }
+  }
+
+  .ivoms-tab {
+    .list-table {
+      .controls-add-button {
+        vertical-align: top;
+        padding-top: 17px;
+
+        .button.confirm {
+          min-width: auto;
+          padding-left: 28px;
+        }
+      }
+    }
+
+    .scroll-container {
+      height: 177px;
+      background-color: #fff;
+    }
+
+    .table-overview {
+      padding: 5px 0;
+
+      & + .table-overview {
+        border-top: 1px solid #d7d7d7;
+      }
+
+      & > li {
+        &:nth-child(1) {
+          width: 62px;
+        }
+
+        &:nth-child(2) {
+          width: 40%;
+        }
+      }
+    }
+  }
+
+  .confirm-tab {
+    .scroll-container {
+      height: 265px;
+      background-color: #fff;
+    }
+
+    .table-overview {
+      padding: 5px 0;
+
+      & + .table-overview {
+        border-top: 1px solid #d7d7d7;
+      }
+
+      & > li {
+        &:nth-child(1) {
+          width: 62px;
+        }
+
+        &:nth-child(2) {
+          width: 36px;
+        }
+
+        &:nth-child(3) {
+          width: 40%;
+        }
+      }
+    }
+  }
+}

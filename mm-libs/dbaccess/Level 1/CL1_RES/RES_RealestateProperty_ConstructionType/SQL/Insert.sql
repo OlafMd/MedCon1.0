@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_realestateproperty_constructiontypes
+	(
+		RES_RealestateProperty_ConstructionTypeID,
+		ConstructionType_Name_DictID,
+		ConstructionType_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_RealestateProperty_ConstructionTypeID,
+		@ConstructionType_Name,
+		@ConstructionType_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

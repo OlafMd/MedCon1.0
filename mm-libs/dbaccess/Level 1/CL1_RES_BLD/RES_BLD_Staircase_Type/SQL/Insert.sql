@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_bld_staircase_types
+	(
+		RES_BLD_Staircase_TypeID,
+		StaircaseType_Name_DictID,
+		StaircaseType_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_BLD_Staircase_TypeID,
+		@StaircaseType_Name,
+		@StaircaseType_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

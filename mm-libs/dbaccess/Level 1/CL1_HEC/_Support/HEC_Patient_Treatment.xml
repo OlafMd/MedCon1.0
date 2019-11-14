@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 9/5/2014 2:52:30 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_Patient_Treatment"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC"
+                IsClass_Corresponding_DBTable="hec_patient_treatment" >
+      <Members>
+		<ClassMember Name="HEC_Patient_TreatmentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="PotentialTreatment_RefID" Type="Guid" />
+		<ClassMember Name="TreatmentITL" Type="String" />
+		<ClassMember Name="IsTreatmentFollowup" Type="Boolean" />
+		<ClassMember Name="IfTreatmentFollowup_FromTreatment_RefID" Type="Guid" />
+		<ClassMember Name="TreatmentPractice_RefID" Type="Guid" />
+		<ClassMember Name="IsTreatmentPerformed" Type="Boolean" />
+		<ClassMember Name="IfTreatmentPerformed_ByDoctor_RefID" Type="Guid" />
+		<ClassMember Name="IfTreatmentPerformed_Date" Type="DateTime" />
+		<ClassMember Name="IsScheduled" Type="Boolean" />
+		<ClassMember Name="IfSheduled_Date" Type="DateTime" />
+		<ClassMember Name="IfSheduled_ForDoctor_RefID" Type="Guid" />
+		<ClassMember Name="IsTreatmentBilled" Type="Boolean" />
+		<ClassMember Name="IfTreatmentBilled_Date" Type="DateTime" />
+		<ClassMember Name="Treatment_Comment" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+        <ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

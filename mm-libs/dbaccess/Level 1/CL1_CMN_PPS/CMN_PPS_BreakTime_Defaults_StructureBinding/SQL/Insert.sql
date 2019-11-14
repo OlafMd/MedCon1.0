@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_pps_breaktime_defaults_structurebindings
+	(
+		CMN_PPS_BreakTime_Defaults_StructureBindingID,
+		BoundTo_Office_RefID,
+		BoundTo_WorkArea_RefID,
+		BoundTo_Workplace_RefID,
+		BreakTime_Default_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PPS_BreakTime_Defaults_StructureBindingID,
+		@BoundTo_Office_RefID,
+		@BoundTo_WorkArea_RefID,
+		@BoundTo_Workplace_RefID,
+		@BreakTime_Default_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

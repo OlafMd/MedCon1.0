@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="09/24/2014 3:44:39 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_CustomerComment</Name>
+    <Namespace>CL5_APOCustomerAdmin_Note.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOCustomerAdmin_Customer.Complex.Manipulation"
+                Method_ClassName="cls_Save_CustomerComment"
+                Method_Name="Save_CustomerComment"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_CustomerComment"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L5CN_SCC_1544">
+    <Members>      
+      <ClassMember Name="CMN_BPT_MemoID" Type="Guid" />
+      <ClassMember Name="Memo_BusinessParticipant_RefID" Type="Guid" />    
+      <ClassMember Name="Memo_Text" Type="String"  />
+      <ClassMember Name="IsDeleted" Type="Boolean"  />
+      <ClassMember Name="IsImportant" Type="Boolean" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+
+

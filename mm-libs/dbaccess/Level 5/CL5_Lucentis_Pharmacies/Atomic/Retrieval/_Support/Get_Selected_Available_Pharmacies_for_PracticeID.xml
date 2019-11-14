@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/25/2013 9:39:06 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Selected_Available_Pharmacies_for_PracticeID</Name>
+    <Namespace>CL5_Lucentis_Pharmacies.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Pharmacies.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Selected_Available_Pharmacies_for_PracticeID"
+                Method_Name="Get_Selected_Available_Pharmacies_for_PracticeID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Selected_Available_Pharmacies_for_PracticeID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  hec_medicalpractise_availablepharmaciesforordering.HEC_Pharmacy_RefID,
+  hec_medicalpractise_availablepharmaciesforordering.HEC_MedicalPractise_AvailablePharmaciesForOrderingID
+From
+  hec_medicalpractise_availablepharmaciesforordering
+Where
+  hec_medicalpractise_availablepharmaciesforordering.IsDeleted = 0 And
+  hec_medicalpractise_availablepharmaciesforordering.HEC_MedicalPractise_RefID =
+  @PracticeID And
+  hec_medicalpractise_availablepharmaciesforordering.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+    <Parameters IsClass="true" Name="P_L5PH_GPSAPfPID">
+        <Members>
+            <ClassMember Name="PracticeID" Type="Guid"  />            
+        </Members>
+    </Parameters>
+    
+    
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PH_GPSAPfPID" IsArray="true" GroupBy="HEC_MedicalPractise_AvailablePharmaciesForOrderingID">
+			<Members>
+				<ClassMember Name="HEC_Pharmacy_RefID" Type="Guid"  />
+				<ClassMember Name="HEC_MedicalPractise_AvailablePharmaciesForOrderingID" Type="Guid"  />
+
+	
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

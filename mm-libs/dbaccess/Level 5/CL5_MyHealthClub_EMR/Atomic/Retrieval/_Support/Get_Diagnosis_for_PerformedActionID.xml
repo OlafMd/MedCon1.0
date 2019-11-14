@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/9/2014 12:38:34 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>PatientInfos_for_Tennant</Name>
+    <Namespace>CLE_L3_Patients.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#" 
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_EMR.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Diagnosis_for_PerformedActionID"
+                Method_Name="Get_Diagnosis_for_PerformedActionID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Diagnosis_for_PerformedActionID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_DiagnosisUpdateID,
+  hec_patient_diagnoses.HEC_Patient_DiagnosisID,
+  hec_dia_potentialdiagnoses.ICD10_Code,
+  hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID,
+  hec_dia_potentialdiagnoses.PotentialDiagnosis_Name_DictID,
+  hec_patient_diagnoses.R_DiagnosedOnDate,
+  hec_patient_diagnoses.R_ScheduledExpiryDate,
+  hec_patient_diagnoses.R_IsActive,
+  hec_patient_diagnoses.R_IsConfirmed,
+  hec_patient_diagnoses.R_IsNegated,
+  hec_patient_diagnoses.R_IsAssumed,
+  hec_patient_diagnoses.R_DeactivatedOnDate
+From
+  hec_act_performedaction_diagnosisupdates Inner Join
+  hec_patient_diagnoses
+    On hec_act_performedaction_diagnosisupdates.HEC_Patient_Diagnosis_RefID =
+    hec_patient_diagnoses.HEC_Patient_DiagnosisID Inner Join
+  hec_dia_potentialdiagnoses
+    On hec_act_performedaction_diagnosisupdates.PotentialDiagnosis_RefID =
+    hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID
+Where
+  hec_patient_diagnoses.IsDeleted = 0 And
+  hec_act_performedaction_diagnosisupdates.IsDeleted = 0 And
+  hec_dia_potentialdiagnoses.IsDeleted = 0 And
+  hec_act_performedaction_diagnosisupdates.Tenant_RefID = @TenantID And
+  hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_RefID =
+  @PerformedActionID
+  </SQLStatement>
+
+
+
+  <Parameters IsClass="true" Name="P_L5ME_GDfPAID_1919">
+    <Members>
+      <ClassMember Name="PerformedActionID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5ME_GDfPAID_1919" IsArray="true" GroupBy="HEC_Patient_DiagnosisID">
+			<Members>
+        <ClassMember Name="PotentialDiagnosis_Name" Type="Dict" OriginTable="hec_dia_potentialdiagnoses" Source_DBField="PotentialDiagnosis_Name_DictID"  />
+        <ClassMember Name="HEC_Patient_DiagnosisID" Type="Guid"  />
+        <ClassMember Name="HEC_DIA_PotentialDiagnosisID" Type="Guid"  />
+				<ClassMember Name="ICD10_Code" Type="String"  />
+        <ClassMember Name="R_DiagnosedOnDate" Type="DateTime"  />
+        <ClassMember Name="R_ScheduledExpiryDate" Type="DateTime"  />
+        <ClassMember Name="R_IsActive" Type="Boolean"  />
+        <ClassMember Name="R_IsConfirmed" Type="Boolean"  />
+        <ClassMember Name="R_IsNegated" Type="Boolean"  />
+        <ClassMember Name="R_IsAssumed" Type="Boolean"  />
+        <ClassMember Name="R_DeactivatedOnDate" Type="DateTime"  />
+        <ClassMember IsClass="true" IsArray="true" Type="L5ME_GDfPAID_1919_DiagnosisUpdate" Name="Updates" GroupBy="HEC_ACT_PerformedAction_DiagnosisUpdateID" >
+          <Members>
+            <ClassMember Name="HEC_ACT_PerformedAction_DiagnosisUpdateID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+      </Members>
+		</ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

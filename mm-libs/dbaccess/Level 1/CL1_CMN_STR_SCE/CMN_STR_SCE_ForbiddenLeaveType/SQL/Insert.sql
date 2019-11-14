@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_sce_forbiddenleavetypes
+	(
+		CMN_STR_SCE_ForbiddenLeaveTypeID,
+		CMN_STR_SCE_StructureCalendarEvent_RefID,
+		CMN_BPT_STA_AbsenceReason_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_STR_SCE_ForbiddenLeaveTypeID,
+		@CMN_STR_SCE_StructureCalendarEvent_RefID,
+		@CMN_BPT_STA_AbsenceReason_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

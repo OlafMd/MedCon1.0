@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/22/2014 4:13:06 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Dosage</Name>
+    <Namespace>CL5_MyHealthClub_Medication.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MPC_Community.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Groups_for_Account"
+                Method_Name="Get_Groups_for_Account"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Groups_for_Account"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_cmt_communitygroups.HEC_CMT_CommunityGroupID,
+  hec_cmt_communitygroups.CommunityGroup_Name_DictID,
+  hec_cmt_communitygroups.IsPrivate,
+  hec_cmt_communitygroups.CommunityGroupCode,
+  hec_cmt_communitygroups.HealthcareCommunityGroupITL
+From
+  hec_cmt_communitygroups Inner Join
+  hec_cmt_groupsubscriptions On hec_cmt_groupsubscriptions.CommunityGroup_RefID
+    = hec_cmt_communitygroups.Community_RefID Inner Join
+  hec_cmt_memberships On hec_cmt_groupsubscriptions.Membership_RefID =
+    hec_cmt_memberships.HEC_CMT_MembershipID Inner Join
+  usr_accounts On usr_accounts.BusinessParticipant_RefID =
+    hec_cmt_memberships.BusinessParticipant_RefID
+Where
+  hec_cmt_communitygroups.IsPrivate = 0 And
+  hec_cmt_communitygroups.Tenant_RefID = @TenantID And
+  usr_accounts.USR_AccountID = @AccountID And
+  hec_cmt_memberships.IsDeleted = 0 And
+  hec_cmt_groupsubscriptions.IsDeleted = 0 And
+  hec_cmt_communitygroups.IsDeleted = 0
+  </SQLStatement>
+  
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5AC_GGfA_1624" IsArray="true">
+      <Members>
+        <ClassMember Name="HEC_CMT_CommunityGroupID" Type="Guid"  />
+        <ClassMember Name="CommunityGroup_Name" Type="Dict" OriginTable="hec_cmt_communitygroups" Source_DBField="CommunityGroup_Name_DictID"  />
+        <ClassMember Name="IsPrivate" Type="bool"  />
+        <ClassMember Name="CommunityGroupCode" Type="string"  />
+        <ClassMember Name="HealthcareCommunityGroupITL" Type="string"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

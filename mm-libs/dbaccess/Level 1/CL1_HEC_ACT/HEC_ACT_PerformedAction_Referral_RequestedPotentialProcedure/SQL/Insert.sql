@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_act_performedaction_referral_requestedpotentialprocedures
+	(
+		HEC_ACT_PerformedAction_Referral_RequestedPotentialProcedureID,
+		Action_Referral_RefID,
+		PotentialTreatment_RefID,
+		ProposedDate,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_PerformedAction_Referral_RequestedPotentialProcedureID,
+		@Action_Referral_RefID,
+		@PotentialTreatment_RefID,
+		@ProposedDate,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

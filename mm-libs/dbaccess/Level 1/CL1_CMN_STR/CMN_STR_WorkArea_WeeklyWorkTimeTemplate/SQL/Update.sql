@@ -1,0 +1,10 @@
+UPDATE 
+	cmn_str_workarea_weeklyworktimetemplates
+SET 
+	CMN_CAL_WeeklyOfficeHours_Interval_RefID=@CMN_CAL_WeeklyOfficeHours_Interval_RefID,
+	CMN_STR_PPS_WorkAreas=@CMN_STR_PPS_WorkAreas,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_STR_WorkArea_WeeklyWorkTimeTemplateID = @CMN_STR_WorkArea_WeeklyWorkTimeTemplateID

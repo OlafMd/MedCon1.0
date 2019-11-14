@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/9/2014 1:03:12 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_MedicalPractis"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC"
+                IsClass_Corresponding_DBTable="hec_medicalpractises" >
+      <Members>
+		<ClassMember Name="HEC_MedicalPractiseID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="WeeklyOfficeHours_Template_RefID" Type="Guid" />
+		<ClassMember Name="Ext_CompanyInfo_RefID" Type="Guid" />
+		<ClassMember Name="AssociatedWith_PhysitianAssociation_RefID" Type="Guid" />
+		<ClassMember Name="ContactPerson_RefID" Type="Guid" />
+		<ClassMember Name="WeeklySurgeryHours_Template_RefID" Type="Guid" />
+		<ClassMember Name="Contact_EmergencyPhoneNumber" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+    <ClassMember Name="IsHospital" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

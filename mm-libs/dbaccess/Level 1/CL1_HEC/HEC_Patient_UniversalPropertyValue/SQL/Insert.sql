@@ -1,0 +1,27 @@
+INSERT INTO 
+	hec_patient_universalpropertyvalues
+	(
+		HEC_Patient_UniversalPropertyValueID,
+		HEC_Patient_RefID,
+		HEC_Patient_UniversalProperty_RefID,
+		Value_String,
+		Value_Number,
+		Value_Boolean,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_Patient_UniversalPropertyValueID,
+		@HEC_Patient_RefID,
+		@HEC_Patient_UniversalProperty_RefID,
+		@Value_String,
+		@Value_Number,
+		@Value_Boolean,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

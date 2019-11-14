@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_bld_facade_2_facadetype
+	(
+		AssignmentID,
+		RES_BLD_Facade_RefID,
+		RES_BLD_Facade_Type_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@RES_BLD_Facade_RefID,
+		@RES_BLD_Facade_Type_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

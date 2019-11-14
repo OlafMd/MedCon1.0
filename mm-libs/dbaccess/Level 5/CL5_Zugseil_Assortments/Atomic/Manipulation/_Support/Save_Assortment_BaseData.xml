@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/26/2013 11:25:09 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Assortment_BaseData</Name>
+    <Namespace>CL5_Zugseil_Assortments.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_Assortments.Atomic.Manipulation"
+                Method_ClassName="cls_Save_Assortment_BaseData"
+                Method_Name="Save_Assortment_BaseData"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Assortment_BaseData"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L5SABD_1714">
+    <Members>
+      <ClassMember Name="CMN_PRO_ASS_AssortmentID" Type="Guid"  />
+      <ClassMember Name="AssortmentName_DictID" Type="Dict"  />
+      <ClassMember Name="AvailableForOrderingFrom" Type="DateTime" />
+      <ClassMember Name="AvailableForOrderingThrough" Type="DateTime" />
+      <ClassMember Name="IsDefaultAssortment_ForCostcenterOrder" Type="bool"/>
+      <ClassMember Name="IsDefaultAssortment_ForOfficeOrder" Type="bool"/>
+      <ClassMember Name="IsDefaultAssortment_ForPersonalOrder" Type="bool"/>
+      <ClassMember Name="IsDefaultAssortment_ForWarehouseOrder" Type="bool"/>
+      <ClassMember Name="isDeleted" Type="bool"  />       
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+
+
+

@@ -1,0 +1,28 @@
+UPDATE 
+	bil_billpositions
+SET 
+	BIL_BilHeader_RefID=@BIL_BilHeader_RefID,
+	BIL_BillPosition_Group_RefID=@BIL_BillPosition_Group_RefID,
+	ApplicableSalesTax_RefID=@ApplicableSalesTax_RefID,
+	ApplicableSalesTax_Value=@ApplicableSalesTax_Value,
+	ApplicableSalesTax_PerUnitValue=@ApplicableSalesTax_PerUnitValue,
+	PositionNumber=@PositionNumber,
+	BillPosition_Description=@BillPosition_Description,
+	BillPosition_Comment=@BillPosition_Comment,
+	PositionIndex=@PositionIndex,
+	PositionValue_BeforeTax=@PositionValue_BeforeTax,
+	PositionValue_IncludingTax=@PositionValue_IncludingTax,
+	PositionPricePerUnitValue_BeforeTax=@PositionPricePerUnitValue_BeforeTax,
+	PositionPricePerUnitValue_IncludingTax=@PositionPricePerUnitValue_IncludingTax,
+	BillPosition_ProductNumber=@BillPosition_ProductNumber,
+	Quantity=@Quantity,
+	External_PositionReferenceField=@External_PositionReferenceField,
+	External_PositionCode=@External_PositionCode,
+	External_PositionType=@External_PositionType,
+	IsFullyPaid=@IsFullyPaid,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	BIL_BillPositionID = @BIL_BillPositionID

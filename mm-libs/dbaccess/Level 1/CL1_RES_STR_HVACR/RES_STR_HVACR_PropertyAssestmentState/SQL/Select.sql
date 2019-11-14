@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_hvacr_propertyassestmentstates
+WHERE 
+	RES_STR_HVACR_PropertyAssestmentStateID = @RES_STR_HVACR_PropertyAssestmentStateID

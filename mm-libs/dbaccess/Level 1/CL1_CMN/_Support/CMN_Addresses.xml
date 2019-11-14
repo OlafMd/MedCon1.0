@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 12/23/2014 4:39:00 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_Address"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN"
+                IsClass_Corresponding_DBTable="cmn_addresses" >
+      <Members>
+		<ClassMember Name="CMN_AddressID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Street_Name" Type="String" />
+		<ClassMember Name="Street_Number" Type="String" />
+		<ClassMember Name="City_AdministrativeDistrict" Type="String" />
+		<ClassMember Name="City_Region" Type="String" />
+		<ClassMember Name="City_Name" Type="String" />
+		<ClassMember Name="City_PostalCode" Type="String" />
+		<ClassMember Name="Province_Name" Type="String" />
+		<ClassMember Name="Country_Name" Type="String" />
+		<ClassMember Name="CareOf" Type="String" />
+		<ClassMember Name="Country_ISOCode" Type="String" />
+		<ClassMember Name="Province_EconomicRegion_RefID" Type="Guid" />
+		<ClassMember Name="Lattitude" Type="double" />
+		<ClassMember Name="Longitude" Type="double" />
+		<ClassMember Name="POBox" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

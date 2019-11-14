@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="02/27/2014 15:00:11 PM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Delete_ActiveReservations_and_UpdateShipmentHeaders_for_ProductTrackingInstanceIDList</Name>
+        <Namespace>CL3_ShippingOrder.Complex.Manipulation</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL3_ShippingOrder.Complex.Manipulation"
+				  Method_ClassName="cls_Delete_ActiveReservations_and_UpdateShipmentHeaders_for_ProductTrackingInstanceIDList"
+				  Method_Name="Delete_ActiveReservations_and_UpdateShipmentHeaders_for_ProductTrackingInstanceIDList"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Delete_ActiveReservations_and_UpdateShipmentHeaders_for_ProductTrackingInstanceIDList"
+                />
+
+
+    <Parameters IsClass="true" Name="P_L3SO_DARaUSHfPTIL_1159">
+      <Members>
+        <ClassMember Name="TracknigInstances" IsClass="true" IsArray="true" Type="P_L3SO_DARaUSHfPTIL_1159a">
+          <Members>
+            <ClassMember Name="ProductTrackingInstanceID" Type="Guid"/>
+            <ClassMember Name="CurrentQuantityOnTrackingInstance" Type="Double"/>
+            <ClassMember Name="RemovedQuantityFromTrackingInstance" Type="Double"/>
+          </Members>
+        </ClassMember>
+      </Members>
+    </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				  Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				  Returns_an_Object_or_ObjectArray="false">
+
+        <StandardReturnType_Definition returnType="bool" IsArray="false" />
+    </ResultInfo>
+
+</CodeGen>

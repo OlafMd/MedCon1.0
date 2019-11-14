@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_pps_shifttemplate_group_2_structurecalendareventtype
+	(
+		AssignmentID,
+		CMN_STR_SCE_StructureCalendarEvent_Type_RefID,
+		CMN_PPS_ShiftTemplate_Group_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_STR_SCE_StructureCalendarEvent_Type_RefID,
+		@CMN_PPS_ShiftTemplate_Group_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

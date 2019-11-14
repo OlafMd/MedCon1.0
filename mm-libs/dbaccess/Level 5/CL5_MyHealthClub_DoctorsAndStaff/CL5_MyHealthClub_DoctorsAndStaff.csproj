@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E712E532-8BAD-48E0-98A8-746769F89C80}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_MyHealthClub_DoctorsAndStaff</RootNamespace>
+    <AssemblyName>CL5_MyHealthClub_DoctorsAndStaff</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_Device_ActivityHistory.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Device_ConfigurationCodes.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Doctors_and_Staff.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Doctors_and_Staff_Availability.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_DocumentTemplate.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_PrintingSettings.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Profession_withDeleteCheck.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllDoctorsName_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllDoctorsPrimaryEmail_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeviceActivityHistory_for_DeviceID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Devices_for_DeviceConfigurationCode.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Device_ConfigurationCode_Status_for_AccountID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DoctorIDWithContact_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Doctors_for_MedicalPracticeTypeID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_MobileDevices_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PrintingSettings_for_TenantID.cs" />
+    <Compile Include="Complex\cls_Get_Doctors_and_Staff_allData_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Doctors_for_PracticeID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Doctor_and_Staff_Availability_for_BusinessParticipantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_StaffNumberWithoutWorkingHours_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Staff_Available_for_WebBooking.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Staff_Names_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Staff_Name_for_EmployeeID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Staff_WorktimeExceptions_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_TimeExceptionsForAllStaff.cs" />
+    <Compile Include="Complex\Retrieval\cls_GetUserSubscriptionForApplicationAndUserID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_PrintingDocumentTemplates.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Save_Device_ActivityHistory.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_DocumentTemplate.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_PrintingSettings.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Device_ConfigurationCodes.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Profession_withDeleteCheck.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Doctors_and_Staff_Availability.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Doctors_and_Staff.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Doctors_for_MedicalPracticeTypeID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Devices_for_DeviceConfigurationCode.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeviceActivityHistory_for_DeviceID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_MobileDevices_for_TenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DeviceActivityHistory_for_DeviceID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Devices_for_DeviceConfigurationCode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Doctors_for_MedicalPracticeTypeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_MobileDevices_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_PrintingDocumentTemplates.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PrintingSettings_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllDoctorsName_for_TenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllDoctorsName_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PrintingSettings_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\GetUserSubscriptionForApplicationAndUserID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Staff_Name_for_EmployeeID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_StaffNumberWithoutWorkingHours_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Staff_WorktimeExceptions_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Staff_Names_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Doctors_for_PracticeID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DoctorIDWithContact_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllDoctorsPrimaryEmail_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Device_AccountCode_Status_for_AccountID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Device_ConfigurationCode_Status_for_AccountID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllDoctorsPrimaryEmail_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Device_ConfigurationCode_Status_for_AccountID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DoctorIDWithContact_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Doctors_for_PracticeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Staff_Names_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_StaffNumberWithoutWorkingHours_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Staff_Name_for_EmployeeID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Staff_Available_for_WebBooking.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_TimeExceptionsForAllStaff.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Staff_WorktimeExceptions_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_TimeExceptionsForAllStaff.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Staff_Available_for_WebBooking.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Doctor_and_Staff_Availability_for_BusinessParticipantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Doctor_and_Staff_Availability_for_BusinessParticipantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Doctors_and_Staff_allData_for_TenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Doctors_and_Staff_allData_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_EMP\CL1_CMN_BPT_EMP.csproj">
+      <Project>{2385DE36-25FE-49CE-B27B-E70E7E2EB0A1}</Project>
+      <Name>CL1_CMN_BPT_EMP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL\CL1_CMN_CAL.csproj">
+      <Project>{C6107EF8-3603-4EDA-B158-42404049F249}</Project>
+      <Name>CL1_CMN_CAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL_AVA\CL1_CMN_CAL_AVA.csproj">
+      <Project>{72AEE3BD-CCAB-4FA3-9029-DEC9CAD6D1D5}</Project>
+      <Name>CL1_CMN_CAL_AVA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PER\CL1_CMN_PER.csproj">
+      <Project>{6BDA1EB4-FA2A-41A1-8B83-171ED9B85ADD}</Project>
+      <Name>CL1_CMN_PER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR\CL1_CMN_STR.csproj">
+      <Project>{B6524266-049E-4266-981E-FCFCEBB8C86C}</Project>
+      <Name>CL1_CMN_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_DOC\CL1_DOC.csproj">
+      <Project>{08FEF49E-52A6-4C81-89EA-CB0679804159}</Project>
+      <Name>CL1_DOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768C60E8-0C7F-42B2-B8C9-D327C6BF334A}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_PPS_TSK\CL1_PPS_TSK.csproj">
+      <Project>{DE84E7DB-3CD8-465E-9FBD-35CC77285849}</Project>
+      <Name>CL1_PPS_TSK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{FEAB6F0E-56F1-43D4-BEF0-988B26474DD2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Contact\CL2_Contact.csproj">
+      <Project>{26CFBA51-B354-4D11-9208-61EEA7509319}</Project>
+      <Name>CL2_Contact</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_DocumentTemplates\CL2_DocumentTemplates.csproj">
+      <Project>{6640C12B-D3CD-4B43-B2FE-58C02EA88F0F}</Project>
+      <Name>CL2_DocumentTemplates</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Proffesion\CL3_Profession.csproj">
+      <Project>{6D64BDD0-09D6-4A87-BE1D-9038D337E9B5}</Project>
+      <Name>CL3_Profession</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_MyHealthClub_BookableTimeSlot\CL5_MyHealthClub_BookableTimeSlot.csproj">
+      <Project>{1A9591D0-6AC0-4711-80DC-0A2A20633BFC}</Project>
+      <Name>CL5_MyHealthClub_BookableTimeSlot</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

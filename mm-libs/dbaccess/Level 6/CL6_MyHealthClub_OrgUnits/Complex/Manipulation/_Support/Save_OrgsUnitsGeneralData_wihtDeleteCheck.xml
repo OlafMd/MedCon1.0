@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/22/2014 11:42:17 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_OrgsUnitsGeneralData_wihtDeleteCheck</Name>
+    <Namespace>CL6_MyHealthClub_OrgUnits.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_MyHealthClub_OrgUnits.Complex.Manipulation"
+                Method_ClassName="cls_Save_OrgsUnitsGeneralData_wihtDeleteCheck"
+                Method_Name="Save_OrgsUnitsGeneralData_wihtDeleteCheck"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_OrgsUnitsGeneralData_wihtDeleteCheck"
+                />
+
+  <Parameters IsClass="true" Name="P_L6OU_SOUGDwDC_1541">
+    <Members>
+      <ClassMember Name="BaseData" Type="P_L5OU_SOUGD_1221" IsReference="true" />
+      <ClassMember Name="UpdateSlots" Type="bool" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+     Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+     Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6OU_SOUGDwDC_1541" IsArray="false">
+      <Members>
+        <ClassMember Name="ID" Type="Guid"  />
+        <ClassMember IsClass="true" IsArray="true" Type="L6OU_SOUGDwDC_1541_UsedInAppointment" Name="UsedInAppointment" >
+          <Members>
+            <ClassMember Name="AppointmentName" Type="String" />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Type="L6OU_SOUGDwDC_1541_UsedInEmployee" Name="UsedInEmployee" >
+          <Members>
+            <ClassMember Name="EmployeeName" Type="String" />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Type="L6OU_SOUGDwDC_1541_UsedInOrgUnit" Name="UsedInOrgUnit" >
+          <Members>
+            <ClassMember Name="OrgUnitName" Type="Dict" />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 9/5/2014 2:15:08 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+  Get_ProductInfo_for_Tenant
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_DIA_FrequentPotentialDiagnosis"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC_DIA"
+                IsClass_Corresponding_DBTable="hec_dia_frequentpotentialdiagnoses" >
+      <Members>
+		<ClassMember Name="HEC_DIA_FrequentPotentialDiagnosisID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="PotentialDiagnosis_RefID" Type="Guid" />
+		<ClassMember Name="MedicalPractice_RefID" Type="Guid" />
+		<ClassMember Name="NumberOfOccurences" Type="int" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+    <ClassMember Name="Modification_Timestamp" Type="DateTime" />
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="27/08/2014 13:38:56">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CompanyTimeTrackingAccount</Name>
+    <Namespace>CL5_VacationPlanner_Tenant.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_VacationPlanner_Tenant.Atomic.Retrieval"
+                Method_ClassName="cls_Get_CompanyTimeTrackingAccount"
+                Method_Name="Get_CompanyTimeTrackingAccount"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_CompanyTimeTrackingAccount"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  usr_accounts.AccountSignInEmailAddress
+	From
+	  usr_account_2_functionlevelright Inner Join
+	  usr_account_functionlevelrights
+	    On usr_account_functionlevelrights.USR_Account_FunctionLevelRightID =
+	    usr_account_2_functionlevelright.FunctionLevelRight_RefID Inner Join
+	  usr_accounts
+	    On usr_accounts.USR_AccountID =
+	    usr_account_2_functionlevelright.Account_RefID
+	Where
+	  usr_account_functionlevelrights.RightName = "CompanyTimeTracking" And
+	  usr_account_functionlevelrights.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5TN_GCTTA_1338" IsArray="false">
+			<Members>
+				<ClassMember Name="AccountSignInEmailAddress" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

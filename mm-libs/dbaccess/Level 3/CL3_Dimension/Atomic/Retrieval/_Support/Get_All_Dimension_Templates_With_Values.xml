@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/10/2013 2:06:49 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_Dimension_Templates_With_Values</Name>
+    <Namespace>CL3_Dimension.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Dimension.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_Dimension_Templates_With_Values"
+                Method_Name="Get_All_Dimension_Templates_With_Values"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_Dimension_Templates_With_Values"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_pro_dimensions.CMN_PRO_DimensionID,
+  cmn_pro_dimensions.Product_RefID,
+  cmn_pro_dimensions.Abbreviation,
+  cmn_pro_dimensions.DimensionName_DictID,
+  cmn_pro_dimensions.OrderSequence As Dimension_Ordersequence,
+  cmn_pro_dimensions.IsDimensionTemplate,
+  cmn_pro_dimensions.Creation_Timestamp As Dimension_Creation_Timestamp,
+  cmn_pro_dimensions.Modification_Timestamp As Dimension_Modification_Timestamp,
+  
+  cmn_pro_dimension_values.CMN_PRO_Dimension_ValueID,
+  cmn_pro_dimension_values.Dimensions_RefID,
+  cmn_pro_dimension_values.DimensionValue_Text_DictID,
+  cmn_pro_dimension_values.OrderSequence As DimensionValue_Ordersequence,
+  cmn_pro_dimension_values.Creation_Timestamp As    DimensionValue_Creation_Timestamp,
+  cmn_pro_dimension_values.Modification_Timestamp As    DimensionValue_Modification_Timestamp  
+From
+  cmn_pro_dimensions 
+Left Join
+  cmn_pro_dimension_values 
+    On cmn_pro_dimensions.CMN_PRO_DimensionID =      cmn_pro_dimension_values.Dimensions_RefID 
+    And      cmn_pro_dimension_values.IsDeleted = 0 
+    And      cmn_pro_dimension_values.Tenant_RefID = @TenantID  
+Where
+  cmn_pro_dimensions.IsDimensionTemplate = 1 
+  And    cmn_pro_dimensions.TenantID = @TenantID 
+  And    cmn_pro_dimensions.IsDeleted = 0
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2DM_GADTWV_1413" IsArray="true"  GroupBy="CMN_PRO_DimensionID">
+      <Members>
+        <ClassMember Name="CMN_PRO_DimensionID" Type="Guid"  />
+        <ClassMember Name="Product_RefID" Type="Guid"  />
+        <ClassMember Name="Abbreviation" Type="string"  />
+        <ClassMember Name="DimensionName" Type="Dict" OriginTable="cmn_pro_dimensions" Source_DBField="DimensionName_DictID"  />
+        <ClassMember Name="Dimension_Ordersequence" Type="int"/>
+        <ClassMember Name="IsDimensionTemplate" Type="bool"  />
+        <ClassMember Name="Dimension_Creation_Timestamp" Type="DateTime"/>
+        <ClassMember Name="Dimension_Modification_Timestamp" Type="DateTime"/>
+
+        <ClassMember Name="DimensionValues" IsClass="true" IsArray="true" Type="L2DM_GADTWV_1413a" GroupBy="CMN_PRO_Dimension_ValueID" >
+          <Members>
+            <ClassMember Name="CMN_PRO_Dimension_ValueID" Type="Guid" />
+            <ClassMember Name="Dimensions_RefID" Type="Guid" />
+            <ClassMember Name="DimensionValue_Text" Type="Dict" OriginTable="cmn_pro_dimension_values" Source_DBField="DimensionValue_Text_DictID" />
+            <ClassMember Name="DimensionValue_Ordersequence" Type="int" />
+            <ClassMember Name="DimensionValue_Creation_Timestamp" Type="DateTime" />
+            <ClassMember Name="DimensionValue_Modification_Timestamp" Type="DateTime" />
+          </Members>
+        </ClassMember>
+        
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

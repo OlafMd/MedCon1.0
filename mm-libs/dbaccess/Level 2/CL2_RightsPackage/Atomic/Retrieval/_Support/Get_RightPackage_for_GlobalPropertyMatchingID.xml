@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/23/2013 11:51:45 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_RightPackage_for_GlobalPropertyMatchingID</Name>
+    <Namespace>CL2_RightsPackage.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_RightsPackage.Atomic.Retrieval"
+                Method_ClassName="cls_Get_RightPackage_for_GlobalPropertyMatchingID"
+                Method_Name="Get_RightPackage_for_GlobalPropertyMatchingID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_RightPackage_for_GlobalPropertyMatchingID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  tms_pro_acc_rightspackages.TMS_PRO_ACC_RightsPackageID,
+	  tms_pro_acc_rightspackages.Name_DictID,
+	  tms_pro_acc_rightspackages.Description_DictID,
+	  tms_pro_acc_rightspackages.HierarchyLevel,
+	  tms_pro_acc_rightspackages.Creation_Timestamp
+	From
+	  tms_pro_acc_rightspackages
+	Where
+	  tms_pro_acc_rightspackages.IsDeleted = 0 And
+	  tms_pro_acc_rightspackages.Tenant_RefID = @TenantID And
+	  tms_pro_acc_rightspackages.GlobalPropertyMatchingID =
+	  @GlobalPropertyMatchingID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2RP_GRPfGPM_1150">
+    <Members>
+		<ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2RP_GRPfGPM_1150" IsArray="false">
+			<Members>
+				<ClassMember Name="TMS_PRO_ACC_RightsPackageID" Type="Guid"  />
+				<ClassMember Name="Name" Type="Dict" OriginTable="tms_pro_acc_rightspackages" Source_DBField="Name_DictID"  />
+				<ClassMember Name="Description" Type="Dict" OriginTable="tms_pro_acc_rightspackages" Source_DBField="Description_DictID"  />
+				<ClassMember Name="HierarchyLevel" Type="String"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,878 @@
+.doctors-table {
+	> li {
+		&:nth-child(1) {
+			width: 17%;
+		}
+
+		&:nth-child(2) {
+			width: 90px;
+		}
+
+		&:nth-child(4) {
+			width: 60px;
+		}
+
+		&:nth-child(9) {
+			width: 150px;
+		}
+	}
+
+	.controls {
+		width: 80px;
+
+		a {
+			margin-right: 5px;
+		}
+	}
+}
+
+.doctors-data-lists.doctor-list{
+	background-color: #ebebeb;
+	float: left;
+	clear: left;
+	width: 100%;
+
+	input{
+		border: 1px solid transparent;
+		outline: 0;
+		@include border-radius(3px);
+
+		&:focus{
+			border: 1px solid $active-color;
+		}
+	}
+
+	input[type="text"],
+	input[type="number"],
+	input[type="email"],
+	input[type="password"]{
+		height: 34px;
+		padding: 2px 5px;
+	}
+
+	.first-class-data{
+        width: 76%;
+		width: calc( 100% - 270px);
+
+      /*  @media screen and (max-width: 1700px){
+            width: 76%;
+		   width: calc( 100% - 270px);
+        }*/
+	}
+
+	.second-class-data-wrapper{
+        width: 76%;
+		width: calc( 100% - 290px);
+
+         @media screen and(max-width: 1280px){
+            width: 80%;
+            width: calc(100% - 200px);
+        }
+	}
+
+	.second-class-data{
+		width: 100%;
+    }
+    .doctor-row{
+            li{
+                margin-bottom: 0 !important;
+
+                &:first-child{
+                    width: 110px;
+                    margin-left: 6px;
+                }
+                &:nth-child(02){
+                    width: 83.5%;
+
+                    @media screen and (max-width: 1910px){
+                         width: 78%;
+                    }
+                      @media screen and (max-width: 1550px){
+                        width: 73%;
+                     }
+                }
+
+                >.button{
+                    margin: 0;
+                    margin-top: 22px;
+                }
+            }
+            .angucomplete-dropdown{
+                    width: 50% !important;
+                }
+        }
+
+
+    .third-class-data{
+        @extend .first-class-data;
+        width: 68%;
+        width: calc( 100% - 400px);
+    }
+
+	.first-class-data,
+	.second-class-data{
+		float: left;
+		clear: left;
+
+		li{
+			float: left;
+			margin-right: 10px;
+			margin-bottom: 20px;
+
+			&:last-child{
+				margin-right: 0;
+			}
+
+			label{
+				display: block;
+				margin-bottom: 10px;
+			}
+
+			input{
+				width: 100%;
+			}
+		}
+	}
+
+	.second-class-data-wrapper{
+		padding-left: 40px;
+		border-top: 1px solid #b7b7b7;
+		clear: left;
+		float: left;
+		padding-top: 15px;
+	}
+
+	h3{
+		float: left;
+		clear: left;
+		margin-bottom: 10px;
+	}
+
+	.buttons{
+		//float: left;
+        float: right;
+		width: 250px;
+		margin-top: 21px;
+
+		.button{
+			margin-bottom: 0;
+		}
+	}
+
+	.centered-checkbox{
+		.mask-checkbox{
+			display: block;
+			margin: 15px auto 0;
+		}
+
+		.mask-toggle{
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+	.first-row{
+		li{
+			&:first-child{
+				width: 9%;
+
+				select{
+					@include border-radius(3px);
+					width: 100%;
+					height: 34px;
+					outline: 0;
+					border: 1px solid transparent;
+					// cut text in select field
+
+			    	/*overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					padding-right: 20px !important;*/
+
+					&:focus{
+						border: 1px solid $active-color;
+					}
+
+					&:-moz-focus-inner{
+						border: 1px solid transparent;
+					}
+				}
+			}
+
+			&:last-child{
+				width: 19.5%;
+			}
+		}
+	}
+
+	.first-row{
+		li{
+			&:nth-child(02),
+			&:nth-child(05){
+				width: 16%;
+			}
+		}
+	}
+
+	.second-row{
+		border-bottom: 1px solid #b7b7b7;
+		margin-bottom: 20px;
+
+		li{
+			&:first-child{
+				width: 33%;
+			}
+
+			.autocomplete-input{
+				height: 34px;
+
+				input{
+					height: 34px;
+				}
+			}
+		}
+	}
+
+	.third-row{
+		border-bottom: 1px solid #b7b7b7;
+		margin-bottom: 20px;
+
+		li{
+			&:first-child{
+				display: block;
+				margin-bottom: 10px;
+
+				label{
+					display: inline-block;
+				}
+			}
+
+			&:nth-child(02){
+				clear: left;
+				width: 33%;
+			}
+
+			&:nth-child(03){
+				width: 20%;
+			}
+
+			&:nth-child(04){
+				width: 16%;
+			}
+
+			&:nth-child(05){
+				width: 29%;
+			}
+		}
+	}
+
+	.fourth-row{
+		li{
+			&:first-child{
+				width:21%;
+			}
+
+			&:nth-child(02),
+			&:nth-child(03){
+				width:15%;
+
+				@media screen and (max-width: 1370px){
+					width: 19%;
+				}
+			}
+
+			&:last-child{
+				//padding-top: 36px;
+                padding-top: 36px;
+
+
+			}
+
+			.mask-checkbox{
+				margin-top: -5px;
+			}
+		}
+	}
+
+   .contract-row{
+        li{
+            width: 110px;
+            &:first-child{
+                width: 20%;
+            }
+
+			&:nth-child(6) {
+				width: 200px;
+			}
+        }
+}
+	.error{
+		font-weight: bold;
+		color: #c73030;
+		margin-left: 3px;
+	}
+}
+
+.doctor-details{
+	@include clearfix;
+	width: 100%;
+	margin-bottom: 15px;
+	position: relative;
+
+	li{
+		float: left;
+	//	min-width: 100px;
+
+	//fix width on edit doctor page
+	    max-width: 200px;
+		word-wrap: break-word;
+		margin-right: 10px;
+		margin-left: 130px;
+
+		// align names on edit patients and doctors
+		@media screen and (max-width: 1600px){
+			margin-left: 50px;
+		}
+
+		&:first-child,
+		/*&:last-child
+
+		&:nth-child(02)*/{
+			margin-left: 0;
+		}
+
+
+		label{
+			display: block;
+			margin-bottom: 10px;
+
+			span{
+				font-weight: bold;
+			}
+		}
+
+		.icons-edit{
+			position: absolute;
+			right: 0;
+		}
+
+	}
+}
+
+.patient-details {
+	display: table;
+	width: 100%;
+
+	> li {
+		display: table-cell;
+		padding-right: 10px;
+		vertical-align: top;
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+
+		p {
+			margin-bottom: 7px;
+		}
+
+		strong {
+			font-weight: 700;
+		}
+
+		a {
+			position: relative;
+			margin-left: 5px;
+
+			.icons-pencil {
+				position: absolute;
+				top: -2px;
+				left: 0;
+			}
+		}
+	}
+}
+
+.back-button{
+	display: block;
+	float: left;
+	margin-bottom: 20px;
+	color: $sub-header;
+
+	&:before{
+		content: '';
+		display: inline-block;
+		width: 11px;
+		height: 20px;
+		margin-right: 10px;
+		background: url("../images/icons/back-button.png") no-repeat center center;
+	}
+
+	span{
+		display: inline-block;
+		vertical-align: super;
+	}
+}
+
+.first-letter-holder{
+	margin: 0;
+	padding-left: 30px;
+	text-align: left;
+	line-height: 32px;
+	display: inline-block;
+	width: 100%;
+	background-color: #efefef;
+	font-size: 12px;
+	/*clear: both; // edit on treatment page*/
+}
+.form-checkbox{
+    display: inline-block;
+    clear: left;
+    float: left;
+    width: 7%;
+    margin-right: 15px;
+
+        @media screen and (max-width: 1520px){
+            width: 11%;
+        }
+        span{
+            margin: 15px 0 0 30px;
+        }
+}
+
+.form-inline-checkbox{
+    clear: both;
+    width: 8%;
+    margin: 0 0 20px;
+
+    input{
+        margin: 5px 5px 0 0;
+    }
+    @media screen and (max-width: 1520px){
+            width: 11%;
+        }
+}
+
+.list-data-wrapper{
+        border-top: 1px solid #b7b7b7;
+        padding-top: 15px;
+        clear: both;
+
+}
+
+
+.contracts-list-header,
+.doctors-list-header{
+	padding-left: 30px;
+    //align header text width list items text
+    padding-right: 16px;
+	background-color: #ccc;
+
+	li{
+		color: $btn-hover-color;
+		line-height: 50px;
+		white-space: nowrap;
+	}
+}
+
+.contracts-list-item,
+.doctors-list-item{
+	position: relative;
+	padding-left: 25px;
+	@extend .default-font-color;
+	background-color: #fff;
+	border-bottom: 1px solid #d7d7d7;
+	height: 82px;
+
+    overflow: hidden; //check form
+
+	li{
+		padding: 30px 0 25px;
+        //for all li to be inside parent
+        max-height: 80px;
+        overflow: hidden;
+
+		&:first-child{
+			padding-top: 33px;
+			/*padding-top: 28px*/
+		}
+
+		> span{
+			display: block;
+
+			&:nth-child(02),
+			&:nth-child(03){
+				color: $sub-header;
+				margin-top: 3px;
+				min-height: 12px;
+			}
+		}
+	}
+}
+
+.doctors-list-header,
+.doctors-list-item{
+	//@include clearfix;
+	float: left;
+	clear: left;
+	width: 100%;
+	padding-left: 30px;
+
+	li{
+		float: left;
+		margin-right: 10px;
+	/*	overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap; */
+
+		&:last-child{
+			margin-right: 0;
+		}
+
+		&:first-child{
+			width: 14%;
+			word-wrap: break-word;
+
+			span{
+				word-wrap: break-word;
+			}
+			/*@media screen and (max-width: 1200px){
+				//width: 12.5%;
+				width: 15%;
+			}*/
+		}
+
+		&:nth-child(02){
+			//width: 70px;
+			width: 60px;
+			text-align: center;
+
+			/*@media screen and (max-width: 1640px){
+				width: 8% !important;
+				margin-right: 0;
+			}*/
+		}
+
+		&:nth-child(03){
+			width: 90px;
+			text-align: center;
+		}
+
+		&:nth-child(04){
+			width: 60px;
+			text-align: center;
+		}
+
+		&:nth-child(05),
+		&:nth-child(06),
+		&:nth-child(07),
+		&:nth-child(08){
+
+			/*@media screen and (max-width: 1500px){
+				width: 12%;*/
+				/*width: 8%;*/
+
+				/*span{
+				text-overflow: inherit;
+				overflow: visible;
+			}
+		}*/
+			//check
+			@media screen and (max-width: 1150px){
+				width: 10%;
+			}
+
+			width: 12%;
+		}
+
+		&:nth-child(05){
+
+			span{
+				width: 100%;
+  				white-space: normal;
+				word-wrap: break-word;
+			}
+		}
+
+		&:nth-child(06){
+			//numbers length
+			@media screen and (max-width: 1500px){
+				width: 8%;
+			}
+
+			span{
+				@media screen and (max-width: 1530px){
+					width: 100%;
+					white-space: normal;
+  					word-wrap: break-word;
+				}
+			}
+
+		}
+
+
+		/*&:nth-child(05),
+		&:nth-child(06),*/
+		&:nth-child(08){
+
+			@media screen and (max-width: 1450px){
+				width: 15%;
+			}
+
+			span{
+				width: 90%;
+				white-space: nowrap;
+				/*text-overflow: ellipsis;
+				overflow: hidden;*/
+
+				//check
+			/*	@media screen and (max-width: 1320px){
+					//width: 85%;
+					width: 90%;
+				}*/
+
+				// for space btw columns
+
+				@media screen and (max-width: 1100px){
+					width: 75%;
+				}
+
+				@media screen and (max-width: 1050px){
+					width: 60%;
+				}
+			}
+		}
+
+
+		&:nth-child(07){
+			text-align: left;
+
+			span{
+				width: 98%;
+				word-wrap: break-word;
+				/*text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;*/
+
+				/*@media screen and (max-width: 1320px){
+					width: 85%;
+				}*/
+			}
+		}
+
+
+		.icons-position{
+			position: absolute;
+			line-height: 34px;
+			right: 20px;
+			top: 50%;
+			margin-top: -17px;
+		}
+
+		.icons-edit{
+			position: absolute;
+			right: 20px;
+			top: 50%;
+			margin-top: -17px;
+		}
+
+		.icons-hospital-item,
+		.icons-doctor-item{
+			position: absolute;
+			top: 50%;
+			margin-top: -15px;
+		}
+
+		.icons-doctor-item{
+			margin-left: 9px;
+		}
+
+		.icons-hospital-item{
+			margin-left: 11px;
+		}
+	}
+}
+
+.icons-treatment-item{
+	display: inline-block;
+	margin-right: 0px;
+	width: 26px;
+	height: 26px;
+	background: url('../images/icons/treatments.png') no-repeat center;
+}
+
+.icons-aftercare-item{
+	display: inline-block;
+	width: 25px;
+	height: 24px;
+	background: url("../images/icons/follow-up.png") no-repeat center;
+}
+
+.doctors-data-lists.doctor-list.ddetails-edit{
+	.button.medium{
+		margin-top: 22px;
+		margin-bottom: 0;
+	}
+
+	.first-row{
+		li{
+			&:nth-child(02),
+			&:nth-child(03){
+				width: 18.8%;
+			}
+
+			&:nth-child(04){
+				width: 16%;
+			}
+
+			&:first-child,
+			&:nth-child(05),
+			&:last-child{
+				width: 14%;
+			}
+		}
+	}
+
+	.second-row{
+		li{
+			&:first-child{
+				width: 32%;
+			}
+		}
+	}
+
+	.third-row{
+		li{
+			&:nth-child(02){
+				width: 32%;
+			}
+
+			&:nth-child(04){
+				width: 17%;
+			}
+		}
+	}
+
+	.fourth-row{
+		li{
+			&:nth-child(03){
+				width: 10%;
+				min-width: 161px;
+			}
+
+			&:last-child{
+				padding-top: 0;
+				margin-left: 25px;
+
+				.mask-toggle{
+					display: block;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+}
+
+.doctors-list-item.banned-user{
+	&:before{
+		content: '';
+		position: absolute;
+		display: block;
+		width: 9px;
+		height: 70px;
+		left: 0;
+		top: 5px;
+		background-color: $error-color;
+	}
+
+	li:nth-child(09){
+		color: $error-color;
+	}
+}
+
+.patients-list-header{
+	@extend .doctors-list-header;
+}
+
+.patients-list-item{
+	@extend .doctors-list-item;
+}
+
+.patients-list-header,
+.patients-list-item{
+	li{
+		&:nth-child(02){
+			width: 180px;
+            span{
+                width: 100%;
+                text-align: center !important;
+            }
+		}
+
+		&:nth-child(03){
+			width: 15%;
+			text-align: left;
+
+			span{
+				white-space: normal;
+				word-wrap: break-word;
+			}
+		}
+
+		&:nth-child(04){
+			width: 140px;
+			text-align: left;
+			/*text-align: center;*/
+		}
+
+		&:nth-child(05),
+		&:nth-child(06){
+			text-align: center;
+		}
+	}
+}
+
+
+.employee-list-header{
+	@extend .doctors-list-header;
+}
+
+.employee-list-item{
+	@extend .doctors-list-item;
+}
+
+.employee-list-header,
+.employee-list-item{
+	li{
+          white-space: normal;
+          word-wrap: break-word;
+
+        &:nth-child(01){
+			width: 25%;
+		}
+        &:nth-child(02){
+			width: 20%;
+            text-align: left;
+		}
+
+       /* span{
+            white-space: normal;
+            word-wrap: break-word;
+        }*/
+    }
+}
+
+.employee-list-item{
+    li{
+        &:nth-child(3){
+            width: auto;
+            word-wrap: normal;
+
+            span{
+                padding-left: 10px;
+            }
+        }
+    }
+}

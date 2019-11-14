@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="21/5/2014 01:57:10">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Correspondences_for_BusinessParticipant</Name>
+    <Namespace>CL2_Correspondences.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Correspondences.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Correspondences_for_BusinessParticipant"
+                Method_Name="Get_Correspondences_for_BusinessParticipant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Correspondences_for_BusinessParticipant"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_per_personinfo_correspondences.CorrespondenceText,
+  cmn_per_personinfo_correspondences.CMN_PER_PersonInfo_CorrespondenceID,
+  bp.CMN_BPT_BusinessParticipantID,
+  cmn_per_personinfo_correspondences.IsDefaultCorrespondence,
+  cmn_per_personinfo_correspondences.CorrespondenceType_RefID
+From
+  cmn_bpt_ctm_customers Inner Join
+  cmn_bpt_businessparticipants
+    On cmn_bpt_ctm_customers.Ext_BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And
+    cmn_bpt_businessparticipants.IsDeleted = 0 Inner Join
+  cmn_bpt_businessparticipant_associatedbusinessparticipants association
+    On association.AssociatedBusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And
+    association.IsDeleted = 0 Inner Join
+  cmn_bpt_businessparticipants bp On bp.CMN_BPT_BusinessParticipantID =
+    association.BusinessParticipant_RefID And bp.IsDeleted = 0 And
+    bp.IsNaturalPerson = 1 Inner Join
+  cmn_per_personinfo On cmn_per_personinfo.CMN_PER_PersonInfoID =
+    bp.IfNaturalPerson_CMN_PER_PersonInfo_RefID And
+    cmn_per_personinfo.IsDeleted = 0 Inner Join
+  cmn_per_personinfo_correspondences
+    On cmn_per_personinfo_correspondences.CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID And
+    cmn_per_personinfo_correspondences.IsDeleted = 0
+Where
+  cmn_bpt_ctm_customers.CMN_BPT_CTM_CustomerID = @CustomerID And
+  cmn_bpt_ctm_customers.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2CO_GCfBP_1355">
+    <Members>
+      <ClassMember Name="CustomerID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2CO_GCfBP_1355" IsArray="true">
+			<Members>
+				<ClassMember Name="CorrespondenceText" Type="String"  />
+				<ClassMember Name="CMN_PER_PersonInfo_CorrespondenceID" Type="Guid"  />
+                <ClassMember Name="IsDefaultCorrespondence" Type="bool"  />
+                <ClassMember Name="CorrespondenceType_RefID" Type="Guid"  />
+
+            </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

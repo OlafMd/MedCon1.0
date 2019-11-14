@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D4F4B377-8C25-466F-B42F-315FC44A6D33}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_BIL</RootNamespace>
+    <AssemblyName>CL1_BIL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BIL_BillHeaderExtension_EDIFACT\ORM_BIL_BillHeaderExtension_EDIFACT.cs" />
+    <Compile Include="BIL_BillHeader\ORM_BIL_BillHeader.cs" />
+    <Compile Include="BIL_BillHeader_2_AccountingTransaction\ORM_BIL_BillHeader_2_AccountingTransaction.cs" />
+    <Compile Include="BIL_BillHeader_2_BillStatus\ORM_BIL_BillHeader_2_BillStatus.cs" />
+    <Compile Include="BIL_BillHeader_2_InstallmentPlan\ORM_BIL_BillHeader_2_InstallmentPlan.cs" />
+    <Compile Include="BIL_BillHeader_AssignedPayment\ORM_BIL_BillHeader_AssignedPayment.cs" />
+    <Compile Include="BIL_BillHeader_History\ORM_BIL_BillHeader_History.cs" />
+    <Compile Include="BIL_BillHeader_MethodOfPayment\ORM_BIL_BillHeader_MethodOfPayment.cs" />
+    <Compile Include="BIL_BillHeader_PropertyValue\ORM_BIL_BillHeader_PropertyValue.cs" />
+    <Compile Include="BIL_BillPosition\ORM_BIL_BillPosition.cs" />
+    <Compile Include="BIL_BillPosition_2_CustomerOrderPosition\ORM_BIL_BillPosition_2_CustomerOrderPosition.cs" />
+    <Compile Include="BIL_BillPosition_2_CustomerOrderReturnPosition\ORM_BIL_BillPosition_2_CustomerOrderReturnPosition.cs" />
+    <Compile Include="BIL_BillPosition_2_PatientTreatment\ORM_BIL_BillPosition_2_PatientTreatment.cs" />
+    <Compile Include="BIL_BillPosition_2_Product\ORM_BIL_BillPosition_2_Product.cs" />
+    <Compile Include="BIL_BillPosition_2_ShipmentPosition\ORM_BIL_BillPosition_2_ShipmentPosition.cs" />
+    <Compile Include="BIL_BillPosition_Group\ORM_BIL_BillPosition_Group.cs" />
+    <Compile Include="BIL_BillPosition_PropertyValue\ORM_BIL_BillPosition_PropertyValue.cs" />
+    <Compile Include="BIL_BillPosition_Reimbursement\ORM_BIL_BillPosition_Reimbursement.cs" />
+    <Compile Include="BIL_BillPosition_TransmitionStatus\ORM_BIL_BillPosition_TransmitionStatus.cs" />
+    <Compile Include="BIL_BillStatus\ORM_BIL_BillStatus.cs" />
+    <Compile Include="BIL_Note\ORM_BIL_Note.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BIL_Note\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_Note\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_Note\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillHeaderExtension_EDIFACT\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillHeaderExtension_EDIFACT\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillHeaderExtension_EDIFACT\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_PropertyValue\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_PropertyValue\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_PropertyValue\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_PropertyValue\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_PropertyValue\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_PropertyValue\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_History\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_History\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_History\SQL\Insert.sql" />
+    <Content Include="_Support\BIL_BillHeader_History.xml" />
+    <Content Include="_Support\BIL_BillHeader_PropertyValues.xml" />
+    <Content Include="_Support\BIL_BillPosition_PropertyValue.xml" />
+    <Content Include="_Support\BIL_Notes.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="BIL_BillStatus\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillStatus\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillStatus\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_2_BillStatus\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_2_BillStatus\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_2_BillStatus\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_Product\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_Product\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_Product\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_TransmitionStatus\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_TransmitionStatus\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_TransmitionStatus\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_2_InstallmentPlan\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_2_InstallmentPlan\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_2_InstallmentPlan\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_2_AccountingTransaction\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_2_AccountingTransaction\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_2_AccountingTransaction\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_AssignedPayment\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_AssignedPayment\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_AssignedPayment\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_MethodOfPayment\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_MethodOfPayment\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillHeader_MethodOfPayment\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_CustomerOrderReturnPosition\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_CustomerOrderReturnPosition\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_CustomerOrderReturnPosition\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_Reimbursement\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_Reimbursement\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_Reimbursement\SQL\Insert.sql" />
+    <Content Include="_Support\BIL_BillHeader_2_AccountingTransactions.xml" />
+    <Content Include="_Support\BIL_BillHeader_2_BillStatus.xml" />
+    <Content Include="_Support\BIL_BillHeader_2_InstallmentPlans.xml" />
+    <Content Include="_Support\BIL_BillHeader_AssignedPayments.xml" />
+    <Content Include="_Support\BIL_BillHeader_MethodOfPayments.xml" />
+    <Content Include="_Support\BIL_BillPosition_2_CustomerOrderReturnPosition.xml" />
+    <Content Include="_Support\BIL_BillPosition_2_Product.xml" />
+    <Content Include="_Support\BIL_BillPosition_Reimbursements.xml" />
+    <Content Include="_Support\BIL_BillPosition_TransmitionStatuses.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\BIL_BillStatuses.xml" />
+    <EmbeddedResource Include="BIL_BillPosition\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillPosition\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillPosition\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillHeader\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillHeader\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillHeader\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_CustomerOrderPosition\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_CustomerOrderPosition\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_CustomerOrderPosition\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_PatientTreatment\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_PatientTreatment\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_PatientTreatment\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_ShipmentPosition\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_ShipmentPosition\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_2_ShipmentPosition\SQL\Select.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_Group\SQL\Insert.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_Group\SQL\Update.sql" />
+    <EmbeddedResource Include="BIL_BillPosition_Group\SQL\Select.sql" />
+    <Content Include="_Support\BIL_BillHeaderExtension_EDIFACT.xml" />
+    <Content Include="_Support\BIL_BillHeaders.xml" />
+    <Content Include="_Support\BIL_BillPositions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\BIL_BillPosition_2_CustomerOrderPosition.xml" />
+    <Content Include="_Support\BIL_BillPosition_2_PatientTreatment.xml" />
+    <Content Include="_Support\BIL_BillPosition_2_ShipmentPosition.xml" />
+    <Content Include="_Support\BIL_BillPosition_Groups.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

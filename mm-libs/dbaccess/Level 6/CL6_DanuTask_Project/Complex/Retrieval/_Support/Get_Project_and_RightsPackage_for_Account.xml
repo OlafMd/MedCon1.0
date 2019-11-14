@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/15/2014 1:51:16 PM">
+
+	<Componenttype>AtomicMethod</Componenttype>
+	<Meta>
+		<Name>Get_Project_and_RightsPackage_for_Account</Name>
+		<Description>
+		</Description>
+		<Namespace>CL6_DanuTask_Project.Complex.Retrieval</Namespace>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="CL6_DanuTask_Project.Complex.Retrieval"
+								Method_ClassName="cls_Get_Project_and_RightsPackage_for_Account"
+								Method_Name="Get_Project_and_RightsPackage_for_Account"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=".Get_Project_and_RightsPackage_for_Account"
+								/>
+
+
+	<Parameters IsClass="true" Name="P_L6PR_GPaRPfA_1351">
+		<Members>
+			<ClassMember Name="UserAccount_ID" Type="Guid"  />
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6PR_GPaRPfA_1351" IsArray="true">
+			<Members>
+				<ClassMember Name="TMS_PRO_ProjectMemberID" Type="Guid" />
+				<ClassMember Name="TMS_PRO_ProjectID" Type="Guid" />
+				<ClassMember Name="ProjectName" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Name_DictID"/>
+				<ClassMember Name="RightPackage" isReference="true" Type="L3PR_GRPfPM_1029" IsArray="true"/>
+				<ClassMember Name="isProjectMember" Type="Boolean" />
+				<ClassMember Name="isTechManager" Type="Boolean" />
+				<ClassMember Name="isProjectManager" Type="Boolean" />
+				<ClassMember Name="isDeveloper" Type="Boolean" />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

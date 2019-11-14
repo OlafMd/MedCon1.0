@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="05/26/2014 16:04:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Diagnosis</Name>
+    <Namespace>CL5_MyHealthClub_DoctorsAndStaff.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Diagnosis.Atomic.Manipulation"
+                Method_ClassName="cls_Save_DiagnosisCatalog"
+                Method_Name="Save_DiagnosisCatalog"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <Parameters IsClass="true" Name="P_L5DI_SDC_1032">
+    <Members>
+      <ClassMember Name="CatalogID" Type="Guid"  />
+	    <ClassMember Name="isDeleted" Type="Boolean"  />
+	    <ClassMember Name="Catalog_Name" Type="String"  />
+      <ClassMember Name="IsPrivateCatalog" Type="bool"  />
+      <ClassMember IsClass="true" IsArray="true" Type="P_L5DI_SDC_1032_CatalogAccess" Name="CatalogAccess" >
+        <Members>
+          <ClassMember Name="Catalog_AccessID" Type="Guid"  />
+          <ClassMember Name="IsContributor" Type="bool"  />
+          <ClassMember Name="isDeleted" Type="Boolean"  />
+          <ClassMember Name="BusinessParticipantID" Type="Guid"  />
+        </Members>
+      </ClassMember>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>

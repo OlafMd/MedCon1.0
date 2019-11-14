@@ -1,0 +1,18 @@
+
+	Select
+  cmn_bpt_emp_extraworkcalculation_surcharges.CMN_BPT_EMP_ExtraWorkCalculation_SurchargeID,
+  cmn_bpt_emp_extraworkcalculation_surcharges.IsNightTimeSurcharge,
+  cmn_bpt_emp_extraworkcalculation_surcharges.IsSpecialEventSurcharge,
+  cmn_bpt_emp_extraworkcalculation_surcharges.Surcharge_Name_DictID,
+  cmn_bpt_emp_extraworkcalculation_surcharge_structurebindings.BoundTo_Office_RefID,
+  cmn_bpt_emp_extraworkcalculation_surcharge_structurebindings.BoundTo_WorkArea_RefID,
+  cmn_bpt_emp_extraworkcalculation_surcharge_structurebindings.BoundTo_Workplace_RefID
+From
+  cmn_bpt_emp_extraworkcalculation_surcharges Inner Join
+  cmn_bpt_emp_extraworkcalculation_surcharge_structurebindings
+    On
+    cmn_bpt_emp_extraworkcalculation_surcharges.CMN_BPT_EMP_ExtraWorkCalculation_SurchargeID = cmn_bpt_emp_extraworkcalculation_surcharge_structurebindings.ExtraWorkCalculation_Surcharge_RefID
+Where
+  cmn_bpt_emp_extraworkcalculation_surcharges.IsDeleted = 0 And
+  cmn_bpt_emp_extraworkcalculation_surcharges.Tenant_RefID = @TenantID
+  

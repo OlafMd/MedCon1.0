@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_str_sce_structurecalendarevent_types
+WHERE 
+	CMN_STR_SCE_StructureCalendarEvent_TypeID = @CMN_STR_SCE_StructureCalendarEvent_TypeID

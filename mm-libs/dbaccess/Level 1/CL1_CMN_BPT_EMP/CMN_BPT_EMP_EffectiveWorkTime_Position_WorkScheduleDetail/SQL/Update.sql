@@ -1,0 +1,10 @@
+UPDATE 
+	cmn_bpt_emp_effectiveworktime_position_workscheduledetail
+SET 
+	CMN_STR_PPS_DailyWorkSchedule_Detail_RefID=@CMN_STR_PPS_DailyWorkSchedule_Detail_RefID,
+	CMN_BPT_EMP_EffectiveWorkTime_Position_RefID=@CMN_BPT_EMP_EffectiveWorkTime_Position_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	AssignmentID = @AssignmentID

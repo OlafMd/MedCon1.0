@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/12/2015 11:31:07 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Patient_Preexaminations_on_Tenant</Name>
+    <Namespace>MMDocConnectDBMethods.Patient.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Patient.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Patient_Preexaminations_on_Tenant"
+                Method_Name="Get_Patient_Preexaminations_on_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Patient_Preexaminations_on_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_act_performedaction_diagnosisupdate_localizations.IM_PotentialDiagnosisLocalization_Code As Localization,
+  hec_cas_cases.Patient_RefID As PatientID,
+  bil_billposition_transmitionstatuses.TransmittedOnDate As PreexaminationDate
+From
+  hec_cas_cases
+  Inner Join hec_cas_case_relevantperformedactions On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_relevantperformedactions.Case_RefID And
+    hec_cas_case_relevantperformedactions.Tenant_RefID = @TenantID And hec_cas_case_relevantperformedactions.IsDeleted = 0
+  Inner Join hec_act_performedaction_diagnosisupdates On hec_cas_case_relevantperformedactions.PerformedAction_RefID =
+    hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_RefID And
+    hec_act_performedaction_diagnosisupdates.Tenant_RefID = @TenantID And 
+    hec_act_performedaction_diagnosisupdates.IsDeleted = 0
+  Inner Join hec_act_performedaction_diagnosisupdate_localizations On hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_DiagnosisUpdateID =
+    hec_act_performedaction_diagnosisupdate_localizations.HEX_EXC_Action_DiagnosisUpdate_RefID And
+    hec_act_performedaction_diagnosisupdate_localizations.Tenant_RefID = @TenantID And hec_act_performedaction_diagnosisupdate_localizations.IsDeleted = 0
+  Inner Join hec_cas_case_billcodes On hec_cas_case_relevantperformedactions.Case_RefID = hec_cas_case_billcodes.HEC_CAS_Case_RefID And
+    hec_cas_case_billcodes.Tenant_RefID = @TenantID And hec_cas_case_billcodes.IsDeleted = 0
+  Inner Join hec_bil_billposition_billcodes On hec_cas_case_billcodes.HEC_BIL_BillPosition_BillCode_RefID = hec_bil_billposition_billcodes.HEC_BIL_BillPosition_BillCodeID And
+    hec_bil_billposition_billcodes.Tenant_RefID = @TenantID And hec_bil_billposition_billcodes.IsDeleted = 0
+  Inner Join hec_bil_billpositions On hec_bil_billposition_billcodes.BillPosition_RefID = hec_bil_billpositions.HEC_BIL_BillPositionID And
+    hec_bil_billpositions.Tenant_RefID = @TenantID And 
+    hec_bil_billpositions.IsDeleted = 0
+  Inner Join bil_billposition_transmitionstatuses On hec_bil_billpositions.Ext_BIL_BillPosition_RefID = bil_billposition_transmitionstatuses.BillPosition_RefID And 
+    bil_billposition_transmitionstatuses.IsDeleted = 0 And bil_billposition_transmitionstatuses.Tenant_RefID = @TenantID And 
+    bil_billposition_transmitionstatuses.TransmitionStatusKey = 'preexamination' And bil_billposition_transmitionstatuses.IsActive = 1 And
+    (bil_billposition_transmitionstatuses.TransmitionCode != 8 And bil_billposition_transmitionstatuses.TransmitionCode != 11)
+Where
+  hec_cas_cases.IsDeleted = 0 And
+  hec_cas_cases.Tenant_RefID = @TenantID
+Group By
+  hec_cas_cases.HEC_CAS_CaseID  
+  </SQLStatement>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="PA_GPPoT_2200" IsArray="true">
+      <Members>
+        <ClassMember Name="Localization" Type="String"  />
+        <ClassMember Name="PatientID" Type="Guid"  />
+        <ClassMember Name="PreexaminationDate" Type="DateTime"  />
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

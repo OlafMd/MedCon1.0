@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/6/2014 09:36:42">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_InventoryJob_Series</Name>
+    <Namespace>CL5_APOLogistic_Inventory.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_Inventory.Atomic.Retrieval"
+                Method_ClassName="cls_Get_InventoryJob_Series"
+                Method_Name="Get_InventoryJob_Series"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_InventoryJob_Series"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT log_wrh_inj_inventoryjob_series.InventoryJobSeries_DisplayName
+		,log_wrh_inj_inventoryjob_series.IsUsingNumberOfProductsSeriesType
+		,log_wrh_inj_inventoryjob_series.NumberOfProductsToSelect
+		,log_wrh_inj_inventoryjob_series_rythms.RythmCronExpression
+	FROM log_wrh_inj_inventoryjob_series
+	LEFT JOIN log_wrh_inj_inventoryjob_series_participatingshelves ON log_wrh_inj_inventoryjob_series_participatingshelves.LOG_WRH_INJ_InventoryJob_Series_RefID = log_wrh_inj_inventoryjob_series.LOG_WRH_INJ_InventoryJob_SeriesID
+		AND log_wrh_inj_inventoryjob_series_participatingshelves.IsDeleted = 0
+	INNER JOIN log_wrh_inj_inventoryjob_series_rythms ON log_wrh_inj_inventoryjob_series_rythms.InventoryJob_Series_RefID = log_wrh_inj_inventoryjob_series.LOG_WRH_INJ_InventoryJob_SeriesID
+		AND log_wrh_inj_inventoryjob_series_rythms.IsDeleted = 0
+	WHERE (
+			(@InventoryJobSeriesID IS NULL)
+			OR (log_wrh_inj_inventoryjob_series.LOG_WRH_INJ_InventoryJob_SeriesID = @InventoryJobSeriesID)
+			)
+		AND log_wrh_inj_inventoryjob_series.IsDeleted = 0
+		AND log_wrh_inj_inventoryjob_series.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5IJ_GIJS_0933">
+    <Members>
+		<ClassMember Name="InventoryJobSeriesID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5IJ_GIJS_0933">
+			<Members>
+				<ClassMember Name="InventoryJobSeries_DisplayName" Type="String"  />
+				<ClassMember Name="IsUsingNumberOfProductsSeriesType" Type="bool"  />
+				<ClassMember Name="NumberOfProductsToSelect" Type="String"  />
+				<ClassMember Name="RythmCronExpression" Type="String"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

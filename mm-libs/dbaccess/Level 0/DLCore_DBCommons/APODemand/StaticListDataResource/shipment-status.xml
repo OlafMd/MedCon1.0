@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="shipment-statuses.created">
+    <Lang ISO="EN" Content="Created" />
+    <Lang ISO="DE" Content="Created DE" />
+  </Item>
+  <Item ID="shipment-statuses.ready-for-picking">
+    <Lang ISO="EN" Content="Ready for picking" />
+    <Lang ISO="DE" Content="Ready for picking DE" />
+  </Item>
+  <Item ID="shipment-statuses.partialy-ready-for-picking">
+    <Lang ISO="EN" Content="Partialy ready for picking" />
+    <Lang ISO="DE" Content="Partialy ready for picking DE" />
+  </Item>
+  <Item ID="shipment-statuses.manually-cleared-for-picking">
+    <Lang ISO="EN" Content="Manually cleared for picking" />
+    <Lang ISO="DE" Content="Manually cleared for picking DE" />
+  </Item>
+  <Item ID="shipment-statuses.picking-started">
+    <Lang ISO="EN" Content="Picking started" />
+    <Lang ISO="DE" Content="Picking started DE" />
+  </Item>
+  <Item ID="shipment-statuses.picking-finished">
+    <Lang ISO="EN" Content="Picking finished" />
+    <Lang ISO="DE" Content="Picking finished DE" />
+  </Item>
+  <Item ID="shipment-statuses.billed">
+    <Lang ISO="EN" Content="Billed" />
+    <Lang ISO="DE" Content="Bulled DE" />
+  </Item>
+  <Item ID="shipment-statuses.shipped">
+    <Lang ISO="EN" Content="Shipped" />
+    <Lang ISO="DE" Content="Shipped DE" />
+  </Item>
+  <Item ID="shipment-statuses.returned">
+    <Lang ISO="EN" Content="Returned" />
+    <Lang ISO="DE" Content="Returned DE" />
+  </Item>
+  <Item ID="shipment-statuses.credited">
+    <Lang ISO="EN" Content="Credited" />
+    <Lang ISO="DE" Content="Credited DE" />
+  </Item>
+  <Item ID="shipment-statuses.remind-return-shipment">
+    <Lang ISO="EN" Content="Remind return shipment" />
+    <Lang ISO="DE" Content="Remind return shipment DE" />
+  </Item>
+  <Item ID="shipment-statuses.deleted">
+    <Lang ISO="EN" Content="Deleted" />
+    <Lang ISO="DE" Content="Deleted DE" />
+  </Item>
+  <Item ID="shipment-statuses.flags-are-cleared">
+    <Lang ISO="EN" Content="Flags are cleared" />
+    <Lang ISO="DE" Content="Flags are cleared [DE]" />
+  </Item>
+</Resources>

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_employee_absencereason_timeframestatistics
+WHERE 
+	CMN_BPT_EMP_Employee_AbsenceReason_TimeframeStatisticsID = @CMN_BPT_EMP_Employee_AbsenceReason_TimeframeStatisticsID

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/21/2013 1:19:26 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_HealthInsurances_For_HealthInsuranceID</Name>
+    <Namespace>CL5_Plannico_HealthInsurances.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_HealthInsurances.Complex.Retrieval"
+                Method_ClassName="cls_Get_HealthInsurances_For_HealthInsuranceID"
+                Method_Name="Get_HealthInsurances_For_HealthInsuranceID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_HealthInsurances_For_HealthInsuranceID"
+                />
+
+  <Parameters IsClass="true" Name="P_L5HI_GHIFHIID_1329">
+    <Members>
+      <ClassMember Name="HEC_HealthInsurance_CompanyID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5HI_GHIFHIID_1329" IsArray="false">
+			<Members>
+				<ClassMember Name="HealthInsurance" Type="L5HI_GHIFT_1138" IsReference="true"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

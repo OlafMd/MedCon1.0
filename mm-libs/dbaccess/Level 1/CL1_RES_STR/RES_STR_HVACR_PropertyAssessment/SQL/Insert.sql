@@ -1,0 +1,25 @@
+INSERT INTO 
+	res_str_hvacr_propertyassessments
+	(
+		RES_STR_HVACR_PropertyAssessmentID,
+		STR_HVACR_RefID,
+		Rating_RefID,
+		HVACRProperty_RefID,
+		DocumentHeader_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_HVACR_PropertyAssessmentID,
+		@STR_HVACR_RefID,
+		@Rating_RefID,
+		@HVACRProperty_RefID,
+		@DocumentHeader_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

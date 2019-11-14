@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_businessparticipant_excludedavailabilitytypes
+WHERE 
+	CMN_BPT_BusinessParticipant_ExcludedAvailabilityTypeID = @CMN_BPT_BusinessParticipant_ExcludedAvailabilityTypeID

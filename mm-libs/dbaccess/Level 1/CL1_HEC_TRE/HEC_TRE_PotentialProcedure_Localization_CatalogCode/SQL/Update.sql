@@ -1,0 +1,12 @@
+UPDATE 
+	hec_tre_potentialprocedure_localization_catalogcodes
+SET 
+	HEC_TRE_PotentialProcedure_Localization_RefID=@HEC_TRE_PotentialProcedure_Localization_RefID,
+	HEC_TRE_PotentialProcedure_Catalogs=@HEC_TRE_PotentialProcedure_Catalogs,
+	Code=@Code,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_TRE_PotentialProcedure_Localization_CatalogCodeID = @HEC_TRE_PotentialProcedure_Localization_CatalogCodeID

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/16/2013 2:56:23 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Patient_Treatment</Name>
+    <Namespace>CL6_Lucenits_Treatments.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_Lucenits_Treatments.Complex.Manipulation"
+                Method_ClassName="cls_MakeReportData_forTreatmentsReport2"
+                Method_Name="MakeReportData_forTreatmentsReport2"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".MakeReportData_forTreatmentsReport2"
+                />
+
+  <Parameters IsClass="true" Name="P_L6TR_MRDfTR2_2310">
+    <Members>
+      <ClassMember Name="LanguageID" Type="Guid" />
+      <ClassMember Name="fromDate" Type="DateTime"/>
+      <ClassMember Name="toDate" Type="DateTime"/>
+      <ClassMember Name="statusFilter" Type="int" IsArray="true"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+       Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+       Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6TR_MRDfTR2_2310" IsArray="false">
+      <Members>
+        <ClassMember Name="stream" Type="MemoryStream" IsReference="true" />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

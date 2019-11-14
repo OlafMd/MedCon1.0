@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_bld_apartment_2_apartmenttype
+	(
+		AssignmentID,
+		RES_BLD_Apartment_RefID,
+		RES_BLD_Apartment_Type_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@RES_BLD_Apartment_RefID,
+		@RES_BLD_Apartment_Type_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

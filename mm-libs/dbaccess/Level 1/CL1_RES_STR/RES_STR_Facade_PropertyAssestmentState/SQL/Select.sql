@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_facade_propertyassestmentstates
+WHERE 
+	RES_STR_Facade_PropertyAssestmentStateID = @RES_STR_Facade_PropertyAssestmentStateID

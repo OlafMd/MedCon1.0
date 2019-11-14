@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_loc_surroundinginfrastructures
+	(
+		RES_LOC_SurroundingInfrastructureID,
+		SurroundingInfrastructure_Name_DictID,
+		SurroundingInfrastructure_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_LOC_SurroundingInfrastructureID,
+		@SurroundingInfrastructure_Name,
+		@SurroundingInfrastructure_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

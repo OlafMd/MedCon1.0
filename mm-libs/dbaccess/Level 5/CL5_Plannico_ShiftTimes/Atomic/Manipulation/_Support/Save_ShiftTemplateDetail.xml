@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/7/2013 2:04:12 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShiftTemplateDetail_For_ShiftTemplate</Name>
+    <Namespace>CL5_Plannico_ShiftTimes.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_ShiftTimes.Atomic.Manipulation"
+                Method_ClassName="cls_Save_ShiftTemplateDetail"
+                Method_Name="Save_ShiftTemplateDetail"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_ShiftTemplateDetail"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L5ST_SSTD_1423">
+    <Members>      
+      <ClassMember Name="CMN_PPS_ShiftTemplate_RefID" Type="Guid"  />
+      <ClassMember Name="ShiftStart_Offset_sec" Type="double"  />
+      <ClassMember Name="Duration_in_sec" Type="double"  />
+      <ClassMember Name="AllowedBreakTime_RefID" Type="Guid"  />
+      <ClassMember Name="WorkDetail_Note_Title" Type="String"  />
+      <ClassMember Name="WorkDetail_Note_Content" Type="String"  />
+      <ClassMember Name="AbsenceReason_RefID" Type="Guid"  />
+      <ClassMember Name="Required_StaffHeadCount" Type="int"  />
+      <ClassMember Name="CMN_PPS_ShiftTemplate_WorkDetailID" Type="Guid"  />
+      <ClassMember Name="CMN_STR_PPS_Workplace_RefID" Type="Guid"  />
+
+      
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+
+

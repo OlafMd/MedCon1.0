@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_office_default_workrelationdefinition_template
+	(
+		AssignmentID,
+		CMN_STR_Office_RefID,
+		CMN_BPT_EMP_Employee_WorkRelationDefinition_Template_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_STR_Office_RefID,
+		@CMN_BPT_EMP_Employee_WorkRelationDefinition_Template_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_bpt_emp_employmentrelationships
+	(
+		CMN_BPT_EMP_EmploymentRelationshipID,
+		IsLockedFor_TemplateUpdates,
+		Employee_RefID,
+		Work_StartDate,
+		Work_EndDate,
+		HasWorkRelationEnded,
+		InstanceOf_EmploymentRelationships_Template_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_EMP_EmploymentRelationshipID,
+		@IsLockedFor_TemplateUpdates,
+		@Employee_RefID,
+		@Work_StartDate,
+		@Work_EndDate,
+		@HasWorkRelationEnded,
+		@InstanceOf_EmploymentRelationships_Template_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

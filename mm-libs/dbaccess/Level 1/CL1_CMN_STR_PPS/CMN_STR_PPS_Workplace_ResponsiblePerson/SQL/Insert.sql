@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_pps_workplace_responsiblepersons
+	(
+		CMN_STR_PPS_Workplace_ResponsiblePersonID,
+		Workplace_RefID,
+		CMN_BPT_EMP_Employee_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_STR_PPS_Workplace_ResponsiblePersonID,
+		@Workplace_RefID,
+		@CMN_BPT_EMP_Employee_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

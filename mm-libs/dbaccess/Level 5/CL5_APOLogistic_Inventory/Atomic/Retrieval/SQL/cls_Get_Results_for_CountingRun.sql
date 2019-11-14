@@ -1,0 +1,46 @@
+
+	SELECT 
+				log_wrh_inj_inventoryjob_countingruns.LOG_WRH_INJ_InventoryJob_CountingRunID
+				,log_wrh_inj_inventoryjob_process_shelfcontents.LOG_WRH_Shelf_Content_RefID
+				,log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_INJ_InventoryJob_Process_ShelfID
+				,log_wrh_inj_process_shelfcontents_trackinginstances.LOG_ProductTrackingInstance_RefID
+				,log_producttrackinginstances.CurrentQuantityOnTrackingInstance AS TrackingInstance_CurrentQuantity
+				,log_wrh_inj_inventoryjob_process_shelfcontents.ExpectedQuantityOnShelfContent AS Shelf_CurrentQuantity
+				,log_producttrackinginstances.BatchNumber
+				,log_wrh_inj_inventryjob_countingresults.CountedAmount AS Shelf_CountedAmount
+				,log_wrh_inj_countingresult_trackinginstances.CountedAmount AS TrackingInstance_CountedAmount
+				,log_wrh_inj_inventryjob_countingresults.IsDifferenceToExpectedQuantityFound AS Shelf_DifferenceFound
+				,log_wrh_inj_countingresult_trackinginstances.IsDifferenceToExpectedQuantityFound AS TrackingInstance_DifferenceFound
+				,log_wrh_inj_inventryjob_countingresults.LOG_WRH_INJ_InventoryJob_CountingResultID
+				,log_wrh_inj_countingresult_trackinginstances.LOG_WRH_INJ_CountingResult_TrackingInstanceID
+			FROM log_wrh_inj_inventoryjob_countingruns
+			INNER JOIN log_wrh_inj_inventoryjob_processes ON log_wrh_inj_inventoryjob_countingruns.InventoryJob_Process_RefID = log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_ProcessID
+				AND log_wrh_inj_inventoryjob_processes.IsDeleted = 0
+				AND log_wrh_inj_inventoryjob_processes.Tenant_RefID = @TenantID
+			INNER JOIN log_wrh_inj_inventoryjob_process_shelves ON log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_INJ_InventoryJob_Process_RefID = log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_ProcessID
+				AND log_wrh_inj_inventoryjob_process_shelves.IsDeleted = 0
+				AND log_wrh_inj_inventoryjob_process_shelves.Tenant_RefID = @TenantID
+			INNER JOIN log_wrh_inj_inventoryjob_process_shelfcontents ON log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_INJ_InventoryJob_Process_ShelfID = log_wrh_inj_inventoryjob_process_shelfcontents.LOG_WRH_INJ_InventoryJob_Process_Shelf_RefID
+				AND log_wrh_inj_inventoryjob_process_shelfcontents.IsDeleted = 0
+				AND log_wrh_inj_inventoryjob_process_shelfcontents.Tenant_RefID = @TenantID
+			INNER JOIN log_wrh_shelf_contents ON log_wrh_shelf_contents.LOG_WRH_Shelf_ContentID = log_wrh_inj_inventoryjob_process_shelfcontents.LOG_WRH_Shelf_Content_RefID
+			LEFT OUTER JOIN log_wrh_inj_process_shelfcontents_trackinginstances ON log_wrh_inj_process_shelfcontents_trackinginstances.LOG_WRH_INJ_InventoryJob_Process_ShelfContent_RefID = log_wrh_inj_inventoryjob_process_shelfcontents.LOG_WRH_INJ_InventoryJob_Process_ShelfContentID
+				AND log_wrh_inj_process_shelfcontents_trackinginstances.IsDeleted = 0
+				AND log_wrh_inj_process_shelfcontents_trackinginstances.Tenant_RefID = @TenantID
+			LEFT OUTER JOIN log_producttrackinginstances ON log_wrh_inj_process_shelfcontents_trackinginstances.LOG_ProductTrackingInstance_RefID = log_producttrackinginstances.LOG_ProductTrackingInstanceID
+			LEFT OUTER JOIN log_wrh_inj_inventryjob_countingresults ON log_wrh_inj_inventryjob_countingresults.CountingRun_RefID = log_wrh_inj_inventoryjob_countingruns.LOG_WRH_INJ_InventoryJob_CountingRunID
+				AND log_wrh_inj_inventryjob_countingresults.Process_Shelf_RefID = log_wrh_inj_inventoryjob_process_shelves.LOG_WRH_INJ_InventoryJob_Process_ShelfID AND 
+				log_wrh_inj_inventryjob_countingresults.Product_RefID = log_wrh_shelf_contents.Product_RefID
+				AND log_wrh_inj_inventryjob_countingresults.IsDeleted = 0
+				AND log_wrh_inj_inventryjob_countingresults.Tenant_RefID = 0
+			LEFT OUTER JOIN log_wrh_inj_countingresult_trackinginstances ON log_wrh_inj_countingresult_trackinginstances.LOG_WRH_INJ_InventoryJob_CountingResult_RefID = log_wrh_inj_inventryjob_countingresults.LOG_WRH_INJ_InventoryJob_CountingResultID
+				AND log_wrh_inj_countingresult_trackinginstances.IsDeleted = 0
+			AND (
+						log_wrh_inj_countingresult_trackinginstances.LOG_ProductTrackingInstanceID = log_wrh_inj_process_shelfcontents_trackinginstances.LOG_ProductTrackingInstance_RefID
+					OR log_wrh_inj_countingresult_trackinginstances.LOG_ProductTrackingInstanceID IS NULL
+				)	
+		
+			WHERE log_wrh_inj_inventoryjob_countingruns.LOG_WRH_INJ_InventoryJob_CountingRunID = @CountingRunID
+				AND log_wrh_inj_inventoryjob_countingruns.IsDeleted = 0
+				AND log_wrh_inj_inventoryjob_countingruns.Tenant_RefID = @TenantID
+				AND (@OnlyIf_IsDifferenceFound IS NULL OR log_wrh_inj_inventryjob_countingresults.IsDifferenceToExpectedQuantityFound = @OnlyIf_IsDifferenceFound)

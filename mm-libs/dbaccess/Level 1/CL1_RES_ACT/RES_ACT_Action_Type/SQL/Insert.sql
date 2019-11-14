@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_act_action_types
+	(
+		RES_ACT_Action_TypeID,
+		ActionType_Name_DictID,
+		ActionType_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_ACT_Action_TypeID,
+		@ActionType_Name,
+		@ActionType_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

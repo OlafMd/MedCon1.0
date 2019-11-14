@@ -1,0 +1,93 @@
+﻿<div class="white-content-holder default-font-color">
+
+    <a class="back-button" ng-click="redirectBackOnePage()" href=""><span translate="BUTTON_BACK"></span></a>
+    <h1 class="gray-font-color bolded-text clear"><span class="default-font-color" id="patien_full_name">{{patient_detail.name}} </span></h1>
+</div>
+
+
+<div class="default-font-color" ng-class="{'white-content-holder': !showPatientDirective}">
+    <ul class="patient-details negative-margin" ng-if="!showPatientDirective">
+        <li>
+            <label translate="LABEL_DATE_OF_BIRTH"></label>
+            <p id="patient_birthday" class="margin-bottom-15">{{patient_detail.birthday}}</p>
+
+            <label translate="LABEL_PATIENT_ID"></label>
+            <p>{{patient_detail.external_id || '-'}}</p>
+        </li>
+        <li>
+            <label translate="LABEL_HEALTH_INSURANCE_PROVIDER"></label>
+            <p id="patient_insurance_provider" class="margin-bottom-15">{{patient_detail.health_insurance_provider}}</p>
+
+            <label translate="LABEL_PATIENT_FEE_WAIVED_FROM"></label>
+            <p>{{patient_detail.fee_waived_from || '-'}}</p>
+        </li>
+        <li>
+            <label translate="LABEL_INSURANCE_ID"></label>
+            <p ng-class="{ 'margin-bottom-15': patient_detail.originating_practice_name }">{{patient_detail.insurance_id || '-'}}</p>
+
+            <label translate="LABEL_ORIGINATING_PRACTICE" ng-if="patient_detail.originating_practice_name"></label>
+            <p ng-if="patient_detail.originating_practice_name">{{patient_detail.originating_practice_name || '-'}}</p>
+        </li>
+        <li>
+            <label translate="LABEL_INSURANCE_STATUS"></label>
+            <p id="patient_insurance_status">{{patient_detail.insurance_status}}</p>
+        </li>
+        <li>
+            <label translate="LABEL_PARTICIPATION_CONSENT"></label>
+            <p>{{patient_detail.participation_consent}}</p>
+        </li>
+        <li>
+            <label translate="LABEL_LEFT_EYE"></label>
+            <p><strong>{{ 'LABEL_OP' | translate }}:</strong> {{ patient_detail.left_eye.latest_op_date || '-' | date:'dd.MM.yyyy' }} [{{ patient_detail.left_eye.op_count }}]</p>
+            <p ng-if="can_show_oct_info"><strong>{{ 'LABEL_OCT' | translate }}:</strong> {{ patient_detail.left_eye.latest_oct_date || '-' | date:'dd.MM.yyyy' }} [{{ patient_detail.left_eye.oct_count }}]</p>
+            <p ng-if="can_show_oct_info"><strong>{{ 'LABEL_OCT_DOCTOR' | translate }}:</strong> {{ patient_detail.left_eye.oct_doctor_name || '-' | translate }}</p>
+            <p><strong>{{ 'LABEL_TREATMENT_YEAR' | translate }}:</strong> {{patient_detail.left_eye.start_treatment_year || '-' | translate  }}</p>
+        </li>
+        <li>
+            <label translate="LABEL_RIGHT_EYE"></label>
+            <p><strong>{{ 'LABEL_OP' | translate }}:</strong> {{ patient_detail.right_eye.latest_op_date || '-' | date:'dd.MM.yyyy' }} [{{ patient_detail.right_eye.op_count }}]</p>
+            <p ng-if="can_show_oct_info"><strong>{{ 'LABEL_OCT' | translate }}:</strong> {{ patient_detail.right_eye.latest_oct_date || '-' | date:'dd.MM.yyyy' }} [{{ patient_detail.right_eye.oct_count }}]</p>
+            <p ng-if="can_show_oct_info"><strong>{{ 'LABEL_OCT_DOCTOR' | translate }}:</strong> {{ patient_detail.right_eye.oct_doctor_name || '-'  | translate }}</p>
+            <p><strong>{{ 'LABEL_TREATMENT_YEAR' | translate }}:</strong> {{patient_detail.right_eye.start_treatment_year || '-' | translate  }}</p>
+        </li>
+    </ul>
+</div>
+
+<ul class="patients-list-header">
+    <li class="unsorted" ng-class="setTableHeaderClass('date')" ng-click="orderTable('date')">{{'LABEL_DATE' | translate }}</li>
+    <li class="unsorted" ng-class="setTableHeaderClass('detail_type')" ng-click="orderTable('detail_type')">{{'LABEL_CASE_ONE' | translate }}</li>
+    <li>{{'LABEL_DIAGNOSIS_DRUG'| translate}}</li>
+    <li class="unsorted text-center" ng-class="setTableHeaderClass('localisation')" ng-click="orderTable('localisation')">{{'LABEL_LOKALIZATION'| translate}}</li>
+    <li class="text-left">{{'LABEL_DOCTOR'| translate}}</li>
+    <li class="unsorted text-left" ng-class="setTableHeaderClass('status')" ng-click="orderTable('status')">{{'LABEL_STATUS'| translate}}</li>
+</ul>
+<h2 id="stickyHeaderBox" class="first-letter-holder hide"></h2>
+
+<div class="content-scroll clear" id="wrapper" sticky>
+    <div id="wrapper_inner" class="clearfix">
+
+        <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+
+            <div id="table_id" ng-repeat="item in patientDetailViewList | groupBy:'group_name'" ng-repeat-finished>
+                <h2 id="tableGroup" class="first-letter-holder tableGroup" ng-if="item.group_name_CHANGED">{{ item.group_name | translate }}</h2>
+                <div>
+                    <ul id="list" class="patients-list-item">
+                        <li><span>{{::item.date | date:'dd.MM.yyyy' }}</span>
+                            <div ng-if="item.detail_type == 'ac'" id="patientDetailsOPDate_{{$index}}" class="normal-height-font gray-font-color">{{ 'LABEL_OP_DATE' | translate }}: {{::item.op_date_string}}</div></li>
+                        <li><span ng-class="{'icons-treatment-item': item.detail_type === 'op', 'icons-aftercare-item': item.detail_type === 'ac','icon-folder':item.detail_type==='participation','icons-orders':item.detail_type==='order','icons-preexamination-item': item.detail_type === 'oct'   }"></span></li>
+                        <li>
+                            <span>{{:: item.diagnose_or_medication }}</span>
+                            <span class="normal-height-font gray-font-color margin-top-3" ng-if="item.detail_type==='order'">{{::item.pharmacy_name}}</span>
+                        </li>
+                        <li><span class="text-center">{{ ::item.localisation }}</span></li>
+                        <li class="text-left"><span>{{:: item.doctor }}</span></li>
+                        <li class="text-left" ng-class="{ '{{getBorderClassName(item)}}': true, '{{getTextClassName(item)}}': true}">
+                            <span>{{::getItemStatus(item) |translate}}</span>
+                            <span>{{::getOrderStatus(item) |translate }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

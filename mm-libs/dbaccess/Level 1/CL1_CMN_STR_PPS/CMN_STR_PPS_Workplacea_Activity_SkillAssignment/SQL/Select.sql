@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_str_pps_workplacea_activity_skillassignments
+WHERE 
+	CMN_STR_PPS_Workplace_RequiredSkillAssignmentID = @CMN_STR_PPS_Workplace_RequiredSkillAssignmentID

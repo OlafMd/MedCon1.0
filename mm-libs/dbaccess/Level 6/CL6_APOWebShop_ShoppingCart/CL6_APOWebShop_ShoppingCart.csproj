@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{126C2C95-0940-4622-A7FF-7C305F6E0034}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL6_APOWebShop_ShoppingCart</RootNamespace>
+    <AssemblyName>CL6_APOWebShop_ShoppingCart</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Complex\Retrieval\cls_Get_Mave_Data_for_PeocurementHeader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Atomic\Retrieval\SQL\" />
+    <Folder Include="Atomic\Retrieval\_Support\" />
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Complex\Retrieval\_Support\Get_Mave_Data_for_PeocurementHeader.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_MessageListener\DLCore_MessageListener.csproj">
+      <Project>{A3DFF096-684C-4300-B334-C101FA953493}</Project>
+      <Name>DLCore_MessageListener</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_CTM\CL1_CMN_BPT_CTM.csproj">
+      <Project>{C453F5A9-9877-4197-A5E3-403EF6A0455D}</Project>
+      <Name>CL1_CMN_BPT_CTM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06AB1C3C-339F-4E31-8408-232DC283308C}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_PRC\CL1_ORD_PRC.csproj">
+      <Project>{2ED9EC1F-4C36-4790-B8AE-6C03F4B40588}</Project>
+      <Name>CL1_ORD_PRC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Account\CL3_Account.csproj">
+      <Project>{683E9E5E-16DE-4CB3-8D80-D87468291694}</Project>
+      <Name>CL3_Account</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_OrganizationalStructure\CL3_OrganizationalStructure.csproj">
+      <Project>{AE672987-B12A-48EA-83C2-C6E0484DE416}</Project>
+      <Name>CL3_OrganizationalStructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Supplier\CL3_Supplier.csproj">
+      <Project>{2ED42AC0-9A96-4B36-AEB3-CA26CA8F7478}</Project>
+      <Name>CL3_Supplier</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_APOWebShop_ProcurementOrder\CL5_APOWebShop_ProcurementOrder.csproj">
+      <Project>{B4238A08-C3E4-4909-A63B-643DD7BFBE4A}</Project>
+      <Name>CL5_APOWebShop_ProcurementOrder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_APOWebShop_ShoppingCart\CL5_APOWebShop_ShoppingCart.csproj">
+      <Project>{ACFBF666-C818-4772-B7F1-0FE85F9EEF7B}</Project>
+      <Name>CL5_APOWebShop_ShoppingCart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_APOWebShop_Supplier\CL5_APOWebShop_Supplier.csproj">
+      <Project>{AD764BC1-C63D-45E6-9E2B-25BE29C3FF6D}</Project>
+      <Name>CL5_APOWebShop_Supplier</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

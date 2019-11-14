@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="8/15/2014 3:29:59 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AppointmentData_for_TaskID</Name>
+    <Namespace>CL5_MyHealthClub_TaskTemplate.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_TaskTemplate.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AppointmentData_for_TaskID"
+                Method_Name="Get_AppointmentData_for_TaskID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AppointmentData_for_TaskID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  pps_tsk_task_templates.TaskTemplateName_DictID,
+	  pps_tsk_tasks.DisplayName,
+	  pps_tsk_tasks.PlannedStartDate,
+	  pps_tsk_tasks.PlannedDuration_in_sec,
+	  cmn_str_offices.Office_Name_DictID,
+	  cmn_addresses.Street_Name,
+	  cmn_addresses.Street_Number,
+	  cmn_addresses.City_Name
+	From
+	  pps_tsk_task_templates Inner Join
+	  pps_tsk_tasks On pps_tsk_tasks.InstantiatedFrom_TaskTemplate_RefID =
+	    pps_tsk_task_templates.PPS_TSK_Task_TemplateID And
+	    pps_tsk_task_templates.Tenant_RefID = @TenantID And
+	    pps_tsk_task_templates.IsDeleted = 0 Inner Join
+	  pps_tsk_task_officebookings On pps_tsk_tasks.PPS_TSK_TaskID =
+	    pps_tsk_task_officebookings.PPS_TSK_Task_RefID And
+	    pps_tsk_task_officebookings.Tenant_RefID = @TenantID And
+	    pps_tsk_task_officebookings.IsDeleted = 0 Inner Join
+	  cmn_str_offices On pps_tsk_task_officebookings.CMN_STR_Office_RefID =
+	    cmn_str_offices.CMN_STR_OfficeID  And
+	  cmn_str_offices.IsDeleted = 0 And
+	  cmn_str_offices.Tenant_RefID = @TenantID Inner Join
+	  cmn_str_office_addresses On cmn_str_offices.CMN_STR_OfficeID =
+	    cmn_str_office_addresses.Office_RefID And
+	    cmn_str_office_addresses.Tenant_RefID = @TenantID And
+	    cmn_str_office_addresses.IsDeleted = 0 And
+	    cmn_str_office_addresses.IsDefault = 1 Inner Join
+	  cmn_addresses On cmn_addresses.CMN_AddressID =
+	    cmn_str_office_addresses.CMN_Address_RefID And cmn_addresses.IsDeleted = 0
+	    And cmn_addresses.Tenant_RefID = @TenantID
+	Where
+	  pps_tsk_tasks.Tenant_RefID = @TenantID And
+	  pps_tsk_tasks.IsDeleted = 0 And
+	  pps_tsk_tasks.PPS_TSK_TaskID = @TaskID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5AP_GADfTID_1529">
+    <Members>
+		<ClassMember Name="TaskID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5AP_GADfTID_1529" IsArray="false">
+			<Members>
+				<ClassMember Name="TaskTemplateName" Type="Dict" OriginTable="pps_tsk_task_templates" Source_DBField="TaskTemplateName_DictID"  />
+				<ClassMember Name="DisplayName" Type="String"  />
+				<ClassMember Name="PlannedStartDate" Type="DateTime"  />
+				<ClassMember Name="PlannedDuration_in_sec" Type="String"  />
+				<ClassMember Name="Office_Name" Type="Dict" OriginTable="cmn_str_offices" Source_DBField="Office_Name_DictID"  />
+				<ClassMember Name="Street_Name" Type="String"  />
+				<ClassMember Name="Street_Number" Type="String"  />
+				<ClassMember Name="City_Name" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

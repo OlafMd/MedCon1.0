@@ -1,0 +1,19 @@
+INSERT INTO 
+	log_wrh_area_2_quantitylevels
+	(
+		AssignmentID,
+		LOG_WRH_Area_RefID,
+		LOG_WRH_QuantityLevel_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@LOG_WRH_Area_RefID,
+		@LOG_WRH_QuantityLevel_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

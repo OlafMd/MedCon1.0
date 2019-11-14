@@ -1,0 +1,12 @@
+UPDATE 
+	cmn_cal_calculationtimeframes
+SET 
+	CalculationTimeframe_StartDate=@CalculationTimeframe_StartDate,
+	CalculationTimefrate_EndDate=@CalculationTimefrate_EndDate,
+	CalculationTimeframe_EstimatedEndDate=@CalculationTimeframe_EstimatedEndDate,
+	IsCalculationTimeframe_Active=@IsCalculationTimeframe_Active,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_CAL_CalculationTimeframeID = @CMN_CAL_CalculationTimeframeID

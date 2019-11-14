@@ -1,0 +1,69 @@
+$icon-list: add, edit, doctor-item, hospital-item, discard, submit, preview-black, pencil, eye;
+@each $icon in $icon-list {
+	.icons-#{$icon} {
+		display: inline-block;
+		@include sprite-icon( '#{$icon}');
+	}
+}
+
+.sort-icon {
+	cursor: pointer;
+
+	&:after {
+		content: '';
+		display: inline-block;
+		width: 7px;
+		height: 7px;
+		margin-left: 3px;
+		vertical-align: baseline;
+	}
+}
+
+.unsorted {
+	@extend .sort-icon;
+
+	&:after {
+		background: none;
+	}
+}
+
+.sorted_asc {
+	@extend .sort-icon;
+
+	&:after {
+		background: url("../images/icons/sort-asc.png") no-repeat center center;
+	}
+}
+
+.sorted_dsc {
+	@extend .sort-icon;
+
+	&:after {
+		background: url("../images/icons/sort-dsc.png") no-repeat center center;
+	}
+}
+
+.icons-print {
+	background: url("../images/icons/print.png") no-repeat center;
+	display: block;
+	height: 34px;
+	width: 34px;
+	position: absolute;
+	top: 24px;
+	right: 60px;
+}
+
+.icons-info {
+	display: inline-block;
+	height: 15px;
+	width: 15px;
+	margin-left: 5px;
+	vertical-align: -2px;
+	background: url("../images/icons/info-icon.png") no-repeat;
+	cursor: pointer;
+
+	&:hover {
+		background: url("../images/icons/info-icon-hover.png") no-repeat;
+	}
+
+}

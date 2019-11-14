@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_pro_mastercatalogs
+	(
+		CMN_PRO_MasterCatalogID,
+		Catalog_Name_DictID,
+		Catalog_Description_DictID,
+		CatalogPublishing_DefaultCurrency_RefID,
+		CatalogPublishing_DefaultLanguage_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PRO_MasterCatalogID,
+		@Catalog_Name,
+		@Catalog_Description,
+		@CatalogPublishing_DefaultCurrency_RefID,
+		@CatalogPublishing_DefaultLanguage_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,11 @@
+UPDATE 
+	res_str_apartment_propertyassessmentstates
+SET 
+	ApartmentPropertyAssessment_Name_DictID=@ApartmentPropertyAssessment_Name,
+	ApartmentPropertyAssessment_Description_DictID=@ApartmentPropertyAssessment_Description,
+	ApartmentPropertyAssessment_OrdinalPosition=@ApartmentPropertyAssessment_OrdinalPosition,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_STR_Appartment_PropertyAssessmentStateID = @RES_STR_Appartment_PropertyAssessmentStateID

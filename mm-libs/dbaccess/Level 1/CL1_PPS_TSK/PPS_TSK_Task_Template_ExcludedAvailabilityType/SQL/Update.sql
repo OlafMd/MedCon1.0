@@ -1,0 +1,10 @@
+UPDATE 
+	pps_tsk_task_template_excludedavailabilitytypes
+SET 
+	PPS_TSK_Task_Template_RefID=@PPS_TSK_Task_Template_RefID,
+	Excluded_Availability_Type_RefID=@Excluded_Availability_Type_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	PPS_TSK_Task_Template_ExcludedAvailabilityTypeID = @PPS_TSK_Task_Template_ExcludedAvailabilityTypeID

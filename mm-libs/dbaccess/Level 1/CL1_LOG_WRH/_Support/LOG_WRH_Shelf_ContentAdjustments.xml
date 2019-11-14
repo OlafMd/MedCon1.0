@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 8/29/2014 1:55:00 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_WRH_Shelf_ContentAdjustment"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_WRH"
+                IsClass_Corresponding_DBTable="log_wrh_shelf_contentadjustments" >
+      <Members>
+		<ClassMember Name="LOG_WRH_Shelf_ContentAdjustmentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ShelfContent_RefID" Type="Guid" />
+		<ClassMember Name="QuantityChangedAmount" Type="double" />
+		<ClassMember Name="QuantityChangedDate" Type="DateTime" />
+		<ClassMember Name="IsInitialReceipt" Type="Boolean" />
+		<ClassMember Name="IfInitialReceipt_ReceiptPosition_QualityControlItem_RefID" Type="Guid" />
+		<ClassMember Name="IsInventoryJobCorrection" Type="Boolean" />
+		<ClassMember Name="IfInventoryJobCorrection_InvenoryJobProcess_RefID" Type="Guid" />
+		<ClassMember Name="IsShipmentWithdrawal" Type="Boolean" />
+		<ClassMember Name="IfShipmentWithdrawal_ShipmentPosition_RefID" Type="Guid" />
+		<ClassMember Name="IsManualCorrection" Type="Boolean" />
+		<ClassMember Name="IfManualCorrection_InventoryChangeReason_RefID" Type="Guid" />
+		<ClassMember Name="PerformedBy_Account_RefID" Type="Guid" />
+		<ClassMember Name="PerformedAt_Date" Type="DateTime" />
+		<ClassMember Name="ContentAdjustmentComment" Type="String" />
+		<ClassMember Name="IsBatchNumberOrSerialKeyUpdate" Type="Boolean" />
+		<ClassMember Name="IfBatchNumberOrSerialKeyUpdate_CorrespondingAdjustment_RefID" Type="Guid" />
+		<ClassMember Name="IsRelocation" Type="Boolean" />
+		<ClassMember Name="IfRelocation_CorrespondingAdjustment_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_effectiveworktime_positions
+WHERE 
+	CMN_BPT_EMP_EffectiveWorkTime_PositionID = @CMN_BPT_EMP_EffectiveWorkTime_PositionID

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{48D922C8-CF9F-442F-91BE-DCEE39F9548C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL3_ProjectMember</RootNamespace>
+    <AssemblyName>CL3_ProjectMember</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Change_ProjectMembers_Type.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Account_Information_for_ProjectMemberID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_All_ProjectMemberNames_for_ProjectID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AssignedChargingLevels_Group_by_ProjectMemberType.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AvailableChargingLevels_for_ProjectMemberTypeID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProjectMemberTypes_for_ActiveTenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProjectMemebers_for_ProjectID_and_RightPackageID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_ProjectMemberChargingLevel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Account_Information_for_ProjectMemberID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_ProjectMemberNames_for_ProjectID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_ProjectMemberNames_for_ProjectID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Account_Information_for_ProjectMemberID.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_ProjectMemberChargingLevel.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProjectMemebers_for_ProjectID_and_RightPackageID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProjectMemberType_for_ProjectMemberID.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Change_ProjectMembers_Type.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProjectMemebers_for_ProjectID_and_RightPackageID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProjectMemberTypes_for_ActiveTenant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AvailableChargingLevels_for_ProjectMemberTypeID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AssignedChargingLevels_Group_by_ProjectMemberType.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AssignedChargingLevels_Group_by_ProjectMemberType.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AvailableChargingLevels_for_ProjectMemberTypeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_ProjectMemberTypes_for_ActiveTenant.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProjectMemebers_for_ProjectID_and_RightPackageID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_TMS_PRO\CL1_TMS_PRO.csproj">
+      <Project>{2EED773F-2351-47AC-92BF-2D9A58CB02F9}</Project>
+      <Name>CL1_TMS_PRO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/28/2013 13:52:29 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Religion_For_Country</Name>
+    <Namespace>CL5_Plannico_Religions.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_Religions.Complex.Retrieval"
+                Method_ClassName="cls_Get_Religion_For_Country"
+                Method_Name="Get_Religion_For_Country"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Religion_For_Country"
+                />
+
+ 
+  <Parameters IsClass="true" Name="P_L5RL_GRFC_1352">
+    <Members>
+      <ClassMember Name="Country_ISO" Type="String"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5RL_GRFC_1352" IsArray="false">
+			<Members>
+				<ClassMember Name="Religion" Type="L5RL_GRFT_0942"  IsReference="true" IsArray="true" />
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

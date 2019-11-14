@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_loc_meansoftransportations
+	(
+		RES_LOC_MeansOfTransportationID,
+		Transportation_Name_DictID,
+		Transportation_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_LOC_MeansOfTransportationID,
+		@Transportation_Name,
+		@Transportation_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

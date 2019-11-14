@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_pps_breaktime_templates
+	(
+		CMN_PPS_BreakTime_TemplateID,
+		BoundTo_Office_RefID,
+		BoundTo_Workarea_RefID,
+		BoundTo_Workplace_RefID,
+		BreakTimeTemplate_Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PPS_BreakTime_TemplateID,
+		@BoundTo_Office_RefID,
+		@BoundTo_Workarea_RefID,
+		@BoundTo_Workplace_RefID,
+		@BreakTimeTemplate_Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,102 @@
+﻿<div class="gray-content-holder animate-if">
+    <form id="patientForm" ng-submit="submitPatientForm()" class="doctors-data-lists patients-list clearfix" name="patientForm" novalidate off-click="closePatientForm()">
+
+        <div name="messageContainer" class="error-msg-container" ng-if="showMessageContainer">
+            <span class="error" ng-if="!isHealthInsuranceNumberValid">{{ 'LABEL_ERROR_NEW_KVR_VALIDATION' | translate }} </span>
+            <span class="error" ng-if="!isinsurance_statusCodeValid">{{ 'LABEL_INVALID_INSURANCE_STATUS_CODE' | translate }}</span>
+            <span class="error" ng-if="!isDateValid || !isIssueDateValid">{{ 'LABEL_DATE_NOT_VALID' | translate }}</span>
+            <span class="error" ng-if="!isIssueDateHIgherOrEqualToContractStartDate" translate="LABEL_ISSUE_DATE_LOWER_THEN_CONTRACT_DATE" translate-values="{validFrom: contractValidFromStr, validTo: contractValidToStr }"></span>
+            <span class="error" ng-if="!isBirthdayValid">{{ 'LABEL_DATE_CANNOT_BE_HIGHER_THEN_TODAY_DATE' | translate }}</span>
+        </div>
+        <ul class="first-class-data first-row">
+            <li>
+                <label id="lblfirst_name">{{ 'LABEL_FIRST_NAME' | translate }}<span class="error" ng-show="patientForm.infirst_name.$error.required">*</span></label>
+                <input id="infirst_name" name="infirst_name" type="text" ng-model="patient.first_name" required class="form-control" />
+            </li>
+            <li>
+                <label id="lbllast_name">{{ 'LABEL_LAST_NAME' | translate }}<span class="error" ng-show="patientForm.inlast_name.$error.required">*</span></label>
+                <input id="inlast_name" name="inlast_name" type="text" ng-model="patient.last_name" class="form-control" required />
+            </li>
+            <li>
+                <label id="sex">{{ 'LABEL_SEX' | translate }}<span class="error" ng-show="patientForm.ddSex.$error.required">*</span></label>
+                <dropdown-list id="ddSex" name="ddSex" items="sexList" ng-model="patient.sex" required params="{display_name: 'name', id: 'code', is_model_object: false}"></dropdown-list>
+            </li>
+            <li>
+                <label id="lblbithday">{{ 'LABEL_DATE_OF_BIRTH' | translate }}<span class="error" ng-show="patientForm.dpbithday.$error.required">*</span></label>
+                <datepicker date-format="dd.MM.yyyy" date-model="patient.bithday">
+                    <input class="1900Year form-control" id="dpbithday" ng-focus="SetClass()" name="dpbithday" ng-model="patient.bithday"
+                           ng-datefilter type="text" change="typedDAte" ng-bind="date | date:'dd.MM.yyyy'" required ng-class="{redborder:!isDateValid || !isBirthdayValid}" />
+                </datepicker>
+            </li>
+        </ul>
+        <div class="buttons">
+            <button class="button wide confirm" id="btnSubmitPatient" type="submit" translate="BUTTON_SAVE"
+                    ng-disabled="patientForm.$invalid || (patient.health_insurance_provider === undefined && !patient.is_privately_insured)"></button>
+
+            <button class="button narrow reject" id="btnCancelSubmitPatient" onclick="return false;" ng-click="closePatientForm()" translate="BUTTON_CANCEL"></button>
+        </div>
+        <ul class="first-class-data second-row">
+            <li>
+                <label id="lblinsurance_id">{{ 'LABEL_PRIVATELY_INSURED' | translate }}</label>
+                <span class="mask-checkbox">
+                    <input type="checkbox" name="privatelyInsuredId" id="privatelyInsuredId" ng-model="patient.is_privately_insured" ng-change="deleteInsuranceData()" />
+                    <i class="icon"></i>
+                </span>
+            </li>
+            <li>
+                <label id="lblhealth_insurance_provider">{{ 'LABEL_HEALTH_INSURANCE_PROVIDER' | translate }}<span class="error" ng-show="showstarReq && !patient.is_privately_insured">*</span></label>
+                <angucomplete-ac id="inhealth_insurance_provider"
+                                 class="autocomplete-input"
+                                 name="inhealth_insurance_provider"
+                                 pause="500"
+                                 selected-object="SelectHIP"
+                                 remote-url="api/patient/GetHIPsForSearchCriteria"
+                                 remote-url-data-field="items"
+                                 remote-url-request-formatter="remoteUrlRequestFn"
+                                 search-fields="display_name"
+                                 title-field="display_name"
+                                 minlength="1"
+                                 inputclass="form-control form-control-small dropdown-list-autocomplete"
+                                 template-url="scripts/vendor/view/angucompleteCaseACTemplate.html"
+                                 is-dropdown="true"
+                                 disable-input="patient.is_privately_insured"
+                                 group-by="'type'" />
+            </li>
+            <li>
+                <label id="lblinsurance_id">{{ 'LABEL_INSURANCE_ID' | translate }}<span class="error" ng-show="patientForm.ininsurance_id.$error.required && !patient.is_privately_insured">*</span></label>
+                <input id="ininsurance_id" class="form-control" name="ininsurance_id" type="text" ng-model="patient.insurance_id" ng-required="!patient.is_privately_insured" ng-class="{redborder:!isHealthInsuranceNumberValid}" ng-disabled="patient.is_privately_insured" />
+            </li>
+            <li>
+                <label id="lblinsurance_status">{{ 'LABEL_INSURANCE_STATUS' | translate }}<span class="error" ng-show="patientForm.ininsurance_status.$error.required && !patient.is_privately_insured">*</span></label>
+                <input id="ininsurance_status" class="form-control" name="ininsurance_status" type="text" ng-model="patient.insurance_status" ng-required="!patient.is_privately_insured" ng-class="{redborder:!isinsurance_statusCodeValid}" ng-disabled="patient.is_privately_insured" />
+            </li>
+            <li>
+                <label id="lblpatient_id">{{ 'LABEL_PATIENT_ID' | translate }}</label>
+                <input id="inpatient_id" class="form-control" name="inpatient_id" type="text" ng-model="patient.external_id"  />
+            </li>
+        </ul>
+        <div ng-if="!showParticipationConsentForm">
+            <button class="wide-add-button" id="buttonAddParticipationConsent" onclick="return false;" ng-class="{disabled: disableParticipationConsentbtn || patient.is_privately_insured}" ng-click="ToggleFormAddParticipationConsent()" translate="BUTTON_ADD_PARTICIPATION_CONSENT"></button>
+        </div>
+        <div ng-if="showParticipationConsentForm" class="hidden-row dotted-border clear nestedForm">
+            <h3 id="ParticipationConsentFormId">{{ 'BUTTON_ADD_PARTICIPATION_CONSENT' | translate }}</h3>
+            <ul class="first-class-data third-row">
+                <li>
+                    <label id="lblIssue_date">{{ 'LABEL_ISSUE_DATE' | translate }}<span class="error" ng-show="patientForm.dpIssue_date.$error.required">*</span></label>
+                    <datepicker date-format="dd.MM.yyyy" date-min-limit={{ValidFrom}} validate-date="true" date-model="patient.issue_date">
+                        <input class="2000Year form-control" id="dpIssue_date" ng-focus="SetClass()" name="dpIssue_date" ng-model="patient.issue_date" ng-datefilter type="text"
+                               change="typedDAte" ng-bind="date | date:'dd.MM.yyyy'" required ng-class="{redborder:!isIssueDateValid || !isIssueDateHIgherOrEqualToContractStartDate}"
+                               validate-date="true" date-min-limit="ValidFrom" />
+                    </datepicker>
+                </li>
+                <li>
+                    <label id="lblContract">{{ 'LABEL_CONTRACT' | translate }}<span class="error" ng-show="patientForm.ddContract.$error.required">*</span></label>
+                    <dropdown-list id="ddContract" name="ddContract" items="contractList" ng-change="selectedContract()" ng-model="patient.contract" required params="{display_name: 'name', id: 'id', is_model_object: true}"></dropdown-list>
+                </li>
+                <li>
+                    <button class="button narrow reject" id="btnCancelSubmitCase" onclick="return false;" ng-click="ToggleFormAddParticipationConsent()" translate="BUTTON_CANCEL"></button>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

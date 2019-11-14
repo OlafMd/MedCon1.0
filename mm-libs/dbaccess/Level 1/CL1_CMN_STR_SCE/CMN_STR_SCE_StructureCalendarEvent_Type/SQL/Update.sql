@@ -1,0 +1,19 @@
+UPDATE 
+	cmn_str_sce_structurecalendarevent_types
+SET 
+	CalendaEventName_DictID=@CalendaEventName,
+	EventIcon_RefID=@EventIcon_RefID,
+	PriorityOrdinal=@PriorityOrdinal,
+	ColorCode_Foreground=@ColorCode_Foreground,
+	ColorCode_Background=@ColorCode_Background,
+	ColorCode_Alpha=@ColorCode_Alpha,
+	IsShowingNotification=@IsShowingNotification,
+	IsWorkingDay=@IsWorkingDay,
+	IsHalfWorkingDay=@IsHalfWorkingDay,
+	IsNonWorkingDay=@IsNonWorkingDay,
+	IsEventType_Imported=@IsEventType_Imported,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_STR_SCE_StructureCalendarEvent_TypeID = @CMN_STR_SCE_StructureCalendarEvent_TypeID

@@ -1,0 +1,42 @@
+<div class="btn-group" uib-dropdown ng-class="{'dropup': dropupEnabled}" is-open="isOpen" keyboard-nav dropdown-append-to="dropdownAppendToElement" >
+    <input type="text" class="form-control" id="{{autocompleteId}}" ng-model="selectedItem.display_name" ng-change="updateInput()" ng-disabled="inputDisable" uib-dropdown-toggle autocomplete="off">
+    <div class="dropdown-menu autocomplete-ac-doctor" ng-class="{'dropdown-menu-right': dropdownRight}" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+
+        <div class="dropdown-menu-header">
+            <h3>{{'LABEL_LAST_USED' | translate}}</h3>
+            <ul class="dropdown-menu-items">
+                <li role="menuitem" ng-repeat="item in ac.last_used">
+                    <a href class="jsblockClose" id="{{autocompleteId}}_autocompleteLastUsed_{{$index}}" ng-click="selectItem(item)">{{::item.display_name}}</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="dropdown-menu-content">
+            <h3 ng-if="ac.doctors.length">{{'LABEL_DOCTORS' | translate}}</h3>
+            <ul class="dropdown-menu-items" ng-if="ac.doctors.length">
+                <li role="menuitem" ng-repeat="item in ac.doctors">
+                    <a href class="jsblockClose" id="{{autocompleteId}}_autocompleteAcDoctors_{{$index}}" ng-click="selectItem(item)">{{::item.display_name}}<span ng-if="item.secondary_display_name"> | {{ item.secondary_display_name }}</span></a>
+                </li>
+            </ul>
+
+            <h3 ng-if="ac.practices.length">{{'LABEL_PRACTICES' | translate}}</h3>
+            <ul class="dropdown-menu-items" ng-if="ac.practices.length">
+                <li role="menuitem" ng-repeat="item in ac.practices">
+                    <a href class="jsblockClose" id="{{autocompleteId}}_autocompleteAcPractices_{{$index}}" ng-click="selectItem(item)">{{::item.display_name}}<span ng-if="item.secondary_display_name"> | {{ item.secondary_display_name }}</span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="dropdown-menu-alert" ng-if="searching">
+            <label>{{ 'LABEL_SEARCHING' | translate }}</label>
+        </div>
+
+        <div class="dropdown-menu-alert" ng-if="noDataFound">
+            <label>{{ 'LABEL_NO_RESULTS' | translate }}</label>
+        </div>
+
+        <div class="dropdown-menu-alert" ng-if="addAftercare">
+            <a href class="wide-add-button dropdown-menu-add-btn jsblockClose" ng-click="addNewAftercareDoctor()">{{ 'LABEL_ADD_NEW_AFTERCARE_DOCTOR' | translate }}</a>
+        </div>
+    </div>
+</div>

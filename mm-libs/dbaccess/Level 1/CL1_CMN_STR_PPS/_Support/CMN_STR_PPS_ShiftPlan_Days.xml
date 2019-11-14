@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 12/15/2014 8:20:41 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_STR_PPS_ShiftPlan_Day"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_STR_PPS"
+                IsClass_Corresponding_DBTable="cmn_str_pps_shiftplan_days" >
+      <Members>
+		<ClassMember Name="CMN_STR_PPS_ShiftPlan_DayID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ShiftPlanDay" Type="DateTime" />
+		<ClassMember Name="IsVisibleToEmployees" Type="Boolean" />
+		<ClassMember Name="IsEmployeeRegistrationAllowed" Type="Boolean" />
+		<ClassMember Name="IfEmployeeRegistrationAllowed_DueDate" Type="DateTime" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	usr_account_functionlevelrights_groups
+WHERE 
+	USR_Account_FunctionLevelRights_GroupID = @USR_Account_FunctionLevelRights_GroupID

@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_pro_peers_features
+	(
+		AssignmentID,
+		Feature_RefID,
+		ProjectMember_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@Feature_RefID,
+		@ProjectMember_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

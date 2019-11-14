@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_cmt_groupsubscriptions
+	(
+		HEC_CMT_GroupSubscriptionID,
+		Membership_RefID,
+		CommunityGroup_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CMT_GroupSubscriptionID,
+		@Membership_RefID,
+		@CommunityGroup_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

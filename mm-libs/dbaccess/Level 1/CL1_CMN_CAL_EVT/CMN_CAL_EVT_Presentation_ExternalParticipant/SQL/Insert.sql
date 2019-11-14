@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_cal_evt_presentation_externalparticipants
+	(
+		CMN_CAL_EVT_Presentation_ParticipantID,
+		Presentation_RefID,
+		Participant_UCD_RefID,
+		RegistrationDate,
+		RegisteredBy_BusinessParticipant_RefID,
+		IsRegisteredThroughWebsite,
+		RegistrationSource,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_CAL_EVT_Presentation_ParticipantID,
+		@Presentation_RefID,
+		@Participant_UCD_RefID,
+		@RegistrationDate,
+		@RegisteredBy_BusinessParticipant_RefID,
+		@IsRegisteredThroughWebsite,
+		@RegistrationSource,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

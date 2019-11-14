@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_act_plannedaction_2_actiontype
+	(
+		HEC_ACT_PlannedAction_2_ActionTypeID,
+		HEC_ACT_PlannedAction_RefID,
+		HEC_ACT_ActionType_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_PlannedAction_2_ActionTypeID,
+		@HEC_ACT_PlannedAction_RefID,
+		@HEC_ACT_ActionType_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="26/11/2013 02:54:07">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Price_Rounding</Name>
+    <Namespace>CL2_PriceRounding.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_PriceRounding.Complex.Manipulation"
+                Method_ClassName="cls_Save_Price_Rounding"
+                Method_Name="Save_Price_Rounding"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Price_Rounding"
+                />
+  <SQLLimitation_CSharp_Extension>
+			var returnValue = new FR_Guid();
+
+			var item = new CL1_CMN_SLS.ORM_CMN_SLS_Price_Rounding();
+			if (Parameter.CMN_SLS_Price_RoundingID != Guid.Empty)
+			{
+			    var result = item.Load(Connection, Transaction, Parameter.CMN_SLS_Price_RoundingID);
+			}
+
+			if(Parameter.IsDeleted == true){
+				item.IsDeleted = true;
+				return new FR_Guid(item.Save(Connection, Transaction),item.CMN_SLS_Price_RoundingID);
+			}
+
+			//Creation specific parameters (Tenant, Account ... )
+			if (Parameter.CMN_SLS_Price_RoundingID == Guid.Empty)
+			{
+				item.Tenant_RefID = securityTicket.TenantID;
+			}
+
+			item.PriceRoundingRuleSet_RefID = Parameter.Price_RoundingRuleSet_RefID;
+			item.Amount_From = Parameter.Amount_From;
+			item.Amount_To = Parameter.Amount_To;
+			item.IsAmountTo_Specified = Parameter.IsAmountTo_Specified;
+
+
+			return new FR_Guid(item.Save(Connection, Transaction),item.CMN_SLS_Price_RoundingID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2PR_SPR_1451">
+    <Members>
+		<ClassMember IsIdentificator="True" Name="CMN_SLS_Price_RoundingID" Type="Guid"  />
+		<ClassMember Name="Price_RoundingRuleSet_RefID" Type="Guid"  />
+		<ClassMember Name="Amount_From" Type="Decimal"  />
+		<ClassMember Name="Amount_To" Type="Decimal"  />
+		<ClassMember Name="IsAmountTo_Specified" Type="Boolean"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

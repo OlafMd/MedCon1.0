@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	log_wrh_inj_inventoryjob_process_shelves
+WHERE 
+	LOG_WRH_INJ_InventoryJob_Process_ShelfID = @LOG_WRH_INJ_InventoryJob_Process_ShelfID

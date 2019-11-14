@@ -1,0 +1,12 @@
+UPDATE 
+	hec_cmt_opt_uploadeddiagnosis_observations
+SET 
+	UploadedDiagnosis_RefID=@UploadedDiagnosis_RefID,
+	Uploaded_PotentialObservationITL=@Uploaded_PotentialObservationITL,
+	PotentialObservation_DisplayName=@PotentialObservation_DisplayName,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_CMT_OPT_UploadedDiagnosis_ObservationID = @HEC_CMT_OPT_UploadedDiagnosis_ObservationID

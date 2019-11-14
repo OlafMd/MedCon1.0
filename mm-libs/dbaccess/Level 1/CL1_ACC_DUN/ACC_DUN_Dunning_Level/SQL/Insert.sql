@@ -1,0 +1,27 @@
+INSERT INTO 
+	acc_dun_dunning_levels
+	(
+		ACC_DUN_Dunning_LevelID,
+		ParentLevel_RefID,
+		GlobalPropertyMatchingID,
+		DunningLevelName_DictID,
+		OrderSequence,
+		Default_DunningFee,
+		Default_Configuration,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ACC_DUN_Dunning_LevelID,
+		@ParentLevel_RefID,
+		@GlobalPropertyMatchingID,
+		@DunningLevelName,
+		@OrderSequence,
+		@Default_DunningFee,
+		@Default_Configuration,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

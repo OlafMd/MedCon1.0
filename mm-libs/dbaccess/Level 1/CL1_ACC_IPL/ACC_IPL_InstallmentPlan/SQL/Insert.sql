@@ -1,0 +1,27 @@
+INSERT INTO 
+	acc_ipl_installmentplans
+	(
+		ACC_IPL_InstallmentPlanID,
+		Currency_RefID,
+		NominalValue,
+		DepositAmount,
+		InstallmentPeriodType,
+		InstallmentStart,
+		Current_InstallmentPlanStatus_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ACC_IPL_InstallmentPlanID,
+		@Currency_RefID,
+		@NominalValue,
+		@DepositAmount,
+		@InstallmentPeriodType,
+		@InstallmentStart,
+		@Current_InstallmentPlanStatus_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

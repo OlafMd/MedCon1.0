@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_pro_mastercatalog_productgroups
+	(
+		CMN_PRO_MasterCatalog_ProductGroupID,
+		CMN_PRO_MasterCatalog_RefID,
+		ProductGroup_Name_DictID,
+		ProductGroup_Parent_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PRO_MasterCatalog_ProductGroupID,
+		@CMN_PRO_MasterCatalog_RefID,
+		@ProductGroup_Name,
+		@ProductGroup_Parent_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_act_performedaction_doctors
+	(
+		HEC_ACT_PerformedAction_DoctorID,
+		HEC_ACT_PerformedAction_RefID,
+		HEC_Doctor_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_PerformedAction_DoctorID,
+		@HEC_ACT_PerformedAction_RefID,
+		@HEC_Doctor_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

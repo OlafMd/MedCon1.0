@@ -1,0 +1,21 @@
+UPDATE 
+	cmn_str_sce_structurecalendarevents
+SET 
+	CMN_CAL_Event_RefID=@CMN_CAL_Event_RefID,
+	StructureEvent_Name_DictID=@StructureEvent_Name,
+	StructureEvent_Description_DictID=@StructureEvent_Description,
+	R_CalendarInstance_RefID=@R_CalendarInstance_RefID,
+	IsHavingCapacityRestriction=@IsHavingCapacityRestriction,
+	IfHavingCapacityRestriction_Restriction_RefID=@IfHavingCapacityRestriction_Restriction_RefID,
+	StructureCalendarEvent_Type_RefID=@StructureCalendarEvent_Type_RefID,
+	IsShowingNotification=@IsShowingNotification,
+	IsWorkingDayEvent=@IsWorkingDayEvent,
+	IsWorkingHalfDayEvent=@IsWorkingHalfDayEvent,
+	IsNonWorkingDay=@IsNonWorkingDay,
+	IsEvent_ImportedFromTemplate=@IsEvent_ImportedFromTemplate,
+	IsBusinessDay=@IsBusinessDay,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	CMN_STR_SCE_StructureCalendarEventID = @CMN_STR_SCE_StructureCalendarEventID

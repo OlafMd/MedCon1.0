@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_pro_product_supplier_discountvalues
+WHERE 
+	CMN_PRO_Product_Supplier_DiscountValueID = @CMN_PRO_Product_Supplier_DiscountValueID

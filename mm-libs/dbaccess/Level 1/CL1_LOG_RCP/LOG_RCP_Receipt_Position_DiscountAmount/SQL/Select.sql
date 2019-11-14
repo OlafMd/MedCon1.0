@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	log_rcp_receipt_position_discountamounts
+WHERE 
+	LOG_RCP_Receipt_Position_DiscountAmountID = @LOG_RCP_Receipt_Position_DiscountAmountID

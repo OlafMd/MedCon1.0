@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+    <Item ID="feature-type.feature">
+      <Lang ISO="EN" Content="Feature" />
+      <Lang ISO="DE" Content="Eigenschaft" />
+      <Lang ISO="RS" Content="Funkcionalnost" />
+    </Item>
+    <Item ID="feature-type.maintenance">
+      <Lang ISO="EN" Content="Maintenance" />
+      <Lang ISO="DE" Content="Wartung" />
+      <Lang ISO="RS" Content="Odrzavanje" />
+    </Item>
+    <Item ID="feature-type.bug">
+      <Lang ISO="EN" Content="Bug" />
+      <Lang ISO="DE" Content="Bug" />
+      <Lang ISO="RS" Content="Bug" />
+    </Item>
+</Resources>

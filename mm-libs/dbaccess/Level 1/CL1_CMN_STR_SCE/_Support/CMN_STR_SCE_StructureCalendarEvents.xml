@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 3/26/2014 2:37:29 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_STR_SCE_StructureCalendarEvent"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_STR_SCE"
+                IsClass_Corresponding_DBTable="cmn_str_sce_structurecalendarevents" >
+      <Members>
+		<ClassMember Name="CMN_STR_SCE_StructureCalendarEventID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="CMN_CAL_Event_RefID" Type="Guid" />
+		<ClassMember Name="StructureEvent_Name" Type="Dict" Source_DBField="StructureEvent_Name_DictID" OriginTable="cmn_str_sce_structurecalendarevents"/>
+		<ClassMember Name="StructureEvent_Description" Type="Dict" Source_DBField="StructureEvent_Description_DictID" OriginTable="cmn_str_sce_structurecalendarevents"/>
+		<ClassMember Name="R_CalendarInstance_RefID" Type="Guid" />
+		<ClassMember Name="IsHavingCapacityRestriction" Type="Boolean" />
+		<ClassMember Name="IfHavingCapacityRestriction_Restriction_RefID" Type="Guid" />
+		<ClassMember Name="StructureCalendarEvent_Type_RefID" Type="Guid" />
+		<ClassMember Name="IsShowingNotification" Type="Boolean" />
+		<ClassMember Name="IsWorkingDayEvent" Type="Boolean" />
+		<ClassMember Name="IsWorkingHalfDayEvent" Type="Boolean" />
+		<ClassMember Name="IsNonWorkingDay" Type="Boolean" />
+		<ClassMember Name="IsEvent_ImportedFromTemplate" Type="Boolean" />
+		<ClassMember Name="IsBusinessDay" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

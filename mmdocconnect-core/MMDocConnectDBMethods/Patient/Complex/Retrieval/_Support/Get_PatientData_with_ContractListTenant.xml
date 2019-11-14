@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/12/2015 11:31:07 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PatientData_With_ContractListTenant</Name>
+    <Namespace>MMDocConnectDBMethods.Patient.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Patient.Complex.Retrieval"
+                Method_ClassName="cls_Get_PatientData_With_ContractListTenant"
+                Method_Name="Get_PatientData_With_ContractListTenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PatientData_With_ContractListTenant"
+                />
+
+  <Parameters IsClass="true" Name="P_PA_GPDWCLT_1118">
+    <Members>
+      <ClassMember Name="PatientID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+      Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+      Returns_an_Object_or_ObjectArray="true">
+
+
+    <ObjectReturnType_Definition Name="PA_GPDWCLT_1118" IsArray="false">
+      <Members>
+        <ClassMember IsReference="true" Type="PA_GDAPV_1629" Name="InitalData" IsArray="false"/>
+        
+        <ClassMember IsClass="true" IsArray="false" Type="PA_GPDWCLT_1118_PatientData" Name="PatientData" GroupBy="id">
+          <Members>
+            <ClassMember Name="name" Type="String"  />
+            <ClassMember Name="patient_first_name" Type="String"  />
+            <ClassMember Name="patient_last_name" Type="String"  />
+            <ClassMember Name="birthday" Type="DateTime"  />
+            <ClassMember Name="insurance_id" Type="String"  />
+            <ClassMember Name="insurance_status" Type="String"  />
+            <ClassMember Name="gender" Type="int"  />
+            <ClassMember Name="health_insurance_provider" Type="String"  />
+            <ClassMember Name="id" Type="Guid"  />
+            <ClassMember Name="contract_number" Type="int"  />
+            <ClassMember Name="participation_consent_issue_date" Type="DateTime"  />
+            <ClassMember Name="ValidThrough" Type="DateTime"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+
+

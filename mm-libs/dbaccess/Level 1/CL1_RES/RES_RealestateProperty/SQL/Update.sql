@@ -1,0 +1,24 @@
+UPDATE 
+	res_realestateproperties
+SET 
+	RealestateProperty_Title=@RealestateProperty_Title,
+	InformationSubmittedBy_Account_RefID=@InformationSubmittedBy_Account_RefID,
+	RealestateProperty_Address_RefID=@RealestateProperty_Address_RefID,
+	RealestateProperty_Location_RefID=@RealestateProperty_Location_RefID,
+	RealestateProperty_GroundValuePrice_RefID=@RealestateProperty_GroundValuePrice_RefID,
+	RealestateProperty_AverageAreaRentPrice_RefID=@RealestateProperty_AverageAreaRentPrice_RefID,
+	RealestateProperty_ConstructionDate=@RealestateProperty_ConstructionDate,
+	RealestateProperty_RefurbishmentDate=@RealestateProperty_RefurbishmentDate,
+	RealestateProperty_InformationDate=@RealestateProperty_InformationDate,
+	RealestateProperty_LivingSpace_in_sqm=@RealestateProperty_LivingSpace_in_sqm,
+	RealestateProperty_NumberOfResidentialUnits=@RealestateProperty_NumberOfResidentialUnits,
+	RealestateProperty_GroundAreaSize_in_sqm=@RealestateProperty_GroundAreaSize_in_sqm,
+	Geolocation_Lattitude=@Geolocation_Lattitude,
+	Geolocation_Longitude=@Geolocation_Longitude,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsLocked=@IsLocked,
+	IsArchived=@IsArchived,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_RealestatePropertyID = @RES_RealestatePropertyID

@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_bpt_ctm_availablepaymentconditions
+	(
+		CMN_BPT_CTM_AvailablePaymentConditionID,
+		Customer_RefID,
+		ACC_PAY_Condition_RefID,
+		IsDefaultPaymentCondition,
+		SequenceNumber,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_CTM_AvailablePaymentConditionID,
+		@Customer_RefID,
+		@ACC_PAY_Condition_RefID,
+		@IsDefaultPaymentCondition,
+		@SequenceNumber,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,25 @@
+INSERT INTO 
+	res_str_basement_propertyassessments
+	(
+		RES_STR_Basement_PropertyAssessmentID,
+		STR_Basement_RefID,
+		Rating_RefID,
+		BasementProperty_RefID,
+		DocumentHeader_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_Basement_PropertyAssessmentID,
+		@STR_Basement_RefID,
+		@Rating_RefID,
+		@BasementProperty_RefID,
+		@DocumentHeader_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

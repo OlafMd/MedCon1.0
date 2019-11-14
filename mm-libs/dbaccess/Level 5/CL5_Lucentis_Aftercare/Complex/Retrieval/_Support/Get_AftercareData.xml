@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/16/2013 2:56:23 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Search_Patients</Name>
+    <Namespace>CL5_Lucentis_Aftercare.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Aftercare.Complex.Retrieval"
+                Method_ClassName="cls_Get_AftercareData"
+                Method_Name="Get_AftercareData"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AftercareData"
+                />
+
+    <Parameters IsClass="true" Name="P_L6AC_GA_1738">
+        <Members>
+            <ClassMember Name="IsASC_Order" Type="bool"/>
+            <ClassMember Name="OrderValue" Type="String"/>
+            <ClassMember Name="PageClicked" Type="int"/>
+            <ClassMember Name="NumberOfElementsPerPage" Type="int"/>
+          <ClassMember IsClass="true" IsArray="false" Name="SearchParameters" Type="P_L6AC_GA_1738_SearchParams" >
+            <Members>
+              <ClassMember Name="s_practice" Type="String"  />
+              <ClassMember Name="s_doctorFirstName" Type="String"  />
+              <ClassMember Name="s_doctorLastName" Type="String"  />
+              <ClassMember Name="s_aftercareFrom" Type="String"  />
+              <ClassMember Name="s_aftercareTo" Type="String"  />
+              <ClassMember Name="s_isScheduled" Type="bool"  />
+              <ClassMember Name="s_isPerformed" Type="bool"  />
+              <ClassMember Name="s_isBilled" Type="bool"  />
+              <ClassMember Name="s_patientFirstName" Type="String"  />
+              <ClassMember Name="s_patientLastName" Type="String"  />
+              <ClassMember Name="s_healtInsurance" Type="String"  />
+            </Members>
+          </ClassMember>
+        </Members>
+    </Parameters>
+    
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+	<ObjectReturnType_Definition Name="L6AC_GA_1738" IsArray="false">
+		<Members>
+            <ClassMember IsClass="true" IsArray="true" Name="aftercares" Type="L6AC_GA_1738_Aftercare" >
+                <Members>
+                    <ClassMember Name="id" Type="String"  />
+                    <ClassMember Name="practice" Type="String"  />
+                    <ClassMember Name="treatment_date" Type="DateTime"  />
+                    <ClassMember Name="doctor" Type="String"  />
+                    <ClassMember Name="status" Type="String"  />
+                    <ClassMember Name="status_name" Type="String"  />
+                    <ClassMember Name="status_date" Type="DateTime"  />
+                    <ClassMember Name="patient_name" Type="String"  />
+                    <ClassMember Name="health_insurance" Type="String"  />
+                </Members>
+            </ClassMember>
+            <ClassMember Name="start_row_index" Type="int"  />
+            <ClassMember Name="end_row_index" Type="int"  />
+            <ClassMember Name="page_size" Type="int"  />
+            <ClassMember Name="current_page" Type="int"/>
+            <ClassMember Name="total_page_count" Type="int"/>
+            <ClassMember Name="total_record_count" Type="int"/>
+		</Members>
+	</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

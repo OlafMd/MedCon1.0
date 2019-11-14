@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/25/2013 12:33:39 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_BBV_Transaction</Name>
+    <Namespace>CL5_BBV_Prescription.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_BBV_Prescription.Complex.Manipulation"
+                Method_ClassName="cls_Save_BBV_NewPatientForTransaction"
+                Method_Name="Save_BBV_NewPatientForTransaction"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_BBV_NewPatientForTransaction"
+                />
+
+  <Parameters IsClass="true" Name="P_L5PS_SNPFT_1319">
+    <Members>
+
+      <ClassMember Name="HEC_Patient_Prescription_TransactionID" Type="Guid"  />
+      <ClassMember Name="PrescriptionTransaction_Patient_RefID" Type="Guid"  />
+      
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+  
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+
+  </ResultInfo>
+
+</CodeGen>
+
+

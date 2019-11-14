@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_doctor_requiredproduct
+	(
+		HEC_Doctor_RequiredProductID,
+		HEC_Doctor_RefID,
+		CMN_PRO_Product_RefID,
+		CMN_PRO_Product_Variant_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_Doctor_RequiredProductID,
+		@HEC_Doctor_RefID,
+		@CMN_PRO_Product_RefID,
+		@CMN_PRO_Product_Variant_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

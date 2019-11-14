@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="28/10/2013 02:48:12">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Address_for_TenantID_or_ID</Name>
+    <Namespace>CL2_Address.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Address.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Address_for_TenantID_or_ID"
+                Method_Name="Get_Address_for_TenantID_or_ID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Address_for_TenantID_or_ID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT CMN_AddressID,
+	       Street_Name,
+	       Street_Number,
+	       City_AdministrativeDistrict,
+	       City_Region,
+	       City_Name,
+	       City_PostalCode,
+	       Province_Name,
+	       Country_Name,
+	       Country_ISOCode,
+	       Creation_Timestamp,
+	       IsDeleted,
+	       Tenant_RefID,
+	       Province_EconomicRegion_RefID
+	  FROM cmn_addresses
+	  Where Tenant_RefID = Tenant_RefID AND CMN_AddressID = IfNull(@AddressID, CMN_AddressID) and IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2ADD_GADDfToI_1447">
+    <Members>
+		<ClassMember Name="AddressID" Type="Guid?"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2ADD_GADDfToI_1447" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_AddressID" Type="Guid"  />
+				<ClassMember Name="Street_Name" Type="String"  />
+				<ClassMember Name="Street_Number" Type="String"  />
+				<ClassMember Name="City_AdministrativeDistrict" Type="String"  />
+				<ClassMember Name="City_Region" Type="String"  />
+				<ClassMember Name="City_Name" Type="String"  />
+				<ClassMember Name="City_PostalCode" Type="String"  />
+				<ClassMember Name="Province_Name" Type="String"  />
+				<ClassMember Name="Country_Name" Type="String"  />
+				<ClassMember Name="Country_ISOCode" Type="String"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="Province_EconomicRegion_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,23 @@
+INSERT INTO 
+	bil_billheader_assignedpayments
+	(
+		BIL_BillHeader_AssignedPaymentID,
+		AssignedBy_BusinessParticipant_RefID,
+		BIL_BillHeader_RefID,
+		ACC_BOK_AccountingTransaction_RefID,
+		AssignedValue,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@BIL_BillHeader_AssignedPaymentID,
+		@AssignedBy_BusinessParticipant_RefID,
+		@BIL_BillHeader_RefID,
+		@ACC_BOK_AccountingTransaction_RefID,
+		@AssignedValue,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

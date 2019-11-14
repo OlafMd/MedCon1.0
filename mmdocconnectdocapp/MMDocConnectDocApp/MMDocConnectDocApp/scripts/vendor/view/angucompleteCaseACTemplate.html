@@ -1,0 +1,41 @@
+﻿<div class="angucomplete-holder" ng-class="{'angucomplete-dropdown-visible': showDropdown}">
+    <input id="{{id}}_value" ng-model="searchStr" ng-disabled="disableInput" type="text" placeholder="{{placeholder}}" maxlength="{{maxlength}}" ng-click="showResultsList()"
+           ng-focus="onFocusHandler()" class="form-control autocomplete-dropdown input-ellipsis" ng-focus="resetHideResults()" autocapitalize="off" autocorrect="off" ng-blur="hideResults($event)"
+           autocomplete="off" ng-change="inputChangeHandler(searchStr)" ng-required="inputRequired" />
+
+    <div id="{{id}}_dropdown" class="angucomplete-dropdown-ac" ng-class="{'angucomplete-dropup': dropupEnabled}" ng-if="showDropdown">
+
+        <div class="autocomplete-last-used" ng-if="last_used.length !== 0">
+            <h3>{{'LABEL_LAST_USED' | translate}}</h3>
+            <div ng-class="{'angucomplete-selected-row-ac': $index == currentIndex} " ng-repeat="result in last_used">
+                <div ng-click="selectResult(result)" ng-mouseenter="hoverRow($index)">
+                    <div class="angucomplete-title"><span> {{ result.title }}</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="angucomplete-scroll no-padding">
+            <div ng-if="results.length > 0" class="angucomplete-row-ac">
+                <div ng-repeat="result in results" ng-class="{'angucomplete-selected-row-ac': $index == currentIndex - last_used.length}">
+                    <hr ng-if="result.type === 'LABEL_PRACTICES' && result.type_CHANGED">
+                    <h3 ng-show="result.type_CHANGED">{{result.type | translate}} </h3>
+                    <div id="acElement_{{$index}}" ng-click="selectResult(result)" ng-mouseenter="hoverRow($index + last_used.length)">
+                        <div class="angucomplete-title"><span ng-class="{'doctor-text-color': result.description && $index != currentIndex - last_used.length}"> {{ result.title }}</span><span ng-if="result.description"> | {{ result.description }} </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="angucomplete-searching angucomplete-row-ac" ng-if="searching">
+            {{ textSearching | translate }}
+        </div>
+
+        <div class="angucomplete-searching angucomplete-row-ac" ng-if="!searching && searchStr && searchStr !== '' && (!results || results.length === 0)">
+            {{ textNoResults | translate }}
+        </div>
+
+        <div class="angucomplete-row-ac" ng-class="{'no-padding-top': results.length !== 0}" ng-if="hasAddButton">
+            <div class="wide-add-button dropdown-btn" ng-click="executeClick()">{{ 'LABEL_ADD_NEW_AFTERCARE_DOCTOR' | translate }}</div>
+        </div>
+    </div>
+</div>

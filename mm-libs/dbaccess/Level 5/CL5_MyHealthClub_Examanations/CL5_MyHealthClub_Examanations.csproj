@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67C62E31-3B29-4645-8C38-EC87879CF50E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_MyHealthClub_Examanations</RootNamespace>
+    <AssemblyName>CL5_MyHealthClub_Examanations</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_Finding.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_PatientExaminationDiagnoses.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_PatientExaminationFindings.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_PatientExaminationMedications.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_PatientExaminationReferrals.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_All_Hospitals_for_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_All_MedicalPracticeTypes.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Curent_Patient_Diagnoses.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Curent_Patient_Substances.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Current_Patient_Medications.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Examination_Diagnoses.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Examination_Referrals.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Number_of_Patients_for_PatientID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PatientFindings_for_ExaminationID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Patient_Examination_Diagnoses.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Top_MedicalPracticeTypes.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Treatment_Substances.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Vitals_for_ExaminationID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Patient_Treatments_for_PatientID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Examination.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_PotentialObservations_and_MadeObservations_for_ExaminationID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Vitals_for_ExaminationID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_All_PatientReferralData.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_All_PotentialObservations_and_MadeObservations_for_PerformedActionID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Examination_Data.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Followups_for_PatientID_and_ExaminationID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06AB1C3C-339F-4E31-8408-232DC283308C}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO_PAC\CL1_CMN_PRO_PAC.csproj">
+      <Project>{022F0501-41A8-4206-9007-374D9155E23D}</Project>
+      <Name>CL1_CMN_PRO_PAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR\CL1_CMN_STR.csproj">
+      <Project>{B6524266-049E-4266-981E-FCFCEBB8C86C}</Project>
+      <Name>CL1_CMN_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_DOC\CL1_DOC.csproj">
+      <Project>{08FEF49E-52A6-4C81-89EA-CB0679804159}</Project>
+      <Name>CL1_DOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768C60E8-0C7F-42B2-B8C9-D327C6BF334A}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_ACT\CL1_HEC_ACT.csproj">
+      <Project>{F66B8F6F-EC2C-4867-9D07-D4E9850E8933}</Project>
+      <Name>CL1_HEC_ACT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_DIA\CL1_HEC_DIA.csproj">
+      <Project>{44B9C824-F3F7-4B95-9F59-87FDC93164DE}</Project>
+      <Name>CL1_HEC_DIA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_PAT\CL1_HEC_PAT.csproj">
+      <Project>{B9B6A2C1-4099-4A4C-BE4E-F04C2F90551E}</Project>
+      <Name>CL1_HEC_PAT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_PRO\CL1_HEC_PRO.csproj">
+      <Project>{B289752D-AB70-4099-BD8C-58C989A952DE}</Project>
+      <Name>CL1_HEC_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_SUB\CL1_HEC_SUB.csproj">
+      <Project>{12047A47-1ED6-4E54-860D-BB7F0D6456E7}</Project>
+      <Name>CL1_HEC_SUB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_TRE\CL1_HEC_TRE.csproj">
+      <Project>{29A9C10C-A64E-4B75-925C-655BA00483CC}</Project>
+      <Name>CL1_HEC_TRE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Contact\CL2_Contact.csproj">
+      <Project>{26CFBA51-B354-4D11-9208-61EEA7509319}</Project>
+      <Name>CL2_Contact</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Language\CL2_Language.csproj">
+      <Project>{58245A4D-887C-4AA1-B01E-7E6779C4F096}</Project>
+      <Name>CL2_Language</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_PatientParameters\CL2_PatientParameters.csproj">
+      <Project>{BA79FBB5-2894-412B-B1B9-A5745E9C2C24}</Project>
+      <Name>CL2_PatientParameters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Offices\CL3_Offices.csproj">
+      <Project>{09A7B883-3719-4D61-BDCF-647FAC555D4C}</Project>
+      <Name>CL3_Offices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_MyHealthClub_DoctorsAndStaff\CL5_MyHealthClub_DoctorsAndStaff.csproj">
+      <Project>{E712E532-8BAD-48E0-98A8-746769F89C80}</Project>
+      <Name>CL5_MyHealthClub_DoctorsAndStaff</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_MyHealthClub_EMR\CL5_MyHealthClub_EMR.csproj">
+      <Project>{1D63AF02-7543-4351-982E-0940B85C45DA}</Project>
+      <Name>CL5_MyHealthClub_EMR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_MyHealthClub_MedProCommunity\CL5_MyHealthClub_MedProCommunity.csproj">
+      <Project>{4DB86239-F20F-43AD-BE5F-E964DBDF1FD7}</Project>
+      <Name>CL5_MyHealthClub_MedProCommunity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_MyHealthClub_OrgUnits\CL5_MyHealthClub_OrgUnits.csproj">
+      <Project>{FE8D5EE5-BE82-4278-85BF-6DFC76FBCC39}</Project>
+      <Name>CL5_MyHealthClub_OrgUnits</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Examination_Referrals.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_Hospitals_for_Tenant.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Finding.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_PatientExaminationFindings.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_PatientExaminationReferrals.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PatientFindings_for_ExaminationID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_Hospitals_for_Tenant.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Examination_Referrals.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_PatientFindings_for_ExaminationID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Followups_for_PatientID_and_ExaminationID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Vitals_for_ExaminationID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Examination_Diagnoses.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_PatientExaminationMedications.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Treatment_Substances.sql" />
+    <Content Include="Atomic\Retrieval\SQL\cls_Get_All_MedicalPracticeTypes.sql" />
+    <Content Include="Atomic\Retrieval\SQL\cls_Get_Top_MedicalPracticeTypes.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_MedicalPracticeTypes.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Top_MedicalPracticeTypes.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_MedicalPracticeTypes.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Examination_Diagnoses.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Number_of_Examinations_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_PatientExaminationDiagnoses.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Patient_Examination_Diagnoses.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Patient_Examination_Diagnoses.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Top_MedicalPracticeTypes.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Treatment_Substances.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Vitals_for_ExaminationID.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_Examination.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_Vitals_for_ExaminationID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Curent_Patient_Diagnoses.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Current_Patient_Medications.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Curent_Patient_Substances.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Patient_Treatments_for_PatientID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Curent_Patient_Substances.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Current_Patient_Medications.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Curent_Patient_Diagnoses.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Patient_Treatments_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Complex\Retrieval\SQL\cls_Get_Followups_for_PatientID_and_ExaminationID.sql" />
+    <Content Include="Complex\Retrieval\_Support\Get_All_PatientReferralData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Examination_Data.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_All_PotentialObservations_and_MadeObservations_for_PerformedActionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_PotentialObservations_and_MadeObservations_for_ExaminationID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Number_of_Patients_for_PatientID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Number_of_Patients_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

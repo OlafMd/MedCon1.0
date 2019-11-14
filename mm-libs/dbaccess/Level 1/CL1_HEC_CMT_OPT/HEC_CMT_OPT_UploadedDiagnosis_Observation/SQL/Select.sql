@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_cmt_opt_uploadeddiagnosis_observations
+WHERE 
+	HEC_CMT_OPT_UploadedDiagnosis_ObservationID = @HEC_CMT_OPT_UploadedDiagnosis_ObservationID

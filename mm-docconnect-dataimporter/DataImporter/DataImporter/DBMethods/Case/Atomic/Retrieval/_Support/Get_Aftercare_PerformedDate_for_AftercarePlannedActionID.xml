@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_Aftercare_PerformedDate_for_AftercarePlannedActionID</Name>
+		<Namespace>DataImporter.DBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="DataImporter.DBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Aftercare_PerformedDate_for_AftercarePlannedActionID"
+								Method_Name="Get_Aftercare_PerformedDate_for_AftercarePlannedActionID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+    Select
+      hec_act_performedactions.IfPerfomed_DateOfAction as aftercare_performed_date
+    From
+      hec_act_plannedactions Inner Join
+      hec_act_performedactions
+        On hec_act_plannedactions.IfPerformed_PerformedAction_RefID =
+        hec_act_performedactions.HEC_ACT_PerformedActionID And
+        hec_act_performedactions.IsDeleted = 0 And
+        hec_act_performedactions.Tenant_RefID = @TenantID
+    Where
+      hec_act_plannedactions.HEC_ACT_PlannedActionID = @AftercarePlannedActionID And
+      hec_act_plannedactions.Tenant_RefID = @TenantID And
+      hec_act_plannedactions.IsDeleted = 0 And
+      hec_act_plannedactions.IsCancelled = 0
+	</SQLStatement>
+  
+  <Parameters IsClass="true" Name="P_CAS_GAPDfAPAID_1430">
+    <Members>
+      <ClassMember Name="AftercarePlannedActionID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CAS_GAPDfAPAID_1430">
+			<Members>
+				<ClassMember Name="aftercare_performed_date" Type="DateTime"  />
+
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

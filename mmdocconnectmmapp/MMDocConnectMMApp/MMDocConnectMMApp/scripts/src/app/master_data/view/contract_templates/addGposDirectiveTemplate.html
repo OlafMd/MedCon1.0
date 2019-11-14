@@ -1,0 +1,72 @@
+﻿<div ng-init="initializeController()">
+    <div class="gray-content-holder contracts-details-lists clearfix animate-if">
+        <form id="gposForm" name="gposForm" ng-submit="saveGpos()" novalidate off-click="closeGposForm()">
+            <div name="messageContainer" class="error-msg-container" ng-if="divContainer">
+                <span class="error" ng-if="feeValueError">{{ 'LABEL_FEE_VALUE_MUST_BE_NUMBER' | translate }}</span>
+                <span class="error" ng-if="managementFeeValueError">{{ 'LABEL_MANAGEMET_FEE_VALUE_MUST_BE_NUMBER' | translate }}</span>
+                <span class="error" ng-if="fromInjectionError">{{ 'LABEL_FROM_INJECTION_MUST_BE_NUMBER' | translate }}</span>
+                <span class="error" ng-if="gposNumberExists" translate="LABEL_GPOS_NUMBER_NOT_UNIQUE" translate-values="{ number: validationObj.gpos_number }"></span>
+                <span class="error" ng-if="fromInjectionExists" translate="LABEL_FROM_INJECTIONS_NOT_UNIQUE" translate-values="{ number: validationObj.from_injection }"></span>
+
+            </div>
+
+            <h3>{{'LABEL_ADD_GPOS_EXPANDED' | translate}}</h3>
+            <ul class="first-class-data first-row">
+                <li>
+                    <label>{{'LABEL_GPOS'|translate}}</label>
+                    <input id="inGposName" name="inGposName" type="text" ng-model="ngModel.gpos_name" />
+                </li>
+                <li>
+                    <label>{{'LABEL_GPOS_NUMBER'|translate}}<span class="error" ng-if="gposForm.inGposNumber.$error.required">*</span></label>
+                    <input id="inGposNumber" name="inGposNumber" type="text" ng-model="ngModel.gpos_number" required ng-class="{'redborder': gposNumberExists }" />
+                </li>
+                <li>
+                    <label>{{'LABEL_CASE_ONE'|translate}}<span class="error" ng-if="gposForm.selCaseType_value.$error.required">*</span></label>
+                    <dropdown-list id="selCaseType" items="case_types" ng-model="ngModel.gpos_type" is-required="true" dropdown-class="'dd196'" ng-required="gposTypeChanged()"></dropdown-list>
+                </li>
+                <li>
+                    <label>{{'LABEL_INJECTIONS_FROM'|translate}}</label>
+                    <input id="inInjectionsFrom" name="inInjectionsFrom" type="text" ng-model="ngModel.from_injection" ng-class="{'redborder': fromInjectionError || fromInjectionExists }" ng-disabled="isPreexaminationGPOS()" />
+                </li>
+                <li>
+                    <label>{{'LABEL_FEE_IN_EUR'|translate}}<span class="error" ng-if="gposForm.inFeeInEur.$error.required">*</span></label>
+                    <input id="inFeeInEur" name="inFeeInEur" type="text" ng-model="ngModel.fee_value" required ng-class="{'redborder': feeValueError }" />
+                </li>
+                <li>
+                    <label>{{'LABEL_MANAGEMENT_FEE_IN_EUR'|translate}}<span class="error" ng-if="gposForm.inManagementFee.$error.required">*</span></label>
+                    <input id="inManagementFee" name="inManagementFee" type="text" ng-model="ngModel.management_fee_value" required ng-class="{'redborder': managementFeeValueError }" />
+                </li>
+                <li>
+                    <label>{{'LABEL_WAIVE_WITH_ORDER'|translate}}</label>
+                    <span class="mask-checkbox">
+                        <input ng-model="ngModel.waive_with_order" id="cbWaiveWithOrder" name="cbWaiveWithOrder" type="checkbox" ng-disabled="isPreexaminationGPOS()" />
+                        <i class="icon"></i>
+                    </span>
+                </li>
+            </ul>
+
+            <div class="buttons-right-gpos">
+                <span class="abort"><a href="" id="btnCancelSaveGpos" ng-click="closeGposForm()" translate="BUTTON_CANCEL">{{ 'LABEL_CANCEL' | translate }}</a></span>
+                <button class="button wide add-button" ng-click="addDiagnoseToList()" name="btnSaveGpos" id="btnSubmitMedication" type="submit" translate="LABEL_ADD"
+                        ng-disabled="gposForm.$invalid"></button>
+            </div>
+
+            <ul class="second-class-data second-row clearfix">
+                <li>
+                    <h3>{{'LABEL_MEDICATION' | translate}}</h3>
+                    <tags-input autocomplete-input-id="'drugsInput'" ng-disabled="isPreexaminationGPOS()" ng-model="ngModel.drugs" display-property="name" additional-search-property="additional_info" enable-editing-last-tag="true" key-property="id" add-from-autocomplete-only="true" replace-spaces-with-dashes="false">
+                        <auto-complete source="getDrugs()" suggestion-list-id="'drugsAcList'" parent-input-name="'drugsInput'" highlight-matched-text="false" select-first-match="false" debounce-delay="0"></auto-complete>
+                    </tags-input>
+                </li>
+            </ul>
+            <ul class="second-class-data second-row">
+                <li>
+                    <h3>{{'LABEL_DIAGNOSES' | translate}}</h3>
+                    <tags-input ng-model="ngModel.diagnoses" ng-disabled="isPreexaminationGPOS()" autocomplete-input-id="'diagnosesInput'" display-property="expanded_name" additional-search-property="additional_info" enable-editing-last-tag="true" key-property="id" add-from-autocomplete-only="true" replace-spaces-with-dashes="false">
+                        <auto-complete source="getDiagnoses()" suggestion-list-id="'diagnosesAcList'" parent-input-name="'diagnosesInput'" highlight-matched-text="false" select-first-match="false" debounce-delay="0"></auto-complete>
+                    </tags-input>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>

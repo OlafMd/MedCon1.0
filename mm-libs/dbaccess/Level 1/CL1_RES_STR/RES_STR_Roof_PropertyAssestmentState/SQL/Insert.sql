@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_str_roof_propertyassestmentstates
+	(
+		RES_STR_Roof_PropertyAssestmentStateID,
+		RoofPropertyAssessmentState_Name_DictID,
+		RoofPropertyAssessmentState_Description_DictID,
+		RoofPropertyAssessmentState_OrdinalPosition,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_Roof_PropertyAssestmentStateID,
+		@RoofPropertyAssessmentState_Name,
+		@RoofPropertyAssessmentState_Description,
+		@RoofPropertyAssessmentState_OrdinalPosition,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

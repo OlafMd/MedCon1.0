@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/11/2015 05:10:24">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_StockQuantity_Current_and_Free_for_ShelfContentIDList</Name>
+    <Namespace>CL3_ShelfContent.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_ShelfContent.Atomic.Retrieval"
+                Method_ClassName="cls_Get_StockQuantity_Current_and_Free_for_ShelfContentIDList"
+                Method_Name="Get_StockQuantity_Current_and_Free_for_ShelfContentIDList"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_StockQuantity_Current_and_Free_for_ShelfContentIDList"
+                />
+
+  <SQLStatement xml:space="preserve">
+	    Select
+	      log_wrh_shelf_contents.Product_RefID,
+	      Coalesce(log_wrh_shelf_contents.Quantity_Current, 0) As CurrentQuantity,
+	      Sum(Coalesce(log_rsv_reservations.ReservedQuantity, 0)) As ReservedQuantity,
+	      (Coalesce(log_wrh_shelf_contents.Quantity_Current, 0) - Sum(Coalesce(log_rsv_reservations.ReservedQuantity, 0))) As FreeQuantity,
+        log_wrh_shelf_contents.LOG_WRH_Shelf_ContentID
+	    From
+	      log_wrh_shelf_contents Left Join
+	      log_rsv_reservations On log_wrh_shelf_contents.LOG_WRH_Shelf_ContentID =
+	        log_rsv_reservations.LOG_WRH_Shelf_Content_RefID And
+	        log_rsv_reservations.IsDeleted = 0 And
+	        log_rsv_reservations.IsReservationExecuted = 0 And
+	        log_rsv_reservations.Tenant_RefID = @TenantID
+	    Where
+	      log_wrh_shelf_contents.IsDeleted = 0 And
+		  log_wrh_shelf_contents.Tenant_RefID = @TenantID And
+	      log_wrh_shelf_contents.LOG_WRH_Shelf_ContentID = @ShelfContentIDList
+	    Group By
+	      log_wrh_shelf_contents.Product_Variant_RefID,
+	      Coalesce(log_wrh_shelf_contents.Quantity_Current, 0)
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3SC_GSQCaFfSC_1707">
+    <Members>
+		<ClassMember Name="ShelfContentIDList" Type="Guid" IsArray="true"/>
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3SC_GSQCaFfSC_1707" IsArray="true">
+			<Members>
+				<ClassMember Name="Product_RefID" Type="Guid"  />
+				<ClassMember Name="CurrentQuantity" Type="double"  />
+				<ClassMember Name="ReservedQuantity" Type="double"  />
+				<ClassMember Name="FreeQuantity" Type="double"  />
+			  <ClassMember Name="LOG_WRH_Shelf_ContentID" Type="Guid"/>
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

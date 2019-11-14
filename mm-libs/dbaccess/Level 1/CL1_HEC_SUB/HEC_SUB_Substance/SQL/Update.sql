@@ -1,0 +1,24 @@
+UPDATE 
+	hec_sub_substances
+SET 
+	HealthcareSubstanceITL=@HealthcareSubstanceITL,
+	GlobalPropertyMatchingID=@GlobalPropertyMatchingID,
+	NarcoticAppendixStatus=@NarcoticAppendixStatus,
+	CategoryByLawStatus=@CategoryByLawStatus,
+	IsAntroposhopicalMedicine=@IsAntroposhopicalMedicine,
+	IsChemical=@IsChemical,
+	IsHomeophaticMedicine=@IsHomeophaticMedicine,
+	IsCOSubstance=@IsCOSubstance,
+	IsExcipient=@IsExcipient,
+	IsFoodAdditive=@IsFoodAdditive,
+	IsNaturalStimulant=@IsNaturalStimulant,
+	IsAgriculturePesticide=@IsAgriculturePesticide,
+	IsPerscriptionRequired=@IsPerscriptionRequired,
+	IsCosmeticSubstance=@IsCosmeticSubstance,
+	IsActiveComponent=@IsActiveComponent,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_SUB_SubstanceID = @HEC_SUB_SubstanceID

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_employee_functionhistory
+WHERE 
+	CMN_BPT_EMP_Employee_FunctionHistoryID = @CMN_BPT_EMP_Employee_FunctionHistoryID

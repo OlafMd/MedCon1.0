@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/8/2014 05:06:55">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Discounts_for_ProcurementOrderPositions</Name>
+    <Namespace>CL5_APOProcurement_ProcurementOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOProcurement_ProcurementOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Discounts_for_ProcurementOrderPositions"
+                Method_Name="Get_Discounts_for_ProcurementOrderPositions"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Discounts_for_ProcurementOrderPositions"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT ORD_PRC_ProcurementOrder_Position_Discounts.ord_prc_procurementOrder_Position_RefID
+		,ORD_PRC_ProcurementOrder_Position_Discounts.IsDiscountRelative
+		,ORD_PRC_ProcurementOrder_Position_Discounts.IsDiscountAbsolute
+		,ORD_PRC_ProcurementOrder_Position_Discounts.DiscountValue
+    ,ORD_PRC_ProcurementOrder_Position_Discounts.ORD_PRC_DiscountType_RefID
+		,ORD_PRC_DiscountTypes.GlobalPropertyMatchingID   
+	FROM ORD_PRC_ProcurementOrder_Position_Discounts
+	INNER JOIN ORD_PRC_DiscountTypes ON ORD_PRC_ProcurementOrder_Position_Discounts.ORD_PRC_DiscountType_RefID = ORD_PRC_DiscountTypes.ORD_PRC_DiscountTypeID
+		AND ORD_PRC_DiscountTypes.Tenant_RefID = @TenantID
+		AND ORD_PRC_DiscountTypes.IsDeleted = 0
+	WHERE ORD_PRC_ProcurementOrder_Position_Discounts.ord_prc_procurementOrder_Position_RefID = @ProcOrderPositionsList
+		AND ORD_PRC_ProcurementOrder_Position_Discounts.Tenant_RefID = @TenantID
+		AND ORD_PRC_ProcurementOrder_Position_Discounts.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5PO_GDfPOP_1706">
+    <Members>
+		<ClassMember Name="ProcOrderPositionsList" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PO_GDfPOP_1706" IsArray="true">
+			<Members>
+				<ClassMember Name="ord_prc_procurementOrder_Position_RefID" Type="Guid"  />
+        <ClassMember Name="ORD_PRC_DiscountType_RefID" Type="Guid"  />
+				<ClassMember Name="IsDiscountRelative" Type="bool"  />
+				<ClassMember Name="IsDiscountAbsolute" Type="bool"  />
+				<ClassMember Name="DiscountValue" Type="double"  />
+				<ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

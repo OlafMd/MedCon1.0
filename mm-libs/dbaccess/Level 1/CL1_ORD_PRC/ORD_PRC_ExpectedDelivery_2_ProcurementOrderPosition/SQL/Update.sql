@@ -1,0 +1,11 @@
+UPDATE 
+	ord_prc_expecteddelivery_2_procurementorderposition
+SET 
+	ORD_PRC_ExpectedDelivery_Position_RefID=@ORD_PRC_ExpectedDelivery_Position_RefID,
+	ORD_PRC_ProcurementOrder_Position_RefID=@ORD_PRC_ProcurementOrder_Position_RefID,
+	AssignedQuantityFromProcurementOrderPosition=@AssignedQuantityFromProcurementOrderPosition,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	AssignmentID = @AssignmentID

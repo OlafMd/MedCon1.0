@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_act_plannedaction_potentialprocedure_requiredproduct
+	(
+		HEC_ACT_PlannedAction_PotentialProcedure_RequiredProductID,
+		PlannedAction_PotentialProcedure_RefID,
+		HealthcareProduct_RefID,
+		BoundTo_HealthcareProcurementOrderPosition_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_PlannedAction_PotentialProcedure_RequiredProductID,
+		@PlannedAction_PotentialProcedure_RefID,
+		@HealthcareProduct_RefID,
+		@BoundTo_HealthcareProcurementOrderPosition_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

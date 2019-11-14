@@ -1,0 +1,19 @@
+INSERT INTO 
+	acc_bok_accounting_transactions
+	(
+		ACC_BOK_Accounting_TransactionID,
+		Comment,
+		TransactionType_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ACC_BOK_Accounting_TransactionID,
+		@Comment,
+		@TransactionType_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

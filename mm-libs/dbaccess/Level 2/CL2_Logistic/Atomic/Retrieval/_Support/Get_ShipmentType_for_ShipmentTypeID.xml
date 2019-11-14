@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="15/2/2015 14:29:02 PM">
+
+  <Meta>
+    <Name>Get_ShipmentType_for_ShipmentTypeID</Name>
+    <Description>Get_ShipmentType_for_ShipmentTypeID</Description>
+    <Namespace>Get_ShipmentType_for_ShipmentTypeID</Namespace>
+    <Tags></Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Logistic.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ShipmentType_for_ShipmentTypeID"
+                Method_Name="Get_ShipmentType_for_ShipmentTypeID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShipmentType_for_ShipmentTypeID"
+                />
+
+  <Parameters IsClass="true" Name="P_L2L_GSTfSTID_1427">
+    <Members>
+      <ClassMember Name="ShipmentTypeID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+                Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2L_GSTfSTID_1427" IsArray="false">
+      <Members>
+        <ClassMember IsReference="true" Type="ORM_LOG_SHP_Shipment_Type" Name="ORM_ShipmentType" IsArray="false"/>
+      </Members>
+    </ObjectReturnType_Definition>
+      
+  </ResultInfo>
+
+</CodeGen>

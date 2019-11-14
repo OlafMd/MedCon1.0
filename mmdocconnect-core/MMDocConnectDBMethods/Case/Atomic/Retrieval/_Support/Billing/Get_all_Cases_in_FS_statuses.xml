@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_all_Cases_in_FS_statuses</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_all_Cases_in_FS_statuses"
+								Method_Name="Get_all_Cases_in_FS_statuses"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+  
+  <!--Increase QueryTimeout from 60 to 600 after rebuild xml-->
+  
+  <SQLStatement xml:space="preserve">
+    Select
+      bil_billposition_transmitionstatuses.TransmitionCode as StatusNumber,
+      bil_billposition_transmitionstatuses.TransmittedOnDate as TreatmentDate,
+      bil_billposition_transmitionstatuses.TransmitionStatusKey as CodeForType,
+      bil_billpositions.PositionValue_IncludingTax as NumberForPayment,
+        bil_billpositions.BIL_BilHeader_RefID as HeaderID
+    From
+      bil_billpositions Inner Join
+      bil_billposition_transmitionstatuses
+        On bil_billposition_transmitionstatuses.BillPosition_RefID =
+        bil_billpositions.BIL_BillPositionID  
+        And
+      bil_billposition_transmitionstatuses.TransmitionCode = @FStatus And
+      bil_billposition_transmitionstatuses.IsActive = 1 and
+      bil_billposition_transmitionstatuses.Tenant_RefID = @TenantID and 
+      bil_billposition_transmitionstatuses.IsDeleted = 0
+    Where
+      bil_billpositions.Tenant_RefID = @TenantID And
+      bil_billpositions.IsDeleted = 0 
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GACiFS_1515" >
+    <Members>
+      <ClassMember Name="FStatus" Type="string" IsArray="true" />
+
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="CAS_GACiFS_1515" IsArray="true">
+      <Members>
+
+        <ClassMember Name="StatusNumber" Type="int"  />
+        <ClassMember Name="CodeForType" Type="String"  />
+        <ClassMember Name="TreatmentDate" Type="DateTime"  />
+        <ClassMember Name="NumberForPayment" Type="int"  />
+        <ClassMember Name="HeaderID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+    <!--      /***For InParameters**/ 
+            string toReplace2 = "";
+            if (Parameter.FStatus != "")
+                toReplace2 = "IN (" + Parameter.FStatus + ")";
+            string newText4 = command.CommandText.Replace("@FStatus", toReplace2);
+            command.CommandText = newText4;
+            
+            -->
+
+  </ResultInfo>
+
+</CodeGen>

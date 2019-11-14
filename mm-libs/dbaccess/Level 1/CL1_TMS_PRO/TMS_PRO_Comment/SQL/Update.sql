@@ -1,0 +1,19 @@
+UPDATE 
+	tms_pro_comments
+SET 
+	Comment_BoundTo_Project_RefID=@Comment_BoundTo_Project_RefID,
+	Comment_BoundTo_BusinessTask_RefID=@Comment_BoundTo_BusinessTask_RefID,
+	Comment_BoundTo_Feature_RefID=@Comment_BoundTo_Feature_RefID,
+	Comment_BoundTo_DeveloperTask_RefID=@Comment_BoundTo_DeveloperTask_RefID,
+	IsComment_BoundToBusinessTask=@IsComment_BoundToBusinessTask,
+	IsComment_BoundToFeature=@IsComment_BoundToFeature,
+	IsComment_BoundToDeveloperTask=@IsComment_BoundToDeveloperTask,
+	Comment_Quoatation_RefID=@Comment_Quoatation_RefID,
+	Comment_CreatedByAccount_RefID=@Comment_CreatedByAccount_RefID,
+	Comment_Quotation_Text=@Comment_Quotation_Text,
+	Comment_TextContent=@Comment_TextContent,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	TMS_PRO_CommentID = @TMS_PRO_CommentID

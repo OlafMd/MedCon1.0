@@ -1,0 +1,19 @@
+INSERT INTO 
+	usr_account_2_functionlevelright
+	(
+		AssignmentID,
+		FunctionLevelRight_RefID,
+		Account_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@FunctionLevelRight_RefID,
+		@Account_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,23 @@
+INSERT INTO 
+	log_wrh_inj_countingresult_trackinginstances
+	(
+		LOG_WRH_INJ_CountingResult_TrackingInstanceID,
+		LOG_WRH_INJ_InventoryJob_CountingResult_RefID,
+		LOG_ProductTrackingInstanceID,
+		CountedAmount,
+		IsDifferenceToExpectedQuantityFound,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_WRH_INJ_CountingResult_TrackingInstanceID,
+		@LOG_WRH_INJ_InventoryJob_CountingResult_RefID,
+		@LOG_ProductTrackingInstanceID,
+		@CountedAmount,
+		@IsDifferenceToExpectedQuantityFound,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

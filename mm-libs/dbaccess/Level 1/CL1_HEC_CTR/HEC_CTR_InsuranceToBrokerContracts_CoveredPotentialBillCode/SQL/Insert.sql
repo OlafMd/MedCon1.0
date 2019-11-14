@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_ctr_insurancetobrokercontracts_coveredpotentialbillcodes
+	(
+		HEC_CTR_InsuranceToBrokerContracts_CoveredPotentialBillCodeID,
+		InsuranceToBrokerContract_RefID,
+		PotentialBillCode_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CTR_InsuranceToBrokerContracts_CoveredPotentialBillCodeID,
+		@InsuranceToBrokerContract_RefID,
+		@PotentialBillCode_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

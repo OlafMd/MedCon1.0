@@ -1,0 +1,12 @@
+UPDATE 
+	cmn_qst_questionitem_enumerationanswertypes
+SET 
+	EnumerationAnswerType_Name_DictID=@EnumerationAnswerType_Name,
+	Questionnaire_Template_Version_RefID=@Questionnaire_Template_Version_RefID,
+	Questionnaire_Template_RefID=@Questionnaire_Template_RefID,
+	EnumerationType_CopyOf=@EnumerationType_CopyOf,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_QST_QuestionItem_EnumerationAnswerTypeID = @CMN_QST_QuestionItem_EnumerationAnswerTypeID

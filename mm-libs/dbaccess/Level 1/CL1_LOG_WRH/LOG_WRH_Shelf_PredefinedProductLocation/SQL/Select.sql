@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	log_wrh_shelf_predefinedproductlocations
+WHERE 
+	LOG_WRH_Shelf_PredefinedProductLocationID = @LOG_WRH_Shelf_PredefinedProductLocationID

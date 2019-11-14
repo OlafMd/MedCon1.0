@@ -1,0 +1,10 @@
+UPDATE 
+	log_wrh_inj_inventoryjob_countingrunshelves
+SET 
+	LOG_WRH_Shelf_Content_RefID=@LOG_WRH_Shelf_Content_RefID,
+	LOG_WRH_INJ_InventoryJob_CountingRun_RefID=@LOG_WRH_INJ_InventoryJob_CountingRun_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	LOG_WRH_INJ_InventoryJob_CountingRunShelfID = @LOG_WRH_INJ_InventoryJob_CountingRunShelfID

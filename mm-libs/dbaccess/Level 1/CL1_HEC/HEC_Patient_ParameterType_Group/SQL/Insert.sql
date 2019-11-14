@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_patient_parametertype_groups
+	(
+		GlobalPropertyMatchingID,
+		HEC_Patient_ParameterType_GroupID,
+		Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@GlobalPropertyMatchingID,
+		@HEC_Patient_ParameterType_GroupID,
+		@Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

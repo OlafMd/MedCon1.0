@@ -1,0 +1,21 @@
+UPDATE 
+	cmn_pps_shifttemplate_groups
+SET 
+	GroupShortName=@GroupShortName,
+	GroupName_DictID=@GroupName,
+	CMN_STR_Office_RefID=@CMN_STR_Office_RefID,
+	CMN_STR_Workarea_RefID=@CMN_STR_Workarea_RefID,
+	CMN_STR_Workplace_RefID=@CMN_STR_Workplace_RefID,
+	IsDefault_ForMonday=@IsDefault_ForMonday,
+	IsDefault_ForTuesday=@IsDefault_ForTuesday,
+	IsDefault_ForWednesday=@IsDefault_ForWednesday,
+	IsDefault_ForThursday=@IsDefault_ForThursday,
+	IsDefault_ForFriday=@IsDefault_ForFriday,
+	IsDefault_ForSaturday=@IsDefault_ForSaturday,
+	IsDefault_ForSunday=@IsDefault_ForSunday,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	CMN_PPS_ShiftTemplate_GroupID = @CMN_PPS_ShiftTemplate_GroupID

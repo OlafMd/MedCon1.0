@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/17/2015 11:26:15 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShippmentHeaderDetails_and_CustomerOrder_with_Positions_for_ShipmentID</Name>
+    <Namespace>CL5_Zugseil_PickingPreparation.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_PickingPreparation.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ShippmentHeaderDetails_and_CustomerOrder_with_Positions_for_ShipmentID"
+                Method_Name="Get_ShippmentHeaderDetails_and_CustomerOrder_with_Positions_for_ShipmentID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShippmentHeaderDetails_and_CustomerOrder_with_Positions_for_ShipmentID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID,
+	  log_shp_shipment_headers.ShipmentHeader_Number,
+	  log_shp_shipment_positions.LOG_SHP_Shipment_PositionID,
+	  cmn_pro_products.CMN_PRO_ProductID,
+	  cmn_pro_products.Product_Name_DictID,
+	  cmn_pro_products.Product_Number,
+	  cmn_pro_product_variants.CMN_PRO_Product_VariantID,
+	  cmn_pro_product_variants.VariantName_DictID,
+	  cmn_str_office_addresses.IsShippingAddress,
+	  cmn_str_office_addresses.IsBillingAddress,
+	  cmn_str_office_addresses.IsSpecialAddress,
+	  cmn_str_office_addresses.IsDefault,
+	  cmn_addresses.CMN_AddressID,
+	  cmn_addresses.Street_Name,
+	  cmn_addresses.Street_Number,
+	  cmn_addresses.City_Name,
+	  cmn_addresses.City_PostalCode,
+	  cmn_addresses.Country_Name,
+	  cmn_addresses.Country_ISOCode,
+	  log_shp_shipment_headers.Creation_Timestamp As ShipmentCreationDate,
+	  ord_cuo_customerorder_positions.Position_Quantity,
+	  ord_cuo_customerorder_positions.ORD_CUO_CustomerOrder_PositionID,
+	  ord_cuo_customerorder_headers.ORD_CUO_CustomerOrder_HeaderID,
+	  ord_cuo_customerorder_headers.CustomerOrder_Number,
+	  ord_cuo_customerorder_headers.CustomerOrder_Date,
+	  cmn_bpt_businessparticipants.DisplayName
+	From
+	  log_shp_shipment_positions Inner Join
+	  cmn_pro_products On cmn_pro_products.CMN_PRO_ProductID =
+	    log_shp_shipment_positions.CMN_PRO_Product_RefID Inner Join
+	  cmn_pro_product_variants On cmn_pro_product_variants.CMN_PRO_Product_VariantID
+	    = log_shp_shipment_positions.CMN_PRO_ProductVariant_RefID Right Join
+	  log_shp_shipment_headers On log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID
+	    = log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID Inner Join
+	  ord_cuo_customerorder_position_2_shipmentposition
+	    On log_shp_shipment_positions.LOG_SHP_Shipment_PositionID =
+	    ord_cuo_customerorder_position_2_shipmentposition.LOG_SHP_Shipment_Position_RefID Inner Join
+	  ord_cuo_customerorder_positions
+	    On ord_cuo_customerorder_positions.ORD_CUO_CustomerOrder_PositionID =
+	    ord_cuo_customerorder_position_2_shipmentposition.ORD_CUO_CustomerOrder_Position_RefID Inner Join
+	  ord_cuo_customerorder_headers
+	    On ord_cuo_customerorder_headers.ORD_CUO_CustomerOrder_HeaderID =
+	    ord_cuo_customerorder_positions.CustomerOrder_Header_RefID Left Join
+	  cmn_bpt_businessparticipants
+	    On cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID =
+	    ord_cuo_customerorder_headers.OrderingCustomer_BusinessParticipant_RefID,
+	  cmn_str_office_addresses Left Join
+	  cmn_addresses On cmn_addresses.CMN_AddressID =
+	    cmn_str_office_addresses.CMN_Address_RefID
+	Where
+	  log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID = @ShipmentHeaderID
+	  And
+	  log_shp_shipment_positions.IsDeleted = 0 And
+	  log_shp_shipment_positions.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5PP_GSHDaCOwPfS_1125">
+    <Members>
+		<ClassMember Name="ShipmentHeaderID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PP_GSHDaCOwPfS_1125" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_SHP_Shipment_HeaderID" Type="Guid"  />
+				<ClassMember Name="ShipmentHeader_Number" Type="String"  />
+				<ClassMember Name="LOG_SHP_Shipment_PositionID" Type="Guid"  />
+				<ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+				<ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+				<ClassMember Name="Product_Number" Type="String"  />
+				<ClassMember Name="CMN_PRO_Product_VariantID" Type="Guid"  />
+				<ClassMember Name="VariantName" Type="Dict" OriginTable="cmn_pro_product_variants" Source_DBField="VariantName_DictID"  />
+				<ClassMember Name="IsShippingAddress" Type="bool"  />
+				<ClassMember Name="IsBillingAddress" Type="bool"  />
+				<ClassMember Name="IsSpecialAddress" Type="bool"  />
+				<ClassMember Name="IsDefault" Type="bool"  />
+				<ClassMember Name="CMN_AddressID" Type="Guid"  />
+				<ClassMember Name="Street_Name" Type="String"  />
+				<ClassMember Name="Street_Number" Type="String"  />
+				<ClassMember Name="City_Name" Type="String"  />
+				<ClassMember Name="City_PostalCode" Type="String"  />
+				<ClassMember Name="Country_Name" Type="String"  />
+				<ClassMember Name="Country_ISOCode" Type="String"  />
+				<ClassMember Name="ShipmentCreationDate" Type="DateTime"  />
+				<ClassMember Name="Position_Quantity" Type="String"  />
+				<ClassMember Name="ORD_CUO_CustomerOrder_PositionID" Type="Guid"  />
+				<ClassMember Name="ORD_CUO_CustomerOrder_HeaderID" Type="Guid"  />
+				<ClassMember Name="CustomerOrder_Number" Type="String"  />
+				<ClassMember Name="CustomerOrder_Date" Type="DateTime"  />
+				<ClassMember Name="DisplayName" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

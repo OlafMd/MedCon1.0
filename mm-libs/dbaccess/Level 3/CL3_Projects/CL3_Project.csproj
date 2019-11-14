@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A82796F-7E01-4847-94A3-DB02F4BC3B83}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL3_Project</RootNamespace>
+    <AssemblyName>CL3_Project</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_BusinessTasks_for_Project_by_ProjectID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeveloperTasks_for_Project_by_ProjectID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Features_for_Project_by_ProjectID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Get_Admin_Project_Info_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProjectIDList_for_ActiveUser_and_RightPackageList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Projects_for_AccountID_and_RightPackIDList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Projects_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_RightPackages_for_ProjectMemberID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Delete_Admin_Project_for_Tenant.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Admin_Project_for_Tenant.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Projects.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Complex\Manipulation\SQL\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_DOC\CL1_DOC.csproj">
+      <Project>{08FEF49E-52A6-4C81-89EA-CB0679804159}</Project>
+      <Name>CL1_DOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_TMS\CL1_TMS.csproj">
+      <Project>{836FADE5-83E0-4A86-93BA-9C31A8EA07F0}</Project>
+      <Name>CL1_TMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_TMS_PRO\CL1_TMS_PRO.csproj">
+      <Project>{2EED773F-2351-47AC-92BF-2D9A58CB02F9}</Project>
+      <Name>CL1_TMS_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Project\CL2_Project.csproj">
+      <Project>{F32C0922-9895-4F3B-A23A-5055C67A4E38}</Project>
+      <Name>CL2_Project</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_RightsPackage\CL2_RightsPackage.csproj">
+      <Project>{6AEDD256-F371-4BBE-AA6D-D56DE102D6EC}</Project>
+      <Name>CL2_RightsPackage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_QuickTask\CL3_QuickTask.csproj">
+      <Project>{FE881C68-B3FC-4838-AEED-89D3350BA3DC}</Project>
+      <Name>CL3_QuickTask</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\BOp-CoreAPI.dll" />
+    <Content Include="bin\Debug\BOp-CoreAPI.pdb" />
+    <Content Include="bin\Debug\CL1_CMN_BPT.dll" />
+    <Content Include="bin\Debug\CL1_CMN_BPT.pdb" />
+    <Content Include="bin\Debug\CL1_DOC.dll" />
+    <Content Include="bin\Debug\CL1_DOC.pdb" />
+    <Content Include="bin\Debug\CL1_TMS.dll" />
+    <Content Include="bin\Debug\CL1_TMS.pdb" />
+    <Content Include="bin\Debug\CL1_TMS_PRO.dll" />
+    <Content Include="bin\Debug\CL1_TMS_PRO.pdb" />
+    <Content Include="bin\Debug\CL1_USR.dll" />
+    <Content Include="bin\Debug\CL1_USR.pdb" />
+    <Content Include="bin\Debug\CL2_RightsPackage.dll" />
+    <Content Include="bin\Debug\CL2_RightsPackage.pdb" />
+    <Content Include="bin\Debug\CL3_Project.dll" />
+    <Content Include="bin\Debug\CL3_Project.pdb" />
+    <Content Include="bin\Debug\CL3_QuickTask.dll" />
+    <Content Include="bin\Debug\CL3_QuickTask.pdb" />
+    <Content Include="bin\Debug\CL3_User.dll" />
+    <Content Include="bin\Debug\CL3_User.pdb" />
+    <Content Include="bin\Debug\CSV2Core.dll" />
+    <Content Include="bin\Debug\CSV2Core.pdb" />
+    <Content Include="bin\Debug\CSV2Core_MySQL.dll" />
+    <Content Include="bin\Debug\CSV2Core_MySQL.pdb" />
+    <Content Include="bin\Debug\DLCore_DBCommons.dll" />
+    <Content Include="bin\Debug\DLCore_DBCommons.pdb" />
+    <Content Include="bin\Debug\MySql.Data.dll" />
+    <Content Include="Complex\Manipulation\_Support\Save_Admin_Project_for_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_Projects.xml" />
+    <Content Include="obj\Debug\CL3_Project.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\CL3_Project.dll" />
+    <Content Include="obj\Debug\CL3_Project.pdb" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_RightPackages_for_ProjectMemberID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_RightsPackages_for_ProjectMemberID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Delete_Admin_Project_for_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Projects_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeveloperTasks_for_Project_by_ProjectID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Features_for_Project_by_ProjectID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_BusinessTasks_for_Project_by_ProjectID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Projects_for_AccountID_and_RightPackIDList.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Get_Admin_Project_Info_for_TenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Admin_Project_Info_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_BusinessTasks_for_Project_by_ProjectID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DeveloperTasks_for_Project_by_ProjectID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Features_for_Project_by_ProjectID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Projects_for_AccountID_and_RightPackIDList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Projects_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProjectIDList_for_ActiveUser_and_RightPackageList.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProjectIDList_for_ActiveUser_and_RightPackageList.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\Debug\CL3_Project.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

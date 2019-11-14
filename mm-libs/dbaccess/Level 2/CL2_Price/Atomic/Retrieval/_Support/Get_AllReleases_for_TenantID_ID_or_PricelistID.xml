@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/28/2013 5:32:03 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllReleases_for_TenantID_ID_or_PricelistID</Name>
+    <Namespace>CL2_Price.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Price.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllReleases_for_TenantID_ID_or_PricelistID"
+                Method_Name="Get_AllReleases_for_TenantID_ID_or_PricelistID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AllReleases_for_TenantID_ID_or_PricelistID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_sls_pricelist_releases.PricelistRelease_Comment,
+	  cmn_sls_pricelist_releases.PricelistRelease_ValidFrom,
+	  cmn_sls_pricelist_releases.PricelistRelease_ValidTo,
+	  cmn_sls_pricelist_releases.Release_Version,
+	  cmn_sls_pricelist_releases.Pricelist_RefID,
+	  cmn_sls_pricelist_releases.CMN_SLS_Pricelist_ReleaseID
+	From
+	  cmn_sls_pricelist_releases
+	Where
+	  cmn_sls_pricelist_releases.Pricelist_RefID = IfNull(@PricelistID, cmn_sls_pricelist_releases.Pricelist_RefID) And
+    cmn_sls_pricelist_releases.CMN_SLS_Pricelist_ReleaseID = IfNull (@ReleaseID, cmn_sls_pricelist_releases.CMN_SLS_Pricelist_ReleaseID) And
+	  cmn_sls_pricelist_releases.Tenant_RefID = @TenantID And
+	  cmn_sls_pricelist_releases.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2PL_GARfToPID_1730">
+    <Members>
+		<ClassMember Name="PricelistID" Type="Guid?"  />
+    <ClassMember Name="ReleaseID" Type="Guid?" />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2PL_GARfToPID_1730" IsArray="true">
+			<Members>
+				<ClassMember Name="PricelistRelease_Comment" Type="String"  />
+				<ClassMember Name="PricelistRelease_ValidFrom" Type="DateTime"  />
+				<ClassMember Name="PricelistRelease_ValidTo" Type="DateTime"  />
+				<ClassMember Name="Release_Version" Type="String"  />
+				<ClassMember Name="Pricelist_RefID" Type="Guid"  />
+				<ClassMember Name="CMN_SLS_Pricelist_ReleaseID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

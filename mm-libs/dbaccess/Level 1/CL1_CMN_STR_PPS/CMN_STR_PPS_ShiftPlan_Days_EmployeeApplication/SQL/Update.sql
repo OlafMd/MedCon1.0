@@ -1,0 +1,15 @@
+UPDATE 
+	cmn_str_pps_shiftplan_days_employeeapplications
+SET 
+	CMN_STR_PPS_ShiftPlan_Day_ShiftTemplate_RefID=@CMN_STR_PPS_ShiftPlan_Day_ShiftTemplate_RefID,
+	Employee_RefID=@Employee_RefID,
+	IsApproved=@IsApproved,
+	IfApproved_ByBusinessParticipant_RefID=@IfApproved_ByBusinessParticipant_RefID,
+	IfApproved_DailyWorkSchedule_RefID=@IfApproved_DailyWorkSchedule_RefID,
+	IsDenied=@IsDenied,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	CMN_STR_PPS_ShiftPlan_Days_EmployeeApplicationID = @CMN_STR_PPS_ShiftPlan_Days_EmployeeApplicationID

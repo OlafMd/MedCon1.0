@@ -1,0 +1,13 @@
+UPDATE 
+	hec_dia_potentialdiagnosis_prioritysequence
+SET 
+	PotentialDiagnosis_RefID=@PotentialDiagnosis_RefID,
+	PotentialDiagnosis_Catalog_RefID=@PotentialDiagnosis_Catalog_RefID,
+	PriorityNumber_Manual=@PriorityNumber_Manual,
+	PriorityNumber_Automatic=@PriorityNumber_Automatic,
+	Tenant_RefID=@Tenant_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_DIA_PotentialDiagnosis_PrioritySequenceID = @HEC_DIA_PotentialDiagnosis_PrioritySequenceID

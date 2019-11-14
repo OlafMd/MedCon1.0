@@ -1,0 +1,10 @@
+UPDATE 
+	res_str_outdoorfacility_properties
+SET 
+	OutdoorFacilityProperty_Name_DictID=@OutdoorFacilityProperty_Name,
+	OutdoorFacilityProperty_Description_DictID=@OutdoorFacilityProperty_Description,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_STR_OutdoorFacility_PropertyID = @RES_STR_OutdoorFacility_PropertyID

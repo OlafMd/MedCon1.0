@@ -1,0 +1,15 @@
+UPDATE 
+	hec_cmt_community_offeredmembershiptypes
+SET 
+	HealthcareCommunityOfferedMembershipTypesITL=@HealthcareCommunityOfferedMembershipTypesITL,
+	Community_RefID=@Community_RefID,
+	OfferedMembershipType_DisplayName=@OfferedMembershipType_DisplayName,
+	OfferedMembershipType_Name_DictID=@OfferedMembershipType_Name,
+	IsAvailableFor_Tenants=@IsAvailableFor_Tenants,
+	IsAvailableFor_Doctors=@IsAvailableFor_Doctors,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_CMT_Community_OfferedMembershipTypeID = @HEC_CMT_Community_OfferedMembershipTypeID

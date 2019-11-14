@@ -1,0 +1,19 @@
+INSERT INTO 
+	ord_cuo_rfp_issuedproposalresponseposition_2_cuo_position
+	(
+		AssignmentID,
+		ORD_CUO_RFP_IssuedProposalResponse_Position_RefID,
+		ORD_CUO_CustomerOrder_Position_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@ORD_CUO_RFP_IssuedProposalResponse_Position_RefID,
+		@ORD_CUO_CustomerOrder_Position_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

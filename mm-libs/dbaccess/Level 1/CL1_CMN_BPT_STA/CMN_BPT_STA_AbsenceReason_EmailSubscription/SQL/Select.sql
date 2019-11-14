@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_sta_absencereason_emailsubscriptions
+WHERE 
+	CMN_BPT_STA_AbsenceReason_EmailSubscriptionID = @CMN_BPT_STA_AbsenceReason_EmailSubscriptionID

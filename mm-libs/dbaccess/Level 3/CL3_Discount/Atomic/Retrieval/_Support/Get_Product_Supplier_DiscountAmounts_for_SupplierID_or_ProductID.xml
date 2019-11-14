@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="17/4/2014 12:43:00">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Product_Supplier_DiscountAmounts_for_SupplierID_or_ProductID</Name>
+    <Namespace>CL3_Discount.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Discount.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Product_Supplier_DiscountAmounts_for_SupplierID_or_ProductID"
+                Method_Name="Get_Product_Supplier_DiscountAmounts_for_SupplierID_or_ProductID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Product_Supplier_DiscountAmounts_for_SupplierID_or_ProductID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT
+		cmn_pro_product_supplier_discountvalues.ORD_PRC_DiscountType_RefID,
+		cmn_pro_product_supplier_discountvalues.DiscountValue,
+		ord_prc_discounttypes.GlobalPropertyMatchingID AS DiscountType_GlobalPropertyMatchingID
+	FROM
+		cmn_pro_product_suppliers
+	INNER JOIN cmn_pro_product_supplier_discountvalues
+		ON cmn_pro_product_suppliers.CMN_PRO_Product_SupplierID = cmn_pro_product_supplier_discountvalues.Product_Supplier_RefID
+		AND cmn_pro_product_supplier_discountvalues.IsDeleted = 0
+		AND cmn_pro_product_supplier_discountvalues.Tenant_RefID = @TenantID
+	INNER JOIN ord_prc_discounttypes
+		ON ord_prc_discounttypes.ORD_PRC_DiscountTypeID = cmn_pro_product_supplier_discountvalues.ORD_PRC_DiscountType_RefID
+		AND ord_prc_discounttypes.IsDeleted = 0
+		AND ord_prc_discounttypes.Tenant_RefID = @TenantID
+	WHERE
+		cmn_pro_product_suppliers.IsDeleted = 0
+		AND cmn_pro_product_suppliers.Tenant_RefID = @TenantID
+		AND @ProductID IS NULL OR cmn_pro_product_suppliers.CMN_PRO_Product_RefID = @ProductID
+		AND @SupplierID IS NULL OR cmn_pro_product_suppliers.CMN_BPT_Supplier_RefID = @SupplierID
+	
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3DC_GPSDAfSoP_0957">
+    <Members>
+		<ClassMember Name="SupplierID" Type="Guid?"  />
+		<ClassMember Name="ProductID" Type="Guid?"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3DC_GPSDAfSoP_0957" IsArray="true">
+			<Members>
+				<ClassMember Name="ORD_PRC_DiscountType_RefID" Type="Guid"  />
+				<ClassMember Name="DiscountValue" Type="Double"  />
+				<ClassMember Name="DiscountType_GlobalPropertyMatchingID" Type="string"  />
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+	</ResultInfo>
+
+</CodeGen>
+
+

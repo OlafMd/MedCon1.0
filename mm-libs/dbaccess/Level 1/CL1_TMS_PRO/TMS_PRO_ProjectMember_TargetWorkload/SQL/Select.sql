@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	tms_pro_projectmember_targetworkloads
+WHERE 
+	TMS_PRO_ProjectMember_TargetWorkloadID = @TMS_PRO_ProjectMember_TargetWorkloadID

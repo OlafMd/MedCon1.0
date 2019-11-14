@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="25/11/2013 02:37:16">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PriceList_With_Versions_for_TenantID</Name>
+    <Namespace>CL2_Price.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Price.Atomic.Retrieval"
+                Method_ClassName="cls_Get_PriceList_With_Versions_for_TenantID"
+                Method_Name="Get_PriceList_With_Versions_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PriceList_With_Versions_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT cmn_sls_pricelist.CMN_SLS_PricelistID,
+	       cmn_sls_pricelist_releases.CMN_SLS_Pricelist_ReleaseID,
+	       cmn_sls_pricelist.Pricelist_Name_DictID,
+	       cmn_sls_pricelist_releases.Release_Version
+	FROM
+	  cmn_sls_pricelist
+	  INNER JOIN cmn_sls_pricelist_releases
+	    ON cmn_sls_pricelist.CMN_SLS_PricelistID = cmn_sls_pricelist_releases.Pricelist_RefID AND cmn_sls_pricelist_releases.IsDeleted = 0
+	where cmn_sls_pricelist.IsDeleted = 0 AND cmn_sls_pricelist.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2PL_GPLWVfT_1436" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_SLS_PricelistID" Type="Guid"  />
+				<ClassMember Name="CMN_SLS_Pricelist_ReleaseID" Type="Guid"  />
+				<ClassMember Name="Pricelist_Name" Type="Dict" OriginTable="cmn_sls_pricelist" Source_DBField="Pricelist_Name_DictID"  />
+				<ClassMember Name="Release_Version" Type="String"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="27/5/2014 04:53:12">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DuningLevel_with_ChildData_for_Tenant</Name>
+    <Namespace>CL2_BillDunning.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_BillDunning.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DuningLevel_with_ChildData_for_Tenant"
+                Method_Name="Get_DuningLevel_with_ChildData_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DuningLevel_with_ChildData_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT dunning.ACC_DUN_Dunning_LevelID parID
+		,dunning.GlobalPropertyMatchingID
+		,child.ParentLevel_RefID
+		,child.ACC_DUN_Dunning_LevelID childID
+		,child.GlobalPropertyMatchingID childGlobalPropertyMatchingID
+		,acc_dun_dunninglevel_modelassignments.OrderSequence
+		,acc_dun_dunninglevel_modelassignments.DunningFee
+		,acc_dun_dunninglevel_modelassignments.WaitPeriodToNextDunningLevel_In_Days
+		,acc_dun_dunninglevel_modelassignments.ACC_DUN_DunningLevel_ModelAssignmentID
+	FROM acc_dun_dunning_levels dunning
+	INNER JOIN acc_dun_dunning_levels child ON dunning.ACC_DUN_Dunning_LevelID = child.ParentLevel_RefID
+   AND child.IsDeleted = 0
+	LEFT JOIN acc_dun_dunninglevel_modelassignments ON acc_dun_dunninglevel_modelassignments.Dunning_Level_RefID = child.ACC_DUN_Dunning_LevelID
+   AND acc_dun_dunninglevel_modelassignments.IsDeleted = 0
+	WHERE dunning.IsDeleted = 0 
+	AND dunning.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2BD_GDLwCDfT_1651" IsArray="true">
+			<Members>
+				<ClassMember Name="parID" Type="Guid"  />
+				<ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+				<ClassMember Name="ParentLevel_RefID" Type="Guid"  />
+				<ClassMember Name="childID" Type="Guid"  />
+				<ClassMember Name="childGlobalPropertyMatchingID" Type="String"  />
+				<ClassMember Name="OrderSequence" Type="int"  />
+				<ClassMember Name="DunningFee" Type="Decimal"  />
+				<ClassMember Name="WaitPeriodToNextDunningLevel_In_Days" Type="String"  />
+				<ClassMember Name="ACC_DUN_DunningLevel_ModelAssignmentID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

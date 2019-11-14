@@ -1,0 +1,33 @@
+.settlement-table-content,
+.settlement-table-header {
+  > li {
+    &:nth-child(1) {
+      width: 35px;
+    }
+
+    &:nth-child(2) {
+      width: 115px;
+    }
+
+    &:nth-child(3) {
+      width: 12%;
+    }
+
+    &:nth-child(4) {
+      width: 80px;
+    }
+
+    &:nth-child(5) {
+      width: 14%;
+    }
+
+    &:nth-child(6) {
+      width: 90px;
+    }
+  }
+
+  .controls {
+    width: 200px;
+    font-size: 0;
+  }
+}

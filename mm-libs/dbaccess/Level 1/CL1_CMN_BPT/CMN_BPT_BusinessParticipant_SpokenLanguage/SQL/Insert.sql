@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_bpt_businessparticipant_spokenlanguages
+	(
+		CMN_BPT_BusinessParticipant_SpokenLanguageID,
+		CMN_Language_RefID,
+		CMN_BPT_BusinessParticipant_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_BusinessParticipant_SpokenLanguageID,
+		@CMN_Language_RefID,
+		@CMN_BPT_BusinessParticipant_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,181 @@
+﻿<div class="white-content-holder default-font-color">
+
+    <a class="back-button" ng-click="redirectBackOnePage()" href=""><span translate="BUTTON_BACK"></span></a>
+    <ul class="list-table">
+        <li><h1 class="gray-font-color bolded-text clear"><span class="default-font-color">{{patient_detail.name}} </span></h1></li>
+        <li class="text-right" ng-if="!patient_detail.originating_practice_name && !showPatientDirective">
+            <a id="btnEditPatient" href class="icons-edit" ng-click="OpenFormAddPatient()" translate="BUTTON_EDIT" onclick="return false;" title="{{ 'BUTTON_EDIT' | translate}}"></a>
+        </li>
+    </ul>
+</div>
+
+<add-patient-directive ng-if="showPatientDirective" mode="'edit'" template-url="scripts/src/app/patient/view/addPatientTemplate.html"></add-patient-directive>
+
+<div ng-cloak class="default-font-color" ng-class="{'white-content-holder': !showPatientDirective}" ng-if="!showPatientDirective">
+    <ul class="patient-details negative-margin">
+        <li>
+            <label translate="LABEL_DATE_OF_BIRTH"></label>
+            <p class="margin-bottom-15">{{patient_detail.birthday}}</p>
+
+            <label translate="LABEL_PATIENT_ID"></label>
+            <p>{{patient_detail.external_id || '-'}}</p>
+        </li>
+        <li>
+            <label translate="LABEL_HEALTH_INSURANCE_PROVIDER"></label>
+            <p class="margin-bottom-15">{{patient_detail.health_insurance_provider}}</p>
+
+            <label translate="LABEL_PATIENT_FEE_WAIVED_FROM"></label>
+            <p>{{patient_detail.fee_waived_from || '-'}}</p>
+
+        </li>
+        <li>
+            <label translate="LABEL_INSURANCE_ID"></label>
+            <p ng-class="{ 'margin-bottom-15': patient_detail.originating_practice_name }">{{patient_detail.insurance_id || '-'}}</p>
+
+            <label translate="LABEL_ORIGINATING_PRACTICE" ng-if="patient_detail.originating_practice_name"></label>
+            <p ng-if="patient_detail.originating_practice_name">{{patient_detail.originating_practice_name || '-'}}</p>
+        </li>
+        <li>
+            <label translate="LABEL_INSURANCE_STATUS"></label>
+            <p>{{patient_detail.insurance_status || '-'}}</p>
+        </li>
+        <li>
+            <label translate="LABEL_PARTICIPATION_CONSENT"></label>
+            <p>{{patient_detail.participation_consent}}</p>
+        </li>
+        <li>
+            <label translate="LABEL_LEFT_EYE"></label>
+            <p><strong>{{ 'LABEL_OP' | translate }}:</strong> {{ patient_detail.left_eye.latest_op_date || '-' | date:'dd.MM.yyyy' }} [{{ patient_detail.left_eye.op_count }}]</p>
+            <p ng-if="is_patient_on_an_oct_contract"><strong>{{ 'LABEL_OCT' | translate }}:</strong> {{ patient_detail.left_eye.latest_oct_date || '-' | date:'dd.MM.yyyy' }} [{{ patient_detail.left_eye.oct_count }}]</p>
+            <p ng-if="is_patient_on_an_oct_contract">
+                <strong>{{ 'LABEL_OCT_DOCTOR' | translate }}:</strong> <span id="leftEyeOCTStatus" ng-class="{'rejected-text': patient_detail.left_eye.oct_rejected }">{{ patient_detail.left_eye.oct_doctor_name || '-' | translate  }}</span>
+                <a href id="btnEditOctDoctorLeft" ng-if="patient_detail.left_eye.oct_doctor_editable && !patient_detail.originating_practice_name" ng-click="editOctDoctor(true)" title="{{ 'BUTTON_EDIT' | translate}}"><i class="icons-pencil"></i></a>
+            </p>
+            <p><strong>{{ 'LABEL_TREATMENT_YEAR' | translate }}:</strong> {{patient_detail.left_eye.start_treatment_year || '-' | translate  }}</p>
+        </li>
+        <li>
+            <label translate="LABEL_RIGHT_EYE"></label>
+            <p><strong>{{ 'LABEL_OP' | translate }}:</strong> {{ patient_detail.right_eye.latest_op_date || '-' | date:'dd.MM.yyyy' }} [{{ patient_detail.right_eye.op_count }}]</p>
+            <p ng-if="is_patient_on_an_oct_contract"><strong>{{ 'LABEL_OCT' | translate }}:</strong> {{ patient_detail.right_eye.latest_oct_date || '-' | date:'dd.MM.yyyy' }} [{{ patient_detail.right_eye.oct_count }}]</p>
+            <p ng-if="is_patient_on_an_oct_contract">
+                <strong>{{ 'LABEL_OCT_DOCTOR' | translate }}:</strong> <span id="rightEyeOCTStatus" ng-class="{'rejected-text': patient_detail.right_eye.oct_rejected }">{{ patient_detail.right_eye.oct_doctor_name || '-' | translate  }}</span>
+                <a href id="btnEditOctDoctorRight" ng-if="patient_detail.right_eye.oct_doctor_editable && !patient_detail.originating_practice_name" ng-click="editOctDoctor(false)" title="{{ 'BUTTON_EDIT' | translate}}"><i class="icons-pencil"></i></a>
+            </p>
+            <p><strong>{{ 'LABEL_TREATMENT_YEAR' | translate }}:</strong> {{patient_detail.right_eye.start_treatment_year || '-' | translate  }}</p>
+        </li>
+    </ul>
+</div>
+
+<div class="row gray-content-holder" ng-if="!patient_detail.originating_practice_name">
+    <div class="col-xs-6 margin-bottom-15" ng-if="!showCaseDirective && allFormsClosed()" ng-class="{'gray-content-half': is_patient_on_an_oct_contract}">
+        <button id="btnAddCase" class="wide-add-button" translate="LABEL_NEW_CASE" ng-click="toggleAddNewCaseForm()"></button>
+    </div>
+
+    <div class="col-xs-6 margin-bottom-15" ng-if="is_wizard_button_visible && allFormsClosed()">
+        <button id="btnAddRetroCases" class="wide-add-button" add-retro-cases-directive add-retro-cases-patient-name="{{ patient_detail.name }}">{{ 'LABEL_ADD_DOCUMENTATION_ONLY_CASES' | translate }}</button>
+    </div>
+    <div class="clearfix"></div>
+
+    <add-case-directive ng-if="showCaseDirective" type="'patient'" patient="patient_data"></add-case-directive>
+
+    <div class="col-xs-6" ng-if="!showParticipationConsentForm && allFormsClosed()">
+        <button id="btnAddContract" class="wide-add-button" ng-class="{disabled: disableParticipationConsentbtn}" ng-click="ToggleFormAddParticipationConsent()" translate="LABEL_ADD_PARTICIPATION_CONSENT"></button>
+    </div>
+
+    <div class="col-xs-6" ng-if="!showPatientFeeWaiver && allFormsClosed()">
+        <button id="btnAddPatientFeeWaiver" class="wide-add-button" ng-click="toggleFormPatientFeeWaiver()" translate="BUTTON_ADD_PATIENT_FEE_WAIVER"></button>
+    </div>
+
+    <add-participation-consent-directive ng-if="showParticipationConsentForm" contract-list="contractList" id="getPatientID()"></add-participation-consent-directive>
+
+    <add-patient-fee-waiver-directive ng-if="showPatientFeeWaiver"></add-patient-fee-waiver-directive>
+</div>
+
+<ul class="table-header patient-details-table-header">
+    <li class="unsorted" ng-class="setTableHeaderClass('date')" ng-click="orderTable('date')">{{'LABEL_DATE' | translate }}</li>
+    <li class="unsorted text-center" ng-class="setTableHeaderClass('detail_type')" ng-click="orderTable('detail_type')">{{'LABEL_CASE_ONE' | translate }}</li>
+    <li>{{'LABEL_DIAGNOSIS_DRUG'| translate}}</li>
+    <li class="unsorted text-center" ng-class="setTableHeaderClass('localisation')" ng-click="orderTable('localisation')">{{'LABEL_LOKALIZATION'| translate}}</li>
+    <li class="text-left">{{'LABEL_DOCTOR'| translate}}</li>
+    <li class="unsorted text-left" ng-class="setTableHeaderClass('status')" ng-click="orderTable('status')">{{'LABEL_STATUS'| translate}}</li>
+    <li></li>
+</ul>
+<h2 id="stickyHeaderBox" class="first-letter-holder hide"></h2>
+<div class="content-scroll clear" id="wrapper" sticky>
+    <div id="wrapper_inner">
+
+        <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+
+            <div id="table_id" ng-repeat="item in patientDetailViewList | groupBy:'group_name'" ng-repeat-finished>
+                <h2 id="tableGroup" class="first-letter-holder tableGroup" ng-if="item.group_name_CHANGED && item.case_id !== edit_case_id && item.id !== edit_participation_id && item.id !== edit_id">
+                    <span>
+                        {{ item.group_name | translate }}
+                    </span>
+                </h2>
+
+                <add-case-directive ng-if="show_edit_case_form && item.id === edit_case_id" mode="'edit'" id="item.case_id" type="'patient'" patient="patient_data" item-type="item.detail_type"></add-case-directive>
+                <add-case-directive ng-if="showEditTreatmentForm(item)" mode="'edit'" id="item.case_id" type="'settlement'" status="item.status" show_error="item.status === 'FS6'" action-id="item.id" is-ac-editable="isAcEditable(item)"></add-case-directive>
+                <edit-settlement-directive aftercare="item" patient="patient_detail" ng-if="showAftercareForm(item)"></edit-settlement-directive>
+                <add-participation-consent-directive contractid="selected_contract_id" participationdate="participation_date" participationid="edit_participation_id" ng-if="show_edit_participation_form && item.id===edit_participation_id" mode="'edit'" contract-list="contractList" id="getPatientID()"></add-participation-consent-directive>
+                <edit-oct-directive oct="item" ng-if="showEditOctForm(item)"></edit-oct-directive>
+                <edit-order-directive order-id="item.order_id" ng-if="show_edit_order_form_id === item.order_id && item.detail_type === 'order'"></edit-order-directive>
+
+                <div id="divID_{{item.case_id}}" class="table-row" ng-hide="(show_edit_order_form_id === item.order_id  && item.detail_type === 'order') || (show_edit_case_form && item.id === edit_case_id) || (show_edit_participation_form && item.id === edit_participation_id) || (show_settlement_edit_case_form && item.id === edit_case_id && item.id === edit_id)">
+                    <ul id="list_{{item.id}}" class="table-content patient-details-table-content" ng-class="getBorderClassName(item)">
+                        <li>
+                            <big id="patientDetailsDate_{{$index}}">{{::item.date_string}}</big>
+                            <div ng-if="item.detail_type == 'ac'" id="patientDetailsOPDate_{{$index}}" class="normal-height-font gray-font-color">{{ 'LABEL_OP_DATE' | translate }}: {{::item.op_date_string}}</div>
+                        </li>
+
+                        <li class="text-center">
+                            <span id="patientDetailsIcon_{{$index}}" ng-class="{'icons-treatment-item': item.detail_type === 'op',
+                                       'icons-aftercare-item': item.detail_type === 'ac',
+                                       'icon-folder':item.detail_type==='participation',
+                                       'icons-orders':item.detail_type==='order',
+                                       'icons-preexamination-item': item.detail_type === 'oct'}"
+                                  ng-if="item.detail_type !== 'fee_waiver'"></span>
+                            <span class="larger-font" ng-if="item.detail_type === 'fee_waiver'">&euro;</span>
+                        </li>
+                        <li>
+                            <span id="patientDetailsDiagnosis_{{$index}}" translate="{{item.diagnose_or_medication}}" translate-values="{'year': item.last_day_in_year}"></span>
+                            <div class="normal-height-font gray-font-color" ng-if="item.detail_type==='order'">{{::item.pharmacy_name}}</div>
+                        </li>
+                        <li id="patientDetailsLocalization_{{$index}}" class="text-center">{{::item.localisation}}</li>
+                        <li id="patientDetailsDoctor_{{$index}}" class="text-left">{{::item.doctor }}</li>
+                        <li class="text-left table-row-color">
+                            <span id="patientDetailsStatus_{{$index}}">{{::getStatus(item) | translate}} <span ng-if="isOrderCancelled(item)">({{ getPreviousOrderStatus(item) | translate }})</span></span>
+                        </li>
+                        <li class="controls text-right">
+                            <a id="edit_{{$index}}" class="icons-edit action-buttons" ng-click="editOrder(item)" href title="{{'BUTTON_EDIT_ORDER' | translate}}" ng-if="orderOpen(item)">{{'BUTTON_EDIT_ORDER' | translate}}</a>
+                            <a href id="edit_{{::item.id}}" class="icons-edit action-buttons" ng-click="openEditForm(item)" ng-if="showEditButton(item) && item.is_my_practice" title="{{'BUTTON_EDIT' | translate}}"></a>
+                            <a href id="cancel_{{::item.id}}" class="icons-discard action-delete-button" ng-click="cancelCase(item)" ng-if="showCancelButton(item) && item.is_my_practice" title="{{'BUTTON_CANCEL_CASE' | translate}}"></a>
+                            <a href id="reject_{{::item.id}}" class="icons-discard action-delete-button" ng-click="rejectCase(item)" ng-if="showRejectButton(item) && item.is_my_practice" title="{{'BUTTON_REJECT_OCT' | translate}}"></a>
+                            <a href id="delete_{{::item.id}}" class="icons-discard action-delete-button" ng-click="deleteCase(item)" ng-if="item.is_deleteable && item.is_my_practice" title="{{'BUTTON_DELETE' | translate}}"></a></a>
+                            <a href id="download_{{::item.id}}" class="pdf-button" ng-class="{'report-not-downloaded-button-color': !item.is_order_report_downloaded}" ng-click="downloadReport(item)" ng-if="isDownloadVisible(item) && item.is_my_practice" title="{{'BUTTON_DOWNLOAD' | translate}}"></a>
+
+                            <span ng-if="(item.detail_type=='op' || item.detail_type=='ac' || item.detail_type=='oct') && checkDate(item) && checkItemStatus(item)  && item.is_my_practice">
+                                <form name="aftercareForm" class="datepicker-input-group" ng-submit="submitCase(item)" ng-if="((item.detail_type=='ac' && item.is_ac_submissible) || item.detail_type=='oct') && item.status!== 'FS6'" novalidate>
+                                    <input class="2000Year" id="aftercarePerformedDate_{{::item.id}}" type="text" ng-if="show_datepicker_id !== item.id" required ng-focus="renderDatepicker(item.id)" placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}" ng-model="item.aftercare_date_string"></input>
+                                    <datepicker ng-if="show_datepicker_id === item.id" date-format="dd.MM.yyyy" date-min-limit={{formatDate(item)}} date-max-limit={{today}} date-model="item.aftercare_date_string" is-right="true">
+                                        <input class="2000Year" type="text" id="aftercarePerformedDate_{{::item.id}}" ng-focus="setClass()" name="aftercarePerformedDate" ng-model="item.aftercare_date_string"
+                                               placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                                               ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'" ng-required="show_datepicker_id === item.id"
+                                               ng-class="{'redborder': delivery_date_invalid}" validate-date="true" date-min-limit="formatDate(item)" date-max-limit="today" />
+                                    </datepicker>
+                                    <button type="submit" class="icons-submit" ng-class="{'action-submit-button-click': show_datepicker_id !== item.id, 'action-submit-button': show_datepicker_id === item.id}" id="submit_{{::item.id}}" translate="BUTTON_SUBMIT"
+                                            ng-disabled="aftercareForm.$invalid" title="{{'BUTTON_SUBMIT' | translate}}"></button>
+                                </form>
+                                <a id="submit_{{::item.id}}" ng-if="item.detail_type === 'op' || item.status==='FS6'" class="icons-submit jsblockClose" ng-class="{'action-submit-button-disabled': isSubmitButtonDisabled(item), 'action-submit-button': !isSubmitButtonDisabled(item) }"
+                                   ng-click="submitCase(item)" href="" title="{{'BUTTON_SUBMIT' | translate}}"></a>
+                            </span>
+
+                            <span ng-if="item.detail_type=='order'">
+                                <a id="submit_order_{{$index}}" ng-if="(item.order_status == 'MO0' || item.order_status =='MO8') && item.detail_type == 'order'" class="icons-submit jsblockclose" ng-click="submitOrder(item)" href="" title="{{'BUTTON_SUBMIT_ORDER' | translate}}">{{'BUTTON_SUBMIT_ORDER' | translate}}</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

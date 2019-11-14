@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_per_compulsorysocialsecuritystatuses
+WHERE 
+	CMN_PER_CompulsorySocialSecurityStatusID = @CMN_PER_CompulsorySocialSecurityStatusID

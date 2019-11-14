@@ -1,0 +1,199 @@
+.table-header {
+  display: table;
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 15px;
+  table-layout: fixed;
+  background-color: #ccc;
+
+  > li {
+    display: table-cell;
+    padding-right: 10px;
+    height: 50px;
+    line-height: normal;
+    vertical-align: middle;
+    color: #707070;
+
+    .button.confirm {
+      min-width: 34px !important;
+      margin-bottom: 0 !important;
+      padding-left: 0 !important;
+      line-height: 26px;
+    }
+  }
+
+  &.table-header-active {
+    background-color: #464646 !important;
+    overflow: visible !important;
+
+    > li {
+      color: $sub-header !important;
+    }
+  }
+
+  .num-of-selected-item {
+    position: absolute;
+    width: 77px;
+    left: 0;
+    margin-top: 1px;
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .table-header-dropdown {
+    input[type="text"] {
+      width: 100%;
+      height: 34px;
+      outline: 0;
+      border: 1px solid rgba(0, 0, 0, 0);
+      @include border-radius(3px);
+    }
+  }
+
+  .controls {
+    .action-submit-button,
+    .action-submit-button-click {
+      margin: 0 5px 0 0;
+      vertical-align: top;
+    }
+  }
+}
+
+.table-row {
+  padding: 5px 0;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.table-content {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  padding-left: 21px;
+  background-color: #fff;
+  border-left: 9px solid transparent;
+
+  > li {
+    display: table-cell;
+    position: relative;
+    height: 72px;
+    padding-right: 10px;
+    vertical-align: middle;
+    color: #363636;
+
+    big {
+      font-size: 14px;
+    }
+  }
+
+  &:after,
+  &:before {
+    display: none !important;
+  }
+
+  &.yellow-border {
+    border-color: #cd9a12;
+
+    .table-row-color {
+      color: #cd9a12;
+    }
+  }
+
+  &.green-border {
+    border-color: $active-color;
+
+    .table-row-color {
+      color: $active-color;
+    }
+  }
+
+  &.red-border {
+    border-color: $error-color;
+
+    .table-row-color {
+      color: $error-color;
+    }
+  }
+
+  &.gray-border {
+    border-color: $btn-hover-color;
+
+    .table-row-color {
+      color: $btn-hover-color;
+    }
+  }
+
+  &.black-border {
+      border-color: $black-border;
+
+      .table-row-color {
+          color: $black-border;
+      }
+  }
+
+  &.yellow-row {
+    .table-row-color {
+      color: #cd9a12;
+    }
+  }
+
+  &.green-row {
+    .table-row-color {
+      color: $active-color;
+    }
+  }
+
+  &.red-row {
+    .table-row-color {
+      color: $error-color;
+    }
+  }
+
+  &.gray-row {
+    .table-row-color {
+      color: $btn-hover-color;
+    }
+  }
+
+  &.black-row {
+      .table-row-color {
+          color: $black-border;
+      }
+  }
+}
+
+.table-content,
+.table-header {
+  > li {
+    &.controls {
+      .datepicker-input-group {
+        display: inline-block;
+      }
+
+      .action-buttons,
+      .action-delete-button,
+      .icons-submit {
+        position: static;
+        display: inline-block;
+        top: auto;
+        right: auto;
+        margin: 0 5px 0 0;
+        vertical-align: top;
+        overflow: inherit;
+      }
+
+      .action-submit-button {
+        line-height: 30px !important; // safari hack
+      }
+
+      .pdf-button {
+        position: relative;
+        display: inline-block;
+        top: 0;
+        right: auto;
+        margin: 0 5px 0 0;
+        vertical-align: top;
+        line-height: normal;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_bil_billpositions
+	(
+		HEC_BIL_BillPositionID,
+		Ext_BIL_BillPosition_RefID,
+		PositionFor_Patient_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_BIL_BillPositionID,
+		@Ext_BIL_BillPosition_RefID,
+		@PositionFor_Patient_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

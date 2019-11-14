@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/18/2013 15:25:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Article</Name>
+    <Namespace>CL5_APOAdmin_Articles.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOAdmin_Articles.Complex.Manipulation"
+                Method_ClassName="cls_Save_Article"
+                Method_Name="Save_Article"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <Parameters IsClass="true" Name="P_L5AR_SA_1525">
+    <Members>
+      <ClassMember Name="ArticleID" Type="Guid"  />
+      <ClassMember Name="PZN" Type="String"  /> 
+      <ClassMember Name="EAN" Type="String"  />
+      
+      <ClassMember Name="ArticleName" Type="String"  />
+      <ClassMember Name="UnitAmount" Type="String"  />
+      <ClassMember Name="Unit_RefID" Type="Guid"  />
+      <ClassMember Name="Producer" Type="String"  />
+      
+      <ClassMember Name="VAT_RefID" Type="Guid"  />               
+      <ClassMember Name="Expiring_in_seconds" Type="long"  />
+      <ClassMember Name="StorageTemperatureFrom_in_kelvin" Type="Double"  />
+      <ClassMember Name="StorageTemperatureTo_in_kelvin" Type="Double"  />
+      <ClassMember Name="Notice" Type="String"  />
+      <ClassMember Name="ArticleType_RefID" Type="Guid"  />
+      <ClassMember Name="ArticleGroup_RefIDs" Type="Guid" IsArray="true"  />
+      <ClassMember Name="DosageForm_RefID" Type="Guid"  />
+
+      <ClassMember Name="ProductSuccessor_RefID" Type="Guid" />
+
+      <ClassMember Name="IsDummy" Type="bool"  />               <!-- This is for creation only-->
+      <ClassMember Name="IsRegularArticle" Type="bool"  />      <!-- This is for creation only-->
+      
+      <ClassMember Name="IsStorage_CoolingRequired" Type="Boolean" />
+      <ClassMember Name="IsStorage_BatchNumberMandatory" Type="Boolean" />
+      <ClassMember Name="IsStorage_ExpiryDateMandatory" Type="Boolean" />
+      <ClassMember Name="IsProduct_PartOfDefaultStock" Type="Boolean" />
+      <ClassMember Name="IsProduct_AddictiveDrug" Type="Boolean" />
+      <ClassMember Name="IsProduct_PharmacyOnlyDistribution" Type="Boolean" />
+      
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+

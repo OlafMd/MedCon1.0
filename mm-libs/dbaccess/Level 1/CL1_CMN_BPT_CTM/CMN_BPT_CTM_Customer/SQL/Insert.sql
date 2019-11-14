@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_bpt_ctm_customers
+	(
+		CMN_BPT_CTM_CustomerID,
+		Ext_BusinessParticipant_RefID,
+		CustomerAffinityStatus_RefID,
+		InternalCustomerNumber,
+		CustomerOrderDefaultShipmentWarehouse_RefID,
+		IsCustomerSales_ExcludedFromSalesStatistics,
+		IsCustomerOrderAutomaticallyApprovedOnReceipt,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_CTM_CustomerID,
+		@Ext_BusinessParticipant_RefID,
+		@CustomerAffinityStatus_RefID,
+		@InternalCustomerNumber,
+		@CustomerOrderDefaultShipmentWarehouse_RefID,
+		@IsCustomerSales_ExcludedFromSalesStatistics,
+		@IsCustomerOrderAutomaticallyApprovedOnReceipt,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

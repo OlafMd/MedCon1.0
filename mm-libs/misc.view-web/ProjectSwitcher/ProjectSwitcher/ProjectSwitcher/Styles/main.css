@@ -1,0 +1,50 @@
+﻿ul.changeProject
+{
+    position:absolute;
+    z-index: 1;
+    background-color: rgb(230, 230, 230);
+    padding:2px;
+    margin:0;
+    width: auto;
+    display: inline-block;
+    border: 1px solid;
+    border-color: rgb(200,200,200);
+    width: 99%;
+    list-style: none outside none;
+}
+
+.projectLinkItems
+{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.projectLink
+{
+    cursor: pointer;
+}
+
+a.projectLink
+{
+    text-decoration: none;  
+}
+
+.projectLink a:hover
+{
+     background-color:  rgb(240, 240, 240);   
+} 
+
+ul.sorting-items-projectSwitcher li a {
+    background-color:  rgb(230, 230, 230);
+    color: rgb(0, 0, 0) !important;
+    display: block;
+    margin: 0 !important;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+
+ul.sorting-items-projectSwitcher li a:hover 
+{
+    text-decoration: underline;    
+}

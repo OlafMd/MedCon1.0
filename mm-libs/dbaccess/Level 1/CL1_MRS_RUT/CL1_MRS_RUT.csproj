@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{958509DB-ABBA-4DCB-8A4F-3936B42D4CDC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_MRS_RUT</RootNamespace>
+    <AssemblyName>CL1_MRS_RUT</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MRS_RUT_RouteCycle\ORM_MRS_RUT_RouteCycle.cs" />
+    <Compile Include="MRS_RUT_Route\ORM_MRS_RUT_Route.cs" />
+    <Compile Include="MRS_RUT_Route_MeasuringPoint\ORM_MRS_RUT_Route_MeasuringPoint.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MRS_RUT_Route_MeasuringPoint\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUT_Route_MeasuringPoint\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUT_Route_MeasuringPoint\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUT_RouteCycle\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUT_RouteCycle\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUT_RouteCycle\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUT_Route\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUT_Route\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUT_Route\SQL\Select.sql" />
+    <Content Include="_Support\MRS_RUT_RouteCycles.xml" />
+    <Content Include="_Support\MRS_RUT_Routes.xml" />
+    <Content Include="_Support\MRS_RUT_Route_MeasuringPoints.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

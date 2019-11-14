@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_unit_groups
+	(
+		CMN_Unit_GroupID,
+		PrimaryUnit_RefID,
+		GlobalPropertyMatchingID,
+		Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_Unit_GroupID,
+		@PrimaryUnit_RefID,
+		@GlobalPropertyMatchingID,
+		@Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

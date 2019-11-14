@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_effectiveworktime_headers
+WHERE 
+	CMN_STR_PPS_EffectiveWorkTime_HeaderID = @CMN_STR_PPS_EffectiveWorkTime_HeaderID

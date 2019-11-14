@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D9454D5F-97CC-45CF-895F-F81A15A6E17D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL6_APOReporting_APODemand</RootNamespace>
+    <AssemblyName>CL6_APOReporting_APODemand</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_AverageProcurementPrices_for_ArticleList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProcurementPricesFromProductSuppliers_for_ArticleList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProductList_for_ShipmentPositionsByFilterDate.cs" />
+    <Compile Include="Complex\Manipulation\cls_Get_Data_for_ProcurementPrices.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_PAY\CL1_ACC_PAY.csproj">
+      <Project>{A58202A6-0921-4994-9076-F909ECAC7428}</Project>
+      <Name>CL1_ACC_PAY</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_TAX\CL1_ACC_TAX.csproj">
+      <Project>{E2A9FD01-BAC1-4A56-9062-B8F30237590E}</Project>
+      <Name>CL1_ACC_TAX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_BIL\CL1_BIL.csproj">
+      <Project>{D4F4B377-8C25-466F-B42F-315FC44A6D33}</Project>
+      <Name>CL1_BIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_CTM\CL1_CMN_BPT_CTM.csproj">
+      <Project>{C453F5A9-9877-4197-A5E3-403EF6A0455D}</Project>
+      <Name>CL1_CMN_BPT_CTM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_COM\CL1_CMN_COM.csproj">
+      <Project>{63F92C99-99E4-48AC-8AC3-1627ED7831DF}</Project>
+      <Name>CL1_CMN_COM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_LOC\CL1_CMN_LOC.csproj">
+      <Project>{FA892C18-7CCD-497D-BF20-9AA870C1E3A4}</Project>
+      <Name>CL1_CMN_LOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PER\CL1_CMN_PER.csproj">
+      <Project>{6BDA1EB4-FA2A-41A1-8B83-171ED9B85ADD}</Project>
+      <Name>CL1_CMN_PER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06AB1C3C-339F-4E31-8408-232DC283308C}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO_PAC\CL1_CMN_PRO_PAC.csproj">
+      <Project>{022F0501-41A8-4206-9007-374D9155E23D}</Project>
+      <Name>CL1_CMN_PRO_PAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_SLS\CL1_CMN_SLS.csproj">
+      <Project>{86752CE8-6442-4C3F-A316-98FADBB38BE1}</Project>
+      <Name>CL1_CMN_SLS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR\CL1_CMN_STR.csproj">
+      <Project>{B6524266-049E-4266-981E-FCFCEBB8C86C}</Project>
+      <Name>CL1_CMN_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768C60E8-0C7F-42B2-B8C9-D327C6BF334A}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_PRO\CL1_HEC_PRO.csproj">
+      <Project>{B289752D-AB70-4099-BD8C-58C989A952DE}</Project>
+      <Name>CL1_HEC_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_SUB\CL1_HEC_SUB.csproj">
+      <Project>{12047A47-1ED6-4E54-860D-BB7F0D6456E7}</Project>
+      <Name>CL1_HEC_SUB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG\CL1_LOG.csproj">
+      <Project>{5FF8E7C7-57C2-48AE-BC70-8F6B957DABC6}</Project>
+      <Name>CL1_LOG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_RCP\CL1_LOG_RCP.csproj">
+      <Project>{2C396733-6EF3-43BC-8C37-8959C59B2535}</Project>
+      <Name>CL1_LOG_RCP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_RSV\CL1_LOG_RSV.csproj">
+      <Project>{2193AE63-54C5-44D5-AACE-CDB0AC097530}</Project>
+      <Name>CL1_LOG_RSV</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_SHP\CL1_LOG_SHP.csproj">
+      <Project>{E43DE7B7-3C37-46B1-8824-D7313CCD8273}</Project>
+      <Name>CL1_LOG_SHP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_WRH\CL1_LOG_WRH.csproj">
+      <Project>{BB08DBAD-494E-4689-9467-BBDDAEBC1EB0}</Project>
+      <Name>CL1_LOG_WRH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_CUO\CL1_ORD_CUO.csproj">
+      <Project>{08B298C5-2B62-46EA-964F-98109E5B288C}</Project>
+      <Name>CL1_ORD_CUO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_PRC\CL1_ORD_PRC.csproj">
+      <Project>{2ED9EC1F-4C36-4790-B8AE-6C03F4B40588}</Project>
+      <Name>CL1_ORD_PRC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Price\CL3_Price.csproj">
+      <Project>{A47E5B89-3CCF-407A-97AF-2ABA2558B3DB}</Project>
+      <Name>CL3_Price</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\apps\apodemand.reporting\APOBilling_Bill_ShipmentBased\APOBilling_Bill_ShipmentBased.csproj">
+      <Project>{6A691FC8-D8E4-40D1-9323-BE6B3B43AFDF}</Project>
+      <Name>APOBilling_Bill_ShipmentBased</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\" />
+    <Folder Include="Complex\Retrieval\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProcurementPricesFromProductSuppliers_for_ArticleList.sql" />
+    <Content Include="Complex\Manipulation\_Support\Get_Data_for_ProcurementPrices.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AverageProcurementPrices_for_ArticleList.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProductList_for_ShipmentPositionsByFilterDate.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProcurementPricesFromProductSuppliers_for_ArticleList.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProductList_for_ShipmentPositionsByFilterDate.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AverageProcurementPrices_for_ArticleList.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

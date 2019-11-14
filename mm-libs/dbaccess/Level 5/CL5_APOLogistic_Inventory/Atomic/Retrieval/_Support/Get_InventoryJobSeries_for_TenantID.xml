@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/2/2014 1:32:55 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_InventoryJobSeries_for_TenantID</Name>
+    <Namespace>CL5_APOLogistic_Inventory.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_Inventory.Atomic.Retrieval"
+                Method_ClassName="cls_Get_InventoryJobSeries_for_TenantID"
+                Method_Name="Get_InventoryJobSeries_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_InventoryJobSeries_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  log_wrh_inj_inventoryjob_series.LOG_WRH_INJ_InventoryJob_SeriesID,
+	  log_wrh_inj_inventoryjob_series.InventoryJobSeries_DisplayName,
+	  log_wrh_inj_inventoryjob_series.Creation_Timestamp,
+	  log_wrh_inj_inventoryjob_series_rythms.RythmCronExpression,
+	  Count(log_wrh_inj_inventoryjob_series_participatingshelves.LOG_WRH_Shelf_RefID) As ShelfToCount,
+	  log_wrh_inj_inventoryjob_series.NumberOfProductsToSelect As ArticlesToCount 
+	From
+	  log_wrh_inj_inventoryjob_series Left Join
+	  log_wrh_inj_inventoryjob_series_rythms
+	    On log_wrh_inj_inventoryjob_series.LOG_WRH_INJ_InventoryJob_SeriesID =
+	    log_wrh_inj_inventoryjob_series_rythms.InventoryJob_Series_RefID And
+	    log_wrh_inj_inventoryjob_series_rythms.Tenant_RefID = @TenantID And
+	    log_wrh_inj_inventoryjob_series_rythms.IsDeleted = 0 Left Join
+	  log_wrh_inj_inventoryjob_series_participatingshelves
+	    On log_wrh_inj_inventoryjob_series.LOG_WRH_INJ_InventoryJob_SeriesID =
+	    log_wrh_inj_inventoryjob_series_participatingshelves.LOG_WRH_INJ_InventoryJob_Series_RefID And log_wrh_inj_inventoryjob_series_participatingshelves.Tenant_RefID = @TenantID And log_wrh_inj_inventoryjob_series_participatingshelves.IsDeleted = 0
+	Where
+	  log_wrh_inj_inventoryjob_series.Tenant_RefID = @TenantID And
+	  log_wrh_inj_inventoryjob_series.IsDeleted = 0
+	Group By
+	  log_wrh_inj_inventoryjob_series.LOG_WRH_INJ_InventoryJob_SeriesID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5IN_GIJSfT_1331" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_WRH_INJ_InventoryJob_SeriesID" Type="Guid"  />
+				<ClassMember Name="InventoryJobSeries_DisplayName" Type="String"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="RythmCronExpression" Type="String"  />
+				<ClassMember Name="ShelfToCount" Type="int"  />
+				<ClassMember Name="ArticlesToCount" Type="int"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

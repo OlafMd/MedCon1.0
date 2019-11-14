@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col-sm-12">
+        <p class="margin-bottom-20" translate="LABEL_WIZARD_OCTS_FIRST_LINE" translate-values="{
+           patient_name: patientName,
+           earlier_treatment_year_start_date: earlier_treatment_year_start_date,
+           number_of_octs: number_of_octs
+           }"></p>
+    </div>
+    <div class="col-sm-6">
+        <h3>{{'LABEL_LEFT_EYE' | translate}}</h3>
+        <div class="error-msg-container" ng-if="left_eye.validations.length">
+            <span class="error" ng-repeat="validation in left_eye.validations" translate="{{ validation.label }}" translate-values="validation.values"></span>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <h3>{{'LABEL_RIGHT_EYE' | translate}}</h3>
+        <div class="error-msg-container" ng-if="right_eye.validations.length">
+            <span class="error" ng-repeat="validation in right_eye.validations" translate="{{ validation.label }}" translate-values="validation.values"></span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="scroll-container" ng-if="!left_eye.disable">
+            <form name="formHolder.leftEyeOcts" ng-hide="left_eye.disable" novalidate>
+                <ul class="list-table" ng-repeat="oct in left_eye.octs">
+                    <li>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>{{'LABEL_OCT_DATE' | translate}}:</label>
+                                    <datepicker2 name="lefteyeOctDate"
+                                       datepicker-id="lefteyeOctDate_{{$index}}"
+                                       ng-model="left_eye.octs[$index].date"
+                                       placeholder="'LABEL_DATE_PLACEHOLDER'"
+                                       date-validate="true"
+                                       date-max-limit="today"
+                                       date-invalid="left_eye.octs[$index].dateInvalid"
+                                       required>
+                                    </datepicker2>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>{{'LABEL_OCT_DOCTOR' | translate}}:</label>
+                                    <autocomplete-oct-doctor
+                                        autocomplete-id="lefteyeOctDoctor_{{$index}}"
+                                        ng-model="left_eye.octs[$index].doctor"
+                                        debounce-value="500"
+                                        required>
+                                    </autocomplete-oct-doctor>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="scroll-container" ng-if="!right_eye.disable">
+            <form name="formHolder.rightEyeOcts" ng-hide="right_eye.disable" novalidate>
+                <ul class="list-table" ng-repeat="oct in right_eye.octs">
+                    <li>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>{{'LABEL_OCT_DATE' | translate}}:</label>
+                                    <datepicker2 name="righteyeOctDate"
+                                        datepicker-id="righteyeOctDate_{{$index}}"
+                                        ng-model="right_eye.octs[$index].date"
+                                        placeholder="'LABEL_DATE_PLACEHOLDER'"
+                                        date-validate="true"
+                                        date-max-limit="today"
+                                        date-invalid="right_eye.octs[$index].dateInvalid"
+                                        required>
+                                    </datepicker2>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>{{'LABEL_OCT_DOCTOR' | translate}}:</label>
+                                    <autocomplete-oct-doctor
+                                        autocomplete-id="righteyeOctDoctor_{{$index}}"
+                                        ng-model="right_eye.octs[$index].doctor"
+                                        dropdown-aligment="right"
+                                        debounce-value="500"
+                                        required>
+                                    </autocomplete-oct-doctor>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>

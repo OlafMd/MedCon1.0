@@ -1,0 +1,12 @@
+UPDATE 
+	acc_ipl_installment_2_assignedpayments
+SET 
+	ACC_BOK_Accounting_Transaction_RefID=@ACC_BOK_Accounting_Transaction_RefID,
+	ACC_IPL_Installment_RefID=@ACC_IPL_Installment_RefID,
+	AssignedBy_BusinessParticipant_RefID=@AssignedBy_BusinessParticipant_RefID,
+	AssignedValue=@AssignedValue,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	ACC_IPL_Installment_2_AssignedPaymentID = @ACC_IPL_Installment_2_AssignedPaymentID

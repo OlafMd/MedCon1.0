@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/22/2013 3:45:26 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_MS_Transaction_for_TransactionID</Name>
+    <Namespace>CL6_MS_Prescription.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_MS_Prescription.Atomic.Retrieval"
+                Method_ClassName="cls_Get_MS_Transaction_for_TransactionID"
+                Method_Name="Get_MS_Transaction_for_TransactionID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_MS_Transaction_for_TransactionID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_patient_prescription_transactions.PrescriptionTransaction_InternalNubmer,
+  hec_patient_prescription_transactions.Creation_Timestamp,
+  hec_patient_prescription_transactions.HEC_Patient_Prescription_TransactionID,
+  hec_patient_prescription_transactions.PrescriptionTransaction_IsComplete,
+  hec_patient_prescription_transactions.PrescriptionTransaction_RequestedDateOfDeliveryFrom,
+  hec_patient_prescription_transactions.PrescriptionTransaction_RequestedDateOfDeliveryTo,
+  hec_patient_prescription_transactions.PrescriptionTransaction_CreatedByBusinessParticpant_RefID,
+  hec_patient_prescription_transactions.PrescriptionTransaction_Comment,
+  hec_patient_prescription_transactions.PrescriptionTransaction_Patient_RefID,
+  hec_patient_prescription_transactions.PerscriptionTransaction_DeliveryAddress_RefID,
+  hec_patient_prescription_transactions.PrescriptionTransaction_UsePatientAddress,
+  hec_patient_prescription_transactions.PrescriptionTransaction_UseReceiptAddress,
+  hec_patient_prescription_transactions.PrescriptionTransaction_UseParticipationPolicyAddress,
+  cmn_addresses.Street_Name,
+  cmn_addresses.Street_Number,
+  cmn_addresses.City_PostalCode,
+  cmn_addresses.Province_Name,
+  cmn_addresses.City_Name,
+  Prescriptions.HEC_Patient_Prescription_HeaderID,
+  Prescriptions.DOC_DocumentRevisionID,
+  Prescriptions.File_ServerLocation,
+  cmn_per_personinfo.FirstName As Patient_FristName,
+  cmn_per_personinfo.LastName As Patient_LastName,
+  hec_patient_healthinsurances.HealthInsurance_Number As
+  Patient_InsuranceNumber,
+  cmn_per_personinfo.Salutation_General
+From
+  hec_patient_prescription_transactions Left Join
+  (Select
+    hec_patient_prescription_2_prescriptiontransaction.HEC_Patient_Prescription_Transaction_RefID,
+    doc_documentrevisions.File_ServerLocation,
+    doc_documentrevisions.DOC_DocumentRevisionID,
+    hec_patient_prescription_headers.HEC_Patient_Prescription_HeaderID
+  From
+    hec_patient_prescription_2_prescriptiontransaction Inner Join
+    hec_patient_prescription_headers
+      On
+      hec_patient_prescription_2_prescriptiontransaction.HEC_Patient_Prescription_Header_RefID = hec_patient_prescription_headers.HEC_Patient_Prescription_HeaderID Inner Join
+    hec_patient_prescription_documents
+      On hec_patient_prescription_documents.PrescriptionHeader_RefID =
+      hec_patient_prescription_headers.HEC_Patient_Prescription_HeaderID
+    Inner Join
+    doc_documents On hec_patient_prescription_documents.Document_RefID =
+      doc_documents.DOC_DocumentID Inner Join
+    doc_documentrevisions On doc_documentrevisions.Document_RefID =
+      doc_documents.DOC_DocumentID
+  Where
+    hec_patient_prescription_2_prescriptiontransaction.IsDeleted = 0 And
+    hec_patient_prescription_headers.IsDeleted = 0 And
+    hec_patient_prescription_documents.IsDeleted = 0 And
+    hec_patient_prescription_2_prescriptiontransaction.Tenant_RefID = @TenantID
+    And
+    doc_documents.IsDeleted = 0 And
+    doc_documentrevisions.IsLastRevision = 1) Prescriptions
+    On Prescriptions.HEC_Patient_Prescription_Transaction_RefID =
+    hec_patient_prescription_transactions.HEC_Patient_Prescription_TransactionID
+  Left Join
+  cmn_addresses
+    On
+    hec_patient_prescription_transactions.PerscriptionTransaction_DeliveryAddress_RefID = cmn_addresses.CMN_AddressID Inner Join
+  hec_patients
+    On
+    hec_patient_prescription_transactions.PrescriptionTransaction_Patient_RefID
+    = hec_patients.HEC_PatientID Inner Join
+  cmn_bpt_businessparticipants On hec_patients.CMN_BPT_BusinessParticipant_RefID
+    = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID Inner Join
+  cmn_per_personinfo
+    On cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID Inner Join
+  hec_patient_healthinsurances On hec_patient_healthinsurances.IsDeleted = 0 And
+    hec_patient_healthinsurances.Patient_RefID = hec_patients.HEC_PatientID
+Where
+  hec_patient_prescription_transactions.HEC_Patient_Prescription_TransactionID =
+  @TransactionID And
+  hec_patient_prescription_transactions.IsDeleted = 0 And
+  hec_patient_prescription_transactions.Tenant_RefID = @TenantID And
+  hec_patients.IsDeleted = 0 And
+  cmn_bpt_businessparticipants.IsDeleted = 0 And
+  cmn_per_personinfo.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6PS_GTfT_1544">
+    <Members>
+		<ClassMember Name="TransactionID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6PS_GTfT_1544" IsArray="false">
+			<Members>
+        <ClassMember Name="HEC_Patient_Prescription_TransactionID" Type="Guid"  />
+        <ClassMember Name="PrescriptionTransaction_InternalNubmer" Type="String"  />
+        <ClassMember Name="PrescriptionTransaction_IsComplete" Type="Boolean"  />
+        <ClassMember Name="PrescriptionTransaction_RequestedDateOfDeliveryFrom" Type="DateTime"  />
+        <ClassMember Name="PrescriptionTransaction_RequestedDateOfDeliveryTo" Type="DateTime"  />
+        <ClassMember Name="PrescriptionTransaction_CreatedByBusinessParticpant_RefID" Type="Guid"  />
+        <ClassMember Name="PrescriptionTransaction_Comment" Type="String"  />
+        <ClassMember Name="PrescriptionTransaction_Patient_RefID" Type="Guid"  />
+        <ClassMember Name="PerscriptionTransaction_DeliveryAddress_RefID" Type="Guid"  />
+        <ClassMember Name="PrescriptionTransaction_UsePatientAddress" Type="Boolean"  />
+        <ClassMember Name="PrescriptionTransaction_UseReceiptAddress" Type="Boolean"  />
+        <ClassMember Name="PrescriptionTransaction_UseParticipationPolicyAddress" Type="Boolean"  />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+
+        <!-- Address -->
+        <ClassMember Name="Street_Name" Type="String"  />
+        <ClassMember Name="Street_Number" Type="String"  />
+        <ClassMember Name="City_PostalCode" Type="String"  />
+        <ClassMember Name="Province_Name" Type="String"  />
+        <ClassMember Name="City_Name" Type="String"  />
+
+        <!-- Patient -->
+        <ClassMember Name="Patient_FristName" Type="String"  />
+        <ClassMember Name="Patient_LastName" Type="String"  />
+        <ClassMember Name="Patient_InsuranceNumber" Type="String"  />
+        <ClassMember Name="Salutation_General" Type="String"  />
+
+        <!-- Prescription -->
+        <ClassMember Name="HEC_Patient_Prescription_HeaderID" Type="Guid"  />
+        <ClassMember Name="DOC_DocumentRevisionID" Type="Guid"  />
+        <ClassMember Name="File_ServerLocation" Type="String"  />
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

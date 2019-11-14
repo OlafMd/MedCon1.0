@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="23/10/2013 11:59:29">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Get_CustomerGroups_with_Customers_for_TenantID</Name>
+        <Namespace>CL5_APOCustomerAdmin_Customer.Complex.Retrieval</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_APOCustomerAdmin_Customer.Complex.Retrieval"
+                  Method_ClassName="cls_Get_CustomerGroups_with_Customers_for_TenantID"
+                  Method_Name="Get_CustomerGroups_with_Customers_for_TenantID"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Get_CustomerGroups_with_Customers_for_TenantID"
+                />
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5CU_GCGwCfT_1735" >
+            <Members>
+                <ClassMember Name="Groups" Type="L5CU_GCGwCfT_1735g" IsArray="true" IsClass="true">
+                    <Members>
+                        <ClassMember Name="CMN_BPT_BP_GroupID" Type="Guid"  />
+                        <ClassMember Name="BusinessParticipantGroup_Name" Type="Dict" OriginTable="cmn_bpt_businessparticipant_groups" Source_DBField="BusinessParticipantGroup_Name_DictID"  />
+                        <ClassMember Name="BusinessParticipantGroup_Description" Type="Dict" OriginTable="cmn_bpt_businessparticipant_groups" Source_DBField="BusinessParticipantGroup_Description_DictID"  />
+                        
+                        <ClassMember Name="GroupedCustomers" Type="L5CU_GCGwCfT_1735b" IsArray="true" IsClass="true">
+                            <Members>
+                                <ClassMember Name="CustomerID" Type="Guid"   />
+                            </Members>
+                        </ClassMember>
+                        
+                    </Members>
+                </ClassMember>
+
+                <ClassMember Name="Customers" Type="L5CU_GCGwCfT_1735a" IsArray="true" IsClass="true" >
+                    <Members>
+                        <ClassMember Name="CMN_BPT_CTM_CustomerID" Type="Guid"  />
+                        <ClassMember Name="CMN_BPT_BusinessParticipantID" Type="Guid"  />
+                        <ClassMember Name="IsPerson" Type="bool"  />
+                        <ClassMember Name="IsCompany" Type="bool"  />
+                        <ClassMember Name="IfPerson_CMN_PER_PersonInfoID" Type="Guid"  />
+                        <ClassMember Name="IfCompany_CMN_COM_CompanyInfoID" Type="Guid"  />
+                        <ClassMember Name="LastName" Type="String"  />
+                        <ClassMember Name="FirstName" Type="String"  />
+                        <ClassMember Name="FirmName" Type="String"  />
+                        <ClassMember Name="InternalCustomerNumber" Type="String"  />
+                        <ClassMember Name="CompanyName_Line2" Type="String"  />
+                        <ClassMember Name="DispayName" Type="String"  />
+                    </Members>
+                </ClassMember>
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>

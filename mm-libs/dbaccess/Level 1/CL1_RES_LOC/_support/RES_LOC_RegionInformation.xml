@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:53:11 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="RES_LOC_RegionInformation"
+                IsClass="true"
+                IsClass_Namespace="CL1_RES_LOC"
+                IsClass_Corresponding_DBTable="res_loc_regioninformation" >
+      <Members>
+		<ClassMember Name="RES_LOC_RegionInformationID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="CMN_LOC_Region_RefID" Type="Guid" />
+		<ClassMember Name="RegionInformation_RegionArea_in_sqkm" Type="Double" />
+		<ClassMember Name="RegionInformation_TotalPopulation" Type="int" />
+		<ClassMember Name="RegionInformation_Population_per_sqkm" Type="Double" />
+		<ClassMember Name="RegionInformation_RegionUnemploymentRatePercent" Type="Double" />
+		<ClassMember Name="RegionInformation_NumberOfHouseholds_Current" Type="int" />
+		<ClassMember Name="RegionInformation_NumberOfHouseholds_Forecast" Type="int" />
+		<ClassMember Name="RegionInformation_PurchasingPowerAmount_Current_RefID" Type="Guid" />
+		<ClassMember Name="RegionInformation_PurchasingPowerAmount_Forecast_RefID" Type="Guid" />
+		<ClassMember Name="RegionInformation_ResidentialRent_MinPrice_RefID" Type="Guid" />
+		<ClassMember Name="RegionInformation_ResidentialRent_AveragePrice_RefID" Type="Guid" />
+		<ClassMember Name="RegionInformation_ResidentialRent_MaxPrice_RefID" Type="Guid" />
+		<ClassMember Name="RegionInformation_NonResidentialRent_MinPrice_RefID" Type="Guid" />
+		<ClassMember Name="RegionInformation_NonResidentialRent_AveragePrice_RefID" Type="Guid" />
+		<ClassMember Name="RegionInformation_NonResidentialRent_MaxPrice_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

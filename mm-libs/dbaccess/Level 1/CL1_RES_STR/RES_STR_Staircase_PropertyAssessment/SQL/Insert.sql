@@ -1,0 +1,25 @@
+INSERT INTO 
+	res_str_staircase_propertyassessments
+	(
+		RES_STR_Staircase_PropertyAssessmentID,
+		STR_Staircase_RefID,
+		Rating_RefID,
+		StaircaseProperty_RefID,
+		DocumentHeader_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_Staircase_PropertyAssessmentID,
+		@STR_Staircase_RefID,
+		@Rating_RefID,
+		@StaircaseProperty_RefID,
+		@DocumentHeader_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

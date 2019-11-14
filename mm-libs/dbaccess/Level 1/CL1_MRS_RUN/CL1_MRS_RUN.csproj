@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E6A2ADFF-307E-439B-A1FE-45875D0C31AA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_MRS_RUN</RootNamespace>
+    <AssemblyName>CL1_MRS_RUN</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MRS_RUN_MeasurementRun\ORM_MRS_RUN_MeasurementRun.cs" />
+    <Compile Include="MRS_RUN_MeasurementRun_AccountDownloadCode\ORM_MRS_RUN_MeasurementRun_AccountDownloadCode.cs" />
+    <Compile Include="MRS_RUN_MeasurementRun_Route\ORM_MRS_RUN_MeasurementRun_Route.cs" />
+    <Compile Include="MRS_RUN_MeasurementRun_StatusHistory\ORM_MRS_RUN_MeasurementRun_StatusHistory.cs" />
+    <Compile Include="MRS_RUN_MeasurementRun_Status\ORM_MRS_RUN_MeasurementRun_Status.cs" />
+    <Compile Include="MRS_RUN_Measurement\ORM_MRS_RUN_Measurement.cs" />
+    <Compile Include="MRS_RUN_Measurement_ExpectedValue\ORM_MRS_RUN_Measurement_ExpectedValue.cs" />
+    <Compile Include="MRS_RUN_Measurement_Issue\ORM_MRS_RUN_Measurement_Issue.cs" />
+    <Compile Include="MRS_RUN_Measurement_Issue_Type\ORM_MRS_RUN_Measurement_Issue_Type.cs" />
+    <Compile Include="MRS_RUN_Measurement_Note\ORM_MRS_RUN_Measurement_Note.cs" />
+    <Compile Include="MRS_RUN_Measurement_Tariff\ORM_MRS_RUN_Measurement_Tariff.cs" />
+    <Compile Include="MRS_RUN_Measurement_ValueAcquisitionType\ORM_MRS_RUN_Measurement_ValueAcquisitionType.cs" />
+    <Compile Include="MRS_RUN_Measurement_Value\ORM_MRS_RUN_Measurement_Value.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MRS_RUN_Measurement\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun_StatusHistory\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun_StatusHistory\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun_StatusHistory\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun_Status\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun_Status\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun_Status\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun_Route\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun_Route\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun_Route\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun_AccountDownloadCode\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun_AccountDownloadCode\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun_AccountDownloadCode\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Issue_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Issue_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Issue_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Issue\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Issue\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Issue\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Note\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Note\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Note\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Tariff\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Tariff\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Tariff\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_ValueAcquisitionType\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_ValueAcquisitionType\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_ValueAcquisitionType\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Value\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Value\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_Value\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUN_MeasurementRun\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_ExpectedValue\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_ExpectedValue\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_RUN_Measurement_ExpectedValue\SQL\Select.sql" />
+    <Content Include="_Support\MRS_RUN_MeasurementRun.xml" />
+    <Content Include="_Support\MRS_RUN_MeasurementRun_AccountDownloadCodes.xml" />
+    <Content Include="_Support\MRS_RUN_MeasurementRun_Routes.xml" />
+    <Content Include="_Support\MRS_RUN_MeasurementRun_Statuses.xml" />
+    <Content Include="_Support\MRS_RUN_MeasurementRun_StatusHistory.xml" />
+    <Content Include="_Support\MRS_RUN_Measurements.xml" />
+    <Content Include="_Support\MRS_RUN_Measurement_ExpectedValues.xml" />
+    <Content Include="_Support\MRS_RUN_Measurement_Issues.xml" />
+    <Content Include="_Support\MRS_RUN_Measurement_Issue_Types.xml" />
+    <Content Include="_Support\MRS_RUN_Measurement_Notes.xml" />
+    <Content Include="_Support\MRS_RUN_Measurement_Tariffs.xml" />
+    <Content Include="_Support\MRS_RUN_Measurement_ValueAcquisitionTypes.xml" />
+    <Content Include="_Support\MRS_RUN_Measurement_Values.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

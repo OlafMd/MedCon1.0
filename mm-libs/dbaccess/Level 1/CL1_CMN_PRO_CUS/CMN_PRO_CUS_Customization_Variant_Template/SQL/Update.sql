@@ -1,0 +1,12 @@
+UPDATE 
+	cmn_pro_cus_customization_variant_templates
+SET 
+	Customization_Template_RefID=@Customization_Template_RefID,
+	CustomizationVariantTemplate_Name_DictID=@CustomizationVariantTemplate_Name,
+	OrderSequence=@OrderSequence,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	CMN_PRO_CUS_Customization_Variant_TemplateID = @CMN_PRO_CUS_Customization_Variant_TemplateID

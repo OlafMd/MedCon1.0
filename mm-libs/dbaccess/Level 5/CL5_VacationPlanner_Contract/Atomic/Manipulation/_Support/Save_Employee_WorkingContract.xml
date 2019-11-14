@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/30/2012 6:04:49 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="CL5_VacationPlanner_Contract.Atomic.Manipulation"
+								Method_ClassName="cls_Save_Employee_WorkingContract"
+								Method_Name="Save_Employee_WorkingContract"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=".Save_Employee_WorkingContract"
+								/>
+
+	<Parameters IsClass="true" Name="P_L5CT_SECT_1810">
+    <Members>
+      <ClassMember Name="CMN_BPT_EMP_Employee_WorkingContractID" Type="Guid"  />
+      <ClassMember Name="CMN_BPT_EMP_WorkingContractID" Type="Guid"  />
+      <ClassMember Name="IsActive_WorkingContract" Type="bool"  />
+      <ClassMember Name="IsContractEndDateDefined" Type="bool"  />
+      <ClassMember Name="IsWorkTimeCalculated_InHours" Type="bool"  />
+      <ClassMember Name="IsWorkTimeCalculated_InDays" Type="bool"  />
+      <ClassMember Name="Contract_StartDate" Type="DateTime"  />
+      <ClassMember Name="Contract_EndDate" Type="DateTime"  />
+      <ClassMember Name="R_WorkTime_HoursPerWeek" Type="double"  />
+      <ClassMember Name="R_WorkTime_DaysPerWeek" Type="double"  />
+      <ClassMember Name="EmployeeRelationshipToWorkingContractAssignmentID" Type="Guid"  />
+      <ClassMember Name="LastActive_WorkingContractID" Type="Guid"  />
+      
+      <ClassMember Name="ExtraWorkCalculation_RefID" Type="Guid"  />
+      <ClassMember Name="WorkingContract_InCurrency_RefID" Type="Guid"  />
+      <ClassMember Name="IsWorktimeChecked_Weekly" Type="bool"  />
+      <ClassMember Name="IsWorktimeChecked_Monthly" Type="bool"  />
+      <ClassMember Name="SurchargeCalculation_UseMaximum" Type="bool"  />
+      <ClassMember Name="SurchargeCalculation_UseAccumulated" Type="bool"  />
+      <ClassMember Name="IsMealAllowanceProvided" Type="bool"  />
+      <ClassMember Name="WorkingContract_Comment" Type="String"  />
+      <ClassMember Name="NightTime_Surcharge_RefID" Type="Guid"  />
+      <ClassMember Name="SpecialEvent_Surcharge_RefID" Type="Guid"  />
+      <ClassMember Name="MaximumAllowedNightTimeSurchargeTime_in_mins" Type="int"  />
+      <ClassMember Name="MaximumAllowedSpecialEventSurchargeTime_in_mins" Type="int"  />
+      <ClassMember Name="TypeOfEmployment" Type="int"  />      
+
+      <ClassMember IsClass="true" IsArray="true" Name="WorkingContractAllowedAbsenceReason" Type="P_L5CT_SECT_1810_WorkingContractAllowedAbsenceReason">
+        <Members>
+          <ClassMember Name="WorkingContractAllowedAbsenceReasonID" Type="Guid"  />
+          <ClassMember Name="AbsenceReasonRefID" Type="Guid"  />
+          <ClassMember Name="IsAbsenceCalculated_InHours" Type="bool"  />
+          <ClassMember Name="IsAbsenceCalculated_InDays" Type="bool"  />
+          <ClassMember Name="ContractAllowedAbsence" Type="double"  />
+        </Members>
+      </ClassMember>
+
+      <ClassMember IsClass="true" IsArray="true" Name="WeeklyOfficeHours" Type="P_L5CT_SECT_1810_WeeklyOfficeHours">
+        <Members>
+          <ClassMember Name="CMN_CAL_WeeklyOfficeHours_IntervalID" Type="Guid" />
+          <ClassMember Name="IsWholeDay" Type="bool"/>
+          <ClassMember Name="TimeFrom_InMinutes" Type="long"/>
+          <ClassMember Name="TimeTo_InMinutes" Type="long"/>
+          <ClassMember Name="IsMonday" Type="bool"/>
+          <ClassMember Name="IsTuesday" Type="bool"/>
+          <ClassMember Name="IsWednesday" Type="bool"/>
+          <ClassMember Name="IsThursday" Type="bool"/>
+          <ClassMember Name="IsFriday" Type="bool"/>
+          <ClassMember Name="IsSaturday" Type="bool"/>
+          <ClassMember Name="IsSunday" Type="bool"/>
+        </Members>
+      </ClassMember>
+      
+    </Members>
+	</Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

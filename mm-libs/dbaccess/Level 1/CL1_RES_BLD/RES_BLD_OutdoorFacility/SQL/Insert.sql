@@ -1,0 +1,25 @@
+INSERT INTO 
+	res_bld_outdoorfacilities
+	(
+		RES_BLD_OutdoorFacilityID,
+		Building_RefID,
+		NumberOfGaragePlaces,
+		NumberOfRentedGaragePlaces,
+		TypeOfAccessRoad_RefID,
+		TypeOfFence_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_BLD_OutdoorFacilityID,
+		@Building_RefID,
+		@NumberOfGaragePlaces,
+		@NumberOfRentedGaragePlaces,
+		@TypeOfAccessRoad_RefID,
+		@TypeOfFence_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

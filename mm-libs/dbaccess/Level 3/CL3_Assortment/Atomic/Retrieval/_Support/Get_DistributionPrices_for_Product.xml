@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/29/2014 5:12:41 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DistributionPrices_for_Product</Name>
+    <Namespace>CL3_Assortment.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Assortment.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DistributionPrices_for_Product"
+                Method_Name="Get_DistributionPrices_for_Product"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DistributionPrices_for_Product"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_pro_product_variants.CMN_PRO_Product_VariantID,
+  cmn_pro_product_variants.IsStandardProductVariant,
+  cmn_price_values.PriceValue_Amount
+From
+  cmn_pro_product_variants Left Join
+  cmn_pro_ass_assortmentvariants
+    On cmn_pro_product_variants.CMN_PRO_Product_VariantID =
+    cmn_pro_ass_assortmentvariants.Ext_CMN_PRO_Product_Variant_RefID And
+    cmn_pro_ass_assortmentvariants.IsDeleted = 0 And
+    cmn_pro_ass_assortmentvariants.Tenant_RefID = @TenantID Full Join
+  cmn_pro_ass_distributionprice_values
+    On cmn_pro_ass_assortmentvariants.DistributionPrice_RefID =
+    cmn_pro_ass_distributionprice_values.DistributionPrice_RefID And
+    cmn_pro_ass_assortmentvariants.IsDeleted = 0 And
+    cmn_pro_ass_assortmentvariants.Tenant_RefID = @TenantID And
+    (Now() Between cmn_pro_ass_distributionprice_values.ValidFrom And
+    cmn_pro_ass_distributionprice_values.ValidThrough) Left Join
+  cmn_price_values On cmn_pro_ass_distributionprice_values.CMN_Price_RefID =
+    cmn_price_values.Price_RefID And cmn_price_values.IsDeleted = 0 And
+    cmn_price_values.Tenant_RefID = @TenantID And
+    cmn_price_values.PriceValue_Currency_RefID = @CurrencyID
+Where
+  cmn_pro_product_variants.IsDeleted = 0 And
+  cmn_pro_product_variants.Tenant_RefID = @TenantID And
+  cmn_pro_product_variants.CMN_PRO_Product_RefID = @ProductID    
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3AS_GDPfP_2005">
+    <Members>
+      <ClassMember Name="ProductID" Type="Guid"  />
+      <ClassMember Name="CurrencyID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3AS_GDPfP_2005" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_PRO_Product_VariantID" Type="Guid"  />
+        <ClassMember Name="PriceValue_Amount" Type="double"/>
+				<ClassMember Name="IsStandardProductVariant" Type="bool"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

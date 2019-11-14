@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen>
+
+    <Meta>
+        <Name></Name>
+        <Description>Get_all_Features_for_BTPackages</Description>
+        <Namespace>CL3_BusinessTasks.Atomic.Retrieval</Namespace>
+        <Tags>Features, BusinessTasksPackages</Tags>
+    </Meta>
+
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL3_BusinessTasks.Atomic.Retrieval"
+                  Method_ClassName="cls_Get_all_Features_for_BTPackages"
+                  Method_Name="Get_all_Features_for_BTPackages"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".cls_Get_all_Features_for_BTPackages"
+                />
+
+    <SQLStatement xml:space="preserve">
+Select
+  tms_pro_businesstaskpackages.TMS_PRO_BusinessTaskPackageID,
+  tms_pro_businesstask_2_feature.Feature_RefID,
+  tms_pro_feature.TMS_PRO_FeatureID,
+  tms_pro_feature.IsDeleted,
+  tms_pro_feature.IsArchived,
+  tms_pro_feature.Name_DictID,
+  tms_pro_feature.Parent_RefID,
+  tms_pro_businesstask_2_feature.IsDeleted As IsDeleted1,
+  tms_pro_feature.Project_RefID,
+  tms_pro_businesstasks.TMS_PRO_BusinessTaskID,
+  tms_pro_businesstask_2_feature.BusinessTask_RefID,
+  tms_pro_businesstasks.BusinessTasksPackage_RefID,
+  tms_pro_businesstasks.IsDeleted As IsDeleted2,
+  tms_pro_businesstaskpackages.IsDeleted As IsDeleted3,
+  tms_pro_businesstasks.IsArchived As IsArchived1
+From
+  tms_pro_businesstaskpackages Inner Join
+  tms_pro_businesstasks On tms_pro_businesstasks.BusinessTasksPackage_RefID =
+    tms_pro_businesstaskpackages.TMS_PRO_BusinessTaskPackageID Inner Join
+  tms_pro_businesstask_2_feature On tms_pro_businesstasks.TMS_PRO_BusinessTaskID
+    = tms_pro_businesstask_2_feature.BusinessTask_RefID Inner Join
+  tms_pro_feature On tms_pro_businesstask_2_feature.Feature_RefID =
+    tms_pro_feature.TMS_PRO_FeatureID
+ Where
+   tms_pro_feature.IsDeleted =0 and
+  tms_pro_feature.IsArchived= 0 and 
+   tms_pro_businesstaskpackages.Tenant_RefID = @TenantID 
+  
+ 
+  </SQLStatement>
+
+
+    <Parameters IsClass="true" Name="P_L3BT_GFBT_1238">
+        <Members>
+            <ClassMember  Name="TMS_PRO_BusinessTaskPackageID" Type="Guid"  />
+        </Members>
+    </Parameters>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L3BT_GFBT_1238" IsArray="true">
+            <Members>
+                <ClassMember Name="TMS_PRO_BusinessTaskPackageID" Type="Guid"  />
+                <ClassMember  Name="TMS_PRO_FeatureID" Type="Guid"  />
+                <ClassMember Name="Name_DictID" Type="Dict" OriginTable="tms_pro_feature" Source_DBField="Name_DictID" />
+                <ClassMember Name="Parent_RefID" Type="Guid"  />
+                <ClassMember Name="IsDeleted" Type="Boolean" />
+            </Members>
+        </ObjectReturnType_Definition>
+    </ResultInfo>
+
+</CodeGen>
+
+

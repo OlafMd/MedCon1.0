@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="23/10/2013 02:57:15">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Warehouse_Shelves_for_ID_or_TenantID</Name>
+    <Namespace>CL2_Warehouse.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Warehouse.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Warehouse_Shelves_for_ID_or_TenantID"
+                Method_Name="Get_Warehouse_Shelves_for_ID_or_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Warehouse_Shelves_for_ID_or_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT log_wrh_shelves.LOG_WRH_ShelfID,
+	       log_wrh_shelves.Rack_RefID,
+	       log_wrh_shelves.R_Warehouse_RefID,
+	       log_wrh_shelves.R_Area_RefID,
+	       log_wrh_shelves.CoordinateCode,
+	       log_wrh_shelves.CoordinateX,
+	       log_wrh_shelves.CoordinateY,
+	       log_wrh_shelves.CoordinateZ,
+	       log_wrh_shelves.ShelfCapacity_Unit_RefID,
+	       log_wrh_shelves.ShelfCapacity_Maximum,
+	       log_wrh_shelves.R_ShelfCapacity_Free,
+	       log_wrh_shelves.R_ShelfCapacity_Used,
+	       log_wrh_shelves.LimitShelfContent_ToOneProduct,
+	       log_wrh_shelves.LimitShelfContent_ToOneProductVariant,
+	       log_wrh_shelves.LimitShelfContent_ToOneProductRelease,
+	       log_wrh_shelves.IsShelfLocked,
+	       log_wrh_shelves.IsDeleted,
+         log_wrh_shelves.Shelf_Name,
+         log_wrh_racks.Shelf_NamePrefix
+	  FROM log_wrh_shelves
+         INNER JOIN log_wrh_racks on log_wrh_shelves.Rack_RefID = log_wrh_racks.LOG_WRH_RackID
+	 WHERE log_wrh_shelves.LOG_WRH_ShelfID = IFNULL(@ShelfID, log_wrh_shelves.LOG_WRH_ShelfID)
+	       AND log_wrh_shelves.Tenant_RefID = @TenantID
+         AND log_wrh_shelves.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2WH_GWHSLfIoT_1456">
+    <Members>
+		<ClassMember Name="ShelfID" Type="Guid?"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2WH_GWHSLfIoT_1456" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_WRH_ShelfID" Type="Guid"  />
+				<ClassMember Name="Rack_RefID" Type="Guid"  />
+				<ClassMember Name="R_Warehouse_RefID" Type="Guid"  />
+				<ClassMember Name="R_Area_RefID" Type="Guid"  />
+        <ClassMember Name="Shelf_Name" Type="String"  />
+        <ClassMember Name="CoordinateCode" Type="String"  />
+				<ClassMember Name="CoordinateX" Type="String"  />
+				<ClassMember Name="CoordinateY" Type="String"  />
+				<ClassMember Name="CoordinateZ" Type="String"  />
+				<ClassMember Name="ShelfCapacity_Unit_RefID" Type="Guid"  />
+				<ClassMember Name="ShelfCapacity_Maximum" Type="double"  />
+				<ClassMember Name="R_ShelfCapacity_Free" Type="double"  />
+				<ClassMember Name="R_ShelfCapacity_Used" Type="double"  />
+				<ClassMember Name="LimitShelfContent_ToOneProduct" Type="bool"  />
+				<ClassMember Name="LimitShelfContent_ToOneProductVariant" Type="bool"  />
+				<ClassMember Name="LimitShelfContent_ToOneProductRelease" Type="bool"  />
+				<ClassMember Name="IsShelfLocked" Type="bool"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

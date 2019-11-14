@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 1/20/2015 3:15:11 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_BPT_BusinessParticipant"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_BPT"
+                IsClass_Corresponding_DBTable="cmn_bpt_businessparticipants" >
+      <Members>
+		<ClassMember Name="CMN_BPT_BusinessParticipantID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="BusinessParticipantITL" Type="String" />
+		<ClassMember Name="ImportedFromSource" Type="String" />
+		<ClassMember Name="DisplayName" Type="String" />
+		<ClassMember Name="IsNaturalPerson" Type="Boolean" />
+		<ClassMember Name="IsCompany" Type="Boolean" />
+		<ClassMember Name="IfNaturalPerson_CMN_PER_PersonInfo_RefID" Type="Guid" />
+		<ClassMember Name="IfCompany_CMN_COM_CompanyInfo_RefID" Type="Guid" />
+		<ClassMember Name="IsTenant" Type="Boolean" />
+		<ClassMember Name="IfTenant_Tenant_RefID" Type="Guid" />
+		<ClassMember Name="DisplayImage_RefID" Type="Guid" />
+		<ClassMember Name="DefaultLanguage_RefID" Type="Guid" />
+		<ClassMember Name="DefaultCurrency_RefID" Type="Guid" />
+		<ClassMember Name="LastContacted_Date" Type="DateTime" />
+		<ClassMember Name="LastContacted_ByBusinessPartner_RefID" Type="Guid" />
+		<ClassMember Name="Audit_UpdatedByAccount_RefID" Type="Guid" />
+		<ClassMember Name="Audit_CreatedByAccount_RefID" Type="Guid" />
+		<ClassMember Name="Audit_UpdatedOn" Type="DateTime" />
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

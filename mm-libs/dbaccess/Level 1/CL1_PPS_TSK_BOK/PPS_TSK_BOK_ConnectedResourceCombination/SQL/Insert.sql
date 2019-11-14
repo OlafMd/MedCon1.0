@@ -1,0 +1,21 @@
+INSERT INTO 
+	pps_tsk_bok_connectedresourcecombinations
+	(
+		PPS_TSK_BOK_ConnectedResourceCombinationID,
+		Primary_AvailableResourceCombination_RefID,
+		Linked_AvailableResourceCombination_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@PPS_TSK_BOK_ConnectedResourceCombinationID,
+		@Primary_AvailableResourceCombination_RefID,
+		@Linked_AvailableResourceCombination_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

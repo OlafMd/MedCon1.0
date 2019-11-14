@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_str_office_calendartemplate
+	(
+		CMN_STR_Office_CalendarTemplateID,
+		Office_RefID,
+		CalendarInstance_RefID,
+		Label_DictID,
+		Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_STR_Office_CalendarTemplateID,
+		@Office_RefID,
+		@CalendarInstance_RefID,
+		@Label,
+		@Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

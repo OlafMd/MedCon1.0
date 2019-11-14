@@ -1,0 +1,27 @@
+INSERT INTO 
+	acc_bnk_banks
+	(
+		ACC_BNK_BankID,
+		BankName,
+		Country_RefID,
+		BankNumber,
+		BICCode,
+		RoutingNumber,
+		BankLocationComment,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ACC_BNK_BankID,
+		@BankName,
+		@Country_RefID,
+		@BankNumber,
+		@BICCode,
+		@RoutingNumber,
+		@BankLocationComment,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

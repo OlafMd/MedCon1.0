@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/25/2013 2:26:41 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_Patient_Prescription_2_PrescriptionTransaction"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC"
+                IsClass_Corresponding_DBTable="hec_patient_prescription_2_prescriptiontransaction" >
+      <Members>
+		<ClassMember Name="AssignmentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="HEC_Patient_Prescription_Header_RefID" Type="Guid" />
+		<ClassMember Name="HEC_Patient_Prescription_Transaction_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

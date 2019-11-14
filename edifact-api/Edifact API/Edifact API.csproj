@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7C18D789-BCFE-40CC-818A-163C89370531}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Edifact_API</RootNamespace>
+    <AssemblyName>Edifact_API</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EDIFACT_Segments\ABR.cs" />
+    <Compile Include="EDIFACT_Segments\AbstractElement.cs" />
+    <Compile Include="EDIFACT_Segments\ComponentDataElement.cs" />
+    <Compile Include="EDIFACT_Segments\DIA.cs" />
+    <Compile Include="EDIFACT_Segments\DataElement.cs" />
+    <Compile Include="EDIFACT_Segments\FHL.cs" />
+    <Compile Include="EDIFACT_Segments\FKI.cs" />
+    <Compile Include="EDIFACT_Segments\IBH.cs" />
+    <Compile Include="EDIFACT_Segments\INF.cs" />
+    <Compile Include="EDIFACT_Segments\INV.cs" />
+    <Compile Include="EDIFACT_Segments\IVK.cs" />
+    <Compile Include="EDIFACT_Segments\RGI.cs" />
+    <Compile Include="EDIFACT_Segments\Segment.cs" />
+    <Compile Include="Models\EDIFACTMessageParsed.cs" />
+    <Compile Include="Models\Segment.cs" />
+    <Compile Include="EDIFACT_Segments\UNH.cs" />
+    <Compile Include="EDIFACT_Segments\UNB.cs" />
+    <Compile Include="EDIFACT_Segments\UNT.cs" />
+    <Compile Include="EDIFACT.cs" />
+    <Compile Include="EDIFACT_Segments\UNZ.cs" />
+    <Compile Include="FileUtils.cs" />
+    <Compile Include="Models\AUFResponse.cs" />
+    <Compile Include="Models\EDIFACTResponse.cs" />
+    <Compile Include="EDIMessage.cs" />
+    <Compile Include="Models\Fields.cs" />
+    <Compile Include="Models\TransmitionHeaderInformation.cs" />
+    <Compile Include="Models\TransmitionInformation.cs" />
+    <Compile Include="Models\TransmitionMessage.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SegmentSetMethods.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

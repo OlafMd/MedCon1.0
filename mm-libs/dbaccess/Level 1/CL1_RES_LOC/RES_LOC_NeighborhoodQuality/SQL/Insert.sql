@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_loc_neighborhoodqualities
+	(
+		RES_LOC_NeighborhoodQualityID,
+		NeighborhoodQuality_Name_DictID,
+		NeighborhoodQuality_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_LOC_NeighborhoodQualityID,
+		@NeighborhoodQuality_Name,
+		@NeighborhoodQuality_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

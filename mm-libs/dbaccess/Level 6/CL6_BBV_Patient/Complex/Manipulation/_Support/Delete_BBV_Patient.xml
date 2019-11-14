@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/11/2012 9:19:08 AM">
+
+  <Meta>
+    <Name>Has_AccessRightToApplication</Name>
+    <Description>
+      
+    </Description>
+    <Namespace>CLE_L3_CMN_AppSubscription.Complex.Retrieval</Namespace>
+    <Tags></Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_BBV_Patient.Complex.Manipulation"
+                Method_ClassName="cls_Delete_BBV_Patient"
+                Method_Name="Delete_BBV_Patient."
+                ApplicationPlattform_WebServiceName="Delete_BBV_Patient."
+                ApplicationPlattform_Namespace=".Delete_BBV_Patient."
+                />
+
+
+  <Parameters IsClass="true" Name="P_L6PA_DBBVP_1711">
+    <Members>     
+      <ClassMember  Name="HEC_PatientID" Type="Guid"/>
+  
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+
+
+
+  </ResultInfo>
+
+
+</CodeGen>
+
+

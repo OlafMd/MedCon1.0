@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F50CE1EF-580E-42B4-B871-259491661931}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_MyHealthClub_Patient</RootNamespace>
+    <AssemblyName>CL5_MyHealthClub_Patient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\..\apps\myhealthclub.pba.data\MHC_PBAdministration_Data\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_PatienHealthInsurance_and_BankData.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_PatientBaseData.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_PatientDocuments.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_PatientFinding.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PatienHealthInsurance_and_BankData.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PatientDetailData_for_PatientID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PatientFindingData_for_FindingID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PatientFindings.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Patients_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Patient_Documents.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Patient_Documents_BaseData.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Patient_Name_for_PatientID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Patient_finding_data.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\SQL\" />
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Save_PatientDocuments.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_PatientFinding.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_PatienHealthInsurance_and_BankData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_PatientBaseData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PatientFindingData_for_FindingID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PatientFindings.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Patient_Documents.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Patient_Documents_BaseData.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PatientFindingData_for_FindingID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_PatientFindings.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Patient_Documents.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Patient_Documents_BaseData.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_Patient_finding_data.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Patient_Name_for_PatientID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Patient_Name_for_PatientID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PatientDetailData_for_PatientID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PatienHealthInsurance_and_BankData.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PatienHealthInsurance_and_BankData.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PatientDetailData_for_PatientID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Patients_for_TenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Patients_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC_BNK\CL1_ACC_BNK.csproj">
+      <Project>{6C90052F-9EBC-48F7-806B-6D5430AECFBF}</Project>
+      <Name>CL1_ACC_BNK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PER\CL1_CMN_PER.csproj">
+      <Project>{6BDA1EB4-FA2A-41A1-8B83-171ED9B85ADD}</Project>
+      <Name>CL1_CMN_PER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR\CL1_CMN_STR.csproj">
+      <Project>{B6524266-049E-4266-981E-FCFCEBB8C86C}</Project>
+      <Name>CL1_CMN_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_DOC\CL1_DOC.csproj">
+      <Project>{08FEF49E-52A6-4C81-89EA-CB0679804159}</Project>
+      <Name>CL1_DOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768C60E8-0C7F-42B2-B8C9-D327C6BF334A}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_ACT\CL1_HEC_ACT.csproj">
+      <Project>{F66B8F6F-EC2C-4867-9D07-D4E9850E8933}</Project>
+      <Name>CL1_HEC_ACT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Contact\CL2_Contact.csproj">
+      <Project>{26CFBA51-B354-4D11-9208-61EEA7509319}</Project>
+      <Name>CL2_Contact</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Country\CL2_Country.csproj">
+      <Project>{0F1DCDD3-19BB-44B1-8058-DB5B69B81784}</Project>
+      <Name>CL2_Country</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Offices\CL3_Offices.csproj">
+      <Project>{09A7B883-3719-4D61-BDCF-647FAC555D4C}</Project>
+      <Name>CL3_Offices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_MyHealthClub_DoctorsAndStaff\CL5_MyHealthClub_DoctorsAndStaff.csproj">
+      <Project>{E712E532-8BAD-48E0-98A8-746769F89C80}</Project>
+      <Name>CL5_MyHealthClub_DoctorsAndStaff</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_MyHealthClub_OrgUnits\CL5_MyHealthClub_OrgUnits.csproj">
+      <Project>{FE8D5EE5-BE82-4278-85BF-6DFC76FBCC39}</Project>
+      <Name>CL5_MyHealthClub_OrgUnits</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

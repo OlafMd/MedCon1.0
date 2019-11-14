@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="18-12-14 10:22:27">
+
+    <Meta>
+        <Name>Get_All_Shipment_Types_for_Tenant</Name>
+        <Description>Get_All_Shipment_Types_for_Tenant</Description>
+        <Namespace>CL2_Logistic.Atomic.Retrieval</Namespace>
+        <Tags></Tags>
+    </Meta>
+
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL2_Logistic.Atomic.Retrieval"
+                  Method_ClassName="cls_Get_All_Shipment_Types_for_Tenant"
+                  Method_Name="Get_All_Shipment_Types_for_Tenant"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Get_All_Shipment_Types_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+   
+Select
+  log_shp_shipment_types.LOG_SHP_Shipment_TypeID,
+  log_shp_shipment_types.ShipmentType_Name_DictID,
+  log_shp_shipment_types.ShipmentType_Description_DictID
+From
+  log_shp_shipment_types
+Where
+  log_shp_shipment_types.IsDeleted = 0 And
+  log_shp_shipment_types.Tenant_RefID = @TenantID
+     
+ </SQLStatement>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+        Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+        Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L2L_GASTfT_1025" IsArray="true">
+            <Members>
+                <ClassMember Name="LOG_SHP_Shipment_TypeID" Type="Guid"  />
+                <ClassMember Name="ShipmentType_Name" Type="Dict" OriginTable="log_shp_shipment_types" Source_DBField="ShipmentType_Name_DictID" />
+                <ClassMember Name="ShipmentType_Description" Type="Dict" OriginTable="log_shp_shipment_types" Source_DBField="ShipmentType_Description_DictID" />
+            </Members>
+        </ObjectReturnType_Definition>
+
+    </ResultInfo>
+
+</CodeGen>
+
+

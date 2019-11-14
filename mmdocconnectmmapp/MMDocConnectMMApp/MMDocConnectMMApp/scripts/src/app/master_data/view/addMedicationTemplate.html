@@ -1,0 +1,51 @@
+﻿<div class="gray-content-holder doctors-data-lists patients-list animate-if">
+    <form id="medicationForm" name="medicationForm" ng-submit="sendMedicationForm($event)" novalidate off-click="closeMedicationForm($event)">
+        <h3>{{'LABEL_ADD_MEDICATION' | translate}}</h3>
+        <div name="messageContainer" class="error-msg-container" ng-show="divContainer">
+            <!--<span class="error" ng-show="ContractDatesInvalidDatePicker">{{ 'LABEL_CONTRACT_DATES_INVALID' | translate }}</span>-->
+        </div>
+        <ul class="first-class-data medication-row ">
+            <li>
+                <label>{{'LABEL_MEDICATION'|translate}}<span class="error" ng-if="medicationForm.inMedication.$error.required">*</span></label>
+                <input id="inMedication" name="inMedication" type="text" ng-model="medication.Medication" required />
+            </li>
+
+            <li>
+                <label>{{'LABEL_PROPRIETARY_DRUG'|translate}}</label>
+                <span class="error" ng-if="medicationForm.proprietaryDrugYes.$error.required">*</span>
+                <span class=" mask-checkbox">
+                    <input id="proprietaryDrugYes" name="proprietaryDrug" type="radio" ng-value="true" ng-model="medication.ProprietaryDrug" required />
+                    <i class="icon"></i>
+                </span>
+                <label id="lblProprietaryDrugYes" translate="LABEL_PROPRIETARY_DRUG_YES"></label>
+
+                <span class=" mask-checkbox">
+                    <input id="proprietaryDrugNo" name="proprietaryDrug" type="radio" ng-value="false" ng-model="medication.ProprietaryDrug" />
+                    <i class="icon"></i>
+                </span>
+                <label id="lblProprietaryDrugNo" translate="LABEL_PROPRIETARY_DRUG_NO"></label>
+            </li>
+            <li>
+                <label>{{'LABEL_PZN_SCHEME'|translate}}<span class="error" ng-if="medicationForm.inPZNScheme.$error.required">*</span></label>
+                <input id="inPZNScheme" name="inPZNScheme" type="text" ng-model="medication.PZNScheme" required />
+
+            </li>
+            <!--<li>
+                <label>{{'LABEL_DOSAGE'|translate}}<span class="error" ng-if="medicationForm.Dosage.$error.required">*</span></label>
+                <input id="inDosage" name="inDosage" type="number" ng-model="medication.Dosage" ng-init="medication.Dosage=1" required />
+
+            </li>-->
+            <!--<li>
+                <label>{{'LABEL_UNIT'|translate}}<span class="error" ng-if="medicationForm.Unit.$error.required">*</span></label>
+                <dropdown-list id="Unit" name="Unit" items="units" ng-change="selectedUnit()" ng-model="contract.Unit" required disable-input="unitsDisabled" params="{display_name: 'UnitName', id: 'UnitID', is_model_object: true}"></dropdown-list>
+            </li>-->
+        </ul>
+        <div class="buttons margin-top-30">
+            <button class="button wide confirm no-margin-bottom" name="btnSubmit" id="btnSubmitMedication" type="submit" translate="BUTTON_SAVE"
+                    ng-disabled="medicationForm.$invalid"></button>
+            <button class="button narrow reject no-margin-bottom" id="btnCancelSubmitMedication" onclick="return false;" ng-click="closeMedicationForm()" title="{{ 'BUTTON_CANCEL' | translate }}"></button>
+        </div>
+
+    </form>
+    <div class="clearfix"></div>
+</div>

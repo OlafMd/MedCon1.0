@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_pro_peers_businesstask
+	(
+		AssignmentID,
+		BusinessTask_RefID,
+		ProjectMember_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@BusinessTask_RefID,
+		@ProjectMember_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

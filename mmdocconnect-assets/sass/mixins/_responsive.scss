@@ -1,0 +1,37 @@
+/*
+|------------------------------------------------------------
+| Responsive Settings
+|------------------------------------------------------------
+*/
+
+$break-small: 1200px;
+$break-medium: 1550px;
+$break-large: 1800px;
+$height-small: 600px;
+
+@mixin respond-to($media) {
+  @if $media == small-screen {
+    @media only screen and (max-width: $break-small) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $break-small + 1) and (max-width: $break-medium - 1) { @content; }
+  }
+  @else if $media == mediumS-screens {
+    @media only screen and (max-width: $break-medium) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $break-large) { @content; }
+  }
+  @else if $media == height-small {
+    @media only screen and (max-height: $height-small) { @content; }
+  }
+}
+
+/* .profile-pic {
+  float: left;
+  width: 250px;
+ @include respond-to(small-screen) { background-color: red !important;}
+  @include respond-to(medium-screens) { background-color: green !important;}
+  @include respond-to(wide-screens) { background-color: blue !important;}
+}
+ */

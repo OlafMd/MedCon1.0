@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_medicalpractise_availablepharmaciesforordering
+WHERE 
+	HEC_MedicalPractise_AvailablePharmaciesForOrderingID = @HEC_MedicalPractise_AvailablePharmaciesForOrderingID

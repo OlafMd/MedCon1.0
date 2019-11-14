@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_customer_promiseddeliverytimes
+WHERE 
+	CMN_BPT_Customer_PromisedDeliveryTimeID = @CMN_BPT_Customer_PromisedDeliveryTimeID

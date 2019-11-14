@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/2/2014 02:08:16">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_WebShop_Documents_for_Tenant</Name>
+    <Namespace>CL5_APOWebShop_Documents.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOWebShop_Documents.Atomic.Retrieval"
+                Method_ClassName="cls_Get_WebShop_Documents_for_Tenant"
+                Method_Name="Get_WebShop_Documents_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_WebShop_Documents_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+		SELECT
+		  ecm_doc_generaldocuments.ECM_DOC_GeneralDocumentID,
+		  doc_documents.DOC_DocumentID,
+		  doc_documents.Alias,
+		  doc_documents.PrimaryType,
+		  doc_documentrevisions.File_ServerLocation,
+	    doc_documentrevisions.File_Name
+		FROM
+		  ecm_doc_generaldocuments
+		  INNER JOIN doc_documents
+		    ON doc_documents.DOC_DocumentID = ecm_doc_generaldocuments.Document_RefID
+		    AND doc_documents.IsDeleted = 0
+		  LEFT JOIN doc_documentrevisions
+		    ON doc_documents.DOC_DocumentID = doc_documentrevisions.Document_RefID
+		    AND doc_documentrevisions.IsDeleted = 0
+		    AND doc_documentrevisions.IsLastRevision = 1
+		WHERE
+		ecm_doc_generaldocuments.IsDeleted = 0 AND
+		ecm_doc_generaldocuments.IsPublicallyVisible = 1 AND
+		ecm_doc_generaldocuments.Tenant_RefID = @TenantID AND
+	  ecm_doc_generaldocuments.DocumentTypeMatchingID = @DocumentType
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5AWSD_GWSDfT_1620">
+    <Members>
+      <ClassMember Name="DocumentType" Type="string"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5AWSD_GWSDfT_1620" IsArray="true">
+      <Members>
+        <ClassMember Name="ECM_DOC_GeneralDocumentID" Type="Guid"  />
+        <ClassMember Name="DOC_DocumentID" Type="Guid"  />
+        <ClassMember Name="Alias" Type="String"  />
+        <ClassMember Name="PrimaryType" Type="String"  />
+        <ClassMember Name="File_ServerLocation" Type="String"  />
+        <ClassMember Name="File_Name" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

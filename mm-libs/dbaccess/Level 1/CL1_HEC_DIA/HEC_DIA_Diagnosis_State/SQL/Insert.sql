@@ -1,0 +1,25 @@
+INSERT INTO 
+	hec_dia_diagnosis_states
+	(
+		HEC_DIA_Diagnosis_StateID,
+		Diagnose_RefID,
+		DiagnosisState_Abbreviation,
+		Modification_Timestamp,
+		DiagnosisState_Name_DictID,
+		DiagnosisState_Description_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_DIA_Diagnosis_StateID,
+		@Diagnose_RefID,
+		@DiagnosisState_Abbreviation,
+		@Modification_Timestamp,
+		@DiagnosisState_Name,
+		@DiagnosisState_Description,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

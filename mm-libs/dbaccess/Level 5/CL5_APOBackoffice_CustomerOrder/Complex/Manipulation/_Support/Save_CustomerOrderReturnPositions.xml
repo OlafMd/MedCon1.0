@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="01/16/2014 3:19:22 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_CustomerOrderReturnPositions</Name>
+    <Namespace>CL5_APOBackoffice_CustomerOrder.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBackoffice_CustomerOrder.Complex.Manipulation"
+                Method_ClassName="cls_Save_CustomerOrderReturnPositions"
+                Method_Name="Save_CustomerOrderReturnPositions"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_CustomerOrderReturnPositions"
+                />
+
+
+    <Parameters IsClass="true" Name="P_L5CO_SCORP_1459">
+        <Members>
+            <ClassMember Name="CustomerOrderReturnHeaderID" Type="Guid"  />
+	        <ClassMember Name="OrganizationalUnitID" Type="Guid"  />
+            <ClassMember Name="Positions" Type="P_L5CO_SCORP_1459a" IsArray="true" IsClass="true" >
+                <Members>
+                    <ClassMember Name="CustomerOrderReturnPositionId" Type="Guid"  />
+                    <ClassMember Name="ArticleID" Type="Guid"  />
+                    <ClassMember Name="Quantity" Type="double"  />
+                    <ClassMember Name="OrderPrice" Type="decimal"  />
+                    <ClassMember Name="CorrespondingReceiptPosition_RefID" Type="Guid"  />
+                </Members>
+            </ClassMember>
+        </Members>
+    </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+        Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+        Returns_an_Object_or_ObjectArray="false">
+
+        <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+    </ResultInfo>
+
+</CodeGen>

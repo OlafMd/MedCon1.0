@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	ord_dis_distributionorder_position_customizations
+WHERE 
+	ORD_DIS_DistributionOrder_Position_CustomizationID = @ORD_DIS_DistributionOrder_Position_CustomizationID

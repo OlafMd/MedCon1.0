@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_bpt_emp_effectiveworktime_header_2_dailyworkschedule
+	(
+		AssignmentID,
+		CMN_STR_PPS_DailyWorkSchedule_RefID,
+		CMN_STR_PPS_EffectiveWorkTime_Header_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_STR_PPS_DailyWorkSchedule_RefID,
+		@CMN_STR_PPS_EffectiveWorkTime_Header_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

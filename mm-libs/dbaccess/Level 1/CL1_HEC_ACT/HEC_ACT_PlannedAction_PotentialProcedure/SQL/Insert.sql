@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_act_plannedaction_potentialprocedures
+	(
+		HEC_ACT_PlannedAction_PotentialProcedureID,
+		PlannedAction_RefID,
+		PotentialProcedure_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_PlannedAction_PotentialProcedureID,
+		@PlannedAction_RefID,
+		@PotentialProcedure_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/25/2013 12:33:39 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_MeasurementsUpload</Name>
+    <Namespace>CL6_MRMS_Measurements.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_MRMS_Measurements.Complex.Manipulation"
+                Method_ClassName="cls_Save_MeasurementsUpload"
+                Method_Name="Save_MeasurementsUpload"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_MeasurementsUpload"
+                />
+
+  <Parameters IsClass="true" Name="P_L6_SMU_1157">
+    <Members>
+
+      <ClassMember Name="measurementID" Type="Guid"  />
+      <ClassMember Name="mode" Type="String"  />
+      
+      <ClassMember IsClass="true" IsArray="true" Name="measurementValues" Type="P_L6_SMU_1157_MeasurementValues">
+        <Members>
+          <ClassMember Name="value" Type="String"  />
+          <ClassMember Name="tarrifRefID" Type="Guid"  />
+          <ClassMember Name="measuredAt" Type="DateTime"  />
+        </Members>
+      </ClassMember>
+
+      <ClassMember IsClass="true" IsArray="true" Name="notes" Type="P_L6_SMU_1157_Note">
+        <Members>
+          <ClassMember Name="text" Type="String"  />
+          <ClassMember Name="createdByBPID" Type="Guid"  />
+          <ClassMember Name="measuringPointID" Type="Guid"  />
+          <ClassMember Name="creationTimestamp" Type="DateTime"  />
+        </Members>
+      </ClassMember>
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+  
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+
+  </ResultInfo>
+
+</CodeGen>
+
+

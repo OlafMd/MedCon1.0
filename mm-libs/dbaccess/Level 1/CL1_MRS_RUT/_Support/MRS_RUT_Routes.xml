@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 2/27/2015 12:04:33 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="MRS_RUT_Route"
+                IsClass="true"
+                IsClass_Namespace="CL1_MRS_RUT"
+                IsClass_Corresponding_DBTable="mrs_rut_routes" >
+      <Members>
+		<ClassMember Name="MRS_RUT_RouteID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="DisplayName" Type="String" />
+		<ClassMember Name="IsTemporaryRoute" Type="Boolean" />
+		<ClassMember Name="Default_RouteReaderAccount_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

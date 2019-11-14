@@ -1,0 +1,21 @@
+INSERT INTO 
+	log_wrh_inj_inventoryjob_process_shelfcontents
+	(
+		LOG_WRH_INJ_InventoryJob_Process_ShelfContentID,
+		LOG_WRH_INJ_InventoryJob_Process_Shelf_RefID,
+		LOG_WRH_Shelf_Content_RefID,
+		ExpectedQuantityOnShelfContent,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_WRH_INJ_InventoryJob_Process_ShelfContentID,
+		@LOG_WRH_INJ_InventoryJob_Process_Shelf_RefID,
+		@LOG_WRH_Shelf_Content_RefID,
+		@ExpectedQuantityOnShelfContent,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

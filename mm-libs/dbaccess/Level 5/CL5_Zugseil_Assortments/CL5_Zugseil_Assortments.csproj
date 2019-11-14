@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{037CBF02-03DC-467A-AEC0-0C6A3C32A7D7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_Zugseil_Assortments</RootNamespace>
+    <AssemblyName>CL5_Zugseil_Assortments</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\..\apps\zugseil.c-iod.data\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BOp.CatalogAPI">
+      <HintPath>..\..\..\..\apps\zugseil.c-adm.data\packages\BOp.CatalogAPI.0.3.14.0\lib\net40\BOp.CatalogAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\apps\zugseil.c-adm.data\packages\Newtonsoft.Json.4.0.5\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PlainElastic.Net">
+      <HintPath>..\..\..\..\apps\zugseil.c-adm.data\packages\PlainElastic.Net.1.0.44\lib\Net40\PlainElastic.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\..\..\..\apps\zugseil.c-adm.data\packages\RestSharp.105.0.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Delete_AssortmentProduct.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_AssortmentVendorVariants.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Assortment_BaseData.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AssortmentProducts_for_CostCenterOrder.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AssortmentProductVariant_DistributionPrice.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AssortmentProduct_PriceValue.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AssortmentVariants_for_ProductID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AssortmentVendorVariants_for_AssortmentVariant.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_AssortmentProducts.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_VariantBindingData_for_AssortmentProductID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Delete_AssortmentProduct.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_AssortmentVendorVariants.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Assortment_BaseData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AssortmentVendorVariants_for_AssortmentVariant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AssortmentVariants_for_ProductID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AssortmentProduct_PriceValue.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AssortmentProductVariant_DistributionPrice.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AssortmentProductVariant_DistributionPrice.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AssortmentProduct_PriceValue.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_VariantBindingData_for_AssortmentProductID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AssortmentProducts_for_CostCenterOrder.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AssortmentProducts_for_CostCenterOrder.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AssortmentVariants_for_ProductID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_AssortmentVendorVariants_for_AssortmentVariant.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_AssortmentProducts.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\arch\infrastructure.csharp-api\BOp-CoreAPI\BOp-CoreAPI.csproj">
+      <Project>{64bb878f-e099-4dfc-955f-ad0e9ddbba51}</Project>
+      <Name>BOp-CoreAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3c164500-bf5f-4173-b1a8-154a38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031c04c9-08cd-4833-af41-a9b64d337ca6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06ab1c3c-339f-4e31-8408-232dc283308c}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO_ASS\CL1_CMN_PRO_ASS.csproj">
+      <Project>{44d6b644-78dc-4b93-9a4e-b1a0d6fe3188}</Project>
+      <Name>CL1_CMN_PRO_ASS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_DOC\CL1_DOC.csproj">
+      <Project>{08fef49e-52a6-4c81-89ea-cb0679804159}</Project>
+      <Name>CL1_DOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Assortment\CL2_Assortment.csproj">
+      <Project>{860670c2-e077-4e45-9079-45143b9ed8ad}</Project>
+      <Name>CL2_Assortment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Assortment\CL3_Assortment.csproj">
+      <Project>{392f3503-0301-4323-bebd-e0e11908f86b}</Project>
+      <Name>CL3_Assortment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Variant\CL3_Variant.csproj">
+      <Project>{e7cc4e04-18ce-438f-9eb7-f25245e68a42}</Project>
+      <Name>CL3_Variant</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_Zugseil_Product\CL5_Zugseil_Product.csproj">
+      <Project>{8b5aac84-b425-43ae-ab53-e1ad3e56e0d8}</Project>
+      <Name>CL5_Zugseil_Product</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Retrieval\SQL\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

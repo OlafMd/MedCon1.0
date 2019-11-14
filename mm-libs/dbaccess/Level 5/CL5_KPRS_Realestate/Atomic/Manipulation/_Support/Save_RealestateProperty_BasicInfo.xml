@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/26/2013 8:47:26 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_RealestateProperties_For_RealestatePropertiesID</Name>
+    <Namespace>CLE_L5_RealEstate.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_Realestate.Atomic.Manipulation"
+                Method_ClassName="cls_Save_RealestateProperty_BasicInfo"
+                Method_Name="Save_RealestateProperty_BasicInfo"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_RealestateProperty_BasicInfo"
+                />
+
+
+
+  <Parameters IsClass="true" Name="P_L5RE_SREPBI_0846">
+    <Members>
+      <ClassMember Name="RES_RealestatePropertyID" Type="Guid" />
+      <ClassMember Name="RealestateProperty_Title" Type="String" />
+      <ClassMember Name="RealestateProperty_InternalID" Type="String" IsObjectPrimaryKey="true"/>
+      <ClassMember Name="InformationSubmittedBy_Account_RefID" Type="Guid" />
+      <ClassMember Name="RealestateProperty_ConstructionDate" Type="DateTime" />
+      <ClassMember Name="RealestateProperty_RefurbishmentDate" Type="DateTime" />
+      <ClassMember Name="RealestateProperty_InformationDate" Type="DateTime" />
+      <ClassMember Name="RealestateProperty_LivingSpace_in_sqm" Type="double" />
+      <ClassMember Name="RealestateProperty_NumberOfResidentialUnits" Type="int" />
+      <ClassMember Name="LandRegistrationEntry_GroundAreaSize_in_sqm" Type="double" />
+      <ClassMember Name="RES_RealestateProperty_ConstructionTypeID" Type="Guid" />
+      <ClassMember Name="RES_RealestateProperty_TypeID" Type="Guid" />
+      <ClassMember Name="RES_RealestateProperty_SourceOfInformationID" Type="Guid" />
+      <ClassMember Name="Lattitude" Type="double"  />
+      <ClassMember Name="Longitude" Type="double"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+    <StandardReturnType_Definition IsArray="false" returnType="Guid"/>
+    
+	</ResultInfo>
+
+</CodeGen>
+
+

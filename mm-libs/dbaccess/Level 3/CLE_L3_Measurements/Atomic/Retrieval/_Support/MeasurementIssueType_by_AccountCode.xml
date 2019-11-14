@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/14/2014 3:54:31 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>MeasurementIssueType_by_AccountCode</Name>
+    <Namespace>CL3_Measurements.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Measurements.Atomic.Retrieval"
+                Method_ClassName="cls_MeasurementIssueType_by_AccountCode"
+                Method_Name="MeasurementIssueType_by_AccountCode"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".MeasurementIssueType_by_AccountCode"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select Distinct
+  mrs_run_measurement_issue_types.MRS_RUN_Measurement_Issue_TypeID,
+  mrs_run_measurement_issue_types.GlobalPropertyMatchingID,
+  mrs_run_measurement_issue_types.IssueTypeName_DictID,
+  mrs_run_measurement_issue_types.IssueTypeDescription_DictID,
+  mrs_run_measurement_issue_types.Creation_Timestamp,
+  mrs_run_measurement_issue_types.Tenant_RefID,
+  mrs_run_measurement_issue_types.IsDeleted
+From
+  mrs_run_measurementrun_accountdownloadcodes Inner Join
+  mrs_run_measurementrun_routes
+    On mrs_run_measurementrun_accountdownloadcodes.MeasurementRun_RefID =
+    mrs_run_measurementrun_routes.MeasurementRun_RefID And
+    mrs_run_measurementrun_accountdownloadcodes.Account_RefID =
+    mrs_run_measurementrun_routes.BoundTo_Account_RefID Inner Join
+  mrs_rut_routes On mrs_rut_routes.MRS_RUT_RouteID =
+    mrs_run_measurementrun_routes.Route_RefID Inner Join
+  mrs_rut_route_measuringpoints On mrs_rut_routes.MRS_RUT_RouteID =
+    mrs_rut_route_measuringpoints.Route_RefID Inner Join
+  mrs_run_measurements
+    On mrs_rut_route_measuringpoints.MRS_RUT_Route_MeasuringPointID =
+    mrs_run_measurements.MeasuringPoint_RefID And
+    mrs_run_measurements.MeasurementRun_RefID =
+    mrs_run_measurementrun_routes.MeasurementRun_RefID Inner Join
+  mrs_run_measurement_issues On mrs_run_measurement_issues.Measurement_RefID =
+    mrs_run_measurements.MRS_RUN_MeasurementID Inner Join
+  mrs_run_measurement_issue_types
+    On mrs_run_measurement_issues.MeasurementIssueType_RefID =
+    mrs_run_measurement_issue_types.MRS_RUN_Measurement_Issue_TypeID Inner Join
+  cmn_bpt_businessparticipant_accesscodes
+    On cmn_bpt_businessparticipant_accesscodes.BusinessParticipant_RefID =
+    mrs_run_measurementrun_accountdownloadcodes.Account_RefID
+Where
+  mrs_run_measurement_issue_types.IsDeleted = 0 And
+  mrs_run_measurementrun_routes.IsDeleted = 0 And
+  mrs_rut_routes.IsDeleted = 0 And
+  mrs_rut_route_measuringpoints.IsDeleted = 0 And
+  mrs_run_measurements.IsMeasured = 0 And
+  mrs_run_measurements.IsDeleted = 0 And
+  mrs_run_measurement_issues.IsDeleted = 0 And
+  mrs_run_measurementrun_accountdownloadcodes.DownloadCode = @DownloadCode And
+  mrs_run_measurementrun_accountdownloadcodes.IsDeleted = 0 And
+  cmn_bpt_businessparticipant_accesscodes.Code = @AccountCode
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3_MITbAC_1553">
+    <Members>
+		<ClassMember Name="AccountCode" Type="string"  />
+      <ClassMember Name="DownloadCode" Type="string"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3_MITbAC_1553" IsArray="true">
+			<Members>
+				<ClassMember Name="MRS_RUN_Measurement_Issue_TypeID" Type="Guid"  />
+				<ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+				<ClassMember Name="IssueTypeName" Type="Dict" OriginTable="mrs_run_measurement_issue_types" Source_DBField="IssueTypeName_DictID"  />
+				<ClassMember Name="IssueTypeDescription" Type="Dict" OriginTable="mrs_run_measurement_issue_types" Source_DBField="IssueTypeDescription_DictID"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

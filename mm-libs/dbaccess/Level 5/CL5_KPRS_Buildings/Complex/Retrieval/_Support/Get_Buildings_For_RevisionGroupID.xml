@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/10/2013 10:05:32 AM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Get_Buildings_For_RevisionGroupID</Name>
+        <Namespace>CL5_KPRS_Buildings.Complex.Retrieval</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_KPRS_Buildings.Complex.Retrieval"
+                  Method_ClassName="cls_Get_Buildings_For_RevisionGroupID"
+                  Method_Name="Get_Buildings_For_RevisionGroupID"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Get_Buildings_For_RevisionGroupID"
+                />
+
+
+    <Parameters IsClass="true" Name="P_L5BD_GBFRG_1005">
+        <Members>
+            <ClassMember Name="RevisionGroupID" Type="Guid"  />
+
+        </Members>
+    </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5BD_GBFRG_1005" IsArray="true" GroupBy="RES_BLD_BuildingID">
+            <Members>
+                <ClassMember Name="Building_Name" Type="String"  />
+                <ClassMember Name="RES_BLD_BuildingID" Type="Guid"  />
+                <ClassMember Name="IsContaminationSuspected" Type="bool"  />
+                <ClassMember Name="Building_NumberOfFloors" Type="int"  />
+                <ClassMember Name="Building_ElevatorCoveragePercent" Type="double"  />
+                <ClassMember Name="Building_NumberOfAppartments" Type="int"  />
+                <ClassMember Name="Building_NumberOfOccupiedAppartments" Type="int"  />
+                <ClassMember Name="Building_NumberOfOffices" Type="int"  />
+                <ClassMember Name="Building_NumberOfRetailUnits" Type="int"  />
+                <ClassMember Name="Building_NumberOfProductionUnits" Type="int"  />
+                <ClassMember Name="Building_NumberOfOtherUnits" Type="int"  />
+                <ClassMember Name="Building_BalconyPortionPercent" Type="double"  />
+                <ClassMember Name="RES_DUD_RevisionID" Type="Guid"  />
+                <ClassMember Name="QuestionnaireVersion_RefID" Type="Guid"  />
+                <ClassMember Name="Building_DocumentationStructure_RefID" Type="Guid"/>
+                <ClassMember Name="Building_Type" Type="Dict" OriginTable="res_bld_building_types" Source_DBField="BuildingType_Name_DictID"  />
+                <ClassMember Name="Building_GarbageContainerType" Type="Dict" OriginTable="res_bld_garbagecontainertypes" Source_DBField="GarbageContainerType_Name_DictID"  />
+                <!-- Derived Tables -->
+                <ClassMember IsClass="true" IsArray="true" Name="Roofs" Type="L5BD_GBFRG_1005_Roof" GroupBy="RES_BLD_RoofID">
+                    <Members>
+                        <ClassMember Name="RES_BLD_RoofID" Type="Guid"  />
+                        <ClassMember Name="RES_BLD_Roof_Type_RefID" Type="Guid"  />
+                        <ClassMember Name="RoofsDocumentHeader_RefID" Type="Guid" />
+                        <ClassMember Name="RoofsPropertyDocumentHeaders" Type="Guid[]" />
+                    </Members>
+                </ClassMember>
+                <ClassMember IsClass="true" IsArray="true" Name="Apartments" Type="L5BD_GBFRG_1005_Apartment" GroupBy="RES_BLD_ApartmentID">
+                    <Members>
+                        <ClassMember Name="RES_BLD_ApartmentID" Type="Guid"  />
+                        <ClassMember Name="IsAppartment_ForRent" Type="bool"  />
+                        <ClassMember Name="ApartmentSize_Unit_RefID" Type="Guid"  />
+                        <ClassMember Name="ApartmentSize_Value" Type="double"  />
+                        <ClassMember Name="Appartment_HeatingType" Type="Guid"/>
+                        <ClassMember Name="Appartment_FlooringType" Type="Guid"/>
+                        <ClassMember Name="Appartment_WallCoveringType" Type="Guid"/>
+                        <ClassMember Name="ApartmentsDocumentHeader_RefID" Type="Guid" />
+                        <ClassMember Name="ApartmentsPropertyDocumentHeaders" Type="Guid[]" />
+                    </Members>
+                </ClassMember>
+                <ClassMember IsClass="true" IsArray="true" Name="OutdoorFacilities" Type="L5BD_GBFRG_1005_OutdoorFacility" GroupBy="RES_BLD_OutdoorFacilityID">
+                    <Members>
+                        <ClassMember Name="RES_BLD_OutdoorFacilityID" Type="Guid"  />
+                        <ClassMember Name="NumberOfGaragePlaces" Type="int"  />
+                        <ClassMember Name="NumberOfRentedGaragePlaces" Type="int"  />
+                        <ClassMember Name="OutdoorFacility_AccessRoadType" Type="Guid"/>
+                        <ClassMember Name="OutdoorFacility_FenceType" Type="Guid"/>
+                        <ClassMember Name="OutdoorFacilitiesDocumentHeader_RefID" Type="Guid"/>
+                        <ClassMember Name="OutdoorFacilitiesPropertyDocumentHeaders" Type="Guid[]" />
+                    </Members>
+                </ClassMember>
+                <ClassMember IsClass="true" IsArray="true" Name="Facades" Type="L5BD_GBFRG_1005_Facade" GroupBy="RES_BLD_FacadeID">
+                    <Members>
+                        <ClassMember Name="RES_BLD_FacadeID" Type="Guid"  />
+                        <ClassMember Name="FacadesDocumentHeader_RefID" Type="Guid" />
+                        <ClassMember Name="FacadesPropertyDocumentHeaders" Type="Guid[]" />
+                    </Members>
+                </ClassMember>
+                <ClassMember IsClass="true" IsArray="true" Name="HVACRs" Type="L5BD_GBFRG_1005_HVACR" GroupBy="RES_BLD_HVACRID">
+                    <Members>
+                        <ClassMember Name="RES_BLD_HVACRID" Type="Guid"  />
+                        <ClassMember Name="HVACRsDocumentHeader_RefID" Type="Guid" />
+                        <ClassMember Name="HVACRsPropertyDocumentHeaders" Type="Guid[]" />
+                    </Members>
+                </ClassMember>
+                <ClassMember IsClass="true" IsArray="true" Name="Basements" Type="L5BD_GBFRG_1005_Basement" GroupBy="RES_BLD_BasementID">
+                    <Members>
+                        <ClassMember Name="RES_BLD_BasementID" Type="Guid"  />
+                        <ClassMember Name="Basement_FloorType" Type="Guid"/>
+                        <ClassMember Name="BasementsDocumentHeader_RefID" Type="Guid" />
+                        <ClassMember Name="BasementsPropertyDocumentHeaders" Type="Guid[]" />
+                    </Members>
+                </ClassMember>
+                <ClassMember IsClass="true" IsArray="true" Name="Attics" Type="L5BD_GBFRG_1005_Attic" GroupBy="RES_BLD_AtticID">
+                    <Members>
+                        <ClassMember Name="RES_BLD_AtticID" Type="Guid"  />
+                        <ClassMember Name="AtticsDocumentHeader_RefID" Type="Guid" />
+                        <ClassMember Name="AtticsPropertyDocumentHeaders" Type="Guid[]" />
+                    </Members>
+                </ClassMember>
+                <ClassMember IsClass="true" IsArray="true" Name="Staircases" Type="L5BD_GBFRG_1005_Staircase" GroupBy="RES_BLD_StaircaseID">
+                    <Members>
+                        <ClassMember Name="RES_BLD_StaircaseID" Type="Guid"  />
+                        <ClassMember Name="StaircaseSize_Value" Type="double"  />
+                        <ClassMember Name="StaircaseSize_Unit_RefID" Type="Guid"  />
+                        <ClassMember Name="StaircasesDocumentHeader_RefID" Type="Guid" />
+                        <ClassMember Name="StaircasesPropertyDocumentHeaders" Type="Guid[]" />
+                    </Members>
+                </ClassMember>
+
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

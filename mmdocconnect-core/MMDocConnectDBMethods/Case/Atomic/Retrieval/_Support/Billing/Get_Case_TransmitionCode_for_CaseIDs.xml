@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Case_TransmitionCode_for_CaseIDs</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Case_TransmitionCode_for_CaseIDs"
+								Method_Name="Get_Case_TransmitionCode_for_CaseIDs"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+Select
+  bil_billposition_transmitionstatuses.TransmitionCode As fs_status,
+  bil_billposition_transmitionstatuses.TransmitionStatusKey As fs_key,
+  bil_billposition_transmitionstatuses.Creation_Timestamp As status_date,
+  bil_billposition_transmitionstatuses.BIL_BillPosition_TransmitionStatusID As status_id,
+  hec_cas_case_billcodes.HEC_CAS_Case_RefID as case_id,
+  hec_bil_potentialcode_catalogs.GlobalPropertyMatchingID As gpos_type,
+  hec_bil_billpositions.Ext_BIL_BillPosition_RefID as bill_position_id
+From
+  bil_billposition_transmitionstatuses Inner Join
+  hec_bil_billpositions On hec_bil_billpositions.Ext_BIL_BillPosition_RefID =
+    bil_billposition_transmitionstatuses.BillPosition_RefID And
+    hec_bil_billpositions.Tenant_RefID = @TenantID And
+    hec_bil_billpositions.IsDeleted = 0 Inner Join
+  hec_bil_billposition_billcodes
+    On hec_bil_billposition_billcodes.BillPosition_RefID =
+    hec_bil_billpositions.HEC_BIL_BillPositionID And
+    hec_bil_billposition_billcodes.Tenant_RefID = @TenantID And
+    hec_bil_billposition_billcodes.IsDeleted = 0 Inner Join
+  hec_cas_case_billcodes
+    On hec_cas_case_billcodes.HEC_BIL_BillPosition_BillCode_RefID =
+    hec_bil_billposition_billcodes.HEC_BIL_BillPosition_BillCodeID And
+    hec_cas_case_billcodes.Tenant_RefID = @TenantID And
+    hec_cas_case_billcodes.IsDeleted = 0 And
+    hec_cas_case_billcodes.HEC_CAS_Case_RefID = @CaseID Inner Join
+  hec_bil_potentialcodes On hec_bil_billposition_billcodes.PotentialCode_RefID =
+    hec_bil_potentialcodes.HEC_BIL_PotentialCodeID And
+    hec_bil_potentialcodes.Tenant_RefID = @TenantID And
+    hec_bil_potentialcodes.IsDeleted = 0 Inner Join
+  hec_bil_potentialcode_catalogs
+    On hec_bil_potentialcodes.PotentialCode_Catalog_RefID =
+    hec_bil_potentialcode_catalogs.HEC_BIL_PotentialCode_CatalogID And
+    hec_bil_potentialcode_catalogs.Tenant_RefID = @TenantID And
+    hec_bil_potentialcode_catalogs.IsDeleted = 0
+Where
+  bil_billposition_transmitionstatuses.IsDeleted = 0 And
+  bil_billposition_transmitionstatuses.IsActive = 1 And
+  bil_billposition_transmitionstatuses.Tenant_RefID = @TenantID
+Order by
+  hec_bil_billpositions.Creation_Timestamp
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GCTCfCIDs_1519">
+    <Members>
+      <ClassMember Name="CaseID" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="CAS_GCTCfCIDs_1519" IsArray="true">
+      <Members>
+        <ClassMember Name="fs_status" Type="int"  />
+        <ClassMember Name="fs_key" Type="String"  />
+        <ClassMember Name="status_date" Type="DateTime"  />
+        <ClassMember Name="status_id" Type="Guid"  />
+        <ClassMember Name="gpos_type" Type="String"  />
+        <ClassMember Name="bill_position_id" Type="Guid"  />
+        <ClassMember Name="case_id" Type="Guid"  />
+
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

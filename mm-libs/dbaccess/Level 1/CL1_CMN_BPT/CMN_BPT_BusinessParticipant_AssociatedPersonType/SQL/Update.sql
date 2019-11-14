@@ -1,0 +1,10 @@
+UPDATE 
+	cmn_bpt_businessparticipant_associatedpersontype
+SET 
+	BusinessParticipant_AssociantionType_RefID=@BusinessParticipant_AssociantionType_RefID,
+	BusinessParticipant_AssociatedPerson_RefID=@BusinessParticipant_AssociatedPerson_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_BPT_BusinessParticipant_AssociatedPersonTypeID = @CMN_BPT_BusinessParticipant_AssociatedPersonTypeID

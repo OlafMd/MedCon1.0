@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/22/2013 2:22:24 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_BPT_EMP_ExtraWorkCalculation"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_BPT_EMP"
+                IsClass_Corresponding_DBTable="cmn_bpt_emp_extraworkcalculations" >
+      <Members>
+		<ClassMember Name="CMN_BPT_EMP_ExtraWorkCalculationID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="GlobalPropertyMatchingID" Type="String" />
+		<ClassMember Name="ExtraWorkCalculation_Name" Type="Dict" Source_DBField="ExtraWorkCalculation_Name_DictID" OriginTable="cmn_bpt_emp_extraworkcalculations"/>
+		<ClassMember Name="IsCalculatingOvertimeEnabled" Type="Boolean" />
+		<ClassMember Name="AreAdditionalWorkDays_CalculatedIn_Hours" Type="Boolean" />
+		<ClassMember Name="AreAdditionalWorkDays_CalculatedIn_DaysAsHours" Type="Boolean" />
+		<ClassMember Name="AreAdditionalWorkDays_CalculatedIn_Days" Type="Boolean" />
+		<ClassMember Name="StandardWorkDay_in_mins" Type="int" />
+		<ClassMember Name="IsDisplayedAs_HoursAsDays" Type="Boolean" />
+		<ClassMember Name="IsDisplayedAs_DaysAndHours" Type="Boolean" />
+		<ClassMember Name="MinimalOvertimeTreshold_in_minutes" Type="int" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

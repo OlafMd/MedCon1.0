@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="03/27/2017 05:29 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Is_Doctor_Certificated_for_OCT</Name>
+    <Namespace>MMDocConnectDBMethods.Doctor.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Doctor.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Is_Doctor_Certificated_for_OCT"
+                Method_Name="Get_Is_Doctor_Certificated_for_OCT"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Is_Doctor_Certificated_for_OCT"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+      hec_doctor_universalpropertyvalues.Value_Boolean As IsDoctorCertificated
+    From
+      hec_doctor_universalproperties
+      Inner Join hec_doctor_universalpropertyvalues On hec_doctor_universalproperties.HEC_Doctor_UniversalPropertyID = hec_doctor_universalpropertyvalues.UniversalProperty_RefID And
+        hec_doctor_universalpropertyvalues.HEC_Doctor_RefID = @DoctorID And hec_doctor_universalpropertyvalues.Tenant_RefID = @TenantID And hec_doctor_universalpropertyvalues.IsDeleted
+        = 0
+    Where
+      hec_doctor_universalproperties.Tenant_RefID = @TenantID And
+      hec_doctor_universalproperties.IsDeleted = 0 And
+      hec_doctor_universalproperties.GlobalPropertyMatchingID = 'mm.docconnect.doctor.oct.certificated'
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_DO_GIDCfOCT_1729">
+    <Members>
+      <ClassMember Name="DoctorID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="DO_GIDCfOCT_1729">
+      <Members>
+        <ClassMember Name="IsDoctorCertificated" Type="bool"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

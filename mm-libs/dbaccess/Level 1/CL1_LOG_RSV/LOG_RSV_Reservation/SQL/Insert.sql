@@ -1,0 +1,27 @@
+INSERT INTO 
+	log_rsv_reservations
+	(
+		LOG_RSV_ReservationID,
+		LOG_WRH_Shelf_Content_RefID,
+		LOG_SHP_Shipment_Position_RefID,
+		ReservedQuantity,
+		IsReservationExpirable,
+		ReservationExpiryDate,
+		IsReservationExecuted,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_RSV_ReservationID,
+		@LOG_WRH_Shelf_Content_RefID,
+		@LOG_SHP_Shipment_Position_RefID,
+		@ReservedQuantity,
+		@IsReservationExpirable,
+		@ReservationExpiryDate,
+		@IsReservationExecuted,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

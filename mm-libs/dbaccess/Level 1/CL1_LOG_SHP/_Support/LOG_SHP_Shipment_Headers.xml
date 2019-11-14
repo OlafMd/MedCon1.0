@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Generated on 4/25/2014 7:52:46 AM -->
+<CodeGen>
+	<Componenttype>BaseClass</Componenttype>
+
+	<Meta>
+		<Name></Name>
+		<Namespace></Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<CreationInfo Target_ProgrammingLanguage="C#"
+				  Target_ProgrammingLanguage_Revision="2.0"
+				  Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+				  Target_SQL="MySQL"
+				  Target_SQL_Revision="8" />
+				  
+  <Base_Tables>
+    <Base_Table Name="LOG_SHP_Shipment_Header"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_SHP"
+                IsClass_Corresponding_DBTable="log_shp_shipment_headers" >
+      <Members>
+		<ClassMember Name="LOG_SHP_Shipment_HeaderID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="RecipientBusinessParticipant_RefID" Type="Guid" />
+		<ClassMember Name="Source_Warehouse_RefID" Type="Guid" />
+		<ClassMember Name="ShipmentType_RefID" Type="Guid" />
+		<ClassMember Name="ShipmentHeaderITL" Type="String" />
+		<ClassMember Name="ShipmentHeader_Number" Type="String" />
+		<ClassMember Name="Shippipng_AddressUCD_RefID" Type="Guid" />
+		<ClassMember Name="IsPartiallyReadyForPicking" Type="Boolean" />
+		<ClassMember Name="IsReadyForPicking" Type="Boolean" />
+		<ClassMember Name="HasPickingStarted" Type="Boolean" />
+		<ClassMember Name="HasPickingFinished" Type="Boolean" />
+		<ClassMember Name="IsShipped" Type="Boolean" />
+		<ClassMember Name="IsBilled" Type="Boolean" />
+		<ClassMember Name="DemandDate" Type="DateTime" />
+		<ClassMember Name="ShipmentPriority" Type="int" />
+		<ClassMember Name="IsPartialShippingAllowed" Type="Boolean" />
+		<ClassMember Name="IsManuallyCleared_ForPicking" Type="Boolean" />
+		<ClassMember Name="ShipmentHeader_ValueWithoutTax" Type="Decimal" />
+		<ClassMember Name="ShipmentHeader_Currency_RefID" Type="Guid" />
+		<ClassMember Name="IsCustomerReturnShipment" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

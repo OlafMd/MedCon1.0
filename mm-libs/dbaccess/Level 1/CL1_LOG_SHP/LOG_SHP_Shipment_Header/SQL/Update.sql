@@ -1,0 +1,27 @@
+UPDATE 
+	log_shp_shipment_headers
+SET 
+	RecipientBusinessParticipant_RefID=@RecipientBusinessParticipant_RefID,
+	Source_Warehouse_RefID=@Source_Warehouse_RefID,
+	ShipmentType_RefID=@ShipmentType_RefID,
+	ShipmentHeaderITL=@ShipmentHeaderITL,
+	ShipmentHeader_Number=@ShipmentHeader_Number,
+	Shippipng_AddressUCD_RefID=@Shippipng_AddressUCD_RefID,
+	IsPartiallyReadyForPicking=@IsPartiallyReadyForPicking,
+	IsReadyForPicking=@IsReadyForPicking,
+	HasPickingStarted=@HasPickingStarted,
+	HasPickingFinished=@HasPickingFinished,
+	IsShipped=@IsShipped,
+	IsBilled=@IsBilled,
+	DemandDate=@DemandDate,
+	ShipmentPriority=@ShipmentPriority,
+	IsPartialShippingAllowed=@IsPartialShippingAllowed,
+	IsManuallyCleared_ForPicking=@IsManuallyCleared_ForPicking,
+	ShipmentHeader_ValueWithoutTax=@ShipmentHeader_ValueWithoutTax,
+	ShipmentHeader_Currency_RefID=@ShipmentHeader_Currency_RefID,
+	IsCustomerReturnShipment=@IsCustomerReturnShipment,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	LOG_SHP_Shipment_HeaderID = @LOG_SHP_Shipment_HeaderID

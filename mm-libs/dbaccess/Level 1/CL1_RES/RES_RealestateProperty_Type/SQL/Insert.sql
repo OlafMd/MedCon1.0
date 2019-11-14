@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_realestateproperty_types
+	(
+		RES_RealestateProperty_TypeID,
+		RealestatePropertyType_Name_DictID,
+		RealestatePropertyType_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_RealestateProperty_TypeID,
+		@RealestatePropertyType_Name,
+		@RealestatePropertyType_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

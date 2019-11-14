@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_act_performedaction_patientparameters
+	(
+		HEC_ACT_PerformedAction_PatientParameterID,
+		HEC_ACT_PerformedAction_RefID,
+		HEC_Patient_ParameterValue_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_PerformedAction_PatientParameterID,
+		@HEC_ACT_PerformedAction_RefID,
+		@HEC_Patient_ParameterValue_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

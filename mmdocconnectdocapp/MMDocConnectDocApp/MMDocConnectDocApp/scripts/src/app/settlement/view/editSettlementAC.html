@@ -1,0 +1,29 @@
+﻿<div class=" gray-content-holder-visible doctors-data-lists planning-list clearfix animate-if"> 
+    <form id="caseForm" class="rejected-border-small relative clear" name="caseForm" ng-submit="createCase()" novalidate off-click="closeCaseForm(false)">
+
+        <div class="error-msg-container" ng-if="show_error">{{ comment }}</div>
+        <ul class="first-class-data first-row">
+            <li>
+                <label id="lblPatientName">{{ 'LABEL_PATIENT_NAME' | translate }}</label>
+                <input type="text" id="inPatientName" disabled="disabled" />
+            </li>
+            <li>
+                <label id="lblTreatmentDate">{{ 'LABEL_TREATMENT_DATE' | translate }}<span class="error" ng-class="{'hidden':!caseForm.treatmentDate.$error.required}">*</span></label>
+                <datepicker date-format="dd.MM.yyyy" date-min-limit={{aftercare_treatment_date}} date-max-limit={{today}} date-model="aftercare.surgery_date_string">
+                    <input type="text" id="treatmentDate" ng-focus="setClass()" name="treatmentDate" class="2000Year" ng-model="aftercare.surgery_date_string"
+                           ng-change="selectedTreatmentDate()" placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                           ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'" required validate-date="true" date-min-limit="aftercare_treatment_date" date-max-limit="today" />
+                </datepicker>
+            </li>
+            <li>
+                <label id="lblAcDoctor" translate="LABEL_AC_DOCTOR"><span class="error" ng-if="caseForm.selACDoctor.$error.required">*</span></label>
+                <dropdown-list id="selACDoctor" name="selACDoctor" items="ac_doctors" ng-model="aftercare.aftercare_doctor_practice_id" additional-class="'dropdown-min-width'" params="{has_prefix: true}" required></dropdown-list>
+            </li>
+            <li class="buttons-with-text-button">
+                <span class="abort"><a href="" ng-click="closeCaseForm()" translate="BUTTON_CANCEL" title="{{ 'BUTTON_CANCEL' | translate}}">{{ 'LABEL_CANCEL' | translate }}</a></span>
+                <button class="button wide confirm" id="btnSubmitCase" type="submit" translate="BUTTON_SAVE" title="{{ 'BUTTON_SAVE' | translate}}"
+                        ng-disabled="caseForm.$invalid || fieldsNotValidated()"></button>
+            </li>
+        </ul>
+    </form>
+</div>

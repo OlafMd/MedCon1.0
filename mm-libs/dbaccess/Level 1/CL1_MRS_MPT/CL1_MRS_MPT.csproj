@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D566BCDD-A976-4BD2-9ADA-02FE9A5E070A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_MRS_MPT</RootNamespace>
+    <AssemblyName>CL1_MRS_MPT</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MRS_MPT_AddressHistory\ORM_MRS_MPT_AddressHistory.cs" />
+    <Compile Include="MRS_MPT_CustomerOwnership\ORM_MRS_MPT_CustomerOwnership.cs" />
+    <Compile Include="MRS_MPT_MeasuringPoint\ORM_MRS_MPT_MeasuringPoint.cs" />
+    <Compile Include="MRS_MPT_MeasuringPoint_MeterBinding\ORM_MRS_MPT_MeasuringPoint_MeterBinding.cs" />
+    <Compile Include="MRS_MPT_Meter\ORM_MRS_MPT_Meter.cs" />
+    <Compile Include="MRS_MPT_Note\ORM_MRS_MPT_Note.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MRS_MPT_AddressHistory\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_MPT_AddressHistory\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_MPT_AddressHistory\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_MPT_CustomerOwnership\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_MPT_CustomerOwnership\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_MPT_CustomerOwnership\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_MPT_MeasuringPoint\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_MPT_MeasuringPoint\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_MPT_MeasuringPoint\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_MPT_MeasuringPoint_MeterBinding\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_MPT_MeasuringPoint_MeterBinding\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_MPT_MeasuringPoint_MeterBinding\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_MPT_Meter\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_MPT_Meter\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_MPT_Meter\SQL\Update.sql" />
+    <EmbeddedResource Include="MRS_MPT_Note\SQL\Insert.sql" />
+    <EmbeddedResource Include="MRS_MPT_Note\SQL\Select.sql" />
+    <EmbeddedResource Include="MRS_MPT_Note\SQL\Update.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\arch\infrastructure.csharp-api\BOp-CoreAPI\BOp-CoreAPI.csproj">
+      <Project>{64BB878F-E099-4DFC-955F-AD0E9DDBBA51}</Project>
+      <Name>BOp-CoreAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_Mail\CSV2Core_Mail.csproj">
+      <Project>{F3860B4B-DF58-4682-B66A-9DCB480A4D27}</Project>
+      <Name>CSV2Core_Mail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="_Support\MRS_RUN_MeasurementRun.xml" />
+    <Content Include="_Support\MRS_RUN_MeasurementRun_Statuses.xml" />
+    <Content Include="_Support\MRS_RUN_MeasurementRun_StatusHistory.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

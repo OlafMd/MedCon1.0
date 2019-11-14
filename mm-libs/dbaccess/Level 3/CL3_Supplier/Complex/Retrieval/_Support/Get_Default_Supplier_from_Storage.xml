@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="22/7/2014 01:48:49">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Default_Supplier_from_Storage</Name>
+    <Namespace>CL3_Supplier.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Supplier.Complex.Retrieval"
+                Method_ClassName="cls_Get_Default_Supplier_from_Storage"
+                Method_Name="Get_Default_Supplier_from_Storage"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Default_Supplier_from_Storage"
+                />
+
+  <Parameters IsClass="true" Name="P_L3SP_GDSfS_1347">
+    <Members>
+      <ClassMember Name="RackID" Type="Guid"  />
+      <ClassMember Name="AreaID" Type="Guid"  />
+      <ClassMember Name="WarehouseID" Type="Guid"  />
+      <ClassMember Name="WarehouseGroupID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3SP_GDSfS_1347" IsArray="false">
+      <Members>
+        <ClassMember Name="SupplierName" Type="string"  />
+        <ClassMember Name="SupplierID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

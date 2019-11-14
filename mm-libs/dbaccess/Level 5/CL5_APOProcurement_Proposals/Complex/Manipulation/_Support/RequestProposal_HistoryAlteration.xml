@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="08/26/2014 15:46:04 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>RequestProposal_HistoryAlteration</Name>
+    <Namespace>CL5_APOProcurement_Proposals.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_APOProcurement_Proposals.Complex.Manipulation"
+                Method_ClassName="cls_RequestProposal_HistoryAlteration"
+                Method_Name="RequestProposal_HistoryAlteration"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".RequestProposal_HistoryAlteration"
+                />
+    
+    <Parameters IsClass="true" Name="P_L5PR_RPHA_1546" >
+      <Members>        
+        <ClassMember Name="HeaderIDs" Type="Guid" IsArray="true" />        
+        <ClassMember Name="HistoryModel" Type="CL5_APOProcurement_Proposals.Complex.Models.HistoryModel" />         
+        <ClassMember Name="PotentialSuppliers" Type="Guid" IsArray="true" />
+      </Members>
+    </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+      Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+      Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="true" />
+  </ResultInfo>
+</CodeGen>
+
+

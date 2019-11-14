@@ -1,0 +1,19 @@
+
+	Select
+	  ord_cuo_customerorder_positions.ORD_CUO_CustomerOrder_PositionID,
+	  ord_cuo_customerorder_positions.CMN_PRO_Product_RefID,
+	  ord_cuo_customerorder_positions.Position_Quantity,
+	  ord_cuo_customerorder_positions.Position_ValuePerUnit,
+	  ord_cuo_position_customerorganizationalunitdistribution.ORD_CUO_Position_CustomerOrganizationalUnitDistributionID,
+	  ord_cuo_position_customerorganizationalunitdistribution.Quantity,
+	  ord_cuo_position_customerorganizationalunitdistribution.CMN_BPT_CTM_OrganizationalUnit_RefID
+	From
+	  ord_cuo_customerorder_positions Left Join
+	  ord_cuo_position_customerorganizationalunitdistribution
+	    On ord_cuo_customerorder_positions.ORD_CUO_CustomerOrder_PositionID =
+	    ord_cuo_position_customerorganizationalunitdistribution.ORD_CUO_CustomerOrder_Position_RefID And ord_cuo_position_customerorganizationalunitdistribution.IsDeleted = 0
+	Where
+	  ord_cuo_customerorder_positions.IsDeleted = 0 And
+	  ord_cuo_customerorder_positions.CustomerOrder_Header_RefID =
+	  @CustomerOrderHeaderID
+  

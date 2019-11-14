@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_pro_ass_distributionprice_values
+	(
+		CMN_PRO_ASS_DistributionPrice_ValueID,
+		DistributionPrice_RefID,
+		CMN_Price_RefID,
+		DefaultPointValue,
+		ValidFrom,
+		ValidThrough,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_PRO_ASS_DistributionPrice_ValueID,
+		@DistributionPrice_RefID,
+		@CMN_Price_RefID,
+		@DefaultPointValue,
+		@ValidFrom,
+		@ValidThrough,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

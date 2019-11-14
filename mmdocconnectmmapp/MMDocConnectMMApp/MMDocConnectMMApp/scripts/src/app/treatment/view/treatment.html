@@ -1,0 +1,93 @@
+﻿<div ng-init="initializeController()">
+    <div ng-class="{'header-checked-color': selected_count !== 0}">
+
+        <ul class="treatments-list-header" ng-class="{'header-checked-color treatments-list-header-1200': selected_count !== 0}">
+            <li>
+                <span class="mask-checkbox">
+                    <input id="cbSelectAll" name="cbSelectAll" type="checkbox"
+                           ng-model="all_selected" ng-change="checkAll()" />
+                    <i class="icon"></i>
+                </span>
+
+                <span class="selected-count" ng-if="selected_count !== 0" ng-cloak>
+                    [ {{ selected_count }} ]
+                </span>
+            </li>
+            <li class="unsorted" ng-class="setTableHeaderClass('treatment_date')" ng-click="SortFunction('treatment_date')">
+                {{ 'LABEL_DATE' | translate }}
+            </li>
+            <li class="unsorted" ng-class="setTableHeaderClass('patient_name')" ng-click="SortFunction('patient_name')">{{ 'LABEL_LAST_NAME_FIRST_NAME'| translate }}</li>
+            <li class="unsorted" ng-class="setTableHeaderClass('hip_name')" ng-click="SortFunction('hip_name')">{{ 'LABEL_HEALTHINSURANCES'| translate }}</li>
+            <li class="unsorted" ng-class="setTableHeaderClass('type')" ng-click="SortFunction('type')">{{ 'LABEL_CASE_TYPE'| translate }}</li>
+            <li class="unsorted" ng-class="setTableHeaderClass('diagnose')" ng-click="SortFunction('diagnose')">{{ 'LABEL_DIAGNOSE_DRUG'| translate }}</li>
+            <li class="unsorted" ng-class="setTableHeaderClass('localization')" ng-click="SortFunction('localization')">{{ 'LABEL_LOKALIZATION'| translate }}</li>
+            <li class="unsorted" ng-class="setTableHeaderClass('doctor_name')" ng-click="SortFunction('doctor_name')">{{ 'LABEL_DOCTOR_PRACTICE'| translate }}</li>
+            <li class="unsorted" ng-class="setTableHeaderClass('management_pauschale')" ng-click="SortFunction('management_pauschale')">{{ 'LABEL_MANAGEMENT_FEE'| translate }}</li>
+            <li class="unsorted" ng-class="setTableHeaderClass('status')" ng-click="SortFunction('status')">{{ 'LABEL_STATUS_STATUS_DATE'| translate }}</li>
+            <li class="fright">
+                <div ng-if="selected_count !== 0">
+                    <span class="abort"><a id="btnCancelEdit" href="" ng-click="deselectAll()" translate="BUTTON_CANCEL">{{ 'LABEL_CANCEL' | translate }}</a></span>
+                    <button class="button wide confirm" id="btnEditStatus" translate="BUTTON_CHANGE_STATUS" ng-click="changeStatus()"></button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h2 id="stickyHeaderBox" class="first-letter-holder has-checkbox hide"></h2>
+
+    <div class="content-scroll clear" id="wrapper" ng-if="showData" sticky>
+        <div id="wrapper_inner" class="clearfix">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="item in cases | groupBy:'group_name'" ng-repeat-finished>
+                    <h2 id="tableGroup" class="first-letter-holder has-checkbox tableGroup" ng-if="item.group_name_CHANGED">{{:: item.group_name | translate }}</h2>
+                    <div>
+                        <ul id="list" class="treatments-list-item" ng-class="{'treatments-list': item.id === id && show_edit_form}">
+                            <li class="unsorted">
+                                <span class="mask-checkbox">
+                                    <input id="cbSelect_{{item.id}}" name="cbSelect_{{item.id}}" type="checkbox"
+                                           ng-model="item.is_selected" ng-change="checkSelected(item)" />
+                                    <i class="icon"></i>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="padding-top-6">{{ ::item.treatment_date_day_month }}</span>
+                                <span ng-if="item.type !== 'op'" ng-class="{'font-75': item.type !== 'op'}" class="gray-font-color margin-top-3"> OP: {{::item.if_aftercare_treatment_date | date:'dd.MM.yyyy' }}</span>
+                            </li>
+
+
+                            <li class="larger-font">
+                                {{:: item.patient_name}}
+                                <a href="#/patient/patient_detail/{{item.patient_id}}" id="btnGoToPatientDetails_{{$index}}" title="{{ 'BUTTON_GO_TO_PATIENT_DETAILS' | translate}}"><i class="icons-preview-black"></i></a>
+                                <span class="normal-height-font gray-font-color margin-top-3"> {{ ::item.patient_birthdate_string }}</span>
+                            </li>
+                            <li><span>{{ ::item.hip_name }}</span></li>
+                            <li><span ng-class="{'icons-treatment-item': item.type === 'op', 'icons-aftercare-item': item.type === 'ac', 'icons-preexamination-item': item.type === 'oct' }"></span></li>
+                            <li>{{:: item.diagnose }} <span ng-class="{'normal-height-font gray-font-color margin-top-3': item.diagnose !== ''}"> {{ ::item.drug }}</span></li>
+                            <li><span>{{:: item.localization }}</span></li>
+                            <li>{{ item.doctor_name }} <span class="normal-height-font gray-font-color margin-top-3"> {{ ::item.practice_name }}</span></li>
+                            <li><span> {{ ::item.management_pauschale | translate }}</span></li>
+                            <li ng-class="{ '{{getBorderClassName(item)}}': true, '{{getTextClassName(item)}}': true}">{{:: item.status | translate }} <span class="normal-height-font margin-top-3 " ng-class="{'gray-font-color': !redTextColor(item)}"> {{:: item.status_date_string }}</span></li>
+                            <li ng-if="isEditButtonVisible(item)"><a class="icons-edit" ng-click="showEditForm(item)" href="" title="{{ 'BUTTON_EDIT' | translate}}">{{ 'BUTTON_EDIT' | translate }}</a></li>
+                        </ul>
+                        <ul class="treatments-list-item-edit" ng-show="item.id === id && show_edit_form">
+                            <hr>
+                            <li>
+                                <label>{{ 'LABEL_HIP_RESPONSE' | translate }}</label>
+                                <div class="error-msg-container">{{ case.response_from_hip }}</div>
+                            </li>
+                            <li>
+                                <label>{{ 'LABEL_COMMENT_FIELD' | translate }}</label>
+                                <textarea ng-model="case.comment"></textarea>
+                            </li>
+                            <li>
+                                <div class="fright">
+                                    <span class="abort"><a id="btnCancelEdit" href="" ng-click="closeEditForm()" translate="BUTTON_CANCEL" title="{{ 'BUTTON_CANCEL' | translate}}">{{ 'LABEL_CANCEL' | translate }}</a></span>
+                                    <button class="button wide confirm" id="btnSubmitCase" translate="BUTTON_RETURN_TO_DOCTOR" ng-click="submitCaseForErrorCorrection(item)"></button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

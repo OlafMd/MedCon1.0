@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D0B9A1D4-A8A4-4AF9-B8AE-98546DDAC055}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_ACC_BOK</RootNamespace>
+    <AssemblyName>CL1_ACC_BOK</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACC_BOK_Accounting_BookingLine\ORM_ACC_BOK_Accounting_BookingLine.cs" />
+    <Compile Include="ACC_BOK_Accounting_TransactionType\ORM_ACC_BOK_Accounting_TransactionType.cs" />
+    <Compile Include="ACC_BOK_Accounting_Transaction\ORM_ACC_BOK_Accounting_Transaction.cs" />
+    <Compile Include="ACC_BOK_AccountTransaction\ORM_ACC_BOK_AccountTransaction.cs" />
+    <Compile Include="ACC_BOK_BookingAccounts_Purpose_BP_Assignment\ORM_ACC_BOK_BookingAccounts_Purpose_BP_Assignment.cs" />
+    <Compile Include="ACC_BOK_BookingAccount\ORM_ACC_BOK_BookingAccount.cs" />
+    <Compile Include="ACC_BOK_BookingAccount_2_Tax\ORM_ACC_BOK_BookingAccount_2_Tax.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ACC_BOK_Accounting_TransactionType\SQL\Select.sql" />
+    <EmbeddedResource Include="ACC_BOK_Accounting_TransactionType\SQL\Update.sql" />
+    <EmbeddedResource Include="ACC_BOK_Accounting_TransactionType\SQL\Insert.sql" />
+    <EmbeddedResource Include="ACC_BOK_Accounting_Transaction\SQL\Select.sql" />
+    <EmbeddedResource Include="ACC_BOK_Accounting_Transaction\SQL\Update.sql" />
+    <EmbeddedResource Include="ACC_BOK_Accounting_Transaction\SQL\Insert.sql" />
+    <EmbeddedResource Include="ACC_BOK_BookingAccounts_Purpose_BP_Assignment\SQL\Select.sql" />
+    <EmbeddedResource Include="ACC_BOK_BookingAccounts_Purpose_BP_Assignment\SQL\Update.sql" />
+    <EmbeddedResource Include="ACC_BOK_BookingAccounts_Purpose_BP_Assignment\SQL\Insert.sql" />
+    <EmbeddedResource Include="ACC_BOK_Accounting_BookingLine\SQL\Select.sql" />
+    <EmbeddedResource Include="ACC_BOK_Accounting_BookingLine\SQL\Update.sql" />
+    <EmbeddedResource Include="ACC_BOK_Accounting_BookingLine\SQL\Insert.sql" />
+    <EmbeddedResource Include="ACC_BOK_AccountTransaction\SQL\Insert.sql" />
+    <EmbeddedResource Include="ACC_BOK_AccountTransaction\SQL\Update.sql" />
+    <EmbeddedResource Include="ACC_BOK_AccountTransaction\SQL\Select.sql" />
+    <EmbeddedResource Include="ACC_BOK_BookingAccount\SQL\Insert.sql" />
+    <EmbeddedResource Include="ACC_BOK_BookingAccount\SQL\Update.sql" />
+    <EmbeddedResource Include="ACC_BOK_BookingAccount\SQL\Select.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ACC_BOK_BookingAccount_2_Tax\SQL\Insert.sql" />
+    <EmbeddedResource Include="ACC_BOK_BookingAccount_2_Tax\SQL\Update.sql" />
+    <EmbeddedResource Include="ACC_BOK_BookingAccount_2_Tax\SQL\Select.sql" />
+    <Content Include="_Support\ACC_BOK_Accounting_BookingLines.xml" />
+    <Content Include="_Support\ACC_BOK_Accounting_Transactions.xml" />
+    <Content Include="_Support\ACC_BOK_Accounting_TransactionTypes.xml" />
+    <Content Include="_Support\ACC_BOK_BookingAccounts.xml" />
+    <Content Include="_Support\ACC_BOK_BookingAccounts_Purpose_BP_Assignments.xml" />
+    <Content Include="_Support\ACC_BOK_BookingAccount_2_Tax.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

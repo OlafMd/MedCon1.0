@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="17/4/2014 12:43:00">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Supplier_for_TenantITL</Name>
+    <Namespace>CL3_Supplier.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Supplier.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Supplier_for_TenantITL"
+                Method_Name="Get_Supplier_for_TenantITL"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Supplier_for_TenantITL"
+                />
+
+  <SQLStatement xml:space="preserve">
+  SELECT cmn_bpt_suppliers.CMN_BPT_SupplierID
+	FROM cmn_bpt_businessparticipants
+	INNER JOIN cmn_bpt_suppliers ON cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID = cmn_bpt_suppliers.Ext_BusinessParticipant_RefID
+		AND cmn_bpt_suppliers.IsDeleted = 0 AND cmn_bpt_suppliers.Tenant_RefID = @TenantID
+	INNER JOIN cmn_tenants ON cmn_tenants.CMN_TenantID = cmn_bpt_businessparticipants.IfTenant_Tenant_RefID
+		AND cmn_tenants.IsDeleted = 0 AND cmn_tenants.Tenant_RefID = @TenantID
+	WHERE cmn_bpt_businessparticipants.IsDeleted = 0
+		AND cmn_tenants.TenantITL = @TenantITL
+    AND cmn_bpt_businessparticipants.Tenant_RefID = @TenantID;
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3SP_GSfT_1241">
+    <Members>
+		<ClassMember Name="TenantITL" Type="string"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3SP_GSfT_1241" IsArray="false">
+			<Members>
+				<ClassMember Name="CMN_BPT_SupplierID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/27/2014 1:39:56 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Skills_for_TenantID</Name>
+    <Namespace>CL3_Skills.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_BookableTimeSlot.Atomic.Retrieval"
+                Method_ClassName="cls_Get_SlotsBD_for_PracticeID_and_TypeID_in_TimeRange"
+                Method_Name="Get_SlotsBD_for_PracticeID_and_TypeID_in_TimeRange"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_SlotsBD_for_PracticeID_and_TypeID_in_TimeRange"
+                />
+
+  <SQLStatement xml:space="preserve">
+
+Select distinct
+  pps_tsk_bok_bookabletimeslots.FreeInterval_End,
+  pps_tsk_bok_bookabletimeslots.FreeInterval_Start,
+  pps_tsk_bok_bookabletimeslots.TaskTemplate_RefID,
+  pps_tsk_bok_bookabletimeslots.FreeSlotsForTaskTemplateITPL,
+  pps_tsk_bok_bookabletimeslots.PPS_TSK_BOK_BookableTimeSlotID
+From
+  pps_tsk_bok_bookabletimeslots Inner Join pps_tsk_bok_availableresourcecombinations On 
+  pps_tsk_bok_availableresourcecombinations.BookableTimeSlot_RefID = pps_tsk_bok_bookabletimeslots.PPS_TSK_BOK_BookableTimeSlotID  and 
+  (pps_tsk_bok_availableresourcecombinations.IsAvailable = 1 or pps_tsk_bok_availableresourcecombinations.PPS_TSK_BOK_AvailableResourceCombinationID = @WithCombinationID) and
+  pps_tsk_bok_availableresourcecombinations.IsDeleted = 0
+  Where
+  pps_tsk_bok_bookabletimeslots.IsDeleted = 0 And
+  pps_tsk_bok_bookabletimeslots.Tenant_RefID = @TenantID And
+  pps_tsk_bok_bookabletimeslots.Office_RefID = @OfficeID And
+  pps_tsk_bok_bookabletimeslots.TaskTemplate_RefID = @TypeID and
+  pps_tsk_bok_bookabletimeslots.FreeInterval_End &lt;=@ToDate and
+  pps_tsk_bok_bookabletimeslots.FreeInterval_Start &gt;=@FromDate
+  </SQLStatement>
+
+
+  <Parameters IsClass="true" Name="P_L5BTS_GSBD_fPTTR_1716">
+    <Members>
+      <ClassMember Name="OfficeID" Type="Guid"  />
+      <ClassMember Name="TypeID" Type="Guid"  />
+      <ClassMember Name="FromDate" Type="DateTime"  />
+      <ClassMember Name="ToDate" Type="DateTime"  />
+      <ClassMember Name="WithCombinationID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5BTS_GSBD_fPTTR_1716" IsArray="true">
+			<Members>
+				<ClassMember Name="PPS_TSK_BOK_BookableTimeSlotID" Type="Guid"  />
+        <ClassMember Name="TaskTemplate_RefID" Type="Guid"  />
+        <ClassMember Name="FreeSlotsForTaskTemplateITPL" Type="string"  />
+        <ClassMember Name="FreeInterval_End" Type="DateTime"  />
+        <ClassMember Name="FreeInterval_Start" Type="DateTime"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

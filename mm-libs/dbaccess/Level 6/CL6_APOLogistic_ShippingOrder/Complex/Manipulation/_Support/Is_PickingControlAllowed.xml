@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="02/27/2014 15:00:11 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Is_PickingControl_Allowed</Name>
+		<Namespace>CL6_APOLogistic_ShippingOrder.Complex.Manipulation</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+				  />
+
+	<CreationInfo Method_Namespace="CL6_APOLogistic_ShippingOrder.Complex.Manipulation"
+				  Method_ClassName="cls_Is_PickingControlAllowed"
+				  Method_Name="Is_PickingControlAllowed"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Is_PickingControlAllowed"
+				/>
+
+
+	<Parameters IsClass="true" Name="P_L6SO_IPCA_1039">
+		<Members>
+	  <ClassMember Name="LOG_SHP_Shipment_HeaderID" Type="Guid"  />
+		</Members>
+	</Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6SO_IPCA_1039" IsArray="false">
+      <Members>
+        <ClassMember Name="IsPickingControlAllowed"                         Type="Boolean"  />
+        <ClassMember Name="IfPickingControlNotAllowed_ResetShipmentFlags"   Type="Boolean"  />
+        <ClassMember Name="IfPickingControlNotAllowed_Reason"               Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/22/2014 13:55:49">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_CostCentersList</Name>
+    <Namespace>CL2_CostCenter.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_CostCenter.Complex.Manipulation"
+                Method_ClassName="cls_Save_CostCentersList"
+                Method_Name="Save_CostCentersList"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_CostCentersList"
+                />
+
+  <Parameters IsClass="true" Name="P_L2CC_SCCL_1355">
+    <Members>
+      <ClassMember Name="Results" Type="P_L2CC_SCCL_1355a" IsClass="true" IsArray="true">
+      
+      <Members>
+        <ClassMember IsIdentificator="True" Name="CMN_STR_CostCenterID" Type="Guid"  />
+        <ClassMember Name="OfficeID" Type="Guid"  />
+        <ClassMember Name="InternalID" Type="String"  />
+        <ClassMember Name="Name" Type="Dict"  />
+        <ClassMember Name="Description" Type="Dict"  />
+        <ClassMember Name="CostCenterType_RefID" Type="Guid"  />
+        <ClassMember Name="ResponsiblePerson_RefID" Type="Guid"  />
+        <ClassMember Name="Currency_RefID" Type="Guid"  />
+        <ClassMember Name="CostCenter_Parent_RefID" Type="Guid"  />
+        <ClassMember Name="OpenForBooking" Type="bool"  />
+        <ClassMember Name="IsDeleted" Type="Boolean"  />
+      </Members>
+      </ClassMember>
+      </Members>
+    </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="8/1/2014 12:39:52 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_ShelfContent_Quantities_for_ProductListID</Name>
+    <Namespace>CL3_Warehouse.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Warehouse.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_ShelfContent_Quantities_for_ProductListID"
+                Method_Name="Get_All_ShelfContent_Quantities_for_ProductListID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_ShelfContent_Quantities_for_ProductListID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT
+		log_wrh_shelf_contents.Product_RefID,
+		SUM(log_wrh_shelf_contents.Quantity_Current) AS Sum_Quantity_Current,
+		SUM(log_wrh_shelf_contents.R_ReservedQuantity) AS Sum_R_ReservedQuantity,
+		SUM(log_wrh_shelf_contents.R_FreeQuantity) AS Sum_R_FreeQuantity
+	FROM 
+		log_wrh_shelf_contents
+	WHERE
+		log_wrh_shelf_contents.IsDeleted = 0
+		AND log_wrh_shelf_contents.Tenant_RefID  = @TenantID
+		AND log_wrh_shelf_contents.Product_RefID = @ProductIDList
+	GROUP BY
+		log_wrh_shelf_contents.Product_RefID
+  </SQLStatement>
+
+	<Parameters IsClass="true" Name="P_L3WH_GASCQfPL_1239">
+		<Members>
+			<ClassMember Name="ProductIDList" Type="Guid" IsArray="true" />
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3WH_GASCQfPL_1239" IsArray="true">
+			<Members>
+				<ClassMember Name="Product_RefID" Type="Guid"  />
+				<ClassMember Name="Sum_Quantity_Current" Type="Double"  />
+				<ClassMember Name="Sum_R_ReservedQuantity" Type="Double"  />
+				<ClassMember Name="Sum_R_FreeQuantity" Type="Double"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_pro_component_substanceingredients
+WHERE 
+	HEC_PRO_Component_SubstanceIngredientID = @HEC_PRO_Component_SubstanceIngredientID

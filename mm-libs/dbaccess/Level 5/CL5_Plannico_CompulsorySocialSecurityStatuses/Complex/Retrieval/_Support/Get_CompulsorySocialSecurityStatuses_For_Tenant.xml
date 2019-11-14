@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/29/2013 9:42:21 AM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Get_Religions_For_Tenant</Name>
+        <Namespace>CL5_Plannico_Religions.Complex.Retrieval</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_Plannico_CompulsorySocialSecurityStatuses.Complex.Retrieval"
+                  Method_ClassName="cls_Get_CompulsorySocialSecurityStatuses_For_Tenant"
+                  Method_Name="Get_CompulsorySocialSecurityStatuses_For_Tenant"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Get_CompulsorySocialSecurityStatuses_For_Tenant"
+                />
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5CS_GCSSFT_1319" IsArray="true">
+            <Members>
+                <ClassMember Name="CMN_PER_CompulsorySocialSecurityStatusID" Type="Guid" />
+                <ClassMember Name="GlobalPropertyMatchingID" Type="String" />
+                <ClassMember Name="SocialSecurityStatus_Name" Type="Dict" Source_DBField="SocialSecurityStatus_Name_DictID" OriginTable="cmn_per_compulsorysocialsecuritystatuses"/>
+                <ClassMember Name="SocialSecurityStatus_Description" Type="Dict" Source_DBField="SocialSecurityStatus_Description_DictID" OriginTable="cmn_per_compulsorysocialsecuritystatuses"/>
+                <ClassMember Name="CMN_EconomicRegion_RefID" Type="Guid" />
+                <ClassMember Name="SocialSecurityStatus_Code" Type="String" />
+                <ClassMember Name="Country_ISOCode_Alpha2" Type="String"  />
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

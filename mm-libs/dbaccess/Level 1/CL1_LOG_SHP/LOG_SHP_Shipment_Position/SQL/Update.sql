@@ -1,0 +1,21 @@
+UPDATE 
+	log_shp_shipment_positions
+SET 
+	ShipmentPositionITL=@ShipmentPositionITL,
+	LOG_SHP_Shipment_Header_RefID=@LOG_SHP_Shipment_Header_RefID,
+	CMN_PRO_Product_RefID=@CMN_PRO_Product_RefID,
+	CMN_PRO_ProductVariant_RefID=@CMN_PRO_ProductVariant_RefID,
+	CMN_PRO_ProductRelease_RefID=@CMN_PRO_ProductRelease_RefID,
+	TrackingInstance_ToShip_RefID=@TrackingInstance_ToShip_RefID,
+	QuantityToShip=@QuantityToShip,
+	ShipmentPosition_ValueWithoutTax=@ShipmentPosition_ValueWithoutTax,
+	ShipmentPosition_PricePerUnitValueWithoutTax=@ShipmentPosition_PricePerUnitValueWithoutTax,
+	IsCancelled=@IsCancelled,
+	CancelledBy_BusinessParticipant_RefID=@CancelledBy_BusinessParticipant_RefID,
+	CancelledOnDate=@CancelledOnDate,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	LOG_SHP_Shipment_PositionID = @LOG_SHP_Shipment_PositionID

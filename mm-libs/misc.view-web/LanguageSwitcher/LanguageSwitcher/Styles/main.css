@@ -1,0 +1,10 @@
+
+.changeLanguage { width: auto; display: inline-block; }
+	.changeLanguage dt { float: right; cursor: pointer; }
+	.changeLanguage dd {clear: both; visibility: hidden; cursor: pointer; background: #dadada; padding: 3px 4px;}
+		.changeLanguage.showList dd{ visibility: visible; border: 1px solid rgb(228, 228, 228); z-index: 1; position: relative;}
+	.changeLanguage	.arrow { height: 8px; width: 8px; top: 0px; margin-left: 2px; position: relative; }
+	
+	.changeLanguage.showList dd:hover { border: 1px solid rgb(116, 178, 235); }
+	
+	.changeLanguage.showList dd img { padding-right:4px; }

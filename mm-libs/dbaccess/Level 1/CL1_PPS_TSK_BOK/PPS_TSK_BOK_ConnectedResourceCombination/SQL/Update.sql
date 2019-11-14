@@ -1,0 +1,11 @@
+UPDATE 
+	pps_tsk_bok_connectedresourcecombinations
+SET 
+	Primary_AvailableResourceCombination_RefID=@Primary_AvailableResourceCombination_RefID,
+	Linked_AvailableResourceCombination_RefID=@Linked_AvailableResourceCombination_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	PPS_TSK_BOK_ConnectedResourceCombinationID = @PPS_TSK_BOK_ConnectedResourceCombinationID

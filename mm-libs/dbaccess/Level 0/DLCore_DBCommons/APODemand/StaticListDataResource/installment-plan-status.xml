@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+	<Item ID="installment-plan-status.created">
+		<Lang ISO="EN" Content="Created" />
+		<Lang ISO="DE" Content="Erstellt" />
+	</Item>
+	<Item ID="installment-plan-status.payed-in-total">
+		<Lang ISO="EN" Content="Payed in Total" />
+		<Lang ISO="DE" Content="Payed in Total [DE]" />
+	</Item>
+	<Item ID="installment-plan-status.partially-payed">
+		<Lang ISO="EN" Content="Partially Payed" />
+		<Lang ISO="DE" Content="Partially Payed [DE]" />
+	</Item>
+	<Item ID="installment-plan-status.terminated">
+		<Lang ISO="EN" Content="Terminated" />
+		<Lang ISO="DE" Content="Terminated [DE]" />
+	</Item>
+</Resources>

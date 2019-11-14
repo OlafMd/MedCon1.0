@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/1/2013 11:07:05 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_CMN_STR_SCE_StructureCalendarEvent_Type</Name>
+    <Namespace>Save_EventType</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Events.Atomic.Manipulation"
+                Method_ClassName="cls_Save_StructureEvent_Type"
+                Method_Name="Save_StructureEvent_Type"
+                ApplicationPlattform_WebServiceName="EventService"
+                ApplicationPlattform_Namespace="EventService.cls_Save_StructureEvent_Type"
+                />
+  <SQLLimitation_CSharp_Extension>
+    var returnValue = new FR_Guid();
+
+    var item = new ORM_CMN_STR_SCE_StructureCalendarEvent_Type();
+    if (Parameter.CMN_STR_SCE_StructureCalendarEvent_TypeID != Guid.Empty)
+    {
+    var result = item.Load(Connection, Transaction, Parameter.CMN_STR_SCE_StructureCalendarEvent_TypeID);
+    if (result.Status != FR_Status.Success || item.CMN_STR_SCE_StructureCalendarEvent_TypeID == Guid.Empty)
+    {
+    var error = new FR_Guid();
+    error.ErrorMessage = "No Such ID";
+    error.Status =  FR_Status.Error_Internal;
+    return error;
+    }
+    }
+
+    if(Parameter.IsDeleted == true){
+    item.IsDeleted = true;
+    return new FR_Guid(item.Save(Connection, Transaction),item.CMN_STR_SCE_StructureCalendarEvent_TypeID);
+    }
+
+    //Creation specific parameters (Tenant, Account ... )
+    if (Parameter.CMN_STR_SCE_StructureCalendarEvent_TypeID == Guid.Empty)
+    {
+    item.Tenant_RefID = securityTicket.TenantID;
+    }
+
+    item.CalendaEventName = Parameter.CalendaEventName;
+    item.EventIcon_RefID = Parameter.EventIcon_RefID;
+    item.PriorityOrdinal = Parameter.PriorityOrdinal;
+    item.ColorCode_Foreground = Parameter.ColorCode_Foreground;
+    item.ColorCode_Background = Parameter.ColorCode_Background;
+    item.ColorCode_Alpha = Parameter.ColorCode_Alpha;
+    item.IsShowingNotification = Parameter.IsShowingNotification;
+    item.IsWorkingDay = Parameter.IsWorkingDay;
+    item.IsHalfWorkingDay = Parameter.IsHalfWorkingDay;
+    item.IsNonWorkingDay = Parameter.IsNonWorkingDay;
+    item.IsEventType_Imported = Parameter.IsEventType_Imported;
+    item.InternalEventTypeID = Parameter.InternalEventTypeID;
+
+    return new FR_Guid(item.Save(Connection, Transaction),item.CMN_STR_SCE_StructureCalendarEvent_TypeID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L3EV_SET_1106">
+    <Members>
+      <ClassMember IsIdentificator="True" Name="CMN_STR_SCE_StructureCalendarEvent_TypeID" Type="Guid"  />
+      <ClassMember Name="CalendaEventName" Type="Dict" Source_DBField="CalendaEventName_DictID" OriginTable="cmn_str_sce_structurecalendarevent_types"/>
+      <ClassMember Name="EventIcon_RefID" Type="Guid" />
+      <ClassMember Name="PriorityOrdinal" Type="int" />
+      <ClassMember Name="ColorCode_Foreground" Type="String" />
+      <ClassMember Name="ColorCode_Background" Type="String" />
+      <ClassMember Name="ColorCode_Alpha" Type="Double" />
+      <ClassMember Name="IsShowingNotification" Type="Boolean" />
+      <ClassMember Name="IsWorkingDay" Type="Boolean" />
+      <ClassMember Name="IsHalfWorkingDay" Type="Boolean" />
+      <ClassMember Name="IsNonWorkingDay" Type="Boolean" />
+      <ClassMember Name="InternalEventTypeID" Type="String" IsObjectPrimaryKey="true"/>
+      <ClassMember Name="IsEventType_Imported" Type="Boolean" />
+      <ClassMember Name="IsDeleted" Type="Boolean"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+
+

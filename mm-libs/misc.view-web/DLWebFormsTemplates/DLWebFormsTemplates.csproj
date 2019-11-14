@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BC62AC17-DDB0-4696-82C2-571D8D40CCD9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DLWebFormsTemplates</RootNamespace>
+    <AssemblyName>DLWebFormsTemplates</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\ConfirmButton.cs" />
+    <Compile Include="Controls\DeleteButton.cs" />
+    <Compile Include="Controls\Buttons\DLSaveButton.cs" />
+    <Compile Include="Controls\DLUpDownControl.cs" />
+    <Compile Include="Controls\InputBox.cs" />
+    <Compile Include="Controls\Tree\DLTree.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\Tree\DLTreeItem.cs" />
+    <Compile Include="Controls\Grid\DLGridView.cs" />
+    <Compile Include="Controls\Grid\LargeDLGridView.cs" />
+    <Compile Include="Controls\TagCloud\DLAddNewTag.cs" />
+    <Compile Include="Controls\TagCloud\DLSelectTagGridViewTemplate.cs" />
+    <Compile Include="Controls\TagCloud\DLCloudItemEventArgs.cs" />
+    <Compile Include="Controls\TagCloud\DLTagCloudItem.cs" />
+    <Compile Include="Controls\TagCloud\DLTagCloud.cs" />
+    <Compile Include="Controls\Tree\Support\AbstractTreeItemModel.cs" />
+    <Compile Include="Controls\Tree\Support\TreeEvents.cs" />
+    <Compile Include="Controls\Tree\Support\TreeItemModel.cs" />
+    <Compile Include="Log\ServerLog.cs" />
+    <Compile Include="Session\SessionGlobal.cs" />
+    <Compile Include="Templates\DLGridViewPageTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\DLGridViewTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\DLLogoutTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\DLMasterPageTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\DLComponentTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\DLPageTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\DLControlUtil.cs" />
+    <Compile Include="Utils\IDLControlUtil.cs" />
+    <Compile Include="Utils\IDLCssUtil.cs" />
+    <Compile Include="Utils\IDLDateTimeUtil.cs" />
+    <Compile Include="Utils\IDLDictUtil.cs" />
+    <Compile Include="Utils\IDLListItemsUtil.cs" />
+    <Compile Include="Utils\IDLPrimaryTypesUtil.cs" />
+    <Compile Include="Utils\IDLSessionUtil.cs" />
+    <Compile Include="Utils\DLDateTimeUtil.cs" />
+    <Compile Include="Utils\DLDictUtil.cs" />
+    <Compile Include="Utils\DLPrimaryTypesUtil.cs" />
+    <Compile Include="Utils\DLSessionUtil.cs" />
+    <Compile Include="Utils\DLListItemsUtil.cs" />
+    <Compile Include="Utils\DLCssUtil.cs" />
+    <Compile Include="Utils\InputParameters\ConfirmPopUpParameters.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\arch\infrastructure.charp-api\BOp-CoreAPI\BOp-CoreAPI.csproj">
+      <Project>{64BB878F-E099-4DFC-955F-AD0E9DDBBA51}</Project>
+      <Name>BOp-CoreAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core %28Libraries\CSV2Core%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL %28Libraries\CSV2Core_MySQL%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dbaccess\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\external\log4net\log4net.csproj">
+      <Project>{181FE707-E161-4722-9F38-6AAAB6FAA106}</Project>
+      <Name>log4net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DictTextBox\DictTextBox.csproj">
+      <Project>{E6CEA539-D99F-4321-B1F3-B7115F890064}</Project>
+      <Name>DictTextBox</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\_UnderConstruction\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/21/2013 2:16:30 PM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Get_AftercareAllData_for_doctorSearch</Name>
+        <Namespace>CL5_Lucentis_Aftercare.Atomic.Retrieval</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_Lucentis_Aftercare.Atomic.Retrieval"
+                  Method_ClassName="cls_Get_AftercareAllData_for_doctorSearch"
+                  Method_Name="Get_AftercareAllData_for_doctorSearch"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Get_AftercareAllData_for_doctorSearch"
+                />
+
+    <SQLStatement xml:space="preserve">
+Select
+  MedicalPractice.DisplayName As Practice,
+  Followup.HEC_Patient_TreatmentID As FollowupID,
+  Followup.IsScheduled,
+  Followup.IsTreatmentBilled,
+  Followup.IsTreatmentPerformed,
+  cmn_per_personinfo.Title As PerformedDoctorTitle,
+  cmn_per_personinfo.FirstName As PerformedDoctorFirstName,
+  cmn_per_personinfo.LastName As PerformedDoctorLastName,
+  ScheduledDoctor_PersonInfo.Title As SheduledDoctorTitle,
+  ScheduledDoctor_PersonInfo.FirstName As SheduledDoctorFirstName,
+  ScheduledDoctor_PersonInfo.LastName As SheduledDoctorLastName,
+  cmn_per_personinfo1.FirstName As PatientFirstName,
+  cmn_per_personinfo1.LastName As PatientLastName,
+  cmn_bpt_businessparticipants2.DisplayName As HealthInsurance,
+  Case
+    When (Followup.IsTreatmentPerformed = 0 And Followup.IsTreatmentBilled = 0
+    And Followup.IsScheduled = 1) Then Followup.IfSheduled_Date
+    When (Followup.IsTreatmentPerformed = 1 And Followup.IsTreatmentBilled =
+    0) Then Followup.IfTreatmentPerformed_Date
+    When (Followup.IsTreatmentBilled = 1) Then Followup.IfTreatmentBilled_Date
+  End As FolllowupDate,
+  Case
+    When (Treatment.IsTreatmentPerformed = 0 And Treatment.IsTreatmentBilled = 0
+    And Treatment.IsScheduled = 1) Then Treatment.IfSheduled_Date
+    When (Treatment.IsTreatmentPerformed = 1 And Treatment.IsTreatmentBilled =
+    0) Then Treatment.IfTreatmentPerformed_Date
+    When (Treatment.IsTreatmentBilled = 1) Then Treatment.IfTreatmentBilled_Date
+  End As TreatmentDate
+From
+  cmn_bpt_businessparticipants MedicalPractice Inner Join
+  hec_medicalpractises On MedicalPractice.IfCompany_CMN_COM_CompanyInfo_RefID =
+    hec_medicalpractises.Ext_CompanyInfo_RefID And
+    hec_medicalpractises.Tenant_RefID = @TenantID And
+    hec_medicalpractises.IsDeleted = 0 Inner Join
+  hec_patient_treatment Followup On Followup.TreatmentPractice_RefID =
+    hec_medicalpractises.HEC_MedicalPractiseID And
+    Followup.IsTreatmentFollowup = 1 And Followup.Tenant_RefID =
+    @TenantID @statusParameters
+    And Followup.IsDeleted = 0 Inner Join
+  hec_doctors On Followup.IfTreatmentPerformed_ByDoctor_RefID =
+    hec_doctors.HEC_DoctorID And hec_doctors.IsDeleted = 0 And
+    hec_doctors.Tenant_RefID = @TenantID Inner Join
+  cmn_bpt_businessparticipants On hec_doctors.BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And
+    cmn_bpt_businessparticipants.IsNaturalPerson = 1 And
+    cmn_bpt_businessparticipants.IsCompany = 0 And
+    cmn_bpt_businessparticipants.IsDeleted = 0 And
+    cmn_bpt_businessparticipants.Tenant_RefID =
+    @TenantID Inner Join
+  cmn_per_personinfo
+    On cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID And cmn_per_personinfo.IsDeleted = 0
+    And cmn_per_personinfo.Tenant_RefID = @TenantID @s_doctorParam
+  Inner Join
+  hec_doctors ScheduledDoctor On Followup.IfSheduled_ForDoctor_RefID =
+    ScheduledDoctor.HEC_DoctorID And ScheduledDoctor.IsDeleted = 0 And
+    ScheduledDoctor.Tenant_RefID = @TenantID Inner Join
+  cmn_bpt_businessparticipants SheduledDoctor_Businessparticipants
+    On ScheduledDoctor.BusinessParticipant_RefID =
+    SheduledDoctor_Businessparticipants.CMN_BPT_BusinessParticipantID And
+    SheduledDoctor_Businessparticipants.IsNaturalPerson = 1 And
+    SheduledDoctor_Businessparticipants.IsCompany = 0 And 
+    SheduledDoctor_Businessparticipants.IsDeleted = 0 And
+    SheduledDoctor_Businessparticipants.Tenant_RefID =
+    @TenantID  Inner Join
+  cmn_per_personinfo ScheduledDoctor_PersonInfo
+    On
+    SheduledDoctor_Businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID
+    = ScheduledDoctor_PersonInfo.CMN_PER_PersonInfoID And
+    ScheduledDoctor_PersonInfo.Tenant_RefID =
+    @TenantID @s_scheduled_doctorParam And ScheduledDoctor_PersonInfo.IsDeleted
+    = 0 Inner Join
+  hec_patient_treatment Treatment On Treatment.HEC_Patient_TreatmentID =
+    Followup.IfTreatmentFollowup_FromTreatment_RefID And
+    Treatment.IsTreatmentFollowup = 0 And Treatment.IsDeleted = 0 And
+    Treatment.Tenant_RefID = @TenantID Inner Join
+  hec_patient_2_patienttreatment
+    On hec_patient_2_patienttreatment.HEC_Patient_Treatment_RefID =
+    Treatment.HEC_Patient_TreatmentID And
+    hec_patient_2_patienttreatment.IsDeleted = 0 And
+    hec_patient_2_patienttreatment.Tenant_RefID =
+    @TenantID Inner Join
+  hec_patients
+    On hec_patients.HEC_PatientID =
+    hec_patient_2_patienttreatment.HEC_Patient_RefID And
+    hec_patients.IsDeleted = 0 And hec_patients.Tenant_RefID =
+    @TenantID Inner Join
+  cmn_bpt_businessparticipants cmn_bpt_businessparticipants1
+    On hec_patients.CMN_BPT_BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants1.CMN_BPT_BusinessParticipantID And
+    cmn_bpt_businessparticipants1.IsCompany = 0 And
+    cmn_bpt_businessparticipants1.IsNaturalPerson = 1 And
+    cmn_bpt_businessparticipants1.IsDeleted = 0 And
+    cmn_bpt_businessparticipants1.Tenant_RefID =
+    @TenantID Inner Join
+  cmn_per_personinfo cmn_per_personinfo1
+    On cmn_bpt_businessparticipants1.IfNaturalPerson_CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo1.CMN_PER_PersonInfoID And cmn_per_personinfo1.IsDeleted =
+    0 And cmn_per_personinfo1.Tenant_RefID = @TenantID @s_Patient
+  Inner Join
+  hec_patient_healthinsurances On hec_patient_healthinsurances.Patient_RefID =
+    hec_patients.HEC_PatientID And hec_patient_healthinsurances.IsDeleted = 0
+    And hec_patient_healthinsurances.Tenant_RefID =
+    @TenantID Inner Join
+  hec_his_healthinsurance_companies
+    On hec_patient_healthinsurances.HIS_HealthInsurance_Company_RefID =
+    hec_his_healthinsurance_companies.HEC_HealthInsurance_CompanyID And
+    hec_his_healthinsurance_companies.IsDeleted = 0 And
+    hec_his_healthinsurance_companies.Tenant_RefID =
+    @TenantID Inner Join
+  cmn_bpt_businessparticipants cmn_bpt_businessparticipants2
+    On hec_his_healthinsurance_companies.CMN_BPT_BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants2.CMN_BPT_BusinessParticipantID And
+    cmn_bpt_businessparticipants2.IsNaturalPerson = 0 And
+    cmn_bpt_businessparticipants2.IsCompany = 1 And
+    cmn_bpt_businessparticipants2.IsDeleted = 0 And
+    cmn_bpt_businessparticipants2.Tenant_RefID =
+    @TenantID @s_HealthInsurance
+Where
+  MedicalPractice.IsCompany = 1 And
+  MedicalPractice.IsNaturalPerson = 0 And
+  MedicalPractice.IsDeleted = 0 And
+  MedicalPractice.Tenant_RefID = @TenantID @S_Practice
+      ORDER BY 
+        Case When @OrderBy = 'ASC' Then @OrderValue End Asc,
+        Case When @OrderBy = 'DESC' Then @OrderValue End Desc         
+LIMIT @StartIndex , @NumberOfElements
+  
+  </SQLStatement>
+
+    <Parameters IsClass="true" Name="P_L5AF_GAADFDS_1107">
+        <Members>
+            <ClassMember Name="OrderBy" Type="String"/>
+            <ClassMember Name="S_Practice" Type="String"/>
+            <ClassMember Name="s_Patient" Type="String"/>
+            <ClassMember Name="s_HealthInsurance" Type="String"/>
+          <ClassMember Name="OrderValue" Type="String"/>
+          <ClassMember Name="StartIndex" Type="int"/>
+            <ClassMember Name="NumberOfElements" Type="int"/>
+          <ClassMember Name="statusParameters" Type="String"/>
+          <ClassMember Name="s_doctorParam" Type="String"/>
+          <ClassMember Name="s_scheduled_doctorParam" Type="String"/>
+        </Members>
+    </Parameters>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5AF_GAADFDS_1107" IsArray="true">
+            <Members>
+                <ClassMember Name="FollowupID" Type="Guid"  />
+                <ClassMember Name="Practice" Type="String"  />
+                <ClassMember Name="IsScheduled" Type="bool"  />
+                <ClassMember Name="IsTreatmentBilled" Type="bool"  />
+                <ClassMember Name="IsTreatmentPerformed" Type="bool"  />                                 
+                <ClassMember Name="FolllowupDate" Type="DateTime"  />
+                <ClassMember Name="TreatmentDate" Type="DateTime"  />                            
+                <ClassMember Name="PerformedDoctorTitle" Type="String"  />
+                <ClassMember Name="PerformedDoctorFirstName" Type="String"  />
+                <ClassMember Name="PerformedDoctorLastName" Type="String"  />
+                <ClassMember Name="SheduledDoctorTitle" Type="String"  />
+                <ClassMember Name="SheduledDoctorFirstName" Type="String"  />
+                <ClassMember Name="SheduledDoctorLastName" Type="String"  />
+              <ClassMember Name="PatientFirstName" Type="String"  />
+              <ClassMember Name="PatientLastName" Type="String"  />
+              <ClassMember Name="HealthInsurance" Type="String"  />
+
+
+              <!--when gerating code2 project put this part in .cs file 
+                 /***For Order**/
+                 if(Parameter.OrderValue!="")
+                 {
+                  string newText = command.CommandText.Replace("@OrderValue", Parameter.OrderValue);
+                  command.CommandText = newText;               
+                }
+                
+                /***Search parameters**/
+                 if(Parameter.S_Practice!="")
+                 {
+                  string newText = command.CommandText.Replace("@S_Practice", Parameter.S_Practice);
+                  command.CommandText = newText;               
+                }
+                
+                 if(Parameter.s_doctorParam!="")
+                 {
+                  string newText = command.CommandText.Replace("@s_doctorParam", Parameter.s_doctorParam);
+                  command.CommandText = newText;               
+                }
+                
+                  if(Parameter.s_Patient!="")
+                 {
+                  string newText = command.CommandText.Replace("@s_Patient", Parameter.s_Patient);
+                  command.CommandText = newText;               
+                }
+                
+                 if(Parameter.s_scheduled_doctorParam!="")
+                 {
+                  string newText = command.CommandText.Replace("@s_scheduled_doctorParam", Parameter.s_scheduled_doctorParam);
+                  command.CommandText = newText;               
+                }
+                
+                 if(Parameter.s_HealthInsurance!="")
+                 {
+                  string newText = command.CommandText.Replace("@s_HealthInsurance", Parameter.s_HealthInsurance);
+                  command.CommandText = newText;               
+                }
+                
+                 /***status parameters**/
+                 if(Parameter.statusParameters!="")
+                 {
+                  string newText = command.CommandText.Replace("@statusParameters", Parameter.statusParameters);
+                  command.CommandText = newText;               
+                }
+                -->
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

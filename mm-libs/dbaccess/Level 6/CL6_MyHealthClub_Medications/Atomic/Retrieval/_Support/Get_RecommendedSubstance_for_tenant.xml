@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/30/2014 4:40:16 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_RecommendedSubstance_for_tenant</Name>
+    <Namespace>CL6_MyHealthClub_Medications.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_MyHealthClub_Medications.Atomic.Retrieval"
+                Method_ClassName="cls_Get_RecommendedSubstance_for_tenant"
+                Method_Name="Get_RecommendedSubstance_for_tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_RecommendedSubstance_for_tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_units.ISOCode,
+  hec_dia_recommendedsubstances.HEC_DIA_RecommendedSubstanceID,
+  hec_dia_recommendedsubstances.PotentialDiagnosis_RefID,
+  hec_dia_recommendedsubstances.Substance_RefID,
+  hec_dia_recommendedsubstances.SubstanceStrength,
+  hec_dia_recommendedsubstances.Substance_Unit_RefID,
+  hec_dia_recommendedsubstances.IsDefault,
+  hec_dia_recommendedsubstances.Creation_Timestamp,
+  hec_dia_recommendedsubstances.Tenant_RefID,
+  hec_dia_recommendedsubstances.IsDeleted,
+  hec_dia_recommendedsubstances.Modification_Timestamp As Modification_TimestampRecommendedSubstances,
+  cmn_units.Modification_Timestamp As Modification_TimestampUnits
+From
+  hec_dia_recommendedsubstances Inner Join
+  cmn_units
+    On cmn_units.CMN_UnitID = hec_dia_recommendedsubstances.Substance_Unit_RefID
+Where
+  hec_dia_recommendedsubstances.Tenant_RefID = @Tenant And
+  hec_dia_recommendedsubstances.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6_GRSfT_1639">
+    <Members>
+		<ClassMember Name="Tenant" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6_GRSfT_1639" IsArray="true">
+			<Members>
+				<ClassMember Name="ISOCode" Type="String"  />
+				<ClassMember Name="HEC_DIA_RecommendedSubstanceID" Type="Guid"  />
+				<ClassMember Name="PotentialDiagnosis_RefID" Type="Guid"  />
+				<ClassMember Name="Substance_RefID" Type="Guid"  />
+				<ClassMember Name="SubstanceStrength" Type="String"  />
+				<ClassMember Name="Substance_Unit_RefID" Type="Guid"  />
+				<ClassMember Name="IsDefault" Type="bool"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+        <ClassMember Name="Modification_TimestampRecommendedSubstances" Type="DateTime"  />
+        <ClassMember Name="Modification_TimestampUnits" Type="DateTime"  />
+
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

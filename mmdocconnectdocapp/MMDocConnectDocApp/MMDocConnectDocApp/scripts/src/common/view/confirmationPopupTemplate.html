@@ -1,0 +1,11 @@
+﻿<div class="popup-wrapper ">
+    <div class="popup popup-medium">
+        <div class="bck-warning"><h2>{{ $parent.title | translate }} </h2></div>
+        <h4 translate="{{$parent.content.message}}" translate-values="{eligibile_cases: $parent.content.eligible_cases, total_cases: $parent.content.total_cases, name: $parent.content.name, date:$parent.content.date, op_doctor_name: $parent.content.op_doctor_name, op_doctor_email: $parent.content.op_doctor_email, op_doctor_phone: $parent.content.op_doctor_phone, hip_name: $parent.content.hip_name }"></h4>
+
+        <div class="buttons text-right">
+            <button type="button" class="button wide reject jsblockClose" ng-click="cancel()" id="btnCancel" translate="{{ $parent.cancel_button }}">></button>
+            <button type="submit" class="button wide confirm-smaller jsblockClose" ng-click="confirm()" id="btnConfirm" translate="{{ $parent.confirm_button }}"></button>
+        </div>
+    </div>
+</div>

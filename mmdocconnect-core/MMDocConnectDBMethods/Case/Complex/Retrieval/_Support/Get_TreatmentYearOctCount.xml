@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_TreatmentYearOctCount</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Complex.Retrieval"
+								Method_ClassName="cls_Get_TreatmentYearOctCount"
+								Method_Name="Get_TreatmentYearOctCount"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <Parameters IsClass="true" Name="P_CAS_GTYOctC_1939">
+    <Members>
+      <ClassMember Name="OctPlannedActionTypeID" Type="Guid"  />
+      <ClassMember Name="PatientID" Type="Guid"  />
+      <ClassMember Name="LocalizationCode" Type="String"  />
+      <ClassMember Name="TreatmentYearStartDate" Type="DateTime"  />
+      <ClassMember Name="TreatmentYearEndDate" Type="DateTime"  />
+      <ClassMember Name="OctActionIdToOmit" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GTYOctC_1939">
+      <Members>
+        <ClassMember Name="fs_status_count" Type="int"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

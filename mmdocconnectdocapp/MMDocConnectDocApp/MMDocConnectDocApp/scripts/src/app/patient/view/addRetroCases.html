@@ -1,0 +1,24 @@
+<div class="popup-wrapper">
+    <div class="popup popup-xlarge add-retro-cases-wizard">
+        <h2 class="popup-header">{{'LABEL_RETRO_CASES_WIZARD_TITLE' | translate}}</h2>
+        <ul class="nav nav-tabs nav-justified">
+            <li id="stepIntro" ng-class="{'active': isCurrentStep(1)}"><a>{{'LABEL_RETRO_CASES_INTRO' | translate}}</a></li>
+            <li id="stepOCTs" ng-class="{'active': isCurrentStep(2)}"><a>{{'LABEL_RETRO_CASES_OCTS' | translate}}</a></li>
+            <li id="stepIVOMs" ng-class="{'active': isCurrentStep(3)}"><a>{{'LABEL_RETRO_CASES_IVOMS' | translate}}</a></li>
+            <li id="stepConfirm" ng-class="{'active': isCurrentStep(4)}"><a>{{'LABEL_RETRO_CASES_CONFIRM' | translate}}</a></li>
+        </ul>
+        <div class="popup-content margin-top-30">
+            <div ng-if="isCurrentStep(1)" ng-include="'scripts/src/app/patient/view/addRetroWizardTabs/intro.html'"></div>
+            <div class="octs-tab" ng-if="isCurrentStep(2)" ng-include="'scripts/src/app/patient/view/addRetroWizardTabs/octs.html'"></div>
+            <div class="ivoms-tab" ng-if="isCurrentStep(3)" ng-include="'scripts/src/app/patient/view/addRetroWizardTabs/ivoms.html'"></div>
+            <div class="confirm-tab" ng-if="isCurrentStep(4)" ng-include="'scripts/src/app/patient/view/addRetroWizardTabs/confirm.html'"></div>
+
+            <div class="buttons margin-top-30 text-right no-padding">
+                <button id="btnCancel" type="button" class="button wide reject" ng-click="cancel()">{{'BUTTON_CANCEL' | translate}}</button>
+                <button id="btnPrevStep" type="button" class="button wide back" ng-click="prevStep()" ng-if="hasPrevStep()">{{'BUTTON_BACK' | translate}}</button>
+                <button id="btnNextStep" type="button" class="button wide confirm-smaller" ng-click="nextStep()" ng-if="hasNextStep()" ng-disabled="nextDisable(currentStep)">{{'BUTTON_CONTINUE' | translate}}</button>
+                <button id="btnFinish" type="button" class="button wide confirm-smaller" ng-click="finish()" ng-if="!hasNextStep()">{{'BUTTON_FINISH' | translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>

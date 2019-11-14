@@ -1,0 +1,23 @@
+INSERT INTO 
+	bil_billheader_methodofpayments
+	(
+		BIL_BillHeader_MethodOfPaymentID,
+		BIL_BillHeader_RefID,
+		ACC_PAY_Type_RefID,
+		IsPreferredMethodOfPayment,
+		SequenceNumber,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@BIL_BillHeader_MethodOfPaymentID,
+		@BIL_BillHeader_RefID,
+		@ACC_PAY_Type_RefID,
+		@IsPreferredMethodOfPayment,
+		@SequenceNumber,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

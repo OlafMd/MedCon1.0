@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_act_performedaction_patientcomplaints
+	(
+		HEC_ACT_PerformedAction_PatientComplaintID,
+		Action_RefID,
+		ComplaintText,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_PerformedAction_PatientComplaintID,
+		@Action_RefID,
+		@ComplaintText,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

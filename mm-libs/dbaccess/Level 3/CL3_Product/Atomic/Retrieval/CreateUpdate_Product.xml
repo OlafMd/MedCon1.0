@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="09/12/2014 04:14:18 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Article</Name>
+    <Namespace>CL3_Product.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Product.Complex.Manipulation"
+                Method_ClassName="cls_CreateUpdate_Product"
+                Method_Name="CreateUpdate_Product"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <SQLLimitation_CSharp_Extension>
+    var returnValue = new FR_Guid();
+
+    var languageQuery = new ORM_CMN_Language.Query();
+    languageQuery.Tenant_RefID = securityTicket.TenantID;
+    languageQuery.IsDeleted = false;
+    var languages = ORM_CMN_Language.Query.Search(Connection, Transaction, languageQuery);
+
+    var product = new ORM_CMN_PRO_Product();
+
+    if (Parameter.ArticleID == Guid.Empty)
+    {
+    #region ORM_CMN_PRO_Product
+
+    product = new ORM_CMN_PRO_Product();
+    product.CMN_PRO_ProductID = Guid.NewGuid();
+    product.ProductITL = Guid.NewGuid().ToString();
+
+    product.IsProduct_Article = true;
+    product.IsProductAvailableForOrdering = true;
+    product.IsImportedFromExternalCatalog = false;
+
+    product.Product_Name = new Dict(ORM_CMN_PRO_Product.TableName);
+    product.Product_Description = new Dict(ORM_CMN_PRO_Product.TableName);
+
+    product.PackageInfo_RefID = Guid.NewGuid();
+
+    product.Creation_Timestamp = DateTime.Now;
+    product.Tenant_RefID = securityTicket.TenantID;
+    product.IsDeleted = Parameter.IsDeleted;
+
+
+    #region Product picture
+
+    if (Parameter.Image != null &amp;&amp; Parameter.Image.Document_ID != Guid.Empty)
+    {
+
+    ORM_DOC_Structure_Header structureHeader = new ORM_DOC_Structure_Header();
+    structureHeader.Label = "Product picture";
+    structureHeader.Tenant_RefID = securityTicket.TenantID;
+    structureHeader.Save(Connection, Transaction);
+
+    ORM_DOC_Structure structure = new ORM_DOC_Structure();
+    structure.Label = "Product picture";
+    structure.Structure_Header_RefID = structureHeader.DOC_Structure_HeaderID;
+    structure.CreatedBy_Account_RefID = securityTicket.AccountID;
+    structure.Tenant_RefID = securityTicket.TenantID;
+    structure.Save(Connection, Transaction);
+
+    ORM_DOC_Document document = new ORM_DOC_Document();
+    document.DOC_DocumentID = Parameter.Image.Document_ID;
+    document.Tenant_RefID = securityTicket.TenantID;
+    document.Save(Connection, Transaction);
+
+    ORM_DOC_Document_2_Structure documentStructure = new ORM_DOC_Document_2_Structure();
+    documentStructure.Document_RefID = document.DOC_DocumentID;
+    documentStructure.Structure_RefID = structure.DOC_StructureID;
+    documentStructure.StructureHeader_RefID = structureHeader.DOC_Structure_HeaderID;
+    documentStructure.Tenant_RefID = securityTicket.TenantID;
+    documentStructure.Save(Connection, Transaction);
+
+    ORM_DOC_DocumentRevision documentRevision = new ORM_DOC_DocumentRevision();
+    documentRevision.Document_RefID = document.DOC_DocumentID;
+    documentRevision.Revision = 1;
+    documentRevision.IsLocked = false;
+    documentRevision.IsLastRevision = true;
+    documentRevision.UploadedByAccount = securityTicket.AccountID;
+    documentRevision.File_Name = Parameter.Image.File_Name;
+    documentRevision.File_Description = Parameter.Image.File_Description;
+    documentRevision.File_SourceLocation = Parameter.Image.File_Source_Location;
+    documentRevision.File_ServerLocation = Parameter.Image.File_Server_Location;
+    documentRevision.File_MIMEType = Parameter.Image.File_MimeType;
+    documentRevision.File_Extension = Parameter.Image.File_Extension;
+    documentRevision.File_Size_Bytes = Parameter.Image.File_Size_Bytes;
+    documentRevision.Tenant_RefID = securityTicket.TenantID;
+    documentRevision.Save(Connection, Transaction);
+
+    //add relation for product picture with product
+    product.Product_DocumentationStructure_RefID = structureHeader.DOC_Structure_HeaderID;
+    }
+
+    #endregion
+
+    product.Save(Connection, Transaction);
+
+    #endregion
+    }
+    else
+    {
+    product.Load(Connection, Transaction, Parameter.ArticleID);
+
+    #region Product picture
+
+    if (Parameter.Image != null &amp;&amp; Parameter.Image.Document_ID != Guid.Empty)
+    {
+
+    ORM_DOC_Structure_Header structureHeader = new ORM_DOC_Structure_Header();
+    structureHeader.Label = "Product picture";
+    structureHeader.Tenant_RefID = securityTicket.TenantID;
+    structureHeader.Save(Connection, Transaction);
+
+    ORM_DOC_Structure structure = new ORM_DOC_Structure();
+    structure.Label = "Product picture";
+    structure.Structure_Header_RefID = structureHeader.DOC_Structure_HeaderID;
+    structure.CreatedBy_Account_RefID = securityTicket.AccountID;
+    structure.Tenant_RefID = securityTicket.TenantID;
+    structure.Save(Connection, Transaction);
+
+    ORM_DOC_Document document = new ORM_DOC_Document();
+    document.DOC_DocumentID = Parameter.Image.Document_ID;
+    document.Tenant_RefID = securityTicket.TenantID;
+    document.Save(Connection, Transaction);
+
+    ORM_DOC_Document_2_Structure documentStructure = new ORM_DOC_Document_2_Structure();
+    documentStructure.Document_RefID = document.DOC_DocumentID;
+    documentStructure.Structure_RefID = structure.DOC_StructureID;
+    documentStructure.StructureHeader_RefID = structureHeader.DOC_Structure_HeaderID;
+    documentStructure.Tenant_RefID = securityTicket.TenantID;
+    documentStructure.Save(Connection, Transaction);
+
+    ORM_DOC_DocumentRevision documentRevision = new ORM_DOC_DocumentRevision();
+    documentRevision.Document_RefID = document.DOC_DocumentID;
+    documentRevision.Revision = 1;
+    documentRevision.IsLocked = false;
+    documentRevision.IsLastRevision = true;
+    documentRevision.UploadedByAccount = securityTicket.AccountID;
+    documentRevision.File_Name = Parameter.Image.File_Name;
+    documentRevision.File_Description = Parameter.Image.File_Description;
+    documentRevision.File_SourceLocation = Parameter.Image.File_Source_Location;
+    documentRevision.File_ServerLocation = Parameter.Image.File_Server_Location;
+    documentRevision.File_MIMEType = Parameter.Image.File_MimeType;
+    documentRevision.File_Extension = Parameter.Image.File_Extension;
+    documentRevision.File_Size_Bytes = Parameter.Image.File_Size_Bytes;
+    documentRevision.Tenant_RefID = securityTicket.TenantID;
+    documentRevision.Save(Connection, Transaction);
+
+    //add relation for product picture with product
+    product.Product_DocumentationStructure_RefID = structureHeader.DOC_Structure_HeaderID;
+
+    }
+    else
+    {
+    //  if (Parameter.Image.IsForDeleting)  if product image has to be deleted
+    }
+
+    #endregion
+    }
+
+
+    #region ORM_CMN_PRO_Product
+
+    product.Product_Number = Parameter.ProductNumber;
+
+    foreach (var language in languages)
+    {
+    product.Product_Name.UpdateEntry(language.CMN_LanguageID, Parameter.ArticleName);
+    product.Product_Description.UpdateEntry(language.CMN_LanguageID, Parameter.Description);
+    }
+
+    product.ProductType_RefID = Guid.Empty;
+
+    product.IsPlaceholderArticle = Parameter.IsDummy;
+
+    product.ProductSuccessor_RefID = Guid.Empty;
+    product.IsDeleted = Parameter.IsDeleted;
+    product.Save(Connection, Transaction);
+    #endregion
+
+    #region Variant
+    //Create default varient
+    var defaultVarient = new ORM_CMN_PRO_Product_Variant();
+    defaultVarient.CMN_PRO_Product_VariantID = Guid.NewGuid();
+    defaultVarient.CMN_PRO_Product_RefID = product.CMN_PRO_ProductID;
+    defaultVarient.IsStandardProductVariant = true;
+    defaultVarient.Tenant_RefID = securityTicket.TenantID;
+    defaultVarient.VariantName = new Dict(ORM_CMN_PRO_Product_Variant.TableName);
+
+
+    foreach (var language in languages)
+    {
+    defaultVarient.VariantName.UpdateEntry(language.CMN_LanguageID, String.Empty);
+    }
+
+    defaultVarient.Save(Connection, Transaction);
+    #endregion
+
+    returnValue.Result = product.CMN_PRO_ProductID;
+    return returnValue;
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L3PR_CUP_1613">
+    <Members>
+      <ClassMember Name="ProductID" Type="Guid"  />
+      <ClassMember Name="ProductNumber" Type="String"  />
+      <ClassMember Name="ProductName" Type="String"  />
+      <ClassMember Name="Description" Type="String"  />
+      <ClassMember Name="IsDeleted" Type="bool" />
+      <ClassMember Name="Image" Type="P_L3PR_CUP_1613a" IsClass="true" IsArray="false">
+        <Members>
+          <ClassMember  Name="Document_ID" Type="Guid"  />
+          <ClassMember  Name="File_Name" Type="string" />
+          <ClassMember  Name="File_Description" Type="string" />
+          <ClassMember  Name="File_Source_Location" Type="string" />
+          <ClassMember  Name="File_Server_Location" Type="string" />
+          <ClassMember  Name="File_MimeType" Type="string" />
+          <ClassMember  Name="File_Extension" Type="string" />
+          <ClassMember  Name="File_Size_Bytes" Type="int" />
+        </Members>
+      </ClassMember>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+

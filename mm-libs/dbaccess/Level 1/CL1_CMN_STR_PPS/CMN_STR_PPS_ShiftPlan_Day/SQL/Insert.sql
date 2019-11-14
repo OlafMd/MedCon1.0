@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_str_pps_shiftplan_days
+	(
+		CMN_STR_PPS_ShiftPlan_DayID,
+		ShiftPlanDay,
+		IsVisibleToEmployees,
+		IsEmployeeRegistrationAllowed,
+		IfEmployeeRegistrationAllowed_DueDate,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_STR_PPS_ShiftPlan_DayID,
+		@ShiftPlanDay,
+		@IsVisibleToEmployees,
+		@IsEmployeeRegistrationAllowed,
+		@IfEmployeeRegistrationAllowed_DueDate,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

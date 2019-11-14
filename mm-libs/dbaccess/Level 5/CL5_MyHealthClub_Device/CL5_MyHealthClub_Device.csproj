@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{37B7BECE-CCE8-48C4-90BD-A9606A8EC1DA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_MyHealthClub_Device</RootNamespace>
+    <AssemblyName>CL5_MyHealthClub_Device</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_Device.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_DeviceInstance_withDeleteCheck.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Device_wtih_TimeTable.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeviceInstanceNames_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeviceInstance_Availability_for_DeviceID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeviceInstance_for_DeviceID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_DeviceInstance_WorktimeExceptions_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Devices_Availability_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Device_Availability_for_DeviceID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Save_DeviceInstance_withDeleteCheck.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Device.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Device_wtih_TimeTable.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeviceInstance_for_DeviceID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeviceInstance_Availability_for_DeviceID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeviceInstance_WorktimeExceptions_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Devices_Availability_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_DeviceInstanceNames_TenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_DeviceInstanceNames_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Devices_Availability_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_DeviceInstance_Availability_for_DeviceID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_DeviceInstance_WorktimeExceptions_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Device_Availability_for_DeviceID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_DeviceInstance_for_DeviceID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Device_Availability_for_DeviceID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Device_Availability_for_DeviceInstanceID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\_Support\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL\CL1_CMN_CAL.csproj">
+      <Project>{C6107EF8-3603-4EDA-B158-42404049F249}</Project>
+      <Name>CL1_CMN_CAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL_AVA\CL1_CMN_CAL_AVA.csproj">
+      <Project>{72AEE3BD-CCAB-4FA3-9029-DEC9CAD6D1D5}</Project>
+      <Name>CL1_CMN_CAL_AVA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_PPS_DEV\CL1_PPS_DEV.csproj">
+      <Project>{B21EDF4E-2919-4A9C-A370-C055609B963D}</Project>
+      <Name>CL1_PPS_DEV</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_PPS_TSK\CL1_PPS_TSK.csproj">
+      <Project>{DE84E7DB-3CD8-465E-9FBD-35CC77285849}</Project>
+      <Name>CL1_PPS_TSK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{FEAB6F0E-56F1-43D4-BEF0-988B26474DD2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Device\CL3_Device.csproj">
+      <Project>{0F47F616-1EB3-496D-A70D-826A503C2AEC}</Project>
+      <Name>CL3_Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_MyHealthClub_BookableTimeSlot\CL5_MyHealthClub_BookableTimeSlot.csproj">
+      <Project>{1A9591D0-6AC0-4711-80DC-0A2A20633BFC}</Project>
+      <Name>CL5_MyHealthClub_BookableTimeSlot</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

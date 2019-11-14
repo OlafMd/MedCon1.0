@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="18/12/2014 03:36:02 PM">
+
+    <Meta>
+        <Name>SaveLogisticProvider</Name>
+        <Description>SaveLogisticProvider</Description>
+        <Namespace>SaveLogisticProvider</Namespace>
+        <Tags></Tags>
+    </Meta>
+
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL3_Logistic.Complex.Manipulation"
+                  Method_ClassName="cls_SaveLogisticProvider"
+                  Method_Name="SaveLogisticProvider"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".SaveLogisticProvider"
+                />
+
+    <Parameters IsClass="true" Name="P_L3L_SLP_1114">
+        <Members>
+            <ClassMember Name="LogisticProviderID" Type="Guid"  />
+            <ClassMember Name="Name" Type="String"  />
+            <ClassMember Name="IsProvidingTransportServices" Type="bool"  />
+            <ClassMember Name="IsTrackingAvailable" Type="bool"  />
+        </Members>
+    </Parameters>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                  Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+                  Returns_an_Object_or_ObjectArray="false">
+
+        <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+
+    </ResultInfo>
+
+</CodeGen>

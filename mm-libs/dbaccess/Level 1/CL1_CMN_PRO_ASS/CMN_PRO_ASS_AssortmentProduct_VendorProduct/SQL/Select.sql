@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_pro_ass_assortmentproduct_vendorproducts
+WHERE 
+	CMN_PRO_ASS_AssortmentProduct_VendorProductID = @CMN_PRO_ASS_AssortmentProduct_VendorProductID

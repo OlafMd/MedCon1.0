@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_pro_project_note_collaborators
+	(
+		TMS_PRO_Project_Note_CollaboratorID,
+		ProjectNote_RefID,
+		Account_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@TMS_PRO_Project_Note_CollaboratorID,
+		@ProjectNote_RefID,
+		@Account_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

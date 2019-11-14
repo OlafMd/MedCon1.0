@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{583FDE26-09C6-4BB4-9200-6DBD12E69029}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_HEC_CMT_OPT</RootNamespace>
+    <AssemblyName>CL1_HEC_CMT_OPT</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HEC_CMT_OPT_CommunityGroup_PublishedStatistic\ORM_HEC_CMT_OPT_CommunityGroup_PublishedStatistic.cs" />
+    <Compile Include="HEC_CMT_OPT_Community_PotentialDiagnosisCatalog\ORM_HEC_CMT_OPT_Community_PotentialDiagnosisCatalog.cs" />
+    <Compile Include="HEC_CMT_OPT_Community_PotentialProcedureCatalog\ORM_HEC_CMT_OPT_Community_PotentialProcedureCatalog.cs" />
+    <Compile Include="HEC_CMT_OPT_PrivateCommunityGroup_Visibility\ORM_HEC_CMT_OPT_PrivateCommunityGroup_Visibility.cs" />
+    <Compile Include="HEC_CMT_OPT_UploadedDiagnosis\ORM_HEC_CMT_OPT_UploadedDiagnosis.cs" />
+    <Compile Include="HEC_CMT_OPT_UploadedDiagnosis_Medication\ORM_HEC_CMT_OPT_UploadedDiagnosis_Medication.cs" />
+    <Compile Include="HEC_CMT_OPT_UploadedDiagnosis_Observation\ORM_HEC_CMT_OPT_UploadedDiagnosis_Observation.cs" />
+    <Compile Include="HEC_CMT_OPT_UploadedDiagnosis_Procedure\ORM_HEC_CMT_OPT_UploadedDiagnosis_Procedure.cs" />
+    <Compile Include="HEC_CMT_OPT_UploadedDiagnosis_UploadedReferral\ORM_HEC_CMT_OPT_UploadedDiagnosis_UploadedReferral.cs" />
+    <Compile Include="HEC_CMT_OPT_UploadedMedication\ORM_HEC_CMT_OPT_UploadedMedication.cs" />
+    <Compile Include="HEC_CMT_OPT_UploadedProcedure\ORM_HEC_CMT_OPT_UploadedProcedure.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HEC_CMT_OPT_Community_PotentialDiagnosisCatalog\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_Community_PotentialDiagnosisCatalog\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_Community_PotentialDiagnosisCatalog\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedProcedure\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedProcedure\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedProcedure\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_Community_PotentialProcedureCatalog\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_Community_PotentialProcedureCatalog\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_Community_PotentialProcedureCatalog\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_CommunityGroup_PublishedStatistic\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_CommunityGroup_PublishedStatistic\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_CommunityGroup_PublishedStatistic\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_PrivateCommunityGroup_Visibility\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_PrivateCommunityGroup_Visibility\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_PrivateCommunityGroup_Visibility\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis_Medication\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis_Medication\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis_Medication\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis_Observation\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis_Observation\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis_Observation\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis_Procedure\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis_Procedure\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis_Procedure\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis_UploadedReferral\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis_UploadedReferral\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedDiagnosis_UploadedReferral\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedMedication\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedMedication\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OPT_UploadedMedication\SQL\Select.sql" />
+    <Content Include="_Support\HEC_CMT_OPT_CommunityGroup_PublishedStatistics.xml" />
+    <Content Include="_Support\HEC_CMT_OPT_Community_PotentialDiagnosisCatalogs.xml" />
+    <Content Include="_Support\HEC_CMT_OPT_Community_PotentialProcedureCatalogs.xml" />
+    <Content Include="_Support\HEC_CMT_OPT_PrivateCommunityGroup_Visibility.xml" />
+    <Content Include="_Support\HEC_CMT_OPT_UploadedDiagnoses.xml" />
+    <Content Include="_Support\HEC_CMT_OPT_UploadedDiagnosis_Medications.xml" />
+    <Content Include="_Support\HEC_CMT_OPT_UploadedDiagnosis_Observations.xml" />
+    <Content Include="_Support\HEC_CMT_OPT_UploadedDiagnosis_Procedures.xml" />
+    <Content Include="_Support\HEC_CMT_OPT_UploadedDiagnosis_UploadedReferrals.xml" />
+    <Content Include="_Support\HEC_CMT_OPT_UploadedMedications.xml" />
+    <Content Include="_Support\HEC_CMT_OPT_UploadedProcedures.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,19 @@
+INSERT INTO 
+	acc_pay_conditions
+	(
+		ACC_PAY_ConditionID,
+		PaymentCondition_Name_DictID,
+		MaximumPaymentTreshold_InDays,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@ACC_PAY_ConditionID,
+		@PaymentCondition_Name,
+		@MaximumPaymentTreshold_InDays,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

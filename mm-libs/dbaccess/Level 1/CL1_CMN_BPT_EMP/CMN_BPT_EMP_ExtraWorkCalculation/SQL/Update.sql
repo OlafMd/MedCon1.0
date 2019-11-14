@@ -1,0 +1,18 @@
+UPDATE 
+	cmn_bpt_emp_extraworkcalculations
+SET 
+	GlobalPropertyMatchingID=@GlobalPropertyMatchingID,
+	ExtraWorkCalculation_Name_DictID=@ExtraWorkCalculation_Name,
+	IsCalculatingOvertimeEnabled=@IsCalculatingOvertimeEnabled,
+	AreAdditionalWorkDays_CalculatedIn_Hours=@AreAdditionalWorkDays_CalculatedIn_Hours,
+	AreAdditionalWorkDays_CalculatedIn_DaysAsHours=@AreAdditionalWorkDays_CalculatedIn_DaysAsHours,
+	AreAdditionalWorkDays_CalculatedIn_Days=@AreAdditionalWorkDays_CalculatedIn_Days,
+	StandardWorkDay_in_mins=@StandardWorkDay_in_mins,
+	IsDisplayedAs_HoursAsDays=@IsDisplayedAs_HoursAsDays,
+	IsDisplayedAs_DaysAndHours=@IsDisplayedAs_DaysAndHours,
+	MinimalOvertimeTreshold_in_minutes=@MinimalOvertimeTreshold_in_minutes,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_BPT_EMP_ExtraWorkCalculationID = @CMN_BPT_EMP_ExtraWorkCalculationID

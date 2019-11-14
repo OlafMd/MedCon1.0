@@ -1,0 +1,21 @@
+INSERT INTO 
+	bil_billheaderextension_edifact
+	(
+		BIL_BillHeaderExtension_EDIFACTID,
+		BIL_BillHeader_RefID,
+		EDIFACTCounter,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@BIL_BillHeaderExtension_EDIFACTID,
+		@BIL_BillHeader_RefID,
+		@EDIFACTCounter,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

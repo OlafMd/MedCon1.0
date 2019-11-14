@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F32C0922-9895-4F3B-A23A-5055C67A4E38}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL2_Project</RootNamespace>
+    <AssemblyName>CL2_Project</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDtMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDtMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDyMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDyMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Unarchive_Project_for_ProjectID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllProjectStatuses_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllProjects_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_All_ProjectIDs_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_All_ProjectMemberTypes_for_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_All_Projects_for_Account.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Members2RightPackage_for_Tenant_and_Account.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProjectMemberChargingLevel_for_ProjectMemberID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProjectMemberType_for_ProjectMemberID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProjectProgress_for_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProjectStatuses_for_GlobalPropertyID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProjectStatuses_for_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Project_for_Feature_ParentID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Project_for_ProjectID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Project_Membership_for_Account_and_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_RightsPackages_for_Account_and_Tenant.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_ProjectMembers_for_ProjectID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_ProjectMembers_ChargingLevel_for_ProjectMemberIDs.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_ProjectMemberTypes_for_ProjectMembers_ID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_TMS_PRO\CL1_TMS_PRO.csproj">
+      <Project>{2EED773F-2351-47AC-92BF-2D9A58CB02F9}</Project>
+      <Name>CL1_TMS_PRO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllProjects_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProjectProgress_for_Tenant.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Unarchive_Project_for_ProjectID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Project_for_ProjectID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Project_for_Feature_ParentID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllProjects_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_ProjectProgress_for_Tenant.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Project_for_Feature_ParentID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Project_for_ProjectID.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_ProjectMembers_for_ProjectID.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_ProjectMembers_ChargingLevel_for_ProjectMemberIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_ProjectMemberTypes_for_ProjectMembers_ID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_RightsPackages_for_Account_and_Tenant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_ProjectIDs_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProjectStatuses_for_Tenant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_ProjectMemberTypes_for_Tenant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_Projects_for_Account.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProjectMemberType_for_ProjectMemberID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProjectMemberChargingLevel_for_ProjectMemberID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_ProjectIDs_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_All_ProjectMemberTypes_for_Tenant.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_Projects_for_Account.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_ProjectMemberChargingLevel_for_ProjectMemberID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProjectMemberType_for_ProjectMemberID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProjectStatuses_for_Tenant.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_RightsPackages_for_Account_and_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Project_Membership_for_Account_and_Tenant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Members2RightPackage_for_Tenant_and_Account.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Members2RightPackage_for_Tenant_and_Account.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Project_Membership_for_Account_and_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProjectStatuses_for_GlobalPropertyID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProjectStatuses_for_GlobalPropertyID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllProjectStatuses_for_TenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllProjectStatuses_for_TenantID.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

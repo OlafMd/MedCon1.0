@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 12/13/2013 2:25:21 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_PRO_Product_Release"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_PRO"
+                IsClass_Corresponding_DBTable="cmn_pro_product_releases" >
+      <Members>
+		<ClassMember Name="CMN_PRO_Product_ReleaseID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ProductReleaseITL" Type="String" />
+		<ClassMember Name="Product_RefID" Type="Guid" />
+		<ClassMember Name="Product_Variant_RefID" Type="Guid" />
+		<ClassMember Name="IsRelease_Released" Type="Boolean" />
+		<ClassMember Name="IsRelease_UnderDevelopment" Type="Boolean" />
+		<ClassMember Name="IfReleased_ReleasedDate" Type="DateTime" />
+		<ClassMember Name="IfUnderDevelopment_EstimatedReleaseDate" Type="DateTime" />
+		<ClassMember Name="ProductRelease_DocumentationStructure_RefID" Type="Guid" />
+		<ClassMember Name="Product_ReleaseName" Type="String" />
+		<ClassMember Name="OrderSequence" Type="int" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsStandardProductRelease" Type="Boolean" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

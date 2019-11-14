@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_sls_pricelist_releases
+	(
+		CMN_SLS_Pricelist_ReleaseID,
+		Pricelist_RefID,
+		Release_Version,
+		PricelistRelease_Comment,
+		PricelistRelease_ValidFrom,
+		PricelistRelease_ValidTo,
+		IsPricelistAlwaysActive,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_SLS_Pricelist_ReleaseID,
+		@Pricelist_RefID,
+		@Release_Version,
+		@PricelistRelease_Comment,
+		@PricelistRelease_ValidFrom,
+		@PricelistRelease_ValidTo,
+		@IsPricelistAlwaysActive,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

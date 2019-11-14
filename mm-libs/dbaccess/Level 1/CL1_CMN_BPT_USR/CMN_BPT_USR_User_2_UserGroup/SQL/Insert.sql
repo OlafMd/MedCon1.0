@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_usr_user_2_usergroups
+	(
+		AssignmentID,
+		CMN_BPT_USR_User_RefID,
+		CMN_BPT_USR_UserGroup_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_BPT_USR_User_RefID,
+		@CMN_BPT_USR_UserGroup_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

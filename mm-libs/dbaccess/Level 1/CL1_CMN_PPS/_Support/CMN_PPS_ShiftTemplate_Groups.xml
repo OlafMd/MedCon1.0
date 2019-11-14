@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 12/9/2014 4:02:42 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_PPS_ShiftTemplate_Group"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_PPS"
+                IsClass_Corresponding_DBTable="cmn_pps_shifttemplate_groups" >
+      <Members>
+		<ClassMember Name="CMN_PPS_ShiftTemplate_GroupID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="GroupShortName" Type="String" />
+		<ClassMember Name="GroupName" Type="Dict" Source_DBField="GroupName_DictID" OriginTable="cmn_pps_shifttemplate_groups"/>
+		<ClassMember Name="CMN_STR_Office_RefID" Type="Guid" />
+		<ClassMember Name="CMN_STR_Workarea_RefID" Type="Guid" />
+		<ClassMember Name="CMN_STR_Workplace_RefID" Type="Guid" />
+		<ClassMember Name="IsDefault_ForMonday" Type="Boolean" />
+		<ClassMember Name="IsDefault_ForTuesday" Type="Boolean" />
+		<ClassMember Name="IsDefault_ForWednesday" Type="Boolean" />
+		<ClassMember Name="IsDefault_ForThursday" Type="Boolean" />
+		<ClassMember Name="IsDefault_ForFriday" Type="Boolean" />
+		<ClassMember Name="IsDefault_ForSaturday" Type="Boolean" />
+		<ClassMember Name="IsDefault_ForSunday" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

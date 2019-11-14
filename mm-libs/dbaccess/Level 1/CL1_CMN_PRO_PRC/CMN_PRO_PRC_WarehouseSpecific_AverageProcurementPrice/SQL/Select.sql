@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_pro_prc_warehousespecific_averageprocurementprices
+WHERE 
+	CMN_PRO_PRC_WarehouseSpecific_AverageProcurementPriceID = @CMN_PRO_PRC_WarehouseSpecific_AverageProcurementPriceID

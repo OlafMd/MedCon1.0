@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_Temporary_Doctor_Count_and_Oldest_Date</Name>
+		<Namespace>MMDocConnectDBMethods.Doctor.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.Doctor.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Temporary_Doctor_Count_and_Oldest_Date"
+								Method_Name="Get_Temporary_Doctor_Count_and_Oldest_Date"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+    Select
+      min(hec_doctors.Creation_Timestamp)as dateofOldestACDoctorChange,
+      count(hec_doctors.HEC_DoctorID) as numberOfAcDocs
+    From
+      hec_doctors
+    Where
+      hec_doctors.IsDeleted = 0 And
+      hec_doctors.Tenant_RefID = @TenantID And
+      hec_doctors.Account_RefID = x'00000000000000000000000000000000'
+	</SQLStatement>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="DO_GTDCaOD_1321">
+			<Members>
+				<ClassMember Name="dateofOldestACDoctorChange" Type="DateTime"  />
+				<ClassMember Name="numberOfAcDocs" Type="int"  />
+			 
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_medicalpractice_offeredservices
+	(
+		HEC_MedicalPractice_OfferedServiceID,
+		MedicalService_RefID,
+		MedicalPractice_RefID,
+		OrderSequence,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_MedicalPractice_OfferedServiceID,
+		@MedicalService_RefID,
+		@MedicalPractice_RefID,
+		@OrderSequence,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	tmp_pro_projectmember_type_availablecharginglevels
+WHERE 
+	TMP_PRO_ProjectMember_Type_AvailableChargingLevelsID = @TMP_PRO_ProjectMember_Type_AvailableChargingLevelsID

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	log_wrh_inj_inventoryjob_series_rythms
+WHERE 
+	LOG_WRH_INJ_InventoryJob_Series_RythmID = @LOG_WRH_INJ_InventoryJob_Series_RythmID

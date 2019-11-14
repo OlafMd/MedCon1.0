@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_str_office_worktimetemplateexceptions
+WHERE 
+	CMN_STR_Office_WorktimeTemplateExceptionID = @CMN_STR_Office_WorktimeTemplateExceptionID

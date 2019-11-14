@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/5/2014 15:26:54 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ReturnShipmentPositions_with_Articles_for_PositionIDs</Name>
+    <Namespace>CL5_APOLogistic_ReturnShipment.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_ReturnShipment.Complex.Retrieval"
+                Method_ClassName="cls_Get_ReturnShipmentPositions_with_Articles_for_PositionIDs"
+                Method_Name="Get_ReturnShipmentPositions_with_Articles_for_PositionIDs_or_ProductIDs"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ReturnShipmentPositions_with_Articles_for_PositionIDs"
+                />
+
+  <Parameters IsClass="true" Name="P_L5RS_GRSPwAfP_1526">
+    <Members>
+        <ClassMember Name="SearchCriteria" Type="CL5_APOLogistic_ReturnShipment.Atomic.Retrieval.P_L5RS_GRSPfP_1523" />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5RS_GRSPwAfP_1526" IsArray="true">
+			<Members>
+                <ClassMember Name="Article" Type="CL3_Articles.Atomic.Retrieval.L3AR_GAfAL_0942" />
+				<ClassMember Name="Price" Type="CL3_Price.Complex.Retrieval.L3PR_GSPfPIL_1645" />
+                <ClassMember Name="Position" Type="CL5_APOLogistic_ReturnShipment.Atomic.Retrieval.L5RS_GRSPfP_1523" />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

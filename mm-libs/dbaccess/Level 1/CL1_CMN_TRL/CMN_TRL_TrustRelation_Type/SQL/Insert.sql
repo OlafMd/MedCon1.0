@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_trl_trustrelation_types
+	(
+		CMN_TRL_TrustRelation_TypeID,
+		TrustRelationTypeITL,
+		TrustRelation_Name_DictID,
+		TrustRelation_Description_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_TRL_TrustRelation_TypeID,
+		@TrustRelationTypeITL,
+		@TrustRelation_Name,
+		@TrustRelation_Description,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

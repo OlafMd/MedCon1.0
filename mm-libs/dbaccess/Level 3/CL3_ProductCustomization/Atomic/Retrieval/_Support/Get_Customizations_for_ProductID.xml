@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/9/2015 16:29:03">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Customizations_for_ProductID</Name>
+    <Namespace>CL3_ProductCustomization.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_ProductCustomization.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Customizations_for_ProductID"
+                Method_Name="Get_Customizations_for_ProductID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Customizations_for_ProductID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT cmn_pro_cus_customizations.CMN_PRO_CUS_CustomizationID,
+	       cmn_pro_cus_customizations.InstantiatedFrom_CustomizationTemplate_RefID,
+	       cmn_pro_cus_customizations.Product_RefID,
+	      cmn_pro_cus_customizations.Customization_Name_DictID,
+       cmn_pro_cus_customizations.Customization_Description_DictID,
+	       cmn_pro_cus_customizations.OrderSequence,
+	       cmn_pro_cus_customization_variants.CMN_PRO_CUS_Customization_VariantID,
+	       cmn_pro_cus_customization_variants.CustomizationVariant_Name_DictID,
+	       cmn_pro_cus_customization_variants.OrderSequence as VariantOrderSequence
+	FROM cmn_pro_cus_customizations
+	LEFT JOIN cmn_pro_cus_customization_variants ON cmn_pro_cus_customizations.CMN_PRO_CUS_CustomizationID = cmn_pro_cus_customization_variants.Customization_RefID
+	AND cmn_pro_cus_customization_variants.Tenant_RefID = @TenantID
+	AND cmn_pro_cus_customization_variants.IsDeleted = 0
+	WHERE cmn_pro_cus_customizations.Tenant_RefID = @TenantID
+	  AND cmn_pro_cus_customizations.IsDeleted = 0
+	  AND cmn_pro_cus_customizations.Product_RefID=@ProductID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3PC_GCfP_1628">
+    <Members>
+		<ClassMember Name="ProductID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3PC_GCfP_1628" IsArray="true" GroupBy="CMN_PRO_CUS_CustomizationID">
+			<Members>
+				<ClassMember Name="CMN_PRO_CUS_CustomizationID" Type="Guid"  />
+				<ClassMember Name="InstantiatedFrom_CustomizationTemplate_RefID" Type="Guid"  />
+				<ClassMember Name="Product_RefID" Type="Guid"  />
+				<ClassMember Name="Customization_Name_DictID" Type="Dict" OriginTable="cmn_pro_cus_customizations" Source_DBField="Customization_Name_DictID"  />
+				<ClassMember Name="Customization_Description_DictID" Type="Dict" OriginTable="cmn_pro_cus_customizations" Source_DBField="Customization_Description_DictID"  />
+				<ClassMember Name="OrderSequence" Type="int"  />
+        <ClassMember IsClass="true" IsArray="true" Name="Variants" Type="L3PC_GCfP_1628a" GroupBy="CMN_PRO_CUS_Customization_VariantID">
+          <Members>
+            <ClassMember Name="CMN_PRO_CUS_Customization_VariantID" Type="Guid"  />
+            <ClassMember Name="CustomizationVariant_Name" Type="Dict" OriginTable="cmn_pro_cus_customization_variants" Source_DBField="CustomizationVariant_Name_DictID"  />
+            <ClassMember Name="VariantOrderSequence" Type="int"  />
+          </Members>
+        </ClassMember>
+			</Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+
+</CodeGen>
+
+

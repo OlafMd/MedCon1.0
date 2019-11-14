@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="customer-order-status.not-ordered">
+    <Lang ISO="EN" Content="NotOrdered" />
+    <Lang ISO="DE" Content="NichtBestellt" />
+  </Item>
+  <Item ID="customer-order-status.ordered">
+    <Lang ISO="EN" Content="Ordered" />
+    <Lang ISO="DE" Content="Bestellt" />
+  </Item>
+  <Item ID="customer-order-status.confirmed">
+    <Lang ISO="EN" Content="Confirmed" />
+    <Lang ISO="DE" Content="Bestätigt" />
+  </Item>
+  <Item ID="customer-order-status.shipped">
+    <Lang ISO="EN" Content="Shipped" />
+    <Lang ISO="DE" Content="Ausgeliefert" />
+  </Item>
+  <Item ID="customer-order-status.billed">
+    <Lang ISO="EN" Content="Billed" />
+    <Lang ISO="DE" Content="Berechnen" />
+  </Item>
+  <Item ID="customer-order-status.rejected">
+    <Lang ISO="EN" Content="Rejected" />
+    <Lang ISO="DE" Content="Abgelehnt" />
+  </Item>
+  
+</Resources>

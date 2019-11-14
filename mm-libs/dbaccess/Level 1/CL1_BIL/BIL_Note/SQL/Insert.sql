@@ -1,0 +1,27 @@
+INSERT INTO 
+	bil_notes
+	(
+		BIL_Note,
+		BillHeader_RefID,
+		BillPosition_RefID,
+		CreatedBy_BusinessParticipant_RefID,
+		Title,
+		NoteText,
+		SequenceOrderNumber,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@BIL_Note,
+		@BillHeader_RefID,
+		@BillPosition_RefID,
+		@CreatedBy_BusinessParticipant_RefID,
+		@Title,
+		@NoteText,
+		@SequenceOrderNumber,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="08/27/2013 10:35:28 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_VacationPlanner_User.Complex.Manipulation"
+                Method_ClassName="cls_Save_Application_Settings_ForTenant_FirstTime"
+                Method_Name="Save_Application_Settings_ForTenant_FirstTime"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Application_Settings_ForTenant_FirstTime"
+                />
+
+  <Parameters IsClass="true" Name="P_L6USR_SASFTFT_1637">
+    <Members>
+      <ClassMember Name="ApplicationID" Type="Guid"/>
+    </Members>
+
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+
+
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+
+

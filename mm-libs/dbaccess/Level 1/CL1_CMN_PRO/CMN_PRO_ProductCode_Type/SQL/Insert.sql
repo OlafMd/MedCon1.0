@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_pro_productcode_types
+	(
+		CMN_PRO_ProductCode_TypeID,
+		ProductCode_TypeName,
+		GlobalPropertyMatchingID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_PRO_ProductCode_TypeID,
+		@ProductCode_TypeName,
+		@GlobalPropertyMatchingID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/8/2014 11:29:31 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Staff_WorktimeExceptions_for_TenantID</Name>
+    <Namespace>CL5_MyHealthClub_DoctorsAndStaff.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_DoctorsAndStaff.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Staff_WorktimeExceptions_for_TenantID"
+                Method_Name="Get_Staff_WorktimeExceptions_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Staff_WorktimeExceptions_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_per_personinfo.FirstName,
+	  cmn_per_personinfo.LastName,
+	  cmn_per_personinfo.Title,
+	  cmn_cal_ava_dates.DateComment As Description,
+	  cmn_cal_events.IsRepetitive,
+	  cmn_cal_events.IsWholeDayEvent,
+	  cmn_cal_events.StartTime,
+	  cmn_cal_events.EndTime,
+	  cmn_cal_repetitions.IsDaily,
+	  cmn_cal_repetitions.IsWeekly,
+	  cmn_cal_repetitions.IsMonthly,
+	  cmn_cal_repetitions.IsYearly
+	From
+	  cmn_bpt_businessparticipants Inner Join
+	  cmn_per_personinfo
+	    On cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID =
+	    cmn_per_personinfo.CMN_PER_PersonInfoID And cmn_per_personinfo.IsDeleted = 0
+	    And
+	    cmn_per_personinfo.Tenant_RefID = @TenantID Inner Join
+	  cmn_bpt_businessparticipant_availabilities
+	    On cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID =
+	    cmn_bpt_businessparticipant_availabilities.BusinessParticipant_RefID And
+	    cmn_bpt_businessparticipant_availabilities.IsDeleted = 0 And
+	    cmn_bpt_businessparticipant_availabilities.Tenant_RefID =
+	    @TenantID Inner Join
+	  cmn_cal_ava_availabilities
+	    On cmn_bpt_businessparticipant_availabilities.CMN_CAL_AVA_Availability_RefID
+	    = cmn_cal_ava_availabilities.CMN_CAL_AVA_AvailabilityID And
+	    cmn_cal_ava_availabilities.IsDeleted = 0 And
+	    cmn_cal_ava_availabilities.Tenant_RefID =
+	    @TenantID Inner Join
+	  cmn_cal_ava_dates On cmn_cal_ava_availabilities.CMN_CAL_AVA_AvailabilityID =
+	    cmn_cal_ava_dates.Availability_RefID And cmn_cal_ava_dates.Tenant_RefID =
+	    @TenantID And
+	    cmn_cal_ava_dates.IsDeleted = 0 Inner Join
+	  cmn_cal_events On cmn_cal_ava_dates.CMN_CAL_Event_RefID =
+	    cmn_cal_events.CMN_CAL_EventID And cmn_cal_events.IsDeleted = 0 And
+	    cmn_cal_events.Tenant_RefID = @TenantID Left Join
+	  cmn_cal_repetitions On cmn_cal_repetitions.CMN_CAL_RepetitionID =
+	    cmn_cal_events.Repetition_RefID And cmn_cal_repetitions.IsDeleted = 0 And
+	    cmn_cal_repetitions.Tenant_RefID = @TenantID
+	Where
+	  cmn_cal_ava_availabilities.IsAvailabilityExclusionItem = 1 And
+	  cmn_bpt_businessparticipants.IsNaturalPerson = 1 And
+	  cmn_bpt_businessparticipants.Tenant_RefID =
+	  @TenantID And
+	  cmn_bpt_businessparticipants.IsDeleted = 0 And
+	  cmn_bpt_businessparticipants.IsCompany = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5DO_GSWEfTID_1129" IsArray="true">
+			<Members>
+				<ClassMember Name="FirstName" Type="String"  />
+				<ClassMember Name="LastName" Type="String"  />
+				<ClassMember Name="Title" Type="String"  />
+				<ClassMember Name="Description" Type="String"  />
+				<ClassMember Name="IsRepetitive" Type="bool"  />
+				<ClassMember Name="IsWholeDayEvent" Type="bool"  />
+				<ClassMember Name="StartTime" Type="DateTime"  />
+				<ClassMember Name="EndTime" Type="DateTime"  />
+				<ClassMember Name="IsDaily" Type="bool"  />
+				<ClassMember Name="IsWeekly" Type="bool"  />
+				<ClassMember Name="IsMonthly" Type="bool"  />
+				<ClassMember Name="IsYearly" Type="bool"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

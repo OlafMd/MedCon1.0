@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_SubmitUntilDate_CasePropertyValues_for_PatientID</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_SubmitUntilDate_CasePropertyValues_for_PatientID"
+								Method_Name="Get_SubmitUntilDate_CasePropertyValues_for_PatientID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">    
+    SELECT
+      hec_cas_case_universalpropertyvalue.Value_String AS property_string_value,
+      hec_cas_case_universalpropertyvalue.HEC_CAS_Case_UniversalPropertyValueID AS property_value_id,
+      hec_cas_case_universalpropertyvalue.HEC_CAS_Case_RefID AS case_id
+    FROM
+      hec_cas_cases
+      INNER JOIN hec_cas_case_universalpropertyvalue ON
+        hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_universalpropertyvalue.HEC_CAS_Case_RefID AND
+        hec_cas_case_universalpropertyvalue.Tenant_RefID = @TenantID AND hec_cas_case_universalpropertyvalue.IsDeleted = 0
+      INNER JOIN hec_cas_case_universalproperties ON
+        hec_cas_case_universalpropertyvalue.HEC_CAS_Case_UniversalProperty_RefID =
+        hec_cas_case_universalproperties.HEC_CAS_Case_UniversalPropertyID AND
+        hec_cas_case_universalproperties.GlobalPropertyMatchingID = 'mm.doc.connect.case.submit.oct.until.date' AND
+        hec_cas_case_universalproperties.Tenant_RefID = @TenantID AND hec_cas_case_universalproperties.IsDeleted = 0
+    WHERE
+      hec_cas_cases.Patient_RefID = @PatientID AND
+      hec_cas_cases.Tenant_RefID = @TenantID
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GSUDCPVfPID_1438">
+    <Members>
+      <ClassMember Name="PatientID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GSUDCPVfPID_1438" IsArray="true">
+      <Members>
+        <ClassMember Name="property_string_value" Type="String"  />
+        <ClassMember Name="property_value_id" Type="Guid"  />
+        <ClassMember Name="case_id" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

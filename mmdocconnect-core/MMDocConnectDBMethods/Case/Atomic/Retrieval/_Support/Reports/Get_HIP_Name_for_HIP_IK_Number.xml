@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="01/24/2017 12:07 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_HIP_Name_for_HIP_IK_Number</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_HIP_Name_for_HIP_IK_Number"
+								Method_Name="Get_HIP_Name_for_HIP_IK_Number"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_bpt_businessparticipants.DisplayName As Name
+From
+  hec_his_healthinsurance_companies Inner Join
+  cmn_bpt_businessparticipants
+    On hec_his_healthinsurance_companies.CMN_BPT_BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And
+    cmn_bpt_businessparticipants.IsDeleted = 0 And
+    cmn_bpt_businessparticipants.Tenant_RefID = @TenantID
+Where
+  hec_his_healthinsurance_companies.IsDeleted = 0 And
+  hec_his_healthinsurance_companies.Tenant_RefID = @TenantID And
+  hec_his_healthinsurance_companies.HealthInsurance_IKNumber = @HIPIKNumber
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GHIPIKfHIPIKN_1207">
+    <Members>
+      <ClassMember Type="String"  Name="HIPIKNumber"/>
+    </Members>
+  </Parameters>
+  
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GHIPIKfHIPIKN_1207">
+      <Members>
+        <ClassMember Name="Name" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

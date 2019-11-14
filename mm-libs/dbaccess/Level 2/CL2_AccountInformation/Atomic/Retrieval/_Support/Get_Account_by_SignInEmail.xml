@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/6/2013 3:24:58 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Account_by_SignInEmail</Name>
+    <Namespace>CL2_AccountInformation.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_AccountInformation.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Account_by_SignInEmail"
+                Method_Name="Get_Account_by_SignInEmail"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Account_by_SignInEmail"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  usr_accounts.USR_AccountID,
+	  usr_accounts.DefaultLanguage_RefID,
+	  usr_accounts.Username,
+	  usr_accounts.BusinessParticipant_RefID,
+	  usr_accounts.AccountSignInEmailAddress,
+	  usr_accounts.AccountType,
+	  usr_accounts.RemoveViewedNotificationAfterDays
+	From
+	  usr_accounts
+	Where
+	  usr_accounts.IsDeleted = 0 And
+	  usr_accounts.Tenant_RefID = @TenantID And
+	  UPPER(usr_accounts.AccountSignInEmailAddress) = UPPER(@SignInEmail)
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2AI_GAbSIE_1520">
+    <Members>
+		<ClassMember Name="SignInEmail" Type="String"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2AI_GAbSIE_1520" IsArray="false">
+			<Members>
+				<ClassMember Name="USR_AccountID" Type="Guid"  />
+				<ClassMember Name="DefaultLanguage_RefID" Type="Guid"  />
+				<ClassMember Name="Username" Type="String"  />
+				<ClassMember Name="BusinessParticipant_RefID" Type="Guid"  />
+				<ClassMember Name="AccountSignInEmailAddress" Type="String"  />
+				<ClassMember Name="AccountType" Type="String"  />
+				<ClassMember Name="RemoveViewedNotificationAfterDays" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

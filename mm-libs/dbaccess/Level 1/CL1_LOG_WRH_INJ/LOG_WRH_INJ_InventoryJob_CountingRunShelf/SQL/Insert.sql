@@ -1,0 +1,19 @@
+INSERT INTO 
+	log_wrh_inj_inventoryjob_countingrunshelves
+	(
+		LOG_WRH_INJ_InventoryJob_CountingRunShelfID,
+		LOG_WRH_Shelf_Content_RefID,
+		LOG_WRH_INJ_InventoryJob_CountingRun_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_WRH_INJ_InventoryJob_CountingRunShelfID,
+		@LOG_WRH_Shelf_Content_RefID,
+		@LOG_WRH_INJ_InventoryJob_CountingRun_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

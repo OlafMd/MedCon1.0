@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_HIP_Name_for_HIPID</Name>
+    <Namespace>MMDocConnectDBMethods.Patient.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Patient.Atomic.Retrieval"
+								Method_ClassName="cls_Get_HIP_Name_for_HIPID"
+								Method_Name="Get_HIP_Name_for_HIPID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    Select
+      cmn_bpt_businessparticipants.DisplayName As Name
+    From
+      hec_his_healthinsurance_companies
+      Inner Join cmn_bpt_businessparticipants
+        On hec_his_healthinsurance_companies.CMN_BPT_BusinessParticipant_RefID =
+        cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And
+        cmn_bpt_businessparticipants.IsDeleted = 0 And
+        cmn_bpt_businessparticipants.Tenant_RefID = @TenantID
+    Where
+      hec_his_healthinsurance_companies.HEC_HealthInsurance_CompanyID =
+      @HealthInsuranceCompanyID And
+      hec_his_healthinsurance_companies.IsDeleted = 0 And
+      hec_his_healthinsurance_companies.Tenant_RefID = @TenantID
+  
+	</SQLStatement>
+  <Parameters IsClass="true" Name="P_PA_GHIPNfHIPID_1000">
+    <Members>
+      <ClassMember Name="HealthInsuranceCompanyID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="PA_GHIPNfHIPID_1000">
+      <Members>
+        <ClassMember Name="Name" Type="String"  />
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

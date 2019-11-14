@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SubmitOrderPdfReportContent>
+  <Pharmacy>Apotheke</Pharmacy>
+  <Practice>Bestellende Praxis</Practice>
+  <OrderOverview>Bestellübersicht</OrderOverview>
+  <OrderNumber>Bestellnummer</OrderNumber>
+  <DeliveryDate>Lieferdatum</DeliveryDate>
+  <DeliveryTime>Lieferzeit</DeliveryTime>
+  <Medication>Medikament</Medication>
+  <Amount>Menge</Amount>
+  <Signature>Unterschrift</Signature>
+  <Patient>Patient</Patient>
+  <BirthDate>Geburts-\ndatum</BirthDate>
+  <HealthInsurance>Krankenkasse</HealthInsurance>
+  <InsuranceStatus>Versicherungs-\nstatus</InsuranceStatus>
+  <FeeWaived>Gebühren-\nbefreit</FeeWaived>
+  <TotalQuantity>Gesamtmenge für</TotalQuantity>
+  <PositionComment>Position comment</PositionComment>
+  <HeaderComment>Kommentar</HeaderComment>
+</SubmitOrderPdfReportContent>

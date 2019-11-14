@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 4/28/2014 9:40:09 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_RCP_Receipt_Header"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_RCP"
+                IsClass_Corresponding_DBTable="log_rcp_receipt_headers" >
+      <Members>
+		<ClassMember Name="LOG_RCP_Receipt_HeaderID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ReceiptHeaderITL" Type="String" />
+		<ClassMember Name="IsCustomerReturnReceipt" Type="Boolean" />
+		<ClassMember Name="ExpectedDeliveryHeader_RefID" Type="Guid" />
+		<ClassMember Name="ReceiptHeaderCurrency_RefID" Type="Guid" />
+		<ClassMember Name="ReceiptNumber" Type="String" />
+		<ClassMember Name="ProvidingSupplier_RefID" Type="Guid" />
+		<ClassMember Name="DeliveringBusinessParticipant_RefID" Type="Guid" />
+		<ClassMember Name="WRH_Warehouse_RefID" Type="Guid" />
+		<ClassMember Name="DeliverySlip_Number" Type="String" />
+		<ClassMember Name="DeliverySlip_Date" Type="DateTime" />
+		<ClassMember Name="DeliverySlip_Document_RefID" Type="Guid" />
+		<ClassMember Name="IsQualityControlPerformed" Type="Boolean" />
+		<ClassMember Name="QualityControlPerformed_ByAccount_RefID" Type="Guid" />
+		<ClassMember Name="QualityControlPerformed_AtDate" Type="DateTime" />
+		<ClassMember Name="IsPriceConditionsManuallyCleared" Type="Boolean" />
+		<ClassMember Name="PriceConditionsManuallyCleared_ByAccount_RefID" Type="Guid" />
+		<ClassMember Name="PriceConditionsManuallyCleared_AtDate" Type="DateTime" />
+		<ClassMember Name="IsTakenIntoStock" Type="Boolean" />
+		<ClassMember Name="TakenIntoStock_ByAccount_RefID" Type="Guid" />
+		<ClassMember Name="TakenIntoStock_AtDate" Type="DateTime" />
+		<ClassMember Name="IsReceiptForwardedToBookkeeping" Type="Boolean" />
+		<ClassMember Name="ReceiptForwardedToBookkeeping_ByAccount_RefID" Type="Guid" />
+		<ClassMember Name="ReceiptForwardedToBookkeeping_AtDate" Type="DateTime" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

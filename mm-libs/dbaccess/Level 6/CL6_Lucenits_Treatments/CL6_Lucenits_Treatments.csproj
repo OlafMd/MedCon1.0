@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BEB92546-5A8F-4FBC-A1F5-6F0DFB26A709}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL6_Lucenits_Treatments</RootNamespace>
+    <AssemblyName>CL6_Lucenits_Treatments</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\..\apps\lucentis-pharmacy-data\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus">
+      <HintPath>..\..\..\..\apps\lucentis-pharmacy-data\packages\EPPlus.4.0.4\lib\net20\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_Order_Header_and_Status.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Atomic\Retrieval\cls_Get_FollowupData_by_IDs.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Followups_for_Report_byIDs.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Followups_for_TreatmentID.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Atomic\Retrieval\cls_Get_TreatmentData_by_IDs.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_TreatmentsCompleteInfo_by_IDs.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Treatments_for_TimeRange.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Treatment_and_RelevantDiagnosis_for_BillInfo.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Treatment_and_RelevantDiagnosis_for_BillInfo_by_TreatmentID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Treatment_and_RelevantDiagnosis_for_TreatmentID.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Complex\Manipulation\cls_Bill_AllTreatments.cs" />
+    <Compile Include="Complex\Manipulation\cls_Bill_Treatments.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Complex\Manipulation\cls_MakeReportData_forTreatments.cs" />
+    <Compile Include="Complex\Manipulation\cls_MakeReportData_forTreatmentsReport2.cs" />
+    <Compile Include="Complex\Manipulation\cls_Persist_TreatmentsBillData.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_and_Order_QuickTreatments_with_ProcurementOrder.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_and_Order_Quick_Treatment.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Patient_Treatment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Complex\Manipulation\cls_Save_Patient_Treatment_and_Order.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Complex\Manipulation\cls_Save_Quick_Treatment.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_FollowupBillingData_per_HICompany_byIDs.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_TreatmentBillingData_per_HICompany_byIDs.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_TreatmentsInfo_for_TimeRange.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Treatments_for_Search.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ReportUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\external\EdifactInterface 0.7\EdifactInterface\EdifactInterface.csproj">
+      <Project>{22e54ee5-6e93-4c7f-877b-9a116217e4ce}</Project>
+      <Name>EdifactInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\external\log4net\log4net.csproj">
+      <Project>{181FE707-E161-4722-9F38-6AAAB6FAA106}</Project>
+      <Name>log4net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\misc.view-web\Core_ClassLibrarySupport\Core_ClassLibrarySupport.csproj">
+      <Project>{BEBFE13C-C1BF-4909-91FF-4A9AB6D70828}</Project>
+      <Name>Core_ClassLibrarySupport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_BIL\CL1_BIL.csproj">
+      <Project>{D4F4B377-8C25-466F-B42F-315FC44A6D33}</Project>
+      <Name>CL1_BIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_COM\CL1_CMN_COM.csproj">
+      <Project>{63F92C99-99E4-48AC-8AC3-1627ED7831DF}</Project>
+      <Name>CL1_CMN_COM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768C60E8-0C7F-42B2-B8C9-D327C6BF334A}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_CUO\CL1_ORD_CUO.csproj">
+      <Project>{08B298C5-2B62-46EA-964F-98109E5B288C}</Project>
+      <Name>CL1_ORD_CUO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_PRC\CL1_ORD_PRC.csproj">
+      <Project>{2ED9EC1F-4C36-4790-B8AE-6C03F4B40588}</Project>
+      <Name>CL1_ORD_PRC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Language\CL2_Language.csproj">
+      <Project>{58245A4D-887C-4AA1-B01E-7E6779C4F096}</Project>
+      <Name>CL2_Language</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_MedicalPractices\CL3_MedicalPractices.csproj">
+      <Project>{FFE6B900-2A8F-4D99-A3F5-6A7543E8FD7B}</Project>
+      <Name>CL3_MedicalPractices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_Lucentis_Diagnosis\CL5_Lucentis_Diagnosis.csproj">
+      <Project>{21AD5751-8EDC-4287-97B8-DFCA330EF564}</Project>
+      <Name>CL5_Lucentis_Diagnosis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_Lucentis_Doctors\CL5_Lucentis_Doctors.csproj">
+      <Project>{875A2553-B0E1-4FE2-9C29-1826BE19F5D6}</Project>
+      <Name>CL5_Lucentis_Doctors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_Lucentis_Patient\CL5_Lucentis_Patient.csproj">
+      <Project>{5294FD56-9012-4FC7-ABD3-BF02C15F542B}</Project>
+      <Name>CL5_Lucentis_Patient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_Lucentis_Pracatice\CL5_Lucentis_Practice.csproj">
+      <Project>{F0C8ECF8-5D20-4972-B992-6E83948BF145}</Project>
+      <Name>CL5_Lucentis_Practice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_Lucentis_Treatments\CL5_Lucentis_Treatments.csproj">
+      <Project>{13F0C1B9-EFE2-4D6A-9CAE-2F62DFB9210B}</Project>
+      <Name>CL5_Lucentis_Treatments</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL6_Lucenits_Patient\CL6_Lucenits_Patient.csproj">
+      <Project>{0BD1DF7E-9F23-43F0-BA0D-9D39804748FF}</Project>
+      <Name>CL6_Lucenits_Patient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL6_Lucenits_Products\CL6_Lucenits_Products.csproj">
+      <Project>{06C8A74D-03B0-41F0-8267-7D5D5E897CBC}</Project>
+      <Name>CL6_Lucenits_Products</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Save_Order_Header_and_Status.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Treatment_and_RelevantDiagnosis_for_BillInfo_by_TreatmentID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Followups_for_Report_byIDs.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Treatment_and_RelevantDiagnosis_for_BillInfo.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_FollowupData_by_IDs.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_TreatmentData_by_IDs.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_TreatmentsCompleteInfo_by_IDs.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Treatments_for_TimeRange.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_FollowupData_by_IDs.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_TreatmentData_by_IDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_TreatmentsCompleteInfo_by_IDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Treatments_for_TimeRange.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Treatment_and_RelevantDiagnosis_for_BillInfo.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Followups_for_Report_byIDs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_FullBilledTreatmentsData.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Treatment_and_RelevantDiagnosis_for_BillInfo_by_TreatmentID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Bill_Treatments.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Bill_AllTreatments.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\MakeReportData_forTreatmentsReport2.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Persist_TreatmentsBillData.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_and_Order_QuickTreatments_with_ProcurementOrder.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_and_Order_Quick_Treatment.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_Quick_Treatment.xml" />
+    <Content Include="Complex\Manipulation\_Support\MakeReportData_forTreatments.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_FollowupBillingData_per_HICompany_byIDs.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_TreatmentBillingData_per_HICompany_byIDs.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_TreatmentsInfo_for_TimeRange.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_Treatments_for_Search.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Treatment_and_RelevantDiagnosis_for_TreatmentID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Followups_for_TreatmentID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Followups_for_TreatmentID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Treatment_and_RelevantDiagnosis_for_TreatmentID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_Patient_Treatment_and_Order.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_Patient_Treatment.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\SQL\" />
+    <Folder Include="Complex\Retrieval\SQL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

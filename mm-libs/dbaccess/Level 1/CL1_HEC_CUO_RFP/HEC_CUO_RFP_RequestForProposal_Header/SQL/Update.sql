@@ -1,0 +1,9 @@
+UPDATE 
+	hec_cuo_rfp_requestforproposal_headers
+SET 
+	Ext_ORD_CUO_RFP_RequestForProposal_Header_RefID=@Ext_ORD_CUO_RFP_RequestForProposal_Header_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	HEC_CUO_RFP_RequestForProposal_HeaderID = @HEC_CUO_RFP_RequestForProposal_HeaderID

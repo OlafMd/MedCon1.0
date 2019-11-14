@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_roof_propertyassestmentstates
+WHERE 
+	RES_STR_Roof_PropertyAssestmentStateID = @RES_STR_Roof_PropertyAssestmentStateID

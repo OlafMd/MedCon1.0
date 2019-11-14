@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_str_profession_calendartemplates
+WHERE 
+	CMN_STR_Profession_CalendarTemplateID = @CMN_STR_Profession_CalendarTemplateID

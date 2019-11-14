@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="01/20/2015 15:35:09 AM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Save_NumberRange</Name>
+        <Namespace>CL3_NumberRange.Atomic.Manipulation</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+
+    <CreationInfo Method_Namespace="CL3_NumberRange.Atomic.Manipulation"
+                  Method_ClassName="cls_Save_NumberRange"
+                  Method_Name="Save_NumberRange"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Save_NumberRange"
+                />
+
+
+    <Parameters IsClass="true" Name="P_L3SNR_1535">
+        <Members>
+            <ClassMember Name="CMN_NumberRangeID" Type="Guid" />
+            <ClassMember Name="NumberRange_Name" Type="string" />
+            <ClassMember Name="NumberRange_UsageArea_RefID" Type="Guid"  />
+            <ClassMember Name="Value_Current" Type="long"  />
+            <ClassMember Name="Value_Start" Type="long"  />
+            <ClassMember Name="Value_End" Type="long"  />
+            <ClassMember Name="FixedPrefix" Type="string"  />
+            <ClassMember Name="IsDeleted" Type="bool"  />            
+            <ClassMember Name="Formatting_LeadingFillCharacter" Type="string"  />
+            <ClassMember Name="Formatting_NumberLength" Type="int"  />
+        </Members>
+    </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                  Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+                  Returns_an_Object_or_ObjectArray="false">
+
+        <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+    </ResultInfo>
+
+</CodeGen>
+
+
+

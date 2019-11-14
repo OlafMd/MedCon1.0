@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_cal_ava_dates
+	(
+		CMN_CAL_AVA_DateID,
+		Availability_RefID,
+		CMN_CAL_Event_RefID,
+		DateName,
+		DateComment,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_CAL_AVA_DateID,
+		@Availability_RefID,
+		@CMN_CAL_Event_RefID,
+		@DateName,
+		@DateComment,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

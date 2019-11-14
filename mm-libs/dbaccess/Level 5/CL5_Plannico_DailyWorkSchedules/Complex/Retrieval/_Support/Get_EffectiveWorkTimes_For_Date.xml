@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="04-Mar-14 16:48:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_EffectiveWorkTimes_For_Date</Name>
+    <Namespace>CL5_Plannico_DailyWorkSchedules.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_DailyWorkSchedules.Complex.Retrieval"
+                Method_ClassName="cls_Get_EffectiveWorkTimes_For_Date"
+                Method_Name="Get_EffectiveWorkTimes_For_Date"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_EffectiveWorkTimes_For_Date"
+                />
+
+  <Parameters IsClass="true" Name="P_L5DWS_GEWTFD_1648">
+    <Members>
+      <ClassMember Name="currentDate" Type="DateTime"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+    
+    <ObjectReturnType_Definition Name="L5DWS_GEWTFD_1648" IsArray="true">
+      <Members>
+        <ClassMember Name="CMN_STR_PPS_EffectiveWorkTime_HeaderID" Type="Guid"  />
+        <ClassMember Name="Employee_RefID" Type="Guid"  />
+        <ClassMember Name="EffectiveBusinessDay" Type="DateTime"  />
+        <ClassMember Name="SheduleBreakTemplate_RefID" Type="Guid"  />
+        <ClassMember Name="IsBreakTimeManualySpecified" Type="bool"  />
+        <ClassMember Name="BreakDurationTime_in_sec" Type="int"  />
+        <ClassMember Name="WorktimeComment" Type="String"  />
+        <ClassMember Name="ContractWorkerText" Type="String"  />
+        <ClassMember IsClass="true" Type="L5DWS_GEWTFD_1648_Position" Name="Positions" IsArray="true">
+          <Members>
+            <ClassMember Name="CMN_BPT_EMP_EffectiveWorkTime_PositionID" Type="Guid"  />
+            <ClassMember Name="EffectiveWorkTime_Header_RefID" Type="Guid"  />
+            <ClassMember Name="CMN_BPT_EMP_Employe_RefID" Type="Guid"  />
+            <ClassMember Name="Activity_RefID" Type="Guid"  />
+            <ClassMember Name="Workplace_RefID" Type="Guid"  />
+            <ClassMember Name="CMN_BPT_EMP_Employee_LeaveRequest_RefID" Type="Guid"  />
+            <ClassMember Name="WorkTime_StartTime" Type="DateTime"  />
+            <ClassMember Name="WorkTime_Duration_in_sec" Type="int"  />
+            <ClassMember Name="SourceOfEntry" Type="int"  />
+            <ClassMember Name="AbsenceReason_RefID" Type="Guid" />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+	</ResultInfo>
+
+</CodeGen>
+
+

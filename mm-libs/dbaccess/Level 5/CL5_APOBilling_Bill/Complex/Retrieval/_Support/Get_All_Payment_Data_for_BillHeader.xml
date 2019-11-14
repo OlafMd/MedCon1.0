@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="23/10/2013 11:59:29">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_Payment_Data_for_BillHeader</Name>
+    <Namespace>CL5_APOBilling_Bill.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBilling_Bill.Complex.Retrieval"
+                Method_ClassName="cls_Get_All_Payment_Data_for_BillHeader"
+                Method_Name="Get_All_Payment_Data_for_BillHeader"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_Payment_Data_for_BillHeader"
+                />
+
+	<Parameters IsClass="true" Name="P_L5BL_GAPDfBH_1021">
+		<Members>
+			<ClassMember Name="BillHeaderID" Type="Guid"  />
+		</Members>
+	</Parameters>
+	
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="L5BL_GAPDfBH_1021" IsArray="false">
+            <Members>
+				<ClassMember Name="Bill_TotalValue" Type="Decimal"  />
+				<ClassMember Name="Bill_PaymentDeadline" Type="DateTime"  />
+                <ClassMember Name="Payments" Type="CL5_APOBilling_Bill.Atomic.Retrieval.L5BL_GPfBH_0926" IsArray="true"  />
+				<ClassMember Name="PaymentsWithInstallments" Type="CL5_APOBilling_Bill.Atomic.Retrieval.L5BL_GPwIfBH_1009" IsArray="true"  />
+				<ClassMember Name="BookingAccounts" Type="CL3_BookingAccounts.Atomic.Retrieval.L3BA_GBAPBPAfBP_1717" IsArray="true"  />
+				
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

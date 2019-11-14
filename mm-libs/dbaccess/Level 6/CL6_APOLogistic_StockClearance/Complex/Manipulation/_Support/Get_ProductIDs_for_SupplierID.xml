@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/15/2014 4:46:49 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ProductIDs_for_SupplierID</Name>
+    <Namespace>CL6_APOLogistic_StockClearance.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_APOLogistic_StockClearance.Complex.Manipulation"
+                Method_ClassName="cls_Get_ProductIDs_for_SupplierID"
+                Method_Name="Get_ProductIDs_for_SupplierID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ProductIDs_for_SupplierID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  log_rcp_receipt_positions.ReceiptPosition_Product_RefID,
+  cmn_bpt_businessparticipants.DisplayName as SupplierName
+From
+  log_rcp_receipt_headers Inner Join
+  log_rcp_receipt_positions On log_rcp_receipt_headers.LOG_RCP_Receipt_HeaderID
+    = log_rcp_receipt_positions.Receipt_Header_RefID And
+    log_rcp_receipt_positions.IsDeleted = 0 And
+    log_rcp_receipt_positions.Tenant_RefID = @TenantID Inner Join
+  cmn_bpt_suppliers On log_rcp_receipt_headers.ProvidingSupplier_RefID =
+    cmn_bpt_suppliers.CMN_BPT_SupplierID And log_rcp_receipt_headers.Tenant_RefID = @TenantID Inner Join
+  cmn_bpt_businessparticipants
+    On cmn_bpt_suppliers.Ext_BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And cmn_bpt_businessparticipants.Tenant_RefID = @TenantID
+Where
+  log_rcp_receipt_headers.Tenant_RefID = @TenantID And
+  log_rcp_receipt_headers.IsDeleted = 0 And
+  (@ProvidingSupplier Is Null Or
+    log_rcp_receipt_headers.ProvidingSupplier_RefID = @ProvidingSupplier)
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6SC_GPfS_1646">
+    <Members>
+		  <ClassMember Name="ProvidingSupplier" Type="Guid?"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6SC_GPfS_1646" IsArray="true">
+			<Members>
+				<ClassMember Name="ReceiptPosition_Product_RefID" Type="Guid"  />
+        <ClassMember Name="SupplierName" Type="string" />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_bld_appartment_wallcoveringtypes
+WHERE 
+	RES_BLD_Appartment_WallCoveringTypeID = @RES_BLD_Appartment_WallCoveringTypeID

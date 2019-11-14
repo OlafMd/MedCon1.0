@@ -1,0 +1,11 @@
+UPDATE 
+	log_rcp_receiptposition_2_procurementorderposition
+SET 
+	LOG_RCP_Receipt_Position_RefID=@LOG_RCP_Receipt_Position_RefID,
+	ORD_PRO_ProcurementOrder_Position_RefID=@ORD_PRO_ProcurementOrder_Position_RefID,
+	ReceivedQuantityFromProcurementOrderPosition=@ReceivedQuantityFromProcurementOrderPosition,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	AssignmentID = @AssignmentID

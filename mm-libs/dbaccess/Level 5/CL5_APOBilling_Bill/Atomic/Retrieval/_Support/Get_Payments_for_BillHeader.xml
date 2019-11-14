@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/4/2014 9:27:26 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Payments_for_BillHeader</Name>
+    <Namespace>CL5_APOBilling_Bill.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBilling_Bill.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Payments_for_BillHeader"
+                Method_Name="Get_Payments_for_BillHeader"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Payments_for_BillHeader"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT
+		bil_billheader_assignedpayments.BIL_BillHeader_AssignedPaymentID,
+		date_add(bil_billheaders.DateOnBill, INTERVAL acc_pay_conditions.MaximumPaymentTreshold_InDays DAY) AS PaymentDeadline,
+		bil_billheader_assignedpayments.AssignedValue AS PayedAmount,
+		acc_bok_accounting_bookinglines.DateOfTransaction AS PayedOnDate
+	FROM
+		bil_billheaders
+	INNER JOIN bil_billheader_assignedpayments
+		ON bil_billheader_assignedpayments.BIL_BillHeader_RefID = bil_billheaders.BIL_BillHeaderID
+		AND bil_billheader_assignedpayments.IsDeleted = 0
+		AND bil_billheader_assignedpayments.Tenant_RefID = @TenantID
+	INNER JOIN acc_pay_conditions
+		ON acc_pay_conditions.ACC_PAY_ConditionID = bil_billheaders.BillHeader_PaymentCondition_RefID
+		AND acc_pay_conditions.IsDeleted = 0
+		AND acc_pay_conditions.Tenant_RefID = @TenantID
+	INNER JOIN acc_bok_accounting_transactions
+		ON acc_bok_accounting_transactions.ACC_BOK_Accounting_TransactionID = bil_billheader_assignedpayments.ACC_BOK_AccountingTransaction_RefID
+		AND acc_bok_accounting_transactions.IsDeleted = 0
+		AND acc_bok_accounting_transactions.Tenant_RefID = @TenantID
+	INNER JOIN acc_bok_accounting_bookinglines
+		ON acc_bok_accounting_bookinglines.PartOfAccountingTransaction_RefID = acc_bok_accounting_transactions.ACC_BOK_Accounting_TransactionID
+		AND acc_bok_accounting_bookinglines.IsDeleted = 0
+		AND acc_bok_accounting_bookinglines.Tenant_RefID = @TenantID
+	WHERE
+		bil_billheaders.BIL_BillHeaderID = @BillHeaderID
+		AND bil_billheaders.IsDeleted = 0
+		AND bil_billheaders.Tenant_RefID = @TenantID
+	GROUP BY acc_bok_accounting_transactions.ACC_BOK_Accounting_TransactionID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5BL_GPfBH_0926">
+    <Members>
+		<ClassMember Name="BillHeaderID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5BL_GPfBH_0926" IsArray="true">
+			<Members>
+				<ClassMember Name="BIL_BillHeader_AssignedPaymentID" Type="Guid"  />
+				<ClassMember Name="PaymentDeadline" Type="DateTime"  />
+				<ClassMember Name="PayedAmount" Type="Decimal"  />
+				<ClassMember Name="PayedOnDate" Type="DateTime"  />
+
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

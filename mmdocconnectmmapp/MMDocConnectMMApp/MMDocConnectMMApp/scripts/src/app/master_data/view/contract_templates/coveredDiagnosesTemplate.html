@@ -1,0 +1,43 @@
+﻿<div ng-init="initializeController()">
+    <div class="gray-content-holder">
+        <div name="messageContainer" class="error-msg-container" ng-if="showErrorMessageContainer">
+            <span class="error">{{ 'LABEL_DIAGNOSE_ALREADY_SELECTED' | translate }} </span>
+        </div>
+        <div class="autocomplete-row">
+            <label>{{ 'LABEL_DIAGNOSE' | translate }}</label>
+            <button class="button wide add-button" ng-click="addDiagnoseToList()" translate="LABEL_ADD"></button>
+            <angucomplete-alt id="inDiagnoseName"
+                              class="autocomplete-input"
+                              name="inDiagnoseName" pause="500"
+                              selected-object="addDiagnose"
+                              remote-url="api/contract/GetDiagnosesForSearchCriteria"
+                              remote-url-data-field="items"
+                              remote-url-request-formatter="remoteUrlRequestFn"
+                              search-fields="expanded_name"
+                              minlength="3"
+                              title-field="expanded_name"
+                              minlength="1"
+                              inputclass="form-control form-control-small"
+                              inherit-position="true" />
+
+        </div>
+    </div>
+    <ul class="diagnosis-list-header">
+        <li class="unsorted" ng-class="setTableHeaderClass('name')" ng-click="SortFunction('name')">{{'LABEL_DIAGNOSE' | translate }}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('additional_info')" ng-click="SortFunction('additional_info')">{{'LABEL_ICD10_NUMBER' | translate }}</li>
+    </ul>
+
+    <div class="content-scroll clear" id="wrapper">
+        <div id="wrapper_inner" class="clearfix">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="item in diagnoses">
+                    <ul class="diagnosis-list-item">
+                        <li class="larger-font"><span>{{ ::item.name }}</span> </li>
+                        <li class="larger-font"><span>{{ ::item.additional_info }}</span> </li>
+                        <li><a href="" ng-click="removeDiagnose(item)" class="icons-discard" title="{{'LABEL_REMOVE_FROM_CONTRACT' | translate}}"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

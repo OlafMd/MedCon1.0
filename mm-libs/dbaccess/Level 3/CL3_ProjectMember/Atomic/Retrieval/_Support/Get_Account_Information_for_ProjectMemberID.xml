@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/20/2014 1:45:19 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Account_Information_for_ProjectMemberID</Name>
+    <Namespace>CL3_ProjectMember.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_ProjectMember.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Account_Information_for_ProjectMemberID"
+                Method_Name="Get_Account_Information_for_ProjectMemberID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.LastName,
+  tms_pro_projectmembers.TMS_PRO_ProjectMemberID
+From
+  tms_pro_projectmembers Inner Join
+  usr_accounts
+    On usr_accounts.USR_AccountID = tms_pro_projectmembers.USR_Account_RefID
+  Inner Join
+  cmn_per_personinfo_2_account On cmn_per_personinfo_2_account.USR_Account_RefID
+    = usr_accounts.USR_AccountID Inner Join
+  cmn_per_personinfo On cmn_per_personinfo_2_account.CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID
+Where
+  tms_pro_projectmembers.TMS_PRO_ProjectMemberID = @ProjectMemberID And
+  tms_pro_projectmembers.IsDeleted = 0 And
+  usr_accounts.IsDeleted = 0 And
+  cmn_per_personinfo_2_account.IsDeleted = 0 And
+  cmn_per_personinfo.IsDeleted = 0 And
+  tms_pro_projectmembers.Tenant_RefID = @TenantID 
+  
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3PM_GAIfPMID_1345">
+    <Members>
+      <ClassMember Name="ProjectMemberID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3PM_GAIfPMID_1345" IsArray="true">
+      <Members>
+        <ClassMember Name="FirstName" Type="String"  />
+        <ClassMember Name="LastName" Type="String"  />
+        <ClassMember Name="TMS_PRO_ProjectMemberID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 3/13/2014 1:14:15 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_SUB_Substance"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC_SUB"
+                IsClass_Corresponding_DBTable="hec_sub_substances" >
+      <Members>
+		  <ClassMember Name="HEC_SUB_SubstanceID" Type="Guid" IsObjectPrimaryKey="true"/>
+		  <ClassMember Name="HealthcareSubstanceITL" Type="String" />
+		  <ClassMember Name="GlobalPropertyMatchingID" Type="String" />
+		  <ClassMember Name="NarcoticAppendixStatus" Type="int" />
+		  <ClassMember Name="CategoryByLawStatus" Type="int" />
+		  <ClassMember Name="IsAntroposhopicalMedicine" Type="Boolean" />
+		  <ClassMember Name="IsChemical" Type="Boolean" />
+		  <ClassMember Name="IsHomeophaticMedicine" Type="Boolean" />
+		  <ClassMember Name="IsCOSubstance" Type="Boolean" />
+		  <ClassMember Name="IsExcipient" Type="Boolean" />
+		  <ClassMember Name="IsFoodAdditive" Type="Boolean" />
+		  <ClassMember Name="IsNaturalStimulant" Type="Boolean" />
+		  <ClassMember Name="IsAgriculturePesticide" Type="Boolean" />
+		  <ClassMember Name="IsPerscriptionRequired" Type="Boolean" />
+		  <ClassMember Name="IsCosmeticSubstance" Type="Boolean" />
+		  <ClassMember Name="IsActiveComponent" Type="Boolean" />
+		  <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		  <ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		  <ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		  <ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

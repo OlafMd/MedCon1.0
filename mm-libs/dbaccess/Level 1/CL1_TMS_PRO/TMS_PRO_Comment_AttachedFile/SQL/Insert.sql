@@ -1,0 +1,21 @@
+INSERT INTO 
+	tms_pro_comment_attachedfiles
+	(
+		TMS_PRO_Comment_AttachedFileID,
+		Comment_RefID,
+		AttachedFile_Document_RefID,
+		AttachedFile_DisplayName,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@TMS_PRO_Comment_AttachedFileID,
+		@Comment_RefID,
+		@AttachedFile_Document_RefID,
+		@AttachedFile_DisplayName,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/17/2013 2:22:08 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Data_for_DeliveryList_Report</Name>
+    <Namespace>CL6_APOReporting_Logistic.APOLogistic_DeliveryList</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_APOReporting_Logistic.APOLogistic_DeliveryList"
+				  Method_ClassName="cls_Get_Data_for_DeliveryList_Report"
+				  Method_Name="Get_Data_for_DeliveryList_Report"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Get_Data_for_DeliveryList_Report"
+                />
+
+  <Parameters IsClass="true" Name="P_L6LG_GDfDLR_1522">
+    <Members>
+      <ClassMember Name="ShipmentHeaderID" Type="Guid"/>
+      <ClassMember Name="OrganizationalUnitID" Type="Guid"/>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6LG_GDfDLR_1522" IsArray="false">
+      <Members>
+        <ClassMember Name="CustomerName" Type="string"/>
+        <ClassMember Name="StreetAndNumber" Type="string"/>
+        <ClassMember Name="ZipAndCity" Type="string"/>
+        <ClassMember Name="OrganizationalUnitName" Type="Dict"/>
+        <ClassMember Name="ShipmentAndCustomerOrderDetails" Type="CL5_APOLogistic_ShippingOrder.Atomic.Retrieval.L5SO_GSaCOHDfSH_1446" IsArray="false"/>
+        <ClassMember Name="ShipmentPositionList" Type="L6LG_GDfDLR_1522a" IsClass="true" IsArray="true">
+          <Members>
+            <ClassMember Name="ShipmentPositionDetails" Type="CL6_APOLogistic_ShippingOrder.Atomic.Retrieval.L6SO_GASPbtWSvR_1413"/>
+            <ClassMember Name="ProductDetails" Type="CL3_Articles.Atomic.Retrieval.L3AR_GAfAL_0942"/>
+          </Members>
+        </ClassMember>
+
+        <ClassMember Name="CustomerOrderPositionList" Type="L6LG_GDfDLR_1522b" IsClass="true" IsArray="true">
+          <Members>
+            <ClassMember Name="CustomerOrderPositionDetails" Type="CL5_APOBackoffice_CustomerOrder.Atomic.Retrieval.L5CO_GACOPfUSP_1038"/>
+            <ClassMember Name="ProductDetails" Type="CL3_Articles.Atomic.Retrieval.L3AR_GAfAL_0942"/>
+          </Members>
+        </ClassMember>
+
+        <ClassMember Name="CommentList" Type="L6LG_GDfDLR_1522c" IsClass="true" IsArray="true">
+          <Members>
+            <ClassMember Name="Name" Type="String"/>
+            <ClassMember Name="Comment" Type="String"/>
+          </Members>
+        </ClassMember>
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+
+

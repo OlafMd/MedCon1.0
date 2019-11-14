@@ -1,0 +1,19 @@
+INSERT INTO 
+	hec_patient_event_types
+	(
+		HEC_Patient_Event_TypeID,
+		EventType_Name_DictID,
+		EventType_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_Patient_Event_TypeID,
+		@EventType_Name,
+		@EventType_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

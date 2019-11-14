@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 12/23/2014 4:39:00 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_UniversalContactDetail"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN"
+                IsClass_Corresponding_DBTable="cmn_universalcontactdetails" >
+      <Members>
+		<ClassMember Name="CMN_UniversalContactDetailID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="UniversalContactDetailsITL" Type="String" />
+		<ClassMember Name="Region_RefID" Type="Guid" />
+		<ClassMember Name="IsCompany" Type="Boolean" />
+		<ClassMember Name="CompanyName_Line1" Type="String" />
+		<ClassMember Name="CompanyName_Line2" Type="String" />
+		<ClassMember Name="WorkDescription" Type="String" />
+		<ClassMember Name="Salutation" Type="String" />
+		<ClassMember Name="Title" Type="String" />
+		<ClassMember Name="First_Name" Type="String" />
+		<ClassMember Name="Last_Name" Type="String" />
+		<ClassMember Name="CareOf" Type="String" />
+		<ClassMember Name="Country_Name" Type="String" />
+		<ClassMember Name="Country_639_1_ISOCode" Type="String" />
+		<ClassMember Name="Region_Name" Type="String" />
+		<ClassMember Name="Region_Code" Type="String" />
+		<ClassMember Name="Street_Name" Type="String" />
+		<ClassMember Name="Street_Number" Type="String" />
+		<ClassMember Name="Street_Name_Line2" Type="String" />
+		<ClassMember Name="Street_Number_Line2" Type="String" />
+		<ClassMember Name="PostalAddress_Number" Type="String" />
+		<ClassMember Name="PostalAddress_Formatted" Type="String" />
+		<ClassMember Name="ZIP" Type="String" />
+		<ClassMember Name="Town" Type="String" />
+		<ClassMember Name="Contact_Email" Type="String" />
+		<ClassMember Name="Contact_Telephone" Type="String" />
+		<ClassMember Name="Contact_Fax" Type="String" />
+		<ClassMember Name="Contact_Website_URL" Type="String" />
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsReadOnly" Type="Boolean" />
+		<ClassMember Name="Lattitude" Type="double" />
+		<ClassMember Name="Longitude" Type="double" />
+		<ClassMember Name="POBox" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_realestateproperty_2_propertysourceofinformation
+	(
+		AssignmentID,
+		RES_RealestateProperty_RefID,
+		RES_RealestateProperty_SourceOfInformation_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@RES_RealestateProperty_RefID,
+		@RES_RealestateProperty_SourceOfInformation_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

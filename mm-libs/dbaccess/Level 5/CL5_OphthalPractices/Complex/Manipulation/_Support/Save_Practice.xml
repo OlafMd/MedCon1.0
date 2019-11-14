@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/30/2012 6:04:49 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="CL5_OphthalPractices.Complex.Manipulation"
+								Method_ClassName="cls_Save_Practice"
+								Method_Name="Save_Practice"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=".Save_Practice"
+								/>
+
+	<Parameters IsClass="true" Name="P_L5OP_SP_1602">
+		<Members>
+			<ClassMember Name="HEC_MedicalPractiseID" Type="Guid"  />
+			<ClassMember Name="DisplyName" Type="String"  />			
+			<ClassMember Name="ShippingAddressStreetNumber" Type="String"  />
+			<ClassMember Name="ShippingAddressStreetName" Type="String"  />
+			<ClassMember Name="ShippingAddressCity" Type="String"  />
+			<ClassMember Name="ShippingAddressRegion" Type="String"  />
+			<ClassMember Name="ShippingAddressZipCode" Type="String"  />
+			<ClassMember Name="AddressStreetNumber" Type="String"  />
+			<ClassMember Name="AddressStreetName" Type="String"  />
+			<ClassMember Name="AddressCity" Type="String"  />
+			<ClassMember Name="AddressRegion" Type="String"  />
+			<ClassMember Name="AddressZipCode" Type="String"  />
+			<ClassMember Name="PhoneNumber" Type="String"  />
+			<ClassMember Name="HomepageURL" Type="String"  />
+			<ClassMember Name="ContactEmail" Type="String"  />
+			<ClassMember Name="PracticeType_RefID" Type="Guid"  />
+			<ClassMember Name="ContactPerson_Name" Type="String"  />
+			<ClassMember Name="Working_FormattedOfficeHours" Type="String"  />
+			<ClassMember Name="Consultation_FormattedOfficeHours" Type="String"  />
+			<ClassMember Name="AffinityStatus_RefID" Type="Guid"  />
+			<ClassMember Name="HealthAssociation_RefID" Type="Guid"  />		
+		</Members>
+	</Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+		<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

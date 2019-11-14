@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_bpt_businessparticipant_groups
+	(
+		CMN_BPT_BusinessParticipant_GroupID,
+		GlobalPropertyMatchingID,
+		BusinessParticipantGroup_Parent_RefID,
+		BusinessParticipantGroup_Alias,
+		BusinessParticipantGroup_Name_DictID,
+		BusinessParticipantGroup_Description_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_BPT_BusinessParticipant_GroupID,
+		@GlobalPropertyMatchingID,
+		@BusinessParticipantGroup_Parent_RefID,
+		@BusinessParticipantGroup_Alias,
+		@BusinessParticipantGroup_Name,
+		@BusinessParticipantGroup_Description,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

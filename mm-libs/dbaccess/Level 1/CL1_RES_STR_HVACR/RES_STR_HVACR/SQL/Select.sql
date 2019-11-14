@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_hvacrs
+WHERE 
+	RES_STR_HVACRID = @RES_STR_HVACRID

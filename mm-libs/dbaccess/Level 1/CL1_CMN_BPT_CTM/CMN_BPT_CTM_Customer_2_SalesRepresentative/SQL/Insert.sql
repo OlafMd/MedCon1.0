@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_ctm_customer_2_salesrepresentatives
+	(
+		AssignmentID,
+		SalesRepresentative_RefID,
+		Customer_RefID,
+		IsPrimary_SalesRep,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@SalesRepresentative_RefID,
+		@Customer_RefID,
+		@IsPrimary_SalesRep,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

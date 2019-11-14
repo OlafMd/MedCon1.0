@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/8/2013 3:23:45 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ProjectMemberTypes_for_ActiveTenant</Name>
+    <Namespace>CL3_ProjectMember.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_ProjectMember.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ProjectMemberTypes_for_ActiveTenant"
+                Method_Name="Get_ProjectMemberTypes_for_ActiveTenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  tmp_pro_projectmember_types.TMP_PRO_ProjectMember_TypeID,
+  tmp_pro_projectmember_types.ProjectMemberType_Name_DictID,
+  tmp_pro_projectmember_types.Color
+From
+  tmp_pro_projectmember_types
+Where
+  tmp_pro_projectmember_types.Tenant_RefID = @TenantID And
+  tmp_pro_projectmember_types.IsDeleted = 0
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3PM_GPMTfAT_1522" IsArray="true">
+      <Members>
+        <ClassMember Name="TMP_PRO_ProjectMember_TypeID" Type="Guid"  />
+        <ClassMember Name="ProjectMemberType_Name" Type="Dict" OriginTable="tmp_pro_projectmember_types" Source_DBField="ProjectMemberType_Name_DictID"  />
+        <ClassMember Name="Color" Type="String"  /> 
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,25 @@
+INSERT INTO 
+	res_str_outdoorfacilities
+	(
+		RES_STR_OutdoorFacilityID,
+		DUD_Revision_RefID,
+		RES_BLD_OutdoorFacility_RefID,
+		AverageRating_RefID,
+		DocumentHeader_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_OutdoorFacilityID,
+		@DUD_Revision_RefID,
+		@RES_BLD_OutdoorFacility_RefID,
+		@AverageRating_RefID,
+		@DocumentHeader_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

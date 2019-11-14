@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_cuo_rfp_requestforproposal_positions
+WHERE 
+	HEC_CUO_RFP_RequestForProposal_PositionID = @HEC_CUO_RFP_RequestForProposal_PositionID

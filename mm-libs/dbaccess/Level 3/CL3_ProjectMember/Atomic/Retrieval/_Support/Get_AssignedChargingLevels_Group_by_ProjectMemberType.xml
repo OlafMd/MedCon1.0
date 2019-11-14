@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/17/2013 11:16:19 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AssignedChargingLevels_Group_by_ProjectMemberType</Name>
+    <Namespace>CL3_ProjectMember.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_ProjectMember.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AssignedChargingLevels_Group_by_ProjectMemberType"
+                Method_Name="Get_AssignedChargingLevels_Group_by_ProjectMemberType"
+                ApplicationPlattform_WebServiceName="BudgetService"
+                ApplicationPlattform_Namespace="BudgetService.Get_AssignedChargingLevels_Group_by_ProjectMemberType"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_bpt_investedworktime_charginglevels.CMN_BPT_InvestedWorkTime_ChargingLevelID,
+  cmn_bpt_investedworktime_charginglevels.ChangingLevel_Name_DictID,
+  tmp_pro_projectmember_types.TMP_PRO_ProjectMember_TypeID,
+  tmp_pro_projectmember_types.ProjectMemberType_Name_DictID,
+  tmp_pro_projectmember_type_availablecharginglevels.IsDefault,
+  tmp_pro_projectmember_types.Creation_Timestamp
+From
+  tmp_pro_projectmember_type_availablecharginglevels Inner Join
+  cmn_bpt_investedworktime_charginglevels
+    On tmp_pro_projectmember_type_availablecharginglevels.ChargingLevel_RefID =
+    cmn_bpt_investedworktime_charginglevels.CMN_BPT_InvestedWorkTime_ChargingLevelID Right Join
+  tmp_pro_projectmember_types
+    On tmp_pro_projectmember_types.TMP_PRO_ProjectMember_TypeID =
+    tmp_pro_projectmember_type_availablecharginglevels.ProjectMember_Type_RefID
+Where
+  tmp_pro_projectmember_type_availablecharginglevels.IsDeleted = 0 And
+  cmn_bpt_investedworktime_charginglevels.IsDeleted = 0 And
+  tmp_pro_projectmember_type_availablecharginglevels.Tenant_RefID = @TenantID And
+  tmp_pro_projectmember_types.IsDeleted = 0
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3PM_GACLgbPMT_1114" IsArray="true" GroupBy="TMP_PRO_ProjectMember_TypeID">
+      <Members>
+        <ClassMember Name="TMP_PRO_ProjectMember_TypeID" Type="Guid"  />
+        <ClassMember Name="ProjectMemberType_Name" Type="Dict" OriginTable="tmp_pro_projectmember_types" Source_DBField="ProjectMemberType_Name_DictID"  />
+
+        <ClassMember IsClass="true" IsArray="true" Name="AssignedChargingLevels" Type="L3PM_GACLgbPMT_1114a" GroupBy="CMN_BPT_InvestedWorkTime_ChargingLevelID">
+          <Members>
+            <ClassMember Name="CMN_BPT_InvestedWorkTime_ChargingLevelID" Type="Guid"  />
+            <ClassMember Name="ChangingLevel_Name" Type="Dict" OriginTable="cmn_bpt_investedworktime_charginglevels" Source_DBField="ChangingLevel_Name_DictID"  />
+            <ClassMember Name="IsDefault" Type="Boolean"/>
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,25 @@
+INSERT INTO 
+	hec_pat_specimens
+	(
+		HEC_PAT_SpecimenID,
+		Specimen_Name,
+		Specimen_Group_RefID,
+		SpecimenImage_Document_RefID,
+		OriginalImage_Width_px,
+		OriginalImage_Height_px,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_PAT_SpecimenID,
+		@Specimen_Name,
+		@Specimen_Group_RefID,
+		@SpecimenImage_Document_RefID,
+		@OriginalImage_Width_px,
+		@OriginalImage_Height_px,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

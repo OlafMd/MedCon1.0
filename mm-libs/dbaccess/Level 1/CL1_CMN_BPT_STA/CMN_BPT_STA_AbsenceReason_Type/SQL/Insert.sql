@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_bpt_sta_absencereason_types
+	(
+		CMN_BPT_STA_AbsenceReason_TypeID,
+		AbsenceReason_Type_Name_DictID,
+		AbsenceReason_Type_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_STA_AbsenceReason_TypeID,
+		@AbsenceReason_Type_Name,
+		@AbsenceReason_Type_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

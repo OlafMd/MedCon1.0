@@ -1,0 +1,30 @@
+﻿<ul class="archive-list-header">
+    <!--<li>-->
+    <!--<span class="mask-checkbox">
+        <input ng-model="archiveModel" id="inChAlternativeDeliveryDate" name="inChAlternativeDeliveryDate" type="checkbox" />
+        <i class="icon"></i>
+    </span>-->
+    <!--</li>-->
+    <li class="unsorted" ng-class="setTableHeaderClass('filedate')" ng-click="SortFunction('filedate')">{{'LABEL_DATE' | translate }}</li>
+    <li class="unsorted" ng-class="setTableHeaderClass('filetype')" ng-click="SortFunction('filetype')">{{'LABEL_TYPE'| translate}}</li>
+    <li class="unsorted" ng-class="setTableHeaderClass('recipient')" ng-click="SortFunction('recipient')">{{'LABEL_RECIPIENT'| translate}}</li>
+    <li class="unsorted">{{'LABEL_DESCRIPTION'| translate}}</li>
+</ul>
+<h2 id="stickyHeaderBox" class="first-letter-holder hide"></h2>
+
+<div class="content-scroll clear" id="wrapper" sticky>
+    <div id="wrapper_inner" class="clearfix">
+        <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+            <div ng-repeat="item in archive| groupBy:'group_name'" ng-repeat-finished>
+                <h2 id="tableGroup" class="first-letter-holder tableGroup" ng-if="item.group_name_CHANGED">{{::item.group_name| translate}}</h2>
+                <ul id="list" class="archive-list-item">
+                    <li><span class="padding-top-6">{{::item.datestring}}</span> <span class="gray-font-color margin-top-3"> {{ ::item.filetime }}</spanclass></li>
+                    <li><span class="padding-top-6">{{::item.filetype}}</span> </li>
+                    <li><span class="padding-top-6">{{::item.recipient}}</span> </li>
+                    <li><span class="padding-top-6">{{::item.description}}</span> </li>
+                    <li><a class="button wide icon-evidence icons-position" ng-click="DownloadDocument(item)" href="" title="{{'BUTTON_DOWNLOAD' | translate}}">{{'BUTTON_DOWNLOAD' | translate}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

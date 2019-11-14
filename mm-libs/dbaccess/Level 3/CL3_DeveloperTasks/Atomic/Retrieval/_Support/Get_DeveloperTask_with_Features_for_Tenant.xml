@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/1/2014 3:30:17 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DeveloperTask_with_Features_for_Tenant</Name>
+    <Namespace>CL3_DeveloperTask.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_DeveloperTask.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DeveloperTask_with_Features_for_Tenant"
+                Method_Name="Get_DeveloperTask_with_Features_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DeveloperTask_with_Features_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  tms_pro_developertasks.TMS_PRO_DeveloperTaskID,
+  tms_pro_feature_2_developertask.AssignmentID,
+  tms_pro_feature.TMS_PRO_FeatureID,
+  tms_pro_developertasks.Project_RefID,
+  tms_pro_developertasks.GrabbedByMember_RefID,
+  tms_pro_developertasks.Completion_Deadline,
+  tms_pro_developertasks.Name,
+  tms_pro_developertasks.Description,
+  tms_pro_developertasks.Developer_Points,
+  tms_pro_developertasks.IsComplete,
+  tms_pro_developertasks.IsIncompleteInformation,
+  tms_pro_developertasks.IsBeingPrepared,
+  tms_pro_developertasks.DeveloperTime_RequiredEstimation_min,
+  tms_pro_developertasks.DeveloperTime_CurrentInvestment_min,
+  tms_pro_developertasks.PercentageComplete,
+  tms_pro_feature.Parent_RefID,
+  tms_pro_feature.Name_DictID,
+  tms_pro_developertasks.IdentificationNumber,
+  tms_pro_projectmembers.TMS_PRO_ProjectMemberID
+From
+  tms_pro_feature Inner Join
+  tms_pro_feature_2_developertask
+    On tms_pro_feature_2_developertask.Feature_RefID =
+    tms_pro_feature.TMS_PRO_FeatureID Inner Join
+  tms_pro_developertasks On tms_pro_developertasks.TMS_PRO_DeveloperTaskID =
+    tms_pro_feature_2_developertask.DeveloperTask_RefID Inner Join
+  tms_pro_projectmembers On tms_pro_projectmembers.Project_RefID =
+    tms_pro_developertasks.Project_RefID
+Where
+  tms_pro_feature.IsArchived = 0 And
+  tms_pro_feature.IsDeleted = 0 And
+  tms_pro_feature_2_developertask.IsDeleted = 0 And
+  tms_pro_developertasks.IsArchived = 0 And
+  tms_pro_developertasks.IsDeleted = 0 And
+  tms_pro_developertasks.Tenant_RefID = @TenantID And
+  tms_pro_projectmembers.USR_Account_RefID = @AccountID
+
+  </SQLStatement>
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3DT_GDTwFfT_1530" IsArray="true">
+      <Members>
+        <ClassMember Name="TMS_PRO_DeveloperTaskID" Type="Guid" />
+        <ClassMember Name="AssignmentID" Type="Guid" />
+        <ClassMember Name="TMS_PRO_FeatureID" Type="Guid" />
+        <ClassMember Name="Project_RefID" Type="Guid" />
+        <ClassMember Name="GrabbedByMember_RefID" Type="Guid" />
+        <ClassMember Name="Completion_Deadline" Type="DateTime" />
+        <ClassMember Name="Name" Type="String" />
+        <ClassMember Name="Description"  Type="String"  />
+        <ClassMember Name="Developer_Points"  Type="int"  />
+        <ClassMember Name="IsComplete"  Type="Boolean"  />
+        <ClassMember Name="IsIncompleteInformation"  Type="Boolean"  />
+        <ClassMember Name="IsBeingPrepared"  Type="Boolean"  />
+        <ClassMember Name="DeveloperTime_RequiredEstimation_min"  Type="double"  />
+        <ClassMember Name="DeveloperTime_CurrentInvestment_min"  Type="double"  />
+        <ClassMember Name="PercentageComplete"  Type="Double"  />
+        <ClassMember Name="Parent_RefID" Type="Guid" />
+        <ClassMember Name="Name_DictID"  Type="Dict" OriginTable="tms_pro_feature" Source_DBField="Name_DictID"  />
+        <ClassMember Name="IdentificationNumber"  Type="String" />
+        <ClassMember Name="TMS_PRO_ProjectMemberID"  Type="Guid" />
+        
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+
+
+

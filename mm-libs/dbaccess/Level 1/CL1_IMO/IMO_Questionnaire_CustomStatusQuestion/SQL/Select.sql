@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	imo_questionnaire_customstatusquestions
+WHERE 
+	IMO_Questionnaire_CustomStatusQuestionID = @IMO_Questionnaire_CustomStatusQuestionID

@@ -1,0 +1,21 @@
+INSERT INTO 
+	pps_tsk_bok_bookabletimeslots_2_availabilitytypes
+	(
+		AssignmentID,
+		PPS_TSK_BOK_BookableTimeSlot_RefID,
+		CMN_CAL_AVA_Availability_TypeID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@PPS_TSK_BOK_BookableTimeSlot_RefID,
+		@CMN_CAL_AVA_Availability_TypeID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

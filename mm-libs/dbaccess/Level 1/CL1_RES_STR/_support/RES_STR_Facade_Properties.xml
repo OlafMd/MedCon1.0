@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:49:38 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="RES_STR_Facade_Property"
+                IsClass="true"
+                IsClass_Namespace="CL1_RES_STR"
+                IsClass_Corresponding_DBTable="res_str_facade_properties" >
+      <Members>
+		<ClassMember Name="RES_STR_Facade_PropertyID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="GlobalPropertyMatchingID" Type="String" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="FacadeProperty_Name" Type="Dict" Source_DBField="FacadeProperty_Name_DictID" OriginTable="res_str_facade_properties"/>
+		<ClassMember Name="FacadeProperty_Description" Type="Dict" Source_DBField="FacadeProperty_Description_DictID" OriginTable="res_str_facade_properties"/>
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

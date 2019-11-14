@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/2/2014 12:05:51 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_SLS_Pricelist"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_SLS"
+                IsClass_Corresponding_DBTable="cmn_sls_pricelist" >
+      <Members>
+		<ClassMember Name="CMN_SLS_PricelistID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="GlobalPropertyMatchingID" Type="String" />
+		<ClassMember Name="Pricelist_Name" Type="Dict" Source_DBField="Pricelist_Name_DictID" OriginTable="cmn_sls_pricelist"/>
+		<ClassMember Name="Pricelist_Description" Type="Dict" Source_DBField="Pricelist_Description_DictID" OriginTable="cmn_sls_pricelist"/>
+		<ClassMember Name="IsDiscountCalculated_Accumulative" Type="Boolean" />
+		<ClassMember Name="IsDiscountCalculated_Maximum" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

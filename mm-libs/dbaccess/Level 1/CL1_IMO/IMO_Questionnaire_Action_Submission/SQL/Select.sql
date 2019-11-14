@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	imo_questionnaire_action_submissions
+WHERE 
+	IMO_Questionnaire_Action_SubmissionID = @IMO_Questionnaire_Action_SubmissionID

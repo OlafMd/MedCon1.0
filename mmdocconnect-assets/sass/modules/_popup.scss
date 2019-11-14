@@ -1,0 +1,485 @@
+.popup-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.4);
+  overflow: auto;
+  z-index: 100;
+}
+
+.popup {
+  position: relative;
+  width: auto;
+  margin: 30px auto;
+  background: #ebebeb;
+  @include border-radius(3px);
+
+  &.popup-small {
+    width: 490px;
+  }
+
+  &.popup-medium {
+    width: 670px;
+  }
+
+  &.popup-large {
+    width: 970px;
+  }
+
+  &.popup-xlarge {
+    width: 1080px;
+  }
+
+  .warning {
+    width: 100%;
+    @include border-radius(3px 3px 0 0);
+
+    h2 {
+      text-align: center;
+      padding: 10px;
+      color: #fff;
+      margin: 0;
+      font-weight: bold;
+    }
+  }
+
+  .popup-header {
+    height: 40px;
+    margin: 0;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #cccccc;
+    @include border-top-left-radius(3px);
+    @include border-top-right-radius(3px);
+  }
+
+  > h1 {
+    color: #363636;
+    text-align: center;
+  }
+
+  h4 {
+    color: $warning-color;
+    font-weight: bold;
+    margin: 30px 30px 40px;
+  }
+
+  .bck-warning {
+    @extend .warning;
+
+    background-color: $warning-color;
+  }
+
+  .warning-msg {
+    @extend .warning;
+    background: $error-color;
+
+    h1 {
+      text-align: center;
+      padding: 10px;
+      color: #fff;
+      margin: 0;
+      font-weight: bold;
+    }
+  }
+
+  .buttons {
+    padding: 0 30px; // !important;
+  }
+
+  &.warning-popup {
+    > h1 {
+      margin: 20px auto 30px;
+      color: $error-color;
+    }
+
+    h4 {
+      @extend .default-font-color;
+      font-weight: bold;
+      margin: 30px 30px 15px; //!important;
+    }
+  }
+
+  .popup-content {
+    padding: 0 30px;
+  }
+
+  /*    .error-msg{
+     @extend .error-msg-container;
+      width: calc(100% - 60px);
+      margin: 10px 30px 20px;
+  }
+*/
+  .inline-fields {
+    width: 100%;
+    margin-bottom: 30px;
+
+    li {
+      float: left;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        height: 34px;
+        padding: 2px 5px;
+      }
+
+      select {
+        @include border-radius(3px);
+        width: 100%;
+        height: 34px;
+        outline: 0;
+        border: 0;
+
+        &:focus {
+          border: 1px solid $active-color;
+        }
+
+        &:-moz-focus-inner {
+          border: 0;
+        }
+      }
+
+      input {
+        border: 1px solid transparent;
+        outline: 0;
+        @include border-radius(3px);
+
+        &:focus {
+          border: 1px solid $active-color;
+        }
+      }
+
+      &.doc-name {
+        width: 60%;
+        margin-right: 3%;
+      }
+
+      &.password {
+        width: 37%;
+      }
+    }
+  }
+
+  .inline-fields-warning {
+    @extend .inline-fields;
+    display: inline-block;
+    margin: 18px 0 0;
+    width: auto;
+
+    li {
+      width: 135px;
+
+      &:first-child {
+        margin: 0 12px 6px 30px;
+      }
+
+      label {
+        color: $sub-header;
+      }
+    }
+  }
+}
+
+.popup-cancel {
+  @extend .default-font-color;
+  font-weight: bold;
+  font-size: $base-font-size;
+  padding: 25px 0 0 25px;
+}
+
+.status-popup {
+  @extend .warning-popup;
+
+  h4 {
+    margin: 20px 0 10px !important;
+    vertical-align: sub;
+    display: inline-block;
+  }
+
+  hr {
+    border-color: #b7b7b7;
+    border-top: none;
+    margin: 20px 0 0;
+  }
+
+  label {
+    color: #b7b7b7;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .status {
+    width: 47%;
+  }
+
+  .reason {
+    width: 50%;
+    margin: 0 0 0 15px;
+    //align inputs on status popup
+    @media screen and (max-width: 1600px) {
+      width: 47%;
+    }
+  }
+}
+
+.remove-contact-popup {
+  padding: 0 30px 20px;
+
+  > .remove-contact-datepicker {
+    float: left;
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #959595;
+    }
+
+    input {
+      width: 110px;
+    }
+  }
+
+  > .remove-contact-buttons {
+    float: right;
+    margin-top: 22px;
+
+    button {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.js_bubbleNotification {
+  padding: 20px;
+  position: fixed;
+  top: 10%;
+  left: 42.5%;
+  display: block;
+  width: 15%;
+  min-height: 30px;
+  font-size: 12px !important;
+  color: #fff;
+  background-color: #7f7f7f;
+  text-align: center;
+}
+
+.popup.add-new-patient {
+  > h2 {
+    height: 40px;
+    margin: 0;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #cccccc;
+  }
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  > .gray-content-holder {
+    padding-top: 20px;
+  }
+
+  .patients-list {
+    padding: 15px 25px;
+  }
+
+  .first-class-data.first-row,
+  .first-class-data.second-row {
+    width: 100%;
+  }
+
+  .first-class-data.first-row {
+    li {
+      margin-right: 0;
+      padding-right: 10px;
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &:nth-child(01),
+      &:nth-child(02) {
+        width: 32%;
+      }
+
+      &:nth-child(03),
+      &:nth-child(04) {
+        width: 18%;
+      }
+    }
+  }
+
+  .first-class-data.second-row {
+    margin-bottom: 20px;
+
+    li {
+      margin: 0;
+      padding-right: 10px;
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &:nth-child(1) {
+        width: 40px;
+      }
+
+      &:nth-child(2) {
+        width: calc(32% - 40px);
+        width: -webkit-calc(32% - 40px);
+        width: -moz-calc(32% - 40px);
+      }
+
+      &:nth-child(3) {
+        width: 32%;
+      }
+
+      &:nth-child(4),
+      &:nth-child(5) {
+        width: 18%;
+      }
+    }
+  }
+
+  .third-row {
+    padding-top: 15px;
+    border-top: 1px dotted #bcbcbc;
+
+    h3 {
+      margin-bottom: 20px;
+    }
+
+    input,
+    select {
+      width: 100%;
+    }
+
+    ul {
+      position: relative;
+    }
+
+    li {
+      padding-right: 10px;
+      margin-right: 0;
+      float: left;
+
+      datepicker,
+      select {
+        margin-bottom: 0 !important;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      &:first-child {
+        width: 19%;
+      }
+
+      &:nth-child(02) {
+        width: calc( 81% - 34px) !important;
+      }
+
+      &:last-child {
+        padding-right: 0;
+        margin-right: 0;
+        right: 0 !important;
+
+        .button {
+          margin-top: 17px !important;
+        }
+      }
+    }
+  }
+
+  .wide-add-button {
+    margin: 20px 0 19px;
+  }
+
+  .buttons {
+    padding: 0;
+    //margin: 35px 30px 20px !important;
+    margin: 35px 30px 20px;
+
+    .button {
+      margin-bottom: 0;
+    }
+  }
+
+  /* select:focus{
+    border: 1px solid $active-color;
+  }*/
+}
+
+.popup.change-password {
+  h2 {
+    line-height: 20px;
+  }
+
+  .error-msg-container {
+    margin-top: 30px;
+  }
+
+  ul {
+    margin: 30px 30px 20px;
+
+    li {
+      width: 33.3%;
+      float: left;
+      padding-right: 10px;
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      .mask-checkbox,
+      label {
+        display: inline-block;
+        line-height: 19px;
+      }
+
+      input[type="password"] {
+        width: 100%;
+        margin-top: 4px;
+        height: 34px;
+        padding: 2px 5px;
+        border: 1px solid transparent;
+        outline: 0;
+        @include border-radius(3px);
+
+        &:focus {
+          border: 1px solid $active-color;
+        }
+      }
+    }
+  }
+
+  .confirm-msg {
+    color: #555555;
+    font-weight: bold;
+    margin: 0 0 5px;
+    padding: 0 30px;
+    text-align: left;
+  }
+
+  p {
+    padding: 0 30px;
+    margin-bottom: 20px;
+  }
+
+  .buttons {
+    float: right;
+  }
+}

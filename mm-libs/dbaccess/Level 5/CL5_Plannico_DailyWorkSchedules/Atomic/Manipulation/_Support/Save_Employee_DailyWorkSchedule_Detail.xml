@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="09-Jan-14 11:31:01">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Employee_DailyWorkSchedule_Detail</Name>
+    <Namespace>CL5_Plannico_DailyWorkSchedules.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_DailyWorkSchedules.Atomic.Manipulation"
+                Method_ClassName="cls_Save_Employee_DailyWorkSchedule_Detail"
+                Method_Name="Save_Employee_DailyWorkSchedule_Detail"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Employee_DailyWorkSchedule_Detail"
+                />
+
+  <Parameters IsClass="true" Name="P_L5DWS_SDWSD_1130">
+    <Members>
+      <ClassMember Name="CMN_STR_PPS_DailyWorkSchedule_DetailID" Type="Guid"  />
+      <ClassMember Name="DailyWorkSchedule_RefID" Type="Guid"  />
+      <ClassMember Name="CMN_CAL_Event_RefID" Type="Guid"  />
+      <ClassMember Name="WorkTime_Start" Type="DateTime"  />
+      <ClassMember Name="WorkTime_End" Type="DateTime"  />
+      <ClassMember Name="AbsenceReason_RefID" Type="Guid"  />
+      <ClassMember Name="SheduleForWorkplace_RefID" Type="Guid"  />
+      <ClassMember Name="IsWorkBreak" Type="bool"  />
+      <ClassMember Name="RequestedBy_Employee_RefID" Type="Guid"  />
+      <ClassMember Name="RequestedFor_Employee_RefID" Type="Guid"  />
+      <ClassMember Name="durationInDays" Type="double"/>
+      <ClassMember Name="durationInHours" Type="double"/>
+      <ClassMember Name="OldDurationInDays" Type="double"/>
+      <ClassMember Name="OldDurationInHours" Type="double"/>
+      
+
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+
+	</ResultInfo>
+
+</CodeGen>
+
+

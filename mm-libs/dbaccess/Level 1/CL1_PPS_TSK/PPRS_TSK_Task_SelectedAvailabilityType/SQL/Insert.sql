@@ -1,0 +1,19 @@
+INSERT INTO 
+	pprs_tsk_task_selectedavailabilitytypes
+	(
+		PPRS_TSK_Task_SelectedAvailabilityTypeID,
+		PPS_TSK_Task_RefID,
+		CMN_CAL_AVA_Availability_Type_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@PPRS_TSK_Task_SelectedAvailabilityTypeID,
+		@PPS_TSK_Task_RefID,
+		@CMN_CAL_AVA_Availability_Type_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,1 @@
+﻿alter table `$$TABLENAME$$` convert to character set ucs2 COLLATE ucs2_bin  

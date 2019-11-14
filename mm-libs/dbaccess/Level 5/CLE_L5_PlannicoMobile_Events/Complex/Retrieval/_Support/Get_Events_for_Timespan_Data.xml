@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/27/2012 11:51:28 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CLE_L5_PlannicoMobile_Events.Complex.Retrieval"
+                Method_ClassName="cls_Get_Events_for_Timespan_Data"
+                Method_Name="Get_Events_for_Timespan_Data"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Events_for_Timespan_Data"
+                />
+
+  <Parameters IsClass="true" Name="P_L5LR_EV_TSD_1047">
+    <Members>
+      <ClassMember Name="StartDate" IsArray="false" Type="DateTime"  />
+      <ClassMember Name="EndDate" IsArray="false" Type="DateTime"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="L5LR_EV_TSD_1047" IsArray="true">
+      <Members>
+        <ClassMember Name="repetitionRangesCMN_CAL_Repetition_RangeID" Type="Guid"  />
+        <ClassMember Name="CalendarInstance_RefID" Type="Guid"  />
+        <ClassMember Name="StructureEvent_Name" Type="Dict"  />
+        <ClassMember Name="CMN_CAL_EventID" Type="Guid"  />
+        <ClassMember Name="InternalEventTypeID" Type="String"  />
+        <ClassMember Name="R_CronExpression" Type="String"  />
+        <ClassMember Name="EndTime" Type="DateTime"  />
+        <ClassMember Name="StartTime" Type="DateTime"  />
+        <ClassMember Name="IsRepetitive" Type="bool"  />
+        <ClassMember Name="EventType_IsHalfWorkingDay" Type="bool"  />
+        <ClassMember Name="EventType_IsNonWorkingDay" Type="bool"  />
+        <ClassMember Name="EventType_IsShowingNotification" Type="bool"  />
+        <ClassMember Name="EventType_ColorCode_Alpha" Type="double"  />
+        <ClassMember Name="EventType_ColorCode_Background" Type="string"  />
+        <ClassMember Name="EventType_ColorCode_Foreground" Type="string"  />
+        <ClassMember Name="EventType_PriorityOrdinal" Type="int"  />
+
+        <ClassMember Name="IsDaily" Type="bool"  />
+        <ClassMember Name="dailyRepetition_EveryNumberOfDays" Type="int"  />
+        <ClassMember Name="IsWeekly" Type="bool"  />
+        <ClassMember Name="weeklyRepetition_EveryNumberOfWeeks" Type="int"  />
+        <ClassMember Name="weeklyHasRepeatingOn_Mondays" Type="bool"  />
+        <ClassMember Name="weeklyHasRepeatingOn_Tuesdays" Type="bool"  />
+        <ClassMember Name="weeklyHasRepeatingOn_Wednesdays" Type="bool"  />
+        <ClassMember Name="weeklyHasRepeatingOn_Thursdays" Type="bool"  />
+        <ClassMember Name="weeklyHasRepeatingOn_Fridays" Type="bool"  />
+        <ClassMember Name="weeklyHasRepeatingOn_Saturdays" Type="bool"  />
+        <ClassMember Name="weeklyHasRepeatingOn_Sundays" Type="bool"  />
+        
+        <ClassMember Name="IsMonthly" Type="bool"  />
+        <ClassMember Name="monthlyIsFixed" Type="bool"  />
+        <ClassMember Name="monthlyIfFixed_DayOfMonth" Type="int"  />
+        <ClassMember Name="monthlyRepetition_EveryNumberOfMonths" Type="int"  />
+        <ClassMember Name="relativeOrdinal" Type="int"  />
+        <ClassMember Name="relativeIsFriday" Type="bool"  />
+        <ClassMember Name="relativeIsMonday" Type="bool"  />
+        <ClassMember Name="relativeIsSaturday" Type="bool"  />
+        <ClassMember Name="relativeIsSunday" Type="bool"  />
+        <ClassMember Name="relativeIsThursday" Type="bool"  />
+        <ClassMember Name="relativeIsTuesday" Type="bool"  />
+        <ClassMember Name="relativeIsWednesday" Type="bool"  />
+        <ClassMember Name="relativeIsWeekDay" Type="bool"  />
+        <ClassMember Name="relativeIsWeekendDay" Type="bool"  />
+        
+        <ClassMember Name="IsYearly" Type="bool"  />
+        <ClassMember Name="yearlyIsFixed" Type="bool"  />
+        <ClassMember Name="yearlyIfFixed_DayOfMonth" Type="int"  />
+        <ClassMember Name="yearlyRepetition_Month" Type="int"  />
+        <ClassMember Name="yearlyRelativeOrdinal" Type="int"  />
+        <ClassMember Name="yearlyRelativeIsFriday" Type="bool"  />
+        <ClassMember Name="yearlyRelativeIsMonday" Type="bool"  />
+        <ClassMember Name="yearlyRelativeIsSaturday" Type="bool"  />
+        <ClassMember Name="yearlyRelativeIsSunday" Type="bool"  />
+        <ClassMember Name="yearlyRelativeIsThursday" Type="bool"  />
+        <ClassMember Name="yearlyRelativeIsTuesday" Type="bool"  />
+        <ClassMember Name="yearlyRelativeIsWednesday" Type="bool"  />
+        <ClassMember Name="yearlyRelativeIsWeekDay" Type="bool"  />
+        <ClassMember Name="yearlyRelativeIsWeekendDay" Type="bool"  />
+        
+        <ClassMember Name="repetitions" Type="DateTimeRange[]" isArray="true" isReference="true"/>
+        <ClassMember Name="forbiddenLeaveTypes" Type="L3EV_GSEFT_1647_forbidenLeaveTypes[]" isArray="true" isReference="true"/>
+        
+      </Members>
+
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/29/2014 12:00:00 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AppointmentTypes_for_TenantID</Name>
+    <Namespace>CL3_Offices.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Appointment.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AppointmentTypes_for_TenantID"
+                Method_Name="Get_AppointmentTypes_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AppointmentTypes_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  pps_tsk_task_templates.PPS_TSK_Task_TemplateID,
+  pps_tsk_task_templates.TaskTemplateName_DictID
+  From   
+  pps_tsk_task_templates
+	Where
+  pps_tsk_task_templates.IsDeleted = 0 And 
+  pps_tsk_task_templates.Tenant_RefID = @TenantID	 
+  </SQLStatement>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3O_GATFT_1200" IsArray="true">
+      <Members>
+        <ClassMember Name="Name" Type="Dict" OriginTable="pps_tsk_task_templates" Source_DBField="TaskTemplateName_DictID"  />
+        <ClassMember Name="PPS_TSK_Task_TemplateID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+
+
+

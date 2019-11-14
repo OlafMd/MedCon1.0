@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_act_performedaction_diagnosisupdate_localizations
+WHERE 
+	HEC_ACT_PerformedAction_DiagnosisUpdate_LocalizationID = @HEC_ACT_PerformedAction_DiagnosisUpdate_LocalizationID

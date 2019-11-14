@@ -1,0 +1,19 @@
+INSERT INTO 
+	log_wrh_inj_inventoryjob_series_participatingshelves
+	(
+		LOG_WRH_INJ_InventoryJob_Series_ParticipatingShelfID,
+		LOG_WRH_INJ_InventoryJob_Series_RefID,
+		LOG_WRH_Shelf_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_WRH_INJ_InventoryJob_Series_ParticipatingShelfID,
+		@LOG_WRH_INJ_InventoryJob_Series_RefID,
+		@LOG_WRH_Shelf_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

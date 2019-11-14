@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_bpt_ctm_catalogproductextensionrequest_products
+	(
+		CMN_BPT_CTM_CatalogProductExtensionRequest_ProductID,
+		CMN_PRO_Product_RefID,
+		CMN_PRO_Product_Variant_RefID,
+		CMN_PRO_Product_Release_RefID,
+		CatalogProductExtensionRequest_RefID,
+		Comment,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_CTM_CatalogProductExtensionRequest_ProductID,
+		@CMN_PRO_Product_RefID,
+		@CMN_PRO_Product_Variant_RefID,
+		@CMN_PRO_Product_Release_RefID,
+		@CatalogProductExtensionRequest_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

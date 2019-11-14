@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/13/2015 4:18:55 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_GPOS_BaseData_for_GPOSID</Name>
+    <Namespace>MMDocConnectDBMethods.MainData.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.MainData.Atomic.Retrieval"
+                Method_ClassName="cls_Get_GPOS_BaseData_for_GPOSID"
+                Method_Name="Get_GPOS_BaseData_for_GPOSID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_GPOS_BaseData_for_GPOSID"
+                />
+
+  <SQLStatement xml:space="preserve">
+  Select        
+    hec_bil_potentialcodes.HEC_BIL_PotentialCodeID As GposID,
+    Convert(hec_bil_potentialcodes_de.Content Using utf8) As GposName,
+    hec_bil_potentialcodes.BillingCode As GposNumber,
+    hec_bil_potentialcode_catalogs.GlobalPropertyMatchingID As GposType,
+    hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty.Value_Number As
+    FromInjection,
+    hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty1.Value_String As
+    ManagementFeeValue,
+    hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty2.Value_Boolean As
+    WaiveWithOrder,
+    cmn_price_values.PriceValue_Amount As FeeValue
+  From
+    hec_bil_potentialcodes
+    Inner Join hec_bil_potentialcodes_de On hec_bil_potentialcodes.CodeName_DictID
+      = hec_bil_potentialcodes_de.DictID And hec_bil_potentialcodes_de.IsDeleted =
+      0
+    Inner Join hec_bil_potentialcode_catalogs
+      On hec_bil_potentialcodes.PotentialCode_Catalog_RefID =
+      hec_bil_potentialcode_catalogs.HEC_BIL_PotentialCode_CatalogID And
+      hec_bil_potentialcode_catalogs.Tenant_RefID =
+      @TenantID And
+      hec_bil_potentialcode_catalogs.IsDeleted = 0
+    Inner Join hec_ctr_insurancetobrokercontracts_coveredpotentialbillcodes
+      On
+      hec_ctr_insurancetobrokercontracts_coveredpotentialbillcodes.PotentialBillCode_RefID = hec_bil_potentialcodes.HEC_BIL_PotentialCodeID
+    Inner Join hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty
+      On
+      hec_ctr_insurancetobrokercontracts_coveredpotentialbillcodes.HEC_CTR_InsuranceToBrokerContracts_CoveredPotentialBillCodeID = hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty.CoveredPotentialBillCode_RefID And hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty.Tenant_RefID = @TenantID And hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty.IsDeleted = 0
+    Inner Join hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties
+      On
+      hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty.CoveredPotentialBillCode_UniversalProperty_RefID = hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties.HEC_CTR_I2BC_CoveredPotentialBillCodes_UniversalPropertyID And hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties.PropertyName = 'From injection no.' And hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties.Tenant_RefID = @TenantID And hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties.IsDeleted = 0
+    Inner Join hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty
+    hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty1
+      On
+      hec_ctr_insurancetobrokercontracts_coveredpotentialbillcodes.HEC_CTR_InsuranceToBrokerContracts_CoveredPotentialBillCodeID = hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty1.CoveredPotentialBillCode_RefID And hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty1.Tenant_RefID = @TenantID And hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty1.IsDeleted = 0
+    Inner Join hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties
+    hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties1
+      On
+      hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty1.CoveredPotentialBillCode_UniversalProperty_RefID = hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties1.HEC_CTR_I2BC_CoveredPotentialBillCodes_UniversalPropertyID And hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties1.PropertyName = 'Service Fee in EUR' And hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties1.Tenant_RefID = @TenantID And hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties1.IsDeleted = 0
+    Inner Join hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty
+    hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty2
+      On
+      hec_ctr_insurancetobrokercontracts_coveredpotentialbillcodes.HEC_CTR_InsuranceToBrokerContracts_CoveredPotentialBillCodeID = hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty2.CoveredPotentialBillCode_RefID And hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty2.Tenant_RefID = @TenantID And hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty2.IsDeleted = 0
+    Inner Join hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties
+    hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties2
+      On
+      hec_ctr_i2bc_coveredpotentialbillcodes_2_universalproperty2.CoveredPotentialBillCode_UniversalProperty_RefID = hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties2.HEC_CTR_I2BC_CoveredPotentialBillCodes_UniversalPropertyID And hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties2.PropertyName = 'Waive with order' And hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties2.Tenant_RefID = @TenantID And hec_ctr_i2bc_coveredpotentialbillcodes_universalproperties2.IsDeleted = 0
+    Inner Join cmn_price_values On hec_bil_potentialcodes.Price_RefID =
+      cmn_price_values.Price_RefID And cmn_price_values.Tenant_RefID =
+      @TenantID And cmn_price_values.IsDeleted = 0
+  Where
+    hec_bil_potentialcodes.Tenant_RefID = @TenantID And
+    hec_bil_potentialcodes.HEC_BIL_PotentialCodeID =
+    @GposID And
+    hec_bil_potentialcodes.IsDeleted = 0
+  Group By
+    hec_bil_potentialcodes.HEC_BIL_PotentialCodeID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_MD_GGPOSBDfGPOSID_1544">
+    <Members>
+      <ClassMember Name="GposID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="MD_GGPOSBDfGPOSID_1544">
+      <Members>
+        <ClassMember Name="GposID" Type="Guid"  />
+        <ClassMember Name="GposNumber" Type="String"  />
+        <ClassMember Name="GposName" Type="String"  />
+        <ClassMember Name="GposType" Type="String"  />
+        <ClassMember Name="FeeValue" Type="Double"  />
+        <ClassMember Name="FromInjection" Type="int"  />
+        <ClassMember Name="ManagementFeeValue" Type="String"  />
+        <ClassMember Name="WaiveWithOrder" Type="Boolean"  />
+        
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

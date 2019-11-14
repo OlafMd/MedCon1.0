@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="07/29/2013 14:37:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Settlement_Change_Case_Status</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Complex.Manipulation"
+                Method_ClassName="cls_Settlement_Change_Case_Status"
+                Method_Name="Settlement_Change_Case_Status"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <Parameters IsClass="true" Name="P_CAS_SCCS_1520">
+    <Members>
+      <ClassMember Name="status_to" Type="Double" />
+      <ClassMember Name="ids_to_change" Type="Guid" IsArray="true"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="CAS_SCCS_1520" IsArray="false">
+      <Members>
+        <ClassMember  Name="number_of_ids_to_change" Type="Double"/>
+        <ClassMember  Name="number_of_ids_changed" Type="Double"/>
+        <ClassMember  Name="status_to" Type="Double"/>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+  </CodeGen>

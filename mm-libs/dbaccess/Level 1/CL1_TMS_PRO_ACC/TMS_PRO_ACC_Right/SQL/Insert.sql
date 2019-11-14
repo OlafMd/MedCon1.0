@@ -1,0 +1,21 @@
+INSERT INTO 
+	tms_pro_acc_rights
+	(
+		TMS_PRO_ACC_RightID,
+		GlobalPropertyMatchingID,
+		Right_Name_DictID,
+		Right_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@TMS_PRO_ACC_RightID,
+		@GlobalPropertyMatchingID,
+		@Right_Name,
+		@Right_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,39 @@
+﻿<div ng-class="{'popup-wrapper': isPopup}">
+    <div ng-class="{'popup popup-large add-new-patient': isPopup}">
+
+        <h2 ng-if="isPopup">{{ 'BUTTON_ADD_PARTICIPATION_CONSENT' | translate }}</h2>
+        <div class="gray-content-holder-visible clear">
+            <form id="participationForm" ng-submit="submitPatientParticipationForm()" class="doctors-data-lists participation-form patients-list clearfix" name="participationForm" novalidate>
+                <div class="clearfix" ng-class="{'no-padding row': isPopup}">
+                    <div name="messageContainer" class="error-msg-container" ng-if="showMessageContainer">
+                        <span class="error" ng-if="!isIssueDateValid">{{ 'LABEL_DATE_NOT_VALID' | translate }}</span>
+                        <span class="error" ng-if="!isIssueDateHIgherOrEqualToContractStartDate" translate="LABEL_ISSUE_DATE_LOWER_THEN_CONTRACT_DATE" translate-values="{validFrom: contractValidFromStr, validTo: contractValidToStr }"></span>
+                    </div>
+                    <h3 ng-if="!isPopup" id="ParticipationConsentFormId">{{ 'BUTTON_ADD_PARTICIPATION_CONSENT' | translate }}</h3>
+                    <ul ng-class="{'first-class-data third-row': !isPopup, 'row clearfix': isPopup}">
+                        <li>
+                            <label id="lblIssue_date" ng-class="{'gray-text': isPopup}">{{ 'LABEL_ISSUE_DATE' | translate }}<span class="error" ng-if="participationForm.dpIssue_date.$error.required">*</span></label>
+                            <datepicker date-format="dd.MM.yyyy" date-min-limit={{ValidFrom}} date-max-limit={{ValidThrough}} date-model="participation_consent.issue_date">
+                                <input class="2000Year form-control" id="dpIssue_date" ng-focus="SetClass()" name="dpIssue_date" ng-model="participation_consent.issue_date"
+                                       ng-datefilter type="text" change="typedDAte" ng-bind="date | date:'dd.MM.yyyy'" required ng-class="{ 'redborder': !isIssueDateValid || !isIssueDateHIgherOrEqualToContractStartDate }"
+                                       date-min-limit="ValidFrom" date-max-limit="ValidThrough" validate-date="true" />
+                            </datepicker>
+                        </li>
+                        <li>
+                            <label id="lblContract" ng-class="{'gray-text': isPopup}">{{ 'LABEL_CONTRACT' | translate }}<span class="error" ng-if="contractNotSelected()">*</span></label>
+                            <dropdown-list id="ddContract" name="ddContract" items="contractList" ng-change="selectedContract()" ng-model="participation_consent.contract" required params="{display_name: 'name', id: 'id', is_model_object: true}"></dropdown-list>
+                        </li>
+                    </ul>
+                    <div class="buttons padding-top-20" ng-if="!isPopup">
+                        <button class="button wide confirm jsblockClose" id="btnSubmitParticipationConsent" type="submit" translate="BUTTON_SAVE" ng-disabled="participationForm.$invalid || contractNotSelected()"></button>
+                        <button class="button narrow reject jsblockClose" id="btnCancelSubmitCase" onclick="return false;" ng-click="closeParticipationForm()" translate="BUTTON_CANCEL"></button>
+                    </div>
+                    <div class="buttons" ng-if="isPopup">
+                        <button class="button wide reject jsblockClose" id="btnCancelSubmitCase" onclick="return false;" ng-click="closeParticipationForm()" translate="BUTTON_CANCEL"></button>
+                        <button class="button wide confirm jsblockClose" id="btnSubmitParticipationConsent" type="submit" translate="BUTTON_SAVE" ng-disabled="participationForm.$invalid || contractNotSelected()"></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

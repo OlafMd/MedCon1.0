@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 11/22/2013 2:48:50 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CL1_CMN_SLS"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_SLS_Pricelist_Discount"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_SLS"
+                IsClass_Corresponding_DBTable="cmn_sls_pricelist_discounts" >
+      <Members>
+		<ClassMember Name="CMN_SLS_Pricelist_DiscountID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="PricelistVersion_RefID" Type="Guid" />
+		<ClassMember Name="ProductGroup_RefID" Type="Guid" />
+		<ClassMember Name="Product_RefID" Type="Guid" />
+		<ClassMember Name="Product_Variant_RefID" Type="Guid" />
+		<ClassMember Name="Product_Release_RefID" Type="Guid" />
+		<ClassMember Name="DiscountPercentAmount" Type="Decimal" />
+		<ClassMember Name="DiscountValid_From" Type="DateTime" />
+		<ClassMember Name="DiscountValid_To" Type="DateTime" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

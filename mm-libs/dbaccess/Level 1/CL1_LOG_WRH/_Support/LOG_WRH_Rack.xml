@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/23/2013 9:55:57 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CL1_LOG_WRH"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_WRH_Rack"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_WRH"
+                IsClass_Corresponding_DBTable="log_wrh_racks" >
+      <Members>
+        <ClassMember Name="LOG_WRH_RackID" Type="Guid" IsObjectPrimaryKey="true"/>
+        <ClassMember Name="Area_RefID" Type="Guid" />
+        <ClassMember Name="CoordinateCode" Type="String" />
+        <ClassMember Name="Shelves_Use_XCoordinate" Type="Boolean" />
+        <ClassMember Name="Shelves_Use_YCoordinate" Type="Boolean" />
+        <ClassMember Name="Shelves_Use_ZCoordinate" Type="Boolean" />
+        <ClassMember Name="Shelves_XLabel" Type="String" />
+        <ClassMember Name="Shelves_YLabel" Type="String" />
+        <ClassMember Name="Shelves_ZLabel" Type="String" />
+        <ClassMember Name="IsStructureHidden" Type="Boolean" />
+        <ClassMember Name="Shelf_NamePrefix" Type="String" />
+        <ClassMember Name="Rack_Name" Type="String" />
+        <ClassMember Name="Default_Supplier_RefID" Type="Guid" />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+        <ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+        <ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

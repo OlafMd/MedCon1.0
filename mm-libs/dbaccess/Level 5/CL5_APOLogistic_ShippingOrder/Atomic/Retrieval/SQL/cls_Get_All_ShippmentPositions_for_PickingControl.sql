@@ -1,0 +1,40 @@
+
+	SELECT 
+		 log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID
+		,log_shp_shipment_positions.LOG_SHP_Shipment_PositionID
+		,log_shp_shipment_positions.QuantityToShip
+		,cmn_bpt_ctm_organizationalunits.OrganizationalUnit_SimpleName
+		,cmn_bpt_ctm_organizationalunits.OrganizationalUnit_Name_DictID
+		,log_shp_shipment_positions.CMN_PRO_Product_RefID
+		,cmn_bpt_ctm_organizationalunits.CMN_BPT_CTM_OrganizationalUnitID
+		,log_shp_shipment_headers.IsReadyForPicking
+		,ord_cuo_customerorder_headers.CustomerOrder_Number
+		,cmn_bpt_ctm_organizationalunits.InternalOrganizationalUnitSimpleName
+		,cmn_universalcontactdetails.CompanyName_Line1
+	FROM log_shp_shipment_headers
+	INNER JOIN log_shp_shipment_positions 
+		ON log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID = log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID
+		AND log_shp_shipment_positions.IsDeleted = 0
+	LEFT JOIN ord_cuo_customerorder_position_2_shipmentposition 
+		ON log_shp_shipment_positions.LOG_SHP_Shipment_PositionID = ord_cuo_customerorder_position_2_shipmentposition.LOG_SHP_Shipment_Position_RefID
+		AND ord_cuo_customerorder_position_2_shipmentposition.IsDeleted = 0
+	LEFT JOIN cmn_bpt_ctm_organizationalunits 
+		ON cmn_bpt_ctm_organizationalunits.CMN_BPT_CTM_OrganizationalUnitID = ord_cuo_customerorder_position_2_shipmentposition.CMN_BPT_CTM_OrganizationalUnit_RefID
+	INNER JOIN log_shp_shipmentheader_2_customerorderheader 
+		ON log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID = log_shp_shipmentheader_2_customerorderheader.LOG_SHP_Shipment_Header_RefID
+	INNER JOIN ord_cuo_customerorder_headers
+		ON ord_cuo_customerorder_headers.ORD_CUO_CustomerOrder_HeaderID = log_shp_shipmentheader_2_customerorderheader.ORD_CUO_CustomerOrder_Header_RefID
+	INNER JOIN cmn_bpt_businessparticipants
+		ON ord_cuo_customerorder_headers.OrderingCustomer_BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+	INNER JOIN cmn_com_companyinfo
+		ON cmn_bpt_businessparticipants.IfCompany_CMN_COM_CompanyInfo_RefID = cmn_com_companyinfo.CMN_COM_CompanyInfoID
+	INNER JOIN cmn_universalcontactdetails
+		ON cmn_com_companyinfo.Contact_UCD_RefID = cmn_universalcontactdetails.CMN_UniversalContactDetailID
+		AND cmn_com_companyinfo.Tenant_RefID = @TenantID
+	WHERE log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID = @ShippmentHeaderID
+		AND log_shp_shipment_headers.IsReadyForPicking = 1
+		AND log_shp_shipment_headers.Tenant_RefID = @TenantID
+		AND log_shp_shipment_headers.IsDeleted = 0
+		AND log_shp_shipment_headers.HasPickingStarted = 1
+		AND log_shp_shipment_headers.HasPickingFinished = 0
+  

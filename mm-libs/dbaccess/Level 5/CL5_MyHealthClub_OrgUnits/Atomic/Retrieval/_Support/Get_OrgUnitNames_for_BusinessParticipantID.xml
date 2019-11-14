@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/22/2014 3:01:42 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_OrgUnitNames_for_BusinessParticipantID</Name>
+    <Namespace>CL5_MyHealthClub_OrgUnits.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_OrgUnits.Atomic.Retrieval"
+                Method_ClassName="cls_Get_OrgUnitNames_for_BusinessParticipantID"
+                Method_Name="Get_OrgUnitNames_for_BusinessParticipantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_OrgUnitNames_for_BusinessParticipantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_str_offices.Office_Name_DictID,
+	  cmn_str_offices.CMN_STR_OfficeID
+	From
+	  cmn_str_offices Inner Join
+	  cmn_bpt_emp_employee_2_office
+	    On cmn_bpt_emp_employee_2_office.CMN_STR_Office_RefID =
+	    cmn_str_offices.CMN_STR_OfficeID And
+	    cmn_bpt_emp_employee_2_office.Tenant_RefID = @TenantID And
+	    cmn_bpt_emp_employee_2_office.IsDeleted = 0 Inner Join
+	  cmn_bpt_emp_employees On cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID =
+	    cmn_bpt_emp_employee_2_office.CMN_BPT_EMP_Employee_RefID And
+	    cmn_bpt_emp_employees.Tenant_RefID = @TenantID And
+	    cmn_bpt_emp_employees.IsDeleted = 0 Inner Join
+	  cmn_bpt_businessparticipants
+	    On cmn_bpt_emp_employees.BusinessParticipant_RefID =
+	    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And
+	    cmn_bpt_businessparticipants.IsNaturalPerson = 1 And
+	    cmn_bpt_businessparticipants.Tenant_RefID = @TenantID And
+	    cmn_bpt_businessparticipants.IsDeleted = 0
+	Where
+	  cmn_str_offices.IsDeleted = 0 And
+	  cmn_str_offices.Tenant_RefID = @TenantID And
+	  cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID =
+	  @BusinessParticipantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5OU_GOUNfBPID_1501">
+    <Members>
+      <ClassMember Name="BusinessParticipantID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5OU_GOUNfBPID_1501" IsArray="true">
+      <Members>
+        <ClassMember Name="Office_Name" Type="Dict" OriginTable="cmn_str_offices" Source_DBField="Office_Name_DictID"  />
+        <ClassMember Name="CMN_STR_OfficeID" Type="Guid"  />
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

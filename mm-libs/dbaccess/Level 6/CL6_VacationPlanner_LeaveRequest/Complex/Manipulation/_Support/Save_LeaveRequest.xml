@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/27/2012 11:51:28 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_VacationPlanner_LeaveRequest.Complex.Manipulation"
+                Method_ClassName="cle_Save_LeaveRequest"
+                Method_Name="Save_LeaveRequest"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_LeaveRequest"
+                />
+
+
+
+  <Parameters IsClass="true" Name="P_L6LR_SLR_1142">
+    <Members>
+      <ClassMember IsReference="true" Type="P_L5LR_SELR_255"        Name="LeaveRequest"       IsArray="false"/>
+      <ClassMember Name="WorkingContractToLeaveRequestID" Type="Guid"/>
+      <ClassMember Name="IsAuthRequired" Type="bool"/>
+      <ClassMember Name="durationInDays" Type="double"/>
+      <ClassMember Name="durationInHours" Type="double"/>
+      <ClassMember Name="Events" Type="List&lt;List&lt;L3EV_GSEFT_1647&gt;&gt;"/>
+      <ClassMember Name="Employees" IsArray="true" Type="L5EM_GEALRDFIDL_1138"/>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

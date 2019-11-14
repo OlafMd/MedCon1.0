@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:27:36 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_BPT_CTM_Customer_2_SalesRepresentative"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_BPT_CTM"
+                IsClass_Corresponding_DBTable="cmn_bpt_ctm_customer_2_salesrepresentatives" >
+      <Members>
+		<ClassMember Name="AssignmentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="SalesRepresentative_RefID" Type="Guid" />
+		<ClassMember Name="Customer_RefID" Type="Guid" />
+		<ClassMember Name="IsPrimary_SalesRep" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

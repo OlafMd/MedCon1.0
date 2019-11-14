@@ -1,0 +1,19 @@
+INSERT INTO 
+	pps_tsk_task_workareabookings
+	(
+		PPS_TSK_Task_WorkareaBookingsID,
+		PPS_TSK_Task_RefID,
+		CMN_STR_Workarea_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@PPS_TSK_Task_WorkareaBookingsID,
+		@PPS_TSK_Task_RefID,
+		@CMN_STR_Workarea_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

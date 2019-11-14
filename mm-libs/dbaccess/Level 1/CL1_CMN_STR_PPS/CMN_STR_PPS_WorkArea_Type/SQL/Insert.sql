@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_pps_workarea_types
+	(
+		CMN_STR_PPS_WorkArea_TypeID,
+		Name_DictID,
+		Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_STR_PPS_WorkArea_TypeID,
+		@Name,
+		@Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

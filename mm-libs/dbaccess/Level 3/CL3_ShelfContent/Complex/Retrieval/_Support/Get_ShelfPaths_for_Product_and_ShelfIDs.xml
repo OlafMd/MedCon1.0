@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/16/2015 03:53:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShelfPaths_for_Product_and_ShelfIDs</Name>
+    <Namespace>CL3_ShelfContent.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_ShelfContent.Complex.Retrieval"
+                Method_ClassName="cls_Get_ShelfPaths_for_Product_and_ShelfIDs"
+                Method_Name="Get_ShelfPaths_for_Product_and_ShelfIDs"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShelfPaths_for_Product_and_ShelfIDs"
+                />
+
+  <Parameters IsClass="true" Name="P_L5SC_GSPfPaSIDs_1539">
+    <Members>
+      <ClassMember Name="ShelfIDList" Type="Guid" IsArray="true" />
+      <ClassMember Name="ProductID" Type="Guid"/>
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5SC_GSPfPaSIDs_1539" IsArray="true">
+			<Members>
+        <ClassMember Name="ShelfID" Type="Guid" />
+        <ClassMember Name="Path" Type="string"/>
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

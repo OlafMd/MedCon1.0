@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLCore_DBCommons", "DLCore_DBCommons.csproj", "{8A936290-4628-4F28-9639-9B65915A0C8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AndromedaDtMobile|Any CPU = AndromedaDtMobile|Any CPU
+		AndromedaDyMobile|Any CPU = AndromedaDyMobile|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A936290-4628-4F28-9639-9B65915A0C8C}.AndromedaDtMobile|Any CPU.ActiveCfg = AndromedaDtMobile|Any CPU
+		{8A936290-4628-4F28-9639-9B65915A0C8C}.AndromedaDtMobile|Any CPU.Build.0 = AndromedaDtMobile|Any CPU
+		{8A936290-4628-4F28-9639-9B65915A0C8C}.AndromedaDyMobile|Any CPU.ActiveCfg = AndromedaDyMobile|Any CPU
+		{8A936290-4628-4F28-9639-9B65915A0C8C}.AndromedaDyMobile|Any CPU.Build.0 = AndromedaDyMobile|Any CPU
+		{8A936290-4628-4F28-9639-9B65915A0C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A936290-4628-4F28-9639-9B65915A0C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A936290-4628-4F28-9639-9B65915A0C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A936290-4628-4F28-9639-9B65915A0C8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

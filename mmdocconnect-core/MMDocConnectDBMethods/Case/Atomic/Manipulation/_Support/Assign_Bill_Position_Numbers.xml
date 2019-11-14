@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Assign_Bill_Position_Numbers</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Manipulation"
+								Method_ClassName="cls_Assign_Bill_Position_Numbers"
+								Method_Name="Assign_Bill_Position_Numbers"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+
+  <SQLStatement xml:space="preserve">
+update bil_billpositions as t1,
+(Select
+  cast(bil_billpositions.PositionNumber as unsigned) as LatestBillPositionNumber
+From
+  bil_billpositions
+Where
+  bil_billpositions.Tenant_RefID = @TenantID
+Order By 
+  LatestBillPositionNumber desc
+Limit 1
+For Update) as t2
+set t1.PositionNumber = t2.LatestBillPositionNumber + 1
+where
+  t1.Tenant_RefID = @TenantID And
+  t1.BIL_BillPositionID = @bill_position_id
+  
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_ABPN_1857">
+    <Members>
+      <ClassMember Name="bill_position_id" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="true" />
+  </ResultInfo>
+
+</CodeGen>
+
+<!-- IMPORTANT: 
+  paste this code after SetParameter invocation (line 44)
+			try
+			{
+				command.ExecuteNonQuery();
+			} 
+			catch(Exception ex)
+			{
+				throw new Exception("Exception occured while executing non query cls_Create_Treatment_Count_Temporary_Table",ex);
+			}
+
+-->

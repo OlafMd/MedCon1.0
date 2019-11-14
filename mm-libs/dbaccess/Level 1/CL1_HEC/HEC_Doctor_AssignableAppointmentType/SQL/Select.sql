@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_doctor_assignableappointmenttypes
+WHERE 
+	HEC_Doctor_AssignableAppointmentTypeID = @HEC_Doctor_AssignableAppointmentTypeID

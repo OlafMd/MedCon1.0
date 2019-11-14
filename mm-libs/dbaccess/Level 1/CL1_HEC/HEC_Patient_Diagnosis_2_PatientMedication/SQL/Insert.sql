@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_patient_diagnosis_2_patientmedication
+	(
+		AssignmentID,
+		HEC_Patient_Diagnosis_RefID,
+		HEC_Patient_Medication_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@HEC_Patient_Diagnosis_RefID,
+		@HEC_Patient_Medication_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

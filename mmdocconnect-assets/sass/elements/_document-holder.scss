@@ -1,0 +1,19 @@
+.document-holder{
+	padding-left: 20px;
+
+	.document{
+		&:before{
+			content: '';
+			display: inline-block;
+			width: 9px;
+			height: 12px;
+			margin-right: 5px;
+			vertical-align: text-top;
+			background: url("../images/icons/add-document.png") no-repeat center center;
+
+			&:hover{
+				background: url("../images/icons/add-document_hover.png") no-repeat center center;				
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_potentialobservations
+	(
+		HEC_PotentialObservationID,
+		HealthcareObservationITL,
+		Observation_Text_DictID,
+		Creation_Timestamp,
+		Modification_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_PotentialObservationID,
+		@HealthcareObservationITL,
+		@Observation_Text,
+		@Creation_Timestamp,
+		@Modification_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

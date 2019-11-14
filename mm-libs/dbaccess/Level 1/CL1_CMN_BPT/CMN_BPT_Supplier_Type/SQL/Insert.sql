@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_bpt_supplier_types
+	(
+		CMN_BPT_Supplier_TypeID,
+		GlobalPropertyMatchingID,
+		SupplierType_Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_Supplier_TypeID,
+		@GlobalPropertyMatchingID,
+		@SupplierType_Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

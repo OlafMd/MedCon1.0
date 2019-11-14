@@ -1,0 +1,12 @@
+UPDATE 
+	cmn_bpt_ctm_organizationalunit_staff
+SET 
+	OrganizationalUnit_RefID=@OrganizationalUnit_RefID,
+	BusinessParticipant_RefID=@BusinessParticipant_RefID,
+	IsPrimaryORGUnitForBusinessParticipant=@IsPrimaryORGUnitForBusinessParticipant,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	CMN_BPT_CTM_OrganizationalUnit_StaffID = @CMN_BPT_CTM_OrganizationalUnit_StaffID

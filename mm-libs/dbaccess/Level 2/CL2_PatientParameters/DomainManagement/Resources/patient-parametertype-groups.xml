@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="myhealtclub.gpapp.group.heartrate">
+    <Lang ISO="EN" Content="Heart rate" />
+    <Lang ISO="DE" Content="Heart rateDE" />
+    <Lang ISO="RS" Content="Otkucaji srca" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.group.preasure">
+    <Lang ISO="EN" Content="Preasure" />
+    <Lang ISO="DE" Content="PreasureDE" />
+    <Lang ISO="RS" Content="Pritisak" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.group.temperature">
+    <Lang ISO="EN" Content="Temperature" />
+    <Lang ISO="DE" Content="TemperatureDE" />
+    <Lang ISO="RS" Content="Temperatura" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.group.bmi">
+    <Lang ISO="EN" Content="BMI" />
+    <Lang ISO="DE" Content="BMIDE" />
+    <Lang ISO="RS" Content="BMI" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.group.oxygen-saturation">
+    <Lang ISO="EN" Content="Oxygen saturation" />
+    <Lang ISO="DE" Content="Oxygen saturationDE" />
+    <Lang ISO="RS" Content="Zasicenost kiseonikom" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.group.respiration">
+    <Lang ISO="EN" Content="Respiration" />
+    <Lang ISO="DE" Content="RespirationDE" />
+    <Lang ISO="RS" Content="Respiracija" />
+  </Item>
+</Resources>

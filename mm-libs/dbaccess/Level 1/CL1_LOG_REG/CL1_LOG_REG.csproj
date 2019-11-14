@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{13FD8627-8DBC-4176-87CE-EF3E265432F5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_LOG_REG</RootNamespace>
+    <AssemblyName>CL1_LOG_REG</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LOG_REG_DistributionArea\ORM_LOG_REG_DistributionArea.cs" />
+    <Compile Include="LOG_REG_DistributionArea_2_Country\ORM_LOG_REG_DistributionArea_2_Country.cs" />
+    <Compile Include="LOG_REG_SupplierSelectionArea\ORM_LOG_REG_SupplierSelectionArea.cs" />
+    <Compile Include="LOG_REG_SupplierSelectionArea_2_Country\ORM_LOG_REG_SupplierSelectionArea_2_Country.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="LOG_REG_DistributionArea\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_REG_DistributionArea\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_REG_DistributionArea\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_REG_DistributionArea_2_Country\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_REG_DistributionArea_2_Country\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_REG_DistributionArea_2_Country\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_REG_SupplierSelectionArea\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_REG_SupplierSelectionArea\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_REG_SupplierSelectionArea\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_REG_SupplierSelectionArea_2_Country\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_REG_SupplierSelectionArea_2_Country\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_REG_SupplierSelectionArea_2_Country\SQL\Update.sql" />
+    <Content Include="_Support\LOG_REG_DistributionAreas.xml" />
+    <Content Include="_Support\LOG_REG_DistributionArea_2_Country.xml" />
+    <Content Include="_Support\LOG_REG_SupplierSelectionAreas.xml" />
+    <Content Include="_Support\LOG_REG_SupplierSelectionArea_2_Country.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

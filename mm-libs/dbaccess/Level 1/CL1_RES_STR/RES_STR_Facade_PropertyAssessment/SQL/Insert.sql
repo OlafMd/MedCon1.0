@@ -1,0 +1,25 @@
+INSERT INTO 
+	res_str_facade_propertyassessments
+	(
+		RES_STR_Facade_PropertyAssessmentID,
+		STR_Facade_RefID,
+		Rating_RefID,
+		FacadeProperty_RefID,
+		DocumentHeader_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_Facade_PropertyAssessmentID,
+		@STR_Facade_RefID,
+		@Rating_RefID,
+		@FacadeProperty_RefID,
+		@DocumentHeader_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

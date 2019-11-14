@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/13/2015 2:28:52 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShippmentHeaderDetails_and_DistributionOrder_with_Positions_for_ShipmentID</Name>
+    <Namespace>CL5_Zugseil_PickingPreparation.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_PickingPreparation.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ShippmentHeaderDetails_and_DistributionOrder_with_Positions_for_ShipmentID"
+                Method_Name="Get_ShippmentHeaderDetails_and_DistributionOrder_with_Positions_for_ShipmentID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShippmentHeaderDetails_and_DistributionOrder_with_Positions_for_ShipmentID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID,
+	  log_shp_shipment_headers.ShipmentHeader_Number,
+	  log_shp_shipment_positions.LOG_SHP_Shipment_PositionID,
+	  cmn_pro_products.CMN_PRO_ProductID,
+	  cmn_pro_products.Product_Name_DictID,
+	  cmn_pro_products.Product_Number,
+	  cmn_pro_product_variants.CMN_PRO_Product_VariantID,
+	  cmn_pro_product_variants.VariantName_DictID,
+	  ord_dis_distributionorder_positions.Quantity,
+	  ord_dis_distributionorder_positions.ORD_DIS_DistributionOrder_PositionID,
+	  ord_dis_distributionorder_positions.DistributionOrder_Header_RefID,
+	  ord_dis_distributionorder_headers.ORD_DIS_DistributionOrder_HeaderID,
+	  ord_dis_distributionorder_headers.DistributionOrderDate,
+	  ord_dis_distributionorder_headers.DistributionOrderNumber,
+	  cmn_str_costcenters.CMN_STR_CostCenterID,
+	  cmn_str_costcenters.Name_DictID,
+	  cmn_str_offices.CMN_STR_OfficeID,
+	  cmn_str_offices.Office_Name_DictID,
+	  cmn_str_offices.Office_InternalName,
+	  cmn_str_office_addresses.IsShippingAddress,
+	  cmn_str_office_addresses.IsBillingAddress,
+	  cmn_str_office_addresses.IsSpecialAddress,
+	  cmn_str_office_addresses.IsDefault,
+	  cmn_addresses.CMN_AddressID,
+	  cmn_addresses.Street_Name,
+	  cmn_addresses.Street_Number,
+	  cmn_addresses.City_Name,
+	  cmn_addresses.City_PostalCode,
+	  cmn_addresses.Country_Name,
+	  cmn_addresses.Country_ISOCode,
+      log_shp_shipment_headers.Creation_Timestamp as ShipmentCreationDate
+	From
+	  log_shp_shipment_positions Inner Join
+	  cmn_pro_products On cmn_pro_products.CMN_PRO_ProductID =
+	    log_shp_shipment_positions.CMN_PRO_Product_RefID Inner Join
+	  cmn_pro_product_variants On cmn_pro_product_variants.CMN_PRO_Product_VariantID
+	    = log_shp_shipment_positions.CMN_PRO_ProductVariant_RefID Inner Join
+	  ord_dis_distributionorderposition_2_shipmentorderposition
+	    On log_shp_shipment_positions.LOG_SHP_Shipment_PositionID =
+	    ord_dis_distributionorderposition_2_shipmentorderposition.LOG_SHP_Shipment_Position_RefID Inner Join
+	  ord_dis_distributionorder_positions
+	    On ord_dis_distributionorder_positions.ORD_DIS_DistributionOrder_PositionID
+	    =
+	    ord_dis_distributionorderposition_2_shipmentorderposition.ORD_DIS_DistributionOrder_Position_RefID Inner Join
+	  ord_dis_distributionorder_headers
+	    On ord_dis_distributionorder_headers.ORD_DIS_DistributionOrder_HeaderID =
+	    ord_dis_distributionorder_positions.DistributionOrder_Header_RefID Left Join
+	  cmn_str_costcenters On cmn_str_costcenters.CMN_STR_CostCenterID =
+	    ord_dis_distributionorder_headers.Charged_CostCenter_RefID Inner Join
+	  cmn_str_office_2_costcenter On cmn_str_costcenters.CMN_STR_CostCenterID =
+	    cmn_str_office_2_costcenter.CostCenter_RefID Inner Join
+	  cmn_str_offices On cmn_str_offices.CMN_STR_OfficeID =
+	    cmn_str_office_2_costcenter.Office_RefID Left Join
+	  cmn_str_office_addresses On cmn_str_offices.CMN_STR_OfficeID =
+	    cmn_str_office_addresses.Office_RefID Left Join
+	  cmn_addresses On cmn_addresses.CMN_AddressID =
+	    cmn_str_office_addresses.CMN_Address_RefID Right Join
+	  log_shp_shipment_headers On log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID
+	    = log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID
+	Where
+	  log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID = @ShipmentHeaderID
+	  And
+	  log_shp_shipment_positions.IsDeleted = 0 And
+	  log_shp_shipment_positions.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5PP_GSHDaDOwPfS_1428">
+    <Members>
+		<ClassMember Name="ShipmentHeaderID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PP_GSHDaDOwPfS_1428" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_SHP_Shipment_HeaderID" Type="Guid"  />
+				<ClassMember Name="ShipmentHeader_Number" Type="String"  />
+				<ClassMember Name="LOG_SHP_Shipment_PositionID" Type="Guid"  />
+				<ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+				<ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+				<ClassMember Name="Product_Number" Type="String"  />
+				<ClassMember Name="CMN_PRO_Product_VariantID" Type="Guid"  />
+				<ClassMember Name="VariantName" Type="Dict" OriginTable="cmn_pro_product_variants" Source_DBField="VariantName_DictID"  />
+				<ClassMember Name="Quantity" Type="String"  />
+				<ClassMember Name="ORD_DIS_DistributionOrder_PositionID" Type="Guid"  />
+				<ClassMember Name="DistributionOrder_Header_RefID" Type="Guid"  />
+				<ClassMember Name="ORD_DIS_DistributionOrder_HeaderID" Type="Guid"  />
+				<ClassMember Name="DistributionOrderDate" Type="DateTime"  />
+				<ClassMember Name="DistributionOrderNumber" Type="String"  />
+				<ClassMember Name="CMN_STR_CostCenterID" Type="Guid"  />
+				<ClassMember Name="Name" Type="Dict" OriginTable="cmn_str_costcenters" Source_DBField="Name_DictID"  />
+				<ClassMember Name="CMN_STR_OfficeID" Type="Guid"  />
+				<ClassMember Name="Office_Name" Type="Dict" OriginTable="cmn_str_offices" Source_DBField="Office_Name_DictID"  />
+				<ClassMember Name="Office_InternalName" Type="String"  />
+				<ClassMember Name="IsShippingAddress" Type="bool"  />
+				<ClassMember Name="IsBillingAddress" Type="bool"  />
+				<ClassMember Name="IsSpecialAddress" Type="bool"  />
+				<ClassMember Name="IsDefault" Type="bool"  />
+				<ClassMember Name="CMN_AddressID" Type="Guid"  />
+				<ClassMember Name="Street_Name" Type="String"  />
+				<ClassMember Name="Street_Number" Type="String"  />
+				<ClassMember Name="City_Name" Type="String"  />
+				<ClassMember Name="City_PostalCode" Type="String"  />
+				<ClassMember Name="Country_Name" Type="String"  />
+				<ClassMember Name="Country_ISOCode" Type="String"  />
+                <ClassMember Name="ShipmentCreationDate" Type="DateTime"  />
+
+            </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

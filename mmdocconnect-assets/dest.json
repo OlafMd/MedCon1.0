@@ -1,0 +1,6 @@
+{
+  "dest" : {
+    "C:/SourceCode/apps/mmdocconnect-assets/../mmdocconnect-resources/content/docapp.css": "C:/SourceCode/apps/mmdocconnect-docapp/MMDocConnectDocApp/MMDocConnectDocApp/Content/css/docapp.css",
+    "C:/SourceCode/apps/mmdocconnect-assets/../mmdocconnect-resources/content/mmapp.css": "C:/SourceCode/apps/mmdocconnect-mmapp/MMDocConnectMMApp/MMDocConnectMMApp/Content/css/mmapp.css"
+  }
+}

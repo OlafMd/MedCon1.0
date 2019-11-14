@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BA9896B5-6424-4D1B-9838-537B2E79B745}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL3_ShippingOrder</RootNamespace>
+    <AssemblyName>CL3_ShippingOrder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_ActiveReservedQuantities_for_ManuallyClearedForPickingShippmentHeaders.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_BillHeaders_for_ShipmentHeaderIDs.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Shippings_and_ActiveReservations_for_ProductTrackingInstanceIDList.cs" />
+    <Compile Include="Complex\Manipulation\cls_Delete_ActiveReservations_and_UpdateShipmentHeaders_for_ProductTrackingInstanceIDList.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Address_for_ShipmentHeaderID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Update_ShipmentHeaderStatus_and_DeleteActiveReservations_for_ShipmentHeaderID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_AllAddresses_for_ShipmentHeaderID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_CTM\CL1_CMN_BPT_CTM.csproj">
+      <Project>{C453F5A9-9877-4197-A5E3-403EF6A0455D}</Project>
+      <Name>CL1_CMN_BPT_CTM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG\CL1_LOG.csproj">
+      <Project>{5FF8E7C7-57C2-48AE-BC70-8F6B957DABC6}</Project>
+      <Name>CL1_LOG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_RSV\CL1_LOG_RSV.csproj">
+      <Project>{2193AE63-54C5-44D5-AACE-CDB0AC097530}</Project>
+      <Name>CL1_LOG_RSV</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_SHP\CL1_LOG_SHP.csproj">
+      <Project>{E43DE7B7-3C37-46B1-8824-D7313CCD8273}</Project>
+      <Name>CL1_LOG_SHP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Shipment\CL2_Shipment.csproj">
+      <Project>{A865DFCE-80C9-4BF2-8455-6ABC86A19AA2}</Project>
+      <Name>CL2_Shipment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_CustomerAdresses\CL3_CustomerAddresses.csproj">
+      <Project>{3B4F71BA-27B8-4402-8C87-695CE31E64F9}</Project>
+      <Name>CL3_CustomerAddresses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_OrganizationalStructure\CL3_OrganizationalStructure.csproj">
+      <Project>{AE672987-B12A-48EA-83C2-C6E0484DE416}</Project>
+      <Name>CL3_OrganizationalStructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ActiveReservedQuantities_for_ManuallyClearedForPickingShippmentHeaders.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Shippings_and_ActiveReservations_for_ProductTrackingInstanceIDList.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ActiveReservedQuantities_for_ManuallyClearedForPickingShippmentHeaders.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Shippings_and_ActiveReservations_for_ProductTrackingInstanceIDList.xml" />
+    <Content Include="Complex\Manipulation\_Support\Update_ShipmentHeaderStatus_and_DeleteActiveReservations_for_ShipmentHeaderID.xml" />
+    <Content Include="Complex\Manipulation\_Support\Delete_ActiveReservations_and_UpdateShipmentHeaders_for_ProductTrackingInstanceIDList.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_Address_for_ShipmentHeaderID.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_AllAddresses_for_ShipmentHeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_BillHeaders_for_ShipmentHeaderIDs.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_BillHeaders_for_ShipmentHeaderIDs.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

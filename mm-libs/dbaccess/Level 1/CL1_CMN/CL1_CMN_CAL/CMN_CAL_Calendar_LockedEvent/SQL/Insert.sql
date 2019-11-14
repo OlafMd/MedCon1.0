@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_cal_calendar_lockedevents
+	(
+		CMN_CAL_Calendar_LockedEventID,
+		Calendar_LockPeriod_RefID,
+		Calendar_Event_RefID,
+		EventCreatedForLockPeriod,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_CAL_Calendar_LockedEventID,
+		@Calendar_LockPeriod_RefID,
+		@Calendar_Event_RefID,
+		@EventCreatedForLockPeriod,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

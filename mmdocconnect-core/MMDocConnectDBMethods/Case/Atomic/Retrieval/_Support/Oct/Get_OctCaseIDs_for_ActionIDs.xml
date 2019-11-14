@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_OctCaseIDs_for_ActionIDs</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_OctCaseIDs_for_ActionIDs"
+								Method_Name="Get_OctCaseIDs_for_ActionIDs"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">    
+    Select
+      hec_cas_case_relevantplannedactions.PlannedAction_RefID as action_id,
+      hec_cas_case_relevantplannedactions.Case_RefID as case_id
+    From
+      hec_cas_case_relevantplannedactions
+    Where
+      hec_cas_case_relevantplannedactions.PlannedAction_RefID = @ActionIDs And
+      hec_cas_case_relevantplannedactions.Tenant_RefID = @TenantID And
+      hec_cas_case_relevantplannedactions.IsDeleted = 0
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GOctCIDsfAIDs_1047">
+    <Members>
+      <ClassMember Name="ActionIDs" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GOctCIDsfAIDs_1047" IsArray="true">
+      <Members>
+        <ClassMember Name="action_id" Type="Guid"  />
+        <ClassMember Name="case_id" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

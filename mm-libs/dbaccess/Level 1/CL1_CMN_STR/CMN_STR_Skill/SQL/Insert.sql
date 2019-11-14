@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_skills
+	(
+		CMN_STR_SkillID,
+		Skill_Name_DictID,
+		Skill_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_STR_SkillID,
+		@Skill_Name,
+		@Skill_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

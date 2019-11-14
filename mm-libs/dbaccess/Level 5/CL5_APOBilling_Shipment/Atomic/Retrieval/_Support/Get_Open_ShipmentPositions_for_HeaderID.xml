@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/22/2014 7:49:56 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Open_ShipmentPositions_for_HeaderID</Name>
+    <Namespace>CL5_APOBilling_Shipment.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBilling_Shipment.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Open_ShipmentPositions_for_HeaderID"
+                Method_Name="Get_Open_ShipmentPositions_for_HeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Open_ShipmentPositions_for_HeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+    SELECT
+      log_shp_shipment_positions.LOG_SHP_Shipment_PositionID
+    FROM log_shp_shipment_positions
+    LEFT JOIN bil_billposition_2_shipmentposition
+      ON log_shp_shipment_positions.LOG_SHP_Shipment_PositionID = bil_billposition_2_shipmentposition.LOG_SHP_Shipment_Position_RefID
+      AND bil_billposition_2_shipmentposition.IsDeleted = 0
+      AND bil_billposition_2_shipmentposition.Tenant_RefID = @TenantID
+    WHERE 
+      log_shp_shipment_positions.Tenant_RefID = @TenantID
+      AND log_shp_shipment_positions.IsDeleted = 0
+      AND bil_billposition_2_shipmentposition.AssignmentID IS NULL
+      AND log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID = @ShipmentHeaderIDs
+
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5SH_GOSPfH_1947">
+    <Members>
+        <ClassMember Name="ShipmentHeaderIDs" Type="Guid" IsArray="true"  />
+    </Members>
+  </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5SH_GOSPfH_1947" IsArray="true">
+            <Members>
+                <ClassMember Name="LOG_SHP_Shipment_PositionID" Type="Guid"  />
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

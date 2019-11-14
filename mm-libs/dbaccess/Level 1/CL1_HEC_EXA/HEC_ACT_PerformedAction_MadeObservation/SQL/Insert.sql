@@ -1,0 +1,25 @@
+INSERT INTO 
+	hec_act_performedaction_madeobservations
+	(
+		HEC_ACT_PerformedAction_ObservationID,
+		HEC_ACT_PerformedAction_RefID,
+		PotentialObservation_RefID,
+		Relevant_PatientDiagnosis_RefID,
+		Comment,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_PerformedAction_ObservationID,
+		@HEC_ACT_PerformedAction_RefID,
+		@PotentialObservation_RefID,
+		@Relevant_PatientDiagnosis_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

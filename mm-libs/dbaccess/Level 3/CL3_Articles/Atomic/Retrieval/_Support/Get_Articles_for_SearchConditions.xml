@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="13/3/2014 09:43:45">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Articles_for_SearchConditions</Name>
+    <Namespace>CL3_Articles.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Articles.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Articles_for_SearchConditions"
+                Method_Name="Get_Articles_for_SearchConditions"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Articles_for_SearchConditions"
+                />
+
+  <SQLStatement xml:space="preserve">
+SELECT
+    cmn_pro_products.Tenant_RefID,
+	  cmn_pro_products_de.Content AS ProductName,
+	  cmn_pro_products.Product_Number,
+	  cmn_pro_products.CMN_PRO_ProductID,
+	  cmn_pro_products.PackageInfo_RefID,
+	  cmn_pro_products.Product_Description_DictID,
+    cmn_pro_productgroups.GlobalPropertyMatchingID as ProductGroup,
+	  cmn_pro_product_types.ProductType_Name_DictID,
+	  cmn_units.Abbreviation_DictID,
+	  cmn_units.Label_DictID,
+	  cmn_pro_products.IsPlaceholderArticle,
+	  cmn_pro_products.ProductITL,
+	  cmn_sls_prices.PriceAmount,
+	  cmn_currencies.Symbol AS CurrencySymbol,
+    cmn_pro_pac_packageinfo.PackageContent_Amount as UnitAmount,
+	  cmn_units.ISOCode AS UnitIsoCode,
+    hec_products.ProductDistributionStatus,
+	  hec_product_dosageforms.GlobalPropertyMatchingID as DossageFormName,
+    hec_pro_components.HEC_PRO_ComponentID,
+	  hec_pro_components.Component_Name_DictID,
+	  hec_pro_components.Component_SimpleName,
+    hec_sub_substances.HEC_SUB_SubstanceID,
+	  hec_sub_substances.IsActiveComponent,
+	  hec_sub_substances.GlobalPropertyMatchingID as SubstanceName,
+    acc_tax_taxes.TaxRate,
+    acc_tax_taxes.TaxName_DictID,
+    acc_tax_taxes.EconomicRegion_RefID,
+    acc_tax_taxes.ACC_TAX_TaxeID,
+    cmn_bpt_businessparticipants.DisplayName as ProducerName
+	FROM
+	  cmn_pro_products
+	  INNER JOIN hec_products
+	    ON hec_products.Ext_PRO_Product_RefID = cmn_pro_products.CMN_PRO_ProductID
+	  INNER JOIN hec_product_dosageforms
+	    ON hec_products.ProductDosageForm_RefID = hec_product_dosageforms.HEC_Product_DosageFormID
+	    AND hec_product_dosageforms.IsDeleted = 0
+	  LEFT JOIN hec_pro_product_components
+	    ON hec_products.HEC_ProductID = hec_pro_product_components.HEC_PRO_Product_RefID
+	    AND hec_pro_product_components.IsDeleted = 0
+	  LEFT JOIN hec_pro_components 
+	    ON hec_pro_product_components.HEC_PRO_Component_RefID = hec_pro_components.HEC_PRO_ComponentID
+	    AND hec_pro_components.IsDeleted = 0
+	  LEFT JOIN hec_pro_component_substanceingredients
+	    ON hec_pro_components.HEC_PRO_ComponentID = hec_pro_component_substanceingredients.Component_RefID
+	    AND hec_pro_component_substanceingredients.IsDeleted = 0
+	  LEFT JOIN hec_sub_substances
+	    ON hec_pro_component_substanceingredients.Substance_RefID = hec_sub_substances.HEC_SUB_SubstanceID
+	    AND hec_sub_substances.IsDeleted = 0
+	  INNER JOIN cmn_pro_pac_packageinfo
+	    ON cmn_pro_products.PackageInfo_RefID = cmn_pro_pac_packageinfo.CMN_PRO_PAC_PackageInfoID
+	    AND cmn_pro_pac_packageinfo.IsDeleted = 0
+	  INNER JOIN cmn_units
+	    ON cmn_units.CMN_UnitID = cmn_pro_pac_packageinfo.PackageContent_MeasuredInUnit_RefID
+	    AND cmn_units.IsDeleted = 0
+	  LEFT JOIN cmn_pro_product_types
+	    ON cmn_pro_products.ProductType_RefID = cmn_pro_product_types.CMN_PRO_Product_TypeID AND
+	       cmn_pro_product_types.IsDeleted = 0
+	  LEFT JOIN cmn_pro_products_de
+	    ON cmn_pro_products.Product_Name_DictID = cmn_pro_products_de.DictID
+	    AND cmn_pro_products_de.IsDeleted = 0
+	  LEFT JOIN cmn_sls_prices
+	    ON cmn_pro_products.CMN_PRO_ProductID = cmn_sls_prices.CMN_PRO_Product_RefID AND
+	       cmn_sls_prices.IsDeleted = 0
+	  LEFT JOIN cmn_currencies
+	    ON cmn_sls_prices.CMN_Currency_RefID = cmn_currencies.CMN_CurrencyID AND
+	       cmn_currencies.IsDeleted = 0
+	  INNER JOIN cmn_pro_product_2_productgroup
+	    ON cmn_pro_product_2_productgroup.CMN_PRO_Product_RefID = cmn_pro_products.CMN_PRO_ProductID
+	    AND cmn_pro_product_2_productgroup.IsDeleted = 0
+	  INNER JOIN cmn_pro_productgroups
+	    ON cmn_pro_productgroups.CMN_PRO_ProductGroupID = cmn_pro_product_2_productgroup.CMN_PRO_ProductGroup_RefID
+	    AND cmn_pro_productgroups.IsDeleted = 0
+    LEFT JOIN cmn_pro_product_salestaxassignmnets
+      ON cmn_pro_products.CMN_PRO_ProductID = cmn_pro_product_salestaxassignmnets.Product_RefID
+      AND cmn_pro_product_salestaxassignmnets.IsDeleted = 0
+    LEFT JOIN acc_tax_taxes
+      ON cmn_pro_product_salestaxassignmnets.ApplicableSalesTax_RefID = acc_tax_taxes.ACC_TAX_TaxeID
+      AND acc_tax_taxes.IsDeleted = 0
+    LEFT JOIN cmn_bpt_businessparticipants
+      ON cmn_pro_products.ProducingBusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+      AND cmn_bpt_businessparticipants.IsDeleted = 0
+	WHERE
+	  cmn_pro_products.IsDeleted = 0 
+	  AND cmn_pro_products.Tenant_RefID = @TenantID 
+	  AND cmn_pro_products.IsPlaceholderArticle = 0 
+	  AND cmn_pro_products.IsProduct_Article = 1 
+    AND cmn_pro_products.IsProductAvailableForOrdering = IfNull(@IsAvailableForOrdering, cmn_pro_products.IsProductAvailableForOrdering)
+    AND (@ProductNameStartWith IS NULL OR (@ProductNameStartWith IS NOT NULL AND LOWER(cmn_pro_products_de.Content) LIKE CONCAT(LOWER(@ProductNameStartWith), '%')))
+	  AND (@GeneralQuery IS NULL OR (@GeneralQuery IS NOT NULL 
+                AND (Upper(cmn_pro_products_de.Content) LIKE Upper(@GeneralQuery) 
+                    OR (Upper(cmn_pro_products.Product_Number) LIKE Upper(@GeneralQuery)))))
+	  AND (@PZNQuery IS NULL OR (@PZNQuery IS NOT NULL AND Upper(cmn_pro_products.Product_Number) LIKE  Upper(@PZNQuery)))
+	  AND (@UnitQuery IS NULL OR (@UnitQuery IS NOT NULL AND Upper(cmn_units.ISOCode) LIKE  Upper(@UnitQuery)))
+	  AND (@DosageFormQuery IS NULL OR (@DosageFormQuery IS NOT NULL AND Upper(hec_product_dosageforms.GlobalPropertyMatchingID) LIKE  Upper(@DosageFormQuery)))
+	  AND (@ActiveComponent IS NULL 
+    OR (@ActiveComponent IS NOT NULL AND hec_products.HEC_ProductID 
+    IN( SELECT hec_pro_product_components.HEC_PRO_Product_RefID
+        FROM hec_pro_product_components
+    	  INNER JOIN hec_pro_components 
+    	    ON hec_pro_product_components.HEC_PRO_Component_RefID = hec_pro_components.HEC_PRO_ComponentID
+    	    AND hec_pro_components.IsDeleted = 0
+    	  INNER JOIN hec_pro_component_substanceingredients
+    	    ON hec_pro_components.HEC_PRO_ComponentID = hec_pro_component_substanceingredients.Component_RefID
+    	    AND hec_pro_component_substanceingredients.IsDeleted = 0
+    	  INNER JOIN hec_sub_substances
+    	    ON hec_pro_component_substanceingredients.Substance_RefID = hec_sub_substances.HEC_SUB_SubstanceID
+    	    AND hec_sub_substances.IsDeleted = 0
+        WHERE hec_pro_product_components.IsDeleted = 0  
+              AND hec_pro_product_components.Tenant_RefID = @TenantID
+              AND Upper(hec_sub_substances.GlobalPropertyMatchingID) LIKE Upper(@ActiveComponent))))
+    AND (@ProducerName IS NULL OR (@ProducerName IS NOT NULL AND Upper(cmn_bpt_businessparticipants.DisplayName) LIKE Upper(@ProducerName)))
+    AND (@ActiveComponentStartWith IS NULL OR (@ActiveComponentStartWith IS NOT NULL AND LOWER(hec_sub_substances.GlobalPropertyMatchingID) LIKE CONCAT(LOWER(@ActiveComponentStartWith), '%')))
+	  AND cmn_pro_products_de.Language_RefID = @LanguageID
+	  AND cmn_pro_productgroups.GlobalPropertyMatchingID = IFNULL(@CustomArticlesGroupGlobalPropertyID, cmn_pro_productgroups.GlobalPropertyMatchingID)
+    AND cmn_pro_products.CMN_PRO_ProductID = IFNULL(@ProductID, cmn_pro_products.CMN_PRO_ProductID)
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3AR_GAfSC_1712">
+    <Members>
+      <ClassMember Name="LanguageID" Type="Guid"  />
+      <ClassMember Name="ProductNameStartWith" Type="string"  />
+      <ClassMember Name="ProducerName" Type="string"  />
+      <ClassMember Name="GeneralQuery" Type="string"  />
+      <ClassMember Name="DosageFormQuery" Type="string"  />
+      <ClassMember Name="UnitQuery" Type="string"  />
+      <ClassMember Name="PZNQuery" Type="string"  />
+      <ClassMember Name="CustomArticlesGroupGlobalPropertyID" Type="string"  />
+      <ClassMember Name="ActiveComponent" Type="string"  />
+      <ClassMember Name="ActiveComponentStartWith" Type="string"  />
+      <ClassMember Name="IsAvailableForOrdering" Type="bool?"  />
+      <ClassMember Name="ProductID" Type="Guid?"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3AR_GAfSC_1712" IsArray="true" GroupBy="CMN_PRO_ProductID">
+      <Members>
+        <ClassMember Name="ProductName" Type="String"  />
+        <ClassMember Name="Product_Number" Type="String"  />
+        <ClassMember Name="ProductGroup" Type="String"  />
+        <ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+        <ClassMember Name="PackageInfo_RefID" Type="Guid"  />
+        <ClassMember Name="ProductDistributionStatus" Type="int"  />
+        <ClassMember Name="ProductType_Name" Type="Dict" OriginTable="cmn_pro_product_types" Source_DBField="ProductType_Name_DictID"  />
+        <ClassMember Name="Product_Description" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Description_DictID"  />
+        <ClassMember Name="Abbreviation" Type="Dict" OriginTable="cmn_units" Source_DBField="Abbreviation_DictID"  />
+        <ClassMember Name="Label" Type="Dict" OriginTable="cmn_units" Source_DBField="Label_DictID"  />
+        <ClassMember Name="IsPlaceholderArticle" Type="bool"  />
+        <ClassMember Name="ProductITL" Type="String"  />
+        <ClassMember Name="UnitAmount" Type="double"  />
+        <ClassMember Name="UnitIsoCode" Type="String"  />
+        <ClassMember Name="DossageFormName" Type="string"  />
+        <ClassMember Name="ProducerName" Type="string"  />
+        <ClassMember Name="ActiveComponents" IsClass="true" IsArray="true" GroupBy="HEC_SUB_SubstanceID" Type="L3AR_GAfSC_1712_ActiveComponent">
+          <Members>
+            <ClassMember Name="HEC_PRO_ComponentID" Type="Guid"  />
+            <ClassMember Name="Component_Name" Type="Dict" OriginTable="hec_pro_components" Source_DBField="Component_Name_DictID"  />
+            <ClassMember Name="Component_SimpleName" Type="String"  />
+            <ClassMember Name="IsActiveComponent" Type="bool"  />
+            <ClassMember Name="HEC_SUB_SubstanceID" Type="Guid"  />
+            <ClassMember Name="SubstanceName" Type="String"  />
+          </Members>
+        </ClassMember>
+        <ClassMember Name="Taxes" IsClass="true" IsArray="true" GroupBy="ACC_TAX_TaxeID" Type="L3AR_GAfSC_1712_Tax">
+          <Members>
+            <ClassMember Name="ACC_TAX_TaxeID" Type="Guid"  />
+            <ClassMember Name="EconomicRegion_RefID" Type="Guid"  />
+            <ClassMember Name="TaxRate" Type="double"  />
+            <ClassMember Name="TaxName_DictID" Type="Dict" OriginTable="acc_tax_taxes" Source_DBField="TaxName_DictID" />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

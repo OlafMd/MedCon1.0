@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_sub_substance_groups
+	(
+		HEC_SUB_Substance_GroupID,
+		GlobalPropertyMatchingID,
+		SubstanceGroup_Name_DictID,
+		SubstanceGroup_Description_DictID,
+		SubstanceGroupTypeStatus,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_SUB_Substance_GroupID,
+		@GlobalPropertyMatchingID,
+		@SubstanceGroup_Name,
+		@SubstanceGroup_Description,
+		@SubstanceGroupTypeStatus,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

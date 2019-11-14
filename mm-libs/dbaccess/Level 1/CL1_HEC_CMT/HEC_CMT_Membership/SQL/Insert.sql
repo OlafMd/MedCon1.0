@@ -1,0 +1,25 @@
+INSERT INTO 
+	hec_cmt_memberships
+	(
+		HEC_CMT_MembershipID,
+		CommunityMembershipITL,
+		Community_RefID,
+		BusinessParticipant_RefID,
+		MembershipType_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CMT_MembershipID,
+		@CommunityMembershipITL,
+		@Community_RefID,
+		@BusinessParticipant_RefID,
+		@MembershipType_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

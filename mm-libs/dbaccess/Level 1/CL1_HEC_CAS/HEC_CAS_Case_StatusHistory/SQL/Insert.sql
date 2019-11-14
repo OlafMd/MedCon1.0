@@ -1,0 +1,27 @@
+INSERT INTO 
+	hec_cas_case_statushistory
+	(
+		HEC_CAS_Case_StatusHistoryID,
+		Case_RefID,
+		IsCustom,
+		IfCustom_Status_RefID,
+		IsBilled,
+		IsClearedForBilling,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CAS_Case_StatusHistoryID,
+		@Case_RefID,
+		@IsCustom,
+		@IfCustom_Status_RefID,
+		@IsBilled,
+		@IsClearedForBilling,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

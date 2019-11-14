@@ -1,0 +1,21 @@
+INSERT INTO 
+	ord_prc_shoppingcartstatus_history
+	(
+		ORD_PRC_ShoppingCartStatus_HistoryID,
+		ORD_PRC_ShoppingCart_RefID,
+		ORD_PRC_ShoppingCart_Status_RefID,
+		PerformedBy_Account_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ORD_PRC_ShoppingCartStatus_HistoryID,
+		@ORD_PRC_ShoppingCart_RefID,
+		@ORD_PRC_ShoppingCart_Status_RefID,
+		@PerformedBy_Account_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

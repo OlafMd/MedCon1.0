@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/9/2014 10:01:14 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_and_Increase_IncreasingNumber_for_UsageArea</Name>
+    <Namespace>CL2_NumberRange.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_NumberRange.Complex.Retrieval"
+                Method_ClassName="cls_Get_and_Increase_IncreasingNumber_for_UsageArea"
+                Method_Name="Get_and_Increase_IncreasingNumber_for_UsageArea"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_and_Increase_IncreasingNumber_for_UsageArea"
+                />
+
+  <Parameters IsClass="true" Name="P_L2NR_GaIINfUA_1454">
+    <Members>
+      <ClassMember Name="GlobalStaticMatchingID" Type="String"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2NR_GaIINfUA_1454" IsArray="false">
+			<Members>
+				<ClassMember Name="Current_IncreasingNumber" Type="String"  />	
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

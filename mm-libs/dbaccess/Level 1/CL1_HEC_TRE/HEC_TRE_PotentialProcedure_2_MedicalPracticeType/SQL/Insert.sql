@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_tre_potentialprocedure_2_medicalpracticetype
+	(
+		AssignmentID,
+		HEC_MedicalPractice_Type_RefID,
+		HEC_TRE_PotentialProcedure_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@HEC_MedicalPractice_Type_RefID,
+		@HEC_TRE_PotentialProcedure_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

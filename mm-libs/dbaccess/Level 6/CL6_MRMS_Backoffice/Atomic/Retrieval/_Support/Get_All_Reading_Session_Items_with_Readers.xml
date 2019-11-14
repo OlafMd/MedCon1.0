@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/10/2013 2:06:49 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_Reading_Session_Items</Name>
+    <Namespace>CL6_MRMS_Backoffice.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_MRMS_Backoffice.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_Reading_Session_Items_with_Readers"
+                Method_Name="Get_All_Reading_Session_Items_with_Readers"
+                ApplicationPlattform_WebServiceName="Get_All_Reading_Session_Items_with_Readers"
+                ApplicationPlattform_Namespace=".Get_All_Reading_Session_Items_with_Readers"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L6MRMS_GARSIwR_1056">
+    <Members>
+      <ClassMember Name="ReadingSessionId" Type="Guid"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="L6MRMS_GARSIwR_1056" IsArray="true">
+      <Members>
+        <ClassMember Name="MeasurementID" Type="Guid"  />
+        <ClassMember Name="MeterSerialNumber" Type="string"  />
+        <ClassMember Name="ContractNumber" Type="string"  />
+        <ClassMember Name="OwnerFirstName" Type="string"  />
+        <ClassMember Name="OwnerLastName" Type="string"  />
+        <ClassMember Name="StreetName" Type="string"  />
+        <ClassMember Name="StreetNumber" Type="string"  />
+        <ClassMember Name="City" Type="string"  />
+        <ClassMember Name="City_PostalCode" Type="string"  />
+        <ClassMember Name="RouteName" Type="string"  />
+        <ClassMember Name="SequenceInRoute" Type="int"  />
+        <ClassMember Name="ReaderFirstName" Type="string"  />
+        <ClassMember Name="ReaderLastName" Type="string"  />
+        <ClassMember Name="ReaderEmail" Type="string"  />
+        <ClassMember Name="MeasuredOn" Type="DateTime"  />
+
+        <ClassMember Name="MeasurementValues" Type="L6MRMS_GARSIwR_1056_MeasurementValue" IsClass="true" IsArray="true"  GroupBy="MRS_RUN_Measurement_ValueID">
+          <Members>
+            <ClassMember Name="MRS_RUN_Measurement_TariffID" Type="Guid"  />
+            <ClassMember Name="MRS_RUN_Measurement_ValueID" Type="Guid"  />
+            <ClassMember Name="MeasuredAt_Time" Type="DateTime"  />
+            <ClassMember Name="MeasurementValue" Type="double"  />
+            <ClassMember Name="AcqusitionTypeGPM" Type="string"  />
+            <ClassMember Name="Tariff_GlobalPropertyMatchingID" Type="string"  />
+            <ClassMember Name="MeasurementTariffName" Type="Dict"/>
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+    <Item ID="personinfo-correspondence-type.letter">
+        <Lang ISO="DE" Content="Briefanschreiben" />
+    </Item>
+    <Item ID="personinfo-correspondence-type.delivery-paper">
+        <Lang ISO="DE" Content="Lieferscheinanschreiben" />
+    </Item>
+    <Item ID="personinfo-correspondence-type.dunning">
+        <Lang ISO="DE" Content="Mahnungsanschreiben" />
+    </Item>
+    <Item ID="personinfo-correspondence-type.bill">
+        <Lang ISO="DE" Content="Rechnungsanschreiben" />
+    </Item>
+    
+
+</Resources> 

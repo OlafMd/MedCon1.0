@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	pps_tsk_task_template_requireddevices
+WHERE 
+	PPS_TSK_Task_Template_RequiredDeviceID = @PPS_TSK_Task_Template_RequiredDeviceID

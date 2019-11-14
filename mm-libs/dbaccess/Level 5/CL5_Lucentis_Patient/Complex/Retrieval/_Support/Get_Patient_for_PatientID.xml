@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/7/2013 3:16:09 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Patient_for_PatientID</Name>
+    <Namespace>CL5_Lucentis_Patient.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Patient.Complex.Retrieval"
+                Method_ClassName="cls_Get_Patient_for_PatientID"
+                Method_Name="Get_Patient_for_PatientID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Patient_for_PatientID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_patients.HEC_PatientID,
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.LastName,
+  hec_patient_medicalpractices.HEC_MedicalPractices_RefID,
+  hec_patient_healthinsurances.HealthInsurance_Number,
+  hec_patient_healthinsurances.HealthInsurance_State_RefID,
+  cmn_per_personinfo.BirthDate,
+  hec_patient_healthinsurances.InsuranceStateCode,
+  cmn_per_personinfo.Gender,
+  hec_his_healthinsurance_companies.HEC_HealthInsurance_CompanyID,
+  cmn_bpt_businessparticipants1.DisplayName As CompanyName
+From
+  hec_patients Inner Join
+  cmn_bpt_businessparticipants On hec_patients.CMN_BPT_BusinessParticipant_RefID
+    = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID Inner Join
+  cmn_per_personinfo
+    On cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID Inner Join
+  hec_patient_medicalpractices On hec_patients.HEC_PatientID =
+    hec_patient_medicalpractices.HEC_Patient_RefID Inner Join
+  hec_patient_healthinsurances On hec_patient_healthinsurances.Patient_RefID =
+    hec_patients.HEC_PatientID Inner Join
+  hec_his_healthinsurance_companies
+    On hec_patient_healthinsurances.HIS_HealthInsurance_Company_RefID =
+    hec_his_healthinsurance_companies.HEC_HealthInsurance_CompanyID Inner Join
+  cmn_bpt_businessparticipants cmn_bpt_businessparticipants1
+    On hec_his_healthinsurance_companies.CMN_BPT_BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants1.CMN_BPT_BusinessParticipantID
+Where
+  hec_patients.HEC_PatientID = @PatientID And
+  hec_patients.Tenant_RefID = @TenantID And
+  hec_patients.IsDeleted = 0 And
+  cmn_bpt_businessparticipants.IsDeleted = 0 And
+  cmn_per_personinfo.IsDeleted = 0 And
+  hec_patient_medicalpractices.IsDeleted = 0 And
+  hec_patient_healthinsurances.IsDeleted = 0 And
+  hec_his_healthinsurance_companies.IsDeleted = 0 And
+  cmn_bpt_businessparticipants1.IsCompany = 1 And
+  cmn_bpt_businessparticipants1.IsDeleted = 0
+  </SQLStatement>
+
+    <Parameters IsClass="true" Name="P_L5PA_GPfPID_1413">
+        <Members>
+            <ClassMember Name="PatientID" Type="Guid"  />
+
+        </Members>
+    </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+
+        
+        
+		<ObjectReturnType_Definition Name="L5PA_GPfPID_1413" IsArray="false">
+			<Members>
+                <ClassMember Name="HEC_PatientID" Type="Guid"  />
+                <ClassMember Name="FirstName" Type="String"  />
+                <ClassMember Name="LastName" Type="String"  />
+                <ClassMember Name="Birthdate" Type="DateTime"  />
+                <ClassMember Name="HEC_MedicalPractices_RefID" Type="Guid"  />
+                <ClassMember Name="HealthInsurance_Number" Type="String"  />
+                <ClassMember Name="HealthInsurance_State_RefID" Type="Guid"  />
+                <ClassMember Name="CompanyName" Type="String"  />
+                <ClassMember Name="InsuranceStateCode" Type="String"  />
+                <ClassMember Name="Gender" Type="int"/>
+                <ClassMember Name="HEC_HealthInsurance_CompanyID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_act_performedaction_madeobservation_documents
+	(
+		HEC_ACT_PerformedAction_MadeObservation_DocumentID,
+		HEC_ACT_PerformedAction_MadeObservation_RefID,
+		DOC_Document_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_PerformedAction_MadeObservation_DocumentID,
+		@HEC_ACT_PerformedAction_MadeObservation_RefID,
+		@DOC_Document_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+    <Item ID="dtask-priority.low">
+      <Lang ISO="EN" Content="Low" />
+      <Lang ISO="DE" Content="Niedrig" />
+      <Lang ISO="RS" Content="Nizak" />
+    </Item>
+    <Item ID="dtask-priority.normal">
+      <Lang ISO="EN" Content="Normal" />
+      <Lang ISO="DE" Content="Normal" />
+      <Lang ISO="RS" Content="Normalan" />
+    </Item>
+    <Item ID="dtask-priority.high">
+      <Lang ISO="EN" Content="High" />
+      <Lang ISO="DE" Content="Hohe" />
+      <Lang ISO="RS" Content="Visok" />
+    </Item>
+    <Item ID="dtask-priority.urgent">
+      <Lang ISO="EN" Content="Urgent" />
+      <Lang ISO="DE" Content="Dringende" />
+      <Lang ISO="RS" Content="Hitan" />
+    </Item>
+</Resources>

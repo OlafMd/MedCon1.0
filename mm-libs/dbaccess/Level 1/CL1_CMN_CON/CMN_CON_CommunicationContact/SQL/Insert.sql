@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_con_communicationcontacts
+	(
+		CMN_CON_CommunicationContactID,
+		Contact_RefID,
+		ConcatctType_RefID,
+		Content,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_CON_CommunicationContactID,
+		@Contact_RefID,
+		@ConcatctType_RefID,
+		@Content,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

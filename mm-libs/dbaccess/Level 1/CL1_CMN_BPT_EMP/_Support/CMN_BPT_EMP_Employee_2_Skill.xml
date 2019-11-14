@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/22/2013 2:22:24 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_BPT_EMP_Employee_2_Skill"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_BPT_EMP"
+                IsClass_Corresponding_DBTable="cmn_bpt_emp_employee_2_skill" >
+      <Members>
+		<ClassMember Name="AssignmentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Employee_RefID" Type="Guid" />
+		<ClassMember Name="Skill_RefID" Type="Guid" />
+		<ClassMember Name="QualificationObtainedAtDate" Type="DateTime" />
+		<ClassMember Name="QualificationGrantedByAuthority" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

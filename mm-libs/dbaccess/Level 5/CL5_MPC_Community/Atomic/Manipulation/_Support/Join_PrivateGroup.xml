@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/22/2014 4:13:06 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Dosage</Name>
+    <Namespace>CL5_MyHealthClub_Medication.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MPC_Community.Atomic.Manipulation"
+                Method_ClassName="cls_Join_PrivateGroup"
+                Method_Name="Join_PrivateGroup"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Join_PrivateGroup"
+                />
+
+
+
+  <Parameters IsClass="true" Name="P_L5MC_JPG_1356">
+    <Members>
+      <ClassMember Name="GroupCode" Type="string"  />
+      <ClassMember Name="HEC_CMT_MembershipID" Type="Guid"  />
+      <ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+         Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+         Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5MC_JPG_1356" IsArray="false" GroupBy="HEC_CMT_MembershipID">
+      <Members>
+        <ClassMember IsClass="true" IsArray="false" Type="L5MC_JPG_1356_Group" Name="Group">
+          <Members>
+            <ClassMember Name="HEC_CMT_CommunityGroupID" Type="Guid"  />
+            <ClassMember Name="Success" Type="bool"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

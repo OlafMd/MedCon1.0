@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_pat_specimen_groups
+	(
+		HEC_PAT_Specimen_GroupID,
+		HEC_Patient_Event_RefID,
+		R_HEC_Patient_RefID,
+		UploadedBy_Account_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_PAT_Specimen_GroupID,
+		@HEC_Patient_Event_RefID,
+		@R_HEC_Patient_RefID,
+		@UploadedBy_Account_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

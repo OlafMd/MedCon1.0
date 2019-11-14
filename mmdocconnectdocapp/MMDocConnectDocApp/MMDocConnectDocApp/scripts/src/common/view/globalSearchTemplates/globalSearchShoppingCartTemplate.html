@@ -1,0 +1,11 @@
+﻿<ul class="global-filter patient-filter">
+    <li class="search-input-holder">
+        <input type="text" class="form-control" id="globalSearchInput" ng-model="global_search.text_search" ng-keyup="search($event)" placeholder="{{ 'LABEL_SEARCH' | translate }}">
+        <span class="icon-search"></span>
+    </li>
+    <li class="search-dropdown-holder">
+        <dropdown-list id="selHip" items="hips" ng-model="filter.hip" additional-class="'dropdown-min-width'" params="{display_name: 'display_name', id: 'name', is_model_object: false}" ng-change="search({ which: 13 }, true)" placeholder="'LABEL_HEALTH_INSURANCE_PROVIDER'"></dropdown-list>
+    </li>
+    <li>
+    </li>
+</ul>

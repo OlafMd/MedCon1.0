@@ -1,0 +1,19 @@
+INSERT INTO 
+	hec_cuo_rfp_requestforproposal_positions
+	(
+		HEC_CUO_RFP_RequestForProposal_PositionID,
+		Ext_ORD_CUO_RFP_RequestForProposal_Position_RefID,
+		ProductReplacement_HealthInsurance_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_CUO_RFP_RequestForProposal_PositionID,
+		@Ext_ORD_CUO_RFP_RequestForProposal_Position_RefID,
+		@ProductReplacement_HealthInsurance_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

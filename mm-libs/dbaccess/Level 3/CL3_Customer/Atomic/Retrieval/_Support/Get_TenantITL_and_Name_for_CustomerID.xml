@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="16/4/2014 05:04:57">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_TenantITL_and_Name_for_CustomerID</Name>
+    <Namespace>CL3_Customer.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Customer.Atomic.Retrieval"
+                Method_ClassName="cls_Get_TenantITL_and_Name_for_CustomerID"
+                Method_Name="Get_TenantITL_and_Name_for_CustomerID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_TenantITL_and_Name_for_CustomerID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT cmn_tenants.TenantITL
+		,cmn_bpt_ctm_customers.CMN_BPT_CTM_CustomerID
+		,cmn_bpt_businessparticipants.DisplayName
+	FROM cmn_bpt_ctm_customers
+	INNER JOIN cmn_bpt_businessparticipants ON cmn_bpt_ctm_customers.Ext_BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+		AND cmn_bpt_businessparticipants.IsDeleted = 0
+	INNER JOIN cmn_tenants ON cmn_bpt_businessparticipants.IfTenant_Tenant_RefID = cmn_tenants.CMN_TenantID
+		AND cmn_tenants.IsDeleted = 0
+	WHERE cmn_bpt_ctm_customers.IsDeleted = 0
+		AND cmn_bpt_ctm_customers.CMN_BPT_CTM_CustomerID = @CustomerID;
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3CU_GTaNfC_1702">
+    <Members>
+		<ClassMember Name="CustomerID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3CU_GTaNfC_1702" IsArray="true">
+			<Members>
+				<ClassMember Name="TenantITL" Type="String"  />
+				<ClassMember Name="DisplayName" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

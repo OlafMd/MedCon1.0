@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/14/2014 2:55:51 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>MeasuremetRoutes_by_AccountCode</Name>
+    <Namespace>CL3_MeasurementRun.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_MeasurementRun.Atomic.Retrieval"
+                Method_ClassName="cls_MeasuremetRoutes_by_AccountCode"
+                Method_Name="MeasuremetRoutes_by_AccountCode"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".MeasuremetRoutes_by_AccountCode"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select Distinct
+  mrs_rut_routes.MRS_RUT_RouteID,
+  mrs_rut_routes.DisplayName,
+  mrs_rut_routes.Creation_Timestamp,
+  mrs_rut_routes.Tenant_RefID,
+  mrs_rut_routes.IsDeleted,
+  mrs_rut_routes.IsTemporaryRoute,
+  mrs_rut_routes.Default_RouteReaderAccount_RefID
+From
+  mrs_run_measurementrun_accountdownloadcodes Inner Join
+  mrs_run_measurementrun_routes
+    On mrs_run_measurementrun_routes.MeasurementRun_RefID =
+    mrs_run_measurementrun_accountdownloadcodes.MeasurementRun_RefID Inner Join
+  mrs_rut_routes On mrs_rut_routes.MRS_RUT_RouteID =
+    mrs_run_measurementrun_routes.Route_RefID Inner Join
+  cmn_bpt_businessparticipant_accesscodes
+    On cmn_bpt_businessparticipant_accesscodes.BusinessParticipant_RefID =
+    mrs_run_measurementrun_accountdownloadcodes.Account_RefID
+Where
+  mrs_rut_routes.IsDeleted = 0 And
+  mrs_run_measurementrun_routes.IsDeleted = 0 And
+  mrs_run_measurementrun_accountdownloadcodes.IsDeleted = 0 And
+  mrs_run_measurementrun_accountdownloadcodes.DownloadCode = @DownloadCode And
+  cmn_bpt_businessparticipant_accesscodes.Code = @AccountCode
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3_MRbAC_1455">
+    <Members>
+		<ClassMember Name="AccountCode" Type="string"  />
+      <ClassMember Name="DownloadCode" Type="string"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3_MRbAC_1455" IsArray="true">
+			<Members>
+				<ClassMember Name="MRS_RUT_RouteID" Type="Guid"  />
+				<ClassMember Name="DisplayName" Type="String"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+				<ClassMember Name="IsTemporaryRoute" Type="bool"  />
+				<ClassMember Name="Default_RouteReaderAccount_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

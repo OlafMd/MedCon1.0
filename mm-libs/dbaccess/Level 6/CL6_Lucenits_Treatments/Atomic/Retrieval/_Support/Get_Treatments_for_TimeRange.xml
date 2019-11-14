@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/16/2013 2:56:23 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Patient_Treatment</Name>
+    <Namespace>CL6_Lucenits_Treatments.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_Lucenits_Treatments.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Treatments_for_TimeRange"
+                Method_Name="Get_Treatments_for_TimeRange"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Treatments_for_TimeRange"
+       
+              />
+  <SQLStatement xml:space="preserve">
+      Select
+      hec_patient_treatment.HEC_Patient_TreatmentID,
+      hec_patient_treatment.TreatmentPractice_RefID,
+      hec_patient_treatment.IsTreatmentPerformed,
+      hec_patient_treatment.IfTreatmentPerformed_ByDoctor_RefID,
+      hec_patient_treatment.IfTreatmentPerformed_Date,
+      hec_patient_treatment.IsTreatmentFollowup,
+      hec_patient_treatment.IfTreatmentFollowup_FromTreatment_RefID,
+      hec_patient_treatment.IsScheduled,
+      hec_patient_treatment.IfSheduled_Date,
+      hec_patient_treatment.IsTreatmentBilled,
+      hec_patient_treatment.IfTreatmentBilled_Date,
+      hec_patient_treatment.Treatment_Comment,
+      hec_patient_treatment.IfSheduled_ForDoctor_RefID
+      from  hec_patient_treatment
+      Where
+      ((hec_patient_treatment.IsTreatmentPerformed = 1 And  hec_patient_treatment.IfTreatmentPerformed_Date &lt;= @toDate And
+      hec_patient_treatment.IfTreatmentPerformed_Date &gt;= @fromDate) Or
+      (hec_patient_treatment.IsTreatmentPerformed = 0 And
+      hec_patient_treatment.IfSheduled_Date &lt;= @toDate And
+      hec_patient_treatment.IfSheduled_Date &gt;= @fromDate)) And
+      hec_patient_treatment.Tenant_RefID = @TenantID And
+      hec_patient_treatment.IsDeleted = 0
+ </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6TR_GT_fTR_1950">
+    <Members>
+      <ClassMember Name="fromDate" Type="DateTime"/>
+      <ClassMember Name="toDate" Type="DateTime"/>
+    </Members>
+  </Parameters>
+  
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6TR_GT_fTR_1950" IsArray="true">
+      <Members>
+        <ClassMember Name="HEC_Patient_TreatmentID" Type="Guid"  />
+        <ClassMember Name="TreatmentPractice_RefID" Type="Guid"  />
+        <ClassMember Name="IsTreatmentPerformed" Type="bool"  />
+        <ClassMember Name="IfTreatmentPerformed_ByDoctor_RefID" Type="Guid"  />
+        <ClassMember Name="IfTreatmentPerformed_Date" Type="DateTime"  />
+        <ClassMember Name="IsTreatmentFollowup" Type="bool"  />
+        <ClassMember Name="IfTreatmentFollowup_FromTreatment_RefID" Type="Guid"  />
+        <ClassMember Name="IsScheduled" Type="bool"  />
+        <ClassMember Name="IfSheduled_Date" Type="DateTime"  />
+        <ClassMember Name="IsTreatmentBilled" Type="bool"  />
+        <ClassMember Name="IfTreatmentBilled_Date" Type="DateTime"  />
+        <ClassMember Name="Treatment_Comment" Type="String"  />
+        <ClassMember Name="IfSheduled_ForDoctor_RefID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

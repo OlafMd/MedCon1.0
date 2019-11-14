@@ -1,0 +1,11 @@
+UPDATE 
+	res_str_facade_propertyassestmentstates
+SET 
+	FacadePropertyAssessmentState_Name_DictID=@FacadePropertyAssessmentState_Name,
+	FacadePropertyAssessmentState_Description_DictID=@FacadePropertyAssessmentState_Description,
+	FacadePropertyAssessmentState_OrdinalPosition=@FacadePropertyAssessmentState_OrdinalPosition,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_STR_Facade_PropertyAssestmentStateID = @RES_STR_Facade_PropertyAssestmentStateID

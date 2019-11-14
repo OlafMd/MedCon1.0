@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/6/2013 11:07:25 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_UserGroups_for_TenantID</Name>
+    <Namespace>CL5_APOAdmin_User.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOAdmin_User.Complex.Retrieval"
+                Method_ClassName="cls_Get_UserGroups_with_Rights_for_TenantID"
+                Method_Name="Get_UserGroups_with_Rights_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_UserGroups_with_Rights_for_TenantID"
+                />
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5US_GUGwRfT_1154" IsArray="true">
+			<Members>
+				<ClassMember Name="USR_GroupID" Type="Guid"  />
+				<ClassMember Name="Group_Name" Type="Dict" OriginTable="usr_groups" Source_DBField="Group_Name_DictID"  />
+            
+        <ClassMember Name="AllowedRights" Type="Guid" IsArray="true"  />
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

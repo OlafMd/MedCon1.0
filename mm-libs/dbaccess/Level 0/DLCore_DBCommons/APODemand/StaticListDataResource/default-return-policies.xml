@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+    <Item ID="default-return-policies-area.missing">
+        <Lang ISO="EN" Content="F - missing" />
+        <Lang ISO="DE" Content="F - fehlt" />
+    </Item>
+    <Item ID="default-return-policies-area.stock-mistake-clearance">
+        <Lang ISO="EN" Content="L - stock mistake/clearance" />
+        <Lang ISO="DE" Content="L - Lagerfehler/-bereinigung " />
+    </Item>
+    <Item ID="default-return-policies-area.order-mistake">
+        <Lang ISO="EN" Content="B - order mistake" />
+        <Lang ISO="DE" Content="B - Bestellfehler" />
+    </Item>
+    <Item ID="default-return-policies-area.instake-mistake">
+        <Lang ISO="EN" Content="A - instake mistake" />
+        <Lang ISO="DE" Content="A - Aufnahmefehler" />
+    </Item>
+    <Item ID="default-return-policies-area.miscellaneous">
+        <Lang ISO="EN" Content="S - miscellaneous" />
+        <Lang ISO="DE" Content="S - Sonstiges" />
+    </Item>
+    <Item ID="default-return-policies-area.cool-box">
+        <Lang ISO="EN" Content="K - cool box" />
+        <Lang ISO="DE" Content="K - Kühlbox" />
+    </Item>
+    <Item ID="default-return-policies-area.unsellable-package">
+        <Lang ISO="EN" Content="P - unsellable package" />
+        <Lang ISO="DE" Content="P - Packung unverk" />
+    </Item>
+    <Item ID="default-return-policies-area.expired-too-close-to-expiry-date">
+        <Lang ISO="EN" Content="V - expired / too close to expiry date" />
+        <Lang ISO="DE" Content="V - verfallen / Verfall zu kurz" />
+    </Item>
+    <Item ID="default-return-policies-area.for-testing-viewing-purposes">
+        <Lang ISO="EN" Content="Z - for testing/viewing purposes" />
+        <Lang ISO="DE" Content="Z - Zur Ansicht" />
+    </Item>
+    <Item ID="default-return-policies-area.without-billing">
+        <Lang ISO="EN" Content="O - without billing" />
+        <Lang ISO="DE" Content="O - Ohne Berechnung"/>
+    </Item>
+    <Item ID="default-return-policies-area.product-rebuy">
+        <Lang ISO="EN" Content="W - product rebuy" />
+        <Lang ISO="DE" Content="W - Warenrückkauf "/>
+    </Item>
+    <Item ID="default-return-policies-area.call-back">
+        <Lang ISO="EN" Content="Q - call back" />
+        <Lang ISO="DE" Content="Q - Rückruf/Widerruf"/>
+    </Item>
+    <Item ID="default-return-policies-area.doctors-practice-mistake">
+        <Lang ISO="EN" Content="T - doctor's practice mistake" />
+        <Lang ISO="DE" Content="T - Arztpraxisfehler"/>
+    </Item>  
+</Resources>

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_act_plannedaction_followupreasons
+WHERE 
+	HEC_ACT_PlannedAction_FollowupReasonID = @HEC_ACT_PlannedAction_FollowupReasonID

@@ -1,0 +1,13 @@
+UPDATE 
+	cmn_sls_dpf_type_procurementpricedependencies
+SET 
+	DynamicPricingFormula_Type_RefID=@DynamicPricingFormula_Type_RefID,
+	ApplicableFrom_ProcurementPrice=@ApplicableFrom_ProcurementPrice,
+	ApplicableThrough_ProcurementPrice=@ApplicableThrough_ProcurementPrice,
+	DynamicPricingFormula=@DynamicPricingFormula,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	CMN_SLS_DPF_Type_ProcurementPriceDependencyID = @CMN_SLS_DPF_Type_ProcurementPriceDependencyID

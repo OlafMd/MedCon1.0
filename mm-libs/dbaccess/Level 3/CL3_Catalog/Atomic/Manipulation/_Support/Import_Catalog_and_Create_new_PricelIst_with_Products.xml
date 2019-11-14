@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/26/2013 11:25:09 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Save_Catalog_BaseData</Name>
+        <Namespace>CL3_Catalog.Atomic.Manipulation</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+    
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+  
+
+  <CreationInfo Method_Namespace="CL3_Catalog.Atomic.Manipulation"
+                Method_ClassName="cls_Import_Catalog_and_Create_new_PricelIst_with_Products"
+                Method_Name="Import_Catalog_and_Create_new_PricelIst_with_Products"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Import_Catalog_and_Create_new_PricelIst_with_Products"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L3ICaCnP_1426">
+    <Members>
+		<ClassMember Name="CatalogCodeITL" Type="String"  />
+        <ClassMember Name="CatalogName" Type="String"  />
+		<ClassMember Name="CatalogDescription" Type="String"  />
+        <ClassMember Name="ValidFrom_Date" Type="DateTime"  />
+        <ClassMember Name="ValidTo_Date" Type="DateTime"  />
+        <ClassMember Name="isDeleted" Type="bool"  />
+        <ClassMember Name="SubscribedBy_BusinessParticipant_RefID" Type="Guid"  />
+        <ClassMember Name="CatalogLanguage_ISO_639_1_codes" Type="String"  />
+        <ClassMember Name="CatalogCurrency_ISO_4217" Type="String"  />
+        <ClassMember Name="CatalogVersion" Type="int"  />
+        <ClassMember Name="IsCatalogPublic" Type="Boolean" />
+        <ClassMember Name="ClientName" Type="String"  />
+        <ClassMember IsClass="true" IsArray="true" Name="Products" Type="P_L3ICaCnP_1426_Products" >
+            <Members>
+                <ClassMember Name="ProductITL" Type="String"  />
+                <ClassMember Name="isDeleted" Type="bool"  />
+                <ClassMember Name="Product_Name" Type="Dict"  />
+                <ClassMember Name="Product_Description" Type="Dict"  />
+                <ClassMember Name="Product_Number" Type="String"  />
+                <ClassMember Name="IsProduct_Article" Type="bool"  />
+                <ClassMember Name="Dosage" Type="String"  />
+                <ClassMember Name="Price" Type="Decimal" />
+                <ClassMember Name="Amount" Type="double" />
+                <ClassMember Name="MeasuredInUnit_ISO_um_ums" Type="String" />
+                <ClassMember Name="VAT" Type="String" />
+            </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="false" Name="SupplierData" Type="P_L3ICaCnP_1426_SupplierData" >
+            <Members>
+                <ClassMember Name="SupplierITL" Type="String"  />
+                <ClassMember Name="TenantITL" Type="String"  />
+                <ClassMember Name="Supplier_Name" Type="String"  />
+                <ClassMember Name="CountryISO" Type="String"  />
+                <ClassMember Name="Street_Name" Type="String"  />
+                <ClassMember Name="Street_Number" Type="String"  />
+                <ClassMember Name="ZIP" Type="String"  />
+                <ClassMember Name="Town" Type="String"  />
+                <ClassMember Name="Region_Code" Type="String"  />
+            </Members>
+        </ClassMember>
+    </Members>
+  </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L3ICaCnP_1426" IsArray="true">
+            <Members>
+                <ClassMember  Type="Guid"       Name="ProductID"  />
+                <ClassMember Name="Dosage" Type="String"  />
+                <ClassMember Name="isEdit" Type="bool"  />
+            </Members>
+        </ObjectReturnType_Definition>
+        
+	</ResultInfo>
+
+</CodeGen>
+
+

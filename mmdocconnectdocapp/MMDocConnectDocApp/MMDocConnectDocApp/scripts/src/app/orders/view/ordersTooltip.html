@@ -1,0 +1,22 @@
+﻿<div>
+    <div class="text-left" ng-if="item.header_comment">
+        <span class="bolded-text">{{ 'LABEL_HEADER_COMMENT' | translate }}: </span>
+        {{ item.header_comment }}
+    </div>
+    <div class="text-left" ng-if="item.position_comment">
+        <span class="bolded-text">{{ 'LABEL_POSITION_COMMENT' | translate }}: </span>
+        {{ item.position_comment }}
+    </div>
+    <div class="text-left">
+        <span class="bolded-text">{{ 'LABEL_NO_FEE' | translate }}: </span>
+        {{ item.patient_fee_waived ? 'LABEL_YES' : 'BUTTON_NO' | translate }}
+    </div>
+    <div class="text-left">
+        <span class="bolded-text">{{ 'LABEL_PRACTICE_INVOICE' | translate }}: </span>
+        {{ item.invoice_to_practice ? 'LABEL_YES' : 'BUTTON_NO' | translate }}
+    </div>
+    <div class="text-left" ng-if="practiceCanOrderLabelOnly">
+        <span class="bolded-text">{{ 'LABEL_ONLY_LABEL_REQUIRED' | translate }}: </span>
+        {{ item.label_only ? 'LABEL_YES' : 'BUTTON_NO' | translate }}
+    </div>
+</div>

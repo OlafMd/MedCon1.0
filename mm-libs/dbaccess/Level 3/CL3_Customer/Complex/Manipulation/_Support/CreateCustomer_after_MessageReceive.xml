@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/14/2014 9:46:26 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>CreateCustomer_after_MessageReceive</Name>
+    <Namespace>CL3_Customer.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Customer.Complex.Manipulation"
+                Method_ClassName="cls_CreateCustomer_after_MessageReceive"
+                Method_Name="CreateCustomer_after_MessageReceive"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".CreateCustomer_after_MessageReceive"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L3CU_CCaMR_1308">
+    <Members>
+        <ClassMember Name="Customer_TenantITL" Type="String"  />
+        <ClassMember Name="Customer_CompanyName" Type="String"  />
+        <ClassMember Name="Customer_ContactEmail" Type="String"  />
+        <ClassMember Name="Customer_BusinessParticipantITL" Type="String"  />
+        <ClassMember Name="Customer_TenantUniversalContactDetailITL" Type="String"  />
+        <ClassMember Name="Customer_CompanyInfoUniversalContactDetailITL" Type="String"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+      Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+      Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3CU_CCaMR_1308" IsArray="false">
+      <Members>
+        <ClassMember Name="Customer_TenantID" Type="Guid"  />
+        <ClassMember Name="Customer_BusinessParticipantID" Type="Guid"  />
+        <ClassMember Name="Customer_CompanyInfo_UniversalContactDetailID" Type="Guid"  />
+        <ClassMember Name="Customer_Tenant_UniversalContactDetailID" Type="Guid"  />
+        <ClassMember Name="Customer_CompanyInfoID" Type="Guid"  />
+        <ClassMember Name="Customer_CustomerID" Type="Guid"  />
+        <ClassMember Name="IsCustomerOrderAutomaticallyApprovedOnReceipt" Type="Boolean"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

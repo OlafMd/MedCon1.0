@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_cmt_opt_privatecommunitygroup_visibility
+WHERE 
+	HEC_CMT_OPT_CommunityGroupVisibilityID = @HEC_CMT_OPT_CommunityGroupVisibilityID

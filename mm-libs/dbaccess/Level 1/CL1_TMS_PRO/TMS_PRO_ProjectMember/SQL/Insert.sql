@@ -1,0 +1,25 @@
+INSERT INTO 
+	tms_pro_projectmembers
+	(
+		TMS_PRO_ProjectMemberID,
+		Project_RefID,
+		USR_Account_RefID,
+		ProjectMember_Type_RefID,
+		IsOwner,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID,
+		ChargingLevel_RefID
+	)
+VALUES 
+	(
+		@TMS_PRO_ProjectMemberID,
+		@Project_RefID,
+		@USR_Account_RefID,
+		@ProjectMember_Type_RefID,
+		@IsOwner,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID,
+		@ChargingLevel_RefID
+	)

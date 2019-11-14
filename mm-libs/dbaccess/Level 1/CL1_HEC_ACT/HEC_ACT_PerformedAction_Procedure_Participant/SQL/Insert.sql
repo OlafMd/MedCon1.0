@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_act_performedaction_procedure_participants
+	(
+		HEC_ACT_PerformedAction_Procedure_ParticipantID,
+		Action_Procedure_RefID,
+		BusinessParticipant_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_PerformedAction_Procedure_ParticipantID,
+		@Action_Procedure_RefID,
+		@BusinessParticipant_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

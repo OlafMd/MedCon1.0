@@ -1,0 +1,12 @@
+UPDATE 
+	cmn_qst_questionnaire_templates
+SET 
+	QuestionnaireTemplate_Name_DictID=@QuestionnaireTemplate_Name,
+	QuestionnaireTemplate_Description_DictID=@QuestionnaireTemplate_Description,
+	Current_PublishedVersion_RefID=@Current_PublishedVersion_RefID,
+	Current_UnpublishedVersion_RefID=@Current_UnpublishedVersion_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_QST_Questionnaire_TemplateID = @CMN_QST_Questionnaire_TemplateID

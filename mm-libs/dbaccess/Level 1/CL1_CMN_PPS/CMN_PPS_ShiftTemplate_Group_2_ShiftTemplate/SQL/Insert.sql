@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_pps_shifttemplate_group_2_shifttemplate
+	(
+		AssignmentID,
+		CMN_PPS_ShiftTemplate_RefID,
+		CMN_PPS_ShiftTemplate_Group_RefID,
+		Proposed_StaffHeadCount,
+		SequenceNumber,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_PPS_ShiftTemplate_RefID,
+		@CMN_PPS_ShiftTemplate_Group_RefID,
+		@Proposed_StaffHeadCount,
+		@SequenceNumber,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

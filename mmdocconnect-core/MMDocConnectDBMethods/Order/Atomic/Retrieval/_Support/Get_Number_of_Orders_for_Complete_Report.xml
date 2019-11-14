@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="03/14/2017 10:10 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Number_of_Orders_for_Complete_Report</Name>
+    <Namespace>MMDocConnectDBMethods.Order.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Order.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Number_of_Orders_for_Complete_Report"
+                Method_Name="Get_Number_of_Orders_for_Complete_Report"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+  <SQLStatement xml:space="preserve">
+  Select
+      Count(ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID) As
+      number_of_tiles
+    From
+      ord_prc_procurementorder_statuses
+      Inner Join ord_prc_procurementorder_headers
+        On ord_prc_procurementorder_statuses.ORD_PRC_ProcurementOrder_StatusID =
+        ord_prc_procurementorder_headers.Current_ProcurementOrderStatus_RefID And
+        ord_prc_procurementorder_headers.Tenant_RefID = @TenantID And
+        ord_prc_procurementorder_headers.IsDeleted = 0
+    Where
+      ord_prc_procurementorder_statuses.Status_Code in (1, 2, 3, 4, 6, 7, 10) And
+      ord_prc_procurementorder_statuses.Tenant_RefID = @TenantID And
+      ord_prc_procurementorder_statuses.IsDeleted = 0
+  </SQLStatement>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="OR_GNoOfCR_1010">
+      <Members>
+        <ClassMember Name="number_of_tiles" Type="int"/>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+
+
+  </ResultInfo>
+
+</CodeGen>

@@ -1,0 +1,19 @@
+INSERT INTO 
+	hec_crt_insurancetobrokercontracts
+	(
+		HEC_CRT_InsuranceToBrokerContractID,
+		Ext_CMN_CTR_Contract_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CRT_InsuranceToBrokerContractID,
+		@Ext_CMN_CTR_Contract_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

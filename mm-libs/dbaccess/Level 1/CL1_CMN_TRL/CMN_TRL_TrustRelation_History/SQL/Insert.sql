@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_trl_trustrelation_history
+	(
+		CMN_TRL_TrustRelation_HistoryID,
+		TrustRelation_RefID,
+		StatusType,
+		StatusChangeReason,
+		Performed_ByAccount_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_TRL_TrustRelation_HistoryID,
+		@TrustRelation_RefID,
+		@StatusType,
+		@StatusChangeReason,
+		@Performed_ByAccount_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

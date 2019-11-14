@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FB6BF8BA-12E5-49B3-A24A-5D6520F01F70}</ProjectGuid>
+    <ProjectGuid>{FB6BF8BA-12E5-49B3-A24A-5D6520F01F70}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_Zugseil_CustomerOrder</RootNamespace>
+    <AssemblyName>CL5_Zugseil_CustomerOrder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Complex\Manipulation\cls_Accept_CustomerOrder_and_Create_Shipment.cs" />
+    <Compile Include="Complex\Manipulation\cls_Create_CustomerOrder.cs" />
+    <Compile Include="Complex\Manipulation\cls_Reject_CustomerOrder.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_CustomerOrder_with_CustomerOrderPosition_for_HeaderID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8a936290-4628-4f28-9639-9b65915a0c8c}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_MessageListener\DLCore_MessageListener.csproj">
+      <Project>{A3DFF096-684C-4300-B334-C101FA953493}</Project>
+      <Name>DLCore_MessageListener</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ACC\CL1_ACC.csproj">
+      <Project>{63724943-c632-47eb-a2fe-5e413a778e9b}</Project>
+      <Name>CL1_ACC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3c164500-bf5f-4173-b1a8-154a38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_SHP\CL1_LOG_SHP.csproj">
+      <Project>{e43de7b7-3c37-46b1-8824-d7313ccd8273}</Project>
+      <Name>CL1_LOG_SHP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_CUO\CL1_ORD_CUO.csproj">
+      <Project>{08b298c5-2b62-46ea-964f-98109e5b288c}</Project>
+      <Name>CL1_ORD_CUO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{feab6f0e-56f1-43d4-bef0-988b26474dd2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Product\CL3_Product.csproj">
+      <Project>{737719e7-e00f-40a8-b2b1-0ff1200b39f5}</Project>
+      <Name>CL3_Product</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Variant\CL3_Variant.csproj">
+      <Project>{e7cc4e04-18ce-438f-9eb7-f25245e68a42}</Project>
+      <Name>CL3_Variant</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Complex\Manipulation\_Support\Accept_CustomerOrder_and_Create_Shipment.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Create_CustomerOrder.xml" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Customer_Orders_for_Status.cs" />
+    <Content Include="Complex\Manipulation\_Support\Reject_CustomerOrder.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Complex\Retrieval\SQL\cls_Get_CustomerOrder_with_CustomerOrderPosition_for_HeaderID.sql" />
+    <Content Include="Complex\Retrieval\_Support\Get_CustomerOrder_with_CustomerOrderPosition_for_HeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Customer_Orders_for_Status.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Customer_Orders_for_Status.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

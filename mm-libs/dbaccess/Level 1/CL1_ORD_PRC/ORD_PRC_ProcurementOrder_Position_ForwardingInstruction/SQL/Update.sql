@@ -1,0 +1,11 @@
+UPDATE 
+	ord_prc_procurementorder_position_forwardinginstructions
+SET 
+	ProcurementOrder_Position_RefID=@ProcurementOrder_Position_RefID,
+	QuantityToForward=@QuantityToForward,
+	ForwardTo_BusinessParticipant_RefID=@ForwardTo_BusinessParticipant_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	ORD_PRC_ProcurementOrder_Position_ForwardingInstructionID = @ORD_PRC_ProcurementOrder_Position_ForwardingInstructionID

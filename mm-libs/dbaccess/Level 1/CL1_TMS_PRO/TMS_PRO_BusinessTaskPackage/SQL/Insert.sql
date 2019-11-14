@@ -1,0 +1,25 @@
+INSERT INTO 
+	tms_pro_businesstaskpackages
+	(
+		TMS_PRO_BusinessTaskPackageID,
+		Parent_RefID,
+		Project_RefID,
+		OrderSequence,
+		Label,
+		CreatedByAccount_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@TMS_PRO_BusinessTaskPackageID,
+		@Parent_RefID,
+		@Project_RefID,
+		@OrderSequence,
+		@Label,
+		@CreatedByAccount_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

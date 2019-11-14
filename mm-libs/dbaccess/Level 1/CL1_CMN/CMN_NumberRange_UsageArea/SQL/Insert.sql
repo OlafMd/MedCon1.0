@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_numberrange_usageareas
+	(
+		CMN_NumberRange_UsageAreaID,
+		GlobalStaticMatchingID,
+		UsageArea_Name_DictID,
+		UsageArea_Description_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_NumberRange_UsageAreaID,
+		@GlobalStaticMatchingID,
+		@UsageArea_Name,
+		@UsageArea_Description,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

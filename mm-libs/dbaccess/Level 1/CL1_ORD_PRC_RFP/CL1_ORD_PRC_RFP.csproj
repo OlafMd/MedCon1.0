@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E77747E4-E403-4050-89C0-2C1CC1DABAF5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_ORD_PRC_RFP</RootNamespace>
+    <AssemblyName>CL1_ORD_PRC_RFP</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ORD_PRC_RFP_IssuedProposalResponse_Position\ORM_ORD_PRC_RFP_IssuedProposalResponse_Position.cs" />
+    <Compile Include="ORD_PRC_RFP_PotentialSupplier\ORM_ORD_PRC_RFP_PotentialSupplier.cs" />
+    <Compile Include="ORD_PRC_RFP_PotentialSupplier_History\ORM_ORD_PRC_RFP_PotentialSupplier_History.cs" />
+    <Compile Include="ORD_PRC_RFP_RequestForProposal_Header\ORM_ORD_PRC_RFP_RequestForProposal_Header.cs" />
+    <Compile Include="ORD_PRC_RFP_RequestForProposal_Position\ORM_ORD_PRC_RFP_RequestForProposal_Position.cs" />
+    <Compile Include="ORD_PRC_RFP_SupplierProposalResponseHeader_2_PRC_Header\ORM_ORD_PRC_RFP_SupplierProposalResponseHeader_2_PRC_Header.cs" />
+    <Compile Include="ORD_PRC_RFP_SupplierProposalResponsePosition_2_PRC_Position\ORM_ORD_PRC_RFP_SupplierProposalResponsePosition_2_PRC_Position.cs" />
+    <Compile Include="ORD_PRC_RFP_SupplierProposalResponse_Header\ORM_ORD_PRC_RFP_SupplierProposalResponse_Header.cs" />
+    <Compile Include="ORD_PRC_RFP_SupplierProposalResponse_Position\ORM_ORD_PRC_RFP_SupplierProposalResponse_Position.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ORD_PRC_RFP_IssuedProposalResponse_Position\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_IssuedProposalResponse_Position\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_IssuedProposalResponse_Position\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_SupplierProposalResponsePosition_2_PRC_Position\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_SupplierProposalResponsePosition_2_PRC_Position\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_SupplierProposalResponsePosition_2_PRC_Position\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_PotentialSupplier_History\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_PotentialSupplier_History\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_PotentialSupplier_History\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_PotentialSupplier\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_PotentialSupplier\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_PotentialSupplier\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_RequestForProposal_Header\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_RequestForProposal_Header\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_RequestForProposal_Header\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_RequestForProposal_Position\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_RequestForProposal_Position\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_RequestForProposal_Position\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_SupplierProposalResponse_Header\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_SupplierProposalResponse_Header\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_SupplierProposalResponse_Header\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_SupplierProposalResponse_Position\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_SupplierProposalResponse_Position\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_SupplierProposalResponse_Position\SQL\Select.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_SupplierProposalResponseHeader_2_PRC_Header\SQL\Insert.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_SupplierProposalResponseHeader_2_PRC_Header\SQL\Update.sql" />
+    <EmbeddedResource Include="ORD_PRC_RFP_SupplierProposalResponseHeader_2_PRC_Header\SQL\Select.sql" />
+    <Content Include="_Support\ORD_PRC_RFP_IssuedProposalResponse_Positions.xml" />
+    <Content Include="_Support\ORD_PRC_RFP_PotentialSuppliers.xml" />
+    <Content Include="_Support\ORD_PRC_RFP_PotentialSupplier_History.xml" />
+    <Content Include="_Support\ORD_PRC_RFP_RequestForProposal_Headers.xml" />
+    <Content Include="_Support\ORD_PRC_RFP_RequestForProposal_Positions.xml" />
+    <Content Include="_Support\ORD_PRC_RFP_SupplierProposalResponseHeader_2_PRC_Header.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\ORD_PRC_RFP_SupplierProposalResponsePosition_2_PRC_Position.xml" />
+    <Content Include="_Support\ORD_PRC_RFP_SupplierProposalResponse_Headers.xml" />
+    <Content Include="_Support\ORD_PRC_RFP_SupplierProposalResponse_Positions.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

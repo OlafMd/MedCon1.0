@@ -1,0 +1,19 @@
+INSERT INTO 
+	log_rcp_rqf_position_memberitems_2_shipmentposition
+	(
+		AssignmentID,
+		LOG_RCP_RQF_Position_MemberItem_RefID,
+		LOG_SHP_Shipment_Position_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@LOG_RCP_RQF_Position_MemberItem_RefID,
+		@LOG_SHP_Shipment_Position_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

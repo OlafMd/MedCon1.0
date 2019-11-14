@@ -1,0 +1,23 @@
+INSERT INTO 
+	tms_pro_acc_rightspackages
+	(
+		TMS_PRO_ACC_RightsPackageID,
+		GlobalPropertyMatchingID,
+		Name_DictID,
+		Description_DictID,
+		HierarchyLevel,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@TMS_PRO_ACC_RightsPackageID,
+		@GlobalPropertyMatchingID,
+		@Name,
+		@Description,
+		@HierarchyLevel,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

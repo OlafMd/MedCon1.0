@@ -1,0 +1,45 @@
+<div class="popup-wrapper">
+    <div class="popup popup-medium warning-popup">
+        <div class="warning-msg"><h2 translate="LABEL_CONFIRM_PAYMENT"></h2></div>
+
+
+        <form class="popup-content" novalidate name="paymentConfirmationForm" ng-submit="confirmPaymentConfirmationPopup()">
+
+            <div name="messageContainer" class="error-msg-container" ng-if="paymentDateInvalid">
+                <span class="error">{{ 'LABEL_INVALID_DATE' | translate }}</span>
+            </div>
+
+            <div class="row margin-top-30">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <input type="checkbox" id="paymentCheckbox" name="paymentCheckbox" ng-model="payment.changeStatus">
+                            <label for="paymentCheckbox">{{'LABEL_STATUS_CHANGE'|translate}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>
+                            {{'LABEL_DATE' | translate}}
+                            <span class="error" ng-show="paymentConfirmationForm.dpPaymentDate.$error.required || paymentDateInvalid">*</span>
+                        </label>
+                        <datepicker date-format="dd.MM.yyyy" validate-date="true" date-max-limit="{{ today }}" date-model="payment.date">
+                            <input class="form-control 2000Year" id="dpPaymentDate" ng-focus="SetClass()" name="dpPaymentDate" ng-model="payment.date"
+                                   ng-class="{'redborder': paymentDateInvalid}"
+                                   ng-datefilter type="text" change="typedDAte" ng-bind="date | date:'dd.MM.yyyy'" required validate-date="true" date-max-limit="today">
+                        </datepicker>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="buttons text-right no-padding margin-top-30">
+                <button class="button wide reject jsblockClose" id="btnCancelPayment" onclick="return false;" ng-click="cancelPaymentConfirmationPopup()" translate="BUTTON_CANCEL"></button>
+                <button class="button wide confirm jsblockClose" id="btnConfirmPayment" type="submit" translate="BUTTON_SAVE" ng-disabled="paymentConfirmationForm.$invalid"></button>
+            </div>
+        </form>
+    </div>
+</div>

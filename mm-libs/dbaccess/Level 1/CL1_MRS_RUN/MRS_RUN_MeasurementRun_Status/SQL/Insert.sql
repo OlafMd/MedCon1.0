@@ -1,0 +1,21 @@
+INSERT INTO 
+	mrs_run_measurementrun_statuses
+	(
+		MRS_RUN_MeasurementRun_StatusID,
+		GlobalPropertyMatchingID,
+		StatusDisplayName,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@MRS_RUN_MeasurementRun_StatusID,
+		@GlobalPropertyMatchingID,
+		@StatusDisplayName,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:31:03 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_BPT_Memo_RelatedParticipant"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_BPT"
+                IsClass_Corresponding_DBTable="cmn_bpt_memo_relatedparticipants" >
+      <Members>
+		<ClassMember Name="CMN_BPT_Memo_RelatedParticipantID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="CMN_BPT_BusinessParticipant_RefID" Type="Guid" />
+		<ClassMember Name="CMN_BPT_Memo_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

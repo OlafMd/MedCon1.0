@@ -1,0 +1,78 @@
+<div class="gray-content-holder doctors-data-lists patients-list animate-if">
+    <form id="pharmacyForm" name="pharmacyForm" ng-submit="sendPharmacyForm($event)" novalidate off-click="closePharmacyForm($event)">
+        <div class="row first-class-data">
+            <div name="messageContainer" class="error-msg-container" ng-show="!emailIsValid && isFormSubmitted">
+                <span class="error" ng-show="!emailIsValid && isFormSubmitted">{{ 'LABEL_EMAIL_NOT_VALID' | translate }}</span>
+            </div>
+
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label>{{::'LABEL_APOTHEKE_NAME' | translate}}<span class="error" ng-if="pharmacyForm.pharmacyName.$error.required">*</span></label>
+                    <input type="text" id="pharmacyName" class="form-control" name="pharmacyName" ng-model="pharmacy.pharmacyName" required>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label>{{::'LABEL_CONTACT' | translate}}<span class="error" ng-if="pharmacyForm.contactPersonName.$error.required">*</span></label>
+                    <input type="text" id="contactPersonName" class="form-control" name="contactPersonName" ng-model="pharmacy.contactPersonName" required>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label>{{::'LABEL_EMAIL_ADDRESS' | translate}}<span class="error" ng-if="pharmacyForm.email.$error.required">*</span></label>
+                    <input type="text" id="email" class="form-control" name="email" ng-model="pharmacy.email" ng-class="{'redborder': !emailIsValid && isFormSubmitted}" required>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="form-group">
+                    <label>{{::'LABEL_PHONE' | translate}}<span class="error" ng-if="pharmacyForm.phoneNumber.$error.required">*</span></label>
+                    <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" ng-model="pharmacy.phoneNumber" required>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="form-group">
+                    <label>{{::'LABEL_FAX' | translate}}</label>
+                    <input type="text" id="fax" class="form-control" name="fax" ng-model="pharmacy.fax">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="col-xs-12">
+                <h3 class="margin-top-15 margin-bottom-20">{{::'LABEL_ADRESSE' | translate}}</h3>
+            </div>
+
+            <div class="col-xs-4">
+                <div class="form-group">
+                    <label>{{::'LABEL_STREET' | translate}}<span class="error" ng-if="pharmacyForm.street.$error.required">*</span></label>
+                    <input type="text" id="street" class="form-control" name="street" ng-model="pharmacy.street" required>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="form-group">
+                    <label>{{'LABEL_NO'|translate}}<span class="error" ng-if="pharmacyForm.streetNumber.$error.required">*</span></label>
+                    <input type="text" id="streetNumber" class="form-control" name="streetNumber" ng-model="pharmacy.streetNumber" required>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="form-group">
+                    <label>{{'LABEL_ZIP'|translate}}<span class="error" ng-if="pharmacyForm.zipCode.$error.required">*</span></label>
+                    <input type="text" id="zipCode" class="form-control" name="zipCode" ng-model="pharmacy.zipCode" required>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="form-group">
+                    <label>{{'LABEL_CITY'|translate}}<span class="error" ng-if="pharmacyForm.town.$error.required">*</span></label>
+                    <input type="text" id="town" class="form-control" name="town" ng-model="pharmacy.town" required>
+                </div>
+            </div>
+        </div>
+        <div class="buttons margin-top-15">
+            <button type="submit" class="button wide confirm no-margin-bottom" name="btnSubmit" id="btnSubmitPharmacy" translate="BUTTON_SAVE" ng-disabled="pharmacyForm.$invalid"></button>
+            <button type="button" class="button narrow reject no-margin-bottom" id="btnCancelSubmitPharmacy" onclick="return false;" ng-click="closePharmacyForm()" title="{{ 'BUTTON_CANCEL' | translate }}"></button>
+        </div>
+
+    </form>
+    <div class="clearfix"></div>
+</div>

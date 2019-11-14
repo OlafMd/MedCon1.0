@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/3/2014 2:49:04 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_WebAppointment_DisplayName_for_TaskTemplateID</Name>
+    <Namespace>CL5_MyHealthClub_TaskTemplate.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_TaskTemplate.Atomic.Retrieval"
+                Method_ClassName="cls_Get_WebAppointment_DisplayName_for_TaskTemplateID"
+                Method_Name="Get_WebAppointment_DisplayName_for_TaskTemplateID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_WebAppointment_DisplayName_for_TaskTemplateID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  pps_tsk_tasks.DisplayName
+	From
+	  pps_tsk_tasks Inner Join
+	  pprs_tsk_task_selectedavailabilitytypes
+	    On pprs_tsk_task_selectedavailabilitytypes.PPS_TSK_Task_RefID =
+	    pps_tsk_tasks.PPS_TSK_TaskID And
+	    pprs_tsk_task_selectedavailabilitytypes.Tenant_RefID = @TenantID And
+	    pprs_tsk_task_selectedavailabilitytypes.IsDeleted = 0 Inner Join
+	  pps_tsk_task_templates On pps_tsk_tasks.InstantiatedFrom_TaskTemplate_RefID =
+	    pps_tsk_task_templates.PPS_TSK_Task_TemplateID And
+	    pps_tsk_task_templates.IsDeleted = 0 And pps_tsk_task_templates.Tenant_RefID
+	    = @TenantID
+	Where
+	  pps_tsk_tasks.IsDeleted = 0 And
+	  pps_tsk_tasks.Tenant_RefID = @TenantID And
+	  pps_tsk_task_templates.PPS_TSK_Task_TemplateID = @TaskTemplateID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5AP_GWADNfTTID_1448">
+    <Members>
+		<ClassMember Name="TaskTemplateID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5AP_GWADNfTTID_1448" IsArray="true">
+			<Members>
+				<ClassMember Name="DisplayName" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,19 @@
+INSERT INTO 
+	pps_tsk_task_requiredstaff_professions
+	(
+		PPS_TSK_Task_RequiredStaff_ProfessionID,
+		RequiredStaff_RefID,
+		CMN_STR_Profession_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@PPS_TSK_Task_RequiredStaff_ProfessionID,
+		@RequiredStaff_RefID,
+		@CMN_STR_Profession_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

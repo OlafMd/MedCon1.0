@@ -1,0 +1,23 @@
+INSERT INTO 
+	acc_ipl_installmentplan_statushistory
+	(
+		ACC_IPL_InstallmentPlan_StatusHistoryID,
+		ACC_IPL_InstallmentPlan_RefID,
+		ACC_IPL_InstallmentPlan_Status_RefID,
+		PerformedBy_BusinessParticipant_RefID,
+		StatusHistoryComment,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ACC_IPL_InstallmentPlan_StatusHistoryID,
+		@ACC_IPL_InstallmentPlan_RefID,
+		@ACC_IPL_InstallmentPlan_Status_RefID,
+		@PerformedBy_BusinessParticipant_RefID,
+		@StatusHistoryComment,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/13/2013 11:05:18 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_CMN_BPT_CTM_CatalogProductExtensionRequest</Name>
+    <Namespace>CL2_Catalog.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Catalog.Atomic.Manipulation"
+                Method_ClassName="cls_Save_CMN_BPT_CTM_CatalogProductExtensionRequest"
+                Method_Name="Save_CMN_BPT_CTM_CatalogProductExtensionRequest"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_CMN_BPT_CTM_CatalogProductExtensionRequest"
+                />
+  <SQLLimitation_CSharp_Extension>
+			var returnValue = new FR_Guid();
+
+			var item = new CL1_CMN_BPT_CTM.ORM_CMN_BPT_CTM_CatalogProductExtensionRequest();
+			if (Parameter.CMN_BPT_CTM_CatalogProductExtensionRequestID != Guid.Empty)
+			{
+			    var result = item.Load(Connection, Transaction, Parameter.CMN_BPT_CTM_CatalogProductExtensionRequestID);
+			    if (result.Status != FR_Status.Success || item.CMN_BPT_CTM_CatalogProductExtensionRequestID == Guid.Empty)
+			    {
+			        var error = new FR_Guid();
+			        error.ErrorMessage = "No Such ID";
+			        error.Status =  FR_Status.Error_Internal;
+			        return error;
+			    }
+			}
+
+			if(Parameter.IsDeleted == true){
+				item.IsDeleted = true;
+				return new FR_Guid(item.Save(Connection, Transaction),item.CMN_BPT_CTM_CatalogProductExtensionRequestID);
+			}
+
+			//Creation specific parameters (Tenant, Account ... )
+			if (Parameter.CMN_BPT_CTM_CatalogProductExtensionRequestID == Guid.Empty)
+			{
+				item.Tenant_RefID = securityTicket.TenantID;
+			}
+
+			item.CatalogProductExtensionRequestITL = Parameter.CatalogProductExtensionRequestITL;
+			item.RequestedBy_Customer_BusinessParticipant_RefID = Parameter.RequestedBy_Customer_BusinessParticipant_RefID;
+			item.RequestedBy_Person_BusinessParticipant_RefID = Parameter.RequestedBy_Person_BusinessParticipant_RefID;
+			item.RequestedFor_Catalog_RefID = Parameter.RequestedFor_Catalog_RefID;
+			item.Request_Question = Parameter.Request_Question;
+			item.Request_Answer = Parameter.Request_Answer;
+			item.IsAnswerSent = Parameter.IsAnswerSent;
+			item.IfAnswerSent_By_BusinessParticipant_RefID = Parameter.IfAnswerSent_By_BusinessParticipant_RefID;
+			item.IfAnswerSent_Date = Parameter.IfAnswerSent_Date;
+
+
+			return new FR_Guid(item.Save(Connection, Transaction),item.CMN_BPT_CTM_CatalogProductExtensionRequestID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2CA_SCPER_1105">
+    <Members>
+		<ClassMember IsIdentificator="True" Name="CMN_BPT_CTM_CatalogProductExtensionRequestID" Type="Guid"  />
+		<ClassMember Name="CatalogProductExtensionRequestITL" Type="String"  />
+		<ClassMember Name="RequestedBy_Customer_BusinessParticipant_RefID" Type="Guid"  />
+		<ClassMember Name="RequestedBy_Person_BusinessParticipant_RefID" Type="Guid"  />
+		<ClassMember Name="RequestedFor_Catalog_RefID" Type="Guid"  />
+		<ClassMember Name="Request_Question" Type="String"  />
+		<ClassMember Name="Request_Answer" Type="String"  />
+		<ClassMember Name="IsAnswerSent" Type="Boolean"  />
+		<ClassMember Name="IfAnswerSent_By_BusinessParticipant_RefID" Type="Guid"  />
+		<ClassMember Name="IfAnswerSent_Date" Type="DateTime"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,19 @@
+UPDATE 
+	res_str_apartment_requiredactions
+SET 
+	ApartmentPropertyAssessment_RefID=@ApartmentPropertyAssessment_RefID,
+	SelectedActionVersion_RefID=@SelectedActionVersion_RefID,
+	EffectivePrice_RefID=@EffectivePrice_RefID,
+	Comment=@Comment,
+	Action_PricePerUnit_RefID=@Action_PricePerUnit_RefID,
+	Action_Unit_RefID=@Action_Unit_RefID,
+	Action_UnitAmount=@Action_UnitAmount,
+	IsCustom=@IsCustom,
+	IfCustom_Name=@IfCustom_Name,
+	IfCustom_Description=@IfCustom_Description,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID,
+	Action_Timeframe_RefID=@Action_Timeframe_RefID
+WHERE 
+	RES_STR_Apartment_RequiredActionID = @RES_STR_Apartment_RequiredActionID

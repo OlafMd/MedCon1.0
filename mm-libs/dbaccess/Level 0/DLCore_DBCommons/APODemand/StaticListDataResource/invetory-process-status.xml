@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+	<Item ID="invetory-process-status.created">
+		<Lang ISO="EN" Content="Counting Created" />
+		<Lang ISO="DE" Content="Zählvorgang erstellt" />
+	</Item>
+  <Item ID="invetory-process-status.started">
+		<Lang ISO="EN" Content="Counting Started" />
+		<Lang ISO="DE" Content="Zählvorgang gestartet" />
+	</Item>
+	<Item ID="invetory-process-status.completed">
+		<Lang ISO="EN" Content="Counting Completed" />
+		<Lang ISO="DE" Content="Zählvorgang abgeschlossen" />
+	</Item>
+	<Item ID="invetory-process-status.list-printed">
+		<Lang ISO="EN" Content="List Printed" />
+		<Lang ISO="DE" Content="Zählliste gedruckt" />
+	</Item>
+</Resources>

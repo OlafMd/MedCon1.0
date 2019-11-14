@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/28/2014 10:28:47 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DunningDetails_for_BillHeaderID</Name>
+    <Namespace>CL5_APOBilling_Dunning.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBilling_Dunning.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DunningDetails_for_BillHeaderID"
+                Method_Name="Get_DunningDetails_for_BillHeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DunningDetails_for_BillHeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  acc_dun_dunningprocess_memberbills.ACC_DUN_DunningProcess_MemberBillID,
+	  acc_dun_dunningprocess_memberbills.BIL_BillHeader_RefID,
+	  acc_dun_dunningprocess_memberbills.ApplicableProcessDunningFees,
+	  acc_dun_dunningprocess_memberbills.CurrentUnpaidBillFraction,
+	  acc_dun_dunningprocesses.ACC_DUN_DunningProcessID,
+	  acc_dun_dunning_models.ACC_DUN_Dunning_ModelID
+	From
+	  acc_dun_dunning_models Inner Join
+	  acc_dun_dunningprocesses On acc_dun_dunning_models.ACC_DUN_Dunning_ModelID =
+	    acc_dun_dunningprocesses.DunningModel_RefID Inner Join
+	  acc_dun_dunningprocess_memberbills
+	    On acc_dun_dunningprocesses.ACC_DUN_DunningProcessID =
+	    acc_dun_dunningprocess_memberbills.ACC_DUN_DunningProcess_RefID Inner Join
+	  acc_dun_dunning_levels On acc_dun_dunning_levels.ACC_DUN_Dunning_LevelID =
+	    acc_dun_dunningprocesses.Current_DunningLevel_RefID
+	Where
+	  acc_dun_dunningprocess_memberbills.BIL_BillHeader_RefID = @BillHeader And 
+	  acc_dun_dunningprocess_memberbills.Tenant_RefID = @TenantID And
+    acc_dun_dunningprocess_memberbills.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5BD_GDDfBHID_1027">
+    <Members>
+		<ClassMember Name="BillHeader" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5BD_GDDfBHID_1027" IsArray="true">
+			<Members>
+				<ClassMember Name="ACC_DUN_DunningProcess_MemberBillID" Type="Guid"  />
+				<ClassMember Name="BIL_BillHeader_RefID" Type="Guid"  />
+				<ClassMember Name="ApplicableProcessDunningFees" Type="String"  />
+				<ClassMember Name="CurrentUnpaidBillFraction" Type="String"  />
+				<ClassMember Name="ACC_DUN_DunningProcessID" Type="Guid"  />
+				<ClassMember Name="ACC_DUN_Dunning_ModelID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

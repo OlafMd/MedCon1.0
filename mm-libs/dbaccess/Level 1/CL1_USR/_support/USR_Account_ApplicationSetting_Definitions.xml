@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 8/27/2013 11:54:35 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="USR_Account_ApplicationSetting_Definition"
+                IsClass="true"
+                IsClass_Namespace="CL1_USR"
+                IsClass_Corresponding_DBTable="usr_account_applicationsetting_definitions" >
+      <Members>
+		<ClassMember Name="USR_Account_ApplicationSetting_DefinitionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ApplicationID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ItemKey" Type="String" />
+		<ClassMember Name="DefaultValue" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

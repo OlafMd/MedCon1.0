@@ -1,0 +1,23 @@
+INSERT INTO 
+	res_str_ratings
+	(
+		RES_STR_RatingID,
+		RatingGroup_RefID,
+		Rating_Name_DictID,
+		Rating_Description_DictID,
+		Rating_OrdinalPosition,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_RatingID,
+		@RatingGroup_RefID,
+		@Rating_Name,
+		@Rating_Description,
+		@Rating_OrdinalPosition,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

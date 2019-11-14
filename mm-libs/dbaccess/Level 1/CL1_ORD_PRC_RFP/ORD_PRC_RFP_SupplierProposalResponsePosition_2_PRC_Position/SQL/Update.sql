@@ -1,0 +1,10 @@
+UPDATE 
+	ord_prc_rfp_supplierproposalresponseposition_2_prc_position
+SET 
+	ORD_PRC_RFP_SupplierProposalResponse_Position_RefID=@ORD_PRC_RFP_SupplierProposalResponse_Position_RefID,
+	ORD_PRC_ProcurementOrder_Position_RefID=@ORD_PRC_ProcurementOrder_Position_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	AssignmentID = @AssignmentID

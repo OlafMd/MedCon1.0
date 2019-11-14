@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_ctr_contract_parties
+	(
+		CMN_CTR_Contract_PartyID,
+		Contract_RefID,
+		Undersigning_BusinessParticipant_RefID,
+		Party_ContractRole_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_CTR_Contract_PartyID,
+		@Contract_RefID,
+		@Undersigning_BusinessParticipant_RefID,
+		@Party_ContractRole_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

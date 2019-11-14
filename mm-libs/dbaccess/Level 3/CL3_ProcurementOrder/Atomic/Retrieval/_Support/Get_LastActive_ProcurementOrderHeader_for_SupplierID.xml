@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="09/04/2014 16:49:26">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_LastActive_ProcurementOrderHeader_for_SupplierID</Name>
+    <Namespace>CL3_ProcurementOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_ProcurementOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_LastActive_ProcurementOrderHeader_for_SupplierID"
+                Method_Name="Get_LastActive_ProcurementOrderHeader_for_SupplierID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_LastActive_ProcurementOrderHeader_for_SupplierID"
+                />
+
+  <SQLStatement xml:space="preserve">
+
+Select
+  ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID,
+  ord_prc_procurementorder_headers.Creation_Timestamp
+From
+  ord_prc_procurementorder_headers Inner Join
+  ord_prc_procurementorder_statuses
+    On ord_prc_procurementorder_statuses.ORD_PRC_ProcurementOrder_StatusID =
+    ord_prc_procurementorder_headers.Current_ProcurementOrderStatus_RefID And
+    ord_prc_procurementorder_statuses.IsDeleted = 0 And
+    ord_prc_procurementorder_statuses.Tenant_RefID = @TenantID And
+    ord_prc_procurementorder_statuses.GlobalPropertyMatchingID =
+    @ActiveStatus_GlobalPropertyMatchingID
+ Where
+  ord_prc_procurementorder_headers.ProcurementOrder_Supplier_RefID = @SupplierID
+  And
+  ord_prc_procurementorder_headers.IsDeleted = 0 And
+  ord_prc_procurementorder_headers.Tenant_RefID = @TenantID
+Order By
+  ord_prc_procurementorder_headers.Creation_Timestamp Desc limit 1
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3PO_GLAPOHfSI_1648">
+    <Members>
+		<ClassMember Name="ActiveStatus_GlobalPropertyMatchingID" Type="String"  />
+		<ClassMember Name="SupplierID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3PO_GLAPOHfSI_1648" IsArray="false">
+			<Members>
+				<ClassMember Name="ORD_PRC_ProcurementOrder_HeaderID" Type="Guid"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="account-function-level-rights_group.apo-admin">
+    <Lang ISO="DE" Content="Administration" />
+  </Item>
+  <Item ID="account-function-level-rights_group.apo-backoffice">
+    <Lang ISO="DE" Content="Backoffice" />
+  </Item>
+  <Item ID="account-function-level-rights_group.apo-billing">
+    <Lang ISO="DE" Content="Faktura" />
+  </Item>
+  <Item ID="account-function-level-rights_group.apo-customeradmin">
+    <Lang ISO="DE" Content="Kundenverwaltung" />
+  </Item>
+  <Item ID="account-function-level-rights_group.apo-logistic">
+    <Lang ISO="DE" Content="Lagerwesen" />
+  </Item>
+  <Item ID="account-function-level-rights_group.apo-webshop">
+    <Lang ISO="DE" Content="Web-Shop" />
+  </Item>
+  <Item ID="account-function-level-rights_group.apo-procurement">
+    <Lang ISO="DE" Content="Beschaffung" />
+  </Item>
+</Resources>

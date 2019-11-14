@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_cal_repetitions
+	(
+		CMN_CAL_RepetitionID,
+		R_CronExpression,
+		IsDaily,
+		IsWeekly,
+		IsMonthly,
+		IsYearly,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_CAL_RepetitionID,
+		@R_CronExpression,
+		@IsDaily,
+		@IsWeekly,
+		@IsMonthly,
+		@IsYearly,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

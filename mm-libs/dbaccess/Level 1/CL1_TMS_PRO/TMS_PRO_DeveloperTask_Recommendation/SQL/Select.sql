@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	tms_pro_developertask_recommendations
+WHERE 
+	TMS_PRO_DeveloperTask_RecommendationID = @TMS_PRO_DeveloperTask_RecommendationID

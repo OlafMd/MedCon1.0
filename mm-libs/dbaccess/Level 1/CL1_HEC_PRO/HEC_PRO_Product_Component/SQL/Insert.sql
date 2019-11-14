@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_pro_product_components
+	(
+		HEC_PRO_Product_ComponentID,
+		HEC_PRO_Component_RefID,
+		HEC_PRO_Product_RefID,
+		ComponentNumber,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_PRO_Product_ComponentID,
+		@HEC_PRO_Component_RefID,
+		@HEC_PRO_Product_RefID,
+		@ComponentNumber,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

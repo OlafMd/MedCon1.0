@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/22/2013 2:22:24 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_BPT_EMP_WorkingContract"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_BPT_EMP"
+                IsClass_Corresponding_DBTable="cmn_bpt_emp_workingcontracts" >
+      <Members>
+		<ClassMember Name="CMN_BPT_EMP_WorkingContractID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ExtraWorkCalculation_RefID" Type="Guid" />
+		<ClassMember Name="WorkingContract_InCurrency_RefID" Type="Guid" />
+		<ClassMember Name="Contract_StartDate" Type="DateTime" />
+		<ClassMember Name="Contract_EndDate" Type="DateTime" />
+		<ClassMember Name="IsContractEndDateDefined" Type="Boolean" />
+		<ClassMember Name="IsWorkTimeCalculated_InHours" Type="Boolean" />
+		<ClassMember Name="IsWorkTimeCalculated_InDays" Type="Boolean" />
+		<ClassMember Name="R_WorkTime_DaysPerWeek" Type="Double" />
+		<ClassMember Name="R_WorkTime_HoursPerWeek" Type="Double" />
+		<ClassMember Name="IsWorktimeChecked_Weekly" Type="Boolean" />
+		<ClassMember Name="IsWorktimeChecked_Monthly" Type="Boolean" />
+		<ClassMember Name="SurchargeCalculation_UseMaximum" Type="Boolean" />
+		<ClassMember Name="SurchargeCalculation_UseAccumulated" Type="Boolean" />
+		<ClassMember Name="IsMealAllowanceProvided" Type="Boolean" />
+		<ClassMember Name="WorkingContract_Comment" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

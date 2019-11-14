@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	log_wrh_inj_process_shelfcontents_trackinginstances
+WHERE 
+	LOG_WRH_INJ_Process_ShelfContents_TrackingInstanceID = @LOG_WRH_INJ_Process_ShelfContents_TrackingInstanceID

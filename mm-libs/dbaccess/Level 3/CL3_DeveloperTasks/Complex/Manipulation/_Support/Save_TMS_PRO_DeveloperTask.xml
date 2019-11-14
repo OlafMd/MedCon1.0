@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/25/2013 9:50:15 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_TMS_PRO_DeveloperTask</Name>
+    <Namespace>CL3_DeveloperTask.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_DeveloperTask.Complex.Manipulation"
+                Method_ClassName="cls_Save_TMS_PRO_DeveloperTask"
+                Method_Name="Save_TMS_PRO_DeveloperTask"
+                ApplicationPlattform_WebServiceName="DanuTaskService"
+                ApplicationPlattform_Namespace="DanuTaskService.Save_TMS_PRO_DeveloperTask"
+                />
+
+  <Parameters IsClass="true" Name="P_L3DT_SDT_0949">
+    <Members>
+		  <ClassMember IsIdentificator="True" Name="TMS_PRO_DeveloperTaskIDList" Type="Guid" IsArray="true" />
+      <ClassMember Name="TaskName" Type="String"  />
+      <ClassMember Name="Description" Type="String"  />
+      <ClassMember Name="Parent_RefID" Type="Guid"  />
+		  <ClassMember Name="Priority_RefID" Type="Guid"  />
+		  <ClassMember Name="DeveloperTask_Type_RefID" Type="Guid"  />
+		  <ClassMember Name="DeveloperTime_RequiredEstimation_min" Type="long"  />
+		  <ClassMember Name="Completion_Deadline" Type="DateTime"  />
+      <ClassMember Name="IsBeingPreparedIgnore" Type="Boolean"  />    <!-- Ignore IsBeingPrepared (For Edit)  -->
+      <ClassMember Name="IsBeingPrepared" Type="Boolean"  />
+      <ClassMember Name="ReleaseIDIgnore" Type="Boolean"  />          <!-- Ignore RevisionD (For Edit)  -->
+      <ClassMember Name="ReleaseID" Type="Guid"  />
+	    <ClassMember Name="SendEmail" Type="Boolean"  />
+      <ClassMember Name="LanguageID" Type="Guid"  />
+      
+      <ClassMember Name="IsArchived" Type="Boolean"  />
+		  <ClassMember Name="IsDeleted" Type="Boolean"  />
+      <ClassMember Name="IsTaskEstimable" Type="Boolean"/>
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

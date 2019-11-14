@@ -1,0 +1,25 @@
+INSERT INTO 
+	hec_act_performedaction_procedure_logentries
+	(
+		HEC_ACT_PerformedAction_Procedure_LogEntryID,
+		Triggering_BusinessParticipant_RefID,
+		Action_Procedure_RefID,
+		DateOfEntry,
+		Comment,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_PerformedAction_Procedure_LogEntryID,
+		@Triggering_BusinessParticipant_RefID,
+		@Action_Procedure_RefID,
+		@DateOfEntry,
+		@Comment,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

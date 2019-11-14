@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_bpt_emp_employmentrelationship_timeframes
+	(
+		CMN_BPT_EMP_EmploymentRelationship_TimeframeID,
+		EmploymentRelationship_RefID,
+		CalculationTimeframe_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_EMP_EmploymentRelationship_TimeframeID,
+		@EmploymentRelationship_RefID,
+		@CalculationTimeframe_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

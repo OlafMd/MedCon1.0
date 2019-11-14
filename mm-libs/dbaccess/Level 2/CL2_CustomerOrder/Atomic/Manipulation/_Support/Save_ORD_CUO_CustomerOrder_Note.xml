@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/28/2014 2:43:13 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_ORD_CUO_CustomerOrder_Note</Name>
+    <Namespace>CL2_CustomerOrder.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_CustomerOrder.Atomic.Manipulation"
+                Method_ClassName="cls_Save_ORD_CUO_CustomerOrder_Note"
+                Method_Name="Save_ORD_CUO_CustomerOrder_Note"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_ORD_CUO_CustomerOrder_Note"
+                />
+  <SQLLimitation_CSharp_Extension>
+      var returnValue = new FR_Guid();
+
+      var item = new ORM_ORD_CUO_CustomerOrder_Note();
+      if (Parameter.ORD_CUO_CustomerOrder_NoteID != Guid.Empty)
+      {
+      var result = item.Load(Connection, Transaction, Parameter.ORD_CUO_CustomerOrder_NoteID);
+      if (result.Status != FR_Status.Success || item.ORD_CUO_CustomerOrder_NoteID == Guid.Empty)
+      {
+      var error = new FR_Guid();
+      error.ErrorMessage = "No Such ID";
+      error.Status =  FR_Status.Error_Internal;
+      return error;
+      }
+      }
+
+      if(Parameter.IsDeleted == true){
+      item.IsDeleted = true;
+      return new FR_Guid(item.Save(Connection, Transaction),item.ORD_CUO_CustomerOrder_NoteID);
+      }
+
+      //Creation specific parameters (Tenant, Account ... )
+      if (Parameter.ORD_CUO_CustomerOrder_NoteID == Guid.Empty)
+      {
+      item.Tenant_RefID = securityTicket.TenantID;
+      }
+
+      item.CustomerOrder_Header_RefID = Parameter.CustomerOrder_Header_RefID;
+      item.CustomerOrder_Position_RefID = Parameter.CustomerOrder_Position_RefID;
+      item.CMN_BPT_CTM_OrganizationalUnit_RefID = Parameter.CMN_BPT_CTM_OrganizationalUnit_RefID;
+      item.CreatedBy_BusinessParticipant_RefID = Parameter.CreatedBy_BusinessParticipant_RefID;
+      item.Title = Parameter.Title;
+      item.Comment = Parameter.Comment;
+      item.NotePublishDate = Parameter.NotePublishDate;
+      item.SequenceOrderNumber = Parameter.SequenceOrderNumber;
+
+
+      return new FR_Guid(item.Save(Connection, Transaction),item.ORD_CUO_CustomerOrder_NoteID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2CO_SCON_1442">
+    <Members>
+		<ClassMember IsIdentificator="True" Name="ORD_CUO_CustomerOrder_NoteID" Type="Guid"  />
+		<ClassMember Name="CustomerOrder_Header_RefID" Type="Guid"  />
+		<ClassMember Name="CustomerOrder_Position_RefID" Type="Guid"  />
+		<ClassMember Name="CMN_BPT_CTM_OrganizationalUnit_RefID" Type="Guid"  />
+		<ClassMember Name="CreatedBy_BusinessParticipant_RefID" Type="Guid"  />
+		<ClassMember Name="Title" Type="String"  />
+		<ClassMember Name="Comment" Type="String"  />
+		<ClassMember Name="NotePublishDate" Type="DateTime"  />
+		<ClassMember Name="SequenceOrderNumber" Type="int"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

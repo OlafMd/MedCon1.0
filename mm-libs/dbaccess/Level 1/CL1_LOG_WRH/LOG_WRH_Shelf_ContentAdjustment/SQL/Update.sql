@@ -1,0 +1,26 @@
+UPDATE 
+	log_wrh_shelf_contentadjustments
+SET 
+	ShelfContent_RefID=@ShelfContent_RefID,
+	QuantityChangedAmount=@QuantityChangedAmount,
+	QuantityChangedDate=@QuantityChangedDate,
+	IsInitialReceipt=@IsInitialReceipt,
+	IfInitialReceipt_ReceiptPosition_QualityControlItem_RefID=@IfInitialReceipt_ReceiptPosition_QualityControlItem_RefID,
+	IsInventoryJobCorrection=@IsInventoryJobCorrection,
+	IfInventoryJobCorrection_InvenoryJobProcess_RefID=@IfInventoryJobCorrection_InvenoryJobProcess_RefID,
+	IsShipmentWithdrawal=@IsShipmentWithdrawal,
+	IfShipmentWithdrawal_ShipmentPosition_RefID=@IfShipmentWithdrawal_ShipmentPosition_RefID,
+	IsManualCorrection=@IsManualCorrection,
+	IfManualCorrection_InventoryChangeReason_RefID=@IfManualCorrection_InventoryChangeReason_RefID,
+	PerformedBy_Account_RefID=@PerformedBy_Account_RefID,
+	PerformedAt_Date=@PerformedAt_Date,
+	ContentAdjustmentComment=@ContentAdjustmentComment,
+	IsBatchNumberOrSerialKeyUpdate=@IsBatchNumberOrSerialKeyUpdate,
+	IfBatchNumberOrSerialKeyUpdate_CorrespondingAdjustment_RefID=@IfBatchNumberOrSerialKeyUpdate_CorrespondingAdjustment_RefID,
+	IsRelocation=@IsRelocation,
+	IfRelocation_CorrespondingAdjustment_RefID=@IfRelocation_CorrespondingAdjustment_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	LOG_WRH_Shelf_ContentAdjustmentID = @LOG_WRH_Shelf_ContentAdjustmentID

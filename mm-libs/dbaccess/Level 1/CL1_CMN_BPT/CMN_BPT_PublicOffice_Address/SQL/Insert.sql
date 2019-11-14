@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_bpt_publicoffice_addresses
+	(
+		CMN_BPT_PublicOffice_AddressID,
+		CMN_BPT_PublicOffice_RefID,
+		CMN_UniversalContactDetails_RefID,
+		IsDefault,
+		IsContactAddress,
+		IsShippingAddress,
+		IsBillingAddress,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_PublicOffice_AddressID,
+		@CMN_BPT_PublicOffice_RefID,
+		@CMN_UniversalContactDetails_RefID,
+		@IsDefault,
+		@IsContactAddress,
+		@IsShippingAddress,
+		@IsBillingAddress,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/27/2012 11:51:28 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_VacationPlanner_LeaveRequest.Complex.Retrieval"
+                Method_ClassName="cls_Get_LeaveRequest_Data"
+                Method_Name="Get_LeaveRequest_Data"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_LeaveRequest_Data"
+                />
+
+  <Parameters IsClass="true" Name="P_L6LR_GLRD_1503">
+    <Members>
+      <ClassMember Name="EmployeeIDListForRequests" IsArray="true" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="L6LR_GLRD_1503" IsArray="false">
+      <Members>
+        <ClassMember Name="LoggedEmployeeID" Type="L5EM_GEFU_445" isArray="false" isReference="true"/>
+        <ClassMember Name="ForEmployees" Type="L5EM_GEAAWCFT_1210[]" isArray="true" isReference="true"/>
+        <ClassMember Name="LeavingReasons" Type="L5AR_GAARFT_1130[]" isArray="true" isReference="true"/>
+        <ClassMember Name="TenantInformations" Type="L5TN_GTI_1646" isArray="true" isReference="true"/>
+        <ClassMember Name="Settings" Type="L6TN_GSFT_1017" isArray="true" isReference="true"/>
+        <ClassMember Name="AllLeaveRequests" Type="L5LR_GLRFSP_1532[]" isArray="true" isReference="true"/>
+        <ClassMember Name="AllEvents" Type="L3EV_GSEFT_1647[]" isArray="true" isReference="true"/>
+        <ClassMember Name="AllEmployees" Type="L5EM_GEFT_0959[]" isArray="true" isReference="true"/>
+        
+
+      </Members>
+
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/13/2015 4:18:55 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Account_Role</Name>
+    <Namespace>MMDocConnectDBMethods.MainData.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.MainData.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Account_Role"
+                Method_Name="Get_Account_Role"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Account_Role"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+      usr_account_functionlevelrights.GlobalPropertyMatchingID As role,
+      usr_account_functionlevelrights_groups.GlobalPropertyMatchingID As group_id
+    From
+      usr_account_2_functionlevelright Inner Join
+      usr_account_functionlevelrights
+        On usr_account_2_functionlevelright.FunctionLevelRight_RefID = usr_account_functionlevelrights.USR_Account_FunctionLevelRightID And
+        usr_account_functionlevelrights.Tenant_RefID = @TenantID And usr_account_functionlevelrights.IsDeleted = 0 Inner Join
+      usr_account_functionlevelrights_groups
+        On usr_account_functionlevelrights.FunctionLevelRights_Group_RefID = usr_account_functionlevelrights_groups.USR_Account_FunctionLevelRights_GroupID And
+        usr_account_functionlevelrights_groups.Tenant_RefID = @TenantID And usr_account_functionlevelrights_groups.IsDeleted = 0
+    Where
+      usr_account_2_functionlevelright.Account_RefID = @AccountID And
+      usr_account_2_functionlevelright.Tenant_RefID = @TenantID And
+      usr_account_2_functionlevelright.IsDeleted = 0
+    Limit 1
+  </SQLStatement>
+
+	<ResultInfo Returns_an_Object_or_ObjectArray="true">
+		<ObjectReturnType_Definition Name="MD_GAR_1201">
+			<Members>
+				<ClassMember Name="role" Type="String"  />
+				<ClassMember Name="group_id" Type="String"  />
+			</Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+</CodeGen>
+
+

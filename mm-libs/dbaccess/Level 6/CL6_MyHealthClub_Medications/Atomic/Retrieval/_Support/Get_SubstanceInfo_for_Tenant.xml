@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/22/2014 4:38:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_SubstanceInfo_for_Tenant</Name>
+    <Namespace>CL6_MyHealthClub_Medications.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_MyHealthClub_Medications.Atomic.Retrieval"
+                Method_ClassName="cls_Get_SubstanceInfo_for_Tenant"
+                Method_Name="Get_SubstanceInfo_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_SubstanceInfo_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  hec_sub_substances.HEC_SUB_SubstanceID,
+  hec_sub_substances.GlobalPropertyMatchingID,
+  hec_sub_substances.NarcoticAppendixStatus,
+  hec_sub_substances.CategoryByLawStatus,
+  hec_sub_substances.IsAntroposhopicalMedicine,
+  hec_sub_substances.IsChemical,
+  hec_sub_substances.IsHomeophaticMedicine,
+  hec_sub_substances.IsCOSubstance,
+  hec_sub_substances.IsExcipient,
+  hec_sub_substances.IsDeleted,
+  hec_sub_substances.IsFoodAdditive,
+  hec_sub_substances.IsNaturalStimulant,
+  hec_sub_substances.IsPerscriptionRequired,
+  hec_sub_substances.IsAgriculturePesticide,
+  hec_sub_substances.IsCosmeticSubstance,
+  hec_sub_substances.IsActiveComponent,
+  hec_sub_substances.Creation_Timestamp,
+  hec_sub_substances.Tenant_RefID,
+  hec_sub_substance_texts.Substance_RefID,
+  hec_sub_substance_texts.SubstanceText_DictID,
+  hec_sub_substance_texts.SubstanceText_Status,
+  hec_sub_substance_texts.Modification_Timestamp As Modification_TimestampSubstanceTexts,
+  hec_sub_substances.Modification_Timestamp As Modification_TimestampSubstances
+From
+  hec_sub_substances Inner Join
+  hec_sub_substance_texts On hec_sub_substance_texts.Substance_RefID =
+    hec_sub_substances.HEC_SUB_SubstanceID
+Where
+  hec_sub_substances.Tenant_RefID = @Tenant
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6_GSIfT_1637">
+    <Members>
+		<ClassMember Name="Tenant" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6_GSIfT_1637" IsArray="true">
+			<Members>
+				<ClassMember Name="HEC_SUB_SubstanceID" Type="Guid"  />
+				<ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+				<ClassMember Name="NarcoticAppendixStatus" Type="int"  />
+				<ClassMember Name="CategoryByLawStatus" Type="int"  />
+				<ClassMember Name="IsAntroposhopicalMedicine" Type="bool"  />
+				<ClassMember Name="IsChemical" Type="bool"  />
+        <ClassMember Name="IsDeleted" Type="bool"  />
+				<ClassMember Name="IsHomeophaticMedicine" Type="bool"  />
+				<ClassMember Name="IsCOSubstance" Type="bool"  />
+				<ClassMember Name="IsExcipient" Type="bool"  />
+				<ClassMember Name="IsFoodAdditive" Type="bool"  />
+				<ClassMember Name="IsNaturalStimulant" Type="bool"  />
+				<ClassMember Name="IsPerscriptionRequired" Type="bool"  />
+				<ClassMember Name="IsAgriculturePesticide" Type="bool"  />
+				<ClassMember Name="IsCosmeticSubstance" Type="bool"  />
+				<ClassMember Name="IsActiveComponent" Type="bool"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="Substance_RefID" Type="Guid"  />
+				<ClassMember Name="SubstanceText" Type="Dict" OriginTable="hec_sub_substance_texts" Source_DBField="SubstanceText_DictID"  />
+				<ClassMember Name="SubstanceText_Status" Type="String"  />
+        <ClassMember Name="Modification_TimestampSubstanceTexts" Type="DateTime"  />
+        <ClassMember Name="Modification_TimestampSubstances" Type="DateTime"  />
+
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

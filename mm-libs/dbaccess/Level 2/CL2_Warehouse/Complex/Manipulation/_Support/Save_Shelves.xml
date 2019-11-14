@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="23/10/2013 01:42:12">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Shelves</Name>
+    <Namespace>CL2_Warehouse.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Warehouse.Complex.Manipulation"
+                Method_ClassName="cls_Save_Shelves"
+                Method_Name="Save_Shelves"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Shelves"
+                />
+  <SQLLimitation_CSharp_Extension>
+			var returnValue = new FR_Guid();
+
+			var item = new CL1_LOG_WRH.ORM_LOG_WRH_Shelf();
+			if (Parameter.LOG_WRH_ShelfID != Guid.Empty)
+			{
+			    var result = item.Load(Connection, Transaction, Parameter.LOG_WRH_ShelfID);
+			}
+
+			if(Parameter.IsDeleted == true){
+				item.IsDeleted = true;
+				return new FR_Guid(item.Save(Connection, Transaction),item.LOG_WRH_ShelfID);
+			}
+
+			//Creation specific parameters (Tenant, Account ... )
+			if (Parameter.LOG_WRH_ShelfID == Guid.Empty)
+			{
+				item.Tenant_RefID = securityTicket.TenantID;
+			}
+
+			item.Rack_RefID = Parameter.Rack_RefID;
+			item.R_Warehouse_RefID = Parameter.R_Warehouse_RefID;
+			item.R_Area_RefID = Parameter.R_Area_RefID;
+			item.CoordinateCode = Parameter.CoordinateCode;
+			item.CoordinateX = Parameter.CoordinateX;
+			item.CoordinateY = Parameter.CoordinateY;
+			item.CoordinateZ = Parameter.CoordinateZ;
+			item.ShelfCapacity_Unit_RefID = Parameter.ShelfCapacity_Unit_RefID;
+			item.ShelfCapacity_Maximum = Parameter.ShelfCapacity_Maximum;
+			item.R_ShelfCapacity_Free = Parameter.R_ShelfCapacity_Free;
+			item.R_ShelfCapacity_Used = Parameter.R_ShelfCapacity_Used;
+			item.LimitShelfContent_ToOneProduct = Parameter.LimitShelfContent_ToOneProduct;
+			item.LimitShelfContent_ToOneProductVariant = Parameter.LimitShelfContent_ToOneProductVariant;
+			item.LimitShelfContent_ToOneProductRelease = Parameter.LimitShelfContent_ToOneProductRelease;
+			item.IsShelfLocked = Parameter.IsShelfLocked;
+
+
+			return new FR_Guid(item.Save(Connection, Transaction),item.LOG_WRH_ShelfID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2WH_SSLF_1341">
+    <Members>
+      <ClassMember Name="LOG_WRH_ShelfID" IsIdentificator="True" Type="Guid"  />
+      <ClassMember Name="Rack_RefID" Type="Guid"  />
+      <ClassMember Name="R_Warehouse_RefID" Type="Guid"  />
+      <ClassMember Name="R_Area_RefID" Type="Guid"  />
+      <ClassMember Name="Shelf_Name" Type="String"  />
+      <ClassMember Name="CoordinateCode" Type="String"  />
+      <ClassMember Name="CoordinateX" Type="String"  />
+      <ClassMember Name="CoordinateY" Type="String"  />
+      <ClassMember Name="CoordinateZ" Type="String"  />
+      <ClassMember Name="ShelfCapacity_Unit_RefID" Type="Guid"  />
+      <ClassMember Name="ShelfCapacity_Maximum" Type="double"  />
+      <ClassMember Name="R_ShelfCapacity_Free" Type="double"  />
+      <ClassMember Name="R_ShelfCapacity_Used" Type="double"  />
+      <ClassMember Name="LimitShelfContent_ToOneProduct" Type="Boolean"  />
+      <ClassMember Name="LimitShelfContent_ToOneProductVariant" Type="Boolean"  />
+      <ClassMember Name="LimitShelfContent_ToOneProductRelease" Type="Boolean"  />
+      <ClassMember Name="IsShelfLocked" Type="Boolean"  />
+      <ClassMember Name="IsDeleted" Type="Boolean"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

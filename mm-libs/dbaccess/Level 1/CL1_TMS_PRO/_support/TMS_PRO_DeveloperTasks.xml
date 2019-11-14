@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/15/2013 12:51:49 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="TMS_PRO_DeveloperTask"
+                IsClass="true"
+                IsClass_Namespace="CLE_L1_"
+                IsClass_Corresponding_DBTable="tms_pro_developertasks" >
+      <Members>
+		<ClassMember Name="TMS_PRO_DeveloperTaskID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="IdentificationNumber" Type="String" />
+		<ClassMember Name="DOC_Structure_Header_RefID" Type="Guid" />
+		<ClassMember Name="CreatedBy_ProjectMember_RefID" Type="Guid" />
+		<ClassMember Name="Priority_RefID" Type="Guid" />
+		<ClassMember Name="Project_RefID" Type="Guid" />
+		<ClassMember Name="DeveloperTask_Type_RefID" Type="Guid" />
+		<ClassMember Name="IsTaskEstimable" Type="Boolean" />
+		<ClassMember Name="DeveloperTime_RequiredEstimation_min" Type="Double" />
+		<ClassMember Name="DeveloperTime_CurrentInvestment_min" Type="Double" />
+		<ClassMember Name="GrabbedByMember_RefID" Type="Guid" />
+		<ClassMember Name="Completion_Deadline" Type="DateTime" />
+		<ClassMember Name="Completion_Timestamp" Type="DateTime" />
+		<ClassMember Name="PercentageComplete" Type="String" />
+		<ClassMember Name="Name" Type="String" />
+		<ClassMember Name="Description" Type="String" />
+		<ClassMember Name="Developer_Points" Type="int" />
+		<ClassMember Name="IsComplete" Type="Boolean" />
+		<ClassMember Name="IsIncompleteInformation" Type="Boolean" />
+		<ClassMember Name="IsArchived" Type="Boolean" />
+		<ClassMember Name="IsBeingPrepared" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

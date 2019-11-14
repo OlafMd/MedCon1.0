@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_cmt_membership_credentials
+	(
+		HEC_CMT_Membership_CredentialID,
+		Membership_RefID,
+		Membership_Username,
+		Membership_Password,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CMT_Membership_CredentialID,
+		@Membership_RefID,
+		@Membership_Username,
+		@Membership_Password,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

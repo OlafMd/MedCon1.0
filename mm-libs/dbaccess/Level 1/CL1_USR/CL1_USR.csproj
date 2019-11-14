@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FEAB6F0E-56F1-43D4-BEF0-988B26474DD2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_USR</RootNamespace>
+    <AssemblyName>CL1_USR</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDtMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDtMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDyMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDyMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DBACCESREFACTOR|AnyCPU'">
+    <OutputPath>bin\DBACCESREFACTOR\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="USR_Account\ORM_USR_Account.cs" />
+    <Compile Include="USR_Account_2_FunctionLevelRight\ORM_USR_Account_2_FunctionLevelRight.cs" />
+    <Compile Include="USR_Account_2_Group\ORM_USR_Account_2_Group.cs" />
+    <Compile Include="USR_Account_ApplicationSetting\ORM_USR_Account_ApplicationSetting.cs" />
+    <Compile Include="USR_Account_ApplicationSetting_Definition\ORM_USR_Account_ApplicationSetting_Definition.cs" />
+    <Compile Include="USR_Account_FunctionLevelRights_Group\ORM_USR_Account_FunctionLevelRights_Group.cs" />
+    <Compile Include="USR_Account_FunctionLevelRight\ORM_USR_Account_FunctionLevelRight.cs" />
+    <Compile Include="USR_Device\ORM_USR_Device.cs" />
+    <Compile Include="USR_Device_AccountCode\ORM_USR_Device_AccountCode.cs" />
+    <Compile Include="USR_Device_AccountCode_StatusHistory\ORM_USR_Device_AccountCode_StatusHistory.cs" />
+    <Compile Include="USR_Device_AccountCode_UsageHistory\ORM_USR_Device_AccountCode_UsageHistory.cs" />
+    <Compile Include="USR_Device_ActivityHistory\ORM_USR_Device_ActivityHistory.cs" />
+    <Compile Include="USR_Device_ConfigurationCode\ORM_USR_Device_ConfigurationCode.cs" />
+    <Compile Include="USR_Device_ConfigurationCode_StatusHistory\ORM_USR_Device_ConfigurationCode_StatusHistory.cs" />
+    <Compile Include="USR_Groups_2_FunctionLevelRight\ORM_USR_Groups_2_FunctionLevelRight.cs" />
+    <Compile Include="USR_Group\ORM_USR_Group.cs" />
+    <Compile Include="USR_Group_2_FunctionLevelRightGroup\ORM_USR_Group_2_FunctionLevelRightGroup.cs" />
+    <Compile Include="USR_MobileDevice_PushData\ORM_USR_MobileDevice_PushData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="USR_Group_2_FunctionLevelRightGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Group_2_FunctionLevelRightGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Group_2_FunctionLevelRightGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Groups_2_FunctionLevelRight\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Groups_2_FunctionLevelRight\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Groups_2_FunctionLevelRight\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_MobileDevice_PushData\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_MobileDevice_PushData\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_MobileDevice_PushData\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Device_ConfigurationCode_StatusHistory\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Device_ConfigurationCode_StatusHistory\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Device_ConfigurationCode_StatusHistory\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Device_ConfigurationCode\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Device_ConfigurationCode\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Device_ConfigurationCode\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Device_ActivityHistory\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Device_ActivityHistory\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Device_ActivityHistory\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Device\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Device\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Device\SQL\Insert.sql" />
+    <Content Include="_support\USR_Devices.xml" />
+    <Content Include="_support\USR_Device_ActivityHistory.xml" />
+    <Content Include="_support\USR_Device_ConfigurationCodes.xml" />
+    <Content Include="_support\USR_Device_ConfigurationCode_StatusHistory.xml" />
+    <Content Include="_support\USR_Groups_2_FunctionLevelRight.xml" />
+    <Content Include="_support\USR_Group_2_FunctionLevelRightGroup.xml" />
+    <EmbeddedResource Include="USR_Group\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Group\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Group\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Device_AccountCode\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Device_AccountCode\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Device_AccountCode\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Device_AccountCode_UsageHistory\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Device_AccountCode_UsageHistory\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Device_AccountCode_UsageHistory\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Device_AccountCode_StatusHistory\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Device_AccountCode_StatusHistory\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Device_AccountCode_StatusHistory\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Account\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Account\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Account\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Account_FunctionLevelRights_Group\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Account_FunctionLevelRights_Group\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Account_FunctionLevelRights_Group\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Account_FunctionLevelRight\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Account_FunctionLevelRight\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Account_FunctionLevelRight\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Account_2_Group\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Account_2_Group\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Account_2_Group\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Account_2_FunctionLevelRight\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Account_2_FunctionLevelRight\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Account_2_FunctionLevelRight\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Account_ApplicationSetting_Definition\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Account_ApplicationSetting_Definition\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Account_ApplicationSetting_Definition\SQL\Insert.sql" />
+    <EmbeddedResource Include="USR_Account_ApplicationSetting\SQL\Select.sql" />
+    <EmbeddedResource Include="USR_Account_ApplicationSetting\SQL\Update.sql" />
+    <EmbeddedResource Include="USR_Account_ApplicationSetting\SQL\Insert.sql" />
+    <Content Include="_support\USR_Accounts.xml" />
+    <Content Include="_support\USR_Account_2_FunctionLevelRight.xml" />
+    <Content Include="_support\USR_Account_2_Group.xml" />
+    <Content Include="_support\USR_Account_ApplicationSettings.xml" />
+    <Content Include="_support\USR_Account_ApplicationSetting_Definitions.xml" />
+    <Content Include="_support\USR_Account_FunctionLevelRights.xml" />
+    <Content Include="_support\USR_Account_FunctionLevelRights_Groups.xml" />
+    <Content Include="_support\USR_Device_AccountCodes.xml" />
+    <Content Include="_support\USR_Device_AccountCode_StatusHistory.xml" />
+    <Content Include="_support\USR_Device_AccountCode_UsageHistory.xml" />
+    <Content Include="_support\USR_Groups.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

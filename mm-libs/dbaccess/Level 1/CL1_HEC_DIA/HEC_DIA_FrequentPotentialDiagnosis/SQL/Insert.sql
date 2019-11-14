@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_dia_frequentpotentialdiagnoses
+	(
+		HEC_DIA_FrequentPotentialDiagnosisID,
+		PotentialDiagnosis_RefID,
+		MedicalPractice_RefID,
+		NumberOfOccurences,
+		Creation_Timestamp,
+		Modification_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_DIA_FrequentPotentialDiagnosisID,
+		@PotentialDiagnosis_RefID,
+		@MedicalPractice_RefID,
+		@NumberOfOccurences,
+		@Creation_Timestamp,
+		@Modification_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

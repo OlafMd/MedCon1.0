@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Cases_With_Submitted_Aftercares</Name>
+    <Namespace>DataImporter.DBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="DataImporter.DBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Cases_With_Submitted_Aftercares"
+								Method_Name="Get_Cases_With_Submitted_Aftercares"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+SELECT
+  hec_cas_cases.CaseNumber,
+  hec_cas_cases.HEC_CAS_CaseID,
+  bil_billposition_transmitionstatuses.TransmitionCode,
+  hec_bil_billpositions.Ext_BIL_BillPosition_RefID,
+  hec_bil_potentialcode_catalogs.GlobalPropertyMatchingID as GposType
+FROM
+  hec_cas_cases
+  INNER JOIN hec_cas_case_billcodes ON hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_billcodes.HEC_CAS_Case_RefID AND
+    hec_cas_case_billcodes.Tenant_RefID = @TenantID AND
+    hec_cas_case_billcodes.IsDeleted = 0
+  INNER JOIN hec_bil_billposition_billcodes ON hec_cas_case_billcodes.HEC_BIL_BillPosition_BillCode_RefID =
+    hec_bil_billposition_billcodes.HEC_BIL_BillPosition_BillCodeID AND
+    hec_bil_billposition_billcodes.Tenant_RefID = @TenantID AND
+    hec_bil_billposition_billcodes.IsDeleted = 0
+  INNER JOIN hec_bil_billpositions ON hec_bil_billposition_billcodes.BillPosition_RefID =
+    hec_bil_billpositions.HEC_BIL_BillPositionID AND
+    hec_bil_billpositions.Tenant_RefID = @TenantID AND
+    hec_bil_billpositions.IsDeleted = 0
+  LEFT JOIN bil_billposition_transmitionstatuses ON hec_bil_billpositions.Ext_BIL_BillPosition_RefID =
+    bil_billposition_transmitionstatuses.BillPosition_RefID AND
+    bil_billposition_transmitionstatuses.IsActive = 1 AND
+    bil_billposition_transmitionstatuses.TransmitionStatusKey = 'aftercare' AND
+    bil_billposition_transmitionstatuses.Tenant_RefID = @TenantID AND
+    bil_billposition_transmitionstatuses.IsDeleted = 0
+  INNER JOIN hec_bil_potentialcodes ON hec_bil_billposition_billcodes.PotentialCode_RefID =
+    hec_bil_potentialcodes.HEC_BIL_PotentialCodeID AND
+    hec_bil_potentialcodes.Tenant_RefID = @TenantID AND
+    hec_bil_potentialcodes.IsDeleted = 0
+  INNER JOIN hec_bil_potentialcode_catalogs ON hec_bil_potentialcodes.PotentialCode_Catalog_RefID =
+    hec_bil_potentialcode_catalogs.HEC_BIL_PotentialCode_CatalogID AND
+    hec_bil_potentialcode_catalogs.Tenant_RefID = @TenantID AND
+    hec_bil_potentialcode_catalogs.IsDeleted = 0
+WHERE
+  hec_cas_cases.HEC_CAS_CaseID = @CaseIDs AND
+  hec_cas_cases.Tenant_RefID = @TenantID AND
+  hec_cas_cases.IsDeleted = 0
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GCwSA_1430">
+    <Members>
+      <ClassMember Name="CaseIDs" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GCwSA_1430" IsArray="true">
+      <Members>
+        <ClassMember Name="CaseNumber" Type="String"  />
+        <ClassMember Name="HEC_CAS_CaseID" Type="Guid"  />
+        <ClassMember Name="TransmitionCode" Type="int"  />
+        <ClassMember Name="Ext_BIL_BillPosition_RefID" Type="Guid"  />
+        <ClassMember Name="GposType" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

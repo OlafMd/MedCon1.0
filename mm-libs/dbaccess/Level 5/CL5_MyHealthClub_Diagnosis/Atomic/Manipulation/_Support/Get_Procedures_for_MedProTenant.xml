@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/11/2015 12:53:P9 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Procedures_for_MedProTenant</Name>
+    <Namespace>CL5_MyHealthClub_Diagnosis.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Diagnosis.Atomic.Manipulation"
+                Method_ClassName="cls_Get_Procedures_for_MedProTenant"
+                Method_Name="Get_Procedures_for_MedProTenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Procedures_for_MedProTenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+  Select Distinct
+  hec_tre_potentialprocedures.HEC_TRE_PotentialProcedureID,
+  hec_tre_potentialprocedures.PotentialProcedure_Name_DictID,
+  hec_tre_potentialprocedure_catalogcodes.Code
+From
+  hec_tre_potentialprocedures Inner Join
+  hec_tre_potentialprocedure_catalogcodes
+    On hec_tre_potentialprocedures.HEC_TRE_PotentialProcedureID =
+    hec_tre_potentialprocedure_catalogcodes.PotentialProcedure_RefID And
+    hec_tre_potentialprocedure_catalogcodes.Tenant_RefID = @TenantID And
+    hec_tre_potentialprocedure_catalogcodes.IsDeleted = 0
+Where
+  hec_tre_potentialprocedures.Tenant_RefID = @TenantID And
+  hec_tre_potentialprocedures.IsDeleted =  0
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5DI_GPfMPT_1253" IsArray="true">
+      <Members>
+        <ClassMember Name="HEC_TRE_PotentialProcedureID" Type="Guid"  />
+        <ClassMember Name="PotentialProcedure_Name_DictID" Type="Dict" OriginTable="hec_tre_potentialprocedures" Source_DBField="PotentialProcedure_Name_DictID"  />
+        <ClassMember Name="Code" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

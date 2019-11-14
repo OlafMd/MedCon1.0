@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/31/2014 10:29:45 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DeveloperTasks_for_Project_by_ProjectID</Name>
+    <Namespace>CL3_Project.Atomic.Retrieval</Namespace>
+    <Description>Retrieves developer task id and name for project id</Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Project.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DeveloperTasks_for_Project_by_ProjectID"
+                Method_Name="Get_DeveloperTasks_for_Project_by_ProjectID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DeveloperTasks_for_Project_by_ProjectID"
+                />
+
+  <SQLStatement xml:space="preserve">
+  
+  Select
+  tms_pro_developertasks.TMS_PRO_DeveloperTaskID,
+  tms_pro_developertasks.Name As DeveloperTask,
+  tms_pro_developertasks.PercentageComplete
+From
+  tms_pro_projects Inner Join
+  tms_pro_businesstasks On tms_pro_projects.TMS_PRO_ProjectID =
+    tms_pro_businesstasks.Project_RefID Inner Join
+  tms_pro_businesstask_2_feature On tms_pro_businesstasks.TMS_PRO_BusinessTaskID
+    = tms_pro_businesstask_2_feature.BusinessTask_RefID Inner Join
+  tms_pro_feature On tms_pro_businesstask_2_feature.Feature_RefID =
+    tms_pro_feature.TMS_PRO_FeatureID Inner Join
+  tms_pro_feature_2_developertask On tms_pro_feature.TMS_PRO_FeatureID =
+    tms_pro_feature_2_developertask.Feature_RefID Inner Join
+  tms_pro_developertasks On tms_pro_feature_2_developertask.DeveloperTask_RefID
+    = tms_pro_developertasks.TMS_PRO_DeveloperTaskID
+Where
+ tms_pro_projects.TMS_PRO_ProjectID = @ProjectID And
+  tms_pro_developertasks.IsDeleted = 0 And
+  tms_pro_developertasks.IsArchived = 0 And
+  tms_pro_developertasks.IsComplete = 0
+  
+  
+  
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3PR_GDTfPbP_1034">
+    <Members>
+      <ClassMember Name="ProjectID" Type="Guid" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3PR_GDTfPbP_1034" IsArray="true">
+       <Members>
+        <ClassMember Name="TMS_PRO_DeveloperTaskID" Type="Guid"  />
+        <ClassMember Name="DeveloperTask" Type="String"  />
+        <ClassMember Name ="PercentageComplete" Type="Double" />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+
+

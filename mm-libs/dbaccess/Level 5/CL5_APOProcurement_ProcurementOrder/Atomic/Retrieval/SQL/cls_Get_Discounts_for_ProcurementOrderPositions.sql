@@ -1,0 +1,15 @@
+
+	SELECT ORD_PRC_ProcurementOrder_Position_Discounts.ord_prc_procurementOrder_Position_RefID
+		,ORD_PRC_ProcurementOrder_Position_Discounts.IsDiscountRelative
+		,ORD_PRC_ProcurementOrder_Position_Discounts.IsDiscountAbsolute
+		,ORD_PRC_ProcurementOrder_Position_Discounts.DiscountValue
+    ,ORD_PRC_ProcurementOrder_Position_Discounts.ORD_PRC_DiscountType_RefID
+		,ORD_PRC_DiscountTypes.GlobalPropertyMatchingID   
+	FROM ORD_PRC_ProcurementOrder_Position_Discounts
+	INNER JOIN ORD_PRC_DiscountTypes ON ORD_PRC_ProcurementOrder_Position_Discounts.ORD_PRC_DiscountType_RefID = ORD_PRC_DiscountTypes.ORD_PRC_DiscountTypeID
+		AND ORD_PRC_DiscountTypes.Tenant_RefID = @TenantID
+		AND ORD_PRC_DiscountTypes.IsDeleted = 0
+	WHERE ORD_PRC_ProcurementOrder_Position_Discounts.ord_prc_procurementOrder_Position_RefID = @ProcOrderPositionsList
+		AND ORD_PRC_ProcurementOrder_Position_Discounts.Tenant_RefID = @TenantID
+		AND ORD_PRC_ProcurementOrder_Position_Discounts.IsDeleted = 0
+  

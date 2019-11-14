@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/19/2014 11:41:17 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShipmentPositions_with_Prices_and_Stock_for_ShipmentHeaderID</Name>
+    <Namespace>CL5_APOLogistic_ShippingOrder.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_ShippingOrder.Complex.Retrieval"
+                Method_ClassName="cls_Get_ShipmentPositions_with_Prices_and_Stock_for_ShipmentHeaderID"
+                Method_Name="Get_ShipmentPositions_with_Prices_and_Stock_for_ShipmentHeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PreloadingData"
+                />
+
+  <Parameters IsClass="true" Name="P_L5SO_GSPwPaSfSH_1141">
+    <Members>
+      <ClassMember Name="ShippmentHeaderID" Type="Guid"  />
+      <ClassMember Name="LanguageID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5SO_GSPwPaSfSH_1141" IsArray="true">
+      <Members>
+        <ClassMember Name="ShipmentPositionID" Type="Guid" />
+        <ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+        <ClassMember Name="Product_Number" Type="String"  />
+        <ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />    
+        <ClassMember Name="UnitAmount" Type="double"  />
+        <ClassMember Name="UnitIsoCode" Type="String"  />
+        <ClassMember Name="DossageFormName" Type="string"  />
+        <ClassMember Name="Producer" Type="string"  />
+
+        <ClassMember Name="ReservedQuantity" Type="double" />
+        <ClassMember Name="QuantityToShip" Type="double" />
+        <ClassMember Name="QuantityInStock" Type="double" />
+        <ClassMember Name="QuantityAvailable" Type="double" />
+
+        <ClassMember Name="ABDAPrice" Type="decimal"  />
+        <ClassMember Name="SalesPrice" Type="decimal"  />
+        <ClassMember Name="AverageProcurementPrice" Type="decimal"  />
+        <ClassMember Name="ShipmentPosition_PricePerUnitValueWithoutTax" Type="Decimal"  />
+        
+        <ClassMember Name="IsProductReplacementAllowed" Type="Boolean" />
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/02/2013 15:44:23 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CompulsorySocialSecurityStatuses_For_Country</Name>
+    <Namespace>CL5_Plannico_CompulsorySocialSecurityStatuses.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_CompulsorySocialSecurityStatuses.Complex.Retrieval"
+                Method_ClassName="cls_Get_CompulsorySocialSecurityStatuses_For_Country"
+                Method_Name="Get_CompulsorySocialSecurityStatuses_For_Country"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_CompulsorySocialSecurityStatuses_For_Country"
+                />
+
+  <Parameters IsClass="true" Name="P_L5CS_GCSSFC_1544">
+    <Members>
+      <ClassMember Name="Country_ISO" Type="String"  />
+
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5CS_GCSSFC_1544" IsArray="false">
+      <Members>
+        <ClassMember Name="SocialSecurityStatuses" Type="L5CS_GCSSFT_1319"  IsReference="true" IsArray="true" />
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

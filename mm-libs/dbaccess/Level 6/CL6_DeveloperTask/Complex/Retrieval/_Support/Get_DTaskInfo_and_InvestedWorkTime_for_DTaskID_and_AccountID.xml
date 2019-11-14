@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/24/2014 12:59:32 PM">
+
+  <Meta>
+    <Name>Get_DTaskInfo_and_InvestedWorkTime_for_DTaskID_and_AccountID</Name>
+    <Description>
+      Get Developer Task Information and Invested time for Developer task ID and AccountID
+    </Description>
+    <Namespace>CL6_DeveloperTask.Complex.Retrieval</Namespace>
+    <Tags>StatusHistory, InvestedTime, AccountID, DeveloperTaskID</Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_DanuTask_DeveloperTask.Complex.Retrieval"
+                Method_ClassName="cls_Get_DTaskInfo_and_InvestedWorkTime_for_DTaskID_and_AccountID"
+                Method_Name="Get_DTaskInfo_and_InvestedWorkTime_for_DTaskID_and_AccountID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DTaskInfo_and_InvestedWorkTime_for_DTaskID_and_AccountID"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L6DT_GDTIaIWTfDTaACC_1259">
+    <Members>
+      <ClassMember  Name="DeveloperTaskID" Type="Guid"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6DT_GDTIaIWTfDTaACC_1259" IsArray="false">
+      <Members>
+        <ClassMember IsReference="true" Type="L6DT_GDTIfDT_1505"    Name="DeveloperTaskInfo"  IsArray="false"/>
+        <ClassMember IsReference="true" Type="L3DT_GRIfDTID_1408"    Name="Recommendations"  IsArray="true"/>
+        <ClassMember Name="StatusHistory" Type="L6DT_GDTIaIWTfDTaACC_1259a" IsClass="true" IsArray="true">
+          <Members>
+            <ClassMember Name="Status_ID" Type="Guid"/>
+            <ClassMember Name="Status_GlobalPropertyMatchingID" Type="String"/>
+            <ClassMember Name="Status_Name" Type="Dict"/>
+            <ClassMember Name="Status_TimeStamp" Type="DateTime"/>
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

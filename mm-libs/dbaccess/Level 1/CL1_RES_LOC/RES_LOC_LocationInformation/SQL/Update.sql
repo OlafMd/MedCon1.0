@@ -1,0 +1,13 @@
+UPDATE 
+	res_loc_locationinformation
+SET 
+	CMN_LOC_Location_RefID=@CMN_LOC_Location_RefID,
+	IsPublicTransportation_InWalkingDistance=@IsPublicTransportation_InWalkingDistance,
+	LocationInformation_MapImage_DocID=@LocationInformation_MapImage_DocID,
+	LocationInformation_SatelliteImage_DocID=@LocationInformation_SatelliteImage_DocID,
+	LocationInformation_AddressImage_DocID=@LocationInformation_AddressImage_DocID,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_LOC_LocationInformationID = @RES_LOC_LocationInformationID

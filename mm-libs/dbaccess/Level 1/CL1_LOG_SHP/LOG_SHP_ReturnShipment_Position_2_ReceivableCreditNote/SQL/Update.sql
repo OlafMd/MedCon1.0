@@ -1,0 +1,10 @@
+UPDATE 
+	log_shp_returnshipment_position_2_receivablecreditnote
+SET 
+	LOG_SHP_ReturnShipment_Position_RefID=@LOG_SHP_ReturnShipment_Position_RefID,
+	LOG_SHP_ReturnShipment_ReceivableCreditNotes_Position_RefID=@LOG_SHP_ReturnShipment_ReceivableCreditNotes_Position_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	AssignmentID = @AssignmentID

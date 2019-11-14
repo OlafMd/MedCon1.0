@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{948D2AD7-71F5-4CF2-9777-BD2C3ACC2F34}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_Lucentis_Import_and_BugFixes</RootNamespace>
+    <AssemblyName>CL5_Lucentis_Import_and_BugFixes</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_GetBilledTreatmentsForTenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllData_in_2015_toDelete.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllEDIFACT_IN_2015.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_All_BilledData_in_2015.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_BilledFollowupsForTenantID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_BIL\CL1_BIL.csproj">
+      <Project>{d4f4b377-8c25-466f-b42f-315fc44a6d33}</Project>
+      <Name>CL1_BIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768c60e8-0c7f-42b2-b8c9-d327c6bf334a}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Complex\Manipulation\_Support\" />
+    <Folder Include="Complex\Retrieval\SQL\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_GetBilledTreatmentsForTenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_BilledFollowupsForTenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\GetBilledTreatmentsForTenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_BilledFollowupsForTenantID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllData_in_2015_toDelete.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllEDIFACT_IN_2015.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_BilledData_in_2015.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_BilledData_in_2015.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllData_in_2015_toDelete.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllEDIFACT_IN_2015.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

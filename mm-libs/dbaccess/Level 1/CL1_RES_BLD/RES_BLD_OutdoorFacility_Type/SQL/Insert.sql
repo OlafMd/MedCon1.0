@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_bld_outdoorfacility_types
+	(
+		RES_BLD_OutdoorFacility_TypeID,
+		OutdoorFacilityType_Name_DictID,
+		OutdoorFacilityType_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_BLD_OutdoorFacility_TypeID,
+		@OutdoorFacilityType_Name,
+		@OutdoorFacilityType_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="05/26/2014 16:04:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Contract_GPOS_Data</Name>
+    <Namespace>MMDocConnectDBMethods.MainData.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.MainData.Atomic.Manipulation"
+                Method_ClassName="cls_Save_Contract_GPOS_Data"
+                Method_Name="Save_Contract_GPOS_Data"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <Parameters IsClass="true" Name="P_MD_SCGPOSD_1306">
+    <Members>
+      <ClassMember Name="ContractID" Type="Guid" />
+      
+      <ClassMember IsClass="true" IsArray="true" Type="P_MD_SCGPOSD_1306_Array" Name="GposData">
+        <Members>
+          <ClassMember Name="GposID" Type="Guid" />
+          <ClassMember Name="GposName" Type="String"  />
+          <ClassMember Name="GposNumber" Type="String"  />
+          <ClassMember Name="GposType" Type="String"  />
+          <ClassMember Name="FromInjection" Type="int"  />
+          <ClassMember Name="FeeValue" Type="Double"  />
+          <ClassMember Name="ManagementFeeValue" Type="String"  />
+          <ClassMember Name="WaiveServiceFeeWithOrder" Type="Boolean"  />
+          <ClassMember Name="DrugIDs" Type="Guid" IsArray="true" />
+          <ClassMember Name="DiagnoseIDs" Type="Guid" IsArray="true"  />
+        </Members>
+      </ClassMember>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" />
+  </ResultInfo>
+
+</CodeGen>

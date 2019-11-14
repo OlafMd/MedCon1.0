@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 11/4/2013 10:51:32 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_BPT_STA_SettingProfile"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_BPT_STA"
+                IsClass_Corresponding_DBTable="cmn_bpt_sta_settingprofiles" >
+      <Members>
+		<ClassMember Name="CMN_BPT_STA_SettingProfileID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="StafMember_Caption" Type="Dict" Source_DBField="StafMember_Caption_DictID" OriginTable="cmn_bpt_sta_settingprofiles"/>
+		<ClassMember Name="IsLeaveTimeCalculated_InDays" Type="Boolean" />
+		<ClassMember Name="IsLeaveTimeCalculated_InHours" Type="Boolean" />
+		<ClassMember Name="IsUsingWorkflow_ForLeaveRequests" Type="Boolean" />
+    <ClassMember Name="Default_AdulthoodAge" Type="int"  />
+		<ClassMember Name="Default_SurchargeCalculation_UseMaximum" Type="Boolean" />
+		<ClassMember Name="Default_SurchargeCalculation_UseAccumulated" Type="Boolean" />
+		<ClassMember Name="Default_RestWarningThreshold_Adults_in_mins" Type="int" />
+		<ClassMember Name="Default_RestWarningThreshold_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="Default_RestMinimumThresholdl_Adults_in_mins" Type="int" />
+		<ClassMember Name="Default_RestMinimumThresholdl_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="Default_WorkTimeWarningTreshold_Adults_in_mins" Type="int" />
+		<ClassMember Name="Default_WorkTimeWarningTreshold_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="Default_WorkTimeMaximumTreshold_Adults_in_mins" Type="int" />
+		<ClassMember Name="Default_WorkTimeMaximumTreshold_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="Default_WorkStartTimeWarning_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="Default_WorkStartTimeMinimum_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="Default_WorkEndTimeWarning_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="Default_WorkEndTimeMaximum_NonAdults_in_mins" Type="int" />
+		<ClassMember Name="Default_WorktimeBalancePeriod_in_months" Type="int" />
+		<ClassMember Name="Default_WorkdayStart_in_mins" Type="int" />
+		<ClassMember Name="Default_RoosterGridMinimumPlanningUnit_in_mins" Type="int" />
+		<ClassMember Name="Default_MaximumPreWork_Period_in_mins" Type="int" />
+		<ClassMember Name="Default_MaximumPostWork_Period_in_mins" Type="int" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

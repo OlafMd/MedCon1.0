@@ -1,0 +1,19 @@
+INSERT INTO 
+	usr_not_notification_types
+	(
+		USR_NOT_Notification_TypeID,
+		NotificationType_Label,
+		NotificationType_Key,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@USR_NOT_Notification_TypeID,
+		@NotificationType_Label,
+		@NotificationType_Key,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

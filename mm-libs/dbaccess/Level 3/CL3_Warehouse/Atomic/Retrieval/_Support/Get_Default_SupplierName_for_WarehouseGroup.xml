@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/7/2014 09:50:52">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Default_SupplierName_for_WarehouseGroup</Name>
+    <Namespace>CL3_Warehouse.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Warehouse.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Default_SupplierName_for_WarehouseGroup"
+                Method_Name="Get_Default_SupplierName_for_WarehouseGroup"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Default_SupplierName_for_WarehouseGroup"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT cmn_bpt_businessparticipants.DisplayName WarehouseGroupSupplierName,
+  LOG_WRH_Warehouse_Group_DefaultSuppliers.CMN_BPT_Supplier_RefID
+	FROM LOG_WRH_Warehouse_Group_DefaultSuppliers
+	INNER JOIN CMN_BPT_Suppliers ON LOG_WRH_Warehouse_Group_DefaultSuppliers.CMN_BPT_SUPPLIER_RefID = cmn_bpt_suppliers.CMN_BPT_SupplierID
+		AND CMN_BPT_Suppliers.IsDeleted = 0
+	INNER JOIN cmn_bpt_businessparticipants ON cmn_bpt_suppliers.Ext_BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+		AND cmn_bpt_businessparticipants.IsDeleted = 0
+	WHERE LOG_WRH_Warehouse_Group_DefaultSuppliers.Warehouse_Group_RefID = @WarehouseGroupID
+		AND LOG_WRH_Warehouse_Group_DefaultSuppliers.Tenant_RefID = @TenantID
+		AND LOG_WRH_Warehouse_Group_DefaultSuppliers.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5WH_GDSNfWG_0949">
+    <Members>
+		<ClassMember Name="WarehouseGroupID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5WH_GDSNfWG_0949" IsArray="true">
+			<Members>
+				<ClassMember Name="WarehouseGroupSupplierName" Type="String"  />
+        <ClassMember Name="CMN_BPT_Supplier_RefID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

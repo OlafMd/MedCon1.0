@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/25/2013 2:26:41 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_Patient_Prescription_Position"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC"
+                IsClass_Corresponding_DBTable="hec_patient_prescription_positions" >
+      <Members>
+		<ClassMember Name="HEC_Patient_Prescription_PositionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="PrescriptionHeader_RefID" Type="Guid" />
+		<ClassMember Name="HEC_Product_RefID" Type="Guid" />
+		<ClassMember Name="ProductProvidingPharmacy_RefID" Type="Guid" />
+		<ClassMember Name="BoundTo_CustomerOrderPosition_RefID" Type="Guid" />
+    <ClassMember Name="IfSubstance_Substance_RefiD" Type="Guid" />
+        <ClassMember Name="IsSubstance" Type="Boolean" />
+        <ClassMember Name="IsHealthcareProduct" Type="Boolean" />
+        <ClassMember Name="IfSubstance_Unit" Type="string" />
+        <ClassMember Name="InitializedFrom_PatientMedication_RefID" Type="Guid" />
+        <ClassMember Name="IfSubstance_Strength" Type="string" />
+        <ClassMember Name="DosageText" Type="string" />
+        <ClassMember Name="Dosage_RefID" Type="Guid" />
+        <ClassMember Name="Modification_Timestamp" Type="DateTime" />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

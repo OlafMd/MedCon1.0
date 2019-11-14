@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 2/5/2015 5:44:08 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="USR_Device_ConfigurationCode_StatusHistory"
+                IsClass="true"
+                IsClass_Namespace="CL1_USR"
+                IsClass_Corresponding_DBTable="usr_device_configurationcode_statushistory" >
+      <Members>
+		<ClassMember Name="USR_Device_ConfigurationCode_StatusHistoryID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Device_ConfigurationCode_RefID" Type="Guid" />
+		<ClassMember Name="WasUsed" Type="Boolean" />
+		<ClassMember Name="WasUsedBy_UserDevice_RefID" Type="Guid" />
+		<ClassMember Name="WasDeactivated" Type="Boolean" />
+		<ClassMember Name="WasDeactivatedBy_BusinessParticipant_RefID" Type="Guid" />
+		<ClassMember Name="WasDeleted" Type="Boolean" />
+		<ClassMember Name="WasDeletedBy_BusinessParticipant_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

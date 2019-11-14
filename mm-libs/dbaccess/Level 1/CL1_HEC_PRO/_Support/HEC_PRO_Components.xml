@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 3/13/2014 1:13:41 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_PRO_Component"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC_PRO"
+                IsClass_Corresponding_DBTable="hec_pro_components" >
+      <Members>
+		<ClassMember Name="HEC_PRO_ComponentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="GlobalPropertyMatchingID" Type="String" />
+		<ClassMember Name="ComponentMatterState" Type="int" />
+		<ClassMember Name="AbsoluteCompositionValue_Unit_RefID" Type="Guid" />
+		<ClassMember Name="AbsoluteCompositionValue" Type="Double" />
+		<ClassMember Name="RelativeCompositionValue_Unit_RefID" Type="Guid" />
+		<ClassMember Name="RelativeCompositionValue" Type="Double" />
+		<ClassMember Name="BreadUnitContainedAmount" Type="Double" />
+		<ClassMember Name="EthanolContained_VolumePercentage" Type="Double" />
+		<ClassMember Name="ComponentEneryValue_in_kJ" Type="Double" />
+		<ClassMember Name="Component_SimpleName" Type="String" />
+		<ClassMember Name="Component_Name" Type="Dict" Source_DBField="Component_Name_DictID" OriginTable="hec_pro_components"/>
+		<ClassMember Name="Component_Description" Type="Dict" Source_DBField="Component_Description_DictID" OriginTable="hec_pro_components"/>
+		<ClassMember Name="ComponentDisposalSpeedStatus" Type="int" />
+		<ClassMember Name="GalenicalTypeInsidePackageStatus" Type="int" />
+		<ClassMember Name="ComponentExcipientStatus" Type="int" />
+		<ClassMember Name="GalenicalType_RelativeComposition" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		  <ClassMember Name="Modification_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+	  </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

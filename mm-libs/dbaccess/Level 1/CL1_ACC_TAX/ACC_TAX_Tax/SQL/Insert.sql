@@ -1,0 +1,21 @@
+INSERT INTO 
+	acc_tax_taxes
+	(
+		ACC_TAX_TaxeID,
+		EconomicRegion_RefID,
+		TaxName_DictID,
+		TaxRate,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ACC_TAX_TaxeID,
+		@EconomicRegion_RefID,
+		@TaxName,
+		@TaxRate,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

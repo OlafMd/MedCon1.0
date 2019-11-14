@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/23/2014 10:14:57 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShoppingCart_for_ShoppingCartID</Name>
+    <Namespace>CL6_APOReporting_WebShop.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_APOReporting_WebShop.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ShoppingCart_for_ShoppingCartID"
+                Method_Name="Get_ShoppingCart_for_ShoppingCartID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShoppingCart_for_ShoppingCartID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  ord_prc_shoppingcart.ORD_PRC_ShoppingCartID,
+	  ord_prc_shoppingcart.IsProcurementOrderCreated,
+	  cmn_str_offices.Office_InternalName,
+	  cmn_str_offices.Office_InternalNumber,
+	  ord_prc_shoppingcart.InternalIdentifier As ShoppingCartIdentifier
+	From
+	  ord_prc_shoppingcart Inner Join
+	  ord_prc_office_shoppingcarts On ord_prc_shoppingcart.ORD_PRC_ShoppingCartID =
+	    ord_prc_office_shoppingcarts.ORD_PRC_ShoppingCart_RefID And
+	    ord_prc_office_shoppingcarts.IsDeleted = 0 Inner Join
+	  cmn_str_offices On ord_prc_office_shoppingcarts.CMN_STR_Office_RefID =
+	    cmn_str_offices.CMN_STR_OfficeID And cmn_str_offices.IsDeleted = 0
+	Where
+	  ord_prc_shoppingcart.ORD_PRC_ShoppingCartID = @ShoppingCartID And
+	  ord_prc_shoppingcart.IsDeleted = 0 And
+	  ord_prc_shoppingcart.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6WS_GSCfSCID_1448">
+    <Members>
+		<ClassMember Name="ShoppingCartID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6WS_GSCfSCID_1448">
+			<Members>
+				<ClassMember Name="ORD_PRC_ShoppingCartID" Type="Guid"  />
+				<ClassMember Name="IsProcurementOrderCreated" Type="bool"  />
+				<ClassMember Name="Office_InternalName" Type="String"  />
+				<ClassMember Name="Office_InternalNumber" Type="String"  />
+				<ClassMember Name="ShoppingCartIdentifier" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

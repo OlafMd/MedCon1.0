@@ -1,0 +1,27 @@
+INSERT INTO 
+	imo_res_realestates
+	(
+		IMO_RealEstateID,
+		RealEstate_Type_RefID,
+		Address_RefID,
+		Owning_BP_RefID,
+		Object_Internal_ID,
+		location_lattitude,
+		location_longitude,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@IMO_RealEstateID,
+		@RealEstate_Type_RefID,
+		@Address_RefID,
+		@Owning_BP_RefID,
+		@Object_Internal_ID,
+		@location_lattitude,
+		@location_longitude,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

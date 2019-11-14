@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="account-function-level-right.apo-admin-access">
+    <Lang ISO="DE" Content="Darf das Modul Administration benutzen" />
+  </Item>
+  <Item ID="account-function-level-right.apo-backoffice-access">
+    <Lang ISO="DE" Content="Darf das Modul Backoffice benutzen" />
+  </Item>
+  <Item ID="account-function-level-right.apo-billing-access">
+    <Lang ISO="DE" Content="Darf das Modul Faktura benutzen" />
+  </Item>
+  <Item ID="account-function-level-right.apo-billing-change-bill-position-prices">
+    <Lang ISO="DE" Content="Kann Preise ohne Grund ändern" />
+  </Item>
+  <Item ID="account-function-level-right.apo-logistic-access">
+    <Lang ISO="DE" Content="Darf das Modul Lagerwesen benutzen" />
+  </Item>
+  <Item ID="account-function-level-right.apo-logistic-change-shipment-prices">
+    <Lang ISO="DE" Content="Veränderung Versandpreise" />
+  </Item>
+  <Item ID="account-function-level-right.apo-logistic-delete-inventory">
+    <Lang ISO="DE" Content="Inventar löschen" />
+  </Item>
+  <Item ID="account-function-level-right.apo-customeradmin-access">
+    <Lang ISO="DE" Content="Darf das Modul Kundenverwaltung benutzen" />
+  </Item>
+  <Item ID="account-function-level-right.apo-procurement-access">
+    <Lang ISO="DE" Content="Darf das Modul Bestellwesen benutzen" />
+  </Item>
+  <Item ID="account-function-level-right.apo-webshop-level1">
+    <Lang ISO="DE" Content="Darf keine Bestellung freigeben" />
+  </Item>
+  <Item ID="account-function-level-right.apo-webshop-level2">
+    <Lang ISO="DE" Content="Darf Hauslistenbestellung freigeben" />
+  </Item>
+  <Item ID="account-function-level-right.apo-webshop-level3">
+    <Lang ISO="DE" Content="Darf auch Sonderanfragen freigeben" />
+  </Item>
+</Resources>

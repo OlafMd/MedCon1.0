@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:50:15 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_STR_CostCenter"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_STR"
+                IsClass_Corresponding_DBTable="cmn_str_costcenters" >
+      <Members>
+        <ClassMember Name="CMN_STR_CostCenterID" Type="Guid" IsObjectPrimaryKey="true"/>
+        <ClassMember Name="InternalID" Type="String"/>
+        <ClassMember Name="Name" Type="Dict" Source_DBField="Name_DictID" OriginTable="cmn_str_costcenters"/>
+        <ClassMember Name="Description" Type="Dict" Source_DBField="Description_DictID" OriginTable="cmn_str_costcenters"/>
+        <ClassMember Name="CostCenterType_RefID" Type="Guid"  />
+        <ClassMember Name="ResponsiblePerson_RefID" Type="Guid"  />
+        <ClassMember Name="Currency_RefID" Type="Guid"  />
+        <ClassMember Name="CostCenter_Parent_RefID" Type="Guid"  />
+        <ClassMember Name="R_CostCenter_HasChildren" Type="bool"  />
+        <ClassMember Name="OpenForBooking" Type="bool"  />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+        <ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+        <ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/2/2013 11:34:12 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DueDilligences_For_Realestate_Property</Name>
+    <Namespace>CL5_KPRS_DueDilligences.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_DueDiligences.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DueDiligences_For_Realestate_Property"
+                Method_Name="Get_DueDiligences_For_Realestate_Property"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DueDiligences_For_Realestate_Property"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  res_dud_revisiongroup.RES_DUD_Revision_GroupID,
+  res_dud_revisiongroup.RevisionGroup_Name,
+  res_dud_revisiongroup.RevisionGroup_SubmittedBy_Account_RefID,
+  res_dud_revisiongroup.Creation_Timestamp,
+  Buildings.Building_Name,
+  res_dud_revisiongroup.Tenant_RefID,
+  res_dud_revisiongroup.IsDeleted,
+  res_dud_revisiongroup.RealestateProperty_RefID,
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.LastName,
+  Buildings.RES_BLD_BuildingID,
+  Buildings.RES_DUD_RevisionID,
+  Buildings.QuestionnaireVersion_RefID,
+  res_dud_revisiongroup.RevisionGroup_Comment
+From
+  res_dud_revisiongroup Left Join
+  (Select
+    res_bld_buildings.Building_Name,
+    res_dud_revisions.RevisionGroup_RefID,
+    res_dud_revisions.RES_DUD_RevisionID,
+    res_bld_buildings.RES_BLD_BuildingID,
+    res_dud_revisions.QuestionnaireVersion_RefID,
+    res_qst_questionnaire_version.IsDeleted,
+    res_qst_questionnaire_version.Tenant_RefID
+  From
+    res_bld_buildings Inner Join
+    res_dud_revisions On res_dud_revisions.RES_BLD_Building_RefID =
+      res_bld_buildings.RES_BLD_BuildingID Inner Join
+    res_qst_questionnaire_version
+      On res_qst_questionnaire_version.RES_QST_Questionnaire_VersionID =
+      res_dud_revisions.QuestionnaireVersion_RefID
+  Where
+    res_bld_buildings.IsDeleted = 0 And
+    res_dud_revisions.IsDeleted = 0 And
+    res_qst_questionnaire_version.IsDeleted = 0 And
+    res_qst_questionnaire_version.Tenant_RefID = @TenantID) Buildings
+    On Buildings.RevisionGroup_RefID =
+    res_dud_revisiongroup.RES_DUD_Revision_GroupID Inner Join
+  cmn_per_personinfo_2_account
+    On res_dud_revisiongroup.RevisionGroup_SubmittedBy_Account_RefID =
+    cmn_per_personinfo_2_account.USR_Account_RefID Inner Join
+  cmn_per_personinfo On cmn_per_personinfo_2_account.CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID
+Where
+  res_dud_revisiongroup.Tenant_RefID = @TenantID And
+  res_dud_revisiongroup.IsDeleted = 0 And
+  res_dud_revisiongroup.RealestateProperty_RefID = @RealEstatePropertyID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5DD_GDDFRP_1133">
+    <Members>
+		<ClassMember Name="RealEstatePropertyID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5DD_GDDFRP_1133" IsArray="true" GroupBy="RES_DUD_Revision_GroupID">
+			<Members>
+				<ClassMember Name="RES_DUD_Revision_GroupID" Type="Guid"  />
+        <ClassMember Name="RevisionGroup_Name" Type="String"  />
+        <ClassMember Name="RevisionGroup_Comment" Type="String"  />
+				<ClassMember Name="RevisionGroup_SubmittedBy_Account_RefID" Type="Guid"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+				<ClassMember Name="RealestateProperty_RefID" Type="Guid"  />
+        <ClassMember Name="FirstName" Type="String"  />
+        <ClassMember Name="LastName" Type="String"  />
+
+        <!-- Derived Tables -->
+				<ClassMember IsClass="true" IsArray="true" Name="Revisions" Type="L5DD_GDDFRP_1133_Revisions" GroupBy="RES_DUD_RevisionID">
+					<Members>
+						<ClassMember Name="Building_Name" Type="String"  />
+            <ClassMember Name="RES_BLD_BuildingID" Type="Guid"  />
+            <ClassMember Name="RES_DUD_RevisionID" Type="Guid"  />
+            <ClassMember Name="QuestionnaireVersion_RefID" Type="Guid"  />
+          </Members>
+				</ClassMember>
+	
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

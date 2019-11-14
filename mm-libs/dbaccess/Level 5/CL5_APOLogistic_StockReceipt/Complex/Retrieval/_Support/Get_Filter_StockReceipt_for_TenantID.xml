@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/16/2013 12:46:16 PM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Get_Filter_StockReceipt_for_TenantID</Name>
+        <Namespace>CL5_APOLogistic_StockReceipt.Complex.Retrieval</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_APOLogistic_StockReceipt.Complex.Retrieval"
+				  Method_ClassName="cls_Get_Filter_StockReceipt_for_TenantID"
+				  Method_Name="Get_Filter_StockReceipt_for_TenantID"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Get_Filter_StockReceipt_for_TenantID"
+                />
+
+
+    <Parameters IsClass="true" Name="P_L5SR_GFSRfT_1635">
+        <Members>
+            <ClassMember Name="SupplierName" Type="string"  />
+            <ClassMember Name="ReceiptNumber" Type="string"  />
+            <ClassMember Name="ProcurementOrderNumber" Type="string"  />
+            <ClassMember Name="DateFrom" Type="DateTime?"  />
+            <ClassMember Name="DateTo" Type="DateTime?"  />
+            <ClassMember Name="IsTakenIntoStock" Type="bool"  />
+            <ClassMember Name="IsQualityControlPerformed" Type="bool"  />
+            <ClassMember Name="IsPriceConditionsManuallyCleared" Type="bool"  />
+            <ClassMember Name="IsReceiptForwardedToBookkeeping" Type="bool"  />
+            <ClassMember Name="SupplierTypeID" Type="Guid?"  />
+            <ClassMember Name="IsErwartet" Type="bool"  />
+        </Members>
+    </Parameters>
+    
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				  Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				  Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5SR_GFSRfT_1635"  >
+            <Members>
+                <ClassMember Name="StockReceipts" Type ="L5ALSR_GSRfT_1016" IsArray="true" />
+            </Members>
+        </ObjectReturnType_Definition>
+    </ResultInfo>
+</CodeGen>
+

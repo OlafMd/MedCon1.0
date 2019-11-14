@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="myhealtclub.gpapp.pulse-volume">
+    <Lang ISO="EN" Content="Volume" />
+    <Lang ISO="DE" Content="VolumeDE" />
+    <Lang ISO="RS" Content="Velicina" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.pulse-rhytm">
+    <Lang ISO="EN" Content="Rhytm" />
+    <Lang ISO="DE" Content="RhytmDE" />
+    <Lang ISO="RS" Content="Pritisak" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.pulse-frequency">
+    <Lang ISO="EN" Content="Frequency" />
+    <Lang ISO="DE" Content="FrequencyDE" />
+    <Lang ISO="RS" Content="Ucestalost" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.preasure-sys">
+    <Lang ISO="EN" Content="Systolic" />
+    <Lang ISO="DE" Content="SystolicDE" />
+    <Lang ISO="RS" Content="Sistolicni" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.preasure-dia">
+    <Lang ISO="EN" Content="Diastolic" />
+    <Lang ISO="DE" Content="DiastolicDE" />
+    <Lang ISO="RS" Content="Diastolicni" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.body-temp">
+    <Lang ISO="EN" Content="Temperature" />
+    <Lang ISO="DE" Content="TemperatureDE" />
+    <Lang ISO="RS" Content="Temperatura" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.bmi-height">
+    <Lang ISO="EN" Content="Height" />
+    <Lang ISO="DE" Content="HeightDE" />
+    <Lang ISO="RS" Content="Visina" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.bmi-weight">
+    <Lang ISO="EN" Content="Weight" />
+    <Lang ISO="DE" Content="WeightDE" />
+    <Lang ISO="RS" Content="Tezina" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.oxygen-saturation">
+    <Lang ISO="EN" Content="Saturation" />
+    <Lang ISO="DE" Content="SaturationDE" />
+    <Lang ISO="RS" Content="Zasicenost kiseonikom" />
+  </Item>
+  <Item ID="myhealtclub.gpapp.respiration">
+    <Lang ISO="EN" Content="Respiration" />
+    <Lang ISO="DE" Content="RespirationDE" />
+    <Lang ISO="RS" Content="Respiracija" />
+  </Item>
+</Resources>

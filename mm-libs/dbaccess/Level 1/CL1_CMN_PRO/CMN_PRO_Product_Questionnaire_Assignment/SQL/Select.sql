@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_pro_product_questionnaire_assignment
+WHERE 
+	CMN_PRO_Product_Questionnaire_AssignmentID = @CMN_PRO_Product_Questionnaire_AssignmentID

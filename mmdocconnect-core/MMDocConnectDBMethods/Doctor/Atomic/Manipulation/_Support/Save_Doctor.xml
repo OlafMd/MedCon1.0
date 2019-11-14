@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="07/29/2013 14:37:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Doctor</Name>
+    <Namespace>MMDocConnectDBMethods.Doctor.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Doctor.Atomic.Manipulation"
+                Method_ClassName="cls_Save_Doctor"
+                Method_Name="Save_Doctor"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <Parameters IsClass="true" Name="P_DO_SD_1026">
+    <Members>
+      <ClassMember Name="TemporaryDoctorID" Type="Guid" />
+      <ClassMember Name="DoctorID" Type="Guid" />
+      <ClassMember Name="Salutation" Type="String" />
+      <ClassMember Name="Title" Type="String" />
+      <ClassMember Name="First_Name" Type="String" />
+      <ClassMember Name="Last_Name" Type="String" />
+      <ClassMember Name="Email" Type="String" />
+      <ClassMember Name="Phone" Type="String" />
+      <ClassMember Name="LANR" Type="String" />
+      <ClassMember Name="PracticeID" Type="Guid" />
+      <ClassMember Name="Account_Holder" Type="String" />
+      <ClassMember Name="IBAN" Type="String" />
+      <ClassMember Name="BIC" Type="String" />
+      <ClassMember Name="Bank" Type="String" />
+      <ClassMember Name="Login_Email" Type="String" />
+      <ClassMember Name="Account_Password" Type="String" />
+      <ClassMember Name="Account_PasswordForEmail" Type="String" />
+      <ClassMember Name="From_Practice_Bank" Type="bool" />
+      <ClassMember Name="Account_Deactivated" Type="bool" />
+      <ClassMember Name="CustomerNumber" Type="String" />
+      <ClassMember Name="IsCertificatedForOCT" Type="bool" />
+      <ClassMember Name="OctValidFrom" Type="String" />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1F76D2DE-7704-4789-941E-E0F62736A9B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_KPRS_Buildings</RootNamespace>
+    <AssemblyName>CL5_KPRS_Buildings</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Delete_Building.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Delete_BuildingImage.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Building.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_BuildingImage.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_BuildingImage_for_ImageID.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_BuildingPart.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Buildings_For_RevisionGroupID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_BuildingInfo_for_Building_ID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Buildings_For_RealestatePropertyID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Buildings_For_RevisionGroupID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Building_For_BuildingID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\SQL\" />
+    <Folder Include="Atomic\Retrieval\_Support\" />
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Delete_BuildingImage.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_BuildingImage_for_ImageID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_BuildingPart.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_BuildingImage.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_BuildingInfo_for_Building_ID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Buildings_For_RealestatePropertyID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Buildings_For_RevisionGroupID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Building_For_BuildingID.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Delete_Building.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Building.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_DOC\CL1_DOC.csproj">
+      <Project>{08FEF49E-52A6-4C81-89EA-CB0679804159}</Project>
+      <Name>CL1_DOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_RES_ACT\CL1_RES_ACT.csproj">
+      <Project>{91039248-BF9E-409A-A5F5-12A1E504223D}</Project>
+      <Name>CL1_RES_ACT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_RES_BLD\CL1_RES_BLD.csproj">
+      <Project>{3EB6A3F6-E90A-48F8-8A65-7D7B3F8AF647}</Project>
+      <Name>CL1_RES_BLD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_RES_DUD\CL1_RES_DUD.csproj">
+      <Project>{E57800E6-E170-4AC4-9C1B-83A5B68F8505}</Project>
+      <Name>CL1_RES_DUD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_RES_STR\CL1_RES_STR.csproj">
+      <Project>{0D19DC3C-FDA4-4743-9FE4-48AC1BA2323C}</Project>
+      <Name>CL1_RES_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Document\CL3_Document.csproj">
+      <Project>{DA4A3C2C-C1C1-4CD1-96F4-CA1C5A3B5100}</Project>
+      <Name>CL3_Document</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,130 @@
+﻿<div>
+    <div class="gray-content-holder">
+        <div class="row">
+            <div class="col-xs-5">
+                <label>{{ 'LABEL_FILTER_BY_IVOM_DATE' | translate }}</label>
+                <div class="radio">
+                    <input type="radio" ng-model="order_period" value="today" name="orderPeriod" id="rbToday" ng-change="updateOrderPeriod()" />
+                    <label for="rbToday">{{ 'LABEL_TODAY' | translate }}</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" ng-model="order_period" value="tomorrow" name="orderPeriod" id="rbTomorrow" ng-change="updateOrderPeriod()" />
+                    <label for="rbTomorrow">{{ 'LABEL_TOMORROW' | translate }}</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" ng-model="order_period" value="future" name="orderPeriod" id="rbFuture" ng-change="updateOrderPeriod()" />
+                    <label for="rbFuture">{{ 'LABEL_FUTURE' | translate }}</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" ng-model="order_period" value="custom" name="orderPeriod" id="rbCustom" ng-change="updateOrderPeriod()" />
+                    <label for="rbCustom">{{ 'LABEL_CUSTOM' | translate }}</label>
+                    <div class="radio-item-content">
+                        <div class="datepicker-from-to">
+                            <span>{{ 'LABEL_FROM' | translate }}</span>
+                            <input type="text" class="form-control"
+                                   id="orderPeriodFrom"
+                                   name="orderPeriodFrom"
+                                   uib-datepicker-popup
+                                   ng-model="orders_from_date"
+                                   ng-change="updateOrderPeriod()"
+                                   ng-focus="fromDate = true;"
+                                   is-open="fromDate"
+                                   placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                                   ng-disabled="orderPeriodCustomDateDisabled()"
+                                   date-validate="false"
+                                   date-adaptation>
+                            <span>{{ 'LABEL_TO' | translate }}</span>
+                            <input type="text" class="form-control"
+                                   id="orderPeriodTo"
+                                   name="orderPeriodTo"
+                                   uib-datepicker-popup
+                                   ng-model="orders_to_date"
+                                   ng-change="updateOrderPeriod()"
+                                   ng-focus="toDate = true;"
+                                   is-open="toDate"
+                                   ng-disabled="orderPeriodCustomDateDisabled()"
+                                   placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                                   date-validate="false"
+                                   date-adaptation>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-7 black-text-color">
+                <ul class="margin-top-15">
+                    <li class="margin-bottom-15" ng-repeat="stat in order_stats">
+                        <strong class="bolded-text">{{::stat.drug_name}}:</strong>
+                        <span>{{::stat.order_count}} ({{::stat.percentage}} %)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <ul class="table-header orders-table">
+        <li class="unsorted" ng-class="setTableHeaderClass('treatment_date')" ng-click="SortFunction('treatment_date')">{{'LABEL_ORDER_IVOM_DATE'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('patient_name')" ng-click="SortFunction('patient_name')">{{'LABEL_LAST_NAME_FIRST_NAME'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('drug')" ng-click="SortFunction('drug')">{{'LABEL_DRUG'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('pharmacy_name')" ng-click="SortFunction('pharmacy_name')">{{'LABEL_PHARMACY'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('diagnose')" ng-click="SortFunction('diagnose')">{{'LABEL_DIAGNOSE'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('localization')" ng-click="SortFunction('localization')">{{'LABEL_LOCALIZATION'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('treatment_doctor_name')" ng-click="SortFunction('treatment_doctor_name')">{{'LABEL_OP_DOCTOR'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('status_drug_order')" ng-click="SortFunction('status_drug_order')">{{'LABEL_STATUS'| translate}}</li>
+        <li></li>
+    </ul>
+    <h2 id="stickyHeaderBox" class="first-letter-holder has-checkbox hide"></h2>
+
+    <div class="content-scroll clear" id="wrapper" sticky>
+        <div id="wrapper_inner">
+            <div infinite-scroll="loadOrders()" infinite-scroll-distance="400" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="item in orders | groupBy:'group_name'" ng-repeat-finished>
+                    <h2 id="tableGroup" class="first-letter-holder has-checkbox tableGroup" ng-if="item.group_name_CHANGED">
+                        <span>
+                            {{ ::item.group_name | translate }}
+                        </span>
+                    </h2>
+                    <edit-order-directive order-id="item.id" ng-if="show_edit_order_form_id === item.id"></edit-order-directive>
+                    <add-case-directive ng-if="show_edit_case_form && item.case_id === edit_case_id" mode="'edit'" id="item.case_id" type="'order'" item-type="'order'"></add-case-directive>
+
+                    <div class="table-row" ng-hide="show_edit_order_form_id === item.id || item.case_id === edit_case_id">
+                        <ul id="list" class="table-content orders-table" ng-class="{ 'red-border': item.status_drug_order === 'MO8' }">
+                            <li id="treatmentDate_{{$index}}"><big>{{ item.treatment_date | date: 'dd.MM.yyyy' }}</big></li>
+                            <li id="patientName_{{$index}}" class="larger-font">
+                                {{::item.patient_name}}
+                                <a href="#/patient/patient_detail/{{item.patient_id}}" id="btnGoToPatientDetails_{{$index}}" title="{{ 'BUTTON_GO_TO_PATIENT_DETAILS' | translate}}"><i class="icons-preview-black"></i></a>
+                                <div id="patientBday_{{$index}}" class="normal-height-font gray-font-color">{{ ::item.patient_birthdate | date:'dd.MM.yyyy' }}</div>
+                            </li>
+                            <li id="caseDrug_{{$index}}">
+                                {{ ::item.drug }}
+                                <a class="icons-info"
+                                   uib-tooltip-template="'scripts/src/app/orders/view/ordersTooltip.html'"
+                                   tooltip-placement="top"
+                                   tooltip-trigger="click"
+                                   tooltip-animation="true"></a>
+
+                            </li>
+                            <li>
+                                {{::item.pharmacy_name}}
+                                <div class="normal-height-font gray-font-color">{{::item.delivery_date_string}} {{::item.delivery_time_string}}</div>
+                            </li>
+                            <li id="caseDiagnosis_{{$index}}">{{ ::item.diagnose }}</li>
+                            <li class="text-center">{{::item.localization}}</li>
+                            <li id="doctorName_{{$index}}">{{::item.treatment_doctor_name}}</li>
+                            <li id="orderStatus_{{$index}}" ng-class="{'table-row-color': item.status_drug_order === 'MO8'}">
+                                {{ ::item.status_drug_order | translate }}
+                                <div id="orderStatus_createdOn_{{$index}}" class="normal-height-font gray-font-color">{{::item.submission_date_string}}</div>                
+                                
+                            </li>
+                            <li class="controls text-right">
+                                <a id="edit_{{$index}}" class="icons-edit action-buttons" ng-click="editOrder(item)" href title="{{'BUTTON_EDIT_ORDER' | translate}}" ng-if="canShowEditButton(item)">{{'BUTTON_EDIT_ORDER' | translate}}</a>
+                                <a id="cancel_{{$index}}" class="icons-discard action-delete-button" ng-click="cancelOrder(item)" ng-if="!item.is_treatment_submitted && item.status_drug_order !== 'MO6' && item.status_drug_order !== 'MO9' && item.status_drug_order !== 'MO10'" href title="{{ 'BUTTON_CANCEL_ORDER' | translate }}">{{'BUTTON_CANCEL_ORDER' | translate}}</a>
+                                <a id="submit_{{$index}}" class="icons-submit jsblockClose" ng-click="submitOrder(item)" href="" ng-if="orderOpen(item)" title="{{'BUTTON_SUBMIT_ORDER' | translate}}">{{'BUTTON_SUBMIT_ORDER' | translate}}</a>
+                                <a id="download_{{$index}}" class="pdf-button report-not-downloaded-button-color" href ng-click="downloadReport(item)" ng-if="item.status_drug_order === 'MO10'" title="{{'BUTTON_DOWNLOAD' | translate}}"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

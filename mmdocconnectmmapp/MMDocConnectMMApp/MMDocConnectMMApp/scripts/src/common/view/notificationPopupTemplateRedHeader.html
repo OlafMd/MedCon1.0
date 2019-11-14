@@ -1,0 +1,12 @@
+﻿<div class="popup-wrapper">
+    <div class="popup popup-medium warning-popup">
+        <div class="warning-msg"><h1>{{ 'LABEL_WARNING' | translate }}</h1></div>
+        <h1>{{warning_message}}</h1>
+        <div ng-repeat="item in warning_messages">
+            <h4 class="warning_message_class" translate={{item.message}} translate-values="{ name: item.name, date:item.date, timespan: item.consent_timespan }"></h4>
+        </div>
+        <div class="buttons text-center">
+            <button class="button medium jsblockClose" ng-click="closePopup()" id="btnOK">OK</button>
+        </div>
+    </div>
+</div>

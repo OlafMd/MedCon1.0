@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_patient_parametertype_availableunits
+WHERE 
+	HEC_Patient_ParameterType_AvailableUnitID = @HEC_Patient_ParameterType_AvailableUnitID

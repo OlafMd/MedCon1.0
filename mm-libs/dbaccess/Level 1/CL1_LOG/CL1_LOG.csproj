@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5FF8E7C7-57C2-48AE-BC70-8F6B957DABC6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_LOG</RootNamespace>
+    <AssemblyName>CL1_LOG</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LOG_LogisticsProvider\ORM_LOG_LogisticsProvider.cs" />
+    <Compile Include="LOG_ProductTrackingInstance\ORM_LOG_ProductTrackingInstance.cs" />
+    <Compile Include="LOG_ProductTrackingInstance_HistoryEntry\ORM_LOG_ProductTrackingInstance_HistoryEntry.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="LOG_ProductTrackingInstance\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_ProductTrackingInstance\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_ProductTrackingInstance\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_ProductTrackingInstance_HistoryEntry\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_ProductTrackingInstance_HistoryEntry\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_ProductTrackingInstance_HistoryEntry\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_LogisticsProvider\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_LogisticsProvider\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_LogisticsProvider\SQL\Insert.sql" />
+    <Content Include="_Support\LOG_LogisticsProviders.xml" />
+    <Content Include="_Support\LOG_ProductTrackingInstances.xml" />
+    <Content Include="_Support\LOG_ProductTrackingInstance_HistoryEntries.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

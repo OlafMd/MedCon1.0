@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Order_Status_History_on_Tenant</Name>
+    <Namespace>DataImporter.DBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="DataImporter.DBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Order_Status_History_on_Tenant"
+								Method_Name="Get_Order_Status_History_on_Tenant"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    Select
+      ord_prc_procurementorder_statuses.Status_Code as order_status_code,
+      ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID as header_id
+    From
+      ord_prc_procurementorder_headers Inner Join
+      ord_prc_procurementorder_statushistory
+        On ord_prc_procurementorder_statushistory.ProcurementOrder_Header_RefID =
+        ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID And
+        ord_prc_procurementorder_statushistory.Tenant_RefID = @TenantID And
+        ord_prc_procurementorder_statushistory.IsDeleted = 0  
+        Inner Join
+      ord_prc_procurementorder_statuses
+        On ord_prc_procurementorder_statushistory.ProcurementOrder_Status_RefID =
+        ord_prc_procurementorder_statuses.ORD_PRC_ProcurementOrder_StatusID And
+        ord_prc_procurementorder_statuses.Tenant_RefID = @TenantID And
+        ord_prc_procurementorder_statuses.IsDeleted = 0
+    Where
+      ord_prc_procurementorder_headers.Tenant_RefID = @TenantID And
+      ord_prc_procurementorder_headers.IsDeleted = 0
+    Order By
+      ord_prc_procurementorder_statushistory.Creation_Timestamp desc
+	</SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="CAS_GOSHoT_1759" IsArray="true">
+      <Members>
+        <ClassMember Name="order_status_code" Type="int"  />
+        <ClassMember Name="header_id" Type="Guid"  />
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

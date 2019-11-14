@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Localizations_where_Oct_Rejected</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Localizations_where_Oct_Rejected"
+								Method_Name="Get_Localizations_where_Oct_Rejected"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    Select
+      hec_cas_case_universalpropertyvalue.Value_String as localization,
+      hec_cas_case_universalpropertyvalue.HEC_CAS_Case_UniversalPropertyValueID as property_id
+    From
+      hec_cas_cases Inner Join
+      hec_cas_case_universalpropertyvalue
+        On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_universalpropertyvalue.HEC_CAS_Case_RefID And
+        hec_cas_case_universalpropertyvalue.Tenant_RefID = @TenantID And
+        hec_cas_case_universalpropertyvalue.IsDeleted = 0 Inner Join
+      hec_cas_case_universalproperties
+        On hec_cas_case_universalpropertyvalue.HEC_CAS_Case_UniversalProperty_RefID = hec_cas_case_universalproperties.HEC_CAS_Case_UniversalPropertyID And
+  	    hec_cas_case_universalproperties.GlobalPropertyMatchingID = @RejectedOctPropertyID And
+  	    hec_cas_case_universalproperties.Tenant_RefID = @TenantID And
+  	    hec_cas_case_universalproperties.IsDeleted = 0
+    Where
+      hec_cas_cases.Patient_RefID = @PatientID And
+      hec_cas_cases.Tenant_RefID = @TenantID 
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GLwOctR_1026">
+    <Members>
+      <ClassMember Name="PatientID" Type="Guid"  />
+      <ClassMember Name="RejectedOctPropertyID" Type="String"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GLwOctR_1026" IsArray="true">
+      <Members>
+        <ClassMember Name="localization" Type="String"  />
+        <ClassMember Name="property_id" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

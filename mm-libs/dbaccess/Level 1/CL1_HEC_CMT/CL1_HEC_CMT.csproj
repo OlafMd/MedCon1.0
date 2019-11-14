@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FA4D5021-6E3E-4C1E-97B9-474D9465450E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_HEC_CMT</RootNamespace>
+    <AssemblyName>CL1_HEC_CMT</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HEC_CMT_CommunityGroup\ORM_HEC_CMT_CommunityGroup.cs" />
+    <Compile Include="HEC_CMT_Community\ORM_HEC_CMT_Community.cs" />
+    <Compile Include="HEC_CMT_Community_OfferedMembershipType\ORM_HEC_CMT_Community_OfferedMembershipType.cs" />
+    <Compile Include="HEC_CMT_GroupSubscription\ORM_HEC_CMT_GroupSubscription.cs" />
+    <Compile Include="HEC_CMT_GroupSubscription_Request\ORM_HEC_CMT_GroupSubscription_Request.cs" />
+    <Compile Include="HEC_CMT_Membership\ORM_HEC_CMT_Membership.cs" />
+    <Compile Include="HEC_CMT_Membership_Credential\ORM_HEC_CMT_Membership_Credential.cs" />
+    <Compile Include="HEC_CMT_Membership_PotentialDiagnosisCatalogSubscription\ORM_HEC_CMT_Membership_PotentialDiagnosisCatalogSubscription.cs" />
+    <Compile Include="HEC_CMT_Membership_PotentialProcedureCatalogSubscription\ORM_HEC_CMT_Membership_PotentialProcedureCatalogSubscription.cs" />
+    <Compile Include="HEC_CMT_OfferedRoles_2_GroupSubscriptionRequest\ORM_HEC_CMT_OfferedRoles_2_GroupSubscriptionRequest.cs" />
+    <Compile Include="HEC_CMT_OfferedRoles_2_GroupSubscription\ORM_HEC_CMT_OfferedRoles_2_GroupSubscription.cs" />
+    <Compile Include="HEC_CMT_OfferedRole\ORM_HEC_CMT_OfferedRole.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HEC_CMT_GroupSubscription_Request\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_GroupSubscription_Request\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_GroupSubscription_Request\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_OfferedRoles_2_GroupSubscriptionRequest\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_OfferedRoles_2_GroupSubscriptionRequest\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OfferedRoles_2_GroupSubscriptionRequest\SQL\Insert.sql" />
+    <Content Include="_Support\HEC_CMT_OfferedRoles_2_GroupSubscriptionRequest.xml" />
+    <EmbeddedResource Include="HEC_CMT_OfferedRoles_2_GroupSubscription\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_OfferedRoles_2_GroupSubscription\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OfferedRoles_2_GroupSubscription\SQL\Insert.sql" />
+    <Content Include="_Support\HEC_CMT_GroupSubscription_Requests.xml" />
+    <Content Include="_Support\HEC_CMT_OfferedRoles_2_GroupSubscription.xml" />
+    <EmbeddedResource Include="HEC_CMT_Community\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_Community\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_Community\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_OfferedRole\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_OfferedRole\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_OfferedRole\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_Community_OfferedMembershipType\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_Community_OfferedMembershipType\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_Community_OfferedMembershipType\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_CommunityGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_CommunityGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_CommunityGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_GroupSubscription\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_GroupSubscription\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_GroupSubscription\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_Membership_Credential\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_Membership_Credential\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_Membership_Credential\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_Membership_PotentialDiagnosisCatalogSubscription\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_Membership_PotentialDiagnosisCatalogSubscription\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_Membership_PotentialDiagnosisCatalogSubscription\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_Membership_PotentialProcedureCatalogSubscription\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_Membership_PotentialProcedureCatalogSubscription\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_Membership_PotentialProcedureCatalogSubscription\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CMT_Membership\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CMT_Membership\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CMT_Membership\SQL\Select.sql" />
+    <Content Include="_Support\HEC_CMT_Communities.xml" />
+    <Content Include="_Support\HEC_CMT_CommunityGroups.xml" />
+    <Content Include="_Support\HEC_CMT_Community_OfferedMembershipTypes.xml" />
+    <Content Include="_Support\HEC_CMT_GroupSubscriptions.xml" />
+    <Content Include="_Support\HEC_CMT_Memberships.xml" />
+    <Content Include="_Support\HEC_CMT_Membership_Credentials.xml" />
+    <Content Include="_Support\HEC_CMT_Membership_PotentialDiagnosisCatalogSubscriptions.xml" />
+    <Content Include="_Support\HEC_CMT_Membership_PotentialProcedureCatalogSubscriptions.xml" />
+    <Content Include="_Support\HEC_CMT_OfferedRoles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\arch\bop-csharp-sdk\BOpSDK\BOpSDK.csproj">
+      <Project>{B5AA6031-A2A9-4642-ABF6-2290C8DEEDC6}</Project>
+      <Name>BOpSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

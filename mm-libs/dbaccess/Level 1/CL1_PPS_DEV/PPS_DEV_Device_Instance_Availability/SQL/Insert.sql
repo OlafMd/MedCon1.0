@@ -1,0 +1,19 @@
+INSERT INTO 
+	pps_dev_device_instance_availabilities
+	(
+		PPS_DEV_Device_Instance_AvailabilityID,
+		DeviceInstance_RefID,
+		CMN_CAL_AVA_Availability_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@PPS_DEV_Device_Instance_AvailabilityID,
+		@DeviceInstance_RefID,
+		@CMN_CAL_AVA_Availability_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

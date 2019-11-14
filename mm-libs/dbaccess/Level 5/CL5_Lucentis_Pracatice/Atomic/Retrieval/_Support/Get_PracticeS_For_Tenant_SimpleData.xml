@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/3/2013 3:20:07 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Practices_For_Tenant_SimpleData</Name>
+    <Namespace>CL5_Lucentis_Practice.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Practice.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Practices_For_Tenant_SimpleData"
+								Method_Name="Get_Practices_For_Tenant_SimpleData"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=".Get_Practices_For_Tenant_SimpleData"
+								/>
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_medicalpractises.HEC_MedicalPractiseID,
+  cmn_bpt_businessparticipants.DisplayName,
+  cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID,
+  cmn_com_companyinfo.CompanyInfo_EstablishmentNumber
+From
+  hec_medicalpractises Inner Join
+  cmn_com_companyinfo On hec_medicalpractises.Ext_CompanyInfo_RefID =
+    cmn_com_companyinfo.CMN_COM_CompanyInfoID Inner Join
+  cmn_bpt_businessparticipants
+    On cmn_bpt_businessparticipants.IfCompany_CMN_COM_CompanyInfo_RefID =
+    cmn_com_companyinfo.CMN_COM_CompanyInfoID
+Where
+  hec_medicalpractises.IsDeleted = 0 And
+  cmn_bpt_businessparticipants.IsDeleted = 0 And
+  cmn_com_companyinfo.IsDeleted = 0 And
+  hec_medicalpractises.Tenant_RefID = @TenantID And
+  cmn_bpt_businessparticipants.IsCompany = 1 And
+  cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID = 0 And
+  cmn_bpt_businessparticipants.IsTenant = 0
+	</SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5MP_GPRAFTSD_1614" IsArray="true">
+      <Members>
+        <ClassMember Name="HEC_MedicalPractiseID" Type="Guid"  />
+        <ClassMember Name="CMN_BPT_BusinessParticipantID" Type="Guid"  />
+        <ClassMember Name="DisplayName" Type="String"  />
+        <ClassMember Name="CompanyInfo_EstablishmentNumber" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

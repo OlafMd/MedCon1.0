@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="15/10/2013 10:41:10">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Country_Taxes_for_TenanID</Name>
+    <Namespace>CL3_Taxes.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Taxes.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Country_Taxes_for_TenantID"
+                Method_Name="Get_Country_Taxes_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Country_Taxes_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+  select
+	acc_tax_taxes.ACC_TAX_TaxeID,
+	acc_tax_taxes.EconomicRegion_RefID,
+	acc_tax_taxes.TaxName_DictID,
+	acc_tax_taxes.TaxRate,
+	acc_tax_taxes.IsDeleted,
+	acc_tax_taxes.Tenant_RefID,
+	cmn_economicregion.EconomicRegion_Name_DictID,
+	cmn_economicregion.EconomicRegion_Description_DictID,
+	cmn_economicregion.IsEconomicRegionCountry,
+  cmn_countries.CMN_CountryID,
+  cmn_countries.Country_Name_DictID
+  from cmn_countries
+  left join cmn_country_2_economicregion on cmn_countries.CMN_CountryID = cmn_country_2_economicregion.CMN_Country_RefID 
+            and cmn_country_2_economicregion.IsDeleted = 0
+  left join cmn_economicregion on cmn_country_2_economicregion.CMN_EconomicRegion_RefID = cmn_economicregion.CMN_EconomicRegionID
+            and cmn_economicregion.IsDeleted = 0
+ left join acc_tax_taxes on acc_tax_taxes.EconomicRegion_RefID = cmn_economicregion.CMN_EconomicRegionID
+            and acc_tax_taxes.IsDeleted = 0
+  where cmn_countries.IsDeleted = 0
+        and cmn_countries.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3TX_GTfT_1038" IsArray="true" GroupBy="CMN_CountryID">
+			<Members>
+        <ClassMember Name="CMN_CountryID" Type="Guid"  />
+        <ClassMember Name="Country_Name" Type="Dict" OriginTable="cmn_countries" Source_DBField="Country_Name_DictID"  />
+        <!-- Derived Tables -->
+        <ClassMember Name="Tax" IsClass="true" IsArray="true" Type="L3TX_GTfT_1038_Tax" GroupBy="ACC_TAX_TaxeID" >
+          <Members>
+            <ClassMember Name="ACC_TAX_TaxeID" Type="Guid"  />
+            <ClassMember Name="EconomicRegion_RefID" Type="Guid"  />
+            <ClassMember Name="TaxName" Type="Dict" OriginTable="acc_tax_taxes" Source_DBField="TaxName_DictID"  />
+            <ClassMember Name="TaxRate" Type="double"  />
+            <ClassMember Name="IsDeleted" Type="bool"  />
+            <ClassMember Name="Tenant_RefID" Type="Guid"  />
+            <ClassMember Name="EconomicRegion_Name" Type="Dict" OriginTable="cmn_economicregion" Source_DBField="EconomicRegion_Name_DictID"  />
+            <ClassMember Name="EconomicRegion_Description" Type="Dict" OriginTable="cmn_economicregion" Source_DBField="EconomicRegion_Description_DictID"  />
+            <ClassMember Name="IsEconomicRegionCountry" Type="bool"  />
+          </Members>
+        </ClassMember>
+       
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

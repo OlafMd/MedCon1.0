@@ -1,0 +1,21 @@
+INSERT INTO 
+	ord_cuo_position_customerorganizationalunitdistribution
+	(
+		ORD_CUO_Position_CustomerOrganizationalUnitDistributionID,
+		Quantity,
+		CMN_BPT_CTM_OrganizationalUnit_RefID,
+		ORD_CUO_CustomerOrder_Position_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ORD_CUO_Position_CustomerOrganizationalUnitDistributionID,
+		@Quantity,
+		@CMN_BPT_CTM_OrganizationalUnit_RefID,
+		@ORD_CUO_CustomerOrder_Position_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

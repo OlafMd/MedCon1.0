@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 12/3/2013 4:44:21 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_PER_PersonInfo_2_Address"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_PER"
+                IsClass_Corresponding_DBTable="cmn_per_personinfo_2_address" >
+      <Members>
+		<ClassMember Name="AssignmentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="AddressLabel" Type="String" />
+		<ClassMember Name="CMN_Address_RefID" Type="Guid" />
+		<ClassMember Name="CMN_PER_PersonInfo_RefID" Type="Guid" />
+		<ClassMember Name="SequenceNumber" Type="int" />
+		<ClassMember Name="IsPrimary" Type="Boolean" />
+		<ClassMember Name="IsAddress_Contact" Type="Boolean" />
+		<ClassMember Name="IsAddress_Billing" Type="Boolean" />
+		<ClassMember Name="IsAddress_Shipping" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/28/2014 4:15:32 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Doctors_and_Staff_allData_for_TenantID</Name>
+    <Namespace>CL5_MyHealthClub_DoctorsAndStaff.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_DoctorsAndStaff.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Doctors_and_Staff_allData_for_TenantID"
+                Method_Name="Get_Doctors_and_Staff_allData_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Doctors_and_Staff_allData_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID,
+  cmn_bpt_businessparticipants.DisplayName,
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.LastName,
+  cmn_per_personinfo.PrimaryEmail,
+  cmn_per_personinfo.Title,
+  hec_doctors.IsTreatingChildren,
+  cmn_per_communicationcontacts.PersonInfo_RefID,
+  cmn_per_communicationcontacts.Content,
+  cmn_per_communicationcontact_types.Type,
+  cmn_per_communicationcontact_types.CMN_PER_CommunicationContact_TypeID,
+  cmn_per_personinfo.Gender,
+  cmn_str_offices.Office_Name_DictID,
+  cmn_str_offices.CMN_STR_OfficeID,
+  cmn_str_offices.Office_InternalNumber,
+  hec_doctors.DoctorIDNumber,
+  cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID,
+  cmn_bpt_emp_employees.Staff_Number,
+  Skills.Skill_Name_DictID,
+  Skills.CMN_STR_SkillID,
+  cmn_str_professions.CMN_STR_ProfessionID,
+  cmn_str_professions.ProfessionName_DictID,
+  cmn_bpt_businessparticipants.DisplayImage_RefID,
+  pps_tsk_task_templates.PPS_TSK_Task_TemplateID,
+  pps_tsk_task_templates.TaskTemplateName_DictID,
+  (Case
+    When
+    cmn_bpt_businessparticipant_availabilities.CMN_BPT_BusinessParticipant_AvailabilityID Is Not Null Then true Else false End) As hasOpeningTime,
+  cmn_bpt_businessparticipant_excludedavailabilitytypes.CMN_BPT_BusinessParticipant_ExcludedAvailabilityTypeID,
+  cmn_bpt_emp_employee_2_profession.IsPrimary,
+  hec_doctors.IsTreatingChildren,
+  cmn_per_personinfo.Gender,
+  cmn_languages.Name_DictID,
+  cmn_languages.CMN_LanguageID,
+  cmn_per_personinfo.Initials,
+  hec_doctors.Account_RefID
+From
+  cmn_bpt_businessparticipants Inner Join
+  cmn_bpt_emp_employees On cmn_bpt_emp_employees.BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID Inner Join
+  cmn_per_personinfo On cmn_per_personinfo.CMN_PER_PersonInfoID =
+    cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID
+  Inner Join
+  cmn_per_communicationcontacts
+    On cmn_per_communicationcontacts.PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID Inner Join
+  cmn_per_communicationcontact_types
+    On cmn_per_communicationcontact_types.CMN_PER_CommunicationContact_TypeID =
+    cmn_per_communicationcontacts.Contact_Type Inner Join
+  cmn_bpt_emp_employee_2_office
+    On cmn_bpt_emp_employee_2_office.CMN_BPT_EMP_Employee_RefID =
+    cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID Inner Join
+  cmn_str_offices On cmn_bpt_emp_employee_2_office.CMN_STR_Office_RefID =
+    cmn_str_offices.CMN_STR_OfficeID Left Join
+  hec_doctors On hec_doctors.BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID Left Join
+  (Select
+    cmn_bpt_emp_employee_2_skill.Employee_RefID,
+    cmn_str_skills.Skill_Name_DictID,
+    cmn_str_skills.CMN_STR_SkillID
+  From
+    cmn_str_skills Inner Join
+    cmn_bpt_emp_employee_2_skill On cmn_bpt_emp_employee_2_skill.Skill_RefID =
+      cmn_str_skills.CMN_STR_SkillID
+  Where
+    cmn_bpt_emp_employee_2_skill.IsDeleted = 0 And
+    cmn_str_skills.IsDeleted = 0) Skills On Skills.Employee_RefID =
+    cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID Inner Join
+  cmn_bpt_emp_employee_2_profession
+    On cmn_bpt_emp_employee_2_profession.Employee_RefID =
+    cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID Inner Join
+  cmn_str_professions On cmn_bpt_emp_employee_2_profession.Profession_RefID =
+    cmn_str_professions.CMN_STR_ProfessionID Left Join
+  cmn_bpt_businessparticipant_availabilities
+    On cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID =
+    cmn_bpt_businessparticipant_availabilities.BusinessParticipant_RefID And
+    cmn_bpt_businessparticipant_availabilities.Tenant_RefID = @TenantID And
+    cmn_bpt_businessparticipant_availabilities.IsDeleted = 0 Left Join
+  cmn_bpt_businessparticipant_excludedavailabilitytypes
+    On cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID =
+    cmn_bpt_businessparticipant_excludedavailabilitytypes.CMN_BPT_BusinessParticipant_RefID And cmn_bpt_businessparticipant_excludedavailabilitytypes.IsDeleted = 0 And cmn_bpt_businessparticipant_excludedavailabilitytypes.Tenant_RefID = @TenantID Left Join
+  cmn_bpt_businessparticipant_spokenlanguages
+    On cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID =
+    cmn_bpt_businessparticipant_spokenlanguages.CMN_BPT_BusinessParticipant_RefID And cmn_bpt_businessparticipant_spokenlanguages.Tenant_RefID = @TenantID And cmn_bpt_businessparticipant_spokenlanguages.IsDeleted = 0 Left Join
+  cmn_languages
+    On cmn_bpt_businessparticipant_spokenlanguages.CMN_Language_RefID =
+    cmn_languages.CMN_LanguageID And cmn_languages.IsDeleted = 0 And
+    cmn_languages.Tenant_RefID = @TenantID Left Join
+  hec_doctor_assignableappointmenttypes On hec_doctors.HEC_DoctorID =
+    hec_doctor_assignableappointmenttypes.Doctor_RefID And
+    hec_doctor_assignableappointmenttypes.IsDeleted = 0 And
+    hec_doctor_assignableappointmenttypes.Tenant_RefID = @TenantID Left Join
+  pps_tsk_task_templates
+    On hec_doctor_assignableappointmenttypes.TaskTemplate_RefID =
+    pps_tsk_task_templates.PPS_TSK_Task_TemplateID And
+    pps_tsk_task_templates.IsDeleted = 0 And pps_tsk_task_templates.Tenant_RefID
+    = @TenantID
+Where
+  cmn_bpt_businessparticipants.Tenant_RefID = @TenantID And
+  cmn_bpt_businessparticipants.IsDeleted = 0 And
+  cmn_per_communicationcontacts.IsDeleted = 0 And
+  cmn_per_communicationcontact_types.IsDeleted = 0 And
+  cmn_per_personinfo.IsDeleted = 0 And
+  cmn_bpt_emp_employees.IsDeleted = 0 And
+  cmn_bpt_emp_employee_2_profession.IsDeleted = 0 And
+  cmn_str_professions.IsDeleted = 0 And
+  cmn_str_offices.IsDeleted = 0 And
+  cmn_bpt_emp_employee_2_office.IsDeleted = 0 And
+  cmn_bpt_businessparticipants.IsNaturalPerson = 1
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5DO_GDaSaDfT_1613" IsArray="true" GroupBy="CMN_BPT_BusinessParticipantID">
+      <Members>
+        <ClassMember Name="CMN_BPT_BusinessParticipantID" Type="Guid"  />
+        <ClassMember Name="CMN_BPT_EMP_EmployeeID" Type="Guid"  />
+        <ClassMember Name="DisplayName" Type="String"  />
+        <ClassMember Name="FirstName" Type="String"  />
+        <ClassMember Name="LastName" Type="String"  />
+        <ClassMember Name="Gender" Type="int"  />
+        <ClassMember Name="IsTreatingChildren" Type="Boolean"  />
+        <ClassMember Name="PrimaryEmail" Type="String"  />
+        <ClassMember Name="Initials" Type="String"  />
+        <ClassMember Name="Title" Type="String"  />
+        <ClassMember Name="DoctorIDNumber" Type="String"  />
+        <ClassMember Name="Staff_Number" Type="String"  />
+        <ClassMember Name="hasOpeningTime" Type="bool"  />
+        <ClassMember Name="ProfessionName" Type="Dict" OriginTable="cmn_str_professions" Source_DBField="ProfessionName_DictID"  />
+        <ClassMember Name="DisplayImage_RefID" Type="Guid"  />
+        <ClassMember Name="CMN_BPT_BusinessParticipant_ExcludedAvailabilityTypeID" Type="Guid" />
+        <ClassMember Name="Account_RefID" Type="Guid"  />
+        <ClassMember IsClass="true" IsArray="true" Type="L5DO_GDaSaDfT_1613_OganisationalUnits" Name="Offices" GroupBy="CMN_STR_OfficeID" >
+          <Members>
+            <ClassMember Name="CMN_STR_OfficeID" Type="Guid"  />
+            <ClassMember Name="Office_Name" Type="Dict" OriginTable="cmn_str_offices" Source_DBField="Office_Name_DictID"  />
+            <ClassMember Name="Office_InternalNumber" Type="String"  />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Type="L5DO_GDaSaDfT_1613_Languages" Name="Languages" GroupBy="CMN_LanguageID" >
+          <Members>
+            <ClassMember Name="Name" Type="Dict" OriginTable="cmn_languages" Source_DBField="Name_DictID"  />
+            <ClassMember Name="CMN_LanguageID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Type="L5DO_GDaSaDfT_1613_Skills" Name="Skills" GroupBy="CMN_STR_SkillID" >
+          <Members>
+            <ClassMember Name="CMN_STR_SkillID" Type="Guid"  />
+            <ClassMember Name="Skill_Name" Type="Dict" OriginTable="cmn_str_skills" Source_DBField="Skill_Name_DictID"  />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Type="L5DO_GDaSaDfT_1613_Appointmenttype" Name="AppointmentType" GroupBy="PPS_TSK_Task_TemplateID" >
+          <Members>
+            <ClassMember Name="PPS_TSK_Task_TemplateID" Type="Guid"  />
+            <ClassMember Name="AppointmentType_Name" Type="Dict" OriginTable="pps_tsk_task_templates" Source_DBField="TaskTemplateName_DictID"  />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Type="L5DO_GDaSaDfT_1613_StaffProfesions" Name="StaffProfesions" GroupBy="CMN_STR_ProfessionID" >
+          <Members>
+            <ClassMember Name="CMN_STR_ProfessionID" Type="Guid"  />
+            <ClassMember Name="IsPrimary" Type="bool"  />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Type="L5DO_GDaSaDfT_1613_ContactTypeContent" Name="ContactTypes" GroupBy="CMN_PER_CommunicationContact_TypeID" >
+          <Members>
+            <ClassMember Name="CMN_PER_CommunicationContact_TypeID" Type="Guid"  />
+            <ClassMember Name="Type" Type="String"  />
+            <ClassMember Name="Content" Type="String"  />
+          </Members>
+        </ClassMember>
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

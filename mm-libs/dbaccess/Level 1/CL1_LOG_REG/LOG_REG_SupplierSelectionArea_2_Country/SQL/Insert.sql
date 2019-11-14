@@ -1,0 +1,21 @@
+INSERT INTO 
+	log_reg_supplierselectionarea_2_country
+	(
+		AssignmentID,
+		LOG_REG_SupplierSelectionArea_RefID,
+		CMN_Country_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@LOG_REG_SupplierSelectionArea_RefID,
+		@CMN_Country_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

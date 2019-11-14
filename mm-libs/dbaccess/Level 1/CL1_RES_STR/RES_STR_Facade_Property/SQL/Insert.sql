@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_str_facade_properties
+	(
+		RES_STR_Facade_PropertyID,
+		GlobalPropertyMatchingID,
+		FacadeProperty_Name_DictID,
+		FacadeProperty_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_Facade_PropertyID,
+		@GlobalPropertyMatchingID,
+		@FacadeProperty_Name,
+		@FacadeProperty_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/12/2013 1:43:40 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DefaultCountryISOCode_for_TenantID</Name>
+    <Namespace>CL2_Country.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Country.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DefaultCountryISOCode_for_TenantID"
+                Method_Name="Get_DefaultCountryISOCode_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DefaultCountryISOCode_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_universalcontactdetails.Country_639_1_ISOCode
+	From
+	  cmn_universalcontactdetails Inner Join
+	  cmn_tenants On cmn_tenants.UniversalContactDetail_RefID =
+	    cmn_universalcontactdetails.CMN_UniversalContactDetailID
+	Where
+	  cmn_tenants.CMN_TenantID = @TenantID And
+	  cmn_tenants.IsDeleted = 0 And
+	  cmn_universalcontactdetails.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2CN_GDCICfT_1342" IsArray="false">
+			<Members>
+				<ClassMember Name="Country_639_1_ISOCode" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

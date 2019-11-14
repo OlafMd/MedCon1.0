@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PerformedActionDate_for_PlannedActionID</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_PerformedActionDate_for_PlannedActionID"
+								Method_Name="Get_PerformedActionDate_for_PlannedActionID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">    
+    Select
+      hec_act_performedactions.IfPerfomed_DateOfAction As performed_on_date,
+      hec_act_plannedactions.MedicalPractice_RefID As practice_id,
+      hec_act_performedaction_diagnosisupdate_localizations.IM_PotentialDiagnosisLocalization_Code as localization
+    From
+      hec_act_plannedactions Inner Join
+      hec_act_performedactions
+        On hec_act_plannedactions.IfPerformed_PerformedAction_RefID = hec_act_performedactions.HEC_ACT_PerformedActionID And hec_act_performedactions.Tenant_RefID =
+        @TenantID And hec_act_performedactions.IsDeleted = 0 Inner Join
+      hec_act_performedaction_diagnosisupdates
+        On hec_act_plannedactions.IfPerformed_PerformedAction_RefID = hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_RefID And
+        hec_act_performedaction_diagnosisupdates.Tenant_RefID = @TenantID And
+        hec_act_performedaction_diagnosisupdates.IsDeleted = 0 Inner Join
+      hec_act_performedaction_diagnosisupdate_localizations
+        On hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_DiagnosisUpdateID =
+        hec_act_performedaction_diagnosisupdate_localizations.HEX_EXC_Action_DiagnosisUpdate_RefID And
+        hec_act_performedaction_diagnosisupdate_localizations.IsDeleted = 0
+    Where
+      hec_act_plannedactions.HEC_ACT_PlannedActionID = @ActionID And
+      hec_act_plannedactions.Tenant_RefID = @TenantID And
+      hec_act_plannedactions.IsDeleted = 0
+    Limit 1
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GPADfPAID_1613">
+    <Members>
+      <ClassMember Name="ActionID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GPADfPAID_1613">
+      <Members>
+        <ClassMember Name="performed_on_date" Type="DateTime"  />
+        <ClassMember Name="practice_id" Type="Guid"  />
+        <ClassMember Name="localization" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

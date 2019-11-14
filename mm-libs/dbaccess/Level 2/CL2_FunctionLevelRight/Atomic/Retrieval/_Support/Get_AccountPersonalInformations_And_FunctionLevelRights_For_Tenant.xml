@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/19/2013 2:41:07 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AccountPersonalInformations_And_FunctionLevelRights_For_Tenant</Name>
+    <Namespace>CL2_FunctionLevelRight.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_FunctionLevelRight.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AccountPersonalInformations_And_FunctionLevelRights_For_Tenant"
+                Method_Name="Get_AccountPersonalInformations_And_FunctionLevelRights_For_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AccountPersonalInformations_And_FunctionLevelRights_For_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+
+	
+Select
+  USR_Account_FunctionLevelRights.AssignmentID As
+  FunctionLevelRight_AssignmentID,
+  USR_Account_FunctionLevelRights.USR_Account_FunctionLevelRightID,
+  USR_Account_FunctionLevelRights.FunctionLevelRight_RefID,
+  USR_Account_FunctionLevelRights.RightName,
+  USR_Account_FunctionLevelRights.FunctionLevelRights_Group_RefID,
+  usr_accounts.DefaultLanguage_RefID,
+  usr_accounts.Username,
+  usr_accounts.BusinessParticipant_RefID,
+  usr_accounts.AccountType,
+  CMN_PER_PersonInfo_2_Account.AssignmentID As PersonalInfo_AssignmentID,
+  CMN_PER_PersonInfo_2_Account.CMN_PER_PersonInfoID,
+  CMN_PER_PersonInfo_2_Account.Salutation_Letter,
+  CMN_PER_PersonInfo_2_Account.Salutation_General,
+  CMN_PER_PersonInfo_2_Account.Address_RefID,
+  CMN_PER_PersonInfo_2_Account.BirthDate,
+  CMN_PER_PersonInfo_2_Account.ProfileImage_Document_RefID,
+  CMN_PER_PersonInfo_2_Account.Title,
+  CMN_PER_PersonInfo_2_Account.PrimaryEmail,
+  CMN_PER_PersonInfo_2_Account.LastName,
+  CMN_PER_PersonInfo_2_Account.FirstName,
+  usr_accounts.USR_AccountID,
+  usr_accounts.Tenant_RefID
+From
+  usr_accounts Left Join
+  (Select
+    usr_account_2_functionlevelright.AssignmentID,
+    usr_account_2_functionlevelright.FunctionLevelRight_RefID,
+    usr_account_2_functionlevelright.Account_RefID,
+    usr_account_functionlevelrights.Tenant_RefID As Tenant_RefID1,
+    usr_account_functionlevelrights.RightName,
+    usr_account_functionlevelrights.FunctionLevelRights_Group_RefID,
+    usr_account_functionlevelrights.USR_Account_FunctionLevelRightID
+  From
+    usr_account_functionlevelrights Inner Join
+    usr_account_2_functionlevelright
+      On usr_account_2_functionlevelright.FunctionLevelRight_RefID =
+      usr_account_functionlevelrights.USR_Account_FunctionLevelRightID
+  Where
+    usr_account_functionlevelrights.IsDeleted = 0 And
+    usr_account_2_functionlevelright.IsDeleted =
+    0) USR_Account_FunctionLevelRights On usr_accounts.USR_AccountID =
+    USR_Account_FunctionLevelRights.Account_RefID Inner Join
+  (Select
+    cmn_per_personinfo_2_account.Tenant_RefID,
+    cmn_per_personinfo_2_account.USR_Account_RefID,
+    cmn_per_personinfo_2_account.CMN_PER_PersonInfo_RefID,
+    cmn_per_personinfo_2_account.AssignmentID,
+    cmn_per_personinfo.Salutation_Letter,
+    cmn_per_personinfo.Salutation_General,
+    cmn_per_personinfo.Tenant_RefID As Tenant_RefID1,
+    cmn_per_personinfo.Address_RefID,
+    cmn_per_personinfo.BirthDate,
+    cmn_per_personinfo.ProfileImage_Document_RefID,
+    cmn_per_personinfo.Title,
+    cmn_per_personinfo.PrimaryEmail,
+    cmn_per_personinfo.LastName,
+    cmn_per_personinfo.FirstName,
+    cmn_per_personinfo.CMN_PER_PersonInfoID
+  From
+    cmn_per_personinfo_2_account Inner Join
+    cmn_per_personinfo On cmn_per_personinfo_2_account.CMN_PER_PersonInfo_RefID
+      = cmn_per_personinfo.CMN_PER_PersonInfoID
+  Where
+    cmn_per_personinfo_2_account.IsDeleted = 0 And
+    cmn_per_personinfo.IsDeleted = 0) CMN_PER_PersonInfo_2_Account
+    On CMN_PER_PersonInfo_2_Account.USR_Account_RefID =
+    usr_accounts.USR_AccountID
+Where
+  usr_accounts.IsDeleted = 0 And
+  usr_accounts.Tenant_RefID = @TenantID
+
+  
+
+	  
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2FL_GAPIAFLRFT_1440" IsArray="true" GroupBy="USR_AccountID">
+			<Members>
+				<ClassMember Name="DefaultLanguage_RefID" Type="Guid"  />
+				<ClassMember Name="Username" Type="String"  />
+				<ClassMember Name="BusinessParticipant_RefID" Type="Guid"  />
+				<ClassMember Name="AccountType" Type="String"  />
+				<ClassMember Name="USR_AccountID" Type="Guid"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+        <ClassMember Name="PersonalInfo_AssignmentID" Type="Guid"  />
+        <ClassMember Name="CMN_PER_PersonInfoID" Type="Guid"  />
+        <ClassMember Name="Salutation_Letter" Type="String"  />
+        <ClassMember Name="Salutation_General" Type="String"  />
+        <ClassMember Name="Address_RefID" Type="Guid"  />
+        <ClassMember Name="BirthDate" Type="DateTime"  />
+        <ClassMember Name="ProfileImage_Document_RefID" Type="Guid"  />
+        <ClassMember Name="Title" Type="String"  />
+        <ClassMember Name="PrimaryEmail" Type="String"  />
+        <ClassMember Name="LastName" Type="String"  />
+        <ClassMember Name="FirstName" Type="String"  />
+
+				<!-- Derived Tables -->
+				<ClassMember IsClass="true" IsArray="true" Name="USR_Account_FunctionLevelRights" Type="L2FL_GAPIAFLRFT_1440_USR_Account_FunctionLevelRights"  GroupBy="FunctionLevelRight_AssignmentID">
+					<Members>
+						<ClassMember Name="FunctionLevelRight_AssignmentID" Type="Guid"  />
+						<ClassMember Name="USR_Account_FunctionLevelRightID" Type="Guid"  />
+						<ClassMember Name="FunctionLevelRight_RefID" Type="Guid"  />
+						<ClassMember Name="RightName" Type="String"  />
+						<ClassMember Name="FunctionLevelRights_Group_RefID" Type="Guid"  />
+					</Members>
+				</ClassMember>
+	
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

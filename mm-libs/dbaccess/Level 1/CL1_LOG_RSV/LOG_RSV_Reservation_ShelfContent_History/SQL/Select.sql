@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	log_rsv_reservation_shelfcontent_history
+WHERE 
+	LOG_RSV_Reservation_ShelfContent_HistoryID = @LOG_RSV_Reservation_ShelfContent_HistoryID

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/2/2014 2:31:31 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_TMS_PRO_DeveloperTask_Priority</Name>
+    <Namespace>CL2_DeveloperTask.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="CL2_DeveloperTask.Atomic.Manipulation"
+								Method_ClassName="cls_Save_TMS_PRO_DeveloperTask_Priority"
+								Method_Name="Save_TMS_PRO_DeveloperTask_Priority"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=".Save_TMS_PRO_DeveloperTask_Priority"
+								/>
+
+
+  <Parameters IsClass="true" Name="P_L2DTP_SDTP_1431">
+    <Members>
+      <ClassMember IsIdentificator="True" Name="TMS_PRO_DeveloperTask_PriorityID" Type="Guid"  />
+      <ClassMember Name="IconLocationURL" Type="String"  />
+      <ClassMember Name="Label" Type="Dict"  />
+      <ClassMember Name="Description" Type="Dict"  />
+      <ClassMember Name="Groups" Type="String"  />
+      <ClassMember Name="PriorityLevel" Type="long"  />
+      <ClassMember Name="Creation_Timestamp" Type="DateTime"/>
+      <ClassMember Name="IsDeleted" Type="Boolean"  />
+      <ClassMember Name="IsPersistent" Type="Boolean"  />
+      <ClassMember Name="Priority_Colour" Type="String"  />
+      <ClassMember Name="IfDeleteReplaceWith" Type="Guid"  />
+      <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>

@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_usr_users
+	(
+		CMN_BPT_USR_UserID,
+		BusinessParticipant_RefID,
+		Username,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_BPT_USR_UserID,
+		@BusinessParticipant_RefID,
+		@Username,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

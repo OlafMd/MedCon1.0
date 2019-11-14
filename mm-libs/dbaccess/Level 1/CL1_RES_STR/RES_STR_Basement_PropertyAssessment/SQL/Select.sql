@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_basement_propertyassessments
+WHERE 
+	RES_STR_Basement_PropertyAssessmentID = @RES_STR_Basement_PropertyAssessmentID

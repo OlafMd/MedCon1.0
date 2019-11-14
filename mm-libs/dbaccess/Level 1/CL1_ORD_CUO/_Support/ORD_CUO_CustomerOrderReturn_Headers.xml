@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/3/2014 3:56:54 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="ORD_CUO_CustomerOrderReturn_Header"
+                IsClass="true"
+                IsClass_Namespace="CL1_ORD_CUO"
+                IsClass_Corresponding_DBTable="ord_cuo_customerorderreturn_headers" >
+      <Members>
+		<ClassMember Name="ORD_CUO_CustomerOrderReturn_HeaderID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Customer_RefID" Type="Guid" />
+		<ClassMember Name="CorrespondingReceiptHeader_RefID" Type="Guid" />
+		<ClassMember Name="DateOfCustomerReturn" Type="DateTime" />
+		<ClassMember Name="CustomerOrderReturnNumber" Type="String" />
+		<ClassMember Name="Currency_RefID" Type="Guid" />
+		<ClassMember Name="TotalValueBeforeTax" Type="Decimal" />
+		<ClassMember Name="Customer_BillingAddressUCD_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

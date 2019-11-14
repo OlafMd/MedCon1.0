@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_loc_region_calendartemplates
+	(
+		CMN_LOC_Region_CalendarTemplateID,
+		CalendarInstance_RefID,
+		Region_RefID,
+		Label_DictID,
+		Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_LOC_Region_CalendarTemplateID,
+		@CalendarInstance_RefID,
+		@Region_RefID,
+		@Label,
+		@Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

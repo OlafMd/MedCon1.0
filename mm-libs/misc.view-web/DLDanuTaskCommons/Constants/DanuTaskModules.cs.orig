@@ -1,0 +1,98 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.ComponentModel;
+
+namespace DLDanuTaskCommons.Constants
+{
+    public enum DanuTaskModules
+    {
+        Administrator,
+        Manager,
+        Developer
+    }
+
+    public enum DeveloperModulePages
+    {
+        TaskDetails,
+        Assigned,
+        Recommended,
+        Free,
+        Mentions,
+        Completed,
+        ReportedToday,
+        Notes
+    }
+
+    public enum AdminModulePages
+    {
+        ActiveUsers,
+        Projects,
+        WorkingTimeTypes,
+        DeveloperTaskPriorities,
+        ProjectMemberTypes,
+        PriceGrades,
+        RequestedProjects,
+        Reports
+    }
+
+    public enum ManagerModulePages
+    {
+        Projects,
+        Features,
+        DeveloperTasks,
+        Boards,
+        ReportedToday,
+        Reports,
+        Issues
+
+    }
+    
+    public enum PopUpTypes
+    {
+        StopTask,
+        FinishTask,
+        ReportWorkTime,
+        AsignTaskByDeveloper,
+        RecommendDeveloperTask,
+        AddPriceGrade,
+        AddEditDeveloperTaskPriority,
+        AddEditProject,
+        FinishRunningTime,
+        AddNewWorkingTaskType,
+        AdminUsers,
+        DeleteDeveloperTaskPriority,
+        DeleteWorkingTaskType,
+        AddUsertoProject,
+        AddEditMemberType,
+        AssignChargingLevelToMemberType,
+        ReplaceMemberType,
+
+        ReplacePriceGrades,
+        ReplaceSinglePriceGrade,
+
+        UsersSelectable,
+<<<<<<< HEAD
+        AssignUsersToProject,
+
+        OpenNewIssue,
+        AddEditDeveloperPoint,
+=======
+>>>>>>> 35ea51812ee5a517a24e55434d34f14833675571
+        ManagerAddPackage,
+        AddFeature,
+        EditFeature,
+        DeleteFeature,
+
+        DeleteProject
+     }
+
+    public enum PopupRecommendationType
+    {
+        Note,
+        DeveloperTask,
+        Project,
+        NoteDetails
+    }
+}

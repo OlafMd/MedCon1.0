@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:47:18 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_QST_QuestionItem_StandardAnswerType"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_QST"
+                IsClass_Corresponding_DBTable="cmn_qst_questionitem_standardanswertypes" >
+      <Members>
+		<ClassMember Name="CMN_QST_QuestionItem_StandardAnswerTypeID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="IsBoolean" Type="Boolean" />
+		<ClassMember Name="IsNumber" Type="Boolean" />
+		<ClassMember Name="IfNumber_IsInteger" Type="Boolean" />
+		<ClassMember Name="IfNumber_Min_Inclusive" Type="int" />
+		<ClassMember Name="IfNumber_Max_Exclusive" Type="int" />
+		<ClassMember Name="IsShortText" Type="Boolean" />
+		<ClassMember Name="IfShortText_MaxLength" Type="int" />
+		<ClassMember Name="IsLongText" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

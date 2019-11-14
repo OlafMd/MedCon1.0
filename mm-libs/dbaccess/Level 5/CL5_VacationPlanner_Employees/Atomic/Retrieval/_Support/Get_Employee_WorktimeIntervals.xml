@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/12/2014 4:29:11 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Employee_WorktimeIntervals</Name>
+    <Namespace>CL5_VacationPlanner_Employees.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_VacationPlanner_Employees.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Employee_WorktimeIntervals"
+                Method_Name="Get_Employee_WorktimeIntervals"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Employee_WorktimeIntervals"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_cal_weeklyofficehours_intervals.CMN_CAL_WeeklyOfficeHours_IntervalID,
+	  cmn_cal_weeklyofficehours_intervals.WeeklyOfficeHours_Template_RefID,
+	  cmn_cal_weeklyofficehours_intervals.IsWholeDay,
+	  cmn_cal_weeklyofficehours_intervals.TimeFrom_InMinutes,
+	  cmn_cal_weeklyofficehours_intervals.TimeTo_InMinutes,
+	  cmn_cal_weeklyofficehours_intervals.IsMonday,
+	  cmn_cal_weeklyofficehours_intervals.IsTuesday,
+	  cmn_cal_weeklyofficehours_intervals.IsWednesday,
+	  cmn_cal_weeklyofficehours_intervals.IsThursday,
+	  cmn_cal_weeklyofficehours_intervals.IsFriday,
+	  cmn_cal_weeklyofficehours_intervals.IsSaturday,
+	  cmn_cal_weeklyofficehours_intervals.IsSunday,
+	  cmn_cal_weeklyofficehours_intervals.Creation_Timestamp,
+	  cmn_cal_weeklyofficehours_intervals.Tenant_RefID,
+	  cmn_bpt_emp_workingcontracts.CMN_BPT_EMP_WorkingContractID
+	From
+	  cmn_cal_weeklyofficehours_intervals Inner Join
+	  cmn_bpt_emp_workingcontract_2_workingdays
+	    On
+	    cmn_bpt_emp_workingcontract_2_workingdays.CMN_CAL_WeeklyOfficeHours_Interval_RefID = cmn_cal_weeklyofficehours_intervals.CMN_CAL_WeeklyOfficeHours_IntervalID Inner Join
+	  cmn_bpt_emp_workingcontracts
+	    On cmn_bpt_emp_workingcontracts.CMN_BPT_EMP_WorkingContractID =
+	    cmn_bpt_emp_workingcontract_2_workingdays.CMN_BPT_EMP_WorkingContract_RefID
+	  Inner Join
+	  cmn_bpt_emp_employmentrelationship_2_workingcontract
+	    On
+	    cmn_bpt_emp_employmentrelationship_2_workingcontract.WorkingContract_RefID =
+	    cmn_bpt_emp_workingcontracts.CMN_BPT_EMP_WorkingContractID Inner Join
+	  cmn_bpt_emp_employmentrelationships
+	    On cmn_bpt_emp_employmentrelationships.CMN_BPT_EMP_EmploymentRelationshipID
+	    =
+	    cmn_bpt_emp_employmentrelationship_2_workingcontract.EmploymentRelationship_RefID Inner Join
+	  cmn_bpt_emp_employees On cmn_bpt_emp_employmentrelationships.Employee_RefID =
+	    cmn_bpt_emp_employees.CMN_BPT_EMP_EmployeeID Inner Join
+	  usr_accounts On cmn_bpt_emp_employees.BusinessParticipant_RefID =
+	    usr_accounts.BusinessParticipant_RefID
+	Where
+	  usr_accounts.USR_AccountID = @AccountID And
+    usr_accounts.Tenant_RefID = @TenantID And
+	  usr_accounts.IsDeleted = False And
+	  cmn_bpt_emp_employees.IsDeleted = False And
+	  cmn_bpt_emp_employmentrelationships.IsDeleted = False And
+	  cmn_bpt_emp_employmentrelationship_2_workingcontract.IsDeleted = False And
+	  cmn_bpt_emp_workingcontracts.IsDeleted = False And
+	  cmn_bpt_emp_workingcontract_2_workingdays.IsDeleted = False And
+	  cmn_cal_weeklyofficehours_intervals.IsDeleted = False And
+	  cmn_bpt_emp_employmentrelationship_2_workingcontract.IsContract_Active = True
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5_EM_GEWI_1628" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_CAL_WeeklyOfficeHours_IntervalID" Type="Guid"  />
+				<ClassMember Name="WeeklyOfficeHours_Template_RefID" Type="Guid"  />
+				<ClassMember Name="IsWholeDay" Type="bool"  />
+				<ClassMember Name="TimeFrom_InMinutes" Type="String"  />
+				<ClassMember Name="TimeTo_InMinutes" Type="double"  />
+				<ClassMember Name="IsMonday" Type="bool"  />
+				<ClassMember Name="IsTuesday" Type="bool"  />
+				<ClassMember Name="IsWednesday" Type="bool"  />
+				<ClassMember Name="IsThursday" Type="bool"  />
+				<ClassMember Name="IsFriday" Type="bool"  />
+				<ClassMember Name="IsSaturday" Type="bool"  />
+				<ClassMember Name="IsSunday" Type="bool"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="CMN_BPT_EMP_WorkingContractID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

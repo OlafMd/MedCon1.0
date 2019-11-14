@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_act_performedaction_referral_requestedpotentialprocedures
+WHERE 
+	HEC_ACT_PerformedAction_Referral_RequestedPotentialProcedureID = @HEC_ACT_PerformedAction_Referral_RequestedPotentialProcedureID

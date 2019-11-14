@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_pro_product_notes
+	(
+		CMN_PRO_Product_NoteID,
+		Product_RefID,
+		Product_Variant_RefID,
+		Product_Release_RefID,
+		IsImportant,
+		NoteContent,
+		CreatedBy_BusinessParticipant_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PRO_Product_NoteID,
+		@Product_RefID,
+		@Product_Variant_RefID,
+		@Product_Release_RefID,
+		@IsImportant,
+		@NoteContent,
+		@CreatedBy_BusinessParticipant_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

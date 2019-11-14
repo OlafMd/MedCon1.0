@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="22/7/2014 12:23:02">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_StockQuantities_for_ProductID</Name>
+    <Namespace>CL3_Articles.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Articles.Atomic.Retrieval"
+                Method_ClassName="cls_Get_StockQuantities_for_ProductID"
+                Method_Name="Get_StockQuantities_for_ProductID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_StockQuantities_for_ProductID"
+                />
+
+  <SQLStatement xml:space="preserve">
+SELECT Sum(log_rsv_reservations.reservedquantity)   Reserved_Quantity, 
+       Sum(log_wrh_shelf_contents.quantity_current) Quantity_Current
+FROM   log_producttrackinginstances 
+       INNER JOIN log_wrh_shelfcontent_2_trackinginstance 
+               ON 
+       log_wrh_shelfcontent_2_trackinginstance.log_producttrackinginstance_refid 
+       = 
+                  log_producttrackinginstances.log_producttrackinginstanceid 
+       AND log_wrh_shelfcontent_2_trackinginstance.isdeleted = 0 
+       AND log_wrh_shelfcontent_2_trackinginstance.tenant_refid = @TenantID 
+       INNER JOIN log_wrh_shelf_contents 
+               ON log_wrh_shelf_contents.log_wrh_shelf_contentid = 
+       log_wrh_shelfcontent_2_trackinginstance.log_wrh_shelf_content_refid 
+       AND log_wrh_shelf_contents.isdeleted = 0 
+       AND log_wrh_shelf_contents.tenant_refid = @TenantID 
+       LEFT JOIN log_rsv_reservations 
+              ON log_rsv_reservations.log_wrh_shelf_content_refid = 
+                           log_wrh_shelf_contents.log_wrh_shelf_contentid 
+                 AND log_rsv_reservations.isdeleted = 0 
+                 AND log_rsv_reservations.tenant_refid = @TenantID 
+WHERE  log_producttrackinginstances.isdeleted = 0 
+       AND log_producttrackinginstances.tenant_refid = @TenantID 
+       AND log_producttrackinginstances.cmn_pro_product_refid = @ProductID 
+GROUP  BY log_producttrackinginstances.cmn_pro_product_refid 
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3AR_GSQfP_1220">
+    <Members>
+      <ClassMember Name="ProductID" Type="Guid" />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3AR_GSQfP_1220" IsArray="false">
+      <Members>
+        <ClassMember Name="Reserved_Quantity" Type="double"  />
+        <ClassMember Name="Quantity_Current" Type="double"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,68 @@
+﻿<div class=" doctors-data-lists planning-list clearfix animate-if" ng-class="{'gray-content-holder': mode !== 'edit', 'gray-content-holder-visible': mode=== 'edit'}">
+    <form class="relative clear" ng-class="{'rejected-border': type === 'settlement' && status === 'FS6'}" id="caseForm" name="caseForm" ng-submit="saveOrder()" novalidate off-click="closeOrderForm()">
+        <ul class="first-class-data first-row">
+            <li>
+                <label id="lblPatientName">
+                    {{ 'LABEL_PATIENT_NAME' | translate }}
+                </label>
+                <input type="text" disabled="disabled" ng-model="order.patient_name" />
+            </li>
+            <li>
+                <label id="lblTreatmentDate">
+                    {{ 'LABEL_TREATMENT_DATE' | translate }}
+                </label>
+                <datepicker date-format="dd.MM.yyyy" date-model="order.treatment_date" date-min-limit="{{today}}">
+                    <input type="text" id="treatmentDate" ng-focus="setClass()" name="treatmentDate" class="form-control 2000Year" ng-model="order.treatment_date"
+                           ng-change="selectedTreatmentDate()" placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                           ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'" required ng-blur="setAlternativeDeliveryDate()"
+                           validate-date="true" ng-disabled="!order.is_only_order" date-min-limit="today" />
+                </datepicker>
+            </li>
+            <li>
+                <div class="buttons-with-text-button">
+                    <span class="abort"><a href="" ng-click="closeOrderForm()" translate="BUTTON_CANCEL" title="{{ 'BUTTON_CANCEL' | translate}}">{{ 'LABEL_CANCEL' | translate }}</a></span>
+                    <button class="button wide confirm" id="btnSubmitCase" type="submit" translate="BUTTON_SAVE"></button>
+                </div>
+            </li>
+        </ul>
+
+        <div class="second-class-data-wrapper">
+            <h3 id="lblDrugTitle">{{ 'LABEL_DRUG' | translate }}</h3>
+            <ul class="second-class-data second-row">
+                <li>
+                    <label id="lblDrugName">{{ 'LABEL_DRUG_NAME' | translate }}<span class="error" ng-show="showDrugStarReq()">*</span></label>
+                    <dropdown-list id="selDrug" items="drugs" ng-model="order.drug_id" disable-input="!order.is_only_order"></dropdown-list>
+                </li>
+                <li>
+                    <label id="lblNoFee" translate="LABEL_NO_FEE"></label>
+                    <span class="mask-checkbox">
+                        <input id="inChNoFee" name="inChNoFee" type="checkbox" ng-model="order.fee_waived" />
+                        <i class="icon"></i>
+                    </span>
+                </li>
+                <li>
+                    <label id="lblPracticeInvoice">
+                        {{'LABEL_PRACTICE_INVOICE' | translate }}
+                    </label>
+                    <span class="mask-checkbox">
+                        <input id="inChPracticeInvoice" name="inChPracticeInvoice" type="checkbox" ng-model="order.send_invoice_to_practice" />
+                        <i class="icon"></i>
+                    </span>
+                </li>
+                <li ng-if="labelOnlyVisible">
+                    <label id="lblLabelOnly" translate="LABEL_ONLY_LABEL_REQUIRED"></label>
+                    <span class="mask-checkbox">
+                        <input id="inChLabelOnly" name="inChLabelOnly" type="checkbox" ng-model="order.label_only" />
+                        <i class="icon"></i>
+                    </span>
+                </li>
+            </ul>
+            <ul class="second-class-data first-row">
+                <li class="fleft width-100">
+                    <label>{{ 'LABEL_COMMENT' | translate}}</label>
+                    <input type="text" id="inOrderComment" name="inOrderComment" ng-model="order.comment" maxlength="32766" />
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

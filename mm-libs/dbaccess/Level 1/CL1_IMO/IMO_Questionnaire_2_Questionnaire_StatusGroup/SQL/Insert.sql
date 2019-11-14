@@ -1,0 +1,19 @@
+INSERT INTO 
+	imo_questionnaire_2_questionnaire_statusgroup
+	(
+		AssignmentID,
+		QuestionnaireVersion_RefID,
+		Questionnaire_StatusGroup_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@QuestionnaireVersion_RefID,
+		@Questionnaire_StatusGroup_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

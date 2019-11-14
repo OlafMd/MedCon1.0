@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/25/2014 2:30:09 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>ParameterTypes_for_Tenant</Name>
+    <Namespace>CLE_L3_PatientParameters.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CLE_L3_PatientParameters.Atomic.Retrieval"
+                Method_ClassName="cls_ParameterTypes_for_Tenant"
+                Method_Name="ParameterTypes_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".ParameterTypes_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  hec_patient_parameters.HEC_Patient_ParameterID,
+	  hec_patient_parameters.PatientParameterITL,
+	  hec_patient_parameters.GlobalPropertyMatchingID,
+	  hec_patient_parameters.Parameter_Name_DictID,
+	  hec_patient_parameters.IsFloat,
+	  hec_patient_parameters.IsFloat_ApplicableUnit_RefID,
+	  hec_patient_parameters.IsString,
+	  hec_patient_parameters.IsVitalParameter,
+	  hec_patient_parameters.Creation_Timestamp,
+	  hec_patient_parameters.Tenant_RefID,
+	  hec_patient_parameters.IsDeleted,
+	  hec_patient_parameters.HasHighRelevance,
+	  hec_patient_parameters.Modification_Timestamp,
+	  hec_patient_parameters.ParameterType_RefID,
+	  hec_patient_parametertypes.HEC_Patient_ParameterTypeID,
+	  hec_patient_parametertypes.GlobalPropertyMatchingID As
+	  GlobalPropertyMatchingIDParameterTypes,
+	  hec_patient_parametertypes.Name_DictID,
+	  hec_patient_parametertypes.Creation_Timestamp As
+	  Creation_TimestampParameterTypes,
+	  hec_patient_parametertypes.IsDeleted As IsDeletedParameterTypes,
+	  hec_patient_parametertypes.Modification_Timestamp As
+	  Modification_TimestampParameterTypes,
+    hec_patient_parameters.IfFloat_MinValue,
+    hec_patient_parameters.IfFloat_MaxValue
+	From
+	  hec_patient_parametertypes Inner Join
+	  hec_patient_parameters On hec_patient_parameters.ParameterType_RefID =
+	    hec_patient_parametertypes.HEC_Patient_ParameterTypeID
+	Where
+	  hec_patient_parametertypes.Tenant_RefID = @Tenant
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3_PTfT_1429">
+    <Members>
+      <ClassMember Name="Tenant" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3_PTfT_1429" IsArray="true">
+			<Members>
+				<ClassMember Name="HEC_Patient_ParameterID" Type="Guid"  />
+				<ClassMember Name="PatientParameterITL" Type="String"  />
+				<ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+				<ClassMember Name="Parameter_Name" Type="Dict" OriginTable="hec_patient_parameters" Source_DBField="Parameter_Name_DictID"  />
+				<ClassMember Name="IsFloat" Type="bool"  />
+				<ClassMember Name="IsFloat_ApplicableUnit_RefID" Type="Guid"  />
+				<ClassMember Name="IsString" Type="bool"  />
+				<ClassMember Name="IsVitalParameter" Type="bool"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+				<ClassMember Name="HasHighRelevance" Type="bool"  />
+				<ClassMember Name="Modification_Timestamp" Type="DateTime"  />
+				<ClassMember Name="ParameterType_RefID" Type="Guid"  />
+				<ClassMember Name="HEC_Patient_ParameterTypeID" Type="Guid"  />
+				<ClassMember Name="GlobalPropertyMatchingIDParameterTypes" Type="String"  />
+				<ClassMember Name="Name" Type="Dict" OriginTable="hec_patient_parametertypes" Source_DBField="Name_DictID"  />
+				<ClassMember Name="Creation_TimestampParameterTypes" Type="DateTime"  />
+				<ClassMember Name="IsDeletedParameterTypes" Type="bool"  />
+				<ClassMember Name="Modification_TimestampParameterTypes" Type="DateTime"  />
+        <ClassMember Name="IfFloat_MinValue" Type="double"  />
+        <ClassMember Name="IfFloat_MaxValue" Type="double"  />
+
+
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

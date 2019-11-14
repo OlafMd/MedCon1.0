@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_dia_sta_medication_usagestatistics
+WHERE 
+	HEC_DIA_STA_Medication_UsageStatisticsID = @HEC_DIA_STA_Medication_UsageStatisticsID

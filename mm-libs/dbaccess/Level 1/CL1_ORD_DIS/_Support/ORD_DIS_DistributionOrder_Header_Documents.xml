@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 12/20/2014 6:22:43 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="ORD_DIS_DistributionOrder_Header_Document"
+                IsClass="true"
+                IsClass_Namespace="CL1_ORD_DIS"
+                IsClass_Corresponding_DBTable="ord_dis_distributionorder_header_documents" >
+      <Members>
+		<ClassMember Name="ORD_DIS_DistributionOrder_Header_DocumentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="DistributionOrder_Header_RefID" Type="Guid" />
+		<ClassMember Name="Document_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

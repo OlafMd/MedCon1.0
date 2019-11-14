@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="4/23/2014 4:09:10 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Shipment_OrganizationalUnits_for_TenantID</Name>
+    <Namespace>CL5_APOLogistic_ShippingOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_ShippingOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Shipment_OrganizationalUnits_for_TenantID"
+                Method_Name="Get_Shipment_OrganizationalUnits_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Shipment_OrganizationalUnits_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select Distinct
+	  cmn_bpt_ctm_organizationalunits.CMN_BPT_CTM_OrganizationalUnitID,
+	  cmn_bpt_ctm_organizationalunits.InternalOrganizationalUnitNumber,
+	  cmn_bpt_ctm_organizationalunits.InternalOrganizationalUnitSimpleName,
+	  log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID,
+	  log_shp_shipment_positions.IsDeleted
+	From cmn_bpt_ctm_organizationalunits 
+	  Inner Join ord_cuo_customerorder_position_2_shipmentposition
+	    On ord_cuo_customerorder_position_2_shipmentposition.CMN_BPT_CTM_OrganizationalUnit_RefID = cmn_bpt_ctm_organizationalunits.CMN_BPT_CTM_OrganizationalUnitID 
+      And ord_cuo_customerorder_position_2_shipmentposition.IsDeleted = 0 
+    Right Join log_shp_shipment_positions
+	    On ord_cuo_customerorder_position_2_shipmentposition.LOG_SHP_Shipment_Position_RefID = log_shp_shipment_positions.LOG_SHP_Shipment_PositionID 
+      And log_shp_shipment_positions.IsDeleted = 0
+	Where
+		cmn_bpt_ctm_organizationalunits.Tenant_RefID = @TenantID
+		AND cmn_bpt_ctm_organizationalunits.IsDeleted = 0
+    AND log_shp_shipment_positions.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5SO_GSOUfT_1607" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_BPT_CTM_OrganizationalUnitID" Type="Guid"  />
+				<ClassMember Name="InternalOrganizationalUnitNumber" Type="String"  />
+				<ClassMember Name="InternalOrganizationalUnitSimpleName" Type="String"  />
+				<ClassMember Name="LOG_SHP_Shipment_Header_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

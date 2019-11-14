@@ -1,0 +1,188 @@
+<div class="popup-wrapper shopping-cart-confirm-order">
+    <div class="popup popup-medium warning-popup">
+        <div class="warning-msg"><h2>{{::'CONFIRM_ORDER_POPUP_TITLE' | translate}}</h2></div>
+
+        <div class="error-msg" ng-if="credentials_not_verified"><span class="error">{{::'LABEL_CREDENTIALS_NOT_VERIFIED' | translate}}</span></div>
+        <div class="error-msg order-msg-container" ng-if="number_of_orders_whose_treatment_date_is_before_delivery_date"><span class="error" translate="LABEL_TREATMENT_DATE_OF_SOME_ORDERS_IS_BEFORE_DELIVERY_DATE" translate-values="{number_of_orders: number_of_orders_whose_treatment_date_is_before_delivery_date}"></span></div>
+
+        <form class="popup-content margin-top-30" id="orderSubmitForm" name="orderSubmitForm" ng-submit="verifyPassword()" novalidate>
+            <div class="row">
+                <div class="col-xs-3">
+                    <div class="margin-bottom-15">
+                        <label>
+                            {{::'LABEL_DELIVERY_DATE' | translate}}
+                            <span class="error" ng-if="(orderSubmitForm.dpDeliveryDate.$error.required && submitClicked) || deliveryDateInvalid">*</span>
+                        </label>
+                        <datepicker class="datepicker-style" date-model="order_to_submit.delivery_date" date-format="dd.MM.yyyy" date-min-limit={{today}}>
+                            <input type="text" id="dpDeliveryDate" name="dpDeliveryDate" class="form-control 2000Year" ng-model="order_to_submit.delivery_date"
+                                   ng-class="{ 'redborder': deliveryDateInvalid || (orderSubmitForm.dpDeliveryDate.$error.timeInput && submitClicked) }" ng-change="checkTreatmentDates()"
+                                   placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}" ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'"
+                                   validate-date="true" date-min-limit="today" required>
+                        </datepicker>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="margin-bottom-15">
+                        <label>
+                            {{::'LABEL_DELIVERY_TIME' | translate}}
+                            <span class="error" ng-if="orderSubmitForm.inDeliveryTimeFrom.$error.timeInput || delivery_time_invalid || orderSubmitForm.inDeliveryTimeTo.$error.timeInput">*</span>
+                        </label>
+                        <ul class="list-table">
+                            <li>{{::'LABEL_FROM' | translate}}</li>
+                            <li>
+                                <input type="text" class="form-control" id="inDeliveryTimeFrom" placeholder="00:00" name="inDeliveryTimeFrom" time-input need-validation='true' ng-blur="fixTime('delivery_date_from')" ng-model="order_to_submit.delivery_date_from"
+                                       ng-class="{'redborder': orderSubmitForm.inDeliveryTimeFrom.$error.timeInput || delivery_time_invalid}" />
+                            </li>
+                            <li>{{::'LABEL_TO' | translate}}</li>
+                            <li>
+                                <input type="text" class="form-control" id="inDeliveryTimeTo" placeholder="00:00" name="inDeliveryTimeTo" time-input need-validation='true' ng-blur="fixTime('delivery_date_to')" ng-model="order_to_submit.delivery_date_to"
+                                       ng-class="{'redborder': orderSubmitForm.inDeliveryTimeTo.$error.timeInput || delivery_time_invalid}" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-xs-12">
+                    <div class="margin-bottom-15">
+                        <label>
+                            {{::'LABEL_RECIVER' | translate}}
+                            <span class="error" ng-if="orderSubmitForm.inRecipient.$error.required">*</span>
+                        </label>
+                        <input type="text" name="inRecipient" id="inRecipient" class="form-control" ng-model="order_to_submit.receiver" required>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <h3 class="margin-bottom-10">{{'LABEL_ADDRESS' | translate}}</h3>
+                </div>
+                <div class="col-xs-9">
+                    <div class="margin-bottom-15">
+                        <label>
+                            {{::'LABEL_STREET' | translate}}
+                            <span class="error" ng-if="orderSubmitForm.inStreet.$error.required">*</span>
+                        </label>
+                        <input type="text" class="form-control" name="inStreet" id="inStreet" ng-model="order_to_submit.street" required>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="margin-bottom-15">
+                        <label>
+                            {{::'LABEL_HOUSE_NUMBER' | translate}}
+                            <span class="error" ng-if="orderSubmitForm.inHouseNumber.$error.required">*</span>
+                        </label>
+                        <input type="text" class="form-control" name="inHouseNumber" id="inHouseNumber" ng-model="order_to_submit.number" required>
+                    </div>
+                </div>
+
+                <div class="col-xs-3">
+                    <div class="margin-bottom-15">
+                        <label>
+                            {{::'LABEL_ZIP' | translate}}
+                            <span class="error" ng-if="orderSubmitForm.inZip.$error.required">*</span>
+                        </label>
+                        <input type="text" class="form-control" name="inZip" id="inZip" ng-model="order_to_submit.zip" required>
+                    </div>
+                </div>
+                <div class="col-xs-9">
+                    <div class="margin-bottom-15">
+                        <label>
+                            {{::'LABEL_CITY' | translate}}
+                            <span class="error" ng-if="orderSubmitForm.inCity.$error.required">*</span>
+                        </label>
+                        <input type="text" class="form-control" name="inCity" id="inCity" ng-model="order_to_submit.city" required>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <h3 class="margin-bottom-10">{{'LABEL_PHARMACY' | translate}}</h3>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="margin-bottom-15">
+                        <dropdown-list items="pharmacies" ng-model="order_to_submit.default_pharmacy" additional-class="'dropdown-min-width'" ng-change="checkSelectedPharmacy()"></dropdown-list>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" ng-if="order_to_submit.isNewPharmacy">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label>{{::'LABEL_NAME' | translate}} <span class="error" ng-if="orderSubmitForm.inPharmacyName.$error.required">*</span></label>
+
+                        <input type="text" class="form-control" name="inPharmacyName" id="inPharmacyName" ng-model="order_to_submit.pharmacy_name" required>
+                    </div>
+                </div>
+
+                <div class="col-xs-8">
+                    <div class="form-group">
+                        <label>{{::'LABEL_STREET' | translate}} <span class="error" ng-if="orderSubmitForm.inPharmacyStreet.$error.required">*</span></label>
+                        <input type="text" class="form-control" name="inPharmacyStreet" id="inPharmacyStreet" ng-model="order_to_submit.pharmacy_street" required>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="form-group">
+                        <label>{{::'LABEL_HOUSE_NUMBER' | translate}} <span class="error" ng-if="orderSubmitForm.inPharmacyStreetNumber.$error.required">*</span></label>
+                        <input type="text" class="form-control" name="inPharmacyStreetNumber" id="inPharmacyStreetNumber" ng-model="order_to_submit.pharmacy_street_number" required>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-xs-4">
+                    <div class="form-group">
+                        <label>{{::'LABEL_ZIP' | translate}} <span class="error" ng-if="orderSubmitForm.inPharmacyZip.$error.required">*</span></label>
+                        <input type="text" class="form-control" name="inPharmacyZip" id="inPharmacyZip" ng-model="order_to_submit.pharmacy_zip_code" required>
+                    </div>
+                </div>
+                <div class="col-xs-8">
+                    <div class="form-group">
+                        <label>{{::'LABEL_CITY' | translate}} <span class="error" ng-if="orderSubmitForm.inPharmacyTown.$error.required">*</span></label>
+                        <input type="text" class="form-control" name="inPharmacyTown" id="inPharmacyTown" ng-model="order_to_submit.pharmacy_town" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="margin-bottom-20">
+                        <label>{{::'LABEL_COMMENT' | translate}}</label>
+                        <textarea class="form-control" rows="3" ng-model="order_to_submit.comment"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12" ng-if="order_to_submit.isNewPharmacy">
+                    <p class="bolded-text margin-bottom-20">{{::'LABEL_ORDER_PDF_NOTICE' | translate}}</p>
+                </div>
+                <div class="col-xs-12" ng-if="!order_to_submit.isNewPharmacy">
+                    <p class="larger-font bolded-text">{{::'LABEL_PLEASE_ENTER_PASSWORD_TO_CONFIRM_ORDER' | translate}}</p>
+
+                    <ul class="inline-fields clearfix margin-top-30">
+                        <li class="doc-name">
+                            <label>
+                                {{::'LABEL_DOCTOR_RESPONSIBLE' | translate}}
+                                <span class="error" ng-if="orderSubmitForm.selPasswordDoctor.$error.required">*</span>
+                            </label>
+                            <dropdown-list id="selPasswordDoctor" name="selPasswordDoctor" items="doctors" ng-model="order_to_submit.doctor_id" required params="{has_prefix: true}"></dropdown-list>
+                        </li>
+                        <li class="password">
+                            <label>{{::'LABEL_PASSWORD' | translate}}</label>
+                            <input type="password" ng-model="order_to_submit.password" id="inPassword" required />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" id="cbFacilityConsent" ng-model="farmacy_consent">
+                <label for="cbFacilityConsent">{{::'LABEL_FARMACY_OPTIONS_CONSENT' | translate}}</label>
+            </div>
+
+            <div class="buttons text-right no-padding">
+                <button type="button" class="button wide reject" ng-click="passwordConfirmationCancel()" id="btnCancel" translate="BUTTON_CANCEL"></button>
+                <button type="submit" class="button wide confirm-smaller" id="btnConfirm" translate="BUTTON_CONFIRM_NORMALCASE" ng-disabled="orderSubmitForm.$invalid || !farmacy_consent"></button>
+            </div>
+        </form>
+    </div>
+</div>

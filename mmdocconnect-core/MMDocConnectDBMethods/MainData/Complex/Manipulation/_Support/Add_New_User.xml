@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="05/26/2014 16:04:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Add_New_User</Name>
+    <Namespace>MMDocConnectDBMethods.MainData.Comnplex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.MainData.Complex.Manipulation"
+                Method_ClassName="cls_Add_New_User"
+                Method_Name="Add_New_User"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <Parameters IsClass="true" Name="P_MD_SAU_1236">
+    <Members>
+      <ClassMember Name="UserID" Type="Guid" />
+      <ClassMember Name="Salutation" Type="string" />
+      <ClassMember Name="Title" Type="string" />
+      <ClassMember Name="FirstName" Type="string"  />
+      <ClassMember Name="LastName" Type="string"  />
+      <ClassMember Name="Email" Type="string"  />
+      <ClassMember Name="isAdmin" Type="bool"  />
+      <ClassMember Name ="isDeactivated" Type ="bool" />
+      <ClassMember Name="LoginEmail" Type="string"  />
+      <ClassMember Name="inPasswordMail" Type="string"  />
+      <ClassMember Name="inPassword" Type="string"  />
+      <ClassMember Name ="Phone " Type="string"/>
+      <ClassMember Name="ReceiveNotification" Type="bool"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>

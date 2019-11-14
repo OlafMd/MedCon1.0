@@ -1,0 +1,12 @@
+
+	SELECT cmn_bpt_businessparticipants.DisplayName WarehouseGroupSupplierName,
+  LOG_WRH_Warehouse_Group_DefaultSuppliers.CMN_BPT_Supplier_RefID
+	FROM LOG_WRH_Warehouse_Group_DefaultSuppliers
+	INNER JOIN CMN_BPT_Suppliers ON LOG_WRH_Warehouse_Group_DefaultSuppliers.CMN_BPT_SUPPLIER_RefID = cmn_bpt_suppliers.CMN_BPT_SupplierID
+		AND CMN_BPT_Suppliers.IsDeleted = 0
+	INNER JOIN cmn_bpt_businessparticipants ON cmn_bpt_suppliers.Ext_BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+		AND cmn_bpt_businessparticipants.IsDeleted = 0
+	WHERE LOG_WRH_Warehouse_Group_DefaultSuppliers.Warehouse_Group_RefID = @WarehouseGroupID
+		AND LOG_WRH_Warehouse_Group_DefaultSuppliers.Tenant_RefID = @TenantID
+		AND LOG_WRH_Warehouse_Group_DefaultSuppliers.IsDeleted = 0
+  

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10-Jun-12 19:22:27">
+
+    <Meta>
+        <Name>Get_All_Tags_for_ProjectID</Name>
+        <Description>Get_All_Tags_for_ProjectID</Description>
+        <Namespace>CL3_Tags.Atomic.Retrieval</Namespace>
+        <Tags>ProjectID, Tags</Tags>
+    </Meta>
+
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+    <CreationInfo Method_Namespace="CL3_Tags.Atomic.Retrieval"
+                   Method_ClassName="cls_Get_All_Tags_for_ProjectID"
+                   Method_Name="Get_All_Tags_for_ProjectID"
+                   ApplicationPlattform_WebServiceName=""
+                   ApplicationPlattform_Namespace=".Get_All_Tags_for_ProjectID"
+                />
+    <SQLStatement xml:space="preserve">
+
+  Select
+  tms_pro_tags.TMS_PRO_TagID,
+  tms_pro_tags.TagValue
+From
+  tms_pro_tags Inner Join
+  tms_pro_project_2_tag On tms_pro_project_2_tag.Tag_RefID =
+    tms_pro_tags.TMS_PRO_TagID Inner Join
+  tms_pro_projects On tms_pro_project_2_tag.Project_RefID =
+    tms_pro_projects.TMS_PRO_ProjectID
+ Where 
+ tms_pro_projects.TMS_PRO_ProjectID =@Project_RefID And
+tms_pro_projects.IsDeleted = 0 And
+tms_pro_projects.IsArchived = 0 And
+tms_pro_tags.IsDeleted=0 And
+tms_pro_project_2_tag.IsDeleted = 0 And
+tms_pro_projects.Tenant_RefID = @TenantID
+
+
+  
+ </SQLStatement>
+
+    <Parameters IsClass="true" Name="P_L3TG_GTfPID_1553">
+        <Members>
+            <ClassMember Name="Project_RefID" Type="Guid"  />
+        </Members>
+    </Parameters>
+    
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                     Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                     Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L3GT_GTFP_1359" IsArray="true">
+            <Members>
+                <ClassMember Name="TMS_PRO_TagID" Type="Guid" />
+                <ClassMember Name="TagValue" Type="String" />
+    
+            </Members>
+        </ObjectReturnType_Definition>
+    </ResultInfo>
+</CodeGen>
+
+

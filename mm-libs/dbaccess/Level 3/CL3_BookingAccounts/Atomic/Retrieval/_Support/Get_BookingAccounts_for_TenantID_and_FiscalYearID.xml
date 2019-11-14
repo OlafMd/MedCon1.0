@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/15/2014 9:32:12 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_BookingAccounts_for_TenantID_and_FiscalYearID</Name>
+    <Namespace>CL3_BookingAccounts.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_BookingAccounts.Atomic.Retrieval"
+                Method_ClassName="cls_Get_BookingAccounts_for_TenantID_and_FiscalYearID"
+                Method_Name="Get_BookingAccounts_for_TenantID_and_FiscalYearID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_BookingAccounts_for_TenantID_and_FiscalYearID"
+                />
+
+  <SQLStatement xml:space="preserve">
+ Select
+  acc_bok_bookingaccounts.BookingAccountName,
+  acc_bok_bookingaccounts.ACC_BOK_BookingAccountID,
+  acc_bok_bookingaccounts.BookingAccountNumber,
+  acc_fiscalyears.FiscalYearName,
+  acc_bok_bookingaccounts.Tenant_RefID,
+  acc_fiscalyears.ACC_FiscalYearID,
+  acc_fiscalyears.StartDate,
+  acc_fiscalyears.EndDate,
+  acc_bok_bookingaccounts.IsDeleted,
+  acc_fiscalyears.Tenant_RefID As Tenant_RefID2
+From
+  acc_fiscalyears Inner Join
+  acc_bok_bookingaccounts On acc_fiscalyears.ACC_FiscalYearID =
+    acc_bok_bookingaccounts.FiscalYear_RefID 
+Where
+  acc_fiscalyears.ACC_FiscalYearID = @FiscalYearID And
+  acc_bok_bookingaccounts.IsDeleted = 0 
+   And acc_fiscalyears.Tenant_RefID = @TenantID 
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3BA_GBAfTaFYI_0930">
+    <Members>
+		<ClassMember Name="FiscalYearID" Type="Guid?"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3BA_GBAfTaFYI_0930" IsArray="true">
+			<Members>
+				<ClassMember Name="BookingAccountName" Type="String"  />
+				<ClassMember Name="ACC_BOK_BookingAccountID" Type="Guid"  />
+				<ClassMember Name="BookingAccountNumber" Type="String"  />
+				<ClassMember Name="FiscalYearName" Type="String"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="ACC_FiscalYearID" Type="Guid"  />
+				<ClassMember Name="StartDate" Type="DateTime"  />
+				<ClassMember Name="EndDate" Type="DateTime"  />
+                <ClassMember Name="IsDeleted" Type="bool" />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

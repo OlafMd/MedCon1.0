@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/24/2013 2:06:42 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_FeatureStatus_for_GlobalPropertyMatchigID</Name>
+    <Namespace>CL2_Feature.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Feature.Atomic.Retrieval"
+                Method_ClassName="cls_Get_FeatureStatus_for_GlobalPropertyMatchigID"
+                Method_Name="Get_FeatureStatus_for_GlobalPropertyMatchigID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_FeatureStatus_for_GlobalPropertyMatchigID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  tms_pro_feature_statuses.TMS_PRO_Feature_StatusID,
+	  tms_pro_feature_statuses.Label_DictID,
+	  tms_pro_feature_statuses.IsPersistent
+	From
+	  tms_pro_feature_statuses
+	Where
+	  tms_pro_feature_statuses.GlobalPropertyMatchingID = @GlobalPropertyMatchingID
+	  And
+	  tms_pro_feature_statuses.Tenant_RefID = @TenantID And
+	  tms_pro_feature_statuses.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2FE_GFSfGPM_1405">
+    <Members>
+		<ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2FE_GFSfGPM_1405" IsArray="false">
+			<Members>
+				<ClassMember Name="TMS_PRO_Feature_StatusID" Type="Guid"  />
+				<ClassMember Name="Label" Type="Dict" OriginTable="tms_pro_feature_statuses" Source_DBField="Label_DictID"  />
+				<ClassMember Name="IsPersistent" Type="bool"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

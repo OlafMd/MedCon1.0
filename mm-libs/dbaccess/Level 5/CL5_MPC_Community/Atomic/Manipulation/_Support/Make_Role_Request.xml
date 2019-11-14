@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/22/2014 4:13:06 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Dosage</Name>
+    <Namespace>CL5_MyHealthClub_Medication.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MPC_Community.Atomic.Manipulation"
+                Method_ClassName="cls_Make_Role_Request"
+                Method_Name="Make_Role_Request"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Make_Role_Request"
+                />
+
+
+
+  <Parameters IsClass="true" Name="P_L5MC_MRR_1440">
+    <Members>
+      <ClassMember Name="HEC_CMT_CommunityGroupID" Type="Guid"  />
+      <ClassMember Name="HEC_CMT_MembershipID" Type="Guid"  />
+      <ClassMember Name="Role_GlobalPropertyMatchingID" Type="string"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5MC_MRR_1440" IsArray="false">
+      <Members>
+        <ClassMember Name="HEC_CMT_GroupSubscription_RequestID" Type="Guid"  />
+        <ClassMember Name="IsSuccess" Type="bool" />
+        <ClassMember IsClass="true" Type="L5MC_MRR_1440_FailReason" Name="FailReason">
+          <Members>
+            <ClassMember Name="IsntGroupMember" Type="bool"  />
+            <ClassMember Name="IsAlreadyHaveThisRole" Type="bool"  />
+            <ClassMember Name="IsAlreadyRequested" Type="bool"  />
+            <ClassMember Name="IfAlreadyRequested_RequestID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="17/11/2014 10:32:45 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Notes_where_User_is_Creator_or_is_Collaborator</Name>
+    <Namespace>CL3_Notes.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Notes.Complex.Retrieval"
+                Method_ClassName="cls_Get_Notes_where_User_is_Creator_or_is_Collaborator"
+                Method_Name="Get_Notes_where_User_is_Creator_or_is_Collaborator"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Notes_where_User_is_Creator_or_is_Collaborator"
+                />
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3NO_GNwUiCoiC_1032" IsArray="true">
+      <Members>
+        <ClassMember Name="NoteID" Type="Guid"  />
+        <ClassMember Name="ProjectNoteID" Type="Guid"  />
+        <ClassMember Name="CurrentVersionID" Type="Guid"  />
+        <ClassMember Name="LastEdited" Type="DateTime"  />
+        <ClassMember Name="CreatedOn" Type="DateTime"  />
+        <ClassMember IsClass="true" IsArray="true" Name="CollaboratorsInfo" Type="L3NO_GNwUiCoiC_1032a">
+          <Members>
+            <ClassMember Name="CollaboratorID" Type="Guid"  />
+            <ClassMember Name="AccountID" Type="Guid"  />
+            <ClassMember Name="FirstAndLastName" Type="String" />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Name="TagsInfo" Type="L3NO_GNwUiCoiC_1032b">
+          <Members>
+            <ClassMember Name="TagID" Type="Guid"  />
+            <ClassMember Name="TagValue" Type="String"  />
+          </Members>
+        </ClassMember>
+        <ClassMember Name="NoteVersion" Type="String"  />
+        <ClassMember IsClass="true" Name="ProjectInfo" Type="L3NO_GNwUiCoiC_1032c">
+          <Members>
+            <ClassMember Name="ProjectID" Type="Guid"  />
+            <ClassMember Name="ProjectName"  Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Name_DictID"  /> />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Name="NoteRevisionInfo" Type="L3NO_GNwUiCoiC_1032d">
+          <Members>
+            <ClassMember Name="NoteRevisionID" Type="Guid"  />
+            <ClassMember Name="NoteRevisionCreatorID" Type="Guid"  />
+            <ClassMember Name="NoteRevisionCreatorFirstAndLastName" Type="String"  />
+            <ClassMember Name="NoteRevisionTitle" Type="String"  />
+            <ClassMember Name="NoteRevisionContent" Type="String"  />
+            <ClassMember Name="NoteRevisionVersion" Type="int"  />
+            <ClassMember Name="NoteRevisionCreatedOn" Type="DateTime"  />
+            <ClassMember Name="NoteRevisionModifiedOn" Type="DateTime"  />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" Name="NoteCreatorInfo" Type="L3NO_GNwUiCoiC_1032e">
+          <Members>
+            <ClassMember Name="CreatorID" Type="Guid"  />
+            <ClassMember Name="CreatorFirstAndLastName" Type="String"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

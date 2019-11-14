@@ -1,0 +1,11 @@
+UPDATE 
+	res_str_attic_propertyassestmentstates
+SET 
+	AtticPropertyAssessmentState_Name_DictID=@AtticPropertyAssessmentState_Name,
+	AtticPropertyAssessmentState_Description_DictID=@AtticPropertyAssessmentState_Description,
+	AtticPropertyAssessmentState_OrdinalPosition=@AtticPropertyAssessmentState_OrdinalPosition,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_STR_Attic_PropertyAssestmentStateID = @RES_STR_Attic_PropertyAssestmentStateID

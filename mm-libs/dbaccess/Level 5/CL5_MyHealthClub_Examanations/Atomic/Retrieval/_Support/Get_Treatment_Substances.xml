@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/12/2015 3:23:30 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Treatment_Substances</Name>
+    <Namespace>CL5_MyHealthClub_Examanations.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Examanations.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Treatment_Substances"
+                Method_Name="Get_Treatment_Substances"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Treatment_Substances"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  hec_act_performedaction_medicationupdates.HEC_ACT_PerformedAction_MedicationUpdateID,
+	  hec_patient_medications.HEC_Patient_MedicationID,
+	  hec_act_performedaction_medicationupdates.DosageText,
+	  hec_act_performedaction_medicationupdates.MedicationUpdateComment,
+	  cmn_units.ISOCode,
+	  hec_sub_substances.HEC_SUB_SubstanceID,
+	  hec_sub_substances.IsActiveComponent,
+	  hec_act_performedaction_medicationupdates.IfSubstance_Strength,
+	  hec_act_performedaction_medicationupdates.Relevant_PatientDiagnosis_RefID,
+	  hec_act_performedaction_medicationupdates.IntendedApplicationDuration_in_days,
+	  hec_sub_substances.GlobalPropertyMatchingID,
+	  hec_act_performedaction_medicationupdates.IsMedicationDeactivated
+	From
+	  hec_act_performedaction_medicationupdates Inner Join
+	  hec_patient_medications
+	    On hec_act_performedaction_medicationupdates.HEC_Patient_Medication_RefID =
+	    hec_patient_medications.HEC_Patient_MedicationID Inner Join
+	  cmn_units On hec_act_performedaction_medicationupdates.IfSubstance_Unit_RefID
+	    = cmn_units.CMN_UnitID Inner Join
+	  hec_sub_substances
+	    On hec_act_performedaction_medicationupdates.IfSubstance_Substance_RefiD =
+	    hec_sub_substances.HEC_SUB_SubstanceID
+	Where
+	  hec_act_performedaction_medicationupdates.HEC_ACT_PerformedAction_RefID =
+	  @PerformedActionID And
+	  hec_act_performedaction_medicationupdates.Tenant_RefID = @TenantID And
+	  hec_act_performedaction_medicationupdates.IsDeleted = 0 And
+	  hec_act_performedaction_medicationupdates.IsSubstance = 1 And
+	  hec_sub_substances.IsDeleted = 0 And
+	  hec_patient_medications.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5EX_GTS_1523">
+    <Members>
+		<ClassMember Name="PerformedActionID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5EX_GTS_1523" IsArray="true">
+			<Members>
+				<ClassMember Name="HEC_ACT_PerformedAction_MedicationUpdateID" Type="Guid"  />
+				<ClassMember Name="HEC_Patient_MedicationID" Type="Guid"  />
+				<ClassMember Name="DosageText" Type="String"  />
+				<ClassMember Name="MedicationUpdateComment" Type="String"  />
+				<ClassMember Name="ISOCode" Type="String"  />
+				<ClassMember Name="HEC_SUB_SubstanceID" Type="Guid"  />
+				<ClassMember Name="IsActiveComponent" Type="bool"  />
+				<ClassMember Name="IfSubstance_Strength" Type="String"  />
+				<ClassMember Name="Relevant_PatientDiagnosis_RefID" Type="Guid"  />
+				<ClassMember Name="IntendedApplicationDuration_in_days" Type="String"  />
+				<ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+				<ClassMember Name="IsMedicationDeactivated" Type="bool"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

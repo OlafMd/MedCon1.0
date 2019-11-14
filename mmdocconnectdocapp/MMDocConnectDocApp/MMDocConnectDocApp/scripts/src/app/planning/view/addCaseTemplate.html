@@ -1,0 +1,180 @@
+﻿<div class=" doctors-data-lists planning-list clearfix animate-if" ng-class="{'gray-content-holder': mode !== 'edit', 'gray-content-holder-visible': mode=== 'edit'}">
+    <form class="relative clear" ng-class="{'rejected-border': type === 'settlement' && status === 'FS6'}" id="caseForm" name="caseForm" ng-submit="createCase()" novalidate off-click="closeCaseForm(false)">
+        <div class="order-msg-container" ng-if="is_exist_treatment_with_order">{{ 'LABEL_EDIT_ORDER_MESSAGE' | translate }}</div>
+
+        <div class="error-msg-container" ng-if="type === 'settlement' && show_error">
+            {{ comment }}
+        </div>
+
+        <div class="order-msg-container" ng-if="type !== 'settlement' && treatment_eligiblity_message">
+            {{ treatment_eligiblity_message | translate }}
+        </div>
+        <ul class="first-class-data first-row">
+            <li>
+                <label id="lblPatientName">
+                    {{ 'LABEL_PATIENT_NAME' | translate }}
+                    <span class="error" ng-show="showPatientNameStarReq">*</span>
+                    <a class="consent-link" ng-if="type === 'settlement' && isStatusError()" ng-click="editPatient(case.patient_id)" href="">{{ 'LABEL_EDIT_PATIENT_DATA' | translate }}</a>
+                    <a class="consent-link no-aside-margin" translate="LABEL_ADD_CONSENT" href="" ng-if="show_consent_link" ng-click="addNewParticipationConsent()"></a>
+                </label>
+                <angucomplete-alt id="inPatientName" class="autocomplete-input" name="inPatientName" pause="500"
+                                  selected-object="selectPatient"
+                                  remote-url="api/planning/GetPatientsForAutocomplete"
+                                  remote-url-data-field="items"
+                                  remote-url-request-formatter="remoteUrlRequestFn"
+                                  search-fields="display_name"
+                                  title-field="display_name"
+                                  minlength="1"
+                                  inputclass="form-control form-control-small" template-url="scripts/vendor/view/angucompleteCasetemplate.html"
+                                  on-button-click="$parent.addNewPatient()"
+                                  disable-input="!isStatusError() || mode === 'edit' || type === 'patient'" />
+            </li>
+            <li>
+                <label id="lblTreatmentDate">{{ 'LABEL_TREATMENT_DATE' | translate }}<span class="error" ng-class="{'hidden':!caseForm.treatmentDate.$error.required}">*</span></label>
+                <datepicker date-format="dd.MM.yyyy" date-model="case.treatment_date" date-max-limit="{{today}}">
+                    <input type="text" id="treatmentDate" ng-focus="setClass()" name="treatmentDate" class="form-control 2000Year" ng-model="case.treatment_date"
+                           ng-change="selectedTreatmentDate()" placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                           ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'" required ng-blur="setAlternativeDeliveryDate()" validate-date="true" ng-disabled="!isStatusError()" date-max-limit="today" />
+                </datepicker>
+            </li>
+            <li>
+                <div class="add-case-template-controls" ng-class="{'buttons-with-text-button': mode === 'edit','buttons': mode !== 'edit'}">
+                    <span ng-if="mode === 'edit'" class="abort"><a href="" ng-click="closeCaseForm()" translate="BUTTON_CANCEL" title="{{ 'BUTTON_CANCEL' | translate}}">{{ 'LABEL_CANCEL' | translate }}</a></span>
+
+                    <button class="button wide confirm" id="btnSubmitCase" type="submit" translate="BUTTON_SAVE"
+                            ng-disabled="caseForm.$invalid || fieldsNotValidated()"></button>
+
+                    <button class="button wide confirm" id="btnCreateAndSubmitCase" type="button" ng-click="createAndSubmitCase()" translate="BUTTON_SAVE_SUBMIT"
+                            ng-disabled="caseForm.$invalid || fieldsNotValidated() || !canSubmitTreatment()" ng-if="canShowSaveAndSubmitButton()"></button>
+
+                    <button class="button narrow reject" id="btnCancelSubmitCase" onclick="return false;" ng-click="closeCaseForm()" title="{{ 'BUTTON_CANCEL' | translate}}" translate="BUTTON_CANCEL" ng-if="mode !== 'edit'"></button>
+
+                </div>
+            </li>
+        </ul>
+
+        <div class="second-class-data-wrapper">
+            <h3 id="lblDrugTitle">{{ 'LABEL_DRUG' | translate }}</h3>
+            <ul class="second-class-data second-row">
+                <li>
+                    <label id="lblDrugName">{{ 'LABEL_DRUG_NAME' | translate }}<span class="error" ng-show="showDrugStarReq()">*</span></label>
+                    <dropdown-list id="selDrug" items="all_drugs" ng-model="case.drug_id" disable-input="order_button_disabled" ng-change="verifyTreatmentEligibilityForDrug()"></dropdown-list>
+                </li>
+                <li class="toggler">
+                    <label class="bolded-text" ng-class="{'module-color': !order_button_disabled && !treatment_in_the_past, 'gray-font': order_button_disabled || treatment_in_the_past}" id="lblOrderDrug" translate="LABEL_ORDER_DRUG"></label>
+                    <span class="mask-toggle">
+                        <input type="checkbox" id="InputOrderDrug" ng-model="case.is_orders_drug" ng-change="setOrderDrug()" ng-disabled="order_button_disabled || treatment_in_the_past" ng-class="{'disabled': order_button_disabled}" />
+                        <i class="icon"></i>
+                    </span>
+                </li>
+                <li>
+                    <label id="lblNoFee" translate="LABEL_NO_FEE"></label>
+                    <span class="mask-checkbox">
+                        <input id="inChNoFee" name="inChNoFee" type="checkbox" ng-model="case.is_patient_fee_waived" ng-disabled="!case.is_orders_drug || order_button_disabled || treatment_in_the_past" />
+                        <i class="icon"></i>
+                    </span>
+                </li>
+                <li>
+                    <label id="lblPracticeInvoice">
+                        {{'LABEL_PRACTICE_INVOICE' | translate }}
+                    </label>
+                    <span class="mask-checkbox">
+                        <input id="inChPracticeInvoice" name="inChPracticeInvoice" type="checkbox" ng-model="case.is_send_invoice_to_practice" ng-disabled="!case.is_orders_drug || order_button_disabled || treatment_in_the_past" />
+                        <i class="icon"></i>
+                    </span>
+                </li>
+                <li ng-if="labelOnlyVisible">
+                    <label id="lblLabelOnly" translate="LABEL_ONLY_LABEL_REQUIRED"></label>
+                    <span class="mask-checkbox">
+                        <input id="inChLabelOnly" name="inChLabelOnly" type="checkbox" ng-model="case.is_label_only" ng-disabled="!case.is_orders_drug || order_button_disabled || treatment_in_the_past" />
+                        <i class="icon"></i>
+                    </span>
+                </li>
+            </ul>
+            <ul class="second-class-data first-row">
+                <li class="fleft width-100">
+                    <label>{{ 'LABEL_COMMENT' | translate}}</label>
+                    <input type="text" class="form-control" id="inOrderComment" name="inOrderComment" ng-model="case.order_comment" ng-disabled="!case.is_orders_drug || order_button_disabled || treatment_in_the_past" maxlength="32766" />
+                </li>
+            </ul>
+
+            <div class="gray-content-holder" ng-hide="showTreatment">
+                <button id="toggleShowTreatment" class="wide-add-button" ng-click="ToggleFormTreatment()" translate="{{ treatment_button_label }}" onclick="return false;" ng-disabled="is_treatment_disabled" ng-class="{'disabled': is_treatment_disabled}"></button>
+            </div>
+
+            <div ng-if="showTreatment" class="hidden-row">
+                <h3>{{ 'LABEL_OPERATIONS' | translate }}</h3>
+                <ul class="first-class-data third-row">
+                    <li>
+                        <label id="lblDiagnose">{{ 'LABEL_DIAGNOSE' | translate }}<span class="error" ng-show="showDiagnoseStarReq()">*</span></label>
+                        <dropdown-list id="selDiagnose" items="all_diagnoses" ng-model="case.diagnose_id" disable-input="!isStatusError()"></dropdown-list>
+                    </li>
+                    <li>
+                        <label id="lblLokalization">{{ 'LABEL_LOKALIZATION' | translate}}<span class="error" ng-show="showLokalizationStarReq()">*</span></label>
+                        <div>
+                            <span class="mask-checkbox">
+                                <input type="radio" ng-model="case.is_left_eye" ng-value="true" name="lokalization" id="rbLeftEye" ng-disabled="!isStatusError()" />
+                                <i class="icon"></i>
+                            </span>
+                            <label for="rbLeftEye" class="pointer">{{ 'LABEL_LEFT' | translate }}</label>
+                            <span class="mask-checkbox">
+                                <input type="radio" ng-model="case.is_left_eye" ng-value="false" name="lokalization" id="rbRightEye" ng-disabled="!isStatusError()" />
+                                <i class="icon"></i>
+                            </span>
+                            <label for="rbRightEye" class="pointer">{{ 'LABEL_RIGHT' | translate }}</label>
+                        </div>
+                    </li>
+                    <li>
+                        <label id="lblConfrimed">{{'LABEL_CONFIRMED' | translate }}<span class="error" ng-show="!case.is_confirmed">*</span></label>
+                        <span class="mask-checkbox">
+                            <input type="checkbox" id="cbConfirmed" ng-model="case.is_confirmed" ng-disabled="!isStatusError()" />
+                            <i class="icon"></i>
+                        </span>
+                    </li>
+                    <li>
+                        <button ng-if="type !== 'settlement'" class="button narrow reject" id="btnCancelSubmitCase" onclick="return false;" ng-click="ToggleFormTreatment()" translate="BUTTON_CANCEL" title="{{ 'BUTTON_CANCEL' | translate}}"><></button>
+                    </li>
+                </ul>
+                <ul class="first-class-data fourth-row">
+                    <li>
+                        <label id="lblOpDoctor" translate="LABEL_OP_DOCTOR"></label>
+                        <dropdown-list id="selOpDoctor" items="opDoctors" ng-model="case.treatment_doctor_id" disable-input="!isStatusError()" additional-class="'dropdown-min-width angucomplete-dropup'" params="{has_prefix: true}" ng-change="opDoctorSelected()"></dropdown-list>
+                    </li>
+                    <li>
+                        <label id="lblAcDoctor">
+                            {{ 'LABEL_AC_DOCTOR' | translate }}<span class="error" ng-show="acDocReqStar()">*</span>
+                        </label>
+                        <autocomplete-ac-doctor autocomplete-id="inACDoctorName"
+                                                autocomplete-append-to-body="false"
+                                                autocomplete-disable="!isACEditable()"
+                                                autocomplete-debounce="500"
+                                                autocomplete-add-ac="true"
+                                                autocomplete-dropup-enabled="true"
+                                                ng-model="case.aftercare_doctor_practice">
+                        </autocomplete-ac-doctor>
+                    </li>
+                    <li ng-if="isOctVisible">
+                        <label id="lblOpDoctor" translate="LABEL_OCT_DOCTOR"></label>
+                        <angucomplete-ac id="inOctDoctorName"
+                                         class="autocomplete-input"
+                                         name="inOctDoctorName"
+                                         pause="500"
+                                         dropup-enabled="true"
+                                         selected-object="selectOct"
+                                         remote-url="api/planning/GetOctDoctors"
+                                         remote-url-data-field="items"
+                                         remote-url-request-formatter="remoteUrlRequestFn"
+                                         search-fields="display_name"
+                                         title-field="display_name"
+                                         description-field="secondary_display_name"
+                                         minlength="1"
+                                         inputclass="form-control form-control-small dropdown-list-autocomplete" template-url="scripts/vendor/view/angucompleteCaseACTemplate.html"
+                                         group-by="'type'"
+                                         is-dropdown="true"
+                                         disable-input="!isOCTEditable()" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>

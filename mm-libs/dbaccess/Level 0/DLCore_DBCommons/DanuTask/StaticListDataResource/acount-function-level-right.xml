@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="acount-function-level-right.Admin">
+    <Lang ISO="EN" Content="Admin" />
+  </Item>
+  <Item ID="acount-function-level-right.Biz">
+    <Lang ISO="EN" Content="Bussines" />
+  </Item>
+  <Item ID="acount-function-level-right.Tec">
+    <Lang ISO="EN" Content="Technical" />
+  </Item>
+  <Item ID="acount-function-level-right.Dev">
+    <Lang ISO="EN" Content="Developer" />
+  </Item>
+</Resources>

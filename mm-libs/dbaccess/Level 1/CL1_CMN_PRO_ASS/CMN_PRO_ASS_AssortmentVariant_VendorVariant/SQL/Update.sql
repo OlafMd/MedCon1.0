@@ -1,0 +1,13 @@
+UPDATE 
+	cmn_pro_ass_assortmentvariant_vendorvariants
+SET 
+	CMN_PRO_ASS_AssortmentVariant_RefID=@CMN_PRO_ASS_AssortmentVariant_RefID,
+	CMN_PRO_Product_Variant_RefID=@CMN_PRO_Product_Variant_RefID,
+	IsDefaultVendorVariant=@IsDefaultVendorVariant,
+	OrderSequence=@OrderSequence,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	CMN_PRO_ASS_AssortmentVariant_VendorVariantID = @CMN_PRO_ASS_AssortmentVariant_VendorVariantID

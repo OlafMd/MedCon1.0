@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="dunning-type.paymentremainder">
+    <Lang ISO="EN" Content="Payment Reminder" />
+    <Lang ISO="DE" Content="Zahlungserinnerung" />
+  </Item>
+  <Item ID="dunning-type.dunning">
+    <Lang ISO="EN" Content="Dunning" />
+    <Lang ISO="DE" Content="Mahnung" />
+  </Item>
+  <Item ID="dunning-type.lawsuit">
+    <Lang ISO="EN" Content="Law Suit" />
+    <Lang ISO="DE" Content="Inkasso" />
+  </Item>
+</Resources>

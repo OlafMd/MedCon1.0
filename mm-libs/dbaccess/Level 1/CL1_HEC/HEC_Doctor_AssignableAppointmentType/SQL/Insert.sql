@@ -1,0 +1,19 @@
+INSERT INTO 
+	hec_doctor_assignableappointmenttypes
+	(
+		HEC_Doctor_AssignableAppointmentTypeID,
+		Doctor_RefID,
+		TaskTemplate_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_Doctor_AssignableAppointmentTypeID,
+		@Doctor_RefID,
+		@TaskTemplate_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

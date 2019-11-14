@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="19/2/2015 15:19:02 PM">
+
+    <Meta>
+        <Name>Get_Customization_Template_with_Variants_for_ID</Name>
+        <Description>Get_Customization_Template_with_Variants_for_ID</Description>
+        <Namespace>Get_Customization_Template_with_Variants_for_ID</Namespace>
+        <Tags></Tags>
+    </Meta>
+
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL2_Customization.Complex.Retrieval"
+                  Method_ClassName="cls_Get_Customization_Template_with_Variants_for_ID"
+                  Method_Name="Get_Customization_Template_with_Variants_for_ID"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Get_Customization_Template_with_Variants_for_ID"
+                />
+
+    <Parameters IsClass="true" Name="P_L2CT_GCTwVfID_1536">
+        <Members>
+            <ClassMember Name="CustomizationTemplateID" Type="Guid"  />
+        </Members>
+    </Parameters>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                  Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                  Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L2CT_GCTwVfID_1536" IsArray="false">
+            <Members>
+                <ClassMember IsReference="true" Type="ORM_CMN_PRO_CUS_Customization_Template" Name="CustomizationTemplate" IsArray="false"/>
+                <ClassMember IsReference="true" Type="ORM_CMN_PRO_CUS_Customization_Variant_Template" Name="CustomizationVariants" IsArray="true" />
+            </Members>
+        </ObjectReturnType_Definition>
+    </ResultInfo>
+</CodeGen>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/27/2013 12:33:39 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Completed_Transactions_of_Drivers_for_Evaluation</Name>
+    <Namespace>CL6_BBV_Evaluation.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_BBV_Evaluation.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Completed_Transactions_of_Drivers_for_Evaluation"
+                Method_Name="Get_Completed_Transactions_of_Drivers_for_Evaluation"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Completed_Transactions_of_Drivers_for_Evaluation"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_patient_prescription_transactions.Creation_Timestamp,
+  hec_patient_prescription_transactions.PrescriptionTransaction_IsComplete,
+  Patient.FirstName As Patient_FristName,
+  Patient.LastName As Patient_LastName,
+  Prescriptions.PrescriptionCount,
+  hec_patient_prescription_transactions.PrescriptionTransaction_CreatedByBusinessParticpant_RefID,
+  hec_patient_prescription_transactions.HEC_Patient_Prescription_TransactionID,
+  Patient.HEC_PatientID
+From
+  hec_patient_prescription_transactions Inner Join
+  (Select
+    cmn_per_personinfo.FirstName,
+    cmn_per_personinfo.LastName,
+    hec_patients.HEC_PatientID
+  From
+    cmn_per_personinfo Inner Join
+    cmn_bpt_businessparticipants
+      On cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID =
+      cmn_per_personinfo.CMN_PER_PersonInfoID Inner Join
+    hec_patients On hec_patients.CMN_BPT_BusinessParticipant_RefID =
+      cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+  Where
+    cmn_per_personinfo.IsDeleted = 0 And
+    hec_patients.IsDeleted = 0 And
+    cmn_bpt_businessparticipants.IsDeleted = 0 And
+    cmn_bpt_businessparticipants.Tenant_RefID = @TenantID) Patient
+    On
+    hec_patient_prescription_transactions.PrescriptionTransaction_Patient_RefID
+    = Patient.HEC_PatientID Left Join
+  (Select
+    hec_patient_prescription_2_prescriptiontransaction.HEC_Patient_Prescription_Transaction_RefID,
+    Count(hec_patient_prescription_headers.HEC_Patient_Prescription_HeaderID) As
+    PrescriptionCount
+  From
+    hec_patient_prescription_2_prescriptiontransaction Inner Join
+    hec_patient_prescription_headers
+      On
+      hec_patient_prescription_2_prescriptiontransaction.HEC_Patient_Prescription_Header_RefID = hec_patient_prescription_headers.HEC_Patient_Prescription_HeaderID,
+    hec_patients
+  Where
+    hec_patient_prescription_2_prescriptiontransaction.IsDeleted = 0 And
+    hec_patient_prescription_headers.IsDeleted = 0 And
+    hec_patient_prescription_2_prescriptiontransaction.Tenant_RefID = @TenantID
+  Group By
+    hec_patient_prescription_2_prescriptiontransaction.HEC_Patient_Prescription_Transaction_RefID) Prescriptions On Prescriptions.HEC_Patient_Prescription_Transaction_RefID = hec_patient_prescription_transactions.HEC_Patient_Prescription_TransactionID
+Where
+  hec_patient_prescription_transactions.PrescriptionTransaction_CreatedByBusinessParticpant_RefID = @BusinessParticipantID And
+  hec_patient_prescription_transactions.IsDeleted = 0
+  </SQLStatement>
+
+
+  <Parameters IsClass="true" Name="P_L6EV_GCToD_1141">
+    <Members>
+      <ClassMember  Name="BusinessParticipantID" Type="Guid"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6EV_GCToD_1141" IsArray="true" GroupBy="HEC_Patient_Prescription_TransactionID">
+      <Members>
+        <ClassMember Name="HEC_Patient_Prescription_TransactionID" Type="Guid"  />
+        <ClassMember Name="PrescriptionTransaction_CreatedByBusinessParticpant_RefID" Type="Guid"  />
+        <ClassMember Name="Patient_FristName" Type="String"  />
+        <ClassMember Name="Patient_LastName" Type="String"  />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+        <ClassMember Name="PrescriptionTransaction_IsComplete" Type="bool"  />
+        <ClassMember Name="PrescriptionCount" Type="int"  />
+        <ClassMember Name="HEC_PatientID" Type="Guid"  />
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

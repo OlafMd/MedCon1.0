@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_pro_feature_2_tag
+	(
+		AssignmentID,
+		Tag_RefID,
+		Feature_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@Tag_RefID,
+		@Feature_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

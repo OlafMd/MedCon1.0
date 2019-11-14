@@ -1,0 +1,11 @@
+UPDATE 
+	res_str_roof_propertyassestmentstates
+SET 
+	RoofPropertyAssessmentState_Name_DictID=@RoofPropertyAssessmentState_Name,
+	RoofPropertyAssessmentState_Description_DictID=@RoofPropertyAssessmentState_Description,
+	RoofPropertyAssessmentState_OrdinalPosition=@RoofPropertyAssessmentState_OrdinalPosition,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_STR_Roof_PropertyAssestmentStateID = @RES_STR_Roof_PropertyAssestmentStateID

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/15/2014 1:05:33 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_ACC_BOK_BookingAccount</Name>
+    <Namespace>CL2_BookingAccount.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_BookingAccount.Atomic.Manipulation"
+                Method_ClassName="cls_Save_ACC_BOK_BookingAccount"
+                Method_Name="Save_ACC_BOK_BookingAccount"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_ACC_BOK_BookingAccount"
+                />
+  <SQLLimitation_CSharp_Extension>
+			var returnValue = new FR_Guid();
+
+			var item = new CL1_ACC_BOK.ACC_BOK_BookingAccount.ORM_ACC_BOK_BookingAccount();
+			if (Parameter.ACC_BOK_BookingAccountID != Guid.Empty)
+			{
+			    var result = item.Load(Connection, Transaction, Parameter.ACC_BOK_BookingAccountID);
+			    if (result.Status != FR_Status.Success || item.ACC_BOK_BookingAccountID == Guid.Empty)
+			    {
+			        var error = new FR_Guid();
+			        error.ErrorMessage = "No Such ID";
+			        error.Status =  FR_Status.Error_Internal;
+			        return error;
+			    }
+			}
+
+			if(Parameter.IsDeleted == true){
+				item.IsDeleted = true;
+				return new FR_Guid(item.Save(Connection, Transaction),item.ACC_BOK_BookingAccountID);
+			}
+
+			//Creation specific parameters (Tenant, Account ... )
+			if (Parameter.ACC_BOK_BookingAccountID == Guid.Empty)
+			{
+				item.Tenant_RefID = securityTicket.TenantID;
+			}
+
+			item.BookingAccountNumber = Parameter.BookingAccountNumber;
+			item.BookingAccountName = Parameter.BookingAccountName;
+			item.FiscalYear_RefID = Parameter.FiscalYear_RefID;
+
+
+			return new FR_Guid(item.Save(Connection, Transaction),item.ACC_BOK_BookingAccountID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2_SBA_1304">
+    <Members>
+		<ClassMember IsIdentificator="True" Name="ACC_BOK_BookingAccountID" Type="Guid"  />
+		<ClassMember Name="BookingAccountNumber" Type="String"  />
+		<ClassMember Name="BookingAccountName" Type="String"  />
+		<ClassMember Name="FiscalYear_RefID" Type="Guid"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

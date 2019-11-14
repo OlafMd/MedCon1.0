@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 11/6/2013 11:20:17 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="RES_BLD_Apartment"
+                IsClass="true"
+                IsClass_Namespace="CL1_RES_BLD"
+                IsClass_Corresponding_DBTable="res_bld_apartments" >
+      <Members>
+		<ClassMember Name="RES_BLD_ApartmentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Building_RefID" Type="Guid" />
+		<ClassMember Name="IsAppartment_ForRent" Type="Boolean" />
+		<ClassMember Name="ApartmentSize_Unit_RefID" Type="Guid" />
+		<ClassMember Name="ApartmentSize_Value" Type="Double" />
+		<ClassMember Name="TypeOfHeating_RefID" Type="Guid" />
+		<ClassMember Name="TypeOfFlooring_RefID" Type="Guid" />
+		<ClassMember Name="TypeOfWallCovering_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

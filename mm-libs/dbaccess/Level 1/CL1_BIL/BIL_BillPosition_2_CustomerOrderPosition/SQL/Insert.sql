@@ -1,0 +1,19 @@
+INSERT INTO 
+	bil_billposition_2_customerorderposition
+	(
+		AssignmentID,
+		BIL_BillPosition_RefID,
+		ORD_CUO_CustomerOrder_Position_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@BIL_BillPosition_RefID,
+		@ORD_CUO_CustomerOrder_Position_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

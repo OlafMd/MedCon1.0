@@ -1,0 +1,41 @@
+<ul class="global-filter">
+    <li class="search-input-holder">
+        <input type="text" class="form-control" id="globalSearchInput" ng-model="global_search.text_search" ng-keyup="search($event)" placeholder="{{ 'LABEL_SEARCH' | translate }}">
+        <span class="icon-search"></span>
+    </li>
+    <li class="search-dropdown-holder">
+        <dropdown-list id="selHip" items="hips" ng-model="filter.hip" additional-class="'dropdown-min-width'" params="{display_name: 'display_name', id: 'name', is_model_object: false}" ng-change="search({ which: 13 }, true)" placeholder="'LABEL_HEALTH_INSURANCE_PROVIDER'"></dropdown-list>
+    </li>
+    <li>
+        <ul class="global-filter-items">
+            <li class="separator">
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.all" id="all" value="" ng-change="prepareSearch(true)">
+                <label id="allFilter" for="all" class="filter-item" ng-class="{'active': filter.all}">{{ 'LABEL_ALL' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.current" id="current" value="current" ng-change="prepareSearch(false, true)">
+                <label id="currentFilter" for="current" class="filter-item" ng-class="{'active': filter.current}">{{ 'LABEL_CURRENT' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.oct1" id="oct1" value="oct1" ng-change="prepareSearch(false)">
+                <label for="oct1" class="filter-item" ng-class="{'active': filter.oct1}">{{ 'OCT1' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.oct3" id="oct3" value="oct3" ng-change="prepareSearch(false)">
+                <label for="oct3" class="filter-item" ng-class="{'active': filter.oct3}">{{ 'LABEL_OVERDUE' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.oct6" id="oct6" value="oct6" ng-change="prepareSearch(false)">
+                <label id="pendingFilter" for="oct6" class="filter-item" ng-class="{'active': filter.oct6}">{{ 'LABEL_PENDING_OCTS' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.oct5" id="oct5" value="oct5" ng-change="prepareSearch(false)">
+                <label for="oct5" class="filter-item" ng-class="{'active': filter.oct5}">{{ 'LABEL_NO_OPEN_OCTS_LEFT' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.oct4" id="oct4" value="oct4" ng-change="prepareSearch(false)">
+                <label for="oct4" class="filter-item" ng-class="{'active': filter.oct4}">{{ 'LABEL_WIDRAWN' | translate }}</label>
+            </li>
+        </ul>
+    </li>
+</ul>

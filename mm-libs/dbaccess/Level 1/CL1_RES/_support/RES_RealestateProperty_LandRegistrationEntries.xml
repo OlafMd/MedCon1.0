@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 7/8/2013 11:01:06 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="RES_RealestateProperty_LandRegistrationEntry"
+                IsClass="true"
+                IsClass_Namespace="CL1_RES"
+                IsClass_Corresponding_DBTable="res_realestateproperty_landregistrationentries" >
+      <Members>
+		<ClassMember Name="RES_RealestateProperty_LandRegistrationEntryID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="RealestateProperty_RefID" Type="Guid" />
+		<ClassMember Name="LandRegistrationEntry_LandTitleRegister" Type="String" />
+		<ClassMember Name="LandRegistrationEntry_Marking" Type="String" />
+		<ClassMember Name="LandRegistrationEntry_LandLot" Type="int" />
+		<ClassMember Name="LandRegistrationEntry_Parcel_FromNumber" Type="int" />
+		<ClassMember Name="LandRegistrationEntry_Parcel_ToNumber" Type="int" />
+		<ClassMember Name="LandRegistrationEntry_Sheet" Type="int" />
+		<ClassMember Name="LandRegistrationEntry_GroundAreaSize_in_sqm" Type="double" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

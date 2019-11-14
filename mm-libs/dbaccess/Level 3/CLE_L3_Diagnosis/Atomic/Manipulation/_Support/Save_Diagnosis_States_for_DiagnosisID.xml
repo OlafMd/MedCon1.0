@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/31/2013 4:06:42 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Diagnosis_States_for_DiagnosisID</Name>
+    <Namespace>Save_Diagnosis_States_for_DiagnosisID</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CLE_L3_Diagnosis.Atomic.Manipulation"
+                Method_ClassName="cls_Save_Diagnosis_States_for_DiagnosisID"
+                Method_Name="Save_Diagnosis_States_for_DiagnosisID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace="CL3_Diagnosis.Save_Diagnosis_States_for_DiagnosisID"
+                />
+  <SQLLimitation_CSharp_Extension>
+			var returnValue = new FR_Guid();
+
+			var item = new CL1_HEC_DIA.HEC_DIA_Diagnosis_State.ORM_HEC_DIA_Diagnosis_State();
+			if (Parameter.HEC_DIA_Diagnosis_StateID != Guid.Empty)
+			{
+			    var result = item.Load(Connection, Transaction, Parameter.HEC_DIA_Diagnosis_StateID);
+			    if (result.Status != FR_Status.Success || item.HEC_DIA_Diagnosis_StateID == Guid.Empty)
+			    {
+			        var error = new FR_Guid();
+			        error.ErrorMessage = "No Such ID";
+			        error.Status =  FR_Status.Error_Internal;
+			        return error;
+			    }
+			}
+
+			if(Parameter.IsDeleted == true){
+				item.IsDeleted = true;
+				return new FR_Guid(item.Save(Connection, Transaction),item.HEC_DIA_Diagnosis_StateID);
+			}
+
+			//Creation specific parameters (Tenant, Account ... )
+			if (Parameter.HEC_DIA_Diagnosis_StateID == Guid.Empty)
+			{
+				item.Tenant_RefID = securityTicket.TenantID;
+			}
+
+			item.DiagnosisState_Abbreviation = Parameter.DiagnosisState_Abbreviation;
+			item.DiagnosisState_Name = Parameter.DiagnosisState_Name;
+			item.DiagnosisState_Description = Parameter.DiagnosisState_Description;
+			item.Diagnose_RefID = Parameter.Diagnose_RefID;
+
+
+			return new FR_Guid(item.Save(Connection, Transaction),item.HEC_DIA_Diagnosis_StateID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L3DI_SDSfDID_1606">
+    <Members>
+		<ClassMember Name="HEC_DIA_Diagnosis_StateID" IsIdentificator="True" Type="Guid"  />
+		<ClassMember Name="DiagnosisState_Abbreviation" Type="String"  />
+		<ClassMember Name="DiagnosisState_Name" Type="Dict"  />
+		<ClassMember Name="DiagnosisState_Description" Type="Dict"  />
+		<ClassMember Name="Diagnose_RefID" Type="Guid"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

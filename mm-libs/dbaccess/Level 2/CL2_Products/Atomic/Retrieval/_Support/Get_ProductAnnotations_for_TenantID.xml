@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/15/2013 13:44:11 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_ProductAnnotations_for_TenantID</Name>
+		<Namespace>CL2_Products.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+	<CreationInfo Method_Namespace="CL2_Products.Atomic.Retrieval"
+				  Method_ClassName="cls_Get_ProductAnnotations_for_TenantID"
+				  Method_Name="Get_ProductAnnotations_for_TenantID"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Get_ProductAnnotations_for_TenantID"
+                />
+
+	<SQLStatement xml:space="preserve">
+	Select
+	  cmn_pro_product_annotations.CMN_PRO_Product_AnnotationID,
+	  cmn_pro_product_annotations.GlobalPropertyMatchingID,
+	  cmn_pro_product_annotations.ProductAnnotation_Abbreviation,
+	  cmn_pro_product_annotations.ProductAnnotation_Name_DictID,
+	  cmn_pro_product_annotations.Creation_Timestamp,
+	  cmn_pro_product_annotations.Tenant_RefID,
+	  cmn_pro_product_annotations.IsValueBoolean,
+	  cmn_pro_product_annotations.IsValueNumber
+	From
+	  cmn_pro_product_annotations
+	Where
+	  cmn_pro_product_annotations.IsDeleted = 0 And
+	  cmn_pro_product_annotations.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2PD_GAPAfT_1431" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_PRO_Product_AnnotationID" Type="Guid"  />
+				<ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+				<ClassMember Name="ProductAnnotation_Abbreviation" Type="String"  />
+				<ClassMember Name="ProductAnnotation_Name_DictID" Type="Dict" OriginTable="cmn_pro_product_annotations" Source_DBField="ProductAnnotation_Name_DictID"  />				
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="IsValueBoolean" Type="Boolean"  />
+				<ClassMember Name="IsValueNumber" Type="Boolean"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

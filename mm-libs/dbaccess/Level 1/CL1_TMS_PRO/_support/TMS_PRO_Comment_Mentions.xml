@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:33:19 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="TMS_PRO_Comment_Mention"
+                IsClass="true"
+                IsClass_Namespace="CL1_TMS_PRO"
+                IsClass_Corresponding_DBTable="tms_pro_comment_mentions" >
+      <Members>
+		<ClassMember Name="TMS_PRO_Comment_MentionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Comment_RefID" Type="Guid" />
+		<ClassMember Name="IsMentionFor_Account" Type="Boolean" />
+		<ClassMember Name="IsMentionFor_BusinessTask" Type="Boolean" />
+		<ClassMember Name="IsMentionFor_Feature" Type="Boolean" />
+		<ClassMember Name="IsMentionFor_DeveloperTask" Type="Boolean" />
+		<ClassMember Name="Mention_Account_RefID" Type="Guid" />
+		<ClassMember Name="Mention_BusinessTask_RefID" Type="Guid" />
+		<ClassMember Name="Mention_Feature_RefID" Type="Guid" />
+		<ClassMember Name="Mention_DeveloperTask_RefID" Type="Guid" />
+		<ClassMember Name="CommentMention_Position" Type="int" />
+		<ClassMember Name="R_CommentMention_Text" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

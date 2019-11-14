@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	log_rcp_receipt_position_qualitycontrolitems
+WHERE 
+	LOG_RCP_Receipt_Position_QualityControlItem = @LOG_RCP_Receipt_Position_QualityControlItem

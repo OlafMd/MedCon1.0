@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="23/9/2014 10:59:45">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_BillNotes_for_BillHeaderID</Name>
+    <Namespace>CL2_BillNotes.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_BillNotes.Atomic.Retrieval"
+                Method_ClassName="cls_Get_BillNotes_for_BillHeaderID"
+                Method_Name="Get_BillNotes_for_BillHeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_BillNotes_for_BillHeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT Bil_notes.BIL_Note
+		,Bil_notes.BillHeader_RefID
+		,Bil_notes.BillPosition_RefID
+		,Bil_notes.CreatedBy_BusinessParticipant_RefID
+		,Bil_notes.Creation_Timestamp
+		,Bil_notes.IsDeleted
+		,Bil_notes.NoteText
+		,Bil_notes.SequenceOrderNumber
+		,Bil_notes.Tenant_RefID
+		,Bil_notes.Title
+    ,CMN_BPT_BusinessParticipants.DisplayName AS CreatedBy
+	FROM Bil_notes
+  INNER JOIN CMN_BPT_BusinessParticipants ON Bil_notes.CreatedBy_BusinessParticipant_RefID = CMN_BPT_BusinessParticipants.CMN_BPT_BusinessParticipantID
+   AND CMN_BPT_BusinessParticipants.IsDeleted = 0 
+   AND CMN_BPT_BusinessParticipants.Tenant_RefID = @TenantID
+	WHERE Bil_notes.IsDeleted = 0
+		AND Bil_notes.Tenant_RefID = @TenantID
+		AND Bil_notes.BillHeader_RefID = @BillHeaderID
+  ORDER BY Bil_notes.Creation_Timestamp DESC
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2BN_GBNfBH_1058">
+    <Members>
+		<ClassMember Name="BillHeaderID" Type="Guid"  />	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2BN_GBNfBH_1058" IsArray="true">
+			<Members>
+				<ClassMember Name="BIL_Note" Type="Guid"  />
+				<ClassMember Name="BillHeader_RefID" Type="Guid"  />
+				<ClassMember Name="BillPosition_RefID" Type="Guid"  />
+				<ClassMember Name="CreatedBy_BusinessParticipant_RefID" Type="Guid"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+				<ClassMember Name="NoteText" Type="String"  />
+				<ClassMember Name="SequenceOrderNumber" Type="int"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="Title" Type="String"  />
+        <ClassMember Name="CreatedBy" Type="String"  />
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

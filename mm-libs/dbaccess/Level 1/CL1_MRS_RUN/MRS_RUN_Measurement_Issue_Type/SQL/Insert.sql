@@ -1,0 +1,23 @@
+INSERT INTO 
+	mrs_run_measurement_issue_types
+	(
+		MRS_RUN_Measurement_Issue_TypeID,
+		GlobalPropertyMatchingID,
+		IssueTypeName_DictID,
+		IssueTypeDescription_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@MRS_RUN_Measurement_Issue_TypeID,
+		@GlobalPropertyMatchingID,
+		@IssueTypeName,
+		@IssueTypeDescription,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

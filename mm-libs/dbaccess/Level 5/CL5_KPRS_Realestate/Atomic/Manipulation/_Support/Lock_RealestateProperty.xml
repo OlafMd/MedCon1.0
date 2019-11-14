@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/26/2013 8:47:26 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>cls_Lock_RealestateProperty</Name>
+    <Namespace>CLE_L5_RealEstate.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_Realestate.Atomic.Manipulation"
+                Method_ClassName="cls_Lock_RealestateProperty"
+                Method_Name="Lock_RealestateProperty"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Lock_RealestateProperty"
+                />
+
+
+
+  <Parameters IsClass="true" Name="P_L5RE_LRP_0846">
+    <Members>
+      <ClassMember Name="RES_RealestatePropertyID" Type="Guid" />
+      <ClassMember Name="Locked" Type="bool" />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+    
+	</ResultInfo>
+
+</CodeGen>
+
+

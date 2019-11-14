@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_patient_madeobservation_documents
+WHERE 
+	HEC_Patient_MadeObservation_DocumentID = @HEC_Patient_MadeObservation_DocumentID

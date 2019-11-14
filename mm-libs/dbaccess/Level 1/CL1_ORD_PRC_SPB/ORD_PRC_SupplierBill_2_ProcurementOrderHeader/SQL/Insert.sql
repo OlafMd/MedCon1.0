@@ -1,0 +1,19 @@
+INSERT INTO 
+	ord_prc_supplierbill_2_procurementorderheader
+	(
+		AssignmentID,
+		ORD_PRC_SPB_SupplierBill_Header_RefID,
+		ORD_PRC_ProcurementOrder_Header_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@ORD_PRC_SPB_SupplierBill_Header_RefID,
+		@ORD_PRC_ProcurementOrder_Header_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

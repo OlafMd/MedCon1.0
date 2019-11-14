@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 3/15/2014 4:16:59 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_RSV_Reservation_ShelfContent_History"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_RSV"
+                IsClass_Corresponding_DBTable="log_rsv_reservation_shelfcontent_history" >
+      <Members>
+		<ClassMember Name="LOG_RSV_Reservation_ShelfContent_HistoryID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="LOG_WRH_Shelf_Content_RefID" Type="Guid" />
+		<ClassMember Name="IsReservationMade" Type="Boolean" />
+		<ClassMember Name="IsReservationReleased" Type="Boolean" />
+		<ClassMember Name="NewReservedQuantity" Type="double" />
+		<ClassMember Name="ReservedQuantity" Type="double" />
+		<ClassMember Name="ReleasedQuantity" Type="double" />
+		<ClassMember Name="Comment" Type="String" />
+		<ClassMember Name="IfReservationMade_Reservation_RefID" Type="Guid" />
+		<ClassMember Name="IfReservationReleased_ReleasedReservation_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

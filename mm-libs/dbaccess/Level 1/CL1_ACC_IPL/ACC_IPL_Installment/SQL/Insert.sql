@@ -1,0 +1,27 @@
+INSERT INTO 
+	acc_ipl_installments
+	(
+		ACC_IPL_InstallmentID,
+		InstallmentPlan_RefID,
+		Amount,
+		PaymentDeadline,
+		PaymentDueDate,
+		PayedOnDate,
+		IsFullyPaid,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ACC_IPL_InstallmentID,
+		@InstallmentPlan_RefID,
+		@Amount,
+		@PaymentDeadline,
+		@PaymentDueDate,
+		@PayedOnDate,
+		@IsFullyPaid,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

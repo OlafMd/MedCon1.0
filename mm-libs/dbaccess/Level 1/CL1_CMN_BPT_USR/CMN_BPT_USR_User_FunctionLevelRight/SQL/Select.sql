@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_usr_user_functionlevelrights
+WHERE 
+	CMN_BPT_USR_User_FunctionLevelRightID = @CMN_BPT_USR_User_FunctionLevelRightID

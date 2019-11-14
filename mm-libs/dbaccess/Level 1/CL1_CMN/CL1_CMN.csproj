@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3C164500-BF5F-4173-B1A8-154A38372773}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_CMN</RootNamespace>
+    <AssemblyName>CL1_CMN</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDtMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDtMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDyMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDyMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DBACCESREFACTOR|AnyCPU'">
+    <OutputPath>bin\DBACCESREFACTOR\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CMN_Account_ApplicationSubscription\ORM_CMN_Account_ApplicationSubscription.cs" />
+    <Compile Include="CMN_Address\ORM_CMN_Address.cs" />
+    <Compile Include="CMN_Country\ORM_CMN_Country.cs" />
+    <Compile Include="CMN_Country_2_EconomicRegion\ORM_CMN_Country_2_EconomicRegion.cs" />
+    <Compile Include="CMN_Currency\ORM_CMN_Currency.cs" />
+    <Compile Include="CMN_EconomicRegion\ORM_CMN_EconomicRegion.cs" />
+    <Compile Include="CMN_Language\ORM_CMN_Language.cs" />
+    <Compile Include="CMN_NoteRevision\ORM_CMN_NoteRevision.cs" />
+    <Compile Include="CMN_Note\ORM_CMN_Note.cs" />
+    <Compile Include="CMN_NumberRange\ORM_CMN_NumberRange.cs" />
+    <Compile Include="CMN_NumberRange_UsageArea\ORM_CMN_NumberRange_UsageArea.cs" />
+    <Compile Include="CMN_Price\ORM_CMN_Price.cs" />
+    <Compile Include="CMN_Price_Value\ORM_CMN_Price_Value.cs" />
+    <Compile Include="CMN_Tenant\ORM_CMN_Tenant.cs" />
+    <Compile Include="CMN_Tenant_ActiveApprovalProcessType\ORM_CMN_Tenant_ActiveApprovalProcessType.cs" />
+    <Compile Include="CMN_Tenant_ApplicationSettings_Definition\ORM_CMN_Tenant_ApplicationSettings_Definition.cs" />
+    <Compile Include="CMN_Tenant_ApplicationSetting\ORM_CMN_Tenant_ApplicationSetting.cs" />
+    <Compile Include="CMN_Tenant_ApplicationSubscription\ORM_CMN_Tenant_ApplicationSubscription.cs" />
+    <Compile Include="CMN_Unit\ORM_CMN_Unit.cs" />
+    <Compile Include="CMN_Unit_2_UnitGroup\ORM_CMN_Unit_2_UnitGroup.cs" />
+    <Compile Include="CMN_Unit_ConversionFormula\ORM_CMN_Unit_ConversionFormula.cs" />
+    <Compile Include="CMN_Unit_Group\ORM_CMN_Unit_Group.cs" />
+    <Compile Include="CMN_UniversalContactDetail\ORM_CMN_UniversalContactDetail.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_EconomicRegion\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_EconomicRegion\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_EconomicRegion\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Country_2_EconomicRegion\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Country_2_EconomicRegion\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Country_2_EconomicRegion\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Tenant_ApplicationSetting\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Tenant_ApplicationSetting\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Tenant_ApplicationSetting\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Tenant_ApplicationSettings_Definition\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Tenant_ApplicationSettings_Definition\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Tenant_ApplicationSettings_Definition\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_NumberRange_UsageArea\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_NumberRange_UsageArea\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_NumberRange_UsageArea\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_NumberRange\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_NumberRange\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_NumberRange\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_NoteRevision\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_NoteRevision\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_NoteRevision\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Note\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Note\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Note\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Unit_Group\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Unit_Group\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Unit_Group\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Unit_ConversionFormula\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Unit_ConversionFormula\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Unit_ConversionFormula\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Unit_2_UnitGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Unit_2_UnitGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Unit_2_UnitGroup\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_Country_2_EconomicRegion.xml" />
+    <Content Include="_Support\CMN_EconomicRegion.xml" />
+    <EmbeddedResource Include="CMN_UniversalContactDetail\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_UniversalContactDetail\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_UniversalContactDetail\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Unit\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Unit\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Unit\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Tenant\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Tenant\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Tenant\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Tenant_ActiveApprovalProcessType\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Tenant_ActiveApprovalProcessType\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Tenant_ActiveApprovalProcessType\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Tenant_ApplicationSubscription\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Tenant_ApplicationSubscription\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Tenant_ApplicationSubscription\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Price_Value\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Price_Value\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Price_Value\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Price\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Price\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Price\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Language\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Language\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Language\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Currency\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Currency\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Currency\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Country\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Country\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Country\SQL\Select.sql" />
+    <Content Include="_Support\CMN_NoteRevisions.xml" />
+    <Content Include="_Support\CMN_Notes.xml" />
+    <Content Include="_Support\CMN_NumberRanges.xml" />
+    <Content Include="_Support\CMN_NumberRange_UsageAreas.xml" />
+    <Content Include="_Support\CMN_Tenant_ApplicationSettings.xml" />
+    <Content Include="_Support\CMN_Tenant_ApplicationSettings_Definitions.xml" />
+    <Content Include="_Support\CMN_Unit_2_UnitGroup.xml" />
+    <Content Include="_Support\CMN_Unit_ConversionFormulas.xml" />
+    <Content Include="_Support\CMN_Unit_Groups.xml" />
+    <Content Include="_Support\CMN_UniversalContactDetails.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\CMN_Countries.xml" />
+    <Content Include="_Support\CMN_Currencies.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\CMN_Languages.xml" />
+    <Content Include="_Support\CMN_Prices.xml" />
+    <Content Include="_Support\CMN_Price_Values.xml" />
+    <Content Include="_Support\CMN_Tenants.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\CMN_Tenant_ActiveApprovalProcessTypes.xml" />
+    <Content Include="_Support\CMN_Tenant_ApplicationSubscriptions.xml" />
+    <Content Include="_Support\CMN_Units.xml" />
+    <EmbeddedResource Include="CMN_Address\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Address\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Address\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_Account_ApplicationSubscription\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_Account_ApplicationSubscription\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_Account_ApplicationSubscription\SQL\Select.sql" />
+    <Content Include="_Support\CMN_Account_ApplicationSubscriptions.xml" />
+    <Content Include="_Support\CMN_Addresses.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

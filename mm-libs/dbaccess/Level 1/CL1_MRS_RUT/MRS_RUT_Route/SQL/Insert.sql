@@ -1,0 +1,23 @@
+INSERT INTO 
+	mrs_rut_routes
+	(
+		MRS_RUT_RouteID,
+		DisplayName,
+		IsTemporaryRoute,
+		Default_RouteReaderAccount_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@MRS_RUT_RouteID,
+		@DisplayName,
+		@IsTemporaryRoute,
+		@Default_RouteReaderAccount_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

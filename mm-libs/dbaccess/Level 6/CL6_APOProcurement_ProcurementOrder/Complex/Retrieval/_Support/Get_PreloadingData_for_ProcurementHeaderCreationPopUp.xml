@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/16/2014 10:37:31 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PreloadingData_for_ProcurementHeaderCreationPopUp</Name>
+    <Namespace>CL6_APOProcurement_ProcurementOrder.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_APOProcurement_ProcurementOrder.Complex.Retrieval"
+                Method_ClassName="cls_Get_PreloadingData_for_ProcurementHeaderCreationPopUp"
+                Method_Name="Get_PreloadingData_for_ProcurementHeaderCreationPopUp"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PreloadingData_for_ProcurementHeaderCreationPopUp"
+                />
+
+    <Parameters IsClass="true" Name="P_L6PO_GPDfPHCPP_1035" >
+        <Members>
+            <ClassMember Name="TypeOfHeader" Type="CL2_NumberRange.Complex.Retrieval.P_L2NR_GINfUA_1113"  />
+        </Members>
+    </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+		<ObjectReturnType_Definition Name="L6PO_GPDfPHCPP_1035">
+			<Members>
+				<ClassMember Name="ProcurementOrderHeaderNumber" Type="CL2_NumberRange.Complex.Retrieval.L2NR_GINfUA_1113"  />
+                <ClassMember Name="Suppliers" Type="CL3_Supplier.Atomic.Retrieval.L3SP_GSDNwIfT_1328" IsArray="true"/>
+			</Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+
+</CodeGen>
+
+

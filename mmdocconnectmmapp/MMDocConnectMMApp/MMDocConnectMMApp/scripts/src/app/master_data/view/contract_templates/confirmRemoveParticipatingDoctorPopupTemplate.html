@@ -1,0 +1,27 @@
+﻿<div class="popup-wrapper">
+    <div class="popup popup-medium">
+        <div class="bck-warning"><h2>{{ 'LABEL_REMOVE_DOCTOR_TITLE' | translate }} </h2></div>
+        
+        <h4 class="margin-bottom-15" translate="{{content.message}}" translate-values="{ eligible: $parent.content.doctorData }"></h4>
+        <div ng-if="content.popupShowErrorMessageContainer" class="error-msg">
+            <span class="error" ng-if="content.popupConsentDateInvalid">{{ 'LABEL_VALID_THROUGH_INVALID_DATE' | translate }}</span>
+            <span class="error" ng-if="content.popupConsentEndDateAboveMinimum" translate="LABEL_CONSENT_END_DATE_NOT_VALID" translate-values="{'consentTimeframe': content.consentTimeframe }"></span>
+        </div>
+
+        <div class="remove-contact-popup clearfix">
+            <div class="remove-contact-datepicker">
+                <label>{{ 'LABEL_VALID_THROUGH' | translate }} <span class="error" ng-if="consentEndDateEmpty()">*</span></label>
+                <datepicker date-format="dd.MM.yyyy" date-model="content.consent_date" date-max-limit={{content.maximumEndDate}} date-min-limit={{content.minimumConsentDate}}>
+                    <input class="input-popup 2000Year" type="text" id="popupConsentEndDate" ng-focus="setClass()" name="consentEndDate" ng-model="content.consent_date"
+                           placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}" ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'"
+                           validate-date="true" date-min-limit="content.maximumEndDate" date-max-limit="today" />
+                </datepicker>
+            </div>
+
+            <div class="remove-contact-buttons">
+                <button type="button" class="button wide reject jsblockClose" ng-click="cancelRemoveDoctorFromContract()" id="btnCancel" translate="BUTTON_NO">></button>
+                <button type="submit" class="button wide confirm-smaller jsblockClose" ng-click="confirmRemoveDoctor()" id="btnConfirm" translate="BUTTON_YES" ng-disabled="consentEndDateEmpty()"></button>
+            </div>
+        </div>
+    </div>
+</div>

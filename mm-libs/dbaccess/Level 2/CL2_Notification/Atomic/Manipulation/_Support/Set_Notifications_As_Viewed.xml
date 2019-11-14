@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/11/2013 11:11:54 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Language</Name>
+    <Namespace>CL2_Language.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Notification.Atomic.Manipulation"
+                Method_ClassName="cls_Set_Notifications_As_Viewed"
+                Method_Name="Set_Notifications_As_Viewed"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Set_Notifications_As_Viewed"
+                />
+  
+
+  <Parameters IsClass="true" Name="P_L2NT_SNAV_1425">
+    <Members>
+		<ClassMember Name="NotificationIDList" Type="Guid" IsArray="true"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

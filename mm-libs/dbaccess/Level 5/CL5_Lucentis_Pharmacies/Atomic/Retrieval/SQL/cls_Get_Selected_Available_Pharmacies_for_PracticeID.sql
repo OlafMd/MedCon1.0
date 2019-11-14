@@ -1,0 +1,12 @@
+
+	Select
+  hec_medicalpractise_availablepharmaciesforordering.HEC_Pharmacy_RefID,
+  hec_medicalpractise_availablepharmaciesforordering.HEC_MedicalPractise_AvailablePharmaciesForOrderingID
+From
+  hec_medicalpractise_availablepharmaciesforordering
+Where
+  hec_medicalpractise_availablepharmaciesforordering.IsDeleted = 0 And
+  hec_medicalpractise_availablepharmaciesforordering.HEC_MedicalPractise_RefID =
+  @PracticeID And
+  hec_medicalpractise_availablepharmaciesforordering.Tenant_RefID = @TenantID
+  

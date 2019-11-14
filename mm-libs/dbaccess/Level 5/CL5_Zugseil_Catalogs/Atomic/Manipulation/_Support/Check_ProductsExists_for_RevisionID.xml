@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/18/2013 11:38:49 AM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Check_ProductsExists_for_RevisionID</Name>
+        <Namespace>CL5_Zugseil_Catalogs.Atomic.Manipulation</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_Zugseil_Catalogs.Atomic.Manipulation"
+                  Method_ClassName="cls_Check_ProductsExists_for_RevisionID"
+                  Method_Name="Check_ProductsExists_for_RevisionID"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Check_ProductsExists_for_RevisionID"
+                />
+
+
+    <Parameters IsClass="true" Name="P_L5CA_CPEfRI_1256">
+        <Members>
+            
+            <ClassMember Name="CatalogRevision_ID" Type="Guid"/>
+        </Members>
+    </Parameters>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+        <StandardReturnType_Definition returnType="bool"  />
+
+    </ResultInfo>
+
+</CodeGen>

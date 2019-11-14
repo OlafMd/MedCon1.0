@@ -1,0 +1,11 @@
+UPDATE 
+	log_rsv_reservation_trackinginstances
+SET 
+	LOG_RSV_Reservation_RefID=@LOG_RSV_Reservation_RefID,
+	LOG_ProductTrackingInstance_RefID=@LOG_ProductTrackingInstance_RefID,
+	ReservedQuantityFromTrackingInstance=@ReservedQuantityFromTrackingInstance,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	LOG_RSV_Reservation_TrackingInstanceID = @LOG_RSV_Reservation_TrackingInstanceID

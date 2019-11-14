@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/3/2014 8:47:41 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_AccountingTransactions_Not_Fully_Assigned_to_Payments</Name>
+    <Namespace>CL3_Payments.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Payments.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_AccountingTransactions_Not_Fully_Assigned_to_Payments"
+                Method_Name="Get_All_AccountingTransactions_Not_Fully_Assigned_to_Payments"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_AccountingTransactions_Not_Fully_Assigned_to_Payments"
+                />
+
+  <SQLStatement xml:space="preserve">
+    SELECT
+        SUM(COALESCE(acc_bok_accounting_bookinglines.TransactionValue, 0)) AS TotalTransactionValue,
+        SUM(COALESCE(bil_billheader_assignedpayments.AssignedValue, 0)) AS AssignedTransactionValue,
+        acc_bok_accounting_bookinglines.PartOfAccountingTransaction_RefID AS AccountingTransactionID
+		SUM(COALESCE(acc_bok_accounting_bookinglines.TransactionValue, 0)) - SUM(COALESCE(bil_billheader_assignedpayments.AssignedValue, 0)) AS UnassignedTransactionValue
+    FROM
+        acc_bok_accounting_bookinglines
+    INNER JOIN acc_bok_bookingaccounts_purpose_bp_assignments
+        ON acc_bok_bookingaccounts_purpose_bp_assignments.BookingAccount_RefID = acc_bok_accounting_bookinglines.BookingAccount_RefID
+        AND acc_bok_bookingaccounts_purpose_bp_assignments.IsDeleted = 0
+        AND acc_bok_bookingaccounts_purpose_bp_assignments.Tenant_RefID = @TenantID
+        AND acc_bok_bookingaccounts_purpose_bp_assignments.BusinessParticipant_RefID = @BusinessParticipantID
+        AND acc_bok_bookingaccounts_purpose_bp_assignments.Is_L3_CustomerAccount = 1
+    INNER JOIN acc_bok_bookingaccounts
+        ON acc_bok_bookingaccounts.ACC_BOK_BookingAccountID = acc_bok_bookingaccounts_purpose_bp_assignments.BookingAccount_RefID
+        AND acc_bok_bookingaccounts.IsDeleted = 0
+        AND acc_bok_bookingaccounts.Tenant_RefID = @TenantID
+        AND acc_bok_bookingaccounts.FiscalYear_RefID = @FiscalYearID
+    LEFT OUTER JOIN bil_billheader_assignedpayments
+        ON bil_billheader_assignedpayments.ACC_BOK_AccountingTransaction_RefID = acc_bok_accounting_bookinglines.PartOfAccountingTransaction_RefID
+        AND bil_billheader_assignedpayments.IsDeleted = 0
+        AND bil_billheader_assignedpayments.Tenant_RefID = @TenantID
+    WHERE
+        acc_bok_accounting_bookinglines.IsDeleted = 0
+        AND acc_bok_accounting_bookinglines.Tenant_RefID = @TenantID
+    GROUP BY acc_bok_accounting_bookinglines.PartOfAccountingTransaction_RefID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3PY_GAATNFAtP_0846">
+    <Members>
+        <ClassMember Name="BusinessParticipantID" Type="Guid"  />
+		<ClassMember Name="FiscalYearID" Type="Guid"  />
+
+	</Members>
+  </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L3PY_GAATNFAtP_0846" IsArray="true">
+            <Members>
+                <ClassMember Name="TotalTransactionValue" Type="Decimal"  />
+                <ClassMember Name="AssignedTransactionValue" Type="Decimal"  />
+				<ClassMember Name="UnassignedTransactionValue" Type="Decimal"  />
+				<ClassMember Name="AccountingTransactionID" Type="Guid"  />
+
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

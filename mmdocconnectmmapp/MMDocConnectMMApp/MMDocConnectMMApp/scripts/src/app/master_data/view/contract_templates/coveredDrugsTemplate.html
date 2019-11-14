@@ -1,0 +1,40 @@
+﻿<div ng-init="initializeController()">
+    <div class="gray-content-holder">
+        <div name="messageContainer" class="error-msg-container" ng-if="showErrorMessageContainer">
+            <span class="error">{{ 'LABEL_DRUG_ALREADY_SELECTED' | translate }} </span>
+        </div>
+        <div class="autocomplete-row">
+            <label>{{ 'LABEL_DRUG' | translate }}</label>
+            <button class="button wide add-button" ng-click="addDrugToList()" translate="LABEL_ADD"></button>
+            <angucomplete-alt id="inDrugName"
+                              class="autocomplete-input"
+                              name="inDrugName" pause="500"
+                              selected-object="addDrug"
+                              remote-url="api/contract/GetDrugsForSearchCriteria"
+                              remote-url-data-field="items"
+                              remote-url-request-formatter="remoteUrlRequestFn"
+                              search-fields="expanded_name"
+                              title-field="expanded_name"
+                              minlength="1"
+                              inputclass="form-control form-control-small"
+                              inherit-position="true" />
+
+        </div>
+    </div>
+    <ul class="diagnosis-list-header">
+        <li class="unsorted" ng-class="setTableHeaderClass()" ng-click="SortFunction()">{{'LABEL_DRUG' | translate }}</li>
+    </ul>
+
+    <div class="content-scroll clear" id="wrapper">
+        <div id="wrapper_inner" class="clearfix">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="item in drugs">
+                    <ul class="diagnosis-list-item">
+                        <li class="larger-font"><span>{{ ::item.name }}</span> </li>
+                        <li><a href="" ng-click="removeDrug(item)" class="icons-discard" title="{{'LABEL_REMOVE_FROM_CONTRACT' | translate}}"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

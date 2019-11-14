@@ -1,0 +1,13 @@
+UPDATE 
+	cmn_bpt_emp_workingcontract_2_extraworksurcharges
+SET 
+	CMN_BPT_EMP_WorkingContract_RefID=@CMN_BPT_EMP_WorkingContract_RefID,
+	CMN_BPT_EMP_ExtraWorkCalculation_Surcharge_RefID=@CMN_BPT_EMP_ExtraWorkCalculation_Surcharge_RefID,
+	R_IsNightTimeSurcharge=@R_IsNightTimeSurcharge,
+	R_IsSpecialEventSurcharge=@R_IsSpecialEventSurcharge,
+	MaximumAllowedSurchargeTime_in_mins=@MaximumAllowedSurchargeTime_in_mins,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_BPT_EMP_WorkingContract_2_ExtraWorkSurchargeID = @CMN_BPT_EMP_WorkingContract_2_ExtraWorkSurchargeID

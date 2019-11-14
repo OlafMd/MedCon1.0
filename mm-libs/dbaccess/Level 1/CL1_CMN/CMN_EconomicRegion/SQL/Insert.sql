@@ -1,0 +1,23 @@
+INSERT INTO 
+	CMN_EconomicRegion
+	(
+		CMN_EconomicRegionID,
+		ParentEconomicRegion_RefID,
+		EconomicRegion_Name_DictID,
+		EconomicRegion_Description_DictID,
+		IsEconomicRegionCountry,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_EconomicRegionID,
+		@ParentEconomicRegion_RefID,
+		@EconomicRegion_Name,
+		@EconomicRegion_Description,
+		@IsEconomicRegionCountry,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

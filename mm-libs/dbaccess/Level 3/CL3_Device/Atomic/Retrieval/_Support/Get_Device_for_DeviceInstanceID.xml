@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/27/2014 9:12:20 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllOfficess_for_TenantID</Name>
+    <Namespace>CL3_Offices.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Device.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Device_for_DeviceInstanceID"
+                Method_Name="Get_Device_for_DeviceInstanceID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Device_for_DeviceInstanceID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select Distinct
+  pps_dev_device_instances.PPS_DEV_Device_InstanceID,
+  pps_dev_devices.PPS_DEV_DeviceID,
+  pps_dev_devices.DeviceDisplayName,
+  pps_dev_device_instances.DeviceInventoryNumber,
+  pps_dev_device_instance_officelocations.PPS_DEV_Device_Instance_OfficeLocationID,
+  pps_dev_device_instance_officelocations.CMN_STR_Office_RefID
+From
+  pps_dev_devices Inner Join
+  pps_dev_device_instances On pps_dev_device_instances.Device_RefID =
+    pps_dev_devices.PPS_DEV_DeviceID Left Join
+  pps_dev_device_instance_officelocations
+    On pps_dev_device_instance_officelocations.DeviceInstance_RefID =
+    pps_dev_device_instances.PPS_DEV_Device_InstanceID And
+    (pps_dev_device_instance_officelocations.IsDeleted = 0 Or
+      pps_dev_device_instance_officelocations.IsDeleted Is Null)
+Where
+  pps_dev_device_instances.PPS_DEV_Device_InstanceID = @DeviceInstanceID And
+  pps_dev_devices.IsDeleted = 0 And
+  pps_dev_device_instances.IsDeleted = 0 And
+  pps_dev_devices.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+  <Parameters IsClass="true" Name="P_L3DE_GDfDIID_1452">
+    <Members>
+      <ClassMember Name="DeviceInstanceID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3DE_GDfDIID_1452" IsArray="false">
+			<Members>
+				<ClassMember Name="PPS_DEV_Device_InstanceID" Type="Guid"  />
+				<ClassMember Name="PPS_DEV_DeviceID" Type="Guid"  />
+        <ClassMember Name="DeviceDisplayName" Type="string"  />
+        <ClassMember Name="DeviceInventoryNumber" Type="string"  />
+        <ClassMember Name="PPS_DEV_Device_Instance_OfficeLocationID" Type="Guid"  />
+        <ClassMember Name="CMN_STR_Office_RefID" Type="Guid" />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

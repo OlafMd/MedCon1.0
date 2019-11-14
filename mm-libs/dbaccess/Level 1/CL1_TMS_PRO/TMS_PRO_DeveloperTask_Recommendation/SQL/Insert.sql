@@ -1,0 +1,23 @@
+INSERT INTO 
+	tms_pro_developertask_recommendations
+	(
+		TMS_PRO_DeveloperTask_RecommendationID,
+		DeveloperTask_RefID,
+		RecommendedBy_ProjectMember_RefID,
+		RecommendedTo_ProjectMember_RefID,
+		Description,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@TMS_PRO_DeveloperTask_RecommendationID,
+		@DeveloperTask_RefID,
+		@RecommendedBy_ProjectMember_RefID,
+		@RecommendedTo_ProjectMember_RefID,
+		@Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

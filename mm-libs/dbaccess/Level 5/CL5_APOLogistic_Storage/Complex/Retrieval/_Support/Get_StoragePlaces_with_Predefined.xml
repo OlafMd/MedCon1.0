@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/16/2013 12:46:16 PM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Get_StoragePlaces_with_Predefined</Name>
+        <Namespace>CL5_APOLogistic_Storage.Complex.Retrieval</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_APOLogistic_Storage.Complex.Retrieval"
+				  Method_ClassName="cls_Get_StoragePlaces_with_Predefined"
+				  Method_Name="Get_StoragePlaces_with_Predefined"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Get_StoragePlaces_with_Predefined"
+                />
+
+
+    <Parameters IsClass="true" Name="P_L5SG_GSPwP_1825">
+        <Members>
+            <ClassMember Name="PredefinedProduct" Type="Guid?" />
+            <ClassMember Name="IsMultiSelect" Type="bool"  />
+            <ClassMember Name="Warehouse_GroupID" Type="Guid?" />
+            <ClassMember Name="WarehouseID" Type="Guid?"  />
+            <ClassMember Name="AreaID" Type="Guid?" />
+            <ClassMember Name="RackID" Type="Guid?" />
+            <ClassMember Name="ShelfID" Type="Guid?" />
+            <ClassMember Name="UseShelfList" Type="bool"  />
+            <ClassMember Name="ShelfID_List" Type="Guid" IsArray="true"  />
+            <ClassMember Name="QuantityTop" Type="float?"  />
+            <ClassMember Name="QuantityBottom" Type="float?"  />
+
+        </Members>
+    </Parameters>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				  Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				  Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5SG_GSPwP_1825" IsArray="false" >
+            <Members>
+                <ClassMember Name="WareHouseStructure" Type="CL3_Warehouse.Atomic.Retrieval.L3WH_GSPfFC_1504" IsArray="true"  />
+                <ClassMember Name="HasDefaultShelf" Type="bool"  />
+                <ClassMember Name="ShelfID" Type="Guid?"  />
+            </Members>
+        </ObjectReturnType_Definition>
+    </ResultInfo>
+</CodeGen>

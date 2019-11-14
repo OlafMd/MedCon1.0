@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_cmt_community_offeredmembershiptypes
+WHERE 
+	HEC_CMT_Community_OfferedMembershipTypeID = @HEC_CMT_Community_OfferedMembershipTypeID

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/10/2013 10:05:32 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Revisions_For_RevisionGroupID</Name>
+    <Namespace>CL6_KPRS_DueDiligence.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_KPRS_DueDiligence.Complex.Retrieval"
+                Method_ClassName="cls_Get_Revisions_For_RevisionGroupID"
+                Method_Name="Get_Revisions_For_RevisionGroupID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Revisions_For_RevisionGroupID"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L6DD_GRFRG_1005">
+    <Members>
+		<ClassMember Name="RevisionGroupID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6DD_GRFRG_1005" IsArray="true" >
+			<Members>
+				<ClassMember Name="Building" Type="L5BD_GBFRG_1005"  isReference="true"/>
+        <ClassMember Name="Questionnaire" Type="L5QT_GDDQFQ_1507"  isReference="true"/>
+        <ClassMember IsClass="true" IsArray="false" Name="Properties" Type="L5BD_GCBIFR_1005_Properties" >
+          <Members>
+            <ClassMember Name="Apartments" Type="L5DD_GASIfRID_1007[]"  isReference="true"/>
+            <ClassMember Name="Attics" Type="L5DD_GATTSIFRID_1411[]"  isReference="true"/>
+            <ClassMember Name="Basements" Type="L5DD_GBSIfRID_1431[]"  isReference="true"/>
+            <ClassMember Name="Facades" Type="L5DD_GFSIfRID_1438[]"  isReference="true"/>
+            <ClassMember Name="HVACRs" Type="L5DD_GHSIfRID_1448[]"  isReference="true"/>
+            <ClassMember Name="OutdoorFacilities" Type="L5DD_GOFSIfRID_1454[]"  isReference="true"/>
+            <ClassMember Name="Roofs" Type="L5DD_GRSIfRID_1213[]"  isReference="true"/>
+            <ClassMember Name="Staircases" Type="L5DD_GASIfRID_1507[]"  isReference="true"/>
+          </Members>
+        </ClassMember> 
+	
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

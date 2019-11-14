@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	usr_device_accountcode_statushistory
+WHERE 
+	USR_Device_AccountCode_StatusHistoryID = @USR_Device_AccountCode_StatusHistoryID

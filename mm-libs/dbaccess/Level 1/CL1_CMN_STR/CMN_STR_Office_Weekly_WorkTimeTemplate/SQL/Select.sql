@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_str_office_weekly_worktimetemplates
+WHERE 
+	CMN_STR_Office_Weekly_WorkTimeTemplateID = @CMN_STR_Office_Weekly_WorkTimeTemplateID

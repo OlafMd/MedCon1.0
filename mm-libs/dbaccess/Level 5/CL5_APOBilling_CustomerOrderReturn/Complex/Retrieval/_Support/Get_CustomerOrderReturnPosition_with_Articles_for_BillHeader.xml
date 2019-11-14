@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/6/2014 10:52:30">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CustomerOrderReturnPosition_with_Articles_for_BillHeader</Name>
+    <Namespace>CL5_APOBilling_CustomerOrderReturn.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBilling_CustomerOrderReturn.Complex.Retrieval"
+                Method_ClassName="cls_Get_CustomerOrderReturnPosition_with_Articles_for_BillHeader"
+                Method_Name="Get_CustomerOrderReturnPosition_with_Articles_for_BillHeader"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_CustomerOrderReturnPosition_with_Articles_for_BillHeader"
+                />
+
+  <Parameters IsClass="true" Name="P_L5OR_GCORPwAfBH_1051">
+    <Members>
+      <ClassMember Name="BillHeaderID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5OR_GCORPwAfBH_1051" IsArray="true">
+			<Members>
+        <ClassMember Name="Article" Type="CL3_Articles.Atomic.Retrieval.L3AR_GAfAL_0942"  />
+        <ClassMember Name="OrderReturnBillPosition" Type="CL5_APOBilling_CustomerOrderReturn.Atomic.Retrieval.L5OR_GCORPfBH_1045"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+	</ResultInfo>
+
+</CodeGen>
+
+

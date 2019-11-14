@@ -1,0 +1,27 @@
+INSERT INTO 
+	hec_stu_study_participatingpatients
+	(
+		HEC_STU_Study_ParticipatingPatientID,
+		Study_RefID,
+		Patient_RefID,
+		Participation_DateOfSigning,
+		Participation_Comment,
+		ParticipationPolicyInternalNumber,
+		HasFulfilledParticipationPolicyRequirements,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_STU_Study_ParticipatingPatientID,
+		@Study_RefID,
+		@Patient_RefID,
+		@Participation_DateOfSigning,
+		@Participation_Comment,
+		@ParticipationPolicyInternalNumber,
+		@HasFulfilledParticipationPolicyRequirements,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

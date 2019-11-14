@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/17/2013 11:16:19 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AvailableChargingLevels_for_ProjectMemberTypeID</Name>
+    <Namespace>CL3_ProjectMember.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_ProjectMember.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AvailableChargingLevels_for_ProjectMemberTypeID"
+                Method_Name="Get_AvailableChargingLevels_for_ProjectMemberTypeID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <SQLStatement xml:space="preserve">
+Select Distinct
+  cmn_bpt_investedworktime_charginglevels.CMN_BPT_InvestedWorkTime_ChargingLevelID,
+  cmn_bpt_investedworktime_charginglevels.ChangingLevel_Name_DictID
+From
+  tmp_pro_projectmember_type_availablecharginglevels Inner Join
+  cmn_bpt_investedworktime_charginglevels
+    On tmp_pro_projectmember_type_availablecharginglevels.ChargingLevel_RefID =
+    cmn_bpt_investedworktime_charginglevels.CMN_BPT_InvestedWorkTime_ChargingLevelID
+Where
+  tmp_pro_projectmember_type_availablecharginglevels.IsDeleted = 0 And
+  tmp_pro_projectmember_type_availablecharginglevels.Tenant_RefID = @TenantID And
+  tmp_pro_projectmember_type_availablecharginglevels.ProjectMember_Type_RefID = @MemberTypeID And
+  cmn_bpt_investedworktime_charginglevels.IsDeleted = 0
+  </SQLStatement>
+  
+  <Parameters IsClass="true" Name="P_L3PM_GACLfPMT_1114">
+    <Members>
+      <ClassMember Name="MemberTypeID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3PM_GACLfPMT_1114" IsArray="true">
+      <Members>
+        <ClassMember Name="CMN_BPT_InvestedWorkTime_ChargingLevelID" Type="Guid"  />
+        <ClassMember Name="ChangingLevel_Name" Type="Dict" OriginTable="cmn_bpt_investedworktime_charginglevels" Source_DBField="ChangingLevel_Name_DictID"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

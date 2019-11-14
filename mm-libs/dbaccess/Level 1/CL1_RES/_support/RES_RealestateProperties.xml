@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 8/1/2013 10:22:05 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="RES_RealestateProperty"
+                IsClass="true"
+                IsClass_Namespace="CL1_RES"
+                IsClass_Corresponding_DBTable="res_realestateproperties" >
+      <Members>
+		<ClassMember Name="RES_RealestatePropertyID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="RealestateProperty_Title" Type="String" />
+		<ClassMember Name="RealestateProperty_InternalID" Type="String" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="InformationSubmittedBy_Account_RefID" Type="Guid" />
+		<ClassMember Name="RealestateProperty_Address_RefID" Type="Guid" />
+		<ClassMember Name="RealestateProperty_Location_RefID" Type="Guid" />
+		<ClassMember Name="RealestateProperty_GroundValuePrice_RefID" Type="Guid" />
+		<ClassMember Name="RealestateProperty_AverageAreaRentPrice_RefID" Type="Guid" />
+		<ClassMember Name="RealestateProperty_ConstructionDate" Type="DateTime" />
+		<ClassMember Name="RealestateProperty_RefurbishmentDate" Type="DateTime" />
+		<ClassMember Name="RealestateProperty_InformationDate" Type="DateTime" />
+		<ClassMember Name="RealestateProperty_LivingSpace_in_sqm" Type="double" />
+		<ClassMember Name="RealestateProperty_NumberOfResidentialUnits" Type="int" />
+		<ClassMember Name="RealestateProperty_GroundAreaSize_in_sqm" Type="double" />
+		<ClassMember Name="Geolocation_Lattitude" Type="double" />
+		<ClassMember Name="Geolocation_Longitude" Type="double" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+    <ClassMember Name="IsLocked" Type="bool" />
+    <ClassMember Name="IsArchived" Type="bool" />  
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

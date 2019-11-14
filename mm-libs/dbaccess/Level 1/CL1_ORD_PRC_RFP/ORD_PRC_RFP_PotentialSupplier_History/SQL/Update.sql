@@ -1,0 +1,21 @@
+UPDATE 
+	ord_prc_rfp_potentialsupplier_history
+SET 
+	ORD_PRC_RFP_PotentialSupplier_RefID=@ORD_PRC_RFP_PotentialSupplier_RefID,
+	IsEvent_ProposalRequest_Sent=@IsEvent_ProposalRequest_Sent,
+	IsEvent_ProposalRequest_Revoked=@IsEvent_ProposalRequest_Revoked,
+	IsEvent_BySupplier_ProposalRequest_ReceptionAcknowledged=@IsEvent_BySupplier_ProposalRequest_ReceptionAcknowledged,
+	IsEvent_BySupplier_ProposalRequest_Declined=@IsEvent_BySupplier_ProposalRequest_Declined,
+	IsEvent_ProposalResponse_Received=@IsEvent_ProposalResponse_Received,
+	IsEvent_ProposalResponse_ReceptionAcknowledged=@IsEvent_ProposalResponse_ReceptionAcknowledged,
+	IsEvent_BySupplier_ProposalResponse_Revoked=@IsEvent_BySupplier_ProposalResponse_Revoked,
+	IsEvent_ProposalResponse_ModificationRequired=@IsEvent_ProposalResponse_ModificationRequired,
+	IsEvent_ProposalResponse_Declined=@IsEvent_ProposalResponse_Declined,
+	IsEvent_ProposalResponse_Accepted=@IsEvent_ProposalResponse_Accepted,
+	Proposal_Document_RefID=@Proposal_Document_RefID,
+	Comment=@Comment,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	ORD_PRC_RFP_PotentialSupplier_HistoryID = @ORD_PRC_RFP_PotentialSupplier_HistoryID

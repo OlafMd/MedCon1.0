@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+    <Item ID="comunication-contact-type.phone">
+      <Lang ISO="EN" Content="Phone" />
+      <Lang ISO="DE" Content="Telefon" />
+      <Lang ISO="RS" Content="Telefon" />
+    </Item>
+    <Item ID="comunication-contact-type.fax">
+      <Lang ISO="EN" Content="Fax" />
+      <Lang ISO="DE" Content="Fax" />
+      <Lang ISO="RS" Content="Fax" />
+    </Item>
+    <Item ID="comunication-contact-type.email">
+      <Lang ISO="EN" Content="Email" />
+      <Lang ISO="DE" Content="EmailDE" />
+      <Lang ISO="RS" Content="Email" />
+    </Item>
+    <Item ID="comunication-contact-type.mobile">
+      <Lang ISO="EN" Content="Mobile" />
+      <Lang ISO="DE" Content="MobileDE" />
+      <Lang ISO="RS" Content="Mobilni" />
+    </Item>
+    <Item ID="comunication-contact-type.extension">
+      <Lang ISO="EN" Content="Extension" />
+      <Lang ISO="DE" Content="ExtensionDE" />
+      <Lang ISO="RS" Content="Lokal" />
+    </Item>
+    <Item ID="comunication-contact-type.skype-name">
+      <Lang ISO="EN" Content="Skype" />
+      <Lang ISO="DE" Content="SkypeDE" />
+      <Lang ISO="RS" Content="Skype" />
+    </Item>
+    <Item ID="comunication-contact-type.url">
+      <Lang ISO="EN" Content="URL" />
+      <Lang ISO="DE" Content="URLDE" />
+      <Lang ISO="RS" Content="URL" />
+    </Item>  
+</Resources>

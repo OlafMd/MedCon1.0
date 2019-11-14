@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/4/2014 11:12:29 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Doctor_and_Staff_Availability_for_BusinessParticipantID</Name>
+    <Namespace>CL5_MyHealthClub_DoctorsAndStaff.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_DoctorsAndStaff.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Doctor_and_Staff_Availability_for_BusinessParticipantID"
+                Method_Name="Get_Doctor_and_Staff_Availability_for_BusinessParticipantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Doctor_and_Staff_Availability_for_BusinessParticipantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.LastName,
+  cmn_per_personinfo.Title,
+  cmn_cal_ava_availability_types.IsDefaultAvailabilityType,
+  cmn_cal_ava_availability_types.GlobalPropertyMatchingID,
+  cmn_cal_ava_dates.DateName,
+  cmn_cal_events.StartTime,
+  cmn_cal_events.EndTime,
+  cmn_cal_repetitions.IsMonthly,
+  cmn_cal_repetitions.IsYearly,
+  cmn_cal_repetitions.IsWeekly,
+  cmn_bpt_businessparticipant_availabilities.CMN_BPT_BusinessParticipant_AvailabilityID,
+  cmn_cal_repetitionpatterns_weekly.HasRepeatingOn_Mondays,
+  cmn_cal_repetitionpatterns_weekly.HasRepeatingOn_Tuesdays,
+  cmn_cal_repetitionpatterns_weekly.HasRepeatingOn_Wednesdays,
+  cmn_cal_repetitionpatterns_weekly.HasRepeatingOn_Thursdays,
+  cmn_cal_repetitionpatterns_weekly.HasRepeatingOn_Fridays,
+  cmn_cal_repetitionpatterns_weekly.HasRepeatingOn_Saturdays,
+  cmn_cal_repetitionpatterns_weekly.HasRepeatingOn_Sundays,
+  cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID,
+  cmn_cal_ava_availabilities.Office_RefID,
+  cmn_cal_ava_availabilities.IsAvailabilityExclusionItem,
+  cmn_cal_repetitions.IsDaily,
+  cmn_cal_events.IsRepetitive,
+  cmn_cal_events.IsWholeDayEvent,
+  cmn_cal_ava_dates.DateComment As Reason,
+  cmn_bpt_businessparticipant_excludedavailabilitytypes.CMN_BPT_BusinessParticipant_ExcludedAvailabilityTypeID,
+  cmn_bpt_businessparticipant_availabilities.Creation_Timestamp
+From
+  cmn_bpt_businessparticipants Inner Join
+  cmn_per_personinfo On cmn_per_personinfo.CMN_PER_PersonInfoID =
+    cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID And
+    cmn_per_personinfo.IsDeleted = 0 And cmn_per_personinfo.Tenant_RefID =
+    @TenantID Left Join
+  cmn_bpt_businessparticipant_availabilities
+    On cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID =
+    cmn_bpt_businessparticipant_availabilities.BusinessParticipant_RefID And
+    cmn_bpt_businessparticipant_availabilities.Tenant_RefID = @TenantID And
+    cmn_bpt_businessparticipant_availabilities.IsDeleted = 0 Left Join
+  cmn_cal_ava_availabilities
+    On cmn_bpt_businessparticipant_availabilities.CMN_CAL_AVA_Availability_RefID
+    = cmn_cal_ava_availabilities.CMN_CAL_AVA_AvailabilityID And
+    cmn_cal_ava_availabilities.Tenant_RefID = @TenantID And
+    cmn_cal_ava_availabilities.IsDeleted = 0 Left Join
+  cmn_cal_ava_availability_types
+    On cmn_cal_ava_availabilities.AvailabilityType_RefID =
+    cmn_cal_ava_availability_types.CMN_CAL_AVA_Availability_TypeID And
+    cmn_cal_ava_availability_types.Tenant_RefID = @TenantID And
+    cmn_cal_ava_availability_types.IsDeleted = 0 Left Join
+  cmn_cal_ava_dates On cmn_cal_ava_availabilities.CMN_CAL_AVA_AvailabilityID =
+    cmn_cal_ava_dates.Availability_RefID And cmn_cal_ava_dates.Tenant_RefID =
+    @TenantID And cmn_cal_ava_dates.IsDeleted = 0 Left Join
+  cmn_cal_events On cmn_cal_ava_dates.CMN_CAL_Event_RefID =
+    cmn_cal_events.CMN_CAL_EventID
+    And cmn_cal_events.IsDeleted = 0 And cmn_cal_events.Tenant_RefID = @TenantID
+  Left Join
+  cmn_cal_repetitions On cmn_cal_events.Repetition_RefID =
+    cmn_cal_repetitions.CMN_CAL_RepetitionID And cmn_cal_repetitions.IsDeleted =
+    0 And cmn_cal_repetitions.Tenant_RefID = @TenantID Left Join
+  cmn_cal_repetitionpatterns_weekly On cmn_cal_repetitions.CMN_CAL_RepetitionID
+    = cmn_cal_repetitionpatterns_weekly.Repetition_RefID And
+    cmn_cal_repetitionpatterns_weekly.IsDeleted = 0 And
+    cmn_cal_repetitionpatterns_weekly.Tenant_RefID = @TenantID Left Join
+  cmn_bpt_businessparticipant_excludedavailabilitytypes
+    On
+    cmn_bpt_businessparticipant_excludedavailabilitytypes.CMN_BPT_BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And cmn_bpt_businessparticipant_excludedavailabilitytypes.IsDeleted = 0 And cmn_bpt_businessparticipant_excludedavailabilitytypes.Tenant_RefID = @TenantID
+Where
+  cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID = @StaffID And
+  cmn_bpt_businessparticipants.IsCompany = 0 And
+  cmn_bpt_businessparticipants.IsDeleted = 0 And
+  cmn_bpt_businessparticipants.Tenant_RefID = @TenantID And
+  cmn_bpt_businessparticipants.IsNaturalPerson = 1
+
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5DO_GDaSAfBPID_1111">
+    <Members>
+      <ClassMember Name="StaffID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5DO_GDaSAfBPID_1111" IsArray="false" GroupBy="CMN_BPT_BusinessParticipantID">
+      <Members>
+        <ClassMember Name="FirstName" Type="String"  />
+        <ClassMember Name="LastName" Type="String"  />
+        <ClassMember Name="Title" Type="String"  />
+        <ClassMember Name="CMN_BPT_BusinessParticipantID" Type="Guid"  />
+        <ClassMember Name="CMN_BPT_BusinessParticipant_ExcludedAvailabilityTypeID" Type="Guid"  />
+        <ClassMember IsClass="true" IsArray="true" Type="L5DO_GDaSAfBPID_1111_AvailabilityDates" Name="AvailabilityDates" GroupBy="CMN_BPT_BusinessParticipant_AvailabilityID" >
+          <Members>
+            <ClassMember Name="CMN_BPT_BusinessParticipant_AvailabilityID" Type="Guid"  />
+            <ClassMember Name="Office_RefID" Type="Guid"  />
+            <ClassMember Name="IsDefaultAvailabilityType" Type="bool"  />
+            <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+            <ClassMember Name="DateName" Type="String"  />
+            <ClassMember Name="StartTime" Type="DateTime"  />
+            <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+            <ClassMember Name="EndTime" Type="DateTime"  />
+            <ClassMember Name="IsMonthly" Type="bool"  />
+            <ClassMember Name="IsYearly" Type="bool"  />
+            <ClassMember Name="IsWeekly" Type="bool"  />
+            <ClassMember Name="HasRepeatingOn_Mondays" Type="bool"  />
+            <ClassMember Name="HasRepeatingOn_Tuesdays" Type="bool"  />
+            <ClassMember Name="HasRepeatingOn_Wednesdays" Type="bool"  />
+            <ClassMember Name="HasRepeatingOn_Thursdays" Type="bool"  />
+            <ClassMember Name="HasRepeatingOn_Fridays" Type="bool"  />
+            <ClassMember Name="HasRepeatingOn_Saturdays" Type="bool"  />
+            <ClassMember Name="HasRepeatingOn_Sundays" Type="bool"  />
+            <ClassMember Name="IsAvailabilityExclusionItem" Type="bool"  />
+            <ClassMember Name="IsDaily" Type="bool"  />
+            <ClassMember Name="IsRepetitive" Type="bool"  />
+            <ClassMember Name="IsWholeDayEvent" Type="bool"  />
+            <ClassMember Name="Reason" Type="String"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

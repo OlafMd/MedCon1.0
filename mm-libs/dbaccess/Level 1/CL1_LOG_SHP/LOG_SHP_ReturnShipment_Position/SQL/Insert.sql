@@ -1,0 +1,23 @@
+INSERT INTO 
+	log_shp_returnshipment_positions
+	(
+		LOG_SHP_ReturnShipment_PositionID,
+		Ext_Shipment_Position_RefID,
+		ReturnShipment_Header_RefID,
+		ReturnPolicy_RefID,
+		ReturnProductOriginatedFromReceiptPosition_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_SHP_ReturnShipment_PositionID,
+		@Ext_Shipment_Position_RefID,
+		@ReturnShipment_Header_RefID,
+		@ReturnPolicy_RefID,
+		@ReturnProductOriginatedFromReceiptPosition_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

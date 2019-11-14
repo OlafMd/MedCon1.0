@@ -1,0 +1,19 @@
+INSERT INTO 
+	imo_questionnaire_image_submissions
+	(
+		IMO_Questionnaire_Image_SubmissionID,
+		ImageGroup_RefID,
+		DocumentManagement_ServerURL,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@IMO_Questionnaire_Image_SubmissionID,
+		@ImageGroup_RefID,
+		@DocumentManagement_ServerURL,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

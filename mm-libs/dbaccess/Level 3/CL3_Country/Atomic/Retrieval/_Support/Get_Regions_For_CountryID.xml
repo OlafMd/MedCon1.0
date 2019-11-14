@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/9/2013 2:39:31 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Regions_For_CountryID</Name>
+    <Namespace>CL3_Country.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Country.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Regions_For_CountryID"
+                Method_Name="Get_Regions_For_CountryID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Regions_For_CountryID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_loc_regions.CMN_LOC_RegionID,
+	  cmn_loc_regions.Region_Name_DictID,
+	  cmn_loc_regions.RegionExternalID,
+	  cmn_loc_regions.Parent_RefID,
+	  cmn_loc_regions.Country_RefID,
+	  cmn_loc_regions.IsDeleted
+	From
+	  cmn_loc_regions
+	Where
+	  cmn_loc_regions.Country_RefID = @CoutryID And
+	  cmn_loc_regions.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3_GRFC_1437">
+    <Members>
+		<ClassMember Name="CoutryID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3CTR_GRFC_1437" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_LOC_RegionID" Type="Guid"  />
+				<ClassMember Name="Region_Name" Type="Dict" OriginTable="cmn_loc_regions" Source_DBField="Region_Name_DictID"  />
+				<ClassMember Name="RegionExternalID" Type="Guid"  />
+				<ClassMember Name="Parent_RefID" Type="Guid"  />
+				<ClassMember Name="Country_RefID" Type="Guid"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

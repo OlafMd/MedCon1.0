@@ -1,0 +1,21 @@
+UPDATE 
+	hec_bil_billposition_billcodes
+SET 
+	PotentialCode_RefID=@PotentialCode_RefID,
+	BillPosition_RefID=@BillPosition_RefID,
+	TotalPrice_IncludingTax=@TotalPrice_IncludingTax,
+	TotalPointValue=@TotalPointValue,
+	ValueMultiplicator=@ValueMultiplicator,
+	ValueMultiplicator_Comment=@ValueMultiplicator_Comment,
+	PointValue=@PointValue,
+	UnitPrice_BeforeTax=@UnitPrice_BeforeTax,
+	UnitPrice_IncludingTax=@UnitPrice_IncludingTax,
+	TotalPrice_BeforeTax=@TotalPrice_BeforeTax,
+	IM_BillingCode=@IM_BillingCode,
+	IM_BillingCode_Name=@IM_BillingCode_Name,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_BIL_BillPosition_BillCodeID = @HEC_BIL_BillPosition_BillCodeID

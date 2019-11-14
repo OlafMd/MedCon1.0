@@ -1,0 +1,46 @@
+﻿<div class="popup-wrapper">
+    <div class="popup popup-medium warning-popup">
+        <div class="warning-msg"><h2>{{ cancel_popup.title | translate }} </h2></div>
+
+        <div class="error-msg" ng-if="credentials_not_verified"><span class="error">{{ 'LABEL_CREDENTIALS_NOT_VERIFIED' | translate }}</span></div>
+        <div class="popup-content margin-top-30">
+
+            <div class="form-group" ng-if="cancel_popup.show_radio_buttons">
+                <div class="radio">
+                    <input type="radio" ng-model="case_cancellation.both" ng-value="true" name="case_cancelation" id="rbBoth" ng-change="changeMessage()" />
+                    <label for="rbBoth">{{ 'LABEL_RADIO_BOTH' | translate }}</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" ng-model="case_cancellation.both" ng-value="false" name="case_cancelation" id="rbOrderOnly" ng-change="changeMessage()" />
+                    <label for="rbOrderOnly">{{ 'LABEL_RADIO_ORDER_ONLY' | translate }}</label>
+                </div>
+            </div>
+
+            <div ng-if="is_order_submitted">
+                <div class="form-group">
+                    <p class="larger-font bolded-text">{{ 'LABEL_PLEASE_ENTER_PASSWORD_TO_CANCEL_ORDER' | translate}}</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-7">
+                        <div class="form-group">
+                            <label>{{'LABEL_DOCTOR_RESPONSIBLE' | translate }}</label>
+                            <dropdown-list id="selPasswordDoctor" items="opDoctors" ng-model="case_cancellation.doctor_id" required params="{has_prefix: true}"></dropdown-list>
+                        </div>
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="form-group">
+                            <label>{{'LABEL_PASSWORD' | translate }}</label>
+                            <input type="password" class="form-control" ng-model="case_cancellation.password" id="inPassword" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h4 class="error-color" ng-class="{'warning_message_class': cancel_popup.show_radio_buttons}">{{cancel_popup.content | translate}}</h4>
+        <div class="buttons text-right">
+            <button type="button" class="button padding-cancel-popup reject jsblockClose" ng-click="cancelCancelCase()" id="btnCancel" translate="{{ 'BUTTON_CANCEL_CASE_CANCEL' | translate }}">></b>></button>
+            <button type="submit" class="button padding-cancel-popup confirm-smaller jsblockClose" ng-click="confirmCancelCase()" id="btnConfirm" translate="{{ 'BUTTON_CANCEL_CASE_CONFIRM' | translate }}"></butt></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="02/20/2014 2:18:16 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_AllData_for_FullInventoryPage</Name>
+		<Namespace>CL5_APOLogistic_Inventory.Complex.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+	<CreationInfo Method_Namespace="CL5_APOLogistic_Inventory.Complex.Retrieval"
+				  Method_ClassName="cls_Get_AllData_for_FullInventoryPage"
+				  Method_Name="Get_AllData_for_FullInventoryPage"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Get_AllData_for_FullInventoryPage"
+                />
+  
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				  Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				  Returns_an_Object_or_ObjectArray="true">
+    
+    <ObjectReturnType_Definition Name="L5IN_GADfFIP_1417" IsArray="false">
+      <Members>
+        <ClassMember Name="Jobs" IsClass="true" IsArray="true" Type="L5IN_GADfFIP_1417a">
+          <Members>
+            <ClassMember Name="InvetoryJob" Type="CL5I_GIJfT_1413"/>
+            <ClassMember Name="TotalShelf" Type="int" />
+            <ClassMember Name="CountedShelf" Type="int" />
+            <ClassMember Name="Percentage" Type="int" />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+	</ResultInfo>
+</CodeGen>
+
+

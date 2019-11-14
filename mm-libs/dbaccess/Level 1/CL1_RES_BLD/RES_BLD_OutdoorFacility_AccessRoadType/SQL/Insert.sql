@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_bld_outdoorfacility_accessroadtypes
+	(
+		RES_BLD_OutdoorFacility_AccessRoadTypeID,
+		GlobalPropertyMatchingID,
+		AccessRoadType_Name_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_BLD_OutdoorFacility_AccessRoadTypeID,
+		@GlobalPropertyMatchingID,
+		@AccessRoadType_Name,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

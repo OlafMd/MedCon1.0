@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/18/2013 11:59:35 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllPaymentDeadlines_For_TenandID</Name>
+    <Namespace>CL2_AccountingPayment.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_AccountingPayment.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllPaymentDeadlines_For_TenandID"
+                Method_Name="Get_AllPaymentDeadlines_For_TenandID"
+                ApplicationPlattform_WebServiceName="Get_AllPaymentDeadlines_For_TenandID"
+                ApplicationPlattform_Namespace="AccountingPaymentService.Get_AllPaymentDeadlines_For_TenandID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  acc_pay_conditions.ACC_PAY_ConditionID,
+  acc_pay_conditions.PaymentCondition_Name_DictID,
+  acc_pay_conditions.MaximumPaymentTreshold_InDays,
+  details.SequenceNumber,
+  details.DiscountPercentage,
+  details.DateInterval_To,
+  details.DateInterval_From,
+  details.ACC_PAY_Condition_DetailID
+From
+  acc_pay_conditions Left Join
+  (Select
+    acc_pay_condition_details.ACC_PAY_Condition_DetailID,
+    acc_pay_condition_details.DateInterval_From,
+    acc_pay_condition_details.DateInterval_To,
+    acc_pay_condition_details.DiscountPercentage,
+    acc_pay_condition_details.SequenceNumber,
+    acc_pay_condition_details.Conditions_RefID
+  From
+    acc_pay_condition_details
+  Where
+    acc_pay_condition_details.IsDeleted = 0 And
+    acc_pay_condition_details.Tenant_RefID = @TenantID) details
+    On acc_pay_conditions.ACC_PAY_ConditionID = details.Conditions_RefID
+Where
+  acc_pay_conditions.IsDeleted = 0 And
+  acc_pay_conditions.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2_AP_GAPDfT_1605" IsArray="true" GroupBy="ACC_PAY_ConditionID">
+      <Members>
+        <ClassMember Name="PaymentCondition_Name" Type="Dict" OriginTable="acc_pay_conditions" Source_DBField="PaymentCondition_Name_DictID"  />
+        <ClassMember Name="ACC_PAY_ConditionID" Type="Guid"  />
+        <ClassMember Name="MaximumPaymentTreshold_InDays" Type="int"  />
+  
+        <ClassMember IsClass="true" IsArray="true" Name="Details" Type="L2_AP_GAPDfT_1605_Detail" GroupBy="ACC_PAY_Condition_DetailID">
+          <Members>
+            <ClassMember Name="ACC_PAY_Condition_DetailID" Type="Guid"  />
+            <ClassMember Name="SequenceNumber" Type="int"  />
+            <ClassMember Name="DiscountPercentage" Type="double"  />
+            <ClassMember Name="DateInterval_To" Type="int"  />
+            <ClassMember Name="DateInterval_From" Type="int"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

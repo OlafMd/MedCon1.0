@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="4/14/2014 4:55:33 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShipmentNotes_for_ShipmentHeaderId</Name>
+    <Namespace>CL2_Shipment.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Shipment.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ShipmentNotes_for_ShipmentHeaderID"
+                Method_Name="Get_ShipmentNotes_for_ShipmentHeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShipmentNotes_for_ShipmentHeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+  Select
+    log_shp_shipment_notes.LOG_SHP_Shipment_NoteID,
+    log_shp_shipment_notes.Shipment_Header_RefID,
+    log_shp_shipment_notes.Shipment_Position_RefID,
+    log_shp_shipment_notes.IsNotePrintedOnDeliveryPaper,
+    log_shp_shipment_notes.Title,
+    log_shp_shipment_notes.Comment,
+    log_shp_shipment_notes.NotePublishDate,
+    log_shp_shipment_notes.SequenceOrderNumber,
+    log_shp_shipment_notes.Creation_Timestamp,
+    log_shp_shipment_notes.Tenant_RefID,
+    log_shp_shipment_notes.IsDeleted,
+    cmn_bpt_businessparticipants.DisplayName As CreatedBy,
+    log_shp_shipment_notes.CreatedBy_BusinessParticipant_RefID
+  From
+    log_shp_shipment_notes Left Join
+    cmn_bpt_businessparticipants
+      On log_shp_shipment_notes.CreatedBy_BusinessParticipant_RefID =
+      cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+  Where
+    log_shp_shipment_notes.Shipment_Header_RefID = @ShipmentHeaderID And
+    log_shp_shipment_notes.Tenant_RefID = @TenantID And
+    log_shp_shipment_notes.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2SH_GSNfSH_1654">
+    <Members>
+      <ClassMember Name="ShipmentHeaderID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2SH_GSNfSH_1654" IsArray="true">
+      <Members>
+        <ClassMember Name="LOG_SHP_Shipment_NoteID" Type="Guid"  />
+        <ClassMember Name="Shipment_Header_RefID" Type="Guid"  />
+        <ClassMember Name="Shipment_Position_RefID" Type="Guid"  />
+        <ClassMember Name="IsNotePrintedOnDeliveryPaper" Type="bool"  />
+        <ClassMember Name="Title" Type="String"  />
+        <ClassMember Name="Comment" Type="String"  />
+        <ClassMember Name="NotePublishDate" Type="DateTime"  />
+        <ClassMember Name="SequenceOrderNumber" Type="String"  />
+        <ClassMember Name="CreatedBy_BusinessParticipant_RefID" Type="Guid"  />
+        <ClassMember Name="CreatedBy" Type="String"  />
+
+        <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+        <ClassMember Name="Tenant_RefID" Type="Guid"  />
+        <ClassMember Name="IsDeleted" Type="bool"  />
+
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

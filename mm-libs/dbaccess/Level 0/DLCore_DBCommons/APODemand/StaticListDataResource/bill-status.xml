@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="bill-status.created">
+    <Lang ISO="EN" Content="Created" />
+    <Lang ISO="DE" Content="Erstellt" />
+  </Item>
+  <Item ID="bill-status.closed">
+    <Lang ISO="EN" Content="Closed" />
+    <Lang ISO="DE" Content="Geschlossen" />
+  </Item>
+  <Item ID="bill-status.canceled">
+    <Lang ISO="EN" Content="Canceled" />
+    <Lang ISO="DE" Content="Storniert" />
+  </Item>
+</Resources>

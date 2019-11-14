@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/17/2014 2:15:50 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Vitals_for_TenantID</Name>
+    <Namespace>CL5_MyHealthClub_Diagnosis.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Diagnosis.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Vitals_for_TenantID"
+                Method_Name="Get_Vitals_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Vitals_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  hec_patient_parameters.Parameter_Name_DictID,
+	  hec_patient_parameters.HEC_Patient_ParameterID,
+	  hec_patient_parameters.IsFloat_ApplicableUnit_RefID
+	From
+	  hec_patient_parameters
+	Where
+	  hec_patient_parameters.Tenant_RefID = @TenantID And
+	  hec_patient_parameters.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5DI_GVfTID_1415" IsArray="true">
+      <Members>
+        <ClassMember Name="Parameter_Name" Type="Dict" OriginTable="hec_patient_parameters" Source_DBField="Parameter_Name_DictID"  />
+        <ClassMember Name="HEC_Patient_ParameterID" Type="Guid"  />
+        <ClassMember Name="IsFloat_ApplicableUnit_RefID" Type="Guid"  />
+
+
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

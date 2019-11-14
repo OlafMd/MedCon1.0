@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="15/4/2014 02:34:26">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DefaultCurrency_for_Tenant</Name>
+    <Namespace>CL2_Currency.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Currency.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DefaultCurrency_for_Tenant"
+                Method_Name="Get_DefaultCurrency_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DefaultCurrency_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+      SELECT cmn_currencies.CMN_CurrencyID
+      FROM cmn_tenants
+      INNER JOIN cmn_universalcontactdetails ON (cmn_universalcontactdetails.CMN_UniversalContactDetailID = cmn_tenants.UniversalContactDetail_RefID)
+      INNER JOIN cmn_countries ON (cmn_universalcontactdetails.Country_639_1_ISOCode = cmn_countries.Country_ISOCode_Alpha2)
+	      AND cmn_countries.Tenant_RefID = @TenantID
+	      AND cmn_countries.IsDeleted = 0
+      INNER JOIN cmn_currencies ON (cmn_countries.Default_Currency_RefID = cmn_currencies.CMN_CurrencyID)
+	      AND cmn_currencies.IsDeleted = 0
+	      AND cmn_currencies.Tenant_RefID = @TenantID
+      WHERE cmn_tenants.CMN_TenantID = @TenantID
+	      AND cmn_tenants.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2CN_GDCfT_1431" IsArray="false">
+			<Members>
+				<ClassMember Name="CMN_CurrencyID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

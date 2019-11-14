@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_qst_questionitem_enumerationanswertypes
+	(
+		CMN_QST_QuestionItem_EnumerationAnswerTypeID,
+		EnumerationAnswerType_Name_DictID,
+		Questionnaire_Template_Version_RefID,
+		Questionnaire_Template_RefID,
+		EnumerationType_CopyOf,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_QST_QuestionItem_EnumerationAnswerTypeID,
+		@EnumerationAnswerType_Name,
+		@Questionnaire_Template_Version_RefID,
+		@Questionnaire_Template_RefID,
+		@EnumerationType_CopyOf,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

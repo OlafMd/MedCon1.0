@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/9/2013 2:39:31 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Assign_Currencies_To_Tenant</Name>
+    <Namespace>CL3_Currency.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Currency.Complex.Manipulation"
+                Method_ClassName="cls_Assign_Currencies_To_Tenant"
+                Method_Name="Assign_Currencies_To_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Assign_Currencies_To_Tenant"
+                />
+
+  <Parameters IsClass="true" Name="P_L3_ACTT_1558">
+    <Members>
+      <ClassMember Name="AssignedCurrencies" Type="P_L3_ACTT_1558a" IsClass="true" IsArray="true">
+        <Members>
+          <ClassMember Name="CurrencyISoCode" Type="string"/>
+          <ClassMember Name="CurrencyName" Type="Dict"/>
+          <ClassMember Name="CurrencySymbol" Type="String"/>
+        </Members>
+      </ClassMember>
+      <ClassMember Name="DefaultCurrency" Type="P_L3_ACTT_1558a"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="true"
+      Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+      Returns_an_Object_or_ObjectArray="false">
+  </ResultInfo>
+
+</CodeGen>
+
+

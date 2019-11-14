@@ -1,0 +1,25 @@
+INSERT INTO 
+	hec_medicalservices
+	(
+		HEC_MedicalServiceID,
+		MedicalServiceITL,
+		GlobalPropertyMatchingID,
+		ServiceName_DictID,
+		ServiceDescription_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_MedicalServiceID,
+		@MedicalServiceITL,
+		@GlobalPropertyMatchingID,
+		@ServiceName,
+		@ServiceDescription,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

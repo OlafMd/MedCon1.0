@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/8/2014 12:35:02 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DeviceInstance_WorktimeExceptions_for_TenantID</Name>
+    <Namespace>CL5_MyHealthClub_Device.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Device.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DeviceInstanceNames_TenantID"
+                Method_Name="Get_DeviceInstanceNames_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DeviceInstanceNames_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  pps_dev_devices.DeviceDisplayName,
+  pps_dev_device_instances.DeviceInventoryNumber,
+  pps_dev_device_instances.PPS_DEV_Device_InstanceID
+From
+  pps_dev_devices Inner Join
+  pps_dev_device_instances On pps_dev_devices.PPS_DEV_DeviceID =
+    pps_dev_device_instances.Device_RefID And
+    pps_dev_device_instances.Tenant_RefID = @TenantID And
+    pps_dev_device_instances.IsDeleted = 0 Inner Join
+  pps_dev_device_instance_officelocations
+    On pps_dev_device_instances.PPS_DEV_Device_InstanceID =
+    pps_dev_device_instance_officelocations.DeviceInstance_RefID And
+    pps_dev_device_instance_officelocations.IsDeleted = 0 And
+    pps_dev_device_instance_officelocations.Tenant_RefID = @TenantID
+Where
+  pps_dev_devices.Tenant_RefID = @TenantID And
+  pps_dev_devices.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5DE_GDINfTID_1433" IsArray="true">
+			<Members>
+        <ClassMember Name="DeviceDisplayName" Type="String"  />
+				<ClassMember Name="DeviceInventoryNumber" Type="String"  />
+				<ClassMember Name="PPS_DEV_Device_InstanceID" Type="Guid"  />
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_per_religions
+	(
+		CMN_PER_ReligionID,
+		GlobalPropertyMatchingID,
+		Religion_Name_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_PER_ReligionID,
+		@GlobalPropertyMatchingID,
+		@Religion_Name,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

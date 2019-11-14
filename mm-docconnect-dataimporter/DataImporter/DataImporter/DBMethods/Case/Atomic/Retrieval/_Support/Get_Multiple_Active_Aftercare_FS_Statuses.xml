@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_Multiple_Active_Aftercare_FS_Statuses</Name>
+		<Namespace>DataImporter.DBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="DataImporter.DBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Multiple_Active_Aftercare_FS_Statuses"
+								Method_Name="Get_Multiple_Active_Aftercare_FS_Statuses"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+Select
+  bil_billposition_transmitionstatuses.BIL_BillPosition_TransmitionStatusID as StatusID,
+  hec_cas_cases.HEC_CAS_CaseID as CaseID
+From
+  bil_billposition_transmitionstatuses
+  Inner Join hec_bil_billpositions On bil_billposition_transmitionstatuses.BillPosition_RefID = hec_bil_billpositions.Ext_BIL_BillPosition_RefID
+  Inner Join hec_bil_billposition_billcodes On hec_bil_billpositions.HEC_BIL_BillPositionID = hec_bil_billposition_billcodes.BillPosition_RefID
+  Inner Join hec_cas_case_billcodes On hec_bil_billposition_billcodes.HEC_BIL_BillPosition_BillCodeID = hec_cas_case_billcodes.HEC_BIL_BillPosition_BillCode_RefID
+  Inner Join hec_cas_cases On hec_cas_case_billcodes.HEC_CAS_Case_RefID = hec_cas_cases.HEC_CAS_CaseID
+Where
+  bil_billposition_transmitionstatuses.TransmitionStatusKey = 'aftercare' And
+  hec_cas_case_billcodes.HEC_CAS_Case_RefID In (Select
+    hec_cas_case_relevantplannedactions.Case_RefID
+  From
+    hec_cas_cases Inner Join
+    hec_cas_case_billcodes On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_billcodes.HEC_CAS_Case_RefID Inner Join
+    hec_bil_billposition_billcodes On hec_cas_case_billcodes.HEC_BIL_BillPosition_BillCode_RefID = hec_bil_billposition_billcodes.HEC_BIL_BillPosition_BillCodeID Inner Join
+    hec_bil_billpositions On hec_bil_billposition_billcodes.BillPosition_RefID = hec_bil_billpositions.HEC_BIL_BillPositionID Inner Join
+    bil_billposition_transmitionstatuses On hec_bil_billpositions.Ext_BIL_BillPosition_RefID = bil_billposition_transmitionstatuses.BillPosition_RefID Inner Join
+    hec_cas_case_relevantplannedactions On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_relevantplannedactions.Case_RefID Inner Join
+    hec_act_plannedactions On hec_cas_case_relevantplannedactions.PlannedAction_RefID = hec_act_plannedactions.HEC_ACT_PlannedActionID
+  Where
+    bil_billposition_transmitionstatuses.IsActive = 1 And
+    bil_billposition_transmitionstatuses.TransmitionStatusKey = 'aftercare' And 
+    bil_billposition_transmitionstatuses.Tenant_RefID = @TenantID And
+    Cast(hec_cas_cases.CaseNumber As Unsigned) >= 10000 And
+    hec_cas_case_billcodes.IsDeleted = 0
+  Group By
+    hec_cas_case_relevantplannedactions.Case_RefID
+  Having
+    Count(Distinct hec_cas_case_relevantplannedactions.HEC_CAS_Case_RelevantPlannedActionID) = 1 And
+    Count(bil_billposition_transmitionstatuses.BIL_BillPosition_TransmitionStatusID) > 1) And
+  bil_billposition_transmitionstatuses.IsActive = 1
+Order By
+  Cast(hec_cas_cases.CaseNumber As Unsigned), 
+  bil_billposition_transmitionstatuses.TransmitionCode desc
+	</SQLStatement>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CAS_GMAAAFSS_1126" IsArray="true">
+			<Members>
+				<ClassMember Name="StatusID" Type="Guid"  />
+        <ClassMember Name="CaseID" Type="Guid"  />
+
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

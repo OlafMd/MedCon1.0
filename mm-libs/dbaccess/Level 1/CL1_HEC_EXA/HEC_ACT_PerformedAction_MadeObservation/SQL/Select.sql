@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_act_performedaction_madeobservations
+WHERE 
+	HEC_ACT_PerformedAction_ObservationID = @HEC_ACT_PerformedAction_ObservationID

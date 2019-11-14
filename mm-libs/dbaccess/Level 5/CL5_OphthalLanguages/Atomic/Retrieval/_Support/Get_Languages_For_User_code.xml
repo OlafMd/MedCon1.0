@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/10/2013 9:13:40 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Languages_For_User_Code</Name>
+    <Namespace>CLE_L3_Language.Atomic._SupportFiles</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_OphthalLanguages.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Languages_For_User_Code"
+                Method_Name="Get_Languages_For_User_Code"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Languages_For_User_Code"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_languages.CMN_LanguageID,
+	  cmn_languages.ISO_639_1,
+	  cmn_languages.Label,
+	  cmn_languages.Name_DictID
+	From
+	  usr_device_accountcodes Inner Join
+	  cmn_languages On usr_device_accountcodes.Tenant_RefID =
+	    cmn_languages.Tenant_RefID
+	Where
+	  usr_device_accountcodes.AccountCode_Value = @DeviceCode And
+	  usr_device_accountcodes.IsDeleted = 0 And
+	  cmn_languages.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5OL_GLC_0912">
+    <Members>
+		<ClassMember Name="DeviceCode" Type="String"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5OL_GLC_0912" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_LanguageID" Type="Guid"  />
+				<ClassMember Name="ISO_639_1" Type="String"  />
+				<ClassMember Name="Label" Type="String"  />
+				<ClassMember Name="Name" Type="Dict" OriginTable="cmn_languages" Source_DBField="Name_DictID"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

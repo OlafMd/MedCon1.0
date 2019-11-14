@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A3A3BD1F-A206-4C65-BD16-526F6F77495B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL3_Warehouse</RootNamespace>
+    <AssemblyName>CL3_Warehouse</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_All_ShelfContent_Quantities_for_ProductListID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ArticleStorages_for_ArticleIDList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_CurrentShelfContents_and_ActiveReservations_for_ProductIDList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Default_SupplierName_for_Area.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Default_SupplierName_for_Rack.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Default_SupplierName_for_Warehouse.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Default_SupplierName_for_WarehouseGroup.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProcurementOrderPositions_and_ProcurementOrderHeader_for_ReceiptHeaderID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ReceiptPositions_and_QualityControlItems_for_HeaderID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ShelfPath_for_ShelfIDList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_StoragePlaces_for_FilterCriteria.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Warehouse_Area_Rack_Shelf_for_WarehouseID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Warehouse_Group_Areas_Racks_Shelves_for_TenantID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Shelf_ContentAdjustments.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_Shelf_Content_for_ProductID.cs" />
+    <Compile Include="Complex\Manipulation\cls_StockReceipt_IntakeConfirmation.cs" />
+    <Compile Include="Complex\Manipulation\cls_Update_ProductTrackingInstance.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_ArticleStorages_for_ArticleIDListComplex.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG\CL1_LOG.csproj">
+      <Project>{5FF8E7C7-57C2-48AE-BC70-8F6B957DABC6}</Project>
+      <Name>CL1_LOG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_RCP\CL1_LOG_RCP.csproj">
+      <Project>{2C396733-6EF3-43BC-8C37-8959C59B2535}</Project>
+      <Name>CL1_LOG_RCP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_RSV\CL1_LOG_RSV.csproj">
+      <Project>{2193AE63-54C5-44D5-AACE-CDB0AC097530}</Project>
+      <Name>CL1_LOG_RSV</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_WRH\CL1_LOG_WRH.csproj">
+      <Project>{BB08DBAD-494E-4689-9467-BBDDAEBC1EB0}</Project>
+      <Name>CL1_LOG_WRH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_PRC\CL1_ORD_PRC.csproj">
+      <Project>{2ED9EC1F-4C36-4790-B8AE-6C03F4B40588}</Project>
+      <Name>CL1_ORD_PRC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_StoragePlaces_for_FilterCriteria.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Warehouse_Group_Areas_Racks_Shelves_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Warehouse_Area_Rack_Shelf_for_WarehouseID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ShelfPath_for_ShelfIDList.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_StoragePlaces_for_FilterCriteria.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Warehouse_Area_Rack_Shelf_for_WarehouseID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Warehouse_Group_Areas_Racks_Shelves_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_ArticleStorages_for_ArticleIDListComplex.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_ShelfContent_Quantities_for_ProductListID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_ShelfContent_Quantities_for_ProductListID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Quantities_for_ProductIDList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_CurrentShelfContents_and_ActiveReservations_for_ProductIDList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Update_ProductTrackingInstance.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ArticleStorages_for_ArticleIDList.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_CurrentShelfContents_and_ActiveReservations_for_ProductIDList.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Default_SupplierName_for_Area.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Default_SupplierName_for_Rack.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Default_SupplierName_for_Warehouse.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Default_SupplierName_for_WarehouseGroup.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ArticleStorages_for_ArticleIDList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Default_SupplierName_for_Area.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Default_SupplierName_for_Rack.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Default_SupplierName_for_Warehouse.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Default_SupplierName_for_WarehouseGroup.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ShelfPath_for_ShelfIDList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_Shelf_Content_for_ProductID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\StockReceipt_IntakeConfirmation.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProcurementOrderPositions_and_ProcurementOrderHeader_for_ReceiptHeaderID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ReceiptPositions_and_QualityControlItems_for_HeaderID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProcurementOrderPositions_and_ProcurementOrderHeader_for_ReceiptHeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_ReceiptPositions_for_HeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_Shelf_ContentAdjustments.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

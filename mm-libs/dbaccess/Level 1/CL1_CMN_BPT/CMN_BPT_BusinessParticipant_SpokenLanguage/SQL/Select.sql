@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_businessparticipant_spokenlanguages
+WHERE 
+	CMN_BPT_BusinessParticipant_SpokenLanguageID = @CMN_BPT_BusinessParticipant_SpokenLanguageID

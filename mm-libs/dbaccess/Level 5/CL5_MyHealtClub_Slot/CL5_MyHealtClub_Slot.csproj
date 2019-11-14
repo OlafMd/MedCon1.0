@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6BAA36B-E0E1-477D-84D3-C1CC0B719963}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_MyHealtClub_Slot</RootNamespace>
+    <AssemblyName>CL5_MyHealtClub_Slot</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Complex\Manipulation\cls_CreateAppointment_from_Slot.cs" />
+    <Compile Include="Complex\Manipulation\cls_CreateUpdate_Slots_for_Practice.cs" />
+    <Compile Include="Complex\Manipulation\cls_UpdateSlots_for_TenantID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Update_Slots_for_AppointmentTypeChange.cs" />
+    <Compile Include="Model\AppointmentSpace\Appointment.cs" />
+    <Compile Include="Model\AppointmentSpace\ReqStaffByAbillity.cs" />
+    <Compile Include="Model\AppointmentSpace\AppointmentType.cs" />
+    <Compile Include="Model\AppointmentSpace\StaffCombination.cs" />
+    <Compile Include="Model\Availability\Availability.cs" />
+    <Compile Include="Model\AppointmentSpace\AvailableAppotimentType.cs" />
+    <Compile Include="Model\Device\DeviceCombination.cs" />
+    <Compile Include="Model\Device\DeviceInstance.cs" />
+    <Compile Include="Model\Availability\ExceptionTime.cs" />
+    <Compile Include="Model\Device\RequiredDeviceType.cs" />
+    <Compile Include="Model\Practice.cs" />
+    <Compile Include="Model\RangeIntersection.cs" />
+    <Compile Include="Model\AppointmentSpace\ReqStaffByName.cs" />
+    <Compile Include="Model\AppointmentSpace\SelectedStaffPerAbility.cs" />
+    <Compile Include="Model\Employee\Skill.cs" />
+    <Compile Include="Model\Employee\Staff.cs" />
+    <Compile Include="Model\Employee\StaffID2ReqID.cs" />
+    <Compile Include="Model\AppointmentSpace\TemplateRequiredStaffInfo.cs" />
+    <Compile Include="Model\Employee\StaffProfession.cs" />
+    <Compile Include="Model\ResourceCombination.cs" />
+    <Compile Include="Model\TimeSlot.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\CombinationUtils.cs" />
+    <Compile Include="Utils\DeviceAvailabilityCalculations.cs" />
+    <Compile Include="Utils\TimeRangeUtils.cs" />
+    <Compile Include="Utils\ModelConvertor.cs" />
+    <Compile Include="Utils\StaffAvailabiltyCalculations.cs" />
+    <Compile Include="Tree\TreeNode.cs" />
+    <Compile Include="Utils\TreeUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Complex\Manipulation\_Support\UpdateSlots_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Update_Slots_for_AppointmentTypeChange.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\CreateAppointment_from_Slot.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\CreateUpdate_Slots_for_Practice.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Atomic\Retrieval\_Support\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768C60E8-0C7F-42B2-B8C9-D327C6BF334A}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_PPS_TSK\CL1_PPS_TSK.csproj">
+      <Project>{DE84E7DB-3CD8-465E-9FBD-35CC77285849}</Project>
+      <Name>CL1_PPS_TSK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Offices\CL3_Offices.csproj">
+      <Project>{09A7B883-3719-4D61-BDCF-647FAC555D4C}</Project>
+      <Name>CL3_Offices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_MyHealthClub_BookableTimeSlot\CL5_MyHealthClub_BookableTimeSlot.csproj">
+      <Project>{1A9591D0-6AC0-4711-80DC-0A2A20633BFC}</Project>
+      <Name>CL5_MyHealthClub_BookableTimeSlot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_MyHealthClub_TaskTemplate\CL5_MyHealthClub_Appoitments.csproj">
+      <Project>{E3E23F83-F85B-4E90-A385-DE2A7A7C9C25}</Project>
+      <Name>CL5_MyHealthClub_Appoitments</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_MyHealthClub_TimeAndException\CL5_MyHealthClub_TimeAndException.csproj">
+      <Project>{36B52129-D82D-495E-8487-850A726F221B}</Project>
+      <Name>CL5_MyHealthClub_TimeAndException</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_apartment_property_availableactions
+WHERE 
+	RES_STR_Apartment_Property_AvailableActionID = @RES_STR_Apartment_Property_AvailableActionID

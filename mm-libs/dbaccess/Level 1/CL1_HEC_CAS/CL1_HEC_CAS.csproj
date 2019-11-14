@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{17E35F8F-6972-4EE9-8135-396798E493C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_HEC_CAS</RootNamespace>
+    <AssemblyName>CL1_HEC_CAS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HEC_CAS_Case\ORM_HEC_CAS_Case.cs" />
+    <Compile Include="HEC_CAS_Case_BillCode\ORM_HEC_CAS_Case_BillCode.cs" />
+    <Compile Include="HEC_CAS_Case_RelevantDiagnosisUpdate\ORM_HEC_CAS_Case_RelevantDiagnosisUpdate.cs" />
+    <Compile Include="HEC_CAS_Case_RelevantPerformedAction\ORM_HEC_CAS_Case_RelevantPerformedAction.cs" />
+    <Compile Include="HEC_CAS_Case_RelevantPlannedAction\ORM_HEC_CAS_Case_RelevantPlannedAction.cs" />
+    <Compile Include="HEC_CAS_Case_RelevantProcedure\ORM_HEC_CAS_Case_RelevantProcedure.cs" />
+    <Compile Include="HEC_CAS_Case_StatusHistory\ORM_HEC_CAS_Case_StatusHistory.cs" />
+    <Compile Include="HEC_CAS_Case_Status\ORM_HEC_CAS_Case_Status.cs" />
+    <Compile Include="HEC_CAS_Case_UniversalPropertyValue\ORM_HEC_CAS_Case_UniversalPropertyValue.cs" />
+    <Compile Include="HEC_CAS_Case_UniversalProperty\ORM_HEC_CAS_Case_UniversalProperty.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HEC_CAS_Case_UniversalProperty\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_UniversalProperty\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_UniversalProperty\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_UniversalPropertyValue\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_UniversalPropertyValue\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_UniversalPropertyValue\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_BillCode\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_BillCode\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_BillCode\SQL\Insert.sql" />
+    <Content Include="_Support\HEC_CAS_Case_BillCodes.xml" />
+    <Content Include="_Support\HEC_CAS_Case_UniversalProperties.xml" />
+    <Content Include="_Support\HEC_CAS_Case_UniversalPropertyValue.xml" />
+    <EmbeddedResource Include="HEC_CAS_Case\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_StatusHistory\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_StatusHistory\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_StatusHistory\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_Status\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_Status\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_Status\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_RelevantProcedure\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_RelevantProcedure\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_RelevantProcedure\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_RelevantPlannedAction\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_RelevantPlannedAction\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_RelevantPlannedAction\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_RelevantPerformedAction\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_RelevantPerformedAction\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_RelevantPerformedAction\SQL\Select.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_RelevantDiagnosisUpdate\SQL\Insert.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_RelevantDiagnosisUpdate\SQL\Update.sql" />
+    <EmbeddedResource Include="HEC_CAS_Case_RelevantDiagnosisUpdate\SQL\Select.sql" />
+    <Content Include="_Support\HEC_CAS_Cases.xml" />
+    <Content Include="_Support\HEC_CAS_Case_RelevantDiagnosisUpdates.xml" />
+    <Content Include="_Support\HEC_CAS_Case_RelevantPerformedActions.xml" />
+    <Content Include="_Support\HEC_CAS_Case_RelevantPlannedActions.xml" />
+    <Content Include="_Support\HEC_CAS_Case_RelevantProcedures.xml" />
+    <Content Include="_Support\HEC_CAS_Case_Statuses.xml" />
+    <Content Include="_Support\HEC_CAS_Case_StatusHistory.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

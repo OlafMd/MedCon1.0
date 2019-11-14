@@ -1,0 +1,12 @@
+UPDATE 
+	log_shp_returnshipment_positions
+SET 
+	Ext_Shipment_Position_RefID=@Ext_Shipment_Position_RefID,
+	ReturnShipment_Header_RefID=@ReturnShipment_Header_RefID,
+	ReturnPolicy_RefID=@ReturnPolicy_RefID,
+	ReturnProductOriginatedFromReceiptPosition_RefID=@ReturnProductOriginatedFromReceiptPosition_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	LOG_SHP_ReturnShipment_PositionID = @LOG_SHP_ReturnShipment_PositionID

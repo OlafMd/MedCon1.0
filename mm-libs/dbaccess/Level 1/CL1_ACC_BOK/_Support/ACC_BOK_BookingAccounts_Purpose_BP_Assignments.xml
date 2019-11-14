@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/9/2014 3:33:13 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="ACC_BOK_BookingAccounts_Purpose_BP_Assignment"
+                IsClass="true"
+                IsClass_Namespace="CL1_ACC_BOK"
+                IsClass_Corresponding_DBTable="acc_bok_bookingaccounts_purpose_bp_assignments" >
+      <Members>
+		<ClassMember Name="ACC_BOK_BookingAccounts_Purpose_BP_AssignmentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="BusinessParticipant_RefID" Type="Guid" />
+		<ClassMember Name="BookingAccount_RefID" Type="Guid" />
+		<ClassMember Name="Is_L1_BalanceSheet_Account" Type="Boolean" />
+		<ClassMember Name="Is_L1_IncomeStatement_Account" Type="Boolean" />
+		<ClassMember Name="Is_L2_AssetAccount" Type="Boolean" />
+		<ClassMember Name="Is_L2_LiabilitiesAccount" Type="Boolean" />
+		<ClassMember Name="Is_L2_RevenuesOrIncomeAccount" Type="Boolean" />
+		<ClassMember Name="Is_L2_ExpensesOrLossesAccount" Type="Boolean" />
+		<ClassMember Name="If_L3_AssetAccount_BankAccount_RefID" Type="Guid" />
+		<ClassMember Name="If_L3_AssetAccount_CashBox_RefID" Type="Guid" />
+		<ClassMember Name="Is_L3_BankAccount" Type="Boolean" />
+		<ClassMember Name="Is_L3_CustomerAccount" Type="Boolean" />
+		<ClassMember Name="Is_L3_SupplierAccount" Type="Boolean" />
+		<ClassMember Name="Is_L3_VATAccount" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

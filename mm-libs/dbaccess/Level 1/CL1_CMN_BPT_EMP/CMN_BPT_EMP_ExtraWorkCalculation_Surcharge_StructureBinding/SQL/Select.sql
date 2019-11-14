@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_extraworkcalculation_surcharge_structurebindings
+WHERE 
+	CMN_BPT_EMP_ExtraWorkCalculation_Surcharge_StructureBindingID = @CMN_BPT_EMP_ExtraWorkCalculation_Surcharge_StructureBindingID

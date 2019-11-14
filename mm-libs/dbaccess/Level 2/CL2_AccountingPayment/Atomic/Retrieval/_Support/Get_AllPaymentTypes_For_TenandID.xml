@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/18/2013 11:59:35 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllPaymentTypes_For_TenandID</Name>
+    <Namespace>CL2_AccountingPayment.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_AccountingPayment.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllPaymentTypes_For_TenandID"
+                Method_Name="Get_AllPaymentTypes_For_TenandID"
+                ApplicationPlattform_WebServiceName="AccountingPaymentService"
+                ApplicationPlattform_Namespace="AccountingPaymentService.Get_AllPaymentTypes_For_TenandID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  acc_pay_types.PaymentType_Name_DictID,
+  acc_pay_types.GlobalPropertyMatchingID,
+  acc_pay_types.ACC_PAY_TypeID,
+  acc_pay_types.IsCashPaymentType
+From
+  acc_pay_types
+Where
+  acc_pay_types.Tenant_RefID = @TenantID And
+  acc_pay_types.IsDeleted = 0
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2_AP_GAPTfT_1156" IsArray="true">
+      <Members>
+        <ClassMember Name="PaymentType_Name" Type="Dict" OriginTable="acc_pay_types" Source_DBField="PaymentType_Name_DictID"  />
+        <ClassMember Name="ACC_PAY_TypeID" Type="Guid"  />
+        <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+        <ClassMember Name="IsCashPaymentType" Type="Boolean" />
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

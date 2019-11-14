@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_cmt_membership_potentialdiagnosiscatalogsubscriptions
+WHERE 
+	HEC_CMT_Membership_DiagnosisCatalogSubscriptionID = @HEC_CMT_Membership_DiagnosisCatalogSubscriptionID

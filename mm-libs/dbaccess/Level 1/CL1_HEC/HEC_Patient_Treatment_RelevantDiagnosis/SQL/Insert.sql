@@ -1,0 +1,27 @@
+INSERT INTO 
+	hec_patient_treatment_relevantdiagnoses
+	(
+		HEC_Patient_Treatment_RelevantDiagnosisID,
+		Patient_Treatment_RefID,
+		Doctor_RefID,
+		DIA_PotentialDiagnosis_RefID,
+		DIA_State_RefID,
+		RelevantDiagnosis_Comment,
+		DiagnosedOnDate,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_Patient_Treatment_RelevantDiagnosisID,
+		@Patient_Treatment_RefID,
+		@Doctor_RefID,
+		@DIA_PotentialDiagnosis_RefID,
+		@DIA_State_RefID,
+		@RelevantDiagnosis_Comment,
+		@DiagnosedOnDate,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_cal_event_approvalprocess_types
+	(
+		CMN_CAL_Event_ApprovalProcess_TypeID,
+		IsResponsiblePersonBased,
+		IfResponsiblePersonBased_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_CAL_Event_ApprovalProcess_TypeID,
+		@IsResponsiblePersonBased,
+		@IfResponsiblePersonBased_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

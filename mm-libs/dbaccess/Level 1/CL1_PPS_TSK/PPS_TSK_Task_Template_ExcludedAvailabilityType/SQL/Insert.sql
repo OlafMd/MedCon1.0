@@ -1,0 +1,19 @@
+INSERT INTO 
+	pps_tsk_task_template_excludedavailabilitytypes
+	(
+		PPS_TSK_Task_Template_ExcludedAvailabilityTypeID,
+		PPS_TSK_Task_Template_RefID,
+		Excluded_Availability_Type_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@PPS_TSK_Task_Template_ExcludedAvailabilityTypeID,
+		@PPS_TSK_Task_Template_RefID,
+		@Excluded_Availability_Type_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

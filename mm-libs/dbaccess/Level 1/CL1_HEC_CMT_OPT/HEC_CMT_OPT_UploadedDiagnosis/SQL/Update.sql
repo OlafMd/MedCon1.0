@@ -1,0 +1,14 @@
+UPDATE 
+	hec_cmt_opt_uploadeddiagnoses
+SET 
+	UploadedBy_Member_RefID=@UploadedBy_Member_RefID,
+	Uploaded_PotentialDiagnosisITL=@Uploaded_PotentialDiagnosisITL,
+	Uploaded_PotentialDiagnosisCatalogITL=@Uploaded_PotentialDiagnosisCatalogITL,
+	PotentialDiagnosis_DisplayName=@PotentialDiagnosis_DisplayName,
+	PotentialDiagnosisCatalog_DisplayName=@PotentialDiagnosisCatalog_DisplayName,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_CMT_OPT_UploadedDiagnosisID = @HEC_CMT_OPT_UploadedDiagnosisID

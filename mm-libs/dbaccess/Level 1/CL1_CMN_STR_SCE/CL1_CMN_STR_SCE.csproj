@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EFC1DF6B-4B7C-4219-A6A8-4D692ACF419A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_CMN_STR_SCE</RootNamespace>
+    <AssemblyName>CL1_CMN_STR_SCE</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DBACCESREFACTOR|AnyCPU'">
+    <OutputPath>bin\DBACCESREFACTOR\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CMN_STR_SCE_CapacityRestriction\ORM_CMN_STR_SCE_CapacityRestriction.cs" />
+    <Compile Include="CMN_STR_SCE_CapacityRestriction_Type\ORM_CMN_STR_SCE_CapacityRestriction_Type.cs" />
+    <Compile Include="CMN_STR_SCE_ForbiddenLeaveType\ORM_CMN_STR_SCE_ForbiddenLeaveType.cs" />
+    <Compile Include="CMN_STR_SCE_StructureCalendarEvent\ORM_CMN_STR_SCE_StructureCalendarEvent.cs" />
+    <Compile Include="CMN_STR_SCE_StructureCalendarEvent_Type\ORM_CMN_STR_SCE_StructureCalendarEvent_Type.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_STR_SCE_ForbiddenLeaveType\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_ForbiddenLeaveType\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_ForbiddenLeaveType\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_CapacityRestriction\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_CapacityRestriction\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_CapacityRestriction\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_CapacityRestriction_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_CapacityRestriction_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_CapacityRestriction_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_StructureCalendarEvent_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_StructureCalendarEvent_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_StructureCalendarEvent_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_StructureCalendarEvent\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_StructureCalendarEvent\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_STR_SCE_StructureCalendarEvent\SQL\Select.sql" />
+    <Content Include="_Support\CMN_STR_SCE_CapacityRestrictions.xml" />
+    <Content Include="_Support\CMN_STR_SCE_CapacityRestriction_Types.xml" />
+    <Content Include="_Support\CMN_STR_SCE_ForbiddenLeaveTypes.xml" />
+    <Content Include="_Support\CMN_STR_SCE_StructureCalendarEvents.xml" />
+    <Content Include="_Support\CMN_STR_SCE_StructureCalendarEvent_Types.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

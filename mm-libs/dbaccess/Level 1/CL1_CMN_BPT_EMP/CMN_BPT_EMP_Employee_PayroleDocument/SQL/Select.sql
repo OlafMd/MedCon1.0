@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_emp_employee_payroledocuments
+WHERE 
+	CMN_BPT_EMP_Employee_PayroleDocumentsID = @CMN_BPT_EMP_Employee_PayroleDocumentsID

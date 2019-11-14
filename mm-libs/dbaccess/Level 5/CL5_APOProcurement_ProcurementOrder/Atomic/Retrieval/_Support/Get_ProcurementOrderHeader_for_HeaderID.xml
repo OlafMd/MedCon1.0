@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="17/6/2014 14:06:44">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ProcurementOrderHeader_for_HeaderID</Name>
+    <Namespace>CL5_APOProcurement_ProcurementOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOProcurement_ProcurementOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ProcurementOrderHeader_for_HeaderID"
+                Method_Name="Get_ProcurementOrderHeader_for_HeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ProcurementOrderHeader_for_HeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+    SELECT 
+	    ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID
+        ,ord_prc_procurementorder_headers.ProcurementOrder_Number
+	    ,cmn_bpt_businessparticipants.DisplayName AS SupplierName
+        ,cmn_bpt_supplier_types.GlobalPropertyMatchingID AS SupplierType
+        ,cmn_bpt_suppliers.CMN_BPT_SupplierID
+    FROM ord_prc_procurementorder_headers
+    INNER JOIN cmn_bpt_suppliers 
+        ON ord_prc_procurementorder_headers.ProcurementOrder_Supplier_RefID = cmn_bpt_suppliers.CMN_BPT_SupplierID
+	    AND cmn_bpt_suppliers.IsDeleted = 0
+	    AND cmn_bpt_suppliers.Tenant_RefID = @TenantID
+    INNER JOIN cmn_bpt_businessparticipants 
+        ON cmn_bpt_suppliers.Ext_BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+	    AND cmn_bpt_businessparticipants.IsDeleted = 0
+	    AND cmn_bpt_businessparticipants.Tenant_RefID = @TenantID
+    INNER JOIN cmn_bpt_supplier_types 
+        ON cmn_bpt_suppliers.SupplierType_RefID = cmn_bpt_supplier_types.CMN_BPT_Supplier_TypeID
+        AND cmn_bpt_supplier_types.IsDeleted = 0
+        AND cmn_bpt_supplier_types.Tenant_RefID = @TenantID
+    WHERE 
+        ord_prc_procurementorder_headers.Tenant_RefID = @TenantID
+	    AND ord_prc_procurementorder_headers.IsDeleted = 0
+        AND ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID = @ProcurementOrderHeaderID
+  </SQLStatement>
+
+    <Parameters IsClass="true" Name="P_L5PO_GPOHfH_1406" >
+        <Members>
+            <ClassMember Name="ProcurementOrderHeaderID" Type="Guid"  />
+        </Members>
+    </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PO_GPOHfH_1406" IsArray="true">
+			<Members>
+				<ClassMember Name="ORD_PRC_ProcurementOrder_HeaderID" Type="Guid"  />
+				<ClassMember Name="ProcurementOrder_Number" Type="String"  />
+        <ClassMember Name="CMN_BPT_SupplierID" Type="Guid"  />
+				<ClassMember Name="SupplierName" Type="String"  />
+                <ClassMember Name="SupplierType" Type="String"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{08FEF49E-52A6-4C81-89EA-CB0679804159}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_DOC</RootNamespace>
+    <AssemblyName>CL1_DOC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDtMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDtMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDyMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDyMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DBACCESREFACTOR|AnyCPU'">
+    <OutputPath>bin\DBACCESREFACTOR\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DOC_DocumentRevision\ORM_DOC_DocumentRevision.cs" />
+    <Compile Include="DOC_DocumentTemplate\ORM_DOC_DocumentTemplate.cs" />
+    <Compile Include="DOC_DocumentTemplate_2_BusinessParticipant\ORM_DOC_DocumentTemplate_2_BusinessParticipant.cs" />
+    <Compile Include="DOC_DocumentTemplate_Instance\ORM_DOC_DocumentTemplate_Instance.cs" />
+    <Compile Include="DOC_DocumentTemplate_Instance_PlaceholderValue\ORM_DOC_DocumentTemplate_Instance_PlaceholderValue.cs" />
+    <Compile Include="DOC_DocumentTemplate_Placeholder\ORM_DOC_DocumentTemplate_Placeholder.cs" />
+    <Compile Include="DOC_Document\ORM_DOC_Document.cs" />
+    <Compile Include="DOC_Document_2_Structure\ORM_DOC_Document_2_Structure.cs" />
+    <Compile Include="DOC_StructureTemplate_Element\ORM_DOC_StructureTemplate_Element.cs" />
+    <Compile Include="DOC_StructureTemplate_Header\ORM_DOC_StructureTemplate_Header.cs" />
+    <Compile Include="DOC_Structure\ORM_DOC_Structure.cs" />
+    <Compile Include="DOC_Structure_Header\ORM_DOC_Structure_Header.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DOC_Document_2_Structure\SQL\Insert.sql" />
+    <EmbeddedResource Include="DOC_Document_2_Structure\SQL\Update.sql" />
+    <EmbeddedResource Include="DOC_Document_2_Structure\SQL\Select.sql" />
+    <EmbeddedResource Include="DOC_DocumentRevision\SQL\Insert.sql" />
+    <EmbeddedResource Include="DOC_DocumentRevision\SQL\Update.sql" />
+    <EmbeddedResource Include="DOC_DocumentRevision\SQL\Select.sql" />
+    <EmbeddedResource Include="DOC_Document\SQL\Insert.sql" />
+    <EmbeddedResource Include="DOC_Document\SQL\Update.sql" />
+    <EmbeddedResource Include="DOC_Document\SQL\Select.sql" />
+    <EmbeddedResource Include="DOC_Structure_Header\SQL\Insert.sql" />
+    <EmbeddedResource Include="DOC_Structure_Header\SQL\Update.sql" />
+    <EmbeddedResource Include="DOC_Structure_Header\SQL\Select.sql" />
+    <EmbeddedResource Include="DOC_Structure\SQL\Insert.sql" />
+    <EmbeddedResource Include="DOC_Structure\SQL\Update.sql" />
+    <EmbeddedResource Include="DOC_Structure\SQL\Select.sql" />
+    <EmbeddedResource Include="DOC_StructureTemplate_Element\SQL\Insert.sql" />
+    <EmbeddedResource Include="DOC_StructureTemplate_Element\SQL\Update.sql" />
+    <EmbeddedResource Include="DOC_StructureTemplate_Element\SQL\Select.sql" />
+    <EmbeddedResource Include="DOC_StructureTemplate_Header\SQL\Insert.sql" />
+    <EmbeddedResource Include="DOC_StructureTemplate_Header\SQL\Update.sql" />
+    <EmbeddedResource Include="DOC_StructureTemplate_Header\SQL\Select.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate\SQL\Select.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate\SQL\Update.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate\SQL\Insert.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate_2_BusinessParticipant\SQL\Insert.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate_2_BusinessParticipant\SQL\Select.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate_2_BusinessParticipant\SQL\Update.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate_Instance\SQL\Insert.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate_Instance\SQL\Select.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate_Instance\SQL\Update.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate_Instance_PlaceholderValue\SQL\Insert.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate_Instance_PlaceholderValue\SQL\Select.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate_Instance_PlaceholderValue\SQL\Update.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate_Placeholder\SQL\Insert.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate_Placeholder\SQL\Select.sql" />
+    <EmbeddedResource Include="DOC_DocumentTemplate_Placeholder\SQL\Update.sql" />
+    <Content Include="_Support\DOC_DocumentRevisions.xml" />
+    <Content Include="_Support\DOC_Documents.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\DOC_DocumentTemplates.xml" />
+    <Content Include="_Support\DOC_DocumentTemplate_2_BusinessParticipant.xml" />
+    <Content Include="_Support\DOC_DocumentTemplate_Instances.xml" />
+    <Content Include="_Support\DOC_DocumentTemplate_Instance_PlaceholderValues.xml" />
+    <Content Include="_Support\DOC_DocumentTemplate_Placeholders.xml" />
+    <Content Include="_Support\DOC_Document_2_Structure.xml" />
+    <Content Include="_Support\DOC_Structures.xml" />
+    <Content Include="_Support\DOC_StructureTemplate_Elements.xml" />
+    <Content Include="_Support\DOC_StructureTemplate_Header.xml" />
+    <Content Include="_Support\DOC_Structure_Headers.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

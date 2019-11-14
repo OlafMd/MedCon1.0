@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="19/9/2014 04:31:12">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_BillNote_for_BillHeader</Name>
+    <Namespace>CL2_BillNotes.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_BillNotes.Atomic.Manipulation"
+                Method_ClassName="cls_Save_BillNote_for_BillHeader"
+                Method_Name="Save_BillNote_for_BillHeader"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_BillNote_for_BillHeader"
+                />
+
+  <Parameters IsClass="true" Name="P_L2BN_SBNfBH_1630">
+    <Members>
+      <ClassMember Name="BillHeaderID" Type="Guid" IsArray="false" />
+      <ClassMember Name="NoteText" Type="String" />
+      <ClassMember Name="NoteTitle" Type="String" />
+      <ClassMember Name="SequenceOrderNumber" Type="int" />
+      <ClassMember Name="IsDeleted" Type="bool" />
+      <ClassMember Name="NoteID" Type="Guid" />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+         Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+         Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+
+</CodeGen>
+
+

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_pps_breaktime_defaults_structurebindings
+WHERE 
+	CMN_PPS_BreakTime_Defaults_StructureBindingID = @CMN_PPS_BreakTime_Defaults_StructureBindingID

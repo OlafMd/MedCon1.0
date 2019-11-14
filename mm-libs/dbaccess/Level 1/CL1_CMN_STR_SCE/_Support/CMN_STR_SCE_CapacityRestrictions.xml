@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:52:23 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_STR_SCE_CapacityRestriction"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_STR_SCE"
+                IsClass_Corresponding_DBTable="cmn_str_sce_capacityrestrictions" >
+      <Members>
+		<ClassMember Name="CMN_STR_SCE_CapacityRestrictionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="CapacityRestrictionType_RefID" Type="Guid" />
+		<ClassMember Name="IsValueCalculated_InPercentage" Type="Boolean" />
+		<ClassMember Name="IsValueCalculated_InHeadCount" Type="Boolean" />
+		<ClassMember Name="IsValueCalculated_InWorkingHours" Type="Boolean" />
+		<ClassMember Name="ValueCalculated" Type="Double" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

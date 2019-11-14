@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A3DFF096-684C-4300-B334-C101FA953493}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DLCore_MessageListener</RootNamespace>
+    <AssemblyName>DLCore_MessageListener</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Log\ServerLog.cs" />
+    <Compile Include="MessageListenerTemplate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Messages\ArticleRequestCreation.cs" />
+    <Compile Include="Messages\ArticleRequestAnswerCreation.cs" />
+    <Compile Include="Messages\ArticleRequestReturnCaseID.cs" />
+    <Compile Include="Messages\CustomerRequestResponseCreate.cs" />
+    <Compile Include="Messages\CustomerRequestResponseUpdate.cs" />
+    <Compile Include="Messages\OrderCollectiveLeadShareCollectiveWithNewMemberCreate.cs" />
+    <Compile Include="Messages\OrderCollectiveLeadShareNewMemberWithMembersCreate.cs" />
+    <Compile Include="Messages\OrderCollectiveLeadUpdateOrderCollectiveNameWithMembersUpdate.cs" />
+    <Compile Include="Messages\OrganizationalStructureUpdateMessage.cs" />
+    <Compile Include="Messages\CustomerOrderCreation.cs" />
+    <Compile Include="Messages\CustomerOrderDeadlineChange.cs" />
+    <Compile Include="Messages\CustomerOrderResponse.cs" />
+    <Compile Include="Messages\CustomerOrderTrigger.cs" />
+    <Compile Include="Messages\PickingControlFinished.cs" />
+    <Compile Include="Messages\OrderCollectiveMemberAddNewMemberCreate.cs" />
+    <Compile Include="Messages\SupplierRequestForProposalAcceptDecline.cs" />
+    <Compile Include="Messages\SupplierRequestForProposalCancel.cs" />
+    <Compile Include="Messages\SupplierRequestForProposalCreate.cs" />
+    <Compile Include="Messages\Standard\DLStandardMessage\DLStandardMessage.cs" />
+    <Compile Include="Messages\Standard\StandardMessage.cs" />
+    <Compile Include="Messages\SupplierProvidedIdentifierUpdate.cs" />
+    <Compile Include="Messages\Zugseil\ProcurementOrderHeader.cs" />
+    <Compile Include="Messages\Zugseil\UpdateProcurementOrderStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\arch\infrastructure.csharp-api\BOp-CoreAPI\BOp-CoreAPI.csproj">
+      <Project>{64BB878F-E099-4DFC-955F-AD0E9DDBBA51}</Project>
+      <Name>BOp-CoreAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\external\log4net\log4net.csproj">
+      <Project>{181fe707-e161-4722-9f38-6aaab6faa106}</Project>
+      <Name>log4net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\utils\DLUtils_Common\DLUtils_Common.csproj">
+      <Project>{e7d06880-7054-4045-9b0b-6afe3db5185c}</Project>
+      <Name>DLUtils_Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

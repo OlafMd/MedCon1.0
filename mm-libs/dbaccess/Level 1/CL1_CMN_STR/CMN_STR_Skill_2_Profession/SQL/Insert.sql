@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_skill_2_profession
+	(
+		AssignmentID,
+		Profession_RefID,
+		Skill_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@Profession_RefID,
+		@Skill_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

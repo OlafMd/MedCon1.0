@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_emp_workingcontract_employmenttypes
+	(
+		CMN_BPT_EMP_Employee_WorkingContract_EmploymentTypeID,
+		GlobalPropertyMatchingID,
+		EmploymentType_Name_DictID,
+		EmploymentType_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_EMP_Employee_WorkingContract_EmploymentTypeID,
+		@GlobalPropertyMatchingID,
+		@EmploymentType_Name,
+		@EmploymentType_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

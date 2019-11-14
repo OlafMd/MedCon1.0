@@ -1,0 +1,18 @@
+UPDATE 
+	cmn_bpt_ctm_catalogproductextensionrequests
+SET 
+	CatalogProductExtensionRequestITL=@CatalogProductExtensionRequestITL,
+	RequestedBy_Customer_BusinessParticipant_RefID=@RequestedBy_Customer_BusinessParticipant_RefID,
+	RequestedBy_Person_BusinessParticipant_RefID=@RequestedBy_Person_BusinessParticipant_RefID,
+	RequestedFor_Catalog_RefID=@RequestedFor_Catalog_RefID,
+	Request_Question=@Request_Question,
+	Request_Answer=@Request_Answer,
+	RequestCaseIdentifier=@RequestCaseIdentifier,
+	IsAnswerSent=@IsAnswerSent,
+	IfAnswerSent_By_BusinessParticipant_RefID=@IfAnswerSent_By_BusinessParticipant_RefID,
+	IfAnswerSent_Date=@IfAnswerSent_Date,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	CMN_BPT_CTM_CatalogProductExtensionRequestID = @CMN_BPT_CTM_CatalogProductExtensionRequestID

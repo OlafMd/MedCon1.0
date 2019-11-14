@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/2/2014 12:01:11">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Confirm_StockReceiptHeader_Control</Name>
+    <Namespace>CL5_APOLogistic_StockReceipt.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_StockReceipt.Complex.Manipulation"
+                Method_ClassName="cls_Confirm_StockReceiptHeader_Control"
+                Method_Name="Confirm_StockReceiptHeader_Control"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Confirm_StockReceiptHeader_Control"
+                />
+  
+  <Parameters IsClass="true" Name="P_L5ALSR_CSRHC_1057">
+    <Members>
+      <ClassMember Name="LOG_RCP_Receipt_HeaderID" Type="Guid"  />     
+    
+    </Members>
+  </Parameters>
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+</CodeGen>
+
+

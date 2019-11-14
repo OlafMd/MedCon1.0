@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_patient_parametertype_2_parametertypegroup
+	(
+		AssignmentID,
+		HEC_Patient_ParameterType_RefID,
+		HEC_Patient_ParameterType_Group_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@HEC_Patient_ParameterType_RefID,
+		@HEC_Patient_ParameterType_Group_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

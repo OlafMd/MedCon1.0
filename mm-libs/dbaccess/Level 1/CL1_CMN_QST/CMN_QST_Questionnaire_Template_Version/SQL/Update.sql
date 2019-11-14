@@ -1,0 +1,14 @@
+UPDATE 
+	cmn_qst_questionnaire_template_versions
+SET 
+	QuestionnaireTemplate_RefID=@QuestionnaireTemplate_RefID,
+	CopiedFrom_TemplateVersion_RefID=@CopiedFrom_TemplateVersion_RefID,
+	QuestionnaireTemplateVersion_VersionNumber=@QuestionnaireTemplateVersion_VersionNumber,
+	QuestionnaireTemplateVersion_VersionComment=@QuestionnaireTemplateVersion_VersionComment,
+	IsQuestionnaireVersion_Published=@IsQuestionnaireVersion_Published,
+	Creation_Account_RefID=@Creation_Account_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	CMN_QST_Questionnaire_Template_VersionID = @CMN_QST_Questionnaire_Template_VersionID

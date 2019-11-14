@@ -1,0 +1,27 @@
+INSERT INTO 
+	hec_cmt_opt_communitygroup_publishedstatistics
+	(
+		HEC_CMT_OPT_CommunityGroup_PublishedStatisticID,
+		CommunityGroup_RefID,
+		Version_Internal,
+		Version_Display,
+		PublishDate,
+		PublicDownloadURL,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CMT_OPT_CommunityGroup_PublishedStatisticID,
+		@CommunityGroup_RefID,
+		@Version_Internal,
+		@Version_Display,
+		@PublishDate,
+		@PublicDownloadURL,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_qst_staircase_availableproperties
+WHERE 
+	RES_QST_Staircase_AvailablePropertyID = @RES_QST_Staircase_AvailablePropertyID

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/2/2015 9:15:46 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="BIL_BillHeader"
+                IsClass="true"
+                IsClass_Namespace="CL1_BIL"
+                IsClass_Corresponding_DBTable="bil_billheaders" >
+      <Members>
+		<ClassMember Name="BIL_BillHeaderID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="BillRecipient_BuisnessParticipant_RefID" Type="Guid" />
+		<ClassMember Name="CreatedBy_BusinessParticipant_RefID" Type="Guid" />
+		<ClassMember Name="Currency_RefID" Type="Guid" />
+		<ClassMember Name="BillNumber" Type="String" />
+		<ClassMember Name="DateOnBill" Type="DateTime" />
+		<ClassMember Name="TotalValue_BeforeTax" Type="Decimal" />
+		<ClassMember Name="TotalValue_IncludingTax" Type="Decimal" />
+		<ClassMember Name="SourceEconomicRegion_RefID" Type="Guid" />
+		<ClassMember Name="TargetEconomicRegion_RefID" Type="Guid" />
+		<ClassMember Name="BillingAddress_UCD_RefID" Type="Guid" />
+		<ClassMember Name="BillHeader_PaymentCondition_RefID" Type="Guid" />
+		<ClassMember Name="BillComment" Type="String" />
+		<ClassMember Name="IsFullyPaid" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

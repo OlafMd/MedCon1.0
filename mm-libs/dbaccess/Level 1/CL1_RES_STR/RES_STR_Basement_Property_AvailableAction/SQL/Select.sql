@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_basement_property_availableactions
+WHERE 
+	RES_STR_Basement_Property_AvailableActionID = @RES_STR_Basement_Property_AvailableActionID

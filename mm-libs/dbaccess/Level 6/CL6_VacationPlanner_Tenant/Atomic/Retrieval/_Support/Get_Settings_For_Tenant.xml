@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/21/2012 10:19:03 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_VacationPlanner_Tenant.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Settings_For_Tenant"
+                Method_Name="Get_Settings_For_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Settings_For_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_cal_apr_responsiblepersons.NumberOfResponsiblePersonsRequiredToApprove,
+  cmn_cal_apr_responsiblepersons.CMN_CAL_APR_ResponsiblePersonID,
+  cmn_tenants.IsUsing_Offices,
+  cmn_tenants.IsUsing_WorkAreas,
+  cmn_tenants.IsUsing_Workplaces,
+  cmn_tenants.IsUsing_CostCenters,
+  cmn_cal_event_approvalprocess_types.CMN_CAL_Event_ApprovalProcess_TypeID,
+  cmn_tenant_activeapprovalprocesstypes.CMN_Tenant_ActiveApprovalProcessTypeID
+From
+  cmn_cal_apr_responsiblepersons Inner Join
+  cmn_cal_event_approvalprocess_types
+    On cmn_cal_event_approvalprocess_types.IfResponsiblePersonBased_RefID =
+    cmn_cal_apr_responsiblepersons.CMN_CAL_APR_ResponsiblePersonID Inner Join
+  cmn_tenant_activeapprovalprocesstypes
+    On
+    cmn_tenant_activeapprovalprocesstypes.CMN_CAL_Event_ApprovalProcess_Type_RefID = cmn_cal_event_approvalprocess_types.CMN_CAL_Event_ApprovalProcess_TypeID Inner Join
+  cmn_tenants
+    On cmn_tenants.CMN_TenantID =
+    cmn_tenant_activeapprovalprocesstypes.Tenant_RefID
+Where
+  cmn_cal_apr_responsiblepersons.IsDeleted = 0 And
+  cmn_tenants.IsDeleted = 0 And
+  cmn_tenant_activeapprovalprocesstypes.IsActive = 1 And
+  cmn_tenant_activeapprovalprocesstypes.IsDeleted = 0 And
+  cmn_cal_event_approvalprocess_types.IsDeleted = 0 And
+  cmn_cal_event_approvalprocess_types.IsResponsiblePersonBased = 1 And
+  cmn_tenants.CMN_TenantID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6TN_GSFT_1017" IsArray="false">
+			<Members>
+				<ClassMember Name="IsUsing_Offices" Type="bool"  />
+				<ClassMember Name="IsUsing_WorkAreas" Type="bool"  />
+				<ClassMember Name="IsUsing_Workplaces" Type="bool"  />
+        <ClassMember Name="IsUsing_CostCenters" Type="bool"  />
+				<ClassMember Name="NumberOfResponsiblePersonsRequiredToApprove" Type="int"  />
+        <ClassMember Name="CMN_CAL_APR_ResponsiblePersonID" Type="Guid" />
+        <ClassMember Name="CMN_CAL_Event_ApprovalProcess_TypeID" Type="Guid" />
+        <ClassMember Name="CMN_Tenant_ActiveApprovalProcessTypeID" Type="Guid" />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

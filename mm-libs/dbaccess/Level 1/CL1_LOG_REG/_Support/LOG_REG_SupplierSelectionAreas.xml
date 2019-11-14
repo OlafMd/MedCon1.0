@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 2/2/2015 1:25:49 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_REG_SupplierSelectionArea"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_REG"
+                IsClass_Corresponding_DBTable="log_reg_supplierselectionareas" >
+      <Members>
+		<ClassMember Name="LOG_REG_SupplierSelectionAreaID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="SupplierSelectionArea_Name" Type="Dict" Source_DBField="SupplierSelectionArea_Name_DictID" OriginTable="log_reg_supplierselectionareas"/>
+		<ClassMember Name="SupplierSelectionArea_Description" Type="Dict" Source_DBField="SupplierSelectionArea_Description_DictID" OriginTable="log_reg_supplierselectionareas"/>
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

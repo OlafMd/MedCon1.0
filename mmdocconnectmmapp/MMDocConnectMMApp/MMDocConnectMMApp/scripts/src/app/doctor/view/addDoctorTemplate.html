@@ -1,0 +1,197 @@
+﻿<div class="gray-content-holder doctors-data-lists doctor-list animate-if">
+    <!-- ng-class="{'ddetails-edit': mode === 'edit'}"> -->
+    <form id="doctorForm" name="doctorForm" ng-submit="sendDoctorForm()" novalidate off-click="closeDoctorFormModal($event)">
+
+        <h3 id="lblAddDoctor" translate="LABEL_ADD_DOCTOR" ng-if="mode !== 'edit'"></h3>
+        <div name="commentContainer" class="order-msg-container" ng-if="doctor.is_temp && doctor.comment !== undefined && doctor.comment !== '' && doctor.comment !== null">
+            <span>{{doctor.comment}}</span>
+        </div>
+        <div name="messageContainer" class="error-msg-container" ng-if="divContainer">
+            <span class="error" ng-if="LanrNotnumber">{{ 'LABEL_INVALID_LANR_NO' | translate }} </span>
+            <span class="error" ng-if="lanrNotValid">{{ 'LABEL_INVALID_LANR' | translate }}</span>
+            <span class="error" ng-if="lanrLengthnotValid">{{ 'LABEL_LANR_LENGTH' | translate }}</span>
+            <span class="error" ng-if="lanrExists">{{ 'LABEL_LANR_EXISTS' | translate }}</span>
+            <span class="error" ng-if="EmailNotValid">{{ 'LABEL_EMAIL_NOT_VALID' | translate }}</span>
+            <span class="error" ng-if="IBANinvalid">{{ 'LABEL_IBAN_INVALID' | translate }}</span>
+            <span class="error" ng-if="BICinvalid">{{ 'LABEL_BIC_INVALID' | translate }}</span>
+            <span class="error" ng-if="BankInvalid">{{ 'LABEL_ENTER_BANK_NAME' | translate }}</span>
+            <span class="error" ng-if="BICBankinvalid">{{ 'LABEL_ENTER_BIC' | translate }}</span>
+            <span class="error" ng-if="LoginEmailNotValid">{{ 'LABEL_EMAIL_NOT_VALID' | translate }}</span>
+            <span class="error" ng-if="LoginEmailExists">{{ 'LABEL_ACCOUNT_EXISTS' | translate }}</span>
+            <span class="error" ng-if="passwordInvalidEmpty">{{ 'LABEL_ENTER_PASSWORD' | translate }}</span>
+            <span class="error" ng-if="passwordDontValidForm">{{ 'LABEL_PASSWORD_FORMAT' | translate }}</span>
+            <span class="error" ng-if="passwordDontMAtch">{{ 'LABEL_PASSWORD_MISMATCH' | translate }}</span>
+            <span class="error" ng-if="customerNumberFormatInvalid">{{ 'LABEL_INVALID_CUSTOMER_NUMBER_FORMAT' | translate }}</span>
+            <span class="error" ng-if="octValidFromDateInvalid">{{ 'LABEL_OCT_VALID_FROM_INVALID' | translate }}</span>
+        </div>
+
+        <ul class="first-class-data first-row doctor-form-row">
+            <li>
+                <label id="lblSalutation">{{ 'LABEL_SALUTATION' | translate }}</label>
+                <dropdown-list id="ddSalutation" name="ddSalutation" items="salutation" ng-model="doctor.Salutation" params="{display_name: 'label', id: 'value', is_model_object: false}"></dropdown-list>
+            </li>
+            <li>
+                <label id="lbTitle">{{ 'LABEL_TITLE' | translate }}</label>
+                <input id="inTitle" name="inTitle" type="text" ng-model="doctor.Title" />
+
+            </li>
+            <li>
+                <label id="lblFirstName">{{ 'LABEL_FIRSTNAME' | translate }}<span class="error" ng-if="doctorForm.inFirstName.$error.required">*</span></label>
+                <input id="inFirstName" name="inFirstName" type="text" ng-model="doctor.FirstName" ng-required="not_mergeable" />
+            </li>
+            <li>
+                <label id="lblLastName">{{ 'LABEL_LASTNAME' | translate }}<span class="error" ng-if="doctorForm.inLastName.$error.required">*</span></label>
+                <input id="inLastName" name="inLastName" type="text" ng-model="doctor.LastName" ng-required="not_mergeable" />
+
+            </li>
+            <li>
+                <label id="lblEmail">{{ 'LABEL_EMAIL' | translate }}</label>
+                <input id="inEmail" name="inEmail" type="text" ng-model="doctor.Email" ng-class="{redborder:EmailNotValid}" />
+
+            </li>
+            <li>
+                <label id="lblPhone">{{ 'LABEL_PHONE' | translate }}<span class="error" ng-if="doctorForm.inPhone.$error.required">*</span></label>
+                <input id="inPhone" name="inPhone" type="text" ng-model="doctor.Phone" ng-required="not_mergeable" />
+
+            </li>
+            <li>
+                <label id="lblLANR">{{ 'LABEL_LANR' | translate }}<span class="error" ng-if="doctorForm.inLANR.$error.required">*</span></label>
+                <input id="inLANR" name="inLANR" type="text" ng-model="doctor.LANR" required ng-class="{redborder:lanrNotValid ||lanrLengthnotValid || lanrExists  ||doctorForm.inLANR.$error.number }" />
+            </li>
+            <li>
+                <label>{{ 'LABEL_CUSTOMER_NUMBER' | translate }}</label>
+                <input id="inCustomerNumber" name="inCustomerNumber" type="text" ng-model="doctor.CustomerNumber" ng-class="{redborder: customerNumberFormatInvalid }" />
+            </li>
+        </ul>
+
+        <div ng-class="{'buttons-with-text-button': mode === 'edit','buttons': mode !== 'edit'}">
+            <span ng-if="mode === 'edit'" class="abort"><a href="" ng-click="closeDoctorForm()" translate="BUTTON_CANCEL">{{ 'LABEL_CANCEL' | translate }}</a></span>
+            <button class="button wide confirm" id="btnSubmitDoctor" type="submit" translate="BUTTON_SAVE"
+                    ng-disabled="doctorForm.$invalid"></button>
+
+            <button class="button narrow reject" id="btnCancelSubmitDoctor" onclick="return false;" ng-click="closeDoctorForm()" translate="BUTTON_CANCEL" ng-if="mode !== 'edit'" title="{{'BUTTON_CANCEL' | translate}}"></button>
+
+        </div>
+        
+        <div class="clearfix"></div>
+
+        <div ng-if="!doctor.is_temp">
+            <div class="form-group margin-bottom-10">
+                <label id="lblIsCertificatedForOCT" translate="LABEL_IS_CERTIFICATED_FOR_OCT"></label>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <ul class="list-inline">
+                <li>
+                    <div class="form-group toggler">
+                        <span class="mask-toggle">
+                            <input id="isCertificatedForOCT" name="isCertificatedForOCT" type="checkbox" ng-model="doctor.IsCertificatedForOCT" ng-change="isCertificatedForOctChanged()" />
+                            <i class="icon"></i>
+                        </span>
+                    </div>
+                </li>
+                <li class="margin-left-25">
+                    <datepicker date-format="dd.MM.yyyy" date-model="doctor.oct_valid_from">
+                        <input type="text" id="octValidFrom" ng-focus="setClass()" name="octValidFrom" class="2000Year" ng-model="doctor.OctvalidFrom" ng-disabled="!doctor.IsCertificatedForOCT"
+                               placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}" ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'" ng-class="{'redborder': octValidFromDateInvalid }" />
+                    </datepicker>
+                </li>
+            </ul>
+        </div>
+        <div class="second-class-data-wrapper">
+            <h3 id="lbldoctorsPractice" ng-if="!mode">{{'LABEL_DOCTORSPRACTICE' | translate}}</h3>
+            <ul class="second-class-data second-row" ng-if="!mode || doctor.is_temp">
+                <li>
+                    <label id="lblDrPractice">{{'LABEL_PRACTICE' | translate}}<span class="error" ng-if="showstarReq">*</span></label>
+                    <angucomplete-alt id="inDrPractice" class="autocomplete-input" name="inDrPractice" pause="100" selected-object="FillCheckBoxFields" field-required="true" local-data="practices" ng-model="doctor.PracticeID"
+                                      search-fields="DisplayName"
+                                      title-field="DisplayName"
+                                      minlength="1"
+                                      inputclass="form-control form-control-small" />
+                </li>
+            </ul>
+
+            <ul class="second-class-data second-row" ng-if="mode === 'edit' && !doctor.is_temp">
+                <li>
+                    <h3 id="lbldoctorsPracticeEdit">{{'LABEL_PRACTICE_DOCTOR_WORKS_IN' | translate}}</h3>
+                    <input type="text" ng-disabled="true" ng-model="doctor.PracticeName" />
+                </li>
+            </ul>
+
+
+            <h3 id="lblDrBankAccount">{{ 'LABEL_BANKACCOUNT' | translate }}</h3>
+            <ul class="second-class-data third-row">
+                <li>
+                    <span class="mask-checkbox">
+                        <input id="inCKUserPRacticeBank" name="inCKUserPRacticeBank" type="checkbox" ng-model="doctor.IsUserPRacticeBank" ng-change="FindPracticeBankAccountInfo()" ng-disabled="ChPracticeDisabled" />
+                        <i class="icon"></i>
+                    </span>
+                    <label id="lblCKUserPRacticeBank" translate="LABEL_USERPRACTICEBANK"></label>
+                </li>
+                <li>
+                    <label id="lblAccountHolder" translate="LABEL_ACCOUNT_HOLDER"></label>
+                    <input id="DrinAccountHolder" name="inAccountHolder" type="text" ng-model="doctor.AccountHolder" ng-disabled="DrinAccountHolderDis" />
+                </li>
+                <li>
+                    <label id="lblIban" translate="LABEL_IBAN"></label>
+
+                    <input id="DrinIban" name="inIban" type="text" ng-model="doctor.Iban" ng-class="{redborder:IBANinvalid}" ng-disabled="DrinIbanDis" ng-blur="CheckIbanFillBic()" />
+                </li>
+                <li>
+                    <label id="lblBic" translate="LABEL_BIC"></label>
+                    <input id="DrinBic" name="inBic" type="text" ng-model="doctor.Bic" ng-class="{redborder:BICinvalid ||BICBankinvalid}" ng-disabled="DrinBicDis" ng-blur="CheckBicFillBank()" />
+                </li>
+                <li>
+                    <label id="lblBank" translate="LABEL_BANK"></label>
+                    <input id="DrinBank" name="inBank" type="text" ng-model="doctor.Bank" ng-class="{redborder:BankInvalid ||BICBankinvalid}" ng-disabled="DrinBankDis" />
+                </li>
+            </ul>
+
+            <h3 id="lblDoctorAccount" translate="LABEL_ACCOUNT"></h3>
+            <ul class="second-class-data fourth-row">
+                <li>
+                    <label id="lblLoginEmail">{{'LABEL_LOGIN_EMAIL' |translate}} <span class="error" ng-if="doctorForm.inLoginEmail.$error.required">*</span></label>
+                    <input id="inLoginEmail" name="inLoginEmail" type="text" ng-model="doctor.LoginEmail" ng-class="{redborder:LoginEmailNotValid || LoginEmailExists  }" ng-required="not_mergeable" auto-fill-sync ng-disabled="mode === 'edit' && !doctor.is_temp" " />
+
+                </li>
+                <li ng-show="mode !== 'edit' || doctor.is_temp">
+                    <span class="mask-checkbox">
+                        <input id="drCKGeneratePassword1" type="radio" value="1" ng-change="drGenPass()" ng-model="drCKGeneratePassword" ng-init="drSetInitialPass()" />
+                        <i class="icon"></i>
+                    </span>
+                    <label id="lblGeneratePassword" translate="LABEL_GENERATE_PASSWORD"></label>
+                    <input id="inPassword" name="doctor.inPassword" type="password" ng-disabled="drgenDisabled" ng-model="doctor.inPassword" ng-class="{redborder:passwordDontValidForm || passwordDontMAtch || passwordInvalidEmpty}" auto-fill-sync />
+                </li>
+                <li ng-show="mode !== 'edit'|| doctor.is_temp">
+                    <span class=" mask-checkbox">
+                        <input id="drCKGeneratePassword2" type="radio" value="2" ng-change="drTypePass()" ng-model="drCKGeneratePassword" />
+                        <i class="icon"></i>
+                    </span>
+                    <label id="lblDefinePassword" translate="LABEL_DEFINE_PASSWORD"></label>
+                    <input id="inDefinePassword" name="doctor.DefinePassword" type="password" ng-disabled="drdefDisabled" ng-model="doctor.DefinePassword" ng-class="{redborder:passwordDontMAtch || passwordInvalidEmpty}" auto-fill-sync />
+                </li>
+                <li ng-show="mode !== 'edit'|| doctor.is_temp">
+                    <label id=" lblwelcomemailwillbesenttodoctor" translate="LABEL_WELCOMEEMAILWILLBESENTTODOCTOR">
+                    </label>
+                </li>
+                <li ng-show="mode === 'edit' && !doctor.is_temp">
+                    <label translate="LABEL_PASSWORD">
+                    </label>
+                    <input id="inPassword" name="doctor.inPassword" type="password" ng-disabled="true" ng-model="doctor.Password" auto-fill-sync />
+                </li>
+
+                <li class="padding-top-22" ng-if="mode === 'edit' && !doctor.is_temp">
+                    <button class="button medium reject" onclick="return false;" ng-click="ResetPassword()" translate="LABEL_RESET_PASSWORD"></button>
+                </li>
+                <li class="toggler no-padding" ng-if="mode === 'edit'&& !doctor.is_temp ">
+                    <label class="module-color bolded-text" id="lblDeactivateAccount" translate="LABEL_DEACTIVATE_ACCOUNT"></label>
+                    <span class="mask-toggle">
+                        <input type="checkbox" ng-model="doctor.IsAccountDeactivated" />
+                        <i class="icon"></i>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

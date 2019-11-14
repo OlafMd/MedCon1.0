@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_investedworktime_charginglevels
+WHERE 
+	CMN_BPT_InvestedWorkTime_ChargingLevelID = @CMN_BPT_InvestedWorkTime_ChargingLevelID

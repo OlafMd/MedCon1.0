@@ -1,0 +1,22 @@
+UPDATE 
+	hec_act_performedactions
+SET 
+	HealthcarePerformedActionITL=@HealthcarePerformedActionITL,
+	Patient_RefID=@Patient_RefID,
+	IsPerformed_Internally=@IsPerformed_Internally,
+	IfPerformedInternaly_ResponsibleBusinessParticipant_RefID=@IfPerformedInternaly_ResponsibleBusinessParticipant_RefID,
+	IsPerformed_Externally=@IsPerformed_Externally,
+	IsPerformed_MedicalPractice_RefID=@IsPerformed_MedicalPractice_RefID,
+	IfPerformed_MedicalPracticeType_RefID=@IfPerformed_MedicalPracticeType_RefID,
+	IfPerformed_DateOfAction_Year=@IfPerformed_DateOfAction_Year,
+	IfPerformed_DateOfAction_Month=@IfPerformed_DateOfAction_Month,
+	IfPerformed_DateOfAction_Day=@IfPerformed_DateOfAction_Day,
+	IfPerfomed_DateOfAction=@IfPerfomed_DateOfAction,
+	IsFollowupPerformedAction=@IsFollowupPerformedAction,
+	IsFollowupPerformed_PreviousPerformedAction_RefID=@IsFollowupPerformed_PreviousPerformedAction_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_ACT_PerformedActionID = @HEC_ACT_PerformedActionID

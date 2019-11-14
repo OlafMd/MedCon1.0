@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_act_performedaction_2_actiontype
+	(
+		AssignmentID,
+		HEC_ACT_PerformedAction_RefID,
+		HEC_ACT_ActionType_RefID,
+		IM_ActionType_Name,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@HEC_ACT_PerformedAction_RefID,
+		@HEC_ACT_ActionType_RefID,
+		@IM_ActionType_Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

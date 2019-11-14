@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_pro_pac_packageinfo
+	(
+		CMN_PRO_PAC_PackageInfoID,
+		PackageContent_MeasuredInUnit_RefID,
+		PackageContent_Amount,
+		PackageContent_DisplayLabel,
+		Creation_Timestamp,
+		Modification_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PRO_PAC_PackageInfoID,
+		@PackageContent_MeasuredInUnit_RefID,
+		@PackageContent_Amount,
+		@PackageContent_DisplayLabel,
+		@Creation_Timestamp,
+		@Modification_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

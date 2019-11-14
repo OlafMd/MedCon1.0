@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10-Jun-12 19:22:27">
+
+  <Meta>
+    <Name>Get_Features_SimpleView_for_ProjectIDList</Name>
+    <Description>Get all Features(Archived or NotArchived) for ProjectIDList</Description>
+    <Namespace>CL3_Features.Atomic.Retrieval</Namespace>
+    <Tags>ProjectIDList, Features</Tags>
+  </Meta>
+  
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Features.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Features_SimpleView_for_ProjectIDList"
+                Method_Name="Get_Features_SimpleView_for_ProjectIDList"
+                ApplicationPlattform_WebServiceName="FeatureService"
+                ApplicationPlattform_Namespace="FeatureService.Get_Features_SimpleView_for_ProjectIDList"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+      tms_pro_feature.TMS_PRO_FeatureID,
+      tms_pro_feature.IdentificationNumber,
+      tms_pro_feature.DOC_Structure_Header_RefID,
+      tms_pro_feature.Project_RefID,
+      tms_pro_feature.Component_RefID,
+      tms_pro_feature.Type_RefID,
+      tms_pro_feature.Status_RefID,
+      tms_pro_feature.Name_DictID,
+      tms_pro_feature.Description_DictID,
+      tms_pro_feature.Feature_Deadline,
+      tms_pro_feature.IsArchived,
+      tms_pro_feature.Creation_Timestamp,
+      tms_pro_businesstask_2_feature.BusinessTask_RefID
+    From
+      tms_pro_feature Inner Join
+      tms_pro_businesstask_2_feature On tms_pro_feature.TMS_PRO_FeatureID =
+        tms_pro_businesstask_2_feature.Feature_RefID
+    Where
+      tms_pro_feature.Project_RefID = @ProjectIDList And
+      (tms_pro_feature.IsArchived = 0 Or
+        tms_pro_feature.IsArchived = @Is_ArchivedFeatures_Included) And
+      tms_pro_feature.Tenant_RefID = @TenantID And
+      tms_pro_feature.IsDeleted = 0 And
+      tms_pro_businesstask_2_feature.IsDeleted = 0
+    Order By
+      tms_pro_feature.IdentificationNumber
+  </SQLStatement>
+  
+  <Parameters IsClass="true" Name="P_L3FE_GFSVfPL_1553">
+    <Members>
+      <ClassMember Name="ProjectIDList" Type="Guid"  IsArray="true" />
+      <ClassMember  Name="Is_ArchivedFeatures_Included" Type="Boolean" />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3FE_GFSVfPL_1553" IsArray="true">
+      <Members>
+        <ClassMember Name="TMS_PRO_FeatureID" Type="Guid"  />
+        <ClassMember Name="IdentificationNumber" Type="String"  />
+        <ClassMember Name="DOC_Structure_Header_RefID" Type="Guid"  />
+        <ClassMember Name="Project_RefID" Type="Guid"  />
+        <ClassMember Name="Name" Type="Dict" OriginTable="tms_pro_feature" Source_DBField="Name_DictID"  />
+        <ClassMember Name="IsArchived" Type="Boolean" />
+        <ClassMember Name="BusinessTask_RefID" Type="Guid"  />
+        <ClassMember Name="Status_RefID" Type="Guid" />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

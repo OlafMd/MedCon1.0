@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/25/2013 02:09:06 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PointOfSales_With_Office</Name>
+    <Namespace>CL3_PointOfSale.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_PointOfSale.Atomic.Retrieval"
+                Method_ClassName="cls_Get_PointOfSales_With_Office"
+                Method_Name="Get_PointOfSales_With_Office"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PointOfSales_With_Office"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_sls_pointofsales.CMN_SLS_PointOfSaleID,
+  cmn_sls_pointofsales.PointOfSale_DisplayName,
+  cmn_sls_pointofsales.PointOfSaleITL,
+  cmn_sls_pointofsales.IsPickUpStationForDistributionOrder,
+  cmn_str_offices.CMN_STR_OfficeID,
+  cmn_str_offices.Office_Name_DictID,
+  cmn_str_offices.Office_ShortName
+From
+  cmn_sls_pointofsales Left Join
+  cmn_str_offices On cmn_sls_pointofsales.CMN_STR_Office_RefID =
+    cmn_str_offices.CMN_STR_OfficeID And cmn_str_offices.IsDeleted = 0
+    And cmn_str_offices.Tenant_RefID = @TenantID
+Where
+  cmn_sls_pointofsales.IsDeleted = 0 And
+  cmn_sls_pointofsales.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3PS_GPOSwO_1427" IsArray="true">
+      <Members>
+        <ClassMember Name="CMN_SLS_PointOfSaleID" Type="Guid"  />
+        <ClassMember Name="PointOfSale_DisplayName" Type="string"  />
+        <ClassMember Name="PointOfSaleITL" Type="string"  />
+        <ClassMember Name="IsPickUpStationForDistributionOrder" Type="bool"  />
+        <ClassMember Name="CMN_STR_OfficeID" Type="Guid"  />
+        <ClassMember Name="Office_Name" Type="Dict" OriginTable="cmn_str_offices" Source_DBField="Office_Name_DictID"/>
+        <ClassMember Name="Office_ShortName" Type="string"/>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

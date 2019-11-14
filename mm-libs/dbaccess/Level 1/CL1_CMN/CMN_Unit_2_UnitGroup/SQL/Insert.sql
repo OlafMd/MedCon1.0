@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_unit_2_unitgroup
+	(
+		AssignmentID,
+		CMN_Unit_RefID,
+		CMN_Unit_Group_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_Unit_RefID,
+		@CMN_Unit_Group_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

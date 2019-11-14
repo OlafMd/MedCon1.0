@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/30/2015 7:22:59 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Patient_Examination_Diagnoses</Name>
+    <Namespace>CL5_MyHealthClub_Examanations.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Examanations.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Patient_Examination_Diagnoses"
+                Method_Name="Get_Patient_Examination_Diagnoses"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Patient_Examination_Diagnoses"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  hec_dia_potentialdiagnoses.ICD10_Code,
+	  hec_dia_potentialdiagnoses.PotentialDiagnosis_Name_DictID,
+	  hec_patient_diagnoses.HEC_Patient_DiagnosisID,
+	  hec_dia_potentialdiagnoses.PotentialDiagnosisITL,
+    hec_act_performedaction_diagnosisupdates.ScheduledExpiryDate
+	From
+	  hec_act_performedaction_diagnosisupdates Inner Join
+	  hec_dia_potentialdiagnoses
+	    On hec_act_performedaction_diagnosisupdates.PotentialDiagnosis_RefID =
+	    hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID And
+	    hec_dia_potentialdiagnoses.IsDeleted = 0 And
+	    hec_dia_potentialdiagnoses.Tenant_RefID = @TenantID Inner Join
+	  hec_patient_diagnoses
+	    On hec_act_performedaction_diagnosisupdates.HEC_Patient_Diagnosis_RefID =
+	    hec_patient_diagnoses.HEC_Patient_DiagnosisID And
+	    hec_patient_diagnoses.IsDeleted = 0 And hec_patient_diagnoses.Tenant_RefID =
+	    @TenantID And hec_patient_diagnoses.Patient_RefID = @PatientID And
+	    hec_patient_diagnoses.R_IsNegated = 0 And hec_patient_diagnoses.R_IsActive =
+	    1
+	Where
+	  hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_RefID =
+	  @ExaminationID And
+	  hec_act_performedaction_diagnosisupdates.IsDeleted = 0 And
+	  hec_act_performedaction_diagnosisupdates.Tenant_RefID = @TenantID And
+	  hec_act_performedaction_diagnosisupdates.IsDiagnosisNegated = 0 And
+	  hec_act_performedaction_diagnosisupdates.ScheduledExpiryDate > NOW()
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5EX_GPED_1922">
+    <Members>
+		<ClassMember Name="PatientID" Type="Guid"  />
+		<ClassMember Name="ExaminationID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5EX_GPED_1922" IsArray="true">
+			<Members>
+				<ClassMember Name="ICD10_Code" Type="String"  />
+				<ClassMember Name="PotentialDiagnosis_Name" Type="Dict" OriginTable="hec_dia_potentialdiagnoses" Source_DBField="PotentialDiagnosis_Name_DictID"  />
+				<ClassMember Name="HEC_Patient_DiagnosisID" Type="Guid"  />
+				<ClassMember Name="PotentialDiagnosisITL" Type="String"  />
+        <ClassMember Name="ScheduledExpiryDate" Type="DateTime"  />
+
+        
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

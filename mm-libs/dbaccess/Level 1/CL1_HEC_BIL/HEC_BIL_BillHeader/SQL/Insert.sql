@@ -1,0 +1,25 @@
+INSERT INTO 
+	hec_bil_billheaders
+	(
+		HEC_BIL_BillHeaderID,
+		Ext_BIL_BillHeader_RefID,
+		IsToBill_ToPatient,
+		IsToBill_ToHealthInsurance,
+		Patient_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_BIL_BillHeaderID,
+		@Ext_BIL_BillHeader_RefID,
+		@IsToBill_ToPatient,
+		@IsToBill_ToHealthInsurance,
+		@Patient_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

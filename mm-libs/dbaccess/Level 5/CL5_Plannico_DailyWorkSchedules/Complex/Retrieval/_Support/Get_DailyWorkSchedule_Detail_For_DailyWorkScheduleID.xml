@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="09-Jan-14 11:57:56">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DailyWorkSchedule_Detail_For_DailyWorkScheduleID</Name>
+    <Namespace>CL5_Plannico_DailyWorkSchedules.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_DailyWorkSchedules.Complex.Retrieval"
+                Method_ClassName="cls_Get_DailyWorkSchedule_Detail_For_DailyWorkScheduleID"
+                Method_Name="Get_DailyWorkSchedule_Detail_For_DailyWorkScheduleID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DailyWorkSchedule_Detail_For_DailyWorkScheduleID"
+                />
+
+  <Parameters IsClass="true" Name="P_L5DWS_GDWSDFDWSID_1156">
+    <Members>
+      <ClassMember Name="DailyWorkScheduleID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5DWS_GDWSDFDWSID_1156" IsArray="true">
+      <Members>
+        <ClassMember Name="CMN_STR_PPS_DailyWorkSchedule_DetailID" Type="Guid"  />
+        <ClassMember Name="CMN_CAL_Event_RefID" Type="Guid"  />
+        <ClassMember Name="AbsenceReason_RefID" Type="Guid"  />
+        <ClassMember Name="SheduleForWorkplace_RefID" Type="Guid"  />
+        <ClassMember Name="IsWorkBreak" Type="bool"  />
+        <ClassMember Name="FromTime_as_time" Type="String"  />
+        <ClassMember Name="ToTime_as_time" Type="String"  />
+        <ClassMember Name="TotalWorkTime_as_time" Type="String"  />
+        <ClassMember Name="ToTime_as_DateTime" Type="DateTime"  />
+        <ClassMember Name="FromTime_as_DateTime" Type="DateTime"  />
+        <ClassMember Name="LeaveRequest_RefID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

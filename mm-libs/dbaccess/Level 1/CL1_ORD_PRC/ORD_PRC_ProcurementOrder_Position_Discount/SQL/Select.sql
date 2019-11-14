@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	ord_prc_procurementorder_position_discounts
+WHERE 
+	ORD_PRC_ProcurementOrder_Position_DiscountID = @ORD_PRC_ProcurementOrder_Position_DiscountID

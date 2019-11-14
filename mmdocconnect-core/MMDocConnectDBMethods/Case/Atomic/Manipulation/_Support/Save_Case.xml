@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Case</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Manipulation"
+								Method_ClassName="cls_Save_Case"
+								Method_Name="Save_Case"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <Parameters IsClass="true" Name="P_CAS_SC_1711">
+    <Members>
+      <ClassMember Name="case_id" Type="Guid"  />
+      <ClassMember Name="patient_id" Type="Guid"  />
+      <ClassMember Name="practice_id" Type="Guid"  />
+      <ClassMember Name="treatment_date" Type="DateTime"  />
+      <ClassMember Name="is_alternative_delivery_date" Type="Boolean"  />
+      <ClassMember Name="delivery_date" Type="DateTime"  />
+      <ClassMember Name="alternative_delivery_date_from" Type="DateTime"  />
+      <ClassMember Name="alternative_delivery_date_to" Type="DateTime"  />
+      <ClassMember Name="drug_id" Type="Guid"  />
+      <ClassMember Name="is_orders_drug" Type="Boolean"  />
+      <ClassMember Name="is_patient_fee_waived" Type="Boolean"  />
+      <ClassMember Name="is_send_invoice_to_practice" Type="Boolean"  />
+      <ClassMember Name="is_label_only" Type="Boolean"  />
+      <ClassMember Name="diagnose_id" Type="Guid"  />
+      <ClassMember Name="is_left_eye" Type="Boolean"  />
+      <ClassMember Name="is_confirmed" Type="Boolean"  />
+      <ClassMember Name="treatment_doctor_id" Type="Guid"  />
+      <ClassMember Name="aftercare_doctor_practice_id" Type="Guid"  />
+      <ClassMember Name="min_delivery_date" Type="DateTime"  />
+      <ClassMember Name="aftercare_performed_date" Type="DateTime"  />
+      <ClassMember Name="planned_action_id" Type="Guid"  />
+      <ClassMember Name="order_comment" Type="String"  />
+      <ClassMember Name="oct_doctor_id" Type="Guid"  />
+      <ClassMember Name="is_documentation_only" Type="Boolean"  />
+      <ClassMember Name="withdraw_oct" Type="Boolean"  />
+      <ClassMember Name="submit_oct_until_date" Type="DateTime"  />
+      <ClassMember Name="is_quick_order" Type="Boolean" />
+      <ClassMember Name="submit_created_case" Type="Boolean" />
+      <ClassMember Name="submited_by_doctor_id" Type="Guid" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_a_StandardDataType_or_StadardDataTypeArray="true">
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+</CodeGen>

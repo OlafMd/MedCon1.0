@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/8/2013 3:23:45 PM">
+
+
+  <Meta>
+    <Name>Get_DeveloperTaskInvestedWorkTime_for_ActiveAcount_and_Date</Name>
+    <Namespace>CL6_DanuTask_DeveloperTask.Atomic.Retrieval</Namespace>
+    <Description>Retrieval of basic info for invested worktimes of developer task per active account.</Description>
+    <Tags></Tags>
+  </Meta>
+  <Componenttype>AtomicMethod</Componenttype>
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_DanuTask_DeveloperTask.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DeveloperTaskInvestedWorkTime_for_ActiveAcount_and_Date"
+                Method_Name="Get_DeveloperTaskInvestedWorkTime_for_ActiveAcount_and_Date"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace="."
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_bpt_investedworktimes.WorkTime_Amount_min,
+  tms_pro_projects.Name_DictID,
+  tms_pro_projects.TMS_PRO_ProjectID,
+  tms_pro_developertasks.IdentificationNumber,
+  cmn_bpt_investedworktimes.WorkTime_Start,
+  tms_pro_developertasks.TMS_PRO_DeveloperTaskID,
+  tms_pro_developertasks.Name As DeveloperTask_Name,
+  tms_pro_developertasks.Description As DeveloperTask_Description,
+  tms_pro_developertasks.DeveloperTask_Type_RefID
+From
+  tms_pro_developertasks Inner Join
+  tms_pro_developertask_involvements
+    On tms_pro_developertasks.TMS_PRO_DeveloperTaskID =
+    tms_pro_developertask_involvements.DeveloperTask_RefID Inner Join
+  tms_pro_developertask_involvements_investedworktime
+    On
+    tms_pro_developertask_involvements_investedworktime.TMS_PRO_DeveloperTask_Involvement_RefID = tms_pro_developertask_involvements.TMS_PRO_DeveloperTask_InvolvementID Inner Join
+  cmn_bpt_investedworktimes
+    On
+    tms_pro_developertask_involvements_investedworktime.CMN_BPT_InvestedWorkTime_RefID = cmn_bpt_investedworktimes.CMN_BPT_InvestedWorkTimeID Inner Join
+  usr_accounts On usr_accounts.BusinessParticipant_RefID =
+    cmn_bpt_investedworktimes.BusinessParticipant_RefID Inner Join
+  tms_pro_projects On tms_pro_developertasks.Project_RefID =
+    tms_pro_projects.TMS_PRO_ProjectID
+Where
+  cmn_bpt_investedworktimes.IsDeleted = 0 And
+  cmn_bpt_investedworktimes.Tenant_RefID = @TenantID And
+  tms_pro_developertasks.Tenant_RefID = @TenantID And
+  tms_pro_developertask_involvements_investedworktime.IsDeleted = 0 And
+  Date(cmn_bpt_investedworktimes.WorkTime_Start) = Date(@StartDate) And
+  usr_accounts.USR_AccountID = @AccountID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6DT_GDTIWTfAUaST_1046">
+    <Members>
+      <ClassMember Name="StartDate" Type="DateTime"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6DT_GDTIWTfAUaST_1046" IsArray="true">
+      <Members>
+        <ClassMember Name="TMS_PRO_DeveloperTaskID" Type="Guid"  />
+        <ClassMember Name="IdentificationNumber" Type="String"  />
+        <ClassMember Name="DeveloperTask_Name" Type="String"  />
+        <ClassMember Name="DeveloperTask_Description" Type="String"  />
+        <ClassMember Name="WorkTime_Start" Type="DateTime"  />
+        <ClassMember Name="DeveloperTask_Type_RefID" Type="Guid"  />
+        <ClassMember Name="TMS_PRO_ProjectID" Type="Guid"  />
+        <ClassMember Name="Project_Name" Type="Dict" OriginTable="tms_pro_projects" Source_DBField="Name_DictID"  />
+        <ClassMember Name="WorkTime_Amount_min" Type="Double"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

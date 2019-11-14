@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DoctorAssignmentActionIDs_for_ActionIDs</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_DoctorAssignmentActionIDs_for_ActionIDs"
+								Method_Name="Get_DoctorAssignmentActionIDs_for_ActionIDs"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">    
+    Select
+      hec_doctors.HEC_DoctorID As doctor_id,
+      hec_act_plannedactions.HEC_ACT_PlannedActionID As action_id
+    From
+      hec_act_plannedactions Inner Join
+      hec_doctors
+        On hec_act_plannedactions.ToBePerformedBy_BusinessParticipant_RefID = hec_doctors.BusinessParticipant_RefID And hec_doctors.Tenant_RefID = @TenantID And
+        hec_doctors.IsDeleted = 0 Inner Join
+      cmn_bpt_businessparticipants
+        On hec_doctors.BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID Inner Join
+      cmn_per_personinfo
+        On cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID = cmn_per_personinfo.CMN_PER_PersonInfoID
+    Where
+      hec_act_plannedactions.HEC_ACT_PlannedActionID = @ActionIDs And
+      hec_act_plannedactions.Tenant_RefID = @TenantID And
+      hec_act_plannedactions.IsDeleted = 0
+    Order by 
+      Concat_ws(' ', cmn_per_personinfo.FirstName,
+      cmn_per_personinfo.LastName) 
+</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GDAAIDsfAIDs_0851">
+    <Members>
+      <ClassMember Name="ActionIDs" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GDAAIDsfAIDs_0851" IsArray="true">
+      <Members>
+        <ClassMember Name="doctor_id" Type="Guid"  />
+        <ClassMember Name="action_id" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

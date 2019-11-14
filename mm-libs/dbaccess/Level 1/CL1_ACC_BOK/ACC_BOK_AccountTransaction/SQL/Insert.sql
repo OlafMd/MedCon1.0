@@ -1,0 +1,27 @@
+INSERT INTO 
+	acc_bok_accounttransactions
+	(
+		ACC_BOK_AccountTransactionID,
+		ExternalBankKey,
+		BookingAccount_RefID,
+		TransactionValue,
+		DateOfBooking,
+		SenderText,
+		SenderComment,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ACC_BOK_AccountTransactionID,
+		@ExternalBankKey,
+		@BookingAccount_RefID,
+		@TransactionValue,
+		@DateOfBooking,
+		@SenderText,
+		@SenderComment,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

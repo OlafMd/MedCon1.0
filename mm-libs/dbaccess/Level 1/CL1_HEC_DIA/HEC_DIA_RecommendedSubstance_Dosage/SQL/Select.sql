@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_dia_recommendedsubstance_dosages
+WHERE 
+	HEC_DIA_RecommendedSubstance_DosageID = @HEC_DIA_RecommendedSubstance_DosageID

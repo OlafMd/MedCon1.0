@@ -1,0 +1,11 @@
+UPDATE 
+	res_str_hvacr_propertyassestmentstates
+SET 
+	HVACRPropertyAssessmentState_Name_DictID=@HVACRPropertyAssessmentState_Name,
+	HVACRPropertyAssessmentState_Description_DictID=@HVACRPropertyAssessmentState_Description,
+	HVACRPropertyAssessmentState_OrdinalPosition=@HVACRPropertyAssessmentState_OrdinalPosition,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_STR_HVACR_PropertyAssestmentStateID = @RES_STR_HVACR_PropertyAssestmentStateID

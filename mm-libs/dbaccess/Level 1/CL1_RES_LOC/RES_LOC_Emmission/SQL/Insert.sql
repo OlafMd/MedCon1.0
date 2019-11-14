@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_loc_emmissions
+	(
+		RES_LOC_EmmissionID,
+		Emmission_Name_DictID,
+		Emmission_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_LOC_EmmissionID,
+		@Emmission_Name,
+		@Emmission_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

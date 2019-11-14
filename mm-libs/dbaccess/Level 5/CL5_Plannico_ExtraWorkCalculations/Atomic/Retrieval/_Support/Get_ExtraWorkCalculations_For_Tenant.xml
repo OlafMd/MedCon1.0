@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/20/2013 3:47:18 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ExtraWorkCalculations_For_Tenant</Name>
+    <Namespace>CL5_Plannico_ExtraWorkCalculations.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_ExtraWorkCalculations.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ExtraWorkCalculations_For_Tenant"
+                Method_Name="Get_ExtraWorkCalculations_For_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ExtraWorkCalculations_For_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  cmn_bpt_emp_extraworkcalculations.CMN_BPT_EMP_ExtraWorkCalculationID,
+  cmn_bpt_emp_extraworkcalculations.ExtraWorkCalculation_Name_DictID,
+  cmn_bpt_emp_extraworkcalculations.IsCalculatingOvertimeEnabled,
+  cmn_bpt_emp_extraworkcalculations.AreAdditionalWorkDays_CalculatedIn_Hours,
+  cmn_bpt_emp_extraworkcalculations.AreAdditionalWorkDays_CalculatedIn_DaysAsHours,
+  cmn_bpt_emp_extraworkcalculations.AreAdditionalWorkDays_CalculatedIn_Days,
+  cmn_bpt_emp_extraworkcalculations.StandardWorkDay_in_mins,
+  cmn_bpt_emp_extraworkcalculations.IsDisplayedAs_HoursAsDays,
+  cmn_bpt_emp_extraworkcalculations.IsDisplayedAs_DaysAndHours,
+  cmn_bpt_emp_extraworkcalculations.MinimalOvertimeTreshold_in_minutes,
+  cmn_bpt_emp_extraworkcalculation_structurebindings.BoundTo_Office_RefID,
+  cmn_bpt_emp_extraworkcalculation_structurebindings.BoundTo_WorkArea_RefID,
+  cmn_bpt_emp_extraworkcalculation_structurebindings.BoundTo_Workplace_RefID
+From
+  cmn_bpt_emp_extraworkcalculations Inner Join
+  cmn_bpt_emp_extraworkcalculation_structurebindings
+    On cmn_bpt_emp_extraworkcalculations.CMN_BPT_EMP_ExtraWorkCalculationID =
+    cmn_bpt_emp_extraworkcalculation_structurebindings.ExtraWorkCalculation_RefID
+Where
+  cmn_bpt_emp_extraworkcalculations.IsDeleted = 0 And
+  cmn_bpt_emp_extraworkcalculations.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5EW_GEWCFT_1546" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_BPT_EMP_ExtraWorkCalculationID" Type="Guid"  />
+				<ClassMember Name="ExtraWorkCalculation_Name" Type="Dict" OriginTable="cmn_bpt_emp_extraworkcalculations" Source_DBField="ExtraWorkCalculation_Name_DictID"  />
+				<ClassMember Name="IsCalculatingOvertimeEnabled" Type="bool"  />
+				<ClassMember Name="AreAdditionalWorkDays_CalculatedIn_Hours" Type="bool"  />
+				<ClassMember Name="AreAdditionalWorkDays_CalculatedIn_DaysAsHours" Type="bool"  />
+				<ClassMember Name="AreAdditionalWorkDays_CalculatedIn_Days" Type="bool"  />
+				<ClassMember Name="StandardWorkDay_in_mins" Type="int"  />
+				<ClassMember Name="IsDisplayedAs_HoursAsDays" Type="bool"  />
+				<ClassMember Name="IsDisplayedAs_DaysAndHours" Type="bool"  />
+				<ClassMember Name="MinimalOvertimeTreshold_in_minutes" Type="int"  />
+        <ClassMember Name="BoundTo_Office_RefID" Type="Guid"  />
+        <ClassMember Name="BoundTo_WorkArea_RefID" Type="Guid"  />
+        <ClassMember Name="BoundTo_Workplace_RefID" Type="Guid"  />
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

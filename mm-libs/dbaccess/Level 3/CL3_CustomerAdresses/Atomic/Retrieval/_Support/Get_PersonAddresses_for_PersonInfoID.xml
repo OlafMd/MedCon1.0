@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="21/01/2014 16:08:29">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PersonAddresses_for_PersonInfoID</Name>
+    <Namespace>CL3_CustomerAddresses.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_CustomerAddresses.Atomic.Retrieval"
+                Method_ClassName="cls_Get_PersonAddresses_for_PersonInfoID"
+                Method_Name="Get_PersonAddresses_for_PersonInfoID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PersonAddresses_for_PersonInfoID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_addresses.Country_ISOCode,
+  cmn_addresses.Street_Name,
+  cmn_addresses.Street_Number,
+  cmn_addresses.City_Name,
+  cmn_addresses.City_PostalCode,
+  cmn_addresses.CMN_AddressID,
+  cmn_per_personinfo_2_address.IsAddress_Contact,
+  cmn_per_personinfo_2_address.IsAddress_Billing,
+  cmn_per_personinfo_2_address.IsAddress_Shipping,
+  cmn_per_personinfo_2_address.AddressLabel,
+  cmn_per_personinfo_2_address.AssignmentID,
+  cmn_per_personinfo_2_address.IsPrimary,
+  cmn_addresses.Country_Name
+From
+  cmn_addresses Inner Join
+  cmn_per_personinfo_2_address On cmn_addresses.CMN_AddressID =
+    cmn_per_personinfo_2_address.CMN_Address_RefID
+Where
+  cmn_per_personinfo_2_address.CMN_PER_PersonInfo_RefID = @PersonInfoID And
+  cmn_per_personinfo_2_address.IsDeleted = 0 And
+  cmn_addresses.IsDeleted = 0 And
+  cmn_addresses.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+  <Parameters IsClass="true" Name="P_L3ACAAD_GPAfT_1608">
+    <Members>
+      <ClassMember Name="PersonInfoID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3ACAAD_GPAfT_1608" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_AddressID" Type="Guid"  />
+				<ClassMember Name="IsAddress_Contact" Type="bool"  />
+        <ClassMember Name="IsAddress_Billing" Type="bool"  />
+        <ClassMember Name="IsAddress_Shipping" Type="bool"  />
+        <ClassMember Name="IsPrimary" Type="bool"  />
+        <ClassMember Name="Street_Name" Type="string"  />
+        <ClassMember Name="Street_Number" Type="string"  />
+        <ClassMember Name="City_PostalCode" Type="string"  />
+        <ClassMember Name="City_Name" Type="string"  />
+        <ClassMember Name="Country_ISOCode" Type="string"  />
+        <ClassMember Name="AddressLabel" Type="string"  />
+        <ClassMember Name="AssignmentID" Type="Guid"  />
+        <ClassMember Name="Country_Name" Type="string"  />
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

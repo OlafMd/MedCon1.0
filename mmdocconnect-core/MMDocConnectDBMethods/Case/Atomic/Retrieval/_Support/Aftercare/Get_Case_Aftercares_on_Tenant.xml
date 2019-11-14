@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_Case_Aftercares_on_Tenant</Name>
+		<Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Case_Aftercares_on_Tenant"
+								Method_Name="Get_Case_Aftercares_on_Tenant"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+Select
+  hec_cas_case_relevantplannedactions.Case_RefID As CaseID,
+  hec_cas_case_relevantplannedactions.PlannedAction_RefID As AftercareActionID,
+  hec_cas_case_relevantplannedactions.Creation_Timestamp,
+  hec_cas_case_relevantplannedactions.IsDeleted,
+  hec_act_plannedactions.ToBePerformedBy_BusinessParticipant_RefID As AftercareDoctorPracticeBptID,
+  hec_act_plannedactions.IsPerformed,
+  hec_act_plannedactions.IsCancelled
+From
+  hec_cas_case_relevantplannedactions Inner Join
+  hec_act_plannedactions
+    On hec_cas_case_relevantplannedactions.PlannedAction_RefID =
+    hec_act_plannedactions.HEC_ACT_PlannedActionID And
+    hec_act_plannedactions.Tenant_RefID = @TenantID And
+    hec_act_plannedactions.IsDeleted = 0
+Where
+	hec_cas_case_relevantplannedactions.Case_RefID = @CaseIDs And
+	hec_cas_case_relevantplannedactions.Tenant_RefID = @TenantID 
+	</SQLStatement>
+	
+	<Parameters IsClass="true" Name="P_CAS_GCAoT_1426">
+		<Members>
+			<ClassMember Name="CaseIDs" Type="Guid" IsArray="true" />
+
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CAS_GCAoT_1426" IsArray="true">
+			<Members>
+        <ClassMember Name="CaseID" Type="Guid"  />
+				<ClassMember Name="AftercareDoctorPracticeBptID" Type="Guid"  />
+        <ClassMember Name="AftercareActionID" Type="Guid"  />
+        <ClassMember Name="IsPerformed" Type="Boolean"  />
+        <ClassMember Name="IsDeleted" Type="Boolean"  />
+        <ClassMember Name="IsCancelled" Type="Boolean"  />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+        
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

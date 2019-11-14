@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_noterevisions
+	(
+		CMN_NoteRevisionID,
+		Note_RefID,
+		Title,
+		Content,
+		CreatedBy_BusinessParticipant_RefID,
+		Version,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_NoteRevisionID,
+		@Note_RefID,
+		@Title,
+		@Content,
+		@CreatedBy_BusinessParticipant_RefID,
+		@Version,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

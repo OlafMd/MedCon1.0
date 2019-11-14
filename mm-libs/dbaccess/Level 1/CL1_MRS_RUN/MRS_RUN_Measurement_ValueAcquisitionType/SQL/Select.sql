@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	mrs_run_measurement_valueacquisitiontypes
+WHERE 
+	MRS_RUN_Measurement_ValueAcquisitionTypeID = @MRS_RUN_Measurement_ValueAcquisitionTypeID

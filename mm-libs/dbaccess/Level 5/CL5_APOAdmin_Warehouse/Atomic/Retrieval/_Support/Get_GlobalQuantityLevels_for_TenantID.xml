@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="09/11/2014 10:30:44">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_GlobalQuantityLevels_for_TenantID</Name>
+    <Namespace>CL5_APOAdmin_Warehouse.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOAdmin_Warehouse.Atomic.Retrieval"
+                Method_ClassName="cls_Get_GlobalQuantityLevels_for_TenantID"
+                Method_Name="Get_GlobalQuantityLevels_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_GlobalQuantityLevels_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  log_wrh_warehouses.LOG_WRH_WarehouseID,
+  log_wrh_warehouse_2_quantitylevels.AssignmentID,
+  log_wrh_quantitylevels.Quantity_RecommendedMinimumCalculation,
+  log_wrh_quantitylevels.Quantity_Minimum,
+  log_wrh_warehouses.Warehouse_Name,
+  log_wrh_quantitylevels.LOG_WRH_QuantityLevelID
+From
+  log_wrh_warehouses Left Join
+  log_wrh_warehouse_2_quantitylevels On log_wrh_warehouses.LOG_WRH_WarehouseID =
+    log_wrh_warehouse_2_quantitylevels.LOG_WRH_Warehouse_RefID Left Join
+  log_wrh_quantitylevels On log_wrh_quantitylevels.LOG_WRH_QuantityLevelID =
+    log_wrh_warehouse_2_quantitylevels.LOG_WRH_QuantityLevel_RefID
+Where
+  log_wrh_warehouses.Tenant_RefID = @TenantID And
+  log_wrh_warehouses.IsDeleted = 0 
+  
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5W_GGQLfT_1029" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_WRH_WarehouseID" Type="Guid"  />
+				<ClassMember Name="AssignmentID" Type="Guid"  />
+				<ClassMember Name="Quantity_RecommendedMinimumCalculation" Type="decimal"  />
+				<ClassMember Name="Quantity_Minimum" Type="decimal"  />
+                <ClassMember Name="Warehouse_Name" Type="String"  />
+                <ClassMember Name="LOG_WRH_QuantityLevelID" Type="Guid"  />
+            </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

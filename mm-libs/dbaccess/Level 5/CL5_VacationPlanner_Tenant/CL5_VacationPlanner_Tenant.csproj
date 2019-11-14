@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7ABB059C-8AA5-4A23-8FCE-67D3EB8CADBE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_VacationPlanner_Tenant</RootNamespace>
+    <AssemblyName>CL5_VacationPlanner_Tenant</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_CalculationTimeFrame.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Calendar_Lockperiods.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_CompanyTimeTracking_Function_Level_Right.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_SettingProfile.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Tenant.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Tenant_Calendar.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Tenant_CountryList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Active_CalculationTimeFrame.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_CalculationTimeFramesForLeaveRequest.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_CalculationTimeFramesForTenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Calendar_LockPeriodsForTenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_CompanyTimeTrackingAccount.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_SettingProfile_For_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_get_Tenant_Informations.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Unlocked_CalendarPeriod.cs" />
+    <Compile Include="Complex\Manipulation\cls_Check_TimeFrames.cs" />
+    <Compile Include="Complex\Manipulation\cls_Close_TimeFrame.cs" />
+    <Compile Include="Complex\Manipulation\cls_Open_TimeFrame.cs" />
+    <Compile Include="Complex\Retrieval\cls_Check_ForExistingTimeframes.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_CalculationTimeFramesForTenant_And_Year.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Save_Tenant_CountryList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_CalculationTimeFrame.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Calendar_Lockperiods.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_SettingProfile.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_Tenant_Calendar.xml" />
+    <Content Include="Atomic\Manipulation\_Support\Save_CompanyTimeTracking_Function_Level_Right.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_CompanyTimeTrackingAccount.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_CompanyTimeTrackingAccount.xml" />
+    <Content Include="Complex\Manipulation\_Support\Check_TimeFrames.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Close_TimeFrame.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Open_TimeFrame.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Check_ForExistingTimeframes.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_CalculationTimeFramesForTenant_And_Year.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Unlocked_CalendarPeriod.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_get_Tenant_Informations.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Calendar_LockPeriodsForTenant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_CalculationTimeFramesForTenant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Active_CalculationTimeFrame.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_SettingProfile_For_Tenant.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Active_CalculationTimeFrame.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_CalculationTimeFramesForLeaveRequest.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_CalculationTimeFramesForTenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Calendar_LockPeriodsForTenant.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_SettingProfile_For_Tenant.xml" />
+    <Content Include="Atomic\Retrieval\_Support\get_Tenant_Informations.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Unlocked_CalendarPeriod.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\apps\plannico.urlabsplaner.core\PlannicoModel\PlannicoModel.csproj">
+      <Project>{305EE153-084B-4596-9ADC-FA04D5A45DD6}</Project>
+      <Name>PlannicoModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_EMP\CL1_CMN_BPT_EMP.csproj">
+      <Project>{2385DE36-25FE-49CE-B27B-E70E7E2EB0A1}</Project>
+      <Name>CL1_CMN_BPT_EMP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_EMP_STA\CL1_CMN_BPT_EMP_STA.csproj">
+      <Project>{7B649717-3DA9-42F5-A968-EE7059DE0197}</Project>
+      <Name>CL1_CMN_BPT_EMP_STA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_STA\CL1_CMN_BPT_STA.csproj">
+      <Project>{B15D38AC-4D53-4DDD-9D62-F4077498ECA1}</Project>
+      <Name>CL1_CMN_BPT_STA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_CAL\CL1_CMN_CAL.csproj">
+      <Project>{C6107EF8-3603-4EDA-B158-42404049F249}</Project>
+      <Name>CL1_CMN_CAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR\CL1_CMN_STR.csproj">
+      <Project>{B6524266-049E-4266-981E-FCFCEBB8C86C}</Project>
+      <Name>CL1_CMN_STR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_STR_SCE\CL1_CMN_STR_SCE.csproj">
+      <Project>{EFC1DF6B-4B7C-4219-A6A8-4D692ACF419A}</Project>
+      <Name>CL1_CMN_STR_SCE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{FEAB6F0E-56F1-43D4-BEF0-988B26474DD2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Country\CL2_Country.csproj">
+      <Project>{0F1DCDD3-19BB-44B1-8058-DB5B69B81784}</Project>
+      <Name>CL2_Country</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_FunctionLevelRight\CL2_FunctionLevelRight.csproj">
+      <Project>{84A26BA8-E674-41B7-A174-9B6ACD90879D}</Project>
+      <Name>CL2_FunctionLevelRight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Language\CL2_Language.csproj">
+      <Project>{58245A4D-887C-4AA1-B01E-7E6779C4F096}</Project>
+      <Name>CL2_Language</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_VacationPlanner_Office\CL5_VacationPlanner_Office.csproj">
+      <Project>{016A5BB0-C2AA-4545-840A-002620E51F0F}</Project>
+      <Name>CL5_VacationPlanner_Office</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

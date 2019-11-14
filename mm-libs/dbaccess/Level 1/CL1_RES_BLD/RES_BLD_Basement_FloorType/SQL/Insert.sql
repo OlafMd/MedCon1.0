@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_bld_basement_floortypes
+	(
+		RES_BLD_Basement_FloorTypeID,
+		GlobalPropertyMatchingID,
+		FloorType_Name_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_BLD_Basement_FloorTypeID,
+		@GlobalPropertyMatchingID,
+		@FloorType_Name,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

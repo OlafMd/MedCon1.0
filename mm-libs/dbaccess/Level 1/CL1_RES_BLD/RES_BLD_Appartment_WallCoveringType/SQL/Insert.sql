@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_bld_appartment_wallcoveringtypes
+	(
+		RES_BLD_Appartment_WallCoveringTypeID,
+		GlobalPropertyMatchingID,
+		WallCoveringType_Name_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_BLD_Appartment_WallCoveringTypeID,
+		@GlobalPropertyMatchingID,
+		@WallCoveringType_Name,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 1/21/2015 3:48:00 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="DOC_DocumentRevision"
+                IsClass="true"
+                IsClass_Namespace="CL1_DOC"
+                IsClass_Corresponding_DBTable="doc_documentrevisions" >
+      <Members>
+		<ClassMember Name="DOC_DocumentRevisionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Document_RefID" Type="Guid" />
+		<ClassMember Name="Revision" Type="int" />
+		<ClassMember Name="IsLocked" Type="Boolean" />
+		<ClassMember Name="IsLastRevision" Type="Boolean" />
+		<ClassMember Name="UploadedByAccount" Type="Guid" />
+		<ClassMember Name="File_Name" Type="String" />
+		<ClassMember Name="File_Description" Type="String" />
+		<ClassMember Name="File_SourceLocation" Type="String" />
+		<ClassMember Name="File_ServerLocation" Type="String" />
+		<ClassMember Name="File_MIMEType" Type="String" />
+		<ClassMember Name="File_Extension" Type="String" />
+		<ClassMember Name="File_Size_Bytes" Type="long" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

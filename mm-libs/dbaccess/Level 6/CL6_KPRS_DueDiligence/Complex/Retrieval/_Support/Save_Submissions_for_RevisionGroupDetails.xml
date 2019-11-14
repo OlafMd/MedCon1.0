@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/27/2012 11:51:28 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="CL5_KPRS_DueDiligences.Complex.Retrieval"
+								Method_ClassName="cls_Save_Submissions_for_RevisionGroupDetails"
+								Method_Name="Save_Submissions_for_RevisionGroupDetails"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=".Save_Submissions_for_RevisionGroupDetails"
+								/>
+
+  <Parameters IsClass="true" Name="P_L6DD_SSfRGD_1503">
+    <Members>
+      <ClassMember Name="Name" Type="String" />
+      <ClassMember Name="Comment" Type="String" />
+      <ClassMember Name="SubmittedByAccount" Type="Guid" />
+      <ClassMember Name="SubmittedByAccount_FirstName" Type="String" />
+      <ClassMember Name="SubmittedByAccount_LastName" Type="String" />
+      <ClassMember Name="Currency" Type="String" />
+      <ClassMember Name="CreationTimestamp" Type="DateTime" />
+      <ClassMember Name="RevisionGroupID" Type="Guid" />
+      <ClassMember Name="Revisions" Type="L6DD_SSfRGd_1503_Revision" IsClass="true" IsArray="true">
+        <Members>
+          <ClassMember Name="RevisionID" Type="Guid"/>
+          <ClassMember Name="QuestionnaireVersionID" Type="Guid"/>
+          <ClassMember Name="Comment" Type="String" />
+          <ClassMember Name="Title" Type="String" />
+          <ClassMember Name="Building" Type="L5BL_GBIfBI_1159"  IsArray="false" IsReference="true"/>
+          <ClassMember Name="ApartmentSubmissionInfo" Type="L6DD_SSfRGd_1503_ApartmentSubmissionInfo" IsClass="true" IsArray="true">
+            <Members>
+              <ClassMember Name="RES_STR_ApartmentID" Type="Guid"  />
+              <ClassMember Name="RES_BLD_Apartment_RefID" Type="Guid"  />
+              <ClassMember Name="AverageRating_RefID" Type="Guid"  />
+              <ClassMember Name="Apartment_DocumentHeader_RefID" Type="Guid"  />
+              <ClassMember Name="Apartment_Comment" Type="String"  />
+              <ClassMember Name="IsAppartment_ForRent" Type="bool"  />
+              <ClassMember Name="ApartmentSize_Unit_RefID" Type="Guid"  />
+              <ClassMember Name="ApartmentSize_Value" Type="double"  />
+              <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+              <ClassMember IsClass="true" IsArray="true" Name="ApartmentPropertyAsessments" Type="L6DD_SSfRGd_1503_ApartmentPropertyAsessment" >
+                <Members>
+                  <ClassMember Name="RES_STR_Apartment_PropertyAssessmentID" Type="Guid"  />
+                  <ClassMember Name="Rating_RefID" Type="Guid"  />
+
+                  <ClassMember Name="DocumentHeader_RefID" Type="Guid"  />
+                  <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+                  <ClassMember Name="RES_STR_Apartment_PropertyID" Type="Guid"  />
+                  <ClassMember Name="PropertyAssessment_Comment" Type="String"  />
+                  <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+                  <ClassMember IsClass="true" IsArray="true" Name="ApartmentReqActions" Type="L6DD_SSfRGd_1503_ApartmentReqAction" >
+                    <Members>
+                      <ClassMember Name="RES_STR_Apartment_RequiredActionID" Type="Guid"  />
+                      <ClassMember Name="SelectedActionVersion_RefID" Type="Guid"  />
+                      <ClassMember Name="RequiredAction_Comment" Type="String"  />
+                      <ClassMember Name="Action_PricePerUnit_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_Unit_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_UnitAmount" Type="double"  />
+                      <ClassMember Name="IsCustom" Type="bool"  />
+                      <ClassMember Name="IfCustom_Name" Type="String"  />
+                      <ClassMember Name="IfCustom_Description" Type="String"  />
+                      <ClassMember Name="EffectivePrice_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_Timeframe_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_Name" Type="Dict" OriginTable="res_act_action_version" Source_DBField="Action_Name_DictID"  />
+                      <ClassMember Name="PriceValue_Amount" Type="double"  />
+                    </Members>
+                  </ClassMember>
+                </Members>
+              </ClassMember>
+            </Members>
+          </ClassMember>
+
+          <ClassMember Name="AtticSubmissionInfo" Type="L6DD_SSfRGd_1503_AtticSubmissionInfo" IsClass="true" IsArray="true">
+            <Members>
+              <ClassMember Name="RES_BLD_Attic_RefID" Type="Guid"  />
+              <ClassMember Name="RES_STR_AtticID" Type="Guid"  />
+              <ClassMember Name="Attic_DocumentHeader_RefID" Type="Guid"  />
+              <ClassMember Name="AverageRating_RefID" Type="Guid"  />
+              <ClassMember Name="Attic_Comment" Type="String"  />
+              <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+              <ClassMember IsClass="true" IsArray="true" Name="AtticPropertyAsessments" Type="L6DD_SSfRGd_1503_AtticPropertyAsessment"  >
+                <Members>
+                  <ClassMember Name="RES_STR_Attic_PropertyAssessmentID" Type="Guid"  />
+                  <ClassMember Name="DocumentHeader_RefID" Type="Guid"  />
+                  <ClassMember Name="Rating_RefID" Type="Guid"  />
+                  <ClassMember Name="PropertyAssessment_Comment" Type="String"  />
+                  <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+                  <ClassMember Name="RES_STR_Attic_PropertyID" Type="Guid"  />
+                  <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+                  <ClassMember IsClass="true" IsArray="true" Name="AtticReqActions" Type="L6DD_SSfRGd_1503_AtticReqAction" >
+                    <Members>
+                      <ClassMember Name="Action_Timeframe_RefID" Type="Guid"  />
+                      <ClassMember Name="RequiredAction_Comment" Type="String"  />
+                      <ClassMember Name="IfCustom_Description" Type="String"  />
+                      <ClassMember Name="IfCustom_Name" Type="String"  />
+                      <ClassMember Name="IsCustom" Type="bool"  />
+                      <ClassMember Name="Action_UnitAmount" Type="double"  />
+                      <ClassMember Name="Action_PricePerUnit_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_Unit_RefID" Type="Guid"  />
+                      <ClassMember Name="SelectedActionVersion_RefID" Type="Guid"  />
+                      <ClassMember Name="RES_STR_Attic_RequiredActionID" Type="Guid"  />
+                      <ClassMember Name="EffectivePrice_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_Name" Type="Dict" OriginTable="res_act_action_version" Source_DBField="Action_Name_DictID"  />
+                      <ClassMember Name="PriceValue_Amount" Type="double"  />
+                    </Members>
+                  </ClassMember>
+                </Members>
+              </ClassMember>
+            </Members>
+          </ClassMember>
+
+          <ClassMember Name="BasementSubmissionInfo" Type="L6DD_SSfRGd_1503_BasementSubmissionInfo" IsClass="true" IsArray="true">
+            <Members>
+              <ClassMember Name="RES_STR_BasementID" Type="Guid"  />
+              <ClassMember Name="RES_BLD_Basement_RefID" Type="Guid"  />
+              <ClassMember Name="Basement_DocumentHeader_RefID" Type="Guid"  />
+              <ClassMember Name="AverageRating_RefID" Type="Guid"  />
+              <ClassMember Name="Basement_Comment" Type="String"  />
+              <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+              <ClassMember IsClass="true" IsArray="true" Name="BasementPropertyAsessments" Type="L6DD_SSfRGd_1503_BasementPropertyAsessment"  >
+                <Members>
+                  <ClassMember Name="RES_STR_Basement_PropertyAssessmentID" Type="Guid"  />
+                  <ClassMember Name="RES_STR_Basement_PropertyID" Type="Guid"  />
+                  <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+                  <ClassMember Name="DocumentHeader_RefID" Type="Guid"  />
+                  <ClassMember Name="PropertyAssessment_Comment" Type="String"  />
+                  <ClassMember Name="Rating_RefID" Type="Guid"  />
+                  <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+                  <ClassMember IsClass="true" IsArray="true" Name="BasementReqActions" Type="L6DD_SSfRGd_1503_BasementReqAction" >
+                    <Members>
+                      <ClassMember Name="RES_STR_Basement_RequiredActionID" Type="Guid"  />
+                      <ClassMember Name="SelectedActionVersion_RefID" Type="Guid"  />
+                      <ClassMember Name="EffectivePrice_RefID" Type="Guid"/>
+                      <ClassMember Name="Action_PricePerUnit_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_Unit_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_UnitAmount" Type="double"  />
+                      <ClassMember Name="IsCustom" Type="bool"  />
+                      <ClassMember Name="IfCustom_Name" Type="String"  />
+                      <ClassMember Name="IfCustom_Description" Type="String"  />
+                      <ClassMember Name="Action_Timeframe_RefID" Type="Guid"  />
+                      <ClassMember Name="RequiredAction_Comment" Type="String"  />
+                      <ClassMember Name="Action_Name" Type="Dict" OriginTable="res_act_action_version" Source_DBField="Action_Name_DictID"  />
+                      <ClassMember Name="PriceValue_Amount" Type="double"  />
+                    </Members>
+                  </ClassMember>
+                </Members>
+              </ClassMember>
+            </Members>
+          </ClassMember>
+
+          <ClassMember Name="OutdoorFascilitySubmissionInfo" Type="L6DD_SSfRGd_1503_OutdoorFascilitySubmissionInfo" IsClass="true" IsArray="true">
+            <Members>
+              <ClassMember Name="RES_BLD_OutdoorFacility_RefID" Type="Guid"  />
+              <ClassMember Name="RES_STR_OutdoorFacilityID" Type="Guid"  />
+              <ClassMember Name="OutdoorF_DocumentHeader_RefID" Type="Guid"  />
+              <ClassMember Name="OutdoorF_Comment" Type="String"  />
+              <ClassMember Name="AverageRating_RefID" Type="Guid" />
+              <ClassMember Name="NumberOfGaragePlaces" Type="int"  />
+              <ClassMember Name="NumberOfRentedGaragePlaces" Type="int" />
+              <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+              <ClassMember IsClass="true" IsArray="true" Name="OutdoorFacilityAsessments" Type="L6DD_SSfRGd_1503_OutdoorFacilityPropertyAsessment"  >
+                <Members>
+                  <ClassMember Name="RES_STR_OutdoorFacility_PropertyAssessmentID" Type="Guid"  />
+                  <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+                  <ClassMember Name="RES_STR_OutdoorFacility_PropertyID" Type="Guid"  />
+                  <ClassMember Name="Rating_RefID" Type="Guid"  />
+                  <ClassMember Name="PropertyAssessment_Comment" Type="String"  />
+                  <ClassMember Name="DocumentHeader_RefID" Type="Guid"  />
+                  <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+
+                  <ClassMember IsClass="true" IsArray="true" Name="OutdoorFacilityReqActions" Type="L6DD_SSfRGd_1503_OutdoorFacilityReqAction" >
+                    <Members>
+                      <ClassMember Name="RES_STR_OutdoorFacility_RequiredActionID" Type="Guid"  />
+                      <ClassMember Name="Action_Timeframe_RefID" Type="Guid"  />
+                      <ClassMember Name="IfCustom_Description" Type="String"  />
+                      <ClassMember Name="IfCustom_Name" Type="String"  />
+                      <ClassMember Name="IsCustom" Type="bool"  />
+                      <ClassMember Name="Action_UnitAmount" Type="double"  />
+                      <ClassMember Name="Action_Unit_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_PricePerUnit_RefID" Type="Guid"  />
+                      <ClassMember Name="SelectedActionVersion_RefID" Type="Guid"  />
+                      <ClassMember Name="RequiredAction_Comment" Type="String"  />
+                      <ClassMember Name="EffectivePrice_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_Name" Type="Dict" OriginTable="res_act_action_version" Source_DBField="Action_Name_DictID"  />
+                      <ClassMember Name="PriceValue_Amount" Type="double"  />
+                    </Members>
+                  </ClassMember>
+                </Members>
+              </ClassMember>
+            </Members>
+          </ClassMember>
+
+          <ClassMember Name="RoofSubmissionInfo" Type="L6DD_SSfRGd_1503_RoofSubmissionInfo" IsClass="true" IsArray="true">
+            <Members>
+              <ClassMember Name="RES_STR_RoofID" Type="Guid"  />
+              <ClassMember Name="RES_BLD_Roof_RefID" Type="Guid"  />
+              <ClassMember Name="Roof_DocumentHeader_RefID" Type="Guid"  />
+              <ClassMember Name="Roof_Comment" Type="String"  />
+              <ClassMember Name="AverageRating_RefID" Type="Guid"  />
+              <ClassMember Name="STR_Roof_RefID" Type="Guid"  />
+              <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+              <ClassMember IsClass="true" IsArray="true" Name="RoofPropertyAsessments" Type="L6DD_SSfRGd_1503_RoofPropertyAsessment" >
+                <Members>
+                  <ClassMember Name="RES_STR_Roof_PropertyAssessmentID" Type="Guid"  />
+
+                  <ClassMember Name="PropertyAssessment_Comment" Type="String"  />
+                  <ClassMember Name="Rating_RefID" Type="Guid"  />
+                  <ClassMember Name="RES_STR_Roof_PropertyID" Type="Guid"  />
+                  <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+                  <ClassMember Name="DocumentHeader_RefID" Type="Guid"  />
+                  <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+                  <ClassMember IsClass="true" IsArray="true" Name="RoofReqActions" Type="L6DD_SSfRGd_1503_RoofReqAction" >
+                    <Members>
+                      <ClassMember Name="RequiredAction_Comment" Type="String"  />
+                      <ClassMember Name="SelectedActionVersion_RefID" Type="Guid"  />
+                      <ClassMember Name="RES_STR_Roof_RequiredActionID" Type="Guid"  />
+                      <ClassMember Name="Action_PricePerUnit_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_Unit_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_UnitAmount" Type="double"  />
+                      <ClassMember Name="Action_Timeframe_RefID" Type="Guid"  />
+                      <ClassMember Name="IsCustom" Type="bool"  />
+                      <ClassMember Name="IfCustom_Name" Type="String"  />
+                      <ClassMember Name="IfCustom_Description" Type="String"  />
+                      <ClassMember Name="EffectivePrice_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_Name" Type="Dict" OriginTable="res_act_action_version" Source_DBField="Action_Name_DictID"  />
+                      <ClassMember Name="PriceValue_Amount" Type="double"  />
+
+                    </Members>
+                  </ClassMember>
+                </Members>
+              </ClassMember>
+            </Members>
+          </ClassMember>
+
+          <ClassMember Name="HVACRSubmissionInfo" Type="L6DD_SSfRGd_1503_HVACRSubmissionInfo" IsClass="true" IsArray="true">
+            <Members>
+              <ClassMember Name="RES_STR_HVACRID" Type="Guid"  />
+              <ClassMember Name="RES_BLD_HVACR_RefID" Type="Guid"  />
+              <ClassMember Name="HVACR_DocumentHeader_RefID" Type="Guid"  />
+              <ClassMember Name="AverageRating_RefID" Type="Guid"  />
+              <ClassMember Name="HVACR_Comment" Type="String"  />
+              <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+              <ClassMember IsClass="true" IsArray="true" Name="HVACRPropertyAsessments" Type="L6DD_SSfRGd_1503_HVACRPropertyAsessment"  >
+                <Members>
+                  <ClassMember Name="RES_STR_HVACR_PropertyAssessmentID" Type="Guid"  />
+                  <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+                  <ClassMember Name="Rating_RefID" Type="Guid"  />
+                  <ClassMember Name="PropertyAssessment_Comment" Type="String"  />
+                  <ClassMember Name="DocumentHeader_RefID" Type="Guid"  />
+                  <ClassMember Name="RES_STR_HVACR_PropertyID" Type="Guid"  />
+                  <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+
+                  <ClassMember IsClass="true" IsArray="true" Name="HVACRReqActions" Type="L6DD_SSfRGd_1503_HVACRReqAction" >
+                    <Members>
+                      <ClassMember Name="Action_Timeframe_RefID" Type="Guid"  />
+                      <ClassMember Name="IfCustom_Description" Type="String"  />
+                      <ClassMember Name="IfCustom_Name" Type="String"  />
+                      <ClassMember Name="IsCustom" Type="bool"  />
+                      <ClassMember Name="Action_Unit_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_PricePerUnit_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_UnitAmount" Type="double"  />
+                      <ClassMember Name="SelectedActionVersion_RefID" Type="Guid"  />
+                      <ClassMember Name="RES_STR_HVACR_RequiredActionID" Type="Guid"  />
+                      <ClassMember Name="RequiredAction_Comment" Type="String"  />
+                      <ClassMember Name="EffectivePrice_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_Name" Type="Dict" OriginTable="res_act_action_version" Source_DBField="Action_Name_DictID"  />
+                      <ClassMember Name="PriceValue_Amount" Type="double"  />
+                    </Members>
+                  </ClassMember>
+                </Members>
+              </ClassMember>
+            </Members>
+          </ClassMember>
+
+          <ClassMember Name="StaircaseSubmissionInfo" Type="L6DD_SSfRGd_1503_StaircaseSubmissionInfo" IsClass="true" IsArray="true">
+            <Members>
+              <ClassMember Name="Staircase_DocumentHeader_RefID" Type="Guid"  />
+              <ClassMember Name="Staircase_Comment" Type="String"  />
+              <ClassMember Name="AverageRating_RefID" Type="Guid"  />
+              <ClassMember Name="RES_STR_StaircaseID" Type="Guid"  />
+              <ClassMember Name="RES_BLD_Staircase_RefID" Type="Guid"  />
+              <ClassMember Name="StaircaseSize_Unit_RefID" Type="Guid"  />
+              <ClassMember Name="StaircaseSize_Value" Type="Double"  />
+              <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+              <ClassMember IsClass="true" IsArray="true" Name="StaircasePropertyAsessments" Type="L6DD_SSfRGd_1503_StaircasePropertyAsessment"  >
+                <Members>
+
+
+                  <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+                  <ClassMember Name="RES_STR_Staircase_PropertyID" Type="Guid"  />
+                  <ClassMember Name="RES_STR_Staircase_PropertyAssessmentID" Type="Guid"  />
+                  <ClassMember Name="Rating_RefID" Type="Guid"  />
+                  <ClassMember Name="DocumentHeader_RefID" Type="Guid"  />
+                  <ClassMember Name="PropertyAssessment_Comment" Type="String"  />
+                  <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+
+                  <ClassMember IsClass="true" IsArray="true" Name="StaircaseReqActions" Type="L6DD_SSfRGd_1503_StaircaseReqAction" >
+                    <Members>
+                      <ClassMember Name="RES_STR_Staircase_RequiredActionID" Type="Guid"  />
+                      <ClassMember Name="SelectedActionVersion_RefID" Type="Guid"  />
+                      <ClassMember Name="RequiredAction_Comment" Type="String"  />
+                      <ClassMember Name="Action_PricePerUnit_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_Unit_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_UnitAmount" Type="double"  />
+                      <ClassMember Name="IsCustom" Type="bool"  />
+                      <ClassMember Name="IfCustom_Name" Type="String"  />
+                      <ClassMember Name="IfCustom_Description" Type="String"  />
+                      <ClassMember Name="Action_Timeframe_RefID" Type="Guid"  />
+                      <ClassMember Name="EffectivePrice_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_Name" Type="Dict" OriginTable="res_act_action_version" Source_DBField="Action_Name_DictID"  />
+                      <ClassMember Name="PriceValue_Amount" Type="double"  />
+
+                    </Members>
+                  </ClassMember>
+                </Members>
+              </ClassMember>
+            </Members>
+          </ClassMember>
+
+          <ClassMember Name="FacadeSubmissionInfo" Type="L6DD_SSfRGd_1503_FacadeSubmissionInfo" IsClass="true" IsArray="true">
+            <Members>
+              <ClassMember Name="RES_STR_FacadeID" Type="Guid"  />
+              <ClassMember Name="Facade_DocumentHeader_RefID" Type="Guid"  />
+              <ClassMember Name="Facade_Comment" Type="String"  />
+              <ClassMember Name="AverageRating_RefID" Type="Guid"  />
+              <ClassMember Name="RES_BLD_Facade_RefID" Type="Guid"  />
+              <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+              <ClassMember IsClass="true" IsArray="true" Name="FacadePropertyAsessments" Type="L6DD_SSfRGd_1503_FacadePropertyAsessment"  >
+                <Members>
+                  <ClassMember Name="RES_STR_Facade_PropertyAssessmentID" Type="Guid"  />
+                  <ClassMember Name="DocumentHeader_RefID" Type="Guid"  />
+                  <ClassMember Name="Rating_RefID" Type="Guid"  />
+                  <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+                  <ClassMember Name="RES_STR_Facade_PropertyID" Type="Guid"  />
+                  <ClassMember Name="PropertyAssessment_Comment" Type="String"  />
+                  <ClassMember Name="Images" Type="Guid" IsArray="true"  IsReference ="true"/>
+                  <ClassMember IsClass="true" IsArray="true" Name="FacadeReqActions" Type="L6DD_SSfRGd_1503_FacadeReqAction" >
+                    <Members>
+                      <ClassMember Name="SelectedActionVersion_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_PricePerUnit_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_UnitAmount" Type="double"  />
+                      <ClassMember Name="Action_Unit_RefID" Type="Guid"  />
+                      <ClassMember Name="RES_STR_Facade_RequiredActionID" Type="Guid"  />
+                      <ClassMember Name="IfCustom_Description" Type="String"  />
+                      <ClassMember Name="IfCustom_Name" Type="String"  />
+                      <ClassMember Name="IsCustom" Type="bool"  />
+                      <ClassMember Name="Action_Timeframe_RefID" Type="Guid"  />
+                      <ClassMember Name="RequiredActions_Comment" Type="String"  />
+                      <ClassMember Name="EffectivePrice_RefID" Type="Guid"  />
+                      <ClassMember Name="Action_Name" Type="Dict" OriginTable="res_act_action_version" Source_DBField="Action_Name_DictID"  />
+                      <ClassMember Name="PriceValue_Amount" Type="double"  />
+
+                    </Members>
+                  </ClassMember>
+                </Members>
+              </ClassMember>
+            </Members>
+          </ClassMember>
+        </Members>
+      </ClassMember>
+      <ClassMember Name="Prices" Type="L3PR_GPIfP_1135" IsArray="true" IsReference="true"/>
+    </Members>
+
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+    <StandardReturnType_Definition IsArray="false" returnType="Guid"/>
+
+
+  </ResultInfo>
+
+</CodeGen>

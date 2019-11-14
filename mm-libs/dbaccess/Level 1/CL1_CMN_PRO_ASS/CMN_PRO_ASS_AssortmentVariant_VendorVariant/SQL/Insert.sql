@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_pro_ass_assortmentvariant_vendorvariants
+	(
+		CMN_PRO_ASS_AssortmentVariant_VendorVariantID,
+		CMN_PRO_ASS_AssortmentVariant_RefID,
+		CMN_PRO_Product_Variant_RefID,
+		IsDefaultVendorVariant,
+		OrderSequence,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_PRO_ASS_AssortmentVariant_VendorVariantID,
+		@CMN_PRO_ASS_AssortmentVariant_RefID,
+		@CMN_PRO_Product_Variant_RefID,
+		@IsDefaultVendorVariant,
+		@OrderSequence,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

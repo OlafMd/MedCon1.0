@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{86752CE8-6442-4C3F-A316-98FADBB38BE1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_CMN_SLS</RootNamespace>
+    <AssemblyName>CL1_CMN_SLS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDtMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDtMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDyMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDyMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CMN_SLS_DynamicPricingFormula_Type\ORM_CMN_SLS_DynamicPricingFormula_Type.cs" />
+    <Compile Include="CMN_SLS_PointOfSale\ORM_CMN_SLS_PointOfSale.cs" />
+    <Compile Include="CMN_SLS_Pricelist\ORM_CMN_SLS_Pricelist.cs" />
+    <Compile Include="CMN_SLS_Pricelist_Discount\ORM_CMN_SLS_Pricelist_Discount.cs" />
+    <Compile Include="CMN_SLS_Pricelist_Release\ORM_CMN_SLS_Pricelist_Release.cs" />
+    <Compile Include="CMN_SLS_Price\ORM_CMN_SLS_Price.cs" />
+    <Compile Include="CMN_SLS_Price_RoundingLevel\ORM_CMN_SLS_Price_RoundingLevel.cs" />
+    <Compile Include="CMN_SLS_Price_RoundingRuleSet\ORM_CMN_SLS_Price_RoundingRuleSet.cs" />
+    <Compile Include="CMN_SLS_Price_Rounding\ORM_CMN_SLS_Price_Rounding.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_SLS_Price_RoundingLevel\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_SLS_Price_RoundingLevel\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_SLS_Price_RoundingLevel\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_SLS_Price_RoundingRuleSet\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_SLS_Price_RoundingRuleSet\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_SLS_Price_RoundingRuleSet\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_SLS_Price_Rounding\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_SLS_Price_Rounding\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_SLS_Price_Rounding\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_SLS_DynamicPricingFormula_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_SLS_DynamicPricingFormula_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_SLS_DynamicPricingFormula_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_SLS_PointOfSale\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_SLS_PointOfSale\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_SLS_PointOfSale\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_SLS_DynamicPricingFormula_Types.xml" />
+    <Content Include="_Support\CMN_SLS_PointOfSales.xml" />
+    <Content Include="_Support\CMN_SLS_Price_Rounding.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\CMN_SLS_Price_RoundingLevels.xml" />
+    <Content Include="_Support\CMN_SLS_Price_RoundingRuleSet.xml" />
+    <EmbeddedResource Include="CMN_SLS_Price\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_SLS_Price\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_SLS_Price\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_SLS_Pricelist\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_SLS_Pricelist\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_SLS_Pricelist\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_SLS_Pricelist_Discount\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_SLS_Pricelist_Discount\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_SLS_Pricelist_Discount\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_SLS_Pricelist_Release\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_SLS_Pricelist_Release\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_SLS_Pricelist_Release\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_SLS_Pricelist.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\CMN_SLS_Pricelist_Discounts.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\CMN_SLS_Pricelist_Releases.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\CMN_SLS_Prices.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,21 @@
+UPDATE 
+	doc_documentrevisions
+SET 
+	Document_RefID=@Document_RefID,
+	Revision=@Revision,
+	IsLocked=@IsLocked,
+	IsLastRevision=@IsLastRevision,
+	UploadedByAccount=@UploadedByAccount,
+	File_Name=@File_Name,
+	File_Description=@File_Description,
+	File_SourceLocation=@File_SourceLocation,
+	File_ServerLocation=@File_ServerLocation,
+	File_MIMEType=@File_MIMEType,
+	File_Extension=@File_Extension,
+	File_Size_Bytes=@File_Size_Bytes,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	DOC_DocumentRevisionID = @DOC_DocumentRevisionID

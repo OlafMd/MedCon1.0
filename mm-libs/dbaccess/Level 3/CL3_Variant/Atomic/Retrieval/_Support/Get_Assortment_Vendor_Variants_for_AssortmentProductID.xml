@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/1/2015 19:28:16">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Assortment_Vendor_Variants_for_AssortmentProductID</Name>
+    <Namespace>CL3_Variant.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Variant.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Assortment_Vendor_Variants_for_AssortmentProductID"
+                Method_Name="Get_Assortment_Vendor_Variants_for_AssortmentProductID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Assortment_Vendor_Variants_for_AssortmentProductID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT cmn_pro_ass_assortmentvariant_vendorvariants.CMN_PRO_ASS_AssortmentVariant_VendorVariantID,
+	       cmn_pro_ass_assortmentvariants.CMN_PRO_ASS_AssortmentVariantID,
+	       cmn_pro_ass_assortmentvariant_vendorvariants.CMN_PRO_Product_Variant_RefID
+	FROM cmn_pro_ass_assortmentvariants
+	INNER JOIN cmn_pro_product_variants ON cmn_pro_ass_assortmentvariants.Ext_CMN_PRO_Product_Variant_RefID = cmn_pro_product_variants.CMN_PRO_Product_VariantID
+	AND cmn_pro_product_variants.Tenant_RefID = @TenantID
+	AND cmn_pro_product_variants.IsDeleted = 0
+	INNER JOIN cmn_pro_ass_assortmentvariant_vendorvariants ON cmn_pro_ass_assortmentvariants.CMN_PRO_ASS_AssortmentVariantID = cmn_pro_ass_assortmentvariant_vendorvariants.CMN_PRO_ASS_AssortmentVariant_RefID
+	AND cmn_pro_ass_assortmentvariant_vendorvariants.Tenant_RefID = @TenantID
+	AND cmn_pro_ass_assortmentvariant_vendorvariants.IsDeleted = 0
+	WHERE cmn_pro_product_variants.CMN_PRO_Product_RefID = @ProductID
+	  AND cmn_pro_ass_assortmentvariants.Tenant_RefID = @TenantID
+	  AND cmn_pro_ass_assortmentvariants.IsDeleted = 0
+    ORDER BY cmn_pro_ass_assortmentvariant_vendorvariants.OrderSequence ASC
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3VA_GAVVfAP_1926">
+    <Members>
+		<ClassMember Name="ProductID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3VA_GAVVfAP_1926" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_PRO_ASS_AssortmentVariant_VendorVariantID" Type="Guid"  />
+				<ClassMember Name="CMN_PRO_ASS_AssortmentVariantID" Type="Guid"  />
+				<ClassMember Name="CMN_PRO_Product_Variant_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

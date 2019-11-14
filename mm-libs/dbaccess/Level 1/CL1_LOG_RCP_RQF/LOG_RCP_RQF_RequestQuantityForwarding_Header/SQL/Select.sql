@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	log_rcp_rqf_requestquantityforwarding_headers
+WHERE 
+	LOG_RCP_RQF_RequestQuantityForwarding_HeaderID = @LOG_RCP_RQF_RequestQuantityForwarding_HeaderID

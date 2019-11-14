@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_ctr_insurancetobrokercontracts_coveredpotentialbillcodes
+WHERE 
+	HEC_CTR_InsuranceToBrokerContracts_CoveredPotentialBillCodeID = @HEC_CTR_InsuranceToBrokerContracts_CoveredPotentialBillCodeID

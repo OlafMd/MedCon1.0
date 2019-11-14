@@ -1,0 +1,11 @@
+UPDATE 
+	hec_act_performedaction_patientprovidedfindings
+SET 
+	HEC_ACT_PerformedAction_RefID=@HEC_ACT_PerformedAction_RefID,
+	HEC_Patient_Finding_RefID=@HEC_Patient_Finding_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_ACT_PerformedAction_PatientProvidedFindingID = @HEC_ACT_PerformedAction_PatientProvidedFindingID

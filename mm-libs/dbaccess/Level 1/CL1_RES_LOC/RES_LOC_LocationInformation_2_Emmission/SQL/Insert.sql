@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_loc_locationinformation_2_emmission
+	(
+		AssignmentID,
+		RES_LOC_LocationInformation_RefID,
+		RES_LOC_Emmission_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@RES_LOC_LocationInformation_RefID,
+		@RES_LOC_Emmission_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

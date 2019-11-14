@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_pps_breaktimes
+	(
+		CMN_PPS_BreakTimeID,
+		BreakTime_Name_DictID,
+		Default_Duration_in_sec,
+		IsBreakfastBreak,
+		IsLunchBreak,
+		IsDinnerBreak,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PPS_BreakTimeID,
+		@BreakTime_Name,
+		@Default_Duration_in_sec,
+		@IsBreakfastBreak,
+		@IsLunchBreak,
+		@IsDinnerBreak,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

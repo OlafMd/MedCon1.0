@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_quicktask_investedworktimes
+	(
+		TMS_QuickTask_InvestedWorkTimeID,
+		TMS_QuickTasks_RefID,
+		CMN_BPT_InvestedWorkTime_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@TMS_QuickTask_InvestedWorkTimeID,
+		@TMS_QuickTasks_RefID,
+		@CMN_BPT_InvestedWorkTime_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

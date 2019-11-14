@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_qst_questionnaire_submissionitems
+	(
+		CMN_QST_Questionnaire_SubmissionItemID,
+		Questionnaire_Submission_RefID,
+		Questionnaire_QuestionItem_RefID,
+		IsAnswerEnum_EnumerationValue_RefID,
+		IsAnswerStandard_Text,
+		IsAswer_Specified,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_QST_Questionnaire_SubmissionItemID,
+		@Questionnaire_Submission_RefID,
+		@Questionnaire_QuestionItem_RefID,
+		@IsAnswerEnum_EnumerationValue_RefID,
+		@IsAnswerStandard_Text,
+		@IsAswer_Specified,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

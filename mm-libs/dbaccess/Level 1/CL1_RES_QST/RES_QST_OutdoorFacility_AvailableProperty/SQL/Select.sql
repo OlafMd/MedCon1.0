@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_qst_outdoorfacility_availableproperties
+WHERE 
+	RES_QST_OutdoorFacility_AvailablePropertyID = @RES_QST_OutdoorFacility_AvailablePropertyID

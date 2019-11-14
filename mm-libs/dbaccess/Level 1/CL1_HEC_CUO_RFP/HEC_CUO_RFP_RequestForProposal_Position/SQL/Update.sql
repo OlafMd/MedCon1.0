@@ -1,0 +1,10 @@
+UPDATE 
+	hec_cuo_rfp_requestforproposal_positions
+SET 
+	Ext_ORD_CUO_RFP_RequestForProposal_Position_RefID=@Ext_ORD_CUO_RFP_RequestForProposal_Position_RefID,
+	ProductReplacement_HealthInsurance_RefID=@ProductReplacement_HealthInsurance_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	HEC_CUO_RFP_RequestForProposal_PositionID = @HEC_CUO_RFP_RequestForProposal_PositionID

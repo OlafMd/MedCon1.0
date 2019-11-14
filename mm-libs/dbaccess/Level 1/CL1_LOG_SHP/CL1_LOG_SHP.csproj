@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E43DE7B7-3C37-46B1-8824-D7313CCD8273}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_LOG_SHP</RootNamespace>
+    <AssemblyName>CL1_LOG_SHP</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LOG_SHP_ReceivableCreditNoteHeader_2_ProcurementOrderHeader\ORM_LOG_SHP_ReceivableCreditNoteHeader_2_ProcurementOrderHeader.cs" />
+    <Compile Include="LOG_SHP_ReturnShipment_Header\ORM_LOG_SHP_ReturnShipment_Header.cs" />
+    <Compile Include="LOG_SHP_ReturnShipment_Position\ORM_LOG_SHP_ReturnShipment_Position.cs" />
+    <Compile Include="LOG_SHP_ReturnShipment_Position_2_ReceivableCreditNote\ORM_LOG_SHP_ReturnShipment_Position_2_ReceivableCreditNote.cs" />
+    <Compile Include="LOG_SHP_ReturnShipment_ReceivableCreditNote_Header\ORM_LOG_SHP_ReturnShipment_ReceivableCreditNote_Header.cs" />
+    <Compile Include="LOG_SHP_ReturnShipment_ReceivableCreditNote_Position\ORM_LOG_SHP_ReturnShipment_ReceivableCreditNote_Position.cs" />
+    <Compile Include="LOG_SHP_ShipmentHeader_2_CustomerOrderHeader\ORM_LOG_SHP_ShipmentHeader_2_CustomerOrderHeader.cs" />
+    <Compile Include="LOG_SHP_ShipmentPosition_2_DeliveryPosition\ORM_LOG_SHP_ShipmentPosition_2_DeliveryPosition.cs" />
+    <Compile Include="LOG_SHP_Shipment_Header\ORM_LOG_SHP_Shipment_Header.cs" />
+    <Compile Include="LOG_SHP_Shipment_Note\ORM_LOG_SHP_Shipment_Note.cs" />
+    <Compile Include="LOG_SHP_Shipment_Position\ORM_LOG_SHP_Shipment_Position.cs" />
+    <Compile Include="LOG_SHP_Shipment_StatusHistory\ORM_LOG_SHP_Shipment_StatusHistory.cs" />
+    <Compile Include="LOG_SHP_Shipment_Status\ORM_LOG_SHP_Shipment_Status.cs" />
+    <Compile Include="LOG_SHP_Shipment_Type\ORM_LOG_SHP_Shipment_Type.cs" />
+    <Compile Include="LOG_WRH_Warehouse_2_WarehouseGroup\ORM_LOG_WRH_Warehouse_2_WarehouseGroup.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_Support\ORD_DIS_DistributionOrder_Headers.xml" />
+    <Content Include="_Support\ORD_DIS_DistributionOrder_Header_Documents.xml" />
+    <Content Include="_Support\ORD_DIS_DistributionOrder_Header_History.xml" />
+    <Content Include="_Support\ORD_DIS_DistributionOrder_Header_SlottedDocuments.xml" />
+    <Content Include="_Support\ORD_DIS_DistributionOrder_Positions.xml" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Header\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Header\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Header\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_SHP_ShipmentPosition_2_DeliveryPosition\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_SHP_ShipmentPosition_2_DeliveryPosition\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_SHP_ShipmentPosition_2_DeliveryPosition\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Position\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Position\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Position\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Status\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Status\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Status\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_StatusHistory\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_StatusHistory\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_StatusHistory\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_SHP_ShipmentHeader_2_CustomerOrderHeader\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_SHP_ShipmentHeader_2_CustomerOrderHeader\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_SHP_ShipmentHeader_2_CustomerOrderHeader\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_Position\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_Position\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_Position\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_Header\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_Header\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_Header\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Note\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Note\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_SHP_Shipment_Note\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_2_WarehouseGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_2_WarehouseGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_Warehouse_2_WarehouseGroup\SQL\Insert.sql" />
+    <Content Include="LOG_SHP_ReceivableCreditNoteHeader_2_ProcurementOrderHeader\SQL\Insert.sql" />
+    <Content Include="LOG_SHP_ReceivableCreditNoteHeader_2_ProcurementOrderHeader\SQL\Select.sql" />
+    <Content Include="LOG_SHP_ReceivableCreditNoteHeader_2_ProcurementOrderHeader\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_Position_2_ReceivableCreditNote\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_Position_2_ReceivableCreditNote\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_Position_2_ReceivableCreditNote\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_ReceivableCreditNote_Header\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_ReceivableCreditNote_Header\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_ReceivableCreditNote_Header\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_ReceivableCreditNote_Position\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_ReceivableCreditNote_Position\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_SHP_ReturnShipment_ReceivableCreditNote_Position\SQL\Update.sql" />
+    <Content Include="_Support\LOG_SHP_ReceivableCreditNoteHeader_2_ProcurementOrderHeader.xml" />
+    <Content Include="_Support\LOG_SHP_ReturnShipment_Position_2_ReceivableCreditNote.xml" />
+    <Content Include="_Support\LOG_SHP_ReturnShipment_ReceivableCreditNote_Headers.xml" />
+    <Content Include="_Support\LOG_SHP_ReturnShipment_ReceivableCreditNote_Positions.xml" />
+    <Content Include="_Support\LOG_WRH_Warehouse_2_WarehouseGroup.xml" />
+    <Content Include="_Support\LOG_SHP_ReturnShipment_Headers.xml" />
+    <Content Include="_Support\LOG_SHP_ReturnShipment_Positions.xml" />
+    <Content Include="_Support\LOG_SHP_ShipmentHeader_2_CustomerOrderHeader.xml" />
+    <Content Include="_Support\LOG_SHP_ShipmentPosition_2_DeliveryPosition.xml" />
+    <Content Include="_Support\LOG_SHP_Shipment_Headers.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\LOG_SHP_Shipment_Notes.xml" />
+    <Content Include="_Support\LOG_SHP_Shipment_Positions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\LOG_SHP_Shipment_Statuses.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\LOG_SHP_Shipment_StatusHistory.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Support\LOG_SHP_Shipment_Types.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

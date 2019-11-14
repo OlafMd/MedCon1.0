@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/25/2013 02:09:06 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_ShippingAddresses_For_CostCenter</Name>
+    <Namespace>CL3_Address.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Address.Complex.Retrieval"
+                Method_ClassName="cls_Get_All_ShippingAddresses_For_CostCenter"
+                Method_Name="Get_All_ShippingAddresses_For_CostCenter"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_ShippingAddresses_For_CostCenter"
+                />
+
+  <Parameters IsClass="true" Name="P_L3AD_GaSAfCC_1508">
+    <Members>
+      <ClassMember Name="CostCenterID" Type="Guid"/>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3AD_GaSAfCC_1508" IsArray="true">
+      <Members>
+        <ClassMember Name="OfficeName" Type="string"/>
+        <ClassMember Name="IsDefault" Type="bool"/>
+        <ClassMember Name="OfficeLevel" Type="int"/>
+        <ClassMember Name="Address" Type="ORM_CMN_Address" IsReference="true"/>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

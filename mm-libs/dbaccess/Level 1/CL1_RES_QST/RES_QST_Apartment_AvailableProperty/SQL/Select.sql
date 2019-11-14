@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_qst_apartment_availableproperties
+WHERE 
+	RES_QST_Apartment_AvailablePropertyID = @RES_QST_Apartment_AvailablePropertyID

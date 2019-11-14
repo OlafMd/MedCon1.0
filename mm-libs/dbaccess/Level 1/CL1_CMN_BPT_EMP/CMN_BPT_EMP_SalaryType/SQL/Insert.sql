@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_bpt_emp_salarytypes
+	(
+		CMN_BPT_EMP_SalaryTypeID,
+		GlobalPropertyMatchingID,
+		SalaryType_Code,
+		SalaryType_Name_DictID,
+		SalaryTypeStatus,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_EMP_SalaryTypeID,
+		@GlobalPropertyMatchingID,
+		@SalaryType_Code,
+		@SalaryType_Name,
+		@SalaryTypeStatus,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

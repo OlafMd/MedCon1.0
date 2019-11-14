@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_patient_treatment_relevantdiagnosis_localizations
+WHERE 
+	HEC_Patient_Treatment_RelevantDiagnosis_LocalizationID = @HEC_Patient_Treatment_RelevantDiagnosis_LocalizationID

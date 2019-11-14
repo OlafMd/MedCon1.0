@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/16/2013 2:56:23 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Search_Patients</Name>
+    <Namespace>CL6_Lucentis_BillingHistory.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_Lucentis_BillingHistory.Complex.Retrieval"
+                Method_ClassName="cls_Get_Billing_History_and_TreatmentNumber"
+                Method_Name="Get_Billing_History_and_TreatmentNumber"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Billing_History_and_TreatmentNumber"
+                />
+
+    <Parameters IsClass="true" Name="P_L6BH_GBHaTNfTID_1039">
+        <Members>
+            <ClassMember Name="IsASC_Order" Type="bool"/>
+            <ClassMember Name="OrderValue" Type="String"/>
+            <ClassMember Name="PageClicked" Type="int"/>
+            <ClassMember Name="NumberOfElementsPerPage" Type="int"/>
+            <ClassMember Name="BillStatusID" Type="String" IsArray="true"/>
+
+            
+            <ClassMember Name="DateFrom" Type="String"/>
+            <ClassMember Name="DateTo" Type="String"/>
+            <ClassMember Name="PatientFirstName" Type="String"/>
+            <ClassMember Name="PatientLastName" Type="String"/>
+            <ClassMember Name="BillID_From" Type="int"/>
+            <ClassMember Name="BillID_To" Type="int"/>
+            <ClassMember Name="ProcessNumber_From" Type="int"/>
+            <ClassMember Name="ProcessNumber_To" Type="int"/>
+        </Members>
+    </Parameters>
+    
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+	<ObjectReturnType_Definition Name="L6BH_GBHaTNfTID_1039" IsArray="false">
+		<Members>
+            <ClassMember IsReference="true" Type="L5BH_GBHfTID_1415"       Name="billHistory"            IsArray="true"/>
+            <ClassMember IsReference="true" Type="L5BH_GBSfSHID_1402"       Name="BillHistoryStatusAndHeaderID"            IsArray="true"/>
+            <ClassMember IsClass="true" IsArray="true" Name="TreatmentNumberandTreatmentID" Type="L6BH_GBHaTNfTID_1039_TreatmentNumberandTreatmentID">
+                <Members>
+                    <ClassMember Name="TreatmentNumber" Type="int"  />
+                    <ClassMember Name="TreatmentID" Type="Guid"  />
+                </Members>
+            </ClassMember>
+            <ClassMember Name="NumberOfPages" Type="int"  />
+            <ClassMember Name="CurrentPage" Type="int"  />
+            <ClassMember Name="NumberOfElements" Type="int"/>
+		</Members>
+	</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

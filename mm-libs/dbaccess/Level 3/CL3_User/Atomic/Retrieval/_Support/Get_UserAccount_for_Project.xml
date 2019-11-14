@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/30/2014 16:24:59 AM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Get_UserAccount_for_Project</Name>
+        <Namespace>CL3_User.Atomic.Retrieval</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL3_User.Atomic.Retrieval"
+                  Method_ClassName="cls_Get_UserAccount_for_Project"
+                  Method_Name="Get_UserAccount_for_Project"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Get_UserAccount_for_Project"
+                />
+
+    <SQLStatement xml:space="preserve">
+        Select
+  tms_pro_projects.CreatedByAccount_RefID,
+  tms_pro_projects.Creation_Timestamp,
+  tms_pro_projects.TMS_PRO_ProjectID,
+  usr_accounts.Username,
+  usr_accounts.Tenant_RefID,
+  usr_accounts.IsDeleted,
+  tms_pro_projects.IsDeleted As IsDeleted1
+From
+    tms_pro_projects Inner Join
+    usr_accounts
+    On usr_accounts.USR_AccountID = tms_pro_projects.CreatedByAccount_RefID  
+where 
+    usr_accounts.IsDeleted= 0 And 
+    tms_pro_projects.IsDeleted = 0 And 
+    tms_pro_projects.Tenant_RefID = @TenantID
+     
+
+  </SQLStatement>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                  Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                  Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L3US_GAFP_1035" IsArray="true">
+            <Members>
+                <ClassMember Name="TMS_PRO_ProjectID" Type="Guid"  />
+                <ClassMember Name="Username" Type="String"/>
+                <ClassMember Name="Creation_Timestamp" Type="DateTime"/>
+            </Members>
+        </ObjectReturnType_Definition>
+
+    </ResultInfo>
+
+</CodeGen>
+
+
+

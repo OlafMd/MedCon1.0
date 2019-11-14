@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <!--<Name>Handle_OCT</Name>-->
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Manipulation"
+								Method_ClassName="cls_Handle_OCT"
+								Method_Name="Handle_OCT"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <Parameters IsClass="true" Name="P_CAS_HOCT_1013">
+    <Members>
+      <ClassMember Name="localization_changed" Type="Boolean"  />
+      <ClassMember Name="is_submit" Type="Boolean"  />
+
+      <!-- case data -->
+      <ClassMember Name="case_id" Type="Guid"  />
+      <ClassMember Name="patient_id" Type="Guid"  />
+      <ClassMember Name="treatment_date" Type="DateTime"  />
+      <ClassMember Name="diagnose_name" Type="String"  />
+      <ClassMember Name="diagnose_id" Type="Guid"  />
+      <ClassMember Name="drug_id" Type="Guid"  />
+      <ClassMember Name="localization" Type="String"  />
+      <ClassMember Name="oct_doctor_id" Type="Guid"  />
+      <ClassMember Name="oct_doctor_practice_id" Type="Guid"  />
+      <ClassMember Name="oct_doctor_name" Type="String"  />
+      <ClassMember Name="patient_birthdate" Type="DateTime"  />
+      <ClassMember Name="patient_name" Type="String"  />
+      <ClassMember Name="treatment_doctor_id" Type="Guid"  />
+      <ClassMember Name="treatment_doctor_name" Type="String"  />
+      <ClassMember Name="treatment_doctor_practice_id" Type="Guid"  />
+      <ClassMember Name="treatment_doctor_practice_name" Type="String"  />
+      <ClassMember Name="treatment_doctor_lanr" Type="String"  />
+      <ClassMember Name="oct_doctor_lanr" Type="String"  />
+      <ClassMember Name="patient_insurance_number" Type="String"  />
+      <ClassMember Name="patient_hip" Type="String"  />
+      <ClassMember Name="treatment_doctor_practice_bsnr" Type="String"  />
+      <ClassMember Name="id" Type="Guid"  />
+      <ClassMember Name="withdraw_oct" Type="Boolean"  />
+      <ClassMember Name="submit_oct_until_date" Type="DateTime"  />
+      <ClassMember Name="is_documentation" Type="Boolean"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_a_StandardDataType_or_StadardDataTypeArray="true">
+    <StandardReturnType_Definition returnType="Guid" />
+  </ResultInfo>
+</CodeGen>

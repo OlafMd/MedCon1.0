@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:55:14 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="RES_BLD_Basement_Type"
+                IsClass="true"
+                IsClass_Namespace="CL1_RES_BLD"
+                IsClass_Corresponding_DBTable="res_bld_basement_types" >
+      <Members>
+		<ClassMember Name="RES_BLD_Basement_TypeID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="BasementType_Name" Type="Dict" Source_DBField="BasementType_Name_DictID" OriginTable="res_bld_basement_types"/>
+		<ClassMember Name="BasementType_Description" Type="Dict" Source_DBField="BasementType_Description_DictID" OriginTable="res_bld_basement_types"/>
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

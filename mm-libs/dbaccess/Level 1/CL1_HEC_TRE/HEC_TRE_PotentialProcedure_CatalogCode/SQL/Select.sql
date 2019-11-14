@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_tre_potentialprocedure_catalogcodes
+WHERE 
+	HEC_TRE_PotentialProcedure_CatalogCodeID = @HEC_TRE_PotentialProcedure_CatalogCodeID

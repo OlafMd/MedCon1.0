@@ -1,0 +1,19 @@
+INSERT INTO 
+	hec_sub_substance_2_substancegroup
+	(
+		AssignmentID,
+		HEC_SUB_Substance_RefID,
+		HEC_SUB_Substance_Group_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@HEC_SUB_Substance_RefID,
+		@HEC_SUB_Substance_Group_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

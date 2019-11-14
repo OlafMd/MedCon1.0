@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_Management_Fee_Property_Values_on_Tenant</Name>
+		<Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Management_Fee_Property_Values_on_Tenant"
+								Method_Name="Get_Management_Fee_Property_Values_on_Tenant"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+      Select
+        bil_billposition_propertyvalue.PropertyValue,
+        hec_cas_case_billcodes.HEC_CAS_Case_RefID as CaseID,
+        hec_bil_billposition_billcodes.PotentialCode_RefID as GposID
+      From
+        hec_bil_billposition_billcodes
+        Inner Join hec_cas_case_billcodes On hec_cas_case_billcodes.HEC_BIL_BillPosition_BillCode_RefID = hec_bil_billposition_billcodes.HEC_BIL_BillPosition_BillCodeID And
+          hec_cas_case_billcodes.Tenant_RefID = @TenantID And hec_cas_case_billcodes.IsDeleted = 0
+        Inner Join hec_bil_potentialcodes On hec_bil_billposition_billcodes.PotentialCode_RefID = hec_bil_potentialcodes.HEC_BIL_PotentialCodeID And hec_bil_potentialcodes.Tenant_RefID =
+          @TenantID And hec_bil_potentialcodes.IsDeleted = 0
+        Inner Join hec_bil_billpositions On hec_bil_billposition_billcodes.BillPosition_RefID = hec_bil_billpositions.HEC_BIL_BillPositionID And hec_bil_billpositions.Tenant_RefID =
+          @TenantID And hec_bil_billpositions.IsDeleted = 0
+        Inner Join bil_billposition_propertyvalue On hec_bil_billpositions.Ext_BIL_BillPosition_RefID = bil_billposition_propertyvalue.BIL_BillPosition_RefID And
+          bil_billposition_propertyvalue.Tenant_RefID = @TenantID And bil_billposition_propertyvalue.IsDeleted = 0 And bil_billposition_propertyvalue.PropertyKey =
+          'mm.doc.connect.management.fee'
+      Where
+        hec_cas_case_billcodes.Tenant_RefID = @TenantID And
+        hec_cas_case_billcodes.IsDeleted = 0
+	</SQLStatement>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="CAS_GMFPVoT_1916" IsArray="true">
+      <Members>
+        <ClassMember Name="PropertyValue" Type="String"  />
+        <ClassMember Name="CaseID" Type="Guid"  />
+        <ClassMember Name="GposID" Type="Guid"  />	 
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

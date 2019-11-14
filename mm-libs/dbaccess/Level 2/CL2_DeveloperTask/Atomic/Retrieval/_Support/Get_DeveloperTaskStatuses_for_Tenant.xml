@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/25/2013 11:21:02 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllDeveloperTaskStatusHistories_for_TenantID</Name>
+    <Namespace>CL2_DeveloperTask.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_DeveloperTask.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DeveloperTaskStatuses_for_Tenant"
+                Method_Name="Get_DeveloperTaskStatuses_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DeveloperTaskStatuses_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  tms_pro_developertask_statuses.TMS_PRO_DeveloperTask_StatusID AS DeveloperTaskStatus_ID,
+	  tms_pro_developertask_statuses.Label_DictID,
+	  tms_pro_developertask_statuses.GlobalPropertyMatchingID AS DeveloperTaskStatus_GlobalPropertyMatchingID
+	From
+	  tms_pro_developertask_statuses
+	Where
+	  tms_pro_developertask_statuses.IsDeleted = 0 And
+	  tms_pro_developertask_statuses.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2DT_GDTSfT_1120" IsArray="true">
+			<Members>
+				<ClassMember Name="DeveloperTaskStatus_ID" Type="Guid"  />
+				<ClassMember Name="Label_DictID" Type="Dict" OriginTable="tms_pro_developertask_statuses" Source_DBField="Label_DictID"  />
+				<ClassMember Name="DeveloperTaskStatus_GlobalPropertyMatchingID" Type="String"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

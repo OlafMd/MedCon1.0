@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1BC0416E-F643-4454-84B2-16420CB33D70}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL2_Feature</RootNamespace>
+    <AssemblyName>CL2_Feature</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDtMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDtMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDyMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDyMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Archive_Features_for_FeaturesID.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_Feature.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_FeatureProgresses_for_Feature.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_FeatureStatuses_for_Tenant.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_FeatureStatus_for_GlobalPropertyMatchigID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Features_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_FeatureTags_for_Feature.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Feature_2_DeveloperTask_for_Account_and_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Feature_for_FeatureID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Features_for_Tenant.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_NewFeatureIdentifier.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_TMS\CL1_TMS.csproj">
+      <Project>{836FADE5-83E0-4A86-93BA-9C31A8EA07F0}</Project>
+      <Name>CL1_TMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_TMS_PRO\CL1_TMS_PRO.csproj">
+      <Project>{2EED773F-2351-47AC-92BF-2D9A58CB02F9}</Project>
+      <Name>CL1_TMS_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Tags\CL3_Tags.csproj">
+      <Project>{A97DE065-473E-4E06-AF5A-8855980D5DC0}</Project>
+      <Name>CL3_Tags</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL2_BusinessTask\CL2_BusinessTask.csproj">
+      <Project>{07393F57-E78B-4C32-B475-20F24644E34B}</Project>
+      <Name>CL2_BusinessTask</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL2_Project\CL2_Project.csproj">
+      <Project>{F32C0922-9895-4F3B-A23A-5055C67A4E38}</Project>
+      <Name>CL2_Project</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Features_for_TenantID.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Archive_Features_for_FeaturesID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Feature_for_FeatureID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Feature_for_FeatureID.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_NewFeatureIdentifier.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_FeatureProgresses_for_Feature.sql" />
+    <Content Include="Atomic\Manipulation\_Support\Save_Feature.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_FeatureProgresses_for_Feature.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_Features_for_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Feature_2_DeveloperTask_for_Account_and_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_FeatureStatuses_for_Tenant.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_FeatureTags_for_Feature.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Features_for_TenantID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_FeatureTags_for_Feature.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Feature_2_DeveloperTask_for_Account_and_TenantID.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_FeatureStatus_for_GlobalPropertyMatchigID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_FeatureStatus_for_GlobalPropertyMatchigID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_FeatureStatuses_for_Tenant.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

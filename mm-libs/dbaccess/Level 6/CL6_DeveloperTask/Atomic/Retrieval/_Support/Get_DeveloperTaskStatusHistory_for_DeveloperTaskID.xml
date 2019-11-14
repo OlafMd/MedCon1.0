@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/18/2014 04:46:18 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DeveloperTaskStatusHistory_for_DeveloperTaskID</Name>
+    <Namespace>CL6_DeveloperTask.Atomic.Retrieval</Namespace>
+    <Description>Get status history for Developer task ID</Description>
+    <Tags>StatusHistory, DeveloperTaskID</Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_DanuTask_DeveloperTask.Atomic.Retrieval"
+                Method_ClassName="cls_Get_DeveloperTaskStatusHistory_for_DeveloperTaskID"
+                Method_Name="Get_DeveloperTaskStatusHistory_for_DeveloperTaskID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DeveloperTaskStatusHistory_for_DeveloperTaskID"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+  tms_pro_developertask_statushistory.DeveloperTask_Status_RefID,
+  tms_pro_developertask_statushistory.Comment,
+  tms_pro_developertask_statushistory.Creation_Timestamp,
+  tms_pro_developertask_statushistory.TriggeredBy_ProjectMember_RefID,
+  tms_pro_developertask_statuses.Label_DictID,
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.LastName,
+  tms_pro_developertask_statuses.GlobalPropertyMatchingID
+From
+  tms_pro_developertask_statushistory Join
+  tms_pro_developertask_statuses
+    On tms_pro_developertask_statushistory.DeveloperTask_Status_RefID =
+    tms_pro_developertask_statuses.TMS_PRO_DeveloperTask_StatusID Inner Join
+  tms_pro_projectmembers
+    On tms_pro_developertask_statushistory.TriggeredBy_ProjectMember_RefID =
+    tms_pro_projectmembers.TMS_PRO_ProjectMemberID Inner Join
+  cmn_per_personinfo_2_account On tms_pro_projectmembers.USR_Account_RefID =
+    cmn_per_personinfo_2_account.USR_Account_RefID Inner Join
+  cmn_per_personinfo On cmn_per_personinfo_2_account.CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID
+Where
+  tms_pro_developertask_statushistory.DeveloperTask_RefID = @DeveloperTaskID And
+  tms_pro_developertask_statuses.IsDeleted = 0 And
+  tms_pro_developertask_statushistory.IsDeleted = 0 And
+  tms_pro_projectmembers.IsDeleted = 0 And
+  cmn_per_personinfo_2_account.IsDeleted = 0 And
+  cmn_per_personinfo.IsDeleted = 0 And
+  tms_pro_developertask_statushistory.Tenant_RefID = @TenantID
+Order By
+  tms_pro_developertask_statushistory.Creation_Timestamp Desc
+  </SQLStatement>
+
+
+
+  <Parameters IsClass="true" Name="P_L6DT_GDTSHfDT_1646">
+    <Members>
+      <ClassMember Name="DeveloperTaskID" Type="Guid" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6DT_GDTSHfDT_1646" IsArray="true">
+      <Members>
+        <ClassMember Name="DeveloperTask_Status_RefID" Type="Guid"  />
+        <ClassMember Name="Comment" Type="string"  />
+        <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+        <ClassMember Name="TriggeredBy_ProjectMember_RefID" Type="Guid"  />
+        <ClassMember Name="Label" Type="Dict" OriginTable="tms_pro_developertask_statuses" Source_DBField="Label_DictID" />
+        <ClassMember Name="FirstName" Type="string"  />
+        <ClassMember Name="LastName" Type="string"  />
+        <ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_tre_potentialprocedure_localizations
+WHERE 
+	HEC_TRE_PotentialProcedure_LocalizationID = @HEC_TRE_PotentialProcedure_LocalizationID

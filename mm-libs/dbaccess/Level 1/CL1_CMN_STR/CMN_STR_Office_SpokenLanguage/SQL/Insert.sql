@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_office_spokenlanguages
+	(
+		CMN_STR_Office_SpokenLanguageID,
+		Office_RefID,
+		Language_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_STR_Office_SpokenLanguageID,
+		@Office_RefID,
+		@Language_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

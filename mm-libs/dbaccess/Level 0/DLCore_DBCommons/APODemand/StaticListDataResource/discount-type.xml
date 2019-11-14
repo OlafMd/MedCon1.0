@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="discount-type.main-discount">
+    <Lang ISO="DE" Content="Rabatt 1" />
+  </Item>
+  <Item ID="discount-type.cash-discount">
+    <Lang ISO="DE" Content="Skonto" />
+  </Item>
+  <Item ID="discount-type.discount-2">
+    <Lang ISO="DE" Content="Rabatt 2" />
+  </Item>
+  <Item ID="discount-type.discount-3">
+    <Lang ISO="DE" Content="Rabatt 3" />
+  </Item>
+  <Item ID="discount-type.natural-discount">
+    <Lang ISO="DE" Content="Naturalrabatt" />
+  </Item>
+
+</Resources>

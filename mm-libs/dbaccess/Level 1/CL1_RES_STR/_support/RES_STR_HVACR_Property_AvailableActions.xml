@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/19/2013 1:26:42 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="RES_STR_HVACR_Property_AvailableAction"
+                IsClass="true"
+                IsClass_Namespace="CL1_RES_STR"
+                IsClass_Corresponding_DBTable="res_str_hvacr_property_availableactions" >
+      <Members>
+		<ClassMember Name="RES_STR_HVACR_Property_AvailableActionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="RES_STR_HVACR_Property_RefID" Type="Guid" />
+		<ClassMember Name="RES_ACT_Action_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

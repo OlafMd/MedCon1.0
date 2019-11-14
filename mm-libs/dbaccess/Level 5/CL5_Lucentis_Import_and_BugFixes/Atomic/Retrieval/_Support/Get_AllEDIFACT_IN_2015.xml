@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/5/2014 9:11:44 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllData_in_2015_toDelete</Name>
+    <Namespace>CL5_Lucentis_Import_and_BugFixes.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Import_and_BugFixes.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllEDIFACT_IN_2015"
+                Method_Name="Get_AllEDIFACT_IN_2015"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AllEDIFACT_IN_2015"
+                />
+
+  <SQLStatement xml:space="preserve">
+		Select
+  bil_billheaderextension_edifact.BIL_BillHeaderExtension_EDIFACTID
+From
+  bil_billheaderextension_edifact
+Where
+  bil_billheaderextension_edifact.IsDeleted = 0 And
+  bil_billheaderextension_edifact.Tenant_RefID = @TenantID And
+  Year(bil_billheaderextension_edifact.Creation_Timestamp) = 2015
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5IB_GAEI_1540" IsArray="true">
+			<Members>
+              <ClassMember Name="BIL_BillHeaderExtension_EDIFACTID" Type="Guid"  />        
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

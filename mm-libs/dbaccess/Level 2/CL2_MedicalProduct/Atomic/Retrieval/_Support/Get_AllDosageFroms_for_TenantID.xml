@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/5/2013 11:28:41 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllDosageFroms_for_TenantID</Name>
+    <Namespace>CL2_MedicalProduct.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_MedicalProduct.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllDosageFroms_for_TenantID"
+                Method_Name="Get_AllDosageFroms_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AllDosageFroms_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  hec_product_dosageforms.HEC_Product_DosageFormID,
+	  hec_product_dosageforms.GlobalPropertyMatchingID,
+	  hec_product_dosageforms.DosageForm_Name_DictID,
+	  hec_product_dosageforms.DosageForm_Description_DictID
+	From
+	  hec_product_dosageforms
+	Where
+	  hec_product_dosageforms.IsDeleted = 0 And
+	  hec_product_dosageforms.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2MP_GADFfT_1127" IsArray="true">
+			<Members>
+				<ClassMember Name="HEC_Product_DosageFormID" Type="Guid"  />
+				<ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+				<ClassMember Name="DosageForm_Name" Type="Dict" OriginTable="hec_product_dosageforms" Source_DBField="DosageForm_Name_DictID"  />
+				<ClassMember Name="DosageForm_Description" Type="Dict" OriginTable="hec_product_dosageforms" Source_DBField="DosageForm_Description_DictID"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/4/2013 1:26:05 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_GarbageContainerTypes_For_Tenant</Name>
+    <Namespace>CL5_KPRS_StaticProperties.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_StaticProperties.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_GarbageContainerTypes_For_Tenant"
+                Method_Name="Get_All_GarbageContainerTypes_For_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_GarbageContainerTypes_For_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  res_bld_garbagecontainertypes.GarbageContainerType_Name_DictID,
+	  res_bld_garbagecontainertypes.RES_BLD_GarbageContainerTypeID
+	From
+	  res_bld_garbagecontainertypes
+	Where
+	  res_bld_garbagecontainertypes.Tenant_RefID = @TenantID And
+	  res_bld_garbagecontainertypes.IsDeleted = 0
+	Group By
+	  res_bld_garbagecontainertypes.GarbageContainerType_Name_DictID,
+	  res_bld_garbagecontainertypes.RES_BLD_GarbageContainerTypeID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5SP_GAGCTFT_1104" IsArray="true">
+			<Members>
+				<ClassMember Name="GarbageContainerType_Name" Type="Dict" OriginTable="res_bld_garbagecontainertypes" Source_DBField="GarbageContainerType_Name_DictID"  />
+				<ClassMember Name="RES_BLD_GarbageContainerTypeID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

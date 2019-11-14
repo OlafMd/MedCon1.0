@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10-Dec-14 2:07:34 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Feature_for_FeatureID</Name>
+    <Namespace>CL2_Feature.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Feature.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Feature_for_FeatureID"
+                Method_Name="Get_Feature_for_FeatureID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Feature_for_FeatureID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  tms_pro_feature.TMS_PRO_FeatureID,
+	  tms_pro_feature.IdentificationNumber,
+	  tms_pro_feature.Project_RefID,
+	  tms_pro_feature.Name_DictID,
+	  tms_pro_feature.Description_DictID,
+	  tms_pro_feature.Feature_Deadline,
+	  tms_pro_feature.Creation_Timestamp
+	From
+	  tms_pro_feature
+	Where
+	  tms_pro_feature.IsDeleted = 0 And
+	  tms_pro_feature.IsArchived = 0 And
+	  tms_pro_feature.TMS_PRO_FeatureID = @FeatureID And
+	  tms_pro_feature.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2FE_GFfFID_1402">
+    <Members>
+		<ClassMember Name="FeatureID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2FE_GFfFID_1402" IsArray="false">
+			<Members>
+				<ClassMember Name="TMS_PRO_FeatureID" Type="Guid"  />
+				<ClassMember Name="IdentificationNumber" Type="String"  />
+				<ClassMember Name="Project_RefID" Type="Guid"  />
+				<ClassMember Name="Name" Type="Dict" OriginTable="tms_pro_feature" Source_DBField="Name_DictID"  />
+				<ClassMember Name="Description" Type="Dict" OriginTable="tms_pro_feature" Source_DBField="Description_DictID"  />
+				<ClassMember Name="Feature_Deadline" Type="DateTime"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

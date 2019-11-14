@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 2/12/2015 4:45:46 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_PRO_DistributionCenter"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_PRO"
+                IsClass_Corresponding_DBTable="cmn_pro_distributioncenters" >
+      <Members>
+		<ClassMember Name="CMN_PRO_DistributionCenterID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="LOG_REG_DistributionArea_RefID" Type="Guid" />
+		<ClassMember Name="Warehouse_RefID" Type="Guid" />
+		<ClassMember Name="Product_RefID" Type="Guid" />
+		<ClassMember Name="ProductVariant_RefID" Type="Guid" />
+		<ClassMember Name="ProductRelease_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

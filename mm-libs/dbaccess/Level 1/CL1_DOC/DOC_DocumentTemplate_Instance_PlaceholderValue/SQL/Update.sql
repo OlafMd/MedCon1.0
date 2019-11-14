@@ -1,0 +1,12 @@
+UPDATE 
+	doc_documenttemplate_instance_placeholdervalues
+SET 
+	DOC_DocumentTemplate_Instance_RefID=@DOC_DocumentTemplate_Instance_RefID,
+	DOC_DocumentTemplate_Placeholder_RefID=@DOC_DocumentTemplate_Placeholder_RefID,
+	Placeholder_Value=@Placeholder_Value,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	DOC_DocumentTemplate_Instance_PlaceholderValueID = @DOC_DocumentTemplate_Instance_PlaceholderValueID

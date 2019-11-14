@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/10/2013 9:54:01 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CompleteLocationInformation_For_RealestatePropertyID</Name>
+    <Namespace>CL5_KPRS_LocationInfo.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_LocationInfo.Complex.Retrieval"
+                Method_ClassName="cls_Get_CompleteLocationInformation_For_RealestatePropertyID"
+                Method_Name="Get_CompleteLocationInformation_For_RealestatePropertyID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_CompleteLocationInformation_For_RealestatePropertyID"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L5LI_GCLIFRP_0936">
+    <Members>
+		<ClassMember Name="RealestatePropertyID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5LI_GCLIFRP_0936" IsArray="false">
+			<Members>
+        <ClassMember Name="RegionInformation_PurchasingPowerAmount_Current_Amount" Type="Double"  />
+        <ClassMember Name="RegionInformation_PurchasingPowerAmount_Forecast_Amount" Type="Double"  />
+        <ClassMember Name="RegionInformation_ResidentialRent_MinPrice_Amount" Type="Double"  />
+        <ClassMember Name="RegionInformation_ResidentialRent_AveragePrice_Amount" Type="Double"  />
+        <ClassMember Name="RegionInformation_ResidentialRent_MaxPrice_Amount" Type="Double"  />
+        <ClassMember Name="RegionInformation_NonResidentialRent_MinPrice_Amount" Type="Double"  />
+        <ClassMember Name="RegionInformation_NonResidentialRent_AveragePrice_Amount" Type="Double"  />
+        <ClassMember Name="RegionInformation_NonResidentialRent_MaxPrice_Amount" Type="Double"  />
+
+        <!-- Derived Tables -->
+        <ClassMember IsClass="true" IsArray="true" Name="MeansOfTransportation" Type="L5LI_GCLIFRP_0936_MeansOfTransportation" GroupBy="MeansOfTransportation_ID">
+          <Members>
+            <ClassMember Name="MeansOfTransportation_ID" Type="Guid"  />
+            <ClassMember Name="MeansOfTransportation_Name" Type="Dict"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Emmissions" Type="L5LI_GCLIFRP_0936_Emmissions" GroupBy="Emmissions_ID">
+          <Members>
+            <ClassMember Name="Emmissions_ID" Type="Guid"  />
+            <ClassMember Name="Emmissions_Name" Type="Dict"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="SurroundingInfrastructures" Type="L5LI_GCLIFRP_0936_SurroundingInfrastructures" GroupBy="SurroundingInfrastructures_ID">
+          <Members>
+            <ClassMember Name="SurroundingInfrastructures_ID" Type="Guid"  />
+            <ClassMember Name="SurroundingInfrastructures_Name" Type="Dict"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="NeighborhoodQualities" Type="L5LI_GCLIFRP_0936_NeighborhoodQualities" GroupBy="NeighborhoodQualities_ID">
+          <Members>
+            <ClassMember Name="NeighborhoodQualities_ID" Type="Guid"  />
+            <ClassMember Name="NeighborhoodQualities_Name" Type="Dict"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="ParkingSituations" Type="L5LI_GCLIFRP_0936_ParkingSituations" GroupBy="ParkingSituations_ID">
+          <Members>
+            <ClassMember Name="ParkingSituations_ID" Type="Guid"  />
+            <ClassMember Name="ParkingSituations_Name" Type="Dict"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="ResidentialVacancies" Type="L5LI_GCLIFRP_0936_ResidentialVacancies" GroupBy="ResidentialVacancies_ID">
+          <Members>
+            <ClassMember Name="ResidentialVacancies_ID" Type="Guid"  />
+            <ClassMember Name="ResidentialVacancies_Name" Type="Dict"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="CommercialVacancies" Type="L5LI_GCLIFRP_0936_CommercialVacancies" GroupBy="CommercialVacancies_ID">
+          <Members>
+            <ClassMember Name="CommercialVacancies_ID" Type="Guid"  />
+            <ClassMember Name="CommercialVacancies_Name" Type="Dict"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="false" Name="Address" Type="L5LI_GCLIFRP_0936_Address">
+          <Members>
+            <ClassMember Name="CMN_AddressID" Type="Guid"/>
+            <ClassMember Name="Street_Name" Type="String"  />
+            <ClassMember Name="Street_Number" Type="String"  />
+            <ClassMember Name="City_PostalCode" Type="String"  />
+            <ClassMember Name="City_Name" Type="String"  />
+            <ClassMember Name="City_Region" Type="String"/>
+            <ClassMember Name="City_AdministrativeDistrict" Type="String"  />
+            <ClassMember Name="Province_Name" Type="String"  />
+          </Members>
+        </ClassMember>
+
+
+        <ClassMember IsClass="true" IsArray="false" Name="Region" Type="L5LI_GCLIFRP_0936_Region">
+          <Members>
+            <ClassMember Name="CMN_LOC_RegionID" Type="Guid"/>
+            <ClassMember Name="Country_RefID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="false" Name="RegionInformation" Type="L5LI_GCLIFRP_0936_RegionInformation">
+          <Members>
+            <ClassMember Name="RegionInformation_RegionArea_in_sqkm" Type="Double"  />
+            <ClassMember Name="RegionInformation_TotalPopulation" Type="int"  />
+            <ClassMember Name="RegionInformation_Population_per_sqkm" Type="Double"  />
+            <ClassMember Name="RegionInformation_RegionUnemploymentRatePercent" Type="Double"  />
+            <ClassMember Name="RegionInformation_NumberOfHouseholds_Current" Type="int"  />
+            <ClassMember Name="RegionInformation_NumberOfHouseholds_Forecast" Type="int"  />
+            <ClassMember Name="RegionInformation_PurchasingPowerAmount_Current_RefID" Type="Guid"  />
+            <ClassMember Name="RegionInformation_PurchasingPowerAmount_Forecast_RefID" Type="Guid"  />
+            <ClassMember Name="RegionInformation_ResidentialRent_MinPrice_RefID" Type="Guid"  />
+            <ClassMember Name="RegionInformation_ResidentialRent_AveragePrice_RefID" Type="Guid"  />
+            <ClassMember Name="RegionInformation_ResidentialRent_MaxPrice_RefID" Type="Guid"  />
+            <ClassMember Name="RegionInformation_NonResidentialRent_MinPrice_RefID" Type="Guid"  />
+            <ClassMember Name="RegionInformation_NonResidentialRent_AveragePrice_RefID" Type="Guid"  />
+            <ClassMember Name="RegionInformation_NonResidentialRent_MaxPrice_RefID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="false" Name="LocationInformation" Type="L5LI_GCLIFRP_0936_LocationInformation">
+          <Members>
+            <ClassMember Name="RES_LOC_LocationInformationID" Type="Guid"/>
+            <ClassMember Name="MapImage" Type="Guid"/>
+            <ClassMember Name="SateliteImage" Type="Guid"/>
+            <ClassMember Name="AddressImage" Type="Guid"/>
+          </Members>
+        </ClassMember>
+
+        <ClassMember Name="CMN_LOC_LocationID" Type="Guid"/>
+
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:52:23 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_STR_SCE_StructureCalendarEvent_Type"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_STR_SCE"
+                IsClass_Corresponding_DBTable="cmn_str_sce_structurecalendarevent_types" >
+      <Members>
+		<ClassMember Name="CMN_STR_SCE_StructureCalendarEvent_TypeID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="CalendaEventName" Type="Dict" Source_DBField="CalendaEventName_DictID" OriginTable="cmn_str_sce_structurecalendarevent_types"/>
+		<ClassMember Name="EventIcon_RefID" Type="Guid" />
+		<ClassMember Name="PriorityOrdinal" Type="int" />
+		<ClassMember Name="ColorCode_Foreground" Type="String" />
+		<ClassMember Name="ColorCode_Background" Type="String" />
+		<ClassMember Name="ColorCode_Alpha" Type="Double" />
+		<ClassMember Name="IsShowingNotification" Type="Boolean" />
+		<ClassMember Name="IsWorkingDay" Type="Boolean" />
+		<ClassMember Name="IsHalfWorkingDay" Type="Boolean" />
+		<ClassMember Name="IsNonWorkingDay" Type="Boolean" />
+		<ClassMember Name="InternalEventTypeID" Type="String" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="IsEventType_Imported" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

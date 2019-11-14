@@ -1,0 +1,85 @@
+﻿<div class="white-content-holder default-font-color" ng-init="initializeController()">
+    <a class="back-button" ng-click="redirectToMainPage()" href=""><span translate="BUTTON_BACK"></span></a>
+
+    <h1 class="gray-font-color bolded-text clear"><span class="default-font-color"> {{practice_detail.name}} </span>({{ practice_detail.doctor_count }} {{ 'LABEL_DOCTOR' | translate }})</h1>
+</div>
+<add-practice-directive mode="'edit'" ng-if="showPracticeDirective"></add-practice-directive>
+<div class="default-font-color" ng-class="{'white-content-holder': !showPracticeDirective}">
+    <ul class="doctor-details" ng-if="!showPracticeDirective">
+        <li>
+            <label><span translate="LABEL_BSNR"></span></label>
+            <label ng-cloak>{{practice_detail.bsnr}}</label>
+        </li>
+        <li>
+            <label><span translate="LABEL_ADDRESS"></span> </label>
+            <label ng-cloak> {{practice_detail.address}}</label>
+            <label ng-cloak> {{practice_detail.town}}</label>
+        </li>
+        <li>
+            <label><span translate="LABEL_CONTACT_PRACTICE"></span></label>
+            <label ng-cloak><span translate="LABEL_PHONE"></span> {{practice_detail.phone}}</label>
+            <label ng-if="isNotNullOrEmpty(practice_detail.fax)" ng-cloak><span translate="LABEL_FAX_NR"></span> {{practice_detail.fax}}</label>
+            <label ng-if="isNotNullOrEmpty(practice_detail.email)" ng-cloak><span translate="LABEL_EMAIL"></span> {{practice_detail.email}}</label>
+        </li>
+        <li ng-if="isNotNullOrEmpty(practice_detail.bank) ||
+            isNotNullOrEmpty(practice_detail.bic) ||
+            isNotNullOrEmpty(practice_detail.iban)">
+            <label><span translate="LABEL_BANK_ACCOUNT"></span></label>
+            <label ng-if="isNotNullOrEmpty(practice_detail.bank)" ng-cloak>{{practice_detail.bank}}</label>
+            <label ng-if="isNotNullOrEmpty(practice_detail.bic)" ng-cloak><span translate="LABEL_BIC"></span> {{practice_detail.bic}}</label>
+            <label ng-if="isNotNullOrEmpty(practice_detail.iban)" ng-cloak><span translate="LABEL_IBAN"></span> {{practice_detail.iban}}</label>
+        </li>
+        <li ng-if="isNotNullOrEmpty(practice_detail.contact.name) ||
+            isNotNullOrEmpty(practice_detail.contact.phone) ||
+            isNotNullOrEmpty(practice_detail.contact.email)">
+            <label><span translate="LABEL_CONTACT_PERSON"></span></label>
+            <label ng-if="isNotNullOrEmpty(practice_detail.contact.name)" ng-cloak>{{practice_detail.contact.name}}</label>
+            <label ng-if="isNotNullOrEmpty(practice_detail.contact.phone)" ng-cloak><span translate="LABEL_PHONE"></span> {{practice_detail.contact.phone}}</label>
+            <label ng-if="isNotNullOrEmpty(practice_detail.contact.email)" ng-cloak><span translate="LABEL_EMAIL"></span> {{practice_detail.contact.email}}</label>
+        </li>
+        <li>
+            <a id="btnEdtiPractice" class="icons-edit" translate="BUTTON_EDIT" ng-click="OpenFormEditPractice()" href=""></a>
+        </li>
+    </ul>
+</div>
+<div class="gray-content-holder" ng-if="showDoctorDirectiveButton">
+    <button id="btnAddDoctor" class="wide-add-button" ng-click="OpenFormAddDoctor()" translate="LABEL_ADD_DOCTOR" ng-model="showDoctorDirective" ng-init="showDoctorDirective=false"></button>
+</div>
+<add-doctor-directive ng-if="showDoctorDirective" mode="'add_from_practice'"></add-doctor-directive>
+
+<div>
+    <ul class="doctors-list-header">
+        <li ng-class="setTableHeaderClass('name_untouched')" ng-click="SortFunction('name_untouched')">{{'LABEL_DOCTOR_NAME' | translate }}</li>
+        <li class="align-fix"></li>
+        <li>{{'LABEL_LANR'| translate}}</li>
+        <li ng-class="setTableHeaderClass('contract')" ng-click="SortFunction('contract')">{{'LABEL_CONTRACT'| translate}}</li>
+        <li>{{'LABEL_ADDRESS'| translate}}</li>
+        <li>{{'LABEL_CONTACT'| translate}}</li>
+        <li ng-class="setTableHeaderClass('bank_untouched')" ng-click="SortFunction('bank_untouched')">{{'LABEL_BANK'| translate}}</li>
+        <li> {{'LABEL_IBAN_BIC'| translate}} </li>
+        <li class="unsorted" ng-class="setTableHeaderClass('account_status')" ng-click="SortFunction('account_status')">{{'LABEL_ACCOUNT_STATUS' | translate}}</li>
+    </ul>
+    
+    <div class="content-scroll clear" id="wrapper" ng-if="showData">
+        <div id="wrapper_inner" class="clearfix">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+
+                <div class="clear-after-float animation-fix" ng-repeat="item in practice_doctors | groupBy:'group_name'">
+                    <h2 class="first-letter-holder" ng-if="item.group_name_CHANGED">{{::item.group_name}}</h2>
+                    <ul class="doctors-list-item" ng-class="{'banned-user': ifAccountInactive(item)}">
+                        <li class="larger-font">{{::item.name}} <span class="normal-height-font gray-font-color margin-top-3"> {{::item.doctor_count_or_practice_name}} <span ng-if="item.type=='Practice'">{{'LABEL_DOCTOR' | translate}}</span></span></li>
+                        <li><span ng-class="{'icons-hospital-item':item.type=='Practice', 'icons-doctor-item':item.type=='Doctor' }"></span></li>
+                        <li><span>{{::item.bsnr_lanr}}</span></li>
+                        <li><span>{{::item.contract}}</span></li>
+                        <li><span>{{::item.address}}</span><span>{{::item.zip}}</span><span>{{::item.city}}</span></li>
+                        <li><span>{{::item.phone}}</span><span>{{::item.email}}</span></li>
+                        <li><span>{{::item.bank}}</span></li>
+                        <li><span>{{::item.iban}}</span><span>{{::item.bic}}</span></li>
+                        <li><span>{{::item.account_status}}</span></li>
+                        <li><a class="icons-edit" ng-click="redirectToDoctorDetailView(item.id)" href="" id="btnDoctorDetails"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

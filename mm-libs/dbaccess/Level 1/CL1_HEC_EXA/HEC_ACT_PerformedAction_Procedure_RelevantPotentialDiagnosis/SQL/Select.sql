@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_act_performedaction_procedure_relevantpotentialdiagnoses
+WHERE 
+	HEC_ACT_PerformedAction_Procedure_RelevantPotentialDiagnosisID = @HEC_ACT_PerformedAction_Procedure_RelevantPotentialDiagnosisID

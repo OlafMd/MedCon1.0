@@ -1,0 +1,60 @@
+﻿<div class="popup-wrapper">
+    <div class="popup popup-medium status-popup">
+        <div class="warning-msg"><h2 translate="LABEL_CHANGE_STATUS_POPUP_TITLE"></h2></div>
+        <div class="error-msg margin-top-15 no-margin-bottom" ng-if="credentials_not_verified"><span class="error">{{ 'LABEL_CREDENTIALS_NOT_VERIFIED' | translate }}</span></div>
+
+        <form id="passwordConfirmationForm" class="popup-content" name="passwordConfirmationForm" ng-submit="changeStatusConfirm()" novalidate>
+            <input style="display:none" type="text" name="fakeusernameremembered" ng-model="fakeusername" />
+            <input style="display:none" type="password" name="fakepasswordremembered" ng-model="fakepassword"/>
+            <span class="mask-checkbox">
+                <input id="cbWaiveManagementFee" name="cbWaiveManagementFee" type="checkbox"
+                       ng-model="$parent.edit_management_fee" />
+                <i class="icon"></i>
+            </span>
+            <label for="cbWaiveManagementFee"><h4>{{ 'LABEL_CHANGE_MANAGEMENT_FEE_STATUS' | translate}}</h4> </label>
+
+            <div class="toggler">
+                <label class="module-color bolded-text" id="lblOrderDrug" >{{ 'LABEL_MANAGEMENT_FEE_WAIVED' | translate }}?</label>
+                <span class="mask-toggle show">
+                    <input type="checkbox" ng-model="$parent.status.is_management_fee_waived" ng-disabled="!edit_management_fee" ng-class="{'disabled': !$parent.edit_management_fee}" />
+                    <i class="icon"></i>
+                </span>
+            </div>
+            <hr>
+            <span class="mask-checkbox">
+                <input id="cbEditStatus" name="cbWaiveManagementFee" type="checkbox"
+                       ng-model="$parent.edit_status" />
+                <i class="icon"></i>
+            </span>
+            <label for="cbEditStatus"><h4>{{ 'LABEL_EDIT_STATUS' | translate }}</h4></label>
+
+            <ul class="inline-fields clearfix">
+                <li class="status">
+                    <label>{{ 'LABEL_STATUS' | translate }} <span class="error" ng-show="passwordConfirmationForm.selStatus.$error.required">*</span></label>
+                    <dropdown-list id="selStatus" name="selStatus" ng-required="$parent.edit_status" items="case_statuses" ng-model="$parent.status.case_status" disable-input="!$parent.edit_status" required params="{display_name: 'display_value', id: 'id', is_model_object: true}"></dropdown-list>
+                </li>
+                <li class="reason">
+                    <label>{{ 'LABEL_GROUND' | translate }} <span class="error" ng-show="passwordConfirmationForm.inGround.$error.required">*</span></label>
+                    <input type="text" ng-disabled="!$parent.edit_status" ng-model="$parent.status.ground" ng-required="$parent.edit_status" name="inGround" id="inGround" />
+                </li>
+            </ul>
+
+            <hr>
+            <label><h4>{{'LABEL_PLEASE_ENTER_PASSWORD_TO_EDIT_CASE' | translate }}</h4></label>
+            <ul class="inline-fields clearfix">
+                <li class="doc-name">
+                    <label>{{'LABEL_DOCTOR_RESPONSIBLE' | translate }}</label>
+                    <dropdown-list id="selUser" name="selUser" items="users" ng-model="status.user_login_email" params="{display_name: 'name', id: 'email', is_model_object: false}" required></dropdown-list>
+                </li>
+                <li class="password">
+                    <label>{{'LABEL_PASSWORD' | translate }} <span class="error" ng-show="passwordConfirmationForm.inPassword.$error.required">*</span></label>
+                    <input type="password" ng-model="$parent.status.password" id="inPassword" name="inPassword" required  />
+                </li>
+            </ul>
+            <div class="buttons text-right no-padding">
+                <button type="button" class="button wide reject" ng-click="changeStatusCancel()" id="btnCancel" translate="BUTTON_CANCEL"></button>
+                <button type="submit" class="button wide confirm-smaller" id="btnConfirm" translate="BUTTON_CONFIRM_NORMALCASE" ng-disabled="passwordConfirmationForm.$invalid || checboxesEmpty()"></button>
+            </div>
+        </form>
+    </div>
+</div>

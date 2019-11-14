@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F33E06E-1ECD-4B1C-83B0-48C14A628615}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL3_ShelfContent</RootNamespace>
+    <AssemblyName>CL3_ShelfContent</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Manipulation\cls_Save_ShelfContent.cs" />
+    <Compile Include="Atomic\Manipulation\cls_Save_ShelfContentAdjustment.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Products_NotContainedInShelfList_for_SearchCriteria.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProductVariantQuantities_for_ProductVariantIDList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ShelfContentInventarData.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_StockQuantity_Current_and_Free_for_ShelfContentIDList.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_ShelfContent_with_Quantities_for_Inventory.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_ShelfPaths_for_Product_and_ShelfIDs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Complex\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_WRH\CL1_LOG_WRH.csproj">
+      <Project>{BB08DBAD-494E-4689-9467-BBDDAEBC1EB0}</Project>
+      <Name>CL1_LOG_WRH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL3_Warehouse\CL3_Warehouse.csproj">
+      <Project>{A3A3BD1F-A206-4C65-BD16-526F6F77495B}</Project>
+      <Name>CL3_Warehouse</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Manipulation\_Support\Save_ShelfContent.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Manipulation\_Support\Save_ShelfContentAdjustment.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProductVariantQuantities_for_ProductVariantIDList.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_StockQuantity_Current_and_Free_for_ShelfContentIDList.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Products_NotContainedInShelfList_for_SearchCriteria.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ShelfContentInventarData.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProductVariantQuantities_for_ProductVariantIDList.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_ShelfPaths_for_Product_and_ShelfIDs.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Products_NotContainedInShelfList_for_SearchCriteria.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_ShelfContent_with_Quantities_for_Inventory.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_ShelfContentInventarData.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_StockQuantity_Current_and_Free_for_ShelfContentIDList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

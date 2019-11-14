@@ -1,0 +1,111 @@
+﻿<div class="gray-content-holder doctors-data-lists doctor-list animate-if">
+    <form id="doctorForm" name="doctorForm" ng-submit="sendDoctorForm()" novalidate>
+        <h3 id="lblDoctorAccount" translate="LABEL_ACCOUNT"></h3>
+
+        <div name="messageContainer" class="error-msg-container" ng-if="divContainer">
+            <span class="error" ng-if="EmailNotValid">{{ 'LABEL_EMAIL_NOT_VALID' | translate }}</span>
+            <span class="error" ng-if="IBANinvalid">{{ 'LABEL_IBAN_INVALID' | translate }}</span>
+            <span class="error" ng-if="BICinvalid">{{ 'LABEL_BIC_INVALID' | translate }}</span>
+            <span class="error" ng-if="BankInvalid">{{ 'LABEL_ENTER_BANK_NAME' | translate }}</span>
+            <span class="error" ng-if="BICBankinvalid">{{ 'LABEL_ENTER_BIC' | translate }}</span>
+        </div>
+
+
+
+        <ul class="third-class-data first-row">
+            <li>
+                <label id="lblSalutation">{{ 'LABEL_SALUTATION' | translate }}</label>
+                <dropdown-list id="ddSalutation" name="ddSalutation" items="salutation" ng-model="doctor.salutation" params="{display_name: 'label', id: 'value', is_model_object: false}"></dropdown-list>
+            </li>
+            <li>
+                <label id="lbTitle">{{ 'LABEL_TITLE' | translate }}<span class="error" ng-if="doctorForm.inTitle.$error.required">*</span></label>
+                <input id="inTitle" name="inTitle" type="text" ng-model="doctor.title" />
+
+            </li>
+            <li>
+                <label id="lblFirstName">{{ 'LABEL_FIRSTNAME' | translate }}<span class="error" ng-if="doctorForm.inFirstName.$error.required">*</span></label>
+                <input id="inFirstName" name="inFirstName" type="text" ng-model="doctor.first_name" required />
+
+            </li>
+            <li>
+                <label id="lblLastName">{{ 'LABEL_LASTNAME' | translate }}<span class="error" ng-if="doctorForm.inLastName.$error.required">*</span></label>
+                <input id="inLastName" name="inLastName" type="text" ng-model="doctor.last_name" required />
+
+            </li>
+            <li>
+                <label id="lblLANR">{{ 'LABEL_LANR' | translate }}<span class="error" ng-if="doctorForm.inLANR.$error.required">*</span></label>
+                <input id="inLANR" name="inLANR" type="text" ng-model="doctor.lanr" required ng-disabled="true" />
+
+            </li>
+        </ul>
+        <div class="buttons-with-text-button fright">
+            <span class="abort"><a href="" id="btnCancelSubmitDoctor"  ng-click="Cancel()" onclick="return false;" translate="BUTTON_CANCEL">{{ 'LABEL_CANCEL' | translate }}</a></span>
+            <button class="button wide confirm" id="btnSubmitDoctor" type="submit" translate="BUTTON_SAVE" ng-disabled="doctorForm.$invalid"></button>
+        </div>
+        
+
+        <div class="second-class-data-wrapper">
+            <h3 id="lbldoctorsPractice">{{'MY_CONTACT' | translate}}</h3>
+            <ul class="second-class-data second-row" ng-if="!mode || doctor.is_temp">
+                <li>
+                    <label id="lblEmail">{{ 'LABEL_EMAIL' | translate }}</label>
+                    <input id="inEmail" name="inEmail" type="text" ng-model="doctor.email" ng-class="{redborder:EmailNotValid}" />
+
+                </li>
+                <li>
+                    <label id="lblPhone">{{ 'LABEL_TELEPHONE' | translate }}<span class="error" ng-if="doctorForm.inPhone.$error.required">*</span></label>
+                    <input id="inPhone" name="inPhone" type="text" ng-model="doctor.phone" required />
+
+                </li>
+            </ul>
+
+
+
+            <h3 id="lblDrBankAccount">{{ 'LABEL_BANKACCOUNT' | translate }}</h3>
+            <ul class="second-class-data third-row">
+                <li>
+                    <span class="mask-checkbox">
+                        <input id="inCKUserPRacticeBank" name="inCKUserPRacticeBank" type="checkbox" ng-model="doctor.is_bank_inherited" ng-change="FindPracticeBankAccountInfo()" ng-disabled="ChPracticeDisabled" />
+                        <i class="icon"></i>
+                    </span>
+                    <label id="lblCKUserPRacticeBank" translate="LABEL_USERPRACTICEBANK"></label>
+                </li>
+                <li>
+                    <label id="lblAccountHolder" translate="LABEL_ACCOUNT_HOLDER"></label>
+                    <input id="DrinAccountHolder" name="inAccountHolder" type="text" ng-model="doctor.account_holder" ng-disabled="doctor.is_bank_inherited" />
+                </li>
+                <li>
+                    <label id="lblIban" translate="LABEL_IBAN"></label>
+
+                    <input id="DrinIban" name="inIban" type="text" ng-model="doctor.iban" ng-class="{redborder:IBANinvalid}" ng-disabled="doctor.is_bank_inherited" ng-blur="CheckIbanFillBic()" />
+                </li>
+                <li>
+                    <label id="lblBic" translate="LABEL_BIC"></label>
+                    <input id="DrinBic" name="inBic" type="text" ng-model="doctor.bic" ng-class="{redborder:BICinvalid ||BICBankinvalid}" ng-disabled="doctor.is_bank_inherited" ng-blur="CheckBicFillBank()" />
+                </li>
+                <li>
+                    <label id="lblBank" translate="LABEL_BANK"></label>
+                    <input id="DrinBank" name="inBank" type="text" ng-model="doctor.bank_name" ng-class="{redborder:BankInvalid ||BICBankinvalid}" ng-disabled="doctor.is_bank_inherited" />
+                </li>
+            </ul>
+
+            <h3 id="lblDoctorAccount" translate="LABEL_My_Access_Credentials"></h3>
+            <ul class="second-class-data fourth-row">
+                <li>
+                    <label id="lblLoginEmail">{{'LABEL_LOGIN_EMAIL' |translate}} <span class="error" ng-if="doctorForm.inLoginEmail.$error.required">*</span></label>
+                    <input id="inLoginEmail" name="inLoginEmail" type="text" ng-model="doctor.login_email" ng-class="{redborder:LoginEmailNotValid || LoginEmailExists  }" required auto-fill-sync ng-disabled="true" />
+                </li>
+                <li >
+                    <label translate="LABEL_PASSWORD">
+                    </label>
+                    <input id="inPassword" name="doctor.inPassword" type="password" ng-disabled="true" ng-model="doctor.password" auto-fill-sync />
+                </li>
+
+                <li class="padding-top-22">
+                    <button class="button medium reject" onclick="return false;" ng-click="ResetPassword()" translate="LABEL_RESET_PASSWORD"></button>
+                </li>
+            </ul>
+        </div>
+
+     </form>
+</div>

@@ -1,0 +1,87 @@
+.patients-mm {
+	> li {
+		&:nth-child(2) {
+			width: 90px;
+		}
+		&:nth-child(7) {
+			width: 120px;
+		}
+	}
+
+	.controls {
+		width: 80px;
+
+		a {
+			margin-right: 5px;
+		}
+	}
+}
+
+.patients-mm-list-header{
+	@extend .doctors-list-header;
+}
+
+.patients-mm-list-item{
+	@extend .doctors-list-item;
+}
+
+.patients-mm-list-header,
+.patients-mm-list-item{
+	li{
+        &:first-child{
+            width: 11%;
+        }
+
+		&:nth-child(02){
+			width: 6%;
+		}
+
+		&:nth-child(03){
+			width: 12%;
+			text-align: left;
+
+			span{
+				white-space: normal;
+				word-wrap: break-word;
+			}
+		}
+
+		&:nth-child(04){
+			width: 10%;
+			text-align: left;
+			/*text-align: center;*/
+		}
+
+		&:nth-child(05),
+		&:nth-child(06){
+			text-align: left;
+		}
+        &:nth-child(06){
+            width: 10% !important;
+        }
+	}
+}
+
+
+.archive-list-header{
+	@extend .doctors-list-header;
+}
+
+.archive-list-item{
+	@extend .doctors-list-item;
+}
+
+.archive-list-header,
+.archive-list-item{
+	li{
+        text-align: left !important;
+
+        width: 15% !important ;
+        &:first-child{
+            width: 11% !important;
+        }
+        &:nth-child(03){
+            width: 18%;
+        }
+    }
+}

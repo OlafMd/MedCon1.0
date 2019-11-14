@@ -1,0 +1,22 @@
+UPDATE 
+	ord_prc_procurementorder_position_history
+SET 
+	ProcurementOrder_Position_RefID=@ProcurementOrder_Position_RefID,
+	IsCreated=@IsCreated,
+	IsModified=@IsModified,
+	IsRemoved=@IsRemoved,
+	TriggeredBy_BusinessParticipant_RefID=@TriggeredBy_BusinessParticipant_RefID,
+	Comment=@Comment,
+	IsLivePriceRequestProcessTriggered=@IsLivePriceRequestProcessTriggered,
+	TriggeredFor_Quantity=@TriggeredFor_Quantity,
+	IsLivePriceRequestProcessAnswered=@IsLivePriceRequestProcessAnswered,
+	AnsweredWith_TotalPrice=@AnsweredWith_TotalPrice,
+	AnsweredWith_Currency_RefID=@AnsweredWith_Currency_RefID,
+	AnsweredWith_DeliverableQuantity=@AnsweredWith_DeliverableQuantity,
+	AnsweredWith_EarliestDeliveryDate=@AnsweredWith_EarliestDeliveryDate,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	ORD_PRC_ProcurementOrder_Position_HistoryID = @ORD_PRC_ProcurementOrder_Position_HistoryID

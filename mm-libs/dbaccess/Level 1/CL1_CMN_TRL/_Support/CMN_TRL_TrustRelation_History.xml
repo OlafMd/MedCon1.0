@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 2/21/2014 4:58:30 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_TRL_TrustRelation_History"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_TRL"
+                IsClass_Corresponding_DBTable="cmn_trl_trustrelation_history" >
+      <Members>
+		<ClassMember Name="CMN_TRL_TrustRelation_HistoryID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="TrustRelation_RefID" Type="Guid" />
+		<ClassMember Name="StatusType" Type="int" />
+		<ClassMember Name="StatusChangeReason" Type="String" />
+		<ClassMember Name="Performed_ByAccount_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

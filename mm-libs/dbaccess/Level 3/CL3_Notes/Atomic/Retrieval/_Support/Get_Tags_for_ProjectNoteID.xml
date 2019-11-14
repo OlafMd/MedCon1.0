@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/14/2014 2:59:27 PM">
+
+  <Meta>
+    <Name>Get_Tags_for_ProjectNoteID</Name>
+    <Description></Description>
+    <Namespace>CL3_Notes.Atomic.Retrieval</Namespace>
+    <Tags></Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Notes.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Tags_for_ProjectNoteID"
+                Method_Name="Get_Tags_for_ProjectNoteID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Tags_for_ProjectNoteID"
+                />
+
+  <SQLStatement xml:space="preserve">
+    
+Select
+  tms_pro_project_notes.TMS_PRO_Project_NoteID,
+  tms_pro_project_notes.Project_RefID,
+  tms_pro_tags.TMS_PRO_TagID,
+  tms_pro_project_note_2_tag.AssignmentID,
+  tms_pro_tags.TagValue
+  
+From
+  tms_pro_project_notes Inner Join
+  tms_pro_project_note_2_tag On tms_pro_project_note_2_tag.Project_Note_RefID =
+    tms_pro_project_notes.TMS_PRO_Project_NoteID Inner Join
+  tms_pro_tags On tms_pro_project_note_2_tag.Tag_RefID =
+    tms_pro_tags.TMS_PRO_TagID
+Where
+  tms_pro_project_notes.TMS_PRO_Project_NoteID = @ProjectNoteID And
+  tms_pro_project_notes.IsDeleted = 0 And
+  tms_pro_tags.IsDeleted = 0 And
+  tms_pro_project_note_2_tag.IsDeleted = 0 And
+  tms_pro_project_notes.Tenant_RefID = @TenantID
+  
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3N_GTfPNID_1415">
+    <Members>
+      <ClassMember Name="ProjectNoteID" Type="Guid" />
+    </Members>
+  </Parameters>
+  
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3N_GTfPNID_1415" IsArray="true">
+      <Members>
+        <ClassMember Name="TMS_PRO_Project_NoteID" Type="Guid"  />
+        <ClassMember Name="Project_RefID" Type="Guid" />
+        <ClassMember Name="TMS_PRO_TagID" Type="Guid" />
+        <ClassMember Name="AssignmentID" Type="Guid" />
+        <ClassMember Name="TagValue" Type="String" />
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+
+

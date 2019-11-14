@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeGen createdOn="1/29/2013 3:00:46 PM">
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+
+  <Meta>
+
+    <Name>Get_ProjectMemebers_for_ProjectID_and_RightPackageID</Name>
+
+    <Namespace>CL3_ProjectMember.Atomic.Retrieval</Namespace>
+
+    <Description/>
+
+    <Tags/>
+
+  </Meta>
+
+  <PlattformInfo Create_Webservice_Interface_ApplicationPlattform_Revision="4.5" Create_Webservice_Interface_ApplicationPlattform="FLEX" Create_Webservice_Interface_ServerPlattform_Revision="3.5" Create_Webservice_Interface_ServerPlattform="C#" Create_Webservice_Interface="true" Target_SQL_Revision="8" Target_SQL="MySQL" Target_Method_ProgrammingLanguage_Revision="3.5" Target_Method_ProgrammingLanguage="C#"/>
+
+  <CreationInfo ApplicationPlattform_Namespace="ProjectService.Get_ProjectMemebers_for_ProjectID_and_RightPackageID" ApplicationPlattform_WebServiceName="ProjectService" Method_Name="Get_ProjectMemebers_for_ProjectID_and_RightPackageID" Method_ClassName="cls_Get_ProjectMemebers_for_ProjectID_and_RightPackageID" Method_Namespace="CL3_ProjectMember.Atomic.Retrieval"/>
+
+  <SQLStatement xml:space="preserve"> 
+    Select distinct
+    tms_pro_projectmembers.TMS_PRO_ProjectMemberID AS ProjectMember_ID, 
+    usr_accounts.USR_AccountID AS ProjectMember_AccountID,
+    cmn_per_personinfo.FirstName AS ProjectMember_FirstName, 
+    cmn_per_personinfo.LastName AS ProjectMember_LastName,
+    ProfileImage.File_ServerLocation AS ProjectMember_ProfilePic_ServerLocation 
+    
+    From
+    
+    tms_pro_projectmembers Inner Join tms_pro_members_2_rightpackage 
+    On tms_pro_projectmembers.TMS_PRO_ProjectMemberID = tms_pro_members_2_rightpackage.ProjectMember_RefID
+    Inner Join usr_accounts 
+    On tms_pro_projectmembers.USR_Account_RefID = usr_accounts.USR_AccountID 
+    Inner Join cmn_per_personinfo_2_account On
+    cmn_per_personinfo_2_account.USR_Account_RefID = usr_accounts.USR_AccountID 
+    Inner Join cmn_per_personinfo On cmn_per_personinfo_2_account.CMN_PER_PersonInfo_RefID = cmn_per_personinfo.CMN_PER_PersonInfoID
+    Left Join (Select doc_documentrevisions.Document_RefID, doc_documentrevisions.File_ServerLocation From doc_documentrevisions Where doc_documentrevisions.IsLastRevision = 1)
+    ProfileImage On cmn_per_personinfo.ProfileImage_Document_RefID = ProfileImage.Document_RefID
+    
+    Where
+    
+    tms_pro_projectmembers.Project_RefID = @ProjectID
+    And 
+    tms_pro_members_2_rightpackage.ACC_RightsPackage_RefID = @RightPackageID And
+    tms_pro_members_2_rightpackage.IsDeleted = 0 And 
+    tms_pro_projectmembers.IsDeleted = 0 And 
+    usr_accounts.IsDeleted = 0 And
+    cmn_per_personinfo_2_account.IsDeleted = 0 And
+    cmn_per_personinfo.IsDeleted = 0
+  </SQLStatement>
+
+
+  <Parameters Name="P_L3PM_GPMfPaRP_1459" IsClass="true">
+
+
+    <Members>
+
+      <ClassMember Name="ProjectID" Type="Guid"/>
+
+      <ClassMember Name="RightPackageID" Type="Guid"/>
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true" Returns_a_StandardDataType_or_StadardDataTypeArray="false" Returns_just_the_status_of_the_operation="false">
+
+
+    <ObjectReturnType_Definition Name="L3PM_GPMfPaRP_1459" IsArray="true">
+
+
+      <Members>
+
+        <ClassMember Name="ProjectMember_ID" Type="Guid" IsObjectPrimaryKey="true"/>
+
+        <ClassMember Name="ProjectMember_AccountID" Type="Guid"/>
+
+        <ClassMember Name="ProjectMember_FirstName" Type="String"/>
+
+        <ClassMember Name="ProjectMember_LastName" Type="String"/>
+
+        <ClassMember Name="ProjectMember_ProfilePic_ServerLocation" Type="String"/>
+
+      </Members>
+
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>

@@ -1,0 +1,43 @@
+/*
+|------------------------------------------------------------
+| Variables
+|------------------------------------------------------------
+*/
+
+// Vertical rhythm
+$base-font-size: 14px;
+$base-line-height: 21px;
+@include establish-baseline;
+
+
+/*
+// Dimensions
+$container-width: 1021px;
+*/
+// Sprites
+$icons-layout: vertical;
+$icons-spacing: 20px;
+ @import "icons/*.png";
+
+/*$icons: sprite-map("icons/*.png", $spacing: 70px);*/
+/*
+//Colors
+//$orange-color: #f9ab1b; */
+
+/*.assigned-task2{
+    background: sprite($icons, assigned-task2, 0px, 6px) no-repeat;
+    @include icon-link;
+    width: 8px;
+    margin-left: 4px;
+  }*/
+
+$sub-header: #959595;
+$font-color: #000;
+$module-color: #790032;
+$active-color: #439562;
+$error-color: #c73030;
+$error-bck-color: #f4d6d6;
+$btn-hover-color: #707070;
+$disabled-color: #ccc;
+$warning-color: #cd9a12;
+$black-border: #363636;

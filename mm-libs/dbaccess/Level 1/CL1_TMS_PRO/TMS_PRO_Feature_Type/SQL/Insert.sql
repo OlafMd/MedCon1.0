@@ -1,0 +1,23 @@
+INSERT INTO 
+	tms_pro_feature_type
+	(
+		TMS_PRO_Feature_TypeID,
+		GlobalPropertyMatchingID,
+		Label_DictID,
+		Description_DictID,
+		IsPersistent,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@TMS_PRO_Feature_TypeID,
+		@GlobalPropertyMatchingID,
+		@Label,
+		@Description,
+		@IsPersistent,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

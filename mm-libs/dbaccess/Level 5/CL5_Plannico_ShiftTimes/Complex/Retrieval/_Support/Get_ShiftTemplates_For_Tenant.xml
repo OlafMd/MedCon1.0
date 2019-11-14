@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/7/2013 2:04:12 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShiftTemplates_For_Tenant</Name>
+    <Namespace>CL5_Plannico_ShiftTimes.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_ShiftTimes.Complex.Retrieval"
+                Method_ClassName="cls_Get_ShiftTemplates_For_Tenant"
+                Method_Name="Get_ShiftTemplates_For_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShiftTemplates_For_Tenant"
+                />
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5ST_GSTFT_1610" IsArray="true">
+			<Members>
+        <ClassMember Name="CMN_PPS_ShiftTemplateID" Type="Guid"  />
+        <ClassMember Name="ShiftTemplate_Name" Type="Dict" OriginTable="cmn_pps_shifttemplates" Source_DBField="ShiftTemplate_Name_DictID"  />
+        <ClassMember Name="ShiftTemplate_ShortName" Type="String"  />
+        <ClassMember Name="CMN_STR_Office_RefID" Type="Guid"  />
+        <ClassMember Name="CMN_STR_Workarea_RefID" Type="Guid"  />
+        <ClassMember Name="CMN_STR_Workplace_RefID" Type="Guid"  />
+        <ClassMember Name="Default_AllowedBreakTimeTemplate_RefID" Type="Guid"  />
+        <ClassMember Name="StartTime" Type="String"  />
+        <ClassMember Name="EndTime" Type="String"  />
+        <ClassMember Name="BrakeTime" Type="String"  />
+        <ClassMember Name="Worktime" Type="String"  />
+        <ClassMember Name="DisplayColor" Type="String" />
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

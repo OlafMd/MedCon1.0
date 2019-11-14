@@ -1,0 +1,25 @@
+INSERT INTO 
+	hec_doctors
+	(
+		HEC_DoctorID,
+		BusinessParticipant_RefID,
+		Account_RefID,
+		DoctorIDNumber,
+		IsDoctorForFollowupTreatmentsOnly,
+		IsTreatingChildren,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_DoctorID,
+		@BusinessParticipant_RefID,
+		@Account_RefID,
+		@DoctorIDNumber,
+		@IsDoctorForFollowupTreatmentsOnly,
+		@IsTreatingChildren,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

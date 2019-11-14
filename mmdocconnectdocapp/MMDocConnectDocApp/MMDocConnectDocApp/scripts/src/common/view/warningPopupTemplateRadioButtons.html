@@ -1,0 +1,24 @@
+﻿<div class="popup-wrapper">
+    <div class="popup popup-medium">
+        <div class="bck-warning"><h2 translate={{warning_header}}></h2></div>
+        <h4 class="warning_message_class" translate={{warning_message}} translate-values="{ first_name: item.first_name, last_name:item.last_name }"></h4>
+  <div class ="warning_message_class">
+            
+            <span class="mask-checkbox">
+                <input id="cbNew" type="radio" ng-model="insurance_status_type" value="1" ng-change="checkCheckBoxNew()" />
+                <i class="icon"></i>
+            </span>
+            <label class="ordered-text strong"   translate="LABEL_NEW_INSURANCE_STATUS"></label>
+                <br />
+            <span class="mask-checkbox">
+                <input id="cbOld" type="radio" ng-model="insurance_status_type" value="2" ng-change="checkCheckBoxOld()" />
+                <i class="icon"></i>
+            </span>
+           <label class="ordered-text strong"  translate="LABEL_OLD_INSURANCE_STATUS"></label>
+</div >
+        <div class="buttons text-right">
+            <button class="button wide reject jsblockClose" ng-click="quit_function()" id="no_button" translate={{no_button}}></button>
+            <button class="button wide confirm-smaller jsblockClose" ng-click="confirm_function()" id="yes_button" translate={{yes_button}}></button>
+        </div>
+    </div>
+</div>

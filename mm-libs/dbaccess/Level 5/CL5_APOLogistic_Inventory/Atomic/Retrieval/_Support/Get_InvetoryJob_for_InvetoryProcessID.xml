@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/13/2014 3:03:17 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_InvetoryJob_for_InvetoryProcessID</Name>
+    <Namespace>CL5_APOLogistic_Inventory.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_Inventory.Atomic.Retrieval"
+                Method_ClassName="cls_Get_InvetoryJob_for_InvetoryProcessID"
+                Method_Name="Get_InvetoryJob_for_InvetoryProcessID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_InvetoryJob_for_InvetoryProcessID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  log_wrh_inj_inventoryjobs.MemberOf_InventoryJobSeries_RefID,
+	  log_wrh_inj_inventoryjobs.InventoryJob_DisplayName,
+	  log_wrh_inj_inventoryjobs.LOG_WRH_INJ_InventoryJobID,
+	  log_wrh_inj_inventoryjobs.Warehouse_RefID,
+	  log_wrh_inj_inventoryjobs.IsInventoryJobCompleted
+	From
+	  log_wrh_inj_inventoryjobs Inner Join
+	  log_wrh_inj_inventoryjob_processes
+	    On log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_RefID =
+	    log_wrh_inj_inventoryjobs.LOG_WRH_INJ_InventoryJobID   
+	Where
+	 log_wrh_inj_inventoryjob_processes.LOG_WRH_INJ_InventoryJob_ProcessID = @ProcessID And
+	 log_wrh_inj_inventoryjob_processes.Tenant_RefID = @TenantID And
+	 log_wrh_inj_inventoryjob_processes.isDeleted = 0 
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CL5_IN_GIJfIPID_1502">
+    <Members>
+		<ClassMember Name="ProcessID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CL5_IN_GIJfIPID_1502" IsArray="true">
+			<Members>
+				<ClassMember Name="MemberOf_InventoryJobSeries_RefID" Type="Guid"  />
+				<ClassMember Name="InventoryJob_DisplayName" Type="String"  />
+				<ClassMember Name="LOG_WRH_INJ_InventoryJobID" Type="Guid"  />
+				<ClassMember Name="Warehouse_RefID" Type="Guid"  />
+				<ClassMember Name="IsInventoryJobCompleted" Type="bool"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

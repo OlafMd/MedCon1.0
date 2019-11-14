@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_emp_employee_leaverequest_employeecovers
+	(
+		CMN_BPT_EMP_Employee_LeaveRequest_EmployeeCoverID,
+		CMN_BPT_EMP_Employee_LeaveRequests,
+		EmployeeCover_RefID,
+		SequenceNumber,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_BPT_EMP_Employee_LeaveRequest_EmployeeCoverID,
+		@CMN_BPT_EMP_Employee_LeaveRequests,
+		@EmployeeCover_RefID,
+		@SequenceNumber,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

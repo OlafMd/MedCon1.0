@@ -1,0 +1,19 @@
+INSERT INTO 
+	ord_prc_rfp_potentialsuppliers
+	(
+		ORD_PRC_RFP_PotentialSupplierID,
+		RequestForProposal_Header_RefID,
+		CMN_BPT_BusinessParticipant_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ORD_PRC_RFP_PotentialSupplierID,
+		@RequestForProposal_Header_RefID,
+		@CMN_BPT_BusinessParticipant_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

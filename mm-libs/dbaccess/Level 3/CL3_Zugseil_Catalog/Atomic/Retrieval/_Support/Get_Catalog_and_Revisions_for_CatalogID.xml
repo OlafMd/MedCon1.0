@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/24/2014 01:53:00">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Catalog_and_Revisions_for_CatalogID</Name>
+    <Namespace>CL3_Zugseil_Catalog.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Zugseil_Catalog.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Catalog_and_Revisions_for_CatalogID"
+                Method_Name="Get_Catalog_and_Revisions_for_CatalogID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Catalog_and_Revisions_for_CatalogID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	      cmn_pro_catalogs.Catalog_Currency_RefID,
+	      cmn_pro_catalogs.Catalog_Language_RefID,
+	      cmn_pro_catalogs.IsPublicCatalog,
+	      cmn_pro_catalogs.CatalogCodeITL,
+	      cmn_pro_catalog_revisions.CMN_PRO_Catalog_RevisionID,
+	      cmn_pro_catalog_revisions.Valid_From,
+	      cmn_pro_catalog_revisions.Valid_Through,
+	      cmn_pro_catalog_revisions.PublishedBy_BusinessParticipant_RefID,
+	      cmn_pro_catalog_revisions.Default_PricelistRelease_RefID,
+	      cmn_pro_catalog_revisions.PublishedOn_Date,
+	      cmn_pro_catalog_revisions.CatalogRevision_Name,
+	      cmn_pro_catalog_revisions.CatalogRevision_Description,
+	      cmn_pro_catalog_revisions.RevisionNumber,
+	      cmn_pro_mastercatalogs.Catalog_Name_DictID,
+	      cmn_pro_catalogs.CMN_PRO_CatalogID
+	    From
+	      cmn_pro_catalog_revisions Right Join
+	      cmn_pro_catalogs On cmn_pro_catalogs.CMN_PRO_CatalogID =
+	        cmn_pro_catalog_revisions.CMN_PRO_Catalog_RefID Inner Join
+	      cmn_pro_mastercatalogs On cmn_pro_catalogs.CMN_PRO_MasterCatalog_RefID =
+	        cmn_pro_mastercatalogs.CMN_PRO_MasterCatalogID
+	    Where
+	      cmn_pro_catalogs.IsDeleted = 0 And
+	      cmn_pro_catalog_revisions.IsDeleted = 0 And
+	      cmn_pro_catalogs.Tenant_RefID = @TenantID And
+	      cmn_pro_mastercatalogs.IsDeleted = 0 And
+	      cmn_pro_catalogs.CMN_PRO_CatalogID = @CatalogID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3CA_GCaRfC_1351">
+    <Members>
+		<ClassMember Name="CatalogID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3CA_GCaRfC_1351" IsArray="false" GroupBy="CMN_PRO_CatalogID">
+      <Members>
+        <ClassMember Name="CMN_PRO_CatalogID" Type="Guid"  />
+        <ClassMember Name="Catalog_Currency_RefID" Type="Guid"  />
+        <ClassMember Name="Catalog_Language_RefID" Type="Guid"  />
+        <ClassMember Name="IsPublicCatalog" Type="bool"  />
+        <ClassMember Name="CatalogCodeITL" Type="String"  />
+        <ClassMember Name="Catalog_Name" Type="Dict" OriginTable="cmn_pro_mastercatalogs" Source_DBField="Catalog_Name_DictID"  />
+
+        <ClassMember IsClass="true" IsArray="true" Name="Revisions" Type="L3CA_GCaRfC_1249a" GroupBy="CMN_PRO_Catalog_RevisionID">
+          <Members>
+            <ClassMember Name="CMN_PRO_Catalog_RevisionID" Type="Guid"  />
+            <ClassMember Name="Valid_From" Type="DateTime"  />
+            <ClassMember Name="Valid_Through" Type="DateTime"  />
+            <ClassMember Name="PublishedBy_BusinessParticipant_RefID" Type="Guid"  />
+            <ClassMember Name="Default_PricelistRelease_RefID" Type="Guid"  />
+            <ClassMember Name="PublishedOn_Date" Type="DateTime"  />
+            <ClassMember Name="CatalogRevision_Name" Type="String"  />
+            <ClassMember Name="CatalogRevision_Description" Type="String"  />
+            <ClassMember Name="RevisionNumber" Type="int"  />
+
+          </Members>
+        </ClassMember>
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

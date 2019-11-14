@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/1/2014 2:44:16 PM">
+
+  <Componenttype>AtomicMethod</Componenttype>
+  <Meta>
+    <Name>Get_DeveloperTask_Info_for_Tenant</Name>
+    <Description></Description>
+    <Namespace>CL6_DeveloperTask.Complex.Retrieval</Namespace>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_DeveloperTask.Complex.Retrieval"
+                Method_ClassName="cls_Get_DeveloperTask_Info_for_Tenant"
+                Method_Name="Get_DeveloperTask_Info_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DeveloperTask_Info_for_Tenant"
+                />
+  
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+
+    <ObjectReturnType_Definition Name="L6DT_GDTIfT_1444" IsArray="true">
+      <Members>
+        <ClassMember Name="DeveloperTaskID"  Type="Guid"  />
+        <ClassMember Name="Path"  Type="String"  />
+        <ClassMember Name="ParentID"  Type="Guid"  />
+        <ClassMember Name="ProjectID"  Type="Guid"  />
+        <ClassMember Name="DeveloperTaskName"  Type="String"  />
+        <ClassMember Name="Identifier"  Type="String"  />
+        <ClassMember Name="ProjectMemberID"  Type="Guid"  />
+        <ClassMember Name="DeadLine"  Type="String"  />
+        <ClassMember Name="IsSubscribed"  Type="Boolean"  />
+        <ClassMember Name="DeveloperInfo"  Type="L6DT_GDTIfT_1444DeveloperInfo" IsClass="true">
+          <Members>
+            <ClassMember Name="ProjectMemberID"  Type="Guid"  />
+            <ClassMember Name="UserID"  Type="Guid"  />
+            <ClassMember Name="FirstAndLastName"  Type="String"  />
+          </Members>
+        </ClassMember>
+        <ClassMember Name="DeveloperTaskDescription"   Type="String"  />
+        <ClassMember Name="Points"  Type="int"  />
+        <ClassMember Name="EstimatedTime"  Type="Double"  />
+        <ClassMember Name="Status"  Type="String"  />
+        <ClassMember Name="TagsInfo"  Type="L6DT_GDTIfT_1444TagInfo" IsClass="true" IsArray ="true">
+          <Members>
+            <ClassMember Name="TagID"  Type="Guid"  />
+            <ClassMember Name="AssignmentID"  Type="Guid"  />
+            <ClassMember Name="TagValue"  Type="String"  />
+          </Members>
+        </ClassMember>
+        <ClassMember Name="InvestedWorkTimesInfo"  Type="L6DT_GDTIfT_1444InvestedWorkTimesInfo" IsClass="true" IsArray="true" >
+          <Members>
+            <ClassMember Name="ProjectMemberID"  Type="Guid"  />
+            <ClassMember Name="UserID"  Type="Guid"  />
+            <ClassMember Name="ProjectMemberFirstAndLastName"  Type="String"  />
+            <ClassMember Name="InvestedTimeInMin"  Type="Double"  />
+            <ClassMember Name="Percentage"  Type="Double"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

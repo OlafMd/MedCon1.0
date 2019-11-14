@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="25/3/2014 11:38:51">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_TenantsTimes</Name>
+    <Namespace>CL5_APOWebShop_ShoppingCart.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOWebShop_ShoppingCart.Atomic.Retrieval"
+                Method_ClassName="cls_Get_TenantsTimes"
+                Method_Name="Get_TenantsTimes"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_TenantsTimes"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_bpt_supplier_defaultdeliverytimes.CRONExpression,
+  cmn_bpt_supplier_defaultdeliverytimes.Tenant_RefID As TenantID,
+  cmn_bpt_supplier_defaultdeliverytimes.TimeToDelivery_in_min,
+  cmn_bpt_supplier_defaultdeliverytimes.Supplier_RefID,
+  cmn_bpt_supplier_defaultdeliverytimes.CMN_BPT_Supplier_DefaultDeliveryTimeID
+From
+  cmn_bpt_supplier_defaultdeliverytimes
+Where
+  cmn_bpt_supplier_defaultdeliverytimes.Tenant_RefID = IfNull(@CustomTenantID,
+  cmn_bpt_supplier_defaultdeliverytimes.Tenant_RefID) And
+  cmn_bpt_supplier_defaultdeliverytimes.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5AWSSC_GTT_1430">
+    <Members>
+      <ClassMember Name="CustomTenantID" Type="Guid?"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5AWSSC_GTT_1430" IsArray="true">
+      <Members>
+        <ClassMember Name="CRONExpression" Type="String"  />
+        <ClassMember Name="TenantID" Type="Guid"  />
+        <ClassMember Name="TimeToDelivery_in_min" Type="float"  />
+        <ClassMember Name="Supplier_RefID" Type="Guid"  />
+        <ClassMember Name="CMN_BPT_Supplier_DefaultDeliveryTimeID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

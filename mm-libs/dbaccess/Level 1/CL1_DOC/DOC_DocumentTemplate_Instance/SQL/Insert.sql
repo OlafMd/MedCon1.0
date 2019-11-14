@@ -1,0 +1,23 @@
+INSERT INTO 
+	doc_documenttemplate_instances
+	(
+		DOC_DocumentTemplate_InstanceID,
+		Source_DocumentTemplate_RefID,
+		DisplayName,
+		InstanceContent,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@DOC_DocumentTemplate_InstanceID,
+		@Source_DocumentTemplate_RefID,
+		@DisplayName,
+		@InstanceContent,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

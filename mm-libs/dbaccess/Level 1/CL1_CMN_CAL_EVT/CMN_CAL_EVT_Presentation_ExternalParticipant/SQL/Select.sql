@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_cal_evt_presentation_externalparticipants
+WHERE 
+	CMN_CAL_EVT_Presentation_ParticipantID = @CMN_CAL_EVT_Presentation_ParticipantID

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_act_performedaction_procedure_participants
+WHERE 
+	HEC_ACT_PerformedAction_Procedure_ParticipantID = @HEC_ACT_PerformedAction_Procedure_ParticipantID

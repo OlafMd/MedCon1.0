@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/16/2015 11:31:48 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_ACT_PerformedAction"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC_ACT"
+                IsClass_Corresponding_DBTable="hec_act_performedactions" >
+      <Members>
+		<ClassMember Name="HEC_ACT_PerformedActionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="HealthcarePerformedActionITL" Type="String" />
+		<ClassMember Name="Patient_RefID" Type="Guid" />
+		<ClassMember Name="IsPerformed_Internally" Type="Boolean" />
+		<ClassMember Name="IfPerformedInternaly_ResponsibleBusinessParticipant_RefID" Type="Guid" />
+		<ClassMember Name="IsPerformed_Externally" Type="Boolean" />
+		<ClassMember Name="IsPerformed_MedicalPractice_RefID" Type="Guid" />
+		<ClassMember Name="IfPerformed_MedicalPracticeType_RefID" Type="Guid" />
+		<ClassMember Name="IfPerformed_DateOfAction_Year" Type="int" />
+		<ClassMember Name="IfPerformed_DateOfAction_Month" Type="int" />
+		<ClassMember Name="IfPerformed_DateOfAction_Day" Type="int" />
+		<ClassMember Name="IfPerfomed_DateOfAction" Type="DateTime" />
+		<ClassMember Name="IsFollowupPerformedAction" Type="Boolean" />
+		<ClassMember Name="IsFollowupPerformed_PreviousPerformedAction_RefID" Type="Guid" />
+		<ClassMember Name="IsFinalized" Type="Boolean" />
+		<ClassMember Name="IM_IfPerformed_MedicalPractice_Name" Type="String" />
+		<ClassMember Name="IM_IfPerformed_MedicalPracticeType_Name" Type="String" />
+		<ClassMember Name="IM_IfPerformed_ResponsibleBP_FullName" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

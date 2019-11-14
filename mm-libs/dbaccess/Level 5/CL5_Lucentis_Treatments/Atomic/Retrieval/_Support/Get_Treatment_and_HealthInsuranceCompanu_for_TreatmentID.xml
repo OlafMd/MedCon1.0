@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/14/2013 3:20:42 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_all_FollowUp_Treatments</Name>
+    <Namespace>CL5_Lucentis_Treatments.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Treatments.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Treatment_and_HealthInsuranceCompanu_for_TreatmentID"
+                Method_Name="Get_Treatment_and_HealthInsuranceCompanu_for_TreatmentID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Treatment_and_HealthInsuranceCompanu_for_TreatmentID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_patient_treatment.HEC_Patient_TreatmentID,
+  hec_patient_healthinsurances.HIS_HealthInsurance_Company_RefID,
+  hec_patient_treatment.Tenant_RefID,
+  hec_his_healthinsurance_companies.HealthInsurance_IKNumber
+From
+  hec_patient_treatment Inner Join
+  hec_patient_2_patienttreatment
+    On hec_patient_treatment.HEC_Patient_TreatmentID =
+    hec_patient_2_patienttreatment.HEC_Patient_Treatment_RefID Inner Join
+  hec_patients On hec_patient_2_patienttreatment.HEC_Patient_RefID =
+    hec_patients.HEC_PatientID Inner Join
+  hec_patient_healthinsurances On hec_patients.HEC_PatientID =
+    hec_patient_healthinsurances.Patient_RefID Inner Join
+  hec_his_healthinsurance_companies
+    On hec_patient_healthinsurances.HIS_HealthInsurance_Company_RefID =
+    hec_his_healthinsurance_companies.HEC_HealthInsurance_CompanyID
+Where
+  hec_patient_treatment.HEC_Patient_TreatmentID = @TreatmentID And
+  hec_patient_treatment.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+    <Parameters IsClass="true" Name="P_L5TR_GTHITID_1730">
+        <Members>
+            <ClassMember Name="TreatmentID" Type="Guid" IsArray="true"/>
+        </Members>
+    </Parameters>
+    
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5TR_GTHITID_1730" IsArray="true" GroupBy="HEC_Patient_TreatmentID">
+      <Members>
+        
+        <ClassMember Name="HEC_Patient_TreatmentID" Type="Guid"  />
+        <ClassMember Name="HealthInsurance_IKNumber" Type="string"  />
+        <ClassMember Name="HIS_HealthInsurance_Company_RefID" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

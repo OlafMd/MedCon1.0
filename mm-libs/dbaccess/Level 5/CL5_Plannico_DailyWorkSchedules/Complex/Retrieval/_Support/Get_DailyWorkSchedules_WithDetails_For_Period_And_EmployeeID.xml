@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11-Apr-14 10:30:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DailyWorkSchedules_WithDetails_For_Period_And_EmployeeID</Name>
+    <Namespace>CL5_Plannico_DailyWorkSchedules.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_DailyWorkSchedules.Complex.Retrieval"
+                Method_ClassName="cls_Get_DailyWorkSchedules_WithDetails_For_Period_And_EmployeeID"
+                Method_Name="Get_DailyWorkSchedules_WithDetails_For_Period_And_EmployeeID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DailyWorkSchedules_WithDetails_For_Period_And_EmployeeID"
+                />
+
+  <Parameters IsClass="true" Name="P_L5DWS_GDWSWDFPAE_1331">
+    <Members>
+      <ClassMember Name="PeriodStartDate" Type="DateTime"  />
+      <ClassMember Name="PeriodEndDate" Type="DateTime"  />
+      <ClassMember Name="EmployeeID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="L5DWS_GDWSWDFPAE_1331" IsArray="false">
+      <Members>
+        <ClassMember Name="DailyWorkSchedulesWithDetails" Type="L5DWS_GDWSWDFT_0946" IsArray="true" IsReference="true"   />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Previous_Case_Data_for_PatientID</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Complex.Retrieval"
+								Method_ClassName="cls_Get_Previous_Case_Data_for_PatientID"
+								Method_Name="Get_Previous_Case_Data_for_PatientID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <Parameters IsClass="true" Name="P_CAS_GPCDfPID_1144">
+    <Members>
+      <ClassMember Name="PatientID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GPCDfPID_1144">
+      <Members>        
+        <ClassMember Name="case_id" Type="Guid"  />
+        <ClassMember Name="treatment_doctor_id" Type="Guid"  />
+        <ClassMember Name="diagnose_id" Type="Guid"  />
+        <ClassMember Name="localization" Type="String"  />
+        <ClassMember Name="aftercare_doctor_id" Type="Guid"  />
+        <ClassMember Name="is_aftercare_doctor" Type="Boolean"  />
+        <ClassMember Name="aftercare_doctor_display_name" Type="String"  />
+        <ClassMember Name="aftercare_practice_display_name" Type="String"  />
+        <ClassMember Name="aftercare_practice_id" Type="Guid"  />
+        <ClassMember Name="is_diagnosis_confirmed" Type="Boolean"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

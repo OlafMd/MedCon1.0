@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D80C7EF3-115E-4F40-A3D4-39151D5A4146}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DLAPODemandCommons</RootNamespace>
+    <AssemblyName>DLAPODemandCommons</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\APOChooseArticlesPopupSearch.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\APOModuleMenu.cs" />
+    <Compile Include="Controls\APOArticleSearch.cs" />
+    <Compile Include="Controls\APOChooseArticlesTable.cs" />
+    <Compile Include="Controls\APOStorageSelectionPopup.cs" />
+    <Compile Include="Controls\APOStorageTree.cs" />
+    <Compile Include="Controls\APOStorageTreeItem.cs" />
+    <Compile Include="Controls\Classes\AbstractStorageProxy.cs" />
+    <Compile Include="Controls\Classes\ArticleSearchAutocompleteAbstractHandler.cs" />
+    <Compile Include="Controls\APOChooseArticlesPopup.cs" />
+    <Compile Include="Controls\Classes\ArticleModelFromChoosePopup.cs" />
+    <Compile Include="Controls\Classes\ArticlesEventArgs.cs" />
+    <Compile Include="Controls\Classes\AbstractArticleProxy.cs" />
+    <Compile Include="Controls\Classes\StorageTreeItemModel.cs" />
+    <Compile Include="Controls\Classes\StorageItemCategoryCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Session\DLSession.cs" />
+    <Compile Include="Templates\Articles\APOAbdaComponentTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\APOMasterPageTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\Articles\APOArticleCommonTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Articles\APOArticleSourceTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Articles\IAPOArticleTemplate.cs" />
+    <Compile Include="Templates\Articles\APOLocalComponentTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utils\BubbleNotificationUtil.cs" />
+    <Compile Include="Utils\CopyAppSettingsToLog.cs" />
+    <Compile Include="Utils\ModuleMenuAutorization.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\arch\infrastructure.csharp-api\BOp-CoreAPI\BOp-CoreAPI.csproj">
+      <Project>{64BB878F-E099-4DFC-955F-AD0E9DDBBA51}</Project>
+      <Name>BOp-CoreAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dbaccess\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\external\log4net\log4net.csproj">
+      <Project>{181FE707-E161-4722-9F38-6AAAB6FAA106}</Project>
+      <Name>log4net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\utils\DLUtils_Common\DLUtils_Common.csproj">
+      <Project>{E7D06880-7054-4045-9B0B-6AFE3DB5185C}</Project>
+      <Name>DLUtils_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DLWebFormsTemplates\DLWebFormsTemplates.csproj">
+      <Project>{BC62AC17-DDB0-4696-82C2-571D8D40CCD9}</Project>
+      <Name>DLWebFormsTemplates</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Scripts\apo-demand-commons.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\HtmlTemplates\articlesTemplate.htm" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

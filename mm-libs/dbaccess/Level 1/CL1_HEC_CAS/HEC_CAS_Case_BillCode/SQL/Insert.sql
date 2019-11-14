@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_cas_case_billcodes
+	(
+		HEC_CAS_Case_BillCodeID,
+		HEC_CAS_Case_RefID,
+		HEC_BIL_BillPosition_BillCode_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CAS_Case_BillCodeID,
+		@HEC_CAS_Case_RefID,
+		@HEC_BIL_BillPosition_BillCode_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

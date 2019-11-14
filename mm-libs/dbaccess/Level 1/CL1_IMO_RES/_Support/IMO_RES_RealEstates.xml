@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 5:05:28 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="IMO_RES_RealEstate"
+                IsClass="true"
+                IsClass_Namespace="CL1_IMO_RES"
+                IsClass_Corresponding_DBTable="imo_res_realestates" >
+      <Members>
+		<ClassMember Name="IMO_RealEstateID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="RealEstate_Type_RefID" Type="Guid" />
+		<ClassMember Name="Address_RefID" Type="Guid" />
+		<ClassMember Name="Owning_BP_RefID" Type="Guid" />
+		<ClassMember Name="Object_Internal_ID" Type="String" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="location_lattitude" Type="Double" />
+		<ClassMember Name="location_longitude" Type="Double" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

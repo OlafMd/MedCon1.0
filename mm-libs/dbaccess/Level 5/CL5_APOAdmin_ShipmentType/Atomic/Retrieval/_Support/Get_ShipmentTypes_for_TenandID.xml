@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="15/10/2013 10:41:10">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ShipmentTypes_for_TenandID</Name>
+    <Namespace>CL5_APOAdmin_ShipmentType.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOAdmin_ShipmentType.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ShipmentTypes_for_TenandID"
+                Method_Name="Get_ShipmentTypes_for_TenandID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ShipmentTypes_for_TenandID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  log_shp_shipment_types.GlobalPropertyMatchingID,
+  log_shp_shipment_types.LOG_SHP_Shipment_TypeID,
+  log_shp_shipment_types.ShipmentType_Name_DictID,
+  log_shp_shipment_types.ShipmentType_Description_DictID,
+  log_shp_shipment_types.IsCustomerPickup,
+  log_shp_shipment_types.IsPartialPickingPermitted,
+  log_shp_shipment_types.IsFixedPricePerShipment,
+  log_shp_shipment_types.IfFixedPricePerShipment_Price_RefID
+From
+  log_shp_shipment_types
+Where
+  log_shp_shipment_types.Tenant_RefID = @TenantID And
+  log_shp_shipment_types.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5ST_GSTfT_1210" IsArray="true">
+			<Members>
+        <ClassMember Name="LOG_SHP_Shipment_TypeID" Type="Guid"  />
+        <ClassMember Name="ShipmentType_Name" Type="Dict" OriginTable="log_shp_shipment_types" Source_DBField="ShipmentType_Name_DictID"  />
+        <ClassMember Name="ShipmentType_Descriptio" Type="Dict" OriginTable="log_shp_shipment_types" Source_DBField="ShipmentType_Description_DictID"  />
+        <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+        <ClassMember Name="IfFixedPricePerShipment_Price_RefID" Type="Guid"  />
+        <ClassMember Name="IsFixedPricePerShipment" Type="bool"  />
+        <ClassMember Name="IsPartialPickingPermitted" Type="bool"  />
+        <ClassMember Name="IsCustomerPickup" Type="bool"  />
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

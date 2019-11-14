@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/28/2013 3:22:16 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Check_LeaveRequest_Count</Name>
+    <Namespace>CL5_VacationPlanner_LeaveRequest.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_VacationPlanner_LeaveRequest.Complex.Retrieval"
+                Method_ClassName="cls_Check_LeaveRequest_Count"
+                Method_Name="Check_LeaveRequest_Count"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Check_LeaveRequest_Count"
+                />
+
+  <Parameters IsClass="true" Name="P_L5LR_CLRC_1517">
+    <Members>
+		<ClassMember Name="EmployeeID" Type="Guid"  />
+		<ClassMember Name="StartDate" Type="DateTime"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5LR_CLRC_1517" IsArray="false">
+			<Members>
+        <ClassMember Name="LeaveCount" Type="int" />
+
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

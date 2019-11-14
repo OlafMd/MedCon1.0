@@ -1,0 +1,18 @@
+diff a/Level 3/CL3_ABDA/CL3_ABDA.csproj b/Level 3/CL3_ABDA/CL3_ABDA.csproj	(rejected hunks)
+@@ -32,13 +32,13 @@
+   </PropertyGroup>
+   <ItemGroup>
+     <Reference Include="BOp-CatalogAPI">
+-      <HintPath>..\..\..\..\apps\eye.management.treatment.data\packages\BOp.CatalogAPI.0.2.5\lib\net40\BOp-CatalogAPI.dll</HintPath>
++      <HintPath>..\..\..\..\apps\apodemand.logistic.data\packages\BOp.CatalogAPI.0.2.5\lib\net40\BOp-CatalogAPI.dll</HintPath>
+     </Reference>
+     <Reference Include="Newtonsoft.Json">
+-      <HintPath>..\..\..\..\apps\eye.management.treatment.data\packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
++      <HintPath>..\..\..\..\apps\apodemand.logistic.data\packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="PlainElastic.Net">
+-      <HintPath>..\..\..\..\apps\eye.management.treatment.data\packages\PlainElastic.Net.1.0.48\lib\Net40\PlainElastic.Net.dll</HintPath>
++      <HintPath>..\..\..\..\apps\apodemand.logistic.data\packages\PlainElastic.Net.1.0.48\lib\Net40\PlainElastic.Net.dll</HintPath>
+     </Reference>
+     <Reference Include="System" />
+     <Reference Include="System.Core" />

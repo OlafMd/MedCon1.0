@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="31/7/2014 02:07:50">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Count_ExtraDemandProducts_for_SupplierID</Name>
+    <Namespace>CL5_APOProcurement_ProcurementOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOProcurement_ProcurementOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Count_ExtraDemandProducts_for_SupplierID"
+                Method_Name="Count_ExtraDemandProducts_for_SupplierID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Count_ExtraDemandProducts_for_SupplierID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT COUNT(ord_prc_extrademandproducts.ORD_PRC_ExtraDemandProductID) numberOfPositions
+	FROM ord_prc_extrademandproducts
+	INNER JOIN cmn_bpt_suppliers ON cmn_bpt_suppliers.CMN_BPT_SupplierID = ord_prc_extrademandproducts.Supplier_RefID
+		AND cmn_bpt_suppliers.IsDeleted = 0
+		AND cmn_bpt_suppliers.CMN_BPT_SupplierID = @SupplierID
+		AND cmn_bpt_suppliers.Tenant_RefID = @TenantID
+	INNER JOIN cmn_bpt_businessparticipants bp_suppliers ON bp_suppliers.CMN_BPT_BusinessParticipantID = cmn_bpt_suppliers.Ext_BusinessParticipant_RefID
+		AND bp_suppliers.IsDeleted = 0
+		AND bp_suppliers.Tenant_RefID = @TenantID
+	WHERE ord_prc_extrademandproducts.IsDeleted = 0
+		AND ord_prc_extrademandproducts.Tenant_RefID = @TenantID
+		AND (
+			ord_prc_extrademandproducts.ProcurementOrderPosition_RefID = 0x00000000000000000000000000000000
+			OR ord_prc_extrademandproducts.ProcurementOrderPosition_RefID IS NULL
+			)
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5PO_CEDPfS_1407">
+    <Members>
+		<ClassMember Name="SupplierID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PO_CEDPfS_1407" IsArray="true">
+			<Members>
+				<ClassMember Name="numberOfPositions" Type="int"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

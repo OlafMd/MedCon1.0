@@ -1,0 +1,27 @@
+INSERT INTO 
+	ord_prc_discounttypes
+	(
+		ORD_PRC_DiscountTypeID,
+		GlobalPropertyMatchingID,
+		IsDefaultAbsoluteDiscountValue,
+		IsDefaultRelativeDiscountValue,
+		DisplayName,
+		DiscountType_Name_DictID,
+		OrderSequence,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ORD_PRC_DiscountTypeID,
+		@GlobalPropertyMatchingID,
+		@IsDefaultAbsoluteDiscountValue,
+		@IsDefaultRelativeDiscountValue,
+		@DisplayName,
+		@DiscountType_Name,
+		@OrderSequence,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

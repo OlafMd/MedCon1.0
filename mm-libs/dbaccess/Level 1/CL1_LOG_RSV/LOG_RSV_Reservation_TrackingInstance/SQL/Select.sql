@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	log_rsv_reservation_trackinginstances
+WHERE 
+	LOG_RSV_Reservation_TrackingInstanceID = @LOG_RSV_Reservation_TrackingInstanceID

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="4/16/2014 6:59:40 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Installments_with_InstallmentPlan_for_BillHeader</Name>
+    <Namespace>CL5_APOBilling_Bill.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBilling_Bill.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Installments_with_InstallmentPlan_for_BillHeader"
+                Method_Name="Get_Installments_with_InstallmentPlan_for_BillHeader"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Installments_with_InstallmentPlan_for_BillHeader"
+                />
+
+  <SQLStatement xml:space="preserve">
+    SELECT
+		acc_ipl_installmentplans.ACC_IPL_InstallmentPlanID,
+		acc_ipl_installments.ACC_IPL_InstallmentID,
+		acc_ipl_installments.Amount,
+		acc_ipl_installments.PaymentDeadline,
+		acc_ipl_installments.IsFullyPaid
+	FROM
+		bil_billheader_2_installmentplans
+	INNER JOIN acc_ipl_installmentplans 
+		ON acc_ipl_installmentplans.ACC_IPL_InstallmentPlanID = bil_billheader_2_installmentplans.BIL_InstallmentPlan_RefID
+		AND acc_ipl_installmentplans.IsDeleted = 0
+		AND acc_ipl_installmentplans.Tenant_RefID = @TenantID
+	INNER JOIN acc_ipl_installments
+		ON acc_ipl_installments.InstallmentPlan_RefID = acc_ipl_installmentplans.ACC_IPL_InstallmentPlanID
+		AND (@IsFullyPaid IS NULL OR acc_ipl_installments.IsFullyPaid = @IsFullyPaid)
+		AND acc_ipl_installments.IsDeleted = 0
+		AND acc_ipl_installments.Tenant_RefID = @TenantID
+	WHERE
+		bil_billheader_2_installmentplans.BIL_BillHeader_RefID = @BillHeaderID
+		AND bil_billheader_2_installmentplans.IsDeleted = 0
+		AND bil_billheader_2_installmentplans.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5BL_GIwIP_fBH_1306">
+    <Members>
+        <ClassMember Name="BillHeaderID" Type="Guid"  />
+		<ClassMember Name="IsFullyPaid" Type="Boolean?"  />
+	</Members>
+  </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5BL_GIwIP_fBH_1306" IsArray="true">
+            <Members>
+                <ClassMember Name="ACC_IPL_InstallmentPlanID" Type="Guid"  />
+				<ClassMember Name="ACC_IPL_InstallmentID" Type="Guid"  />
+				<ClassMember Name="Amount" Type="Decimal"  />
+				<ClassMember Name="PaymentDeadline" Type="DateTime"  />
+				<ClassMember Name="IsFullyPaid" Type="Boolean"  />
+				
+            </Members>
+        </ObjectReturnType_Definition>
+
+    </ResultInfo>
+
+</CodeGen>
+
+

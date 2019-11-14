@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_bld_outdoorfacility_fencetypes
+	(
+		RES_BLD_OutdoorFacility_FenceTypeID,
+		GlobalPropertyMatchingID,
+		FenceType_Name_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_BLD_OutdoorFacility_FenceTypeID,
+		@GlobalPropertyMatchingID,
+		@FenceType_Name,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

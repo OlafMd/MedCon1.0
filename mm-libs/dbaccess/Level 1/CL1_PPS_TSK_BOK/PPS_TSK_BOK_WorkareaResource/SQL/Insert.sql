@@ -1,0 +1,21 @@
+INSERT INTO 
+	pps_tsk_bok_workarearesources
+	(
+		PPS_TSK_BOK_WorkareaResourceID,
+		AvailableResourceCombination_RefID,
+		CMN_STR_Workarea_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@PPS_TSK_BOK_WorkareaResourceID,
+		@AvailableResourceCombination_RefID,
+		@CMN_STR_Workarea_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="02/02/2017 04:26 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Number_of_Times_Used_for_PharmacyID</Name>
+    <Namespace>MMDocConnectDBMethods.Pharmacy.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Pharmacy.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Number_of_Times_Used_for_PharmacyID"
+                Method_Name="Get_Number_of_Times_Used_for_PharmacyID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  Count(ord_prc_procurementorder_headers.ProcurementOrder_Supplier_RefID) As
+  NumberOfUsages
+From
+  hec_pharmacies Inner Join
+  cmn_bpt_businessparticipants
+    On hec_pharmacies.Ext_CompanyInfo_RefID =
+    cmn_bpt_businessparticipants.IfCompany_CMN_COM_CompanyInfo_RefID And
+    cmn_bpt_businessparticipants.IsDeleted = 0 And
+    cmn_bpt_businessparticipants.Tenant_RefID = @TenantID Inner Join
+  ord_prc_procurementorder_headers
+    On cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID =
+    ord_prc_procurementorder_headers.ProcurementOrder_Supplier_RefID And
+    ord_prc_procurementorder_headers.IsDeleted = 0 And
+    ord_prc_procurementorder_headers.Tenant_RefID = @TenantID
+Where
+  hec_pharmacies.HEC_PharmacyID = @PharmacyID And
+  hec_pharmacies.IsDeleted = 0 And
+  hec_pharmacies.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_PH_GNoTUfPID_1626">
+    <Members>
+      <ClassMember Name="PharmacyID" Type="Guid" />
+    </Members>
+  </Parameters>
+  
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="PH_GNoTUfPID_1626">
+      <Members>        
+        <ClassMember Name="NumberOfUsages" Type="int" />  
+     </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

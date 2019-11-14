@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_cmt_membership_potentialdiagnosiscatalogsubscriptions
+	(
+		HEC_CMT_Membership_DiagnosisCatalogSubscriptionID,
+		Membership_RefID,
+		PotentialDiagnosisCatalogITL,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CMT_Membership_DiagnosisCatalogSubscriptionID,
+		@Membership_RefID,
+		@PotentialDiagnosisCatalogITL,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

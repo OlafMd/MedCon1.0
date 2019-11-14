@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_TreatmentYear</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Complex.Retrieval"
+								Method_ClassName="cls_Get_TreatmentYear"
+								Method_Name="Get_TreatmentYear"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <Parameters IsClass="true" Name="P_CAS_GTY_1125">
+    <Members>
+      <ClassMember Name="PatientID" Type="Guid"  />
+      <ClassMember Name="LocalizationCode" Type="String"  />
+      <ClassMember Name="Date" Type="DateTime"  />
+      <ClassMember Name="DoctorID" Type="Guid" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_a_StandardDataType_or_StadardDataTypeArray="true">
+    <StandardReturnType_Definition returnType="DateTime" />
+  </ResultInfo>
+
+</CodeGen>

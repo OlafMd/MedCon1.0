@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_Planned_Action_DiagnosisIDs_for_PlannedActionID</Name>
+		<Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Planned_Action_DiagnosisIDs_for_PlannedActionID"
+								Method_Name="Get_Planned_Action_DiagnosisIDs_for_PlannedActionID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+Select
+  hec_act_performedaction_diagnosisupdate_localizations.HEC_DIA_Diagnosis_Localization_RefID,
+  hec_act_performedaction_diagnosisupdates.HEC_Patient_Diagnosis_RefID,
+  hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_DiagnosisUpdateID,
+  hec_act_performedaction_diagnosisupdate_localizations.HEC_ACT_PerformedAction_DiagnosisUpdate_LocalizationID
+From
+  hec_act_plannedactions Inner Join
+  hec_act_performedaction_diagnosisupdates
+    On hec_act_plannedactions.IfPlannedFollowup_PreviousAction_RefID =
+    hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_RefID And
+    hec_act_performedaction_diagnosisupdates.Tenant_RefID = @TenantID And
+    hec_act_performedaction_diagnosisupdates.IsDeleted = 0 Inner Join
+  hec_act_performedaction_diagnosisupdate_localizations
+    On
+    hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_DiagnosisUpdateID = hec_act_performedaction_diagnosisupdate_localizations.HEX_EXC_Action_DiagnosisUpdate_RefID And 
+    hec_act_performedaction_diagnosisupdate_localizations.Tenant_RefID = @TenantID And 
+    hec_act_performedaction_diagnosisupdate_localizations.IsDeleted = 0 
+Where
+  hec_act_plannedactions.HEC_ACT_PlannedActionID = @PlannedActionID And
+  hec_act_plannedactions.Tenant_RefID = @TenantID And
+  hec_act_plannedactions.IsDeleted = 0 And
+  hec_act_plannedactions.IsCancelled = 0
+	</SQLStatement>
+  
+  <Parameters IsClass="true" Name="P_CAS_GPADIDsfPAID_1041">
+    <Members>
+      <ClassMember Name="PlannedActionID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CAS_GPADIDsfPAID_1041">
+			<Members>
+				<ClassMember Name="HEC_DIA_Diagnosis_Localization_RefID" Type="Guid"  />
+        <ClassMember Name="HEC_Patient_Diagnosis_RefID" Type="Guid"  />
+        <ClassMember Name="HEC_ACT_PerformedAction_DiagnosisUpdateID" Type="Guid"  />
+        <ClassMember Name="HEC_ACT_PerformedAction_DiagnosisUpdate_LocalizationID" Type="Guid"  />
+
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

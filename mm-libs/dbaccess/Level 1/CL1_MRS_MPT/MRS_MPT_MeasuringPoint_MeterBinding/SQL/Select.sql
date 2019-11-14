@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	mrs_mpt_measuringpoint_meterbindings
+WHERE 
+	MRS_MPT_MeasuringPoint_MeterBindingID = @MRS_MPT_MeasuringPoint_MeterBindingID

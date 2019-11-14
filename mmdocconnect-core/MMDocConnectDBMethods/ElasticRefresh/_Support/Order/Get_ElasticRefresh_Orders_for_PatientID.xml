@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="03/20/2017 04:42 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ElasticRefresh_Orders_for_PatientID</Name>
+    <Namespace>MMDocConnectDBMethods.ElasticRefresh</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.ElasticRefresh"
+								Method_ClassName="cls_Get_ElasticRefresh_Orders_for_PatientID"
+								Method_Name="Get_ElasticRefresh_Orders_for_PatientID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_cas_cases.Patient_RefID As patient_id,
+  ord_prc_procurementorder_statuses.Status_Code As status_code,
+  hec_cas_cases.HEC_CAS_CaseID As case_id,
+  ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID As order_id,
+  ord_prc_procurementorder_positions.RequestedDateOfDelivery_TimeFrame_From As delivery_time_from,
+  ord_prc_procurementorder_positions.RequestedDateOfDelivery_TimeFrame_To As delivery_time_to,
+  ord_prc_procurementorder_positions.Position_RequestedDateOfDelivery As delivery_date,
+  hec_act_plannedactions.PlannedFor_Date as treatment_date,
+  ord_prc_procurementorder_headers.ProcurementOrder_Supplier_RefID as pharmacy_bpt_id,
+  hec_prc_procurementorder_positions.Modification_Timestamp As order_modification_timestamp,
+  hec_act_plannedactions.MedicalPractice_RefID as practice_id,
+  hec_act_plannedaction_potentialprocedure_requiredproduct.HealthcareProduct_RefID as drug_id
+From
+  hec_cas_cases Inner Join
+  hec_cas_case_relevantperformedactions
+    On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_relevantperformedactions.Case_RefID And hec_cas_case_relevantperformedactions.Tenant_RefID = @TenantID And
+    hec_cas_case_relevantperformedactions.IsDeleted = 0 Inner Join
+  hec_act_plannedactions
+    On hec_cas_case_relevantperformedactions.PerformedAction_RefID = hec_act_plannedactions.IfPlannedFollowup_PreviousAction_RefID And
+    hec_act_plannedactions.Tenant_RefID = @TenantID And hec_act_plannedactions.IsDeleted = 0 Inner Join
+  hec_act_plannedaction_potentialprocedures
+    On hec_act_plannedactions.HEC_ACT_PlannedActionID = hec_act_plannedaction_potentialprocedures.PlannedAction_RefID And
+    hec_act_plannedaction_potentialprocedures.Tenant_RefID = @TenantID And hec_act_plannedaction_potentialprocedures.IsDeleted = 0 Inner Join
+  hec_act_plannedaction_potentialprocedure_requiredproduct
+    On hec_act_plannedaction_potentialprocedure_requiredproduct.PlannedAction_PotentialProcedure_RefID =
+    hec_act_plannedaction_potentialprocedures.HEC_ACT_PlannedAction_PotentialProcedureID And hec_act_plannedaction_potentialprocedure_requiredproduct.Tenant_RefID = @TenantID Inner Join
+  hec_prc_procurementorder_positions
+    On hec_act_plannedaction_potentialprocedure_requiredproduct.BoundTo_HealthcareProcurementOrderPosition_RefID =
+    hec_prc_procurementorder_positions.HEC_PRC_ProcurementOrder_PositionID And hec_prc_procurementorder_positions.IsDeleted = 0 And
+    hec_prc_procurementorder_positions.Tenant_RefID = @TenantID Inner Join
+  ord_prc_procurementorder_positions
+    On hec_prc_procurementorder_positions.Ext_ORD_PRC_ProcurementOrder_Position_RefID = ord_prc_procurementorder_positions.ORD_PRC_ProcurementOrder_PositionID
+    And ord_prc_procurementorder_positions.IsDeleted = 0 And ord_prc_procurementorder_positions.Tenant_RefID = @TenantID Inner Join
+  ord_prc_procurementorder_headers
+    On ord_prc_procurementorder_positions.ProcurementOrder_Header_RefID = ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID And
+    ord_prc_procurementorder_headers.IsDeleted = 0 And ord_prc_procurementorder_headers.Tenant_RefID = @TenantID Inner Join
+  ord_prc_procurementorder_statuses
+    On ord_prc_procurementorder_headers.Current_ProcurementOrderStatus_RefID = ord_prc_procurementorder_statuses.ORD_PRC_ProcurementOrder_StatusID And
+    ord_prc_procurementorder_statuses.IsDeleted = 0 And ord_prc_procurementorder_statuses.Tenant_RefID = @TenantID
+Where
+  hec_cas_cases.Patient_RefID = @PatientIDs And
+  hec_cas_cases.Tenant_RefID = @TenantID
+Group By
+  ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID
+Order By
+  Null
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_ER_GEROfPID_1123">
+    <Members>
+      <ClassMember Name="PatientIDs" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="ER_GEROfPID_1123" IsArray="true">
+      <Members>
+        <ClassMember Name="patient_id" Type="Guid" />
+        <ClassMember Name="status_code" Type="int" />
+        <ClassMember Name="case_id" Type="Guid" />
+        <ClassMember Name="order_id" Type="Guid" />
+        <ClassMember Name="delivery_time_from" Type="DateTime" />
+        <ClassMember Name="delivery_time_to" Type="DateTime" />
+        <ClassMember Name="delivery_date" Type="DateTime" />
+        <ClassMember Name="treatment_date" Type="DateTime" />
+        <ClassMember Name="pharmacy_bpt_id" Type="Guid" />
+        <ClassMember Name="order_modification_timestamp" Type="DateTime" />
+        <ClassMember Name="practice_id" Type="Guid" />
+        <ClassMember Name="drug_id" Type="Guid" />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Cancel_Drug_Order</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Manipulation"
+								Method_ClassName="cls_Cancel_Drug_Order"
+								Method_Name="Cancel_Drug_Order"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <Parameters IsClass="true" Name="P_CAS_CDO_1250">
+    <Members>
+      <ClassMember Name="ord_drug_order_header" Type="ORM_ORD_PRC_ProcurementOrder_Header"  />
+      <ClassMember Name="all_languagesL" Type="ORM_CMN_Language"  IsArray="true"  />
+      <ClassMember Name="created_by_bpt" Type="Guid"  />
+      <ClassMember Name="procurement_order_position_id" Type="Guid"  />
+      <ClassMember Name="case_id" Type="Guid"  />    
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_CDO_1250">
+      <Members>
+        <ClassMember Name="drug_order_id" Type="Guid"  />
+        <ClassMember Name="previous_status" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

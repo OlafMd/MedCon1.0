@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/27/2012 9:23:25 AM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_VacationPlanner_Employees.Complex.Retrieval"
+                  Method_ClassName="cls_Get_EmployeeNames_For_ManagerEmployeeID"
+                  Method_Name="Get_EmployeeNames_For_ManagerEmployeeID"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Get_EmployeeNames_For_ManagerEmployeeID"
+                />
+
+  <Parameters IsClass="true" Name="P_L3EM_GEFTAME_1403">
+    <Members>
+      <ClassMember Name="EmployeeID" Type="Guid"  />
+      <ClassMember Name="appStartDate" Type="DateTime"  />
+    </Members>
+  </Parameters>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L3EM_GEFTAME_1403" IsArray="false" >
+            <Members>
+              <ClassMember Name="Employees" Type="L5EM_GENFT_1344" IsArray="true" />
+
+
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/6/2014 3:07:53 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_NonWorkingTimesforOfficeID</Name>
+    <Namespace>CL5_.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_OrgUnits.Atomic.Retrieval"
+                Method_ClassName="cls_Get_NonWorkingTimesforOfficeID"
+                Method_Name="Get_NonWorkingTimesforOfficeID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_NonWorkingTimesforOfficeID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_str_office_worktimetemplateexceptions.Description,
+	  cmn_str_office_worktimetemplateexceptions.CMN_STR_Office_WorktimeTemplateExceptionID As TimeID,
+	  cmn_cal_events.IsRepetitive,
+	  cmn_cal_events.IsWholeDayEvent,
+	  cmn_cal_events.StartTime,
+	  cmn_cal_events.EndTime,
+	  cmn_cal_repetitions.IsDaily,
+	  cmn_cal_repetitions.IsWeekly,
+	  cmn_cal_repetitions.IsMonthly,
+	  cmn_cal_repetitions.IsYearly
+	From
+	  cmn_str_office_worktimetemplateexceptions Inner Join
+	  cmn_cal_events
+	    On cmn_str_office_worktimetemplateexceptions.CMN_CAL_Event_RefID =
+	    cmn_cal_events.CMN_CAL_EventID And cmn_cal_events.Tenant_RefID = @TenantID
+	    And cmn_cal_events.IsDeleted = 0 Left Join
+	  cmn_cal_repetitions On cmn_cal_events.Repetition_RefID =
+	    cmn_cal_repetitions.CMN_CAL_RepetitionID And cmn_cal_repetitions.IsDeleted =
+	    0 And cmn_cal_repetitions.Tenant_RefID = @TenantID
+	Where
+	  cmn_str_office_worktimetemplateexceptions.Tenant_RefID = @TenantID And
+	  cmn_str_office_worktimetemplateexceptions.IsDeleted = 0 And
+	  cmn_str_office_worktimetemplateexceptions.Office_RefID = @OfficeID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5OU_GNWTfOID_1506">
+    <Members>
+		<ClassMember Name="OfficeID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5OU_GNWTfOID_1506" IsArray="true">
+			<Members>
+				<ClassMember Name="Description" Type="String"  />
+				<ClassMember Name="TimeID" Type="Guid"  />
+				<ClassMember Name="IsRepetitive" Type="bool"  />
+				<ClassMember Name="IsWholeDayEvent" Type="bool"  />
+				<ClassMember Name="StartTime" Type="DateTime"  />
+				<ClassMember Name="EndTime" Type="DateTime"  />
+				<ClassMember Name="IsDaily" Type="bool"  />
+				<ClassMember Name="IsWeekly" Type="bool"  />
+				<ClassMember Name="IsMonthly" Type="bool"  />
+				<ClassMember Name="IsYearly" Type="bool"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

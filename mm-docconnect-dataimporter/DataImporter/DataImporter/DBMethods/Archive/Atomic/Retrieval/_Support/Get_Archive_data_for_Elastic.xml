@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Archive_data_for_Elastic</Name>
+    <Namespace>DataImporter.DBMethods.Archive.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="DataImporter.DBMethods.Archive.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Archive_data_for_Elastic"
+                Method_Name="Get_Archive_data_for_Elastic"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+  <SQLStatement xml:space="preserve">
+    Select
+      doc_documents.Alias as recipient,
+      doc_documents.PrimaryType as file_type,
+      doc_documentrevisions.File_Description as description,
+      doc_documents.Creation_Timestamp as file_date,
+      doc_documentrevisions.File_ServerLocation As document_id,
+      doc_documents.DOC_DocumentID as id,
+      doc_documents.GlobalPropertyMatchingID as gpmid
+    From
+      doc_documents Inner Join
+      doc_document_2_structure On doc_documents.DOC_DocumentID =
+        doc_document_2_structure.Document_RefID And doc_documents.IsDeleted = 0 And
+        doc_documents.Tenant_RefID = @TenantID Inner Join
+      doc_structures On doc_document_2_structure.Structure_RefID =
+        doc_structures.DOC_StructureID And doc_structures.IsDeleted = 0 And
+        doc_structures.Tenant_RefID = @TenantID Inner Join
+      doc_documentrevisions On doc_documentrevisions.Document_RefID =
+        doc_documents.DOC_DocumentID And doc_documentrevisions.IsDeleted = 0 And
+        doc_documentrevisions.Tenant_RefID = @TenantID
+    Where
+    doc_documents.Tenant_RefID = @TenantID And
+    doc_documents.IsDeleted = 0
+  </SQLStatement>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+
+    <ObjectReturnType_Definition Name="AR_GAADFE_1548" IsArray="true">
+      <Members>
+        <ClassMember Name="id" Type="Guid" />
+        <ClassMember Name="document_id" Type="String" />
+        <ClassMember Name="gpmid" Type="String" />
+        <ClassMember Name="file_date" Type="DateTime" />
+        <ClassMember Name="description" Type="String"/>
+        <ClassMember Name="file_type" Type="String"/>
+        <ClassMember Name="recipient" Type="String"/>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+
+
+  </ResultInfo>
+
+</CodeGen>

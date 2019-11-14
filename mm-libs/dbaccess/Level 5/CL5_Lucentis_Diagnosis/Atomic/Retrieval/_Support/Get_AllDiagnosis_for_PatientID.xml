@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/7/2013 9:51:38 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllDiagnosis_for_PatientID</Name>
+    <Namespace>CL5_Lucentis_Diagnosis.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Lucentis_Diagnosis.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllDiagnosis_for_PatientID"
+                Method_Name="Get_AllDiagnosis_for_PatientID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AllDiagnosis_for_PatientID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_patient_diagnoses.HEC_Patient_DiagnosisID,
+  hec_dia_diagnosis_localizations.HEC_DIA_Diagnosis_LocalizationID,
+  hec_dia_diagnosis_states.HEC_DIA_Diagnosis_StateID,
+  hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID,
+  hec_dia_diagnosis_localizations.DiagnosisLocalization_Name_DictID,
+  hec_dia_diagnosis_states.DiagnosisState_Abbreviation,
+  hec_dia_diagnosis_states.DiagnosisState_Name_DictID,
+  hec_dia_potentialdiagnoses.ICD10_Code,
+  hec_patient_diagnoses.Creation_Timestamp As CreationDate,
+  cmn_per_personinfo.FirstName As DoctorFirstName,
+  cmn_per_personinfo.LastName As DoctorLastName,
+  hec_dia_potentialdiagnoses.PotentialDiagnosis_Name_DictID,
+  hec_doctors.HEC_DoctorID,
+  hec_patient_diagnoses.DiagnosedOnDate
+From
+  hec_patient_diagnoses Inner Join
+  hec_dia_potentialdiagnoses
+    On hec_patient_diagnoses.DIA_PotentialDiagnosis_RefID =
+    hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID Inner Join
+  hec_dia_diagnosis_localizations
+    On hec_dia_diagnosis_localizations.Diagnosis_RefID =
+    hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID Inner Join
+  hec_dia_diagnosis_states On hec_patient_diagnoses.DIA_State_RefID =
+    hec_dia_diagnosis_states.HEC_DIA_Diagnosis_StateID And
+    hec_dia_diagnosis_states.Diagnose_RefID =
+    hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID Inner Join
+  hec_patient_diagnosis_localizations
+    On hec_patient_diagnoses.HEC_Patient_DiagnosisID =
+    hec_patient_diagnosis_localizations.HEC_Patient_Diagnosis_RefID And
+    hec_patient_diagnosis_localizations.HEC_DIA_Diagnosis_Localization_RefID =
+    hec_dia_diagnosis_localizations.HEC_DIA_Diagnosis_LocalizationID Inner Join
+  hec_doctors On hec_patient_diagnoses.Doctor_RefID = hec_doctors.HEC_DoctorID
+  Inner Join
+  cmn_bpt_businessparticipants On hec_doctors.BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID Inner Join
+  cmn_per_personinfo
+    On cmn_bpt_businessparticipants.IfNaturalPerson_CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID
+Where
+  hec_dia_diagnosis_localizations.IsDeleted = 0 And
+  hec_dia_diagnosis_states.IsDeleted = 0 And
+  hec_dia_potentialdiagnoses.IsDeleted = 0 And
+  hec_patient_diagnoses.Tenant_RefID = @TenantID And
+  hec_dia_potentialdiagnoses.Tenant_RefID = @TenantID And
+  hec_dia_diagnosis_localizations.Tenant_RefID = @TenantID And
+  hec_dia_diagnosis_states.Tenant_RefID = @TenantID And
+  hec_patient_diagnoses.Patient_RefID = @PatientID And
+  hec_patient_diagnosis_localizations.IsDeleted = 0 And
+  cmn_bpt_businessparticipants.IsNaturalPerson = 1 And
+  cmn_bpt_businessparticipants.IsDeleted = 0 And
+  cmn_per_personinfo.IsDeleted = 0 And
+  hec_patient_diagnoses.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5DG_GADfP_0950">
+    <Members>
+		<ClassMember Name="PatientID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5DG_GADfP_0950" IsArray="true">
+			<Members>
+				<ClassMember Name="HEC_Patient_DiagnosisID" Type="Guid"  />
+        
+				<ClassMember Name="HEC_DIA_PotentialDiagnosisID" Type="Guid"  />
+                <ClassMember Name="ICD10_Code" Type="String"  />
+                <ClassMember Name="PotentialDiagnosis_Name_DictID" Type="Dict" OriginTable="hec_dia_potentialdiagnoses" Source_DBField="PotentialDiagnosis_Name_DictID"/>
+                
+                <ClassMember Name="HEC_DIA_Diagnosis_StateID" Type="Guid"  />
+                <ClassMember Name="DiagnosisState_Abbreviation" Type="String"  />
+                <ClassMember Name="DiagnosisState_Name" Type="Dict" OriginTable="hec_dia_diagnosis_states" Source_DBField="DiagnosisState_Name_DictID"  />
+
+                <ClassMember Name="HEC_DIA_Diagnosis_LocalizationID" Type="Guid"  />
+                <ClassMember Name="DiagnosisLocalization_Name" Type="Dict" OriginTable="hec_dia_diagnosis_localizations" Source_DBField="DiagnosisLocalization_Name_DictID"  />
+                <ClassMember Name="CreationDate" Type="DateTime"  />
+                <ClassMember Name="DiagnosedOnDate" Type="DateTime"  />
+                <ClassMember Name="DoctorFirstName" Type="String"  />
+                <ClassMember Name="DoctorLastName" Type="String"  />
+                <ClassMember Name="HEC_DoctorID" Type="Guid"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 1/9/2014 10:18:37 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_STR_PPS_DailyWorkSchedule"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_STR_PPS"
+                IsClass_Corresponding_DBTable="cmn_str_pps_dailyworkschedules" >
+      <Members>
+		<ClassMember Name="CMN_STR_PPS_DailyWorkScheduleID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Employee_RefID" Type="Guid" />
+		<ClassMember Name="WorkSheduleDate" Type="DateTime" />
+		<ClassMember Name="SheduleBreakTemplate_RefID" Type="Guid" />
+		<ClassMember Name="R_WorkDay_Start_in_sec" Type="int" />
+    <ClassMember Name="R_WorkDay_End_in_sec" Type="int" />
+		<ClassMember Name="R_WorkDay_Duration_in_sec" Type="int" />
+		<ClassMember Name="IsBreakTimeManualySpecified" Type="Boolean" />
+		<ClassMember Name="BreakDurationTime_in_sec" Type="int" />
+		<ClassMember Name="R_ContractSpecified_WorkingTime_in_sec" Type="int" />
+		<ClassMember Name="WorkingSheduleComment" Type="String" />
+		<ClassMember Name="ContractWorkerText" Type="String" />
+		<ClassMember Name="IsWorkShedule_Confirmed" Type="Boolean" />
+		<ClassMember Name="WorkShedule_ConfirmedBy_Account_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

@@ -1,0 +1,8 @@
+﻿{    
+    NewPasswordSubject:  'Medios Connect / Neues Passwort',
+    NewTemporaryDoctorSubject:  'Neue Nachsorgearzt',
+    UrgentOrderSubject: 'Medios Connect / Eilbestellung',
+    TreatmentCancelledFromSettlementPageSubject:  'Medios Connect / Treatment cancellation',
+    AftercareCancelledFromSettlementPageSubject:  'Medios Connect / Aftercare cancellation',    
+    AftercareDoctorDifferentOnElastic:  'Medios Connect / Aftercare doctor mismatch'
+}

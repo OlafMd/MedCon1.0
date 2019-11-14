@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/15/2013 12:00:30 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_UsersBasicInfo_for_TenantID</Name>
+    <Namespace>CL3_User.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_User.Atomic.Retrieval"
+                Method_ClassName="cls_Get_UsersBasicInfo_for_TenantID"
+                Method_Name="Get_UsersBasicInfo_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_UsersBasicInfo_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+    
+Select Distinct
+  usr_accounts.USR_AccountID,
+  cmn_per_personinfo.FirstName,
+  cmn_per_personinfo.LastName,
+  cmn_per_personinfo.PrimaryEmail,
+  ProfileImage.File_ServerLocation
+From
+  cmn_per_personinfo_2_account Inner Join
+  cmn_per_personinfo On cmn_per_personinfo_2_account.CMN_PER_PersonInfo_RefID =
+    cmn_per_personinfo.CMN_PER_PersonInfoID Left Join
+  (Select
+    doc_documentrevisions.Document_RefID,
+    doc_documentrevisions.File_ServerLocation
+  From
+    doc_documentrevisions
+  Where
+    doc_documentrevisions.IsLastRevision = 1 And
+    doc_documentrevisions.IsDeleted = 0 And
+    doc_documentrevisions.Tenant_RefID = @TenantID) ProfileImage On cmn_per_personinfo.ProfileImage_Document_RefID =
+    ProfileImage.Document_RefID Inner Join
+  usr_accounts On cmn_per_personinfo_2_account.USR_Account_RefID =
+    usr_accounts.USR_AccountID
+Where
+  usr_accounts.Tenant_RefID = @TenantID And
+  usr_accounts.IsDeleted = '0' And
+  cmn_per_personinfo_2_account.IsDeleted = '0' And
+  cmn_per_personinfo.IsDeleted = '0'
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3US_GUBIfT_1157" IsArray="true">
+      <Members>
+        <ClassMember Name="USR_AccountID" Type="Guid"  />
+        <ClassMember Name="FirstName" Type="String"  />
+        <ClassMember Name="LastName" Type="String"  />
+        <ClassMember Name="PrimaryEmail" Type="String"  />
+        <ClassMember Name="File_ServerLocation" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

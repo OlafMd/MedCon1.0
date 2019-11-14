@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:55:14 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="RES_BLD_Building"
+                IsClass="true"
+                IsClass_Namespace="CL1_RES_BLD"
+                IsClass_Corresponding_DBTable="res_bld_buildings" >
+      <Members>
+		<ClassMember Name="RES_BLD_BuildingID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Building_CurrentAverageRentPrice_per_sqm_RefID" Type="Guid" />
+		<ClassMember Name="BuildingRevisionHeader_RefID" Type="Guid" />
+		<ClassMember Name="Building_BalconyPortionPercent" Type="double" />
+		<ClassMember Name="Building_Name" Type="String" />
+		<ClassMember Name="Building_DocumentationStructure_RefID" Type="Guid" />
+		<ClassMember Name="IsContaminationSuspected" Type="Boolean" />
+		<ClassMember Name="Building_NumberOfFloors" Type="int" />
+		<ClassMember Name="Building_ElevatorCoveragePercent" Type="double" />
+		<ClassMember Name="Building_NumberOfAppartments" Type="int" />
+		<ClassMember Name="Building_NumberOfOccupiedAppartments" Type="int" />
+		<ClassMember Name="Building_NumberOfOffices" Type="int" />
+		<ClassMember Name="Building_NumberOfRetailUnits" Type="int" />
+		<ClassMember Name="Building_NumberOfProductionUnits" Type="int" />
+		<ClassMember Name="Building_NumberOfOtherUnits" Type="int" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="29/04/2014 8:07:11 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_ReturnShipment_Header_and_Position</Name>
+    <Namespace>CL5_APOLogistic_ReturnShipment.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_ReturnShipment.Complex.Manipulation"
+				  Method_ClassName="cls_Save_ReturnShipment_Header_and_Position"
+				  Method_Name="Save_ReturnShipment_Header_and_Position"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Save_ReturnShipment_Header_and_Position"
+                />
+
+  <Parameters Name="P_L5RS_SRSHaP_0807" IsArray="false" IsClass="true">
+    <Members>
+      <ClassMember Name="ReturnShipments" Type="P_L5RS_SRSHaP_0807a" IsClass="true" IsArray="true" >
+        <Members>
+          <ClassMember Name="ShipmentHeader" Type="P_L5RS_CSaRSH_0244" />
+          <ClassMember Name="ShipmentPositions" Type="P_L5RS_CSaRSPfH_0449" />
+          <ClassMember Name="CreateNewHeader" Type="bool" />
+        </Members>
+      </ClassMember>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+      Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+      Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5RS_SRSHaP_0807" IsArray="true">
+      <Members>
+        <ClassMember Name="ShipmentHeaderID" Type="Guid"  />
+        <ClassMember Name="ShipmentHeaderNumber" Type="string"  />
+        <ClassMember Name="ShipmentHeaderTotalValue" Type="decimal"  />
+        <ClassMember Name="ShipmentHeaderSupplierName" Type="string"  />
+        <ClassMember Name="ReturnShipmentHeaderID" Type="Guid"  />
+        <ClassMember Name="ShipmentPositionIDs" Type="Guid" IsArray="true"  />
+        <ClassMember Name="ReturnShipmentPositionIDs" Type="Guid" IsArray="true"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

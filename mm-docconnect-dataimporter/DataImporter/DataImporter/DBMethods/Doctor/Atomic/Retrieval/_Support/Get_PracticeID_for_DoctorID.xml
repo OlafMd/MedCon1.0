@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="4/8/2015 8:50:00 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PracticeID_for_DoctorID</Name>
+    <Namespace>DataImporter.DBMethods.Doctor.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="DataImporter.DBMethods.Doctor.Atomic.Retrieval"
+								Method_ClassName="cls_Get_PracticeID_for_DoctorID"
+								Method_Name="Get_PracticeID_for_DoctorID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=".Get_PracticeID_for_DoctorID"
+								/>
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_bpt_ctm_organizationalunits.IfMedicalPractise_HEC_MedicalPractice_RefID as HEC_MedicalPractiseID
+From
+  hec_doctors Inner Join
+  cmn_bpt_ctm_organizationalunit_staff On hec_doctors.BusinessParticipant_RefID
+    = cmn_bpt_ctm_organizationalunit_staff.BusinessParticipant_RefID And
+    cmn_bpt_ctm_organizationalunit_staff.Tenant_RefID = @TenantID And
+    cmn_bpt_ctm_organizationalunit_staff.IsDeleted = 0 Inner Join
+  cmn_bpt_ctm_organizationalunits
+    On cmn_bpt_ctm_organizationalunit_staff.OrganizationalUnit_RefID =
+    cmn_bpt_ctm_organizationalunits.CMN_BPT_CTM_OrganizationalUnitID And
+    cmn_bpt_ctm_organizationalunits.Tenant_RefID = @TenantID And
+    cmn_bpt_ctm_organizationalunits.IsDeleted = 0
+Where
+  hec_doctors.HEC_DoctorID = @DoctorID And
+  hec_doctors.Tenant_RefID = @TenantID And
+  hec_doctors.IsDeleted = 0
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_DO_GPIDfDID_1353">
+    <Members>
+      <ClassMember Name="DoctorID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="DO_GPIDfDID_1353" IsArray="true">
+      <Members>
+
+        <ClassMember Name="HEC_MedicalPractiseID" Type="Guid"  />
+       
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_bpt_emp_employee_2_skill
+	(
+		AssignmentID,
+		Employee_RefID,
+		Skill_RefID,
+		QualificationObtainedAtDate,
+		QualificationGrantedByAuthority,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@Employee_RefID,
+		@Skill_RefID,
+		@QualificationObtainedAtDate,
+		@QualificationGrantedByAuthority,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/16/2014 1:29:49 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_SuppliersDisplayNames_with_ID_for_TenantID</Name>
+    <Namespace>CL3_Supplier.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Supplier.Atomic.Retrieval"
+                Method_ClassName="cls_Get_SuppliersDisplayNames_with_ID_for_TenantID"
+                Method_Name="Get_SuppliersDisplayNames_with_ID_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_SuppliersDisplayNames_with_ID_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT 
+		cmn_bpt_suppliers.CMN_BPT_SupplierID,
+		cmn_bpt_businessparticipants.DisplayName,
+		cmn_bpt_supplier_types.CMN_BPT_Supplier_TypeID AS SupplierType_ID,
+		cmn_bpt_supplier_types.GlobalPropertyMatchingID AS SupplierType_GlobalPropertyMatchingID
+	FROM 
+		cmn_bpt_suppliers
+	INNER JOIN cmn_bpt_businessparticipants
+		ON cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID = cmn_bpt_suppliers.Ext_BusinessParticipant_RefID
+		AND cmn_bpt_businessparticipants.Tenant_RefID = @TenantID
+		AND cmn_bpt_businessparticipants.IsDeleted = 0
+	INNER JOIN cmn_bpt_supplier_types
+		ON cmn_bpt_supplier_types.CMN_BPT_Supplier_TypeID = cmn_bpt_suppliers.SupplierType_RefID
+		AND cmn_bpt_supplier_types.IsDeleted = 0
+		AND cmn_bpt_supplier_types.Tenant_RefID = @TenantID
+	WHERE  
+		cmn_bpt_suppliers.IsDeleted = 0
+		AND cmn_bpt_suppliers.Tenant_RefID = @TenantID
+		AND cmn_bpt_suppliers.Tenant_RefID IS NOT NULL
+		AND cmn_bpt_suppliers.SupplierType_RefID !=0x00000000000000000000000000000000
+		AND cmn_bpt_suppliers.Tenant_RefID IS NOT NULL;
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3SP_GSDNwIfT_1328" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_BPT_SupplierID" Type="Guid"  />
+				<ClassMember Name="DisplayName" Type="String"  />
+				<ClassMember Name="SupplierType_ID" Type="Guid"  />
+				<ClassMember Name="SupplierType_GlobalPropertyMatchingID" Type="String"  />
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

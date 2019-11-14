@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/6/2014 01:11:17">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_InventoryJobSeries_ParticipatingShelves_for_InventoryJobSeriesID</Name>
+    <Namespace>CL2_InventoryJobs.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_InventoryJobs.Atomic.Retrieval"
+                Method_ClassName="cls_Get_InventoryJobSeries_ParticipatingShelves_for_InventoryJobSeriesID"
+                Method_Name="Get_InventoryJobSeries_ParticipatingShelves_for_InventoryJobSeriesID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_InventoryJobSeries_ParticipatingShelves_for_InventoryJobSeriesID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT log_wrh_inj_inventoryjob_series_participatingshelves.LOG_WRH_Shelf_RefID
+		,log_wrh_inj_inventoryjob_series_participatingshelves.LOG_WRH_INJ_InventoryJob_Series_RefID
+		,log_wrh_inj_inventoryjob_series_participatingshelves.LOG_WRH_INJ_InventoryJob_Series_ParticipatingShelfID
+		,log_wrh_inj_inventoryjob_series_participatingshelves.Creation_Timestamp
+		,log_wrh_inj_inventoryjob_series_participatingshelves.Tenant_RefID
+		,log_wrh_inj_inventoryjob_series_participatingshelves.IsDeleted
+	FROM log_wrh_inj_inventoryjob_series_participatingshelves
+	WHERE log_wrh_inj_inventoryjob_series_participatingshelves.IsDeleted = 0
+		AND log_wrh_inj_inventoryjob_series_participatingshelves.Tenant_RefID = @TenantID
+		AND log_wrh_inj_inventoryjob_series_participatingshelves.LOG_WRH_INJ_InventoryJob_Series_RefID = @InventoryJobSeriesID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2IJ_GIJSPSfIJS_1259">
+    <Members>
+		<ClassMember Name="InventoryJobSeriesID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2IJ_GIJSPSfIJS_1259" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_WRH_Shelf_RefID" Type="Guid"  />
+				<ClassMember Name="LOG_WRH_INJ_InventoryJob_Series_RefID" Type="Guid"  />
+				<ClassMember Name="LOG_WRH_INJ_InventoryJob_Series_ParticipatingShelfID" Type="Guid"  />
+				<ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+				<ClassMember Name="Tenant_RefID" Type="Guid"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

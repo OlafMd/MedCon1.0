@@ -1,0 +1,12 @@
+UPDATE 
+	hec_act_performedaction_referral_requestedpotentialprocedures
+SET 
+	Action_Referral_RefID=@Action_Referral_RefID,
+	PotentialTreatment_RefID=@PotentialTreatment_RefID,
+	ProposedDate=@ProposedDate,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_ACT_PerformedAction_Referral_RequestedPotentialProcedureID = @HEC_ACT_PerformedAction_Referral_RequestedPotentialProcedureID

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 10/15/2013 12:38:46 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="TMS_QuickTask_Type"
+                IsClass="true"
+                IsClass_Namespace="CL1_TMS"
+                IsClass_Corresponding_DBTable="tms_quicktask_type" >
+      <Members>
+		<ClassMember Name="TMS_QuickTask_TypeID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="GlobalPropertyMatchingID" Type="String" />
+		<ClassMember Name="QuickTaskType_ExternalID" Type="String" />
+		<ClassMember Name="QuickTaskType_Name" Type="Dict" Source_DBField="QuickTaskType_Name_DictID" OriginTable="tms_quicktask_type"/>
+		<ClassMember Name="QuickTaskType_Description" Type="Dict" Source_DBField="QuickTaskType_Description_DictID" OriginTable="tms_quicktask_type"/>
+		<ClassMember Name="IsPersistent" Type="Boolean" />
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

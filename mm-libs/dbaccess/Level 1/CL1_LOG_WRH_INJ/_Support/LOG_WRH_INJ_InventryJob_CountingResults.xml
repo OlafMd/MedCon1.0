@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 4/3/2014 3:50:42 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="LOG_WRH_INJ_InventryJob_CountingResult"
+                IsClass="true"
+                IsClass_Namespace="CL1_LOG_WRH_INJ"
+                IsClass_Corresponding_DBTable="log_wrh_inj_inventryjob_countingresults" >
+      <Members>
+		<ClassMember Name="LOG_WRH_INJ_InventoryJob_CountingResultID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="CountingRun_RefID" Type="Guid" />
+		<ClassMember Name="Process_Shelf_RefID" Type="Guid" />
+		<ClassMember Name="CountedAmount" Type="double" />
+		<ClassMember Name="IsDifferenceToExpectedQuantityFound" Type="Boolean" />
+		<ClassMember Name="Product_RefID" Type="Guid" />
+		<ClassMember Name="Product_Variant_RefID" Type="Guid" />
+		<ClassMember Name="Product_Release_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

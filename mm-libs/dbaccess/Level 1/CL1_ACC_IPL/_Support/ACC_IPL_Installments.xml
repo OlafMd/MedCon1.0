@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 5/21/2014 12:47:06 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="ACC_IPL_Installment"
+                IsClass="true"
+                IsClass_Namespace="CL1_ACC_IPL"
+                IsClass_Corresponding_DBTable="acc_ipl_installments" >
+      <Members>
+		<ClassMember Name="ACC_IPL_InstallmentID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="InstallmentPlan_RefID" Type="Guid" />
+		<ClassMember Name="Amount" Type="Decimal" />
+		<ClassMember Name="PaymentDeadline" Type="DateTime" />
+		<ClassMember Name="PaymentDueDate" Type="DateTime" />
+		<ClassMember Name="PayedOnDate" Type="DateTime" />
+		<ClassMember Name="IsFullyPaid" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

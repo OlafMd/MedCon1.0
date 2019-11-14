@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="13/3/2014 09:43:45">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Get_Articles_for_ArticleList</Name>
+        <Namespace>CL3_Articles.Atomic.Retrieval</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL3_Articles.Atomic.Retrieval"
+                  Method_ClassName="cls_Get_Articles_for_ArticleList"
+                  Method_Name="Get_Articles_for_ArticleList"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Get_Articles_for_ArticleList"
+                />
+
+    <SQLStatement xml:space="preserve">
+Select
+  cmn_pro_products.Product_Name_DictID,
+  cmn_pro_products.Product_Number,
+  cmn_pro_products.CMN_PRO_ProductID,
+  cmn_pro_products.PackageInfo_RefID,
+  cmn_pro_products.Product_Description_DictID,
+  cmn_pro_productgroups.GlobalPropertyMatchingID As ProductGroup,
+  cmn_pro_product_types.ProductType_Name_DictID,
+  cmn_units.Abbreviation_DictID,
+  cmn_units.Label_DictID,
+  cmn_pro_products.IsPlaceholderArticle,
+  cmn_pro_products.IsStorage_BatchNumberMandatory,
+  cmn_pro_products.IsStorage_ExpiryDateMandatory,
+  cmn_pro_products.ProductITL,
+  cmn_pro_pac_packageinfo.PackageContent_Amount As UnitAmount,
+   cmn_pro_pac_packageinfo.PackageContent_DisplayLabel As UnitAmount_DisplayLabel,
+  cmn_units.ISOCode As UnitIsoCode,
+  hec_product_dosageforms.GlobalPropertyMatchingID As DossageFormName,
+  acc_tax_taxes.TaxRate,
+  acc_tax_taxes.TaxName_DictID,
+  acc_tax_taxes.EconomicRegion_RefID,
+  acc_tax_taxes.ACC_TAX_TaxeID,
+  cmn_bpt_businessparticipants.DisplayName As ProducerName,
+  cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID As ProducerId
+From
+  cmn_pro_products Inner Join
+  hec_products On hec_products.Ext_PRO_Product_RefID =
+    cmn_pro_products.CMN_PRO_ProductID Inner Join
+  hec_product_dosageforms On hec_products.ProductDosageForm_RefID =
+    hec_product_dosageforms.HEC_Product_DosageFormID And
+    hec_product_dosageforms.IsDeleted = 0 Inner Join
+  cmn_pro_pac_packageinfo On cmn_pro_products.PackageInfo_RefID =
+    cmn_pro_pac_packageinfo.CMN_PRO_PAC_PackageInfoID And
+    cmn_pro_pac_packageinfo.IsDeleted = 0 Inner Join
+  cmn_units
+    On cmn_units.CMN_UnitID =
+    cmn_pro_pac_packageinfo.PackageContent_MeasuredInUnit_RefID And
+    cmn_units.IsDeleted = 0 Left Join
+  cmn_pro_product_types On cmn_pro_products.ProductType_RefID =
+    cmn_pro_product_types.CMN_PRO_Product_TypeID And
+    cmn_pro_product_types.IsDeleted = 0 Inner Join
+  cmn_pro_product_2_productgroup
+    On cmn_pro_product_2_productgroup.CMN_PRO_Product_RefID =
+    cmn_pro_products.CMN_PRO_ProductID And
+    cmn_pro_product_2_productgroup.IsDeleted = 0 Inner Join
+  cmn_pro_productgroups On cmn_pro_productgroups.CMN_PRO_ProductGroupID =
+    cmn_pro_product_2_productgroup.CMN_PRO_ProductGroup_RefID And
+    cmn_pro_productgroups.IsDeleted = 0 Left Join
+  cmn_pro_product_salestaxassignmnets On cmn_pro_products.CMN_PRO_ProductID =
+    cmn_pro_product_salestaxassignmnets.Product_RefID And
+    cmn_pro_product_salestaxassignmnets.IsDeleted = 0 Left Join
+  acc_tax_taxes On cmn_pro_product_salestaxassignmnets.ApplicableSalesTax_RefID
+    = acc_tax_taxes.ACC_TAX_TaxeID And acc_tax_taxes.IsDeleted = 0 Left Join
+  cmn_bpt_businessparticipants
+    On cmn_pro_products.ProducingBusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+Where
+  cmn_pro_products.CMN_PRO_ProductID = @ProductID_List And
+  cmn_pro_products.IsDeleted = 0 And
+  cmn_pro_products.Tenant_RefID = @TenantID And
+  (@ProducingBusinessParticipant Is Null Or
+    cmn_pro_products.ProducingBusinessParticipant_RefID =
+    @ProducingBusinessParticipant) And
+  (@ProductGroupID Is Null Or cmn_pro_productgroups.CMN_PRO_ProductGroupID = @ProductGroupID)
+
+  </SQLStatement>
+
+    <Parameters IsClass="true" Name="P_L3AR_GAfAL_0942">
+        <Members>
+            <ClassMember Name="ProductID_List" Type="Guid" IsArray="true"  />
+            <ClassMember Name="ProducingBusinessParticipant" Type="Guid?" />
+            <ClassMember Name="ProductGroupID" Type="Guid?" />
+        </Members>
+    </Parameters>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+                  Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+                  Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L3AR_GAfAL_0942" IsArray="true" GroupBy="CMN_PRO_ProductID">
+            <Members>
+                <ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+                <ClassMember Name="Product_Number" Type="String"  />
+                <ClassMember Name="ProductGroup" Type="String"  />
+                <ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+                <ClassMember Name="PackageInfo_RefID" Type="Guid"  />
+                <ClassMember Name="ProductType_Name" Type="Dict" OriginTable="cmn_pro_product_types" Source_DBField="ProductType_Name_DictID"  />
+                <ClassMember Name="Product_Description" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Description_DictID"  />
+                <ClassMember Name="Abbreviation" Type="Dict" OriginTable="cmn_units" Source_DBField="Abbreviation_DictID"  />
+                <ClassMember Name="Label" Type="Dict" OriginTable="cmn_units" Source_DBField="Label_DictID"  />
+                <ClassMember Name="IsPlaceholderArticle" Type="bool"  />
+                <ClassMember Name="ProductITL" Type="String"  />
+                <ClassMember Name="UnitAmount" Type="double"  />
+                <ClassMember Name="UnitAmount_DisplayLabel" Type="String"  />
+                <ClassMember Name="UnitIsoCode" Type="String"  />
+                <ClassMember Name="DossageFormName" Type="string"  />
+                <ClassMember Name="ProducerName" Type="string"  />
+                <ClassMember Name="ProducerId" Type="Guid"  />
+                <ClassMember Name="IsStorage_BatchNumberMandatory" Type="bool"  />
+                <ClassMember Name="IsStorage_ExpiryDateMandatory" Type="bool"  />
+
+                <ClassMember Name="Taxes" IsClass="true" IsArray="true" GroupBy="ACC_TAX_TaxeID" Type="L3AR_GAfAL_0942_Tax">
+                    <Members>
+                        <ClassMember Name="ACC_TAX_TaxeID" Type="Guid"  />
+                        <ClassMember Name="EconomicRegion_RefID" Type="Guid"  />
+                        <ClassMember Name="TaxRate" Type="double"  />
+                        <ClassMember Name="TaxName_DictID" Type="Dict" OriginTable="acc_tax_taxes" Source_DBField="TaxName_DictID" />
+                    </Members>
+                </ClassMember>
+            </Members>
+        </ObjectReturnType_Definition>
+    </ResultInfo>
+</CodeGen>
+
+

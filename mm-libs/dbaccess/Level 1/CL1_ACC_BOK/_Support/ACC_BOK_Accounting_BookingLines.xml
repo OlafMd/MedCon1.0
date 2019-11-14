@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 5/29/2014 1:32:47 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="ACC_BOK_Accounting_BookingLine"
+                IsClass="true"
+                IsClass_Namespace="CL1_ACC_BOK"
+                IsClass_Corresponding_DBTable="acc_bok_accounting_bookinglines" >
+      <Members>
+		<ClassMember Name="ACC_BOK_Accounting_BookingLineID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ExternalBankKey" Type="String" />
+		<ClassMember Name="PartOfAccountingTransaction_RefID" Type="Guid" />
+		<ClassMember Name="BookingAccount_RefID" Type="Guid" />
+		<ClassMember Name="TransactionValue" Type="Decimal" />
+		<ClassMember Name="DateOfBooking" Type="DateTime" />
+		<ClassMember Name="DateOfTransaction" Type="DateTime" />
+		<ClassMember Name="SenderText" Type="String" />
+		<ClassMember Name="SenderComment" Type="String" />
+		<ClassMember Name="Currency_RefID" Type="Guid" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_str_attic_propertyassestment_2_assessmentstate
+	(
+		AssignmentID,
+		RES_STR_Attic_PropertyAssessment_RefID,
+		RES_STR_Attic_PropertyAssessmentState_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@RES_STR_Attic_PropertyAssessment_RefID,
+		@RES_STR_Attic_PropertyAssessmentState_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

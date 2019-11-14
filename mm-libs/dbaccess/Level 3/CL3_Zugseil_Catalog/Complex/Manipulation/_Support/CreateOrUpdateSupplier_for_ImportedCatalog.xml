@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/26/2013 11:25:09 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>CreateOrUpdateSupplier_for_ImportedCatalog</Name>
+        <Namespace>CL3_Zugseil_Catalog.Complex.Manipulation</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+    
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+  
+
+  <CreationInfo Method_Namespace="CL3_Zugseil_Catalog.Complex.Manipulation"
+                Method_ClassName="cls_CreateOrUpdateSupplier_for_ImportedCatalog"
+                Method_Name="CreateOrUpdateSupplier_for_ImportedCatalog"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".CreateOrUpdateSupplier_for_ImportedCatalog"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L3CA_CoUSfIC_1602">
+    <Members>
+        <ClassMember Name="SupplierITL" Type="String"  />
+        <ClassMember Name="TenantITL" Type="String"  />
+        <ClassMember Name="Supplier_Name" Type="String"  />
+        <ClassMember Name="CountryISO" Type="String"  />
+        <ClassMember Name="Street_Name" Type="String"  />
+        <ClassMember Name="Street_Number" Type="String"  />
+        <ClassMember Name="ZIP" Type="String"  />
+        <ClassMember Name="Town" Type="String"  />
+        <ClassMember Name="Region_Code" Type="String"  />
+    </Members>
+  </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="true">
+      <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

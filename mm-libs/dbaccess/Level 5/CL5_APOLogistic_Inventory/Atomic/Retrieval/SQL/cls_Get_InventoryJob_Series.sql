@@ -1,0 +1,17 @@
+
+	SELECT log_wrh_inj_inventoryjob_series.InventoryJobSeries_DisplayName
+		,log_wrh_inj_inventoryjob_series.IsUsingNumberOfProductsSeriesType
+		,log_wrh_inj_inventoryjob_series.NumberOfProductsToSelect
+		,log_wrh_inj_inventoryjob_series_rythms.RythmCronExpression
+	FROM log_wrh_inj_inventoryjob_series
+	LEFT JOIN log_wrh_inj_inventoryjob_series_participatingshelves ON log_wrh_inj_inventoryjob_series_participatingshelves.LOG_WRH_INJ_InventoryJob_Series_RefID = log_wrh_inj_inventoryjob_series.LOG_WRH_INJ_InventoryJob_SeriesID
+		AND log_wrh_inj_inventoryjob_series_participatingshelves.IsDeleted = 0
+	INNER JOIN log_wrh_inj_inventoryjob_series_rythms ON log_wrh_inj_inventoryjob_series_rythms.InventoryJob_Series_RefID = log_wrh_inj_inventoryjob_series.LOG_WRH_INJ_InventoryJob_SeriesID
+		AND log_wrh_inj_inventoryjob_series_rythms.IsDeleted = 0
+	WHERE (
+			(@InventoryJobSeriesID IS NULL)
+			OR (log_wrh_inj_inventoryjob_series.LOG_WRH_INJ_InventoryJob_SeriesID = @InventoryJobSeriesID)
+			)
+		AND log_wrh_inj_inventoryjob_series.IsDeleted = 0
+		AND log_wrh_inj_inventoryjob_series.Tenant_RefID = @TenantID
+  

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/4/2013 12:50:24 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_CMN_Unit</Name>
+    <Namespace>CLE_L5_Actions.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_Actions.Atomic.Manipulation"
+                Method_ClassName="cls_Save_Action"
+                Method_Name="Save_Action"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Action"
+                />
+
+  <Parameters IsClass="true" Name="P_L5AT_SA_1301">
+    <Members>
+      <ClassMember Name="RES_ACT_ActionID" IsIdentificator="True" Type="Guid"  />
+      <ClassMember Name="ActionType_RefID" Type="Guid"  />
+      <ClassMember Name="RES_ACT_Action_VersionID" Type="Guid"  />
+      <ClassMember Name="Action_Name_DictID" Type="Dict"  />
+      <ClassMember Name="Action_Description_DictID" Type="Dict"  />
+      <ClassMember Name="Action_Version" Type="int"  />
+      <ClassMember Name="Default_PricePerUnit_RefID" Type="Guid"  />
+      <ClassMember Name="Default_PricePerUnit" Type="Double"  />
+      <ClassMember Name="Default_Unit_RefID" Type="Guid"  />
+      <ClassMember Name="Default_UnitAmount" Type="double"  />
+      <ClassMember IsClass="true" IsArray="true" Name="availableQuestions" Type="P_L5AT_SA_1301_availableQuestions">
+        <Members>
+          <ClassMember Name="questionID" Type="Guid"  />
+          <ClassMember Name="questionType" Type="String"  />
+          <ClassMember Name="questionIsAvailable" Type="bool"  />
+        </Members>
+      </ClassMember>
+
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+
+

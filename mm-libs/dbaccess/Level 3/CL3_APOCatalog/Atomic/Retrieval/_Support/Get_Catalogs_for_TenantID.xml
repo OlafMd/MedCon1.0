@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/12/2013 4:11:23 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Catalogs_for_TenantID</Name>
+    <Namespace>CL3_APOCatalog.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_APOCatalog.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Catalogs_for_TenantID"
+                Method_Name="Get_Catalogs_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Catalogs_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_pro_catalogs.CMN_PRO_CatalogID As CatalogID,
+	  cmn_pro_catalogs.CatalogCodeITL,
+	  cmn_pro_catalogs.IsPublicCatalog,
+	  cmn_pro_catalogs.Catalog_Language_RefID,
+	  cmn_pro_catalogs.Catalog_Currency_RefID
+	From
+	  cmn_pro_catalogs
+	Where
+	  cmn_pro_catalogs.IsDeleted = 0 And
+	  cmn_pro_catalogs.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3CA_GCfTID_1608" IsArray="true">
+			<Members>
+        <ClassMember Name="CatalogID" Type="Guid"  />
+        <ClassMember Name="CatalogCodeITL" Type="String"  />
+        <ClassMember Name="IsPublicCatalog" Type="bool"  />
+        <ClassMember Name="Catalog_Language_RefID" Type="Guid"  />
+        <ClassMember Name="Catalog_Currency_RefID" Type="Guid"  />
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

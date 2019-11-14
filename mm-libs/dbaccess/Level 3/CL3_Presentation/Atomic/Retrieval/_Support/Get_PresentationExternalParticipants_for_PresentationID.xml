@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="8/29/2014 10:55:56 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PresentationExternalParticipants_for_PresentationID</Name>
+    <Namespace>CL3_Presentation.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Presentation.Atomic.Retrieval"
+                Method_ClassName="cls_Get_PresentationExternalParticipants_for_PresentationID"
+                Method_Name="Get_PresentationExternalParticipants_for_PresentationID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PresentationExternalParticipants_for_PresentationID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_universalcontactdetails.First_Name,
+  cmn_universalcontactdetails.Last_Name,
+  cmn_universalcontactdetails.Contact_Email,
+  cmn_universalcontactdetails.Contact_Telephone,
+  cmn_cal_evt_presentation_externalparticipants.CMN_CAL_EVT_Presentation_ParticipantID,
+  cmn_cal_evt_presentation_externalparticipants.RegistrationDate
+From
+  cmn_universalcontactdetails Inner Join
+  cmn_cal_evt_presentation_externalparticipants
+    On cmn_cal_evt_presentation_externalparticipants.Participant_UCD_RefID =
+    cmn_universalcontactdetails.CMN_UniversalContactDetailID And
+    cmn_universalcontactdetails.IsDeleted = 0 And
+    cmn_universalcontactdetails.Tenant_RefID = @TenantID
+Where
+  cmn_cal_evt_presentation_externalparticipants.Tenant_RefID = @TenantID And
+  cmn_cal_evt_presentation_externalparticipants.IsDeleted = 0 And
+  cmn_cal_evt_presentation_externalparticipants.Presentation_RefID =
+  @Presentation_ID
+  
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3PR_GPEPfPID_1054">
+    <Members>
+		<ClassMember Name="Presentation_ID" Type="Guid"  />   
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3PR_GPEPfPID_1054" IsArray="true">
+			<Members>
+        <ClassMember Name="CMN_CAL_EVT_Presentation_ParticipantID" Type="Guid"  />
+        <ClassMember Name="First_Name" Type="String"  />
+				<ClassMember Name="Last_Name" Type="String"  />
+				<ClassMember Name="Contact_Email" Type="String"  />
+				<ClassMember Name="Contact_Telephone" Type="String"  />
+        <ClassMember Name="RegistrationDate" Type="DateTime"  />       
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

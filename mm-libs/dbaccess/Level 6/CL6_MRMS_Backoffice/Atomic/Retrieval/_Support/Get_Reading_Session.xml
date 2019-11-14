@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/10/2013 2:06:49 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Reading_Session</Name>
+    <Namespace>CL6_MRMS_Backoffice.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_MRMS_Backoffice.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Reading_Session"
+                Method_Name="Get_Reading_Session"
+                ApplicationPlattform_WebServiceName="Get_Reading_Session"
+                ApplicationPlattform_Namespace=".Get_Reading_Session"
+                />
+
+  <SQLStatement xml:space="preserve">
+
+Select
+  mrs_run_measurementrun.MRS_RUN_MeasurementRunID As MeasurementRunID,
+  mrs_run_measurementrun_statuses.GlobalPropertyMatchingID As StatusGlobalID,
+  mrs_run_measurementrun_statuses.StatusDisplayName As StatusName,
+  mrs_run_measurementrun_statushistory.Creation_Timestamp As StatusChangedOn,
+  cmn_bpt_businessparticipants.DisplayName As StatusChangedBy
+From
+  mrs_run_measurementrun Left Join
+  mrs_run_measurementrun_statushistory
+    On mrs_run_measurementrun.MRS_RUN_MeasurementRunID =
+    mrs_run_measurementrun_statushistory.MeasurementRun_RefID And
+    mrs_run_measurementrun_statushistory.IsDeleted = 0 And
+    mrs_run_measurementrun_statushistory.Tenant_RefID = @TenantID Inner Join
+  mrs_run_measurementrun_statuses
+    On mrs_run_measurementrun_statushistory.MeasurementRun_Status_RefID =
+    mrs_run_measurementrun_statuses.MRS_RUN_MeasurementRun_StatusID And
+    mrs_run_measurementrun_statuses.IsDeleted = 0 And
+    mrs_run_measurementrun_statuses.Tenant_RefID = @TenantID Inner Join
+  cmn_bpt_businessparticipants On mrs_run_measurementrun_statushistory.TriggeredBy_BusinessParticipant_RefID =
+    cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID And
+    cmn_bpt_businessparticipants.IsDeleted = 0 And
+    cmn_bpt_businessparticipants.Tenant_RefID = @TenantID
+Where
+  mrs_run_measurementrun.IsDeleted = 0 And
+  mrs_run_measurementrun.Tenant_RefID = @TenantID And
+  mrs_run_measurementrun.MRS_RUN_MeasurementRunID = @ReadingSessionId
+  
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6MRMS_GRS_2126">
+    <Members>
+      <ClassMember Name="ReadingSessionId" Type="Guid"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+    
+    <ObjectReturnType_Definition Name="L6MRMS_GRS_2126" IsArray="false" GroupBy="MeasurementRunID">
+      <Members>
+        <ClassMember Name="MeasurementRunID" Type="Guid"  />
+        <ClassMember Name="StatusHistoryEntries" Type="L6MRMS_GRS_2126a" IsClass="true" IsArray="true">
+          <Members>
+            <ClassMember Name="StatusGlobalID" Type="string"  />
+            <ClassMember Name="StatusName" Type="string"  />
+            <ClassMember Name="StatusChangedBy" Type="string"  />
+            <ClassMember Name="StatusChangedOn" Type="DateTime"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

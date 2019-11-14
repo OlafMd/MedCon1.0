@@ -1,0 +1,323 @@
+﻿<div class="gray-content-holder doctors-data-lists practice-list animate-if" ng-class="{'pdetails-edit': mode}">
+    <form id="practiceForm" name="practiceForm" ng-submit="sendPracticeForm()" novalidate off-click="closePracticeFormModal($event)">
+        <h3 id="lblAddPractice" translate="LABEL_ADD_PRACTICE" ng-if="!mode"></h3>
+
+        <div name="messageContainer" class="error-msg-container" ng-show="divContainer ||(practiceForm.inZip.$error.number  || practiceForm.inBsnr.$error.number ||practiceForm.inDefaultShippingDateOffset.$error.number )">
+            <span class="error" ng-show="practiceForm.inZip.$error.number">{{ 'LABEL_INVALID_PLZ_NO' | translate }} </span>
+            <span class="error" ng-show="bsnrNotNumber">{{ 'LABEL_INVALID_BSNR_NO' | translate }}</span>
+            <span class="error" ng-show="bsnrLengthnotValid">{{ 'LABEL_BSNR_LENGTH' | translate }}</span>
+            <span class="error" ng-show="bsnrExists">{{ 'LABEL_BSNR_EXISTS' | translate }}</span>
+            <span class="error" ng-show="MainEmailNotValid">{{ 'LABEL_EMAIL_NOT_VALID' | translate }}</span>
+            <span class="error" ng-show="EmailNotValid">{{ 'LABEL_EMAIL_NOT_VALID' | translate }}</span>
+            <span class="error" ng-show="practiceForm.inDefaultShippingDateOffset.$error.number">{{ 'LABEL_INVALID_DATEFORMAT_NO' | translate }}</span>
+            <span class="error" ng-show="IBANinvalid">{{ 'LABEL_IBAN_INVALID' | translate }}</span>
+            <span class="error" ng-show="IBANnotFound">{{ 'LABEL_IBAN_NOT_FOUND' | translate }}</span>
+            <span class="error" ng-show="BICinvalid">{{ 'LABEL_BIC_INVALID' | translate }}</span>
+            <span class="error" ng-show="BankInvalid">{{ 'LABEL_ENTER_BANK_NAME' | translate }}</span>
+            <span class="error" ng-show="BICBankinvalid">{{ 'LABEL_ENTER_BIC' | translate }}</span>
+            <span class="error" ng-show="LoginEmailNotValid">{{ 'LABEL_EMAIL_NOT_VALID' | translate }}</span>
+            <span class="error" ng-show="LoginEmailExists">{{ 'LABEL_ACCOUNT_EXISTS' | translate }}</span>
+            <span class="error" ng-show="passwordInvalidEmpty">{{ 'LABEL_ENTER_PASSWORD' | translate }}</span>
+            <span class="error" ng-show="passwordDontValidForm">{{ 'LABEL_PASSWORD_FORMAT' | translate }}</span>
+            <span class="error" ng-show="passwordDontMatch">{{ 'LABEL_PASSWORD_MISMATCH' | translate }}</span>
+            <span class="error" ng-show="fromDateInvalid">{{ 'LABEL_DELIVERY_FROM_INVALID' | translate }}</span>
+            <span class="error" ng-show="toDateInvalid">{{ 'LABEL_DELIVERY_TO_INVALID' | translate }}</span>
+            <span class="error" ng-show="fromIsGreaterThanTo">{{ 'LABEL_FROM_LOWER' | translate }}</span>
+        </div>
+
+        <div class="first-class-data">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="margin-bottom-20" id="lblAddPractice">{{::'LABEL_PRACTICE' | translate}}</h3>
+                </div>
+
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label id="lblPracticeName">{{::'LABEL_PRACTICE_NAME' | translate}}<span class="error" ng-show="practiceForm.inPracticeName.$error.required">*</span></label>
+                        <input type="text" class="form-control" id="inPracticeName" name="inPracticeName" ng-model="practice.practiceName" required>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <label id="lblBsnr">{{::'LABEL_BSNR' | translate}}<span class="error" ng-show="practiceForm.inBsnr.$error.required">*</span></label>
+                        <input type="text" class="form-control" id="inBsnr" name="inBsnr" ng-model="practice.Bsnr" ng-class="{'redborder': bsnrLengthnotValid || bsnrExists || bsnrNotNumber}" required>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="form-group toggler">
+                        <label id="lblSurgeryPractice" translate="LABEL_SURGERY_PRACTICE"></label>
+                        <span class="mask-toggle">
+                            <input id="inSurgeryPractice" name="inSurgeryPractice" type="checkbox" ng-model="practice.IsSurgeryPractice" />
+                            <i class="icon"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-xs-4">
+                    <div class="form-group">
+                        <label id="lbStreet">{{::'LABEL_STREET' | translate}}<span class="error" ng-show="practiceForm.inStreet.$error.required">*</span></label>
+                        <input type="text" class="form-control" id="inStreet" name="inStreet" ng-model="practice.Street" required>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="form-group">
+                        <label id="lblNo">{{::'LABEL_NO' | translate}}<span class="error" ng-show="practiceForm.inNo.$error.required">*</span></label>
+                        <input type="text" class="form-control" id="inNo" name="inNo" ng-model="practice.No" required>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="form-group">
+                        <label id="lbZip">{{::'LABEL_ZIP' | translate}}<span class="error" ng-show="practiceForm.inZip.$error.required">*</span></label>
+                        <input type="number" class="form-control" id="inZip" name="inZip" min="0" ng-model="practice.Zip" ng-class="{redborder:practiceForm.inZip.$error.number}" required>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="form-group">
+                        <label id="lblCity">{{::'LABEL_CITY' | translate}} <span class="error" ng-show="practiceForm.inCity.$error.required">*</span></label>
+                        <input type="text" class="form-control" id="inCity" name="inCity" ng-model="practice.City" required>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label id="lblMainEmail">{{::'LABEL_EMAIL' | translate}}</label>
+                        <input type="text" class="form-control" id="inMainEmail" name="inMainEmail" ng-model="practice.MainEmail" ng-class="{'redborder': MainEmailNotValid}">
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <label id="lblMainPhone">{{::'LABEL_PHONE' | translate}}<span class="error" ng-show="practiceForm.inMainPhone.$error.required">*</span></label>
+                        <input type="text" class="form-control" id="inMainPhone" name="inMainPhone" ng-model="practice.MainPhone" required>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <label id="lblFax">{{::'LABEL_FAX' | translate}}</label>
+                        <input type="text" class="form-control" id="inFax" name="inFax" ng-model="practice.Fax">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-xs-12">
+                    <h3 class="margin-top-15 margin-bottom-20">{{::'LABEL_CONTACT_PERSON' | translate}}</h3>
+                </div>
+
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label id="lblContactPerson">{{::'LABEL_NAME' | translate}}</label>
+                        <input type="text" class="form-control" id="inContactPerson" name="inContactPerson" ng-model="practice.ContactPerson">
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <label id="lblEmail">{{::'LABEL_EMAIL' | translate}}</label>
+                        <input type="text" class="form-control" id="inEmail" name="inMail" ng-model="practice.Email" ng-class="{'redborder': EmailNotValid}">
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <label id="lblPhone">{{::'LABEL_PHONE' | translate}}</label>
+                        <input type="text" class="form-control" id="inPhone" name="inPhone" ng-model="practice.Phone">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="margin-top-15 margin-bottom-20">{{::'order' | translate}}</h3>
+                </div>
+
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>{{::'LABEL_PREFERRED_PHARMACY' | translate}}</label>
+                        <dropdown-list items="pharmacies" ng-model="practice.DefaultPharmacy" additional-class="'dropdown-min-width'"></dropdown-list>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <label id="lblDefaultShippingDateOffset">{{::'LABEL_DEFAULT_SHIPPING_DATE_OFFSET' | translate}}<span class="error" ng-show="practiceForm.inDefaultShippingDateOffset.$error.required">*</span></label>
+                        <input type="number" class="shipping-offset-input" id="inDefaultShippingDateOffset" name="inDefaultShippingDateOffset" min="0" ng-model="practice.DefaultShippingDateOffset" required>
+                        <label class="inline" id="lblDaystoOP" translate="LABEL_LABEL_DAYS_TO_OP"></label>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="form-group padding-top-15">
+                        <ul class="list-table">
+                            <li>{{::'LABEL_FROM' | translate}}</li>
+                            <li><input type="text" class="form-control" id="inDeliveryTimeFrom" placeholder="00:00" name="inDeliveryTimeFrom" time-input ng-blur="fixTime('DeliveryDateFrom')" ng-model="practice.DeliveryDateFrom" ng-class="{'redborder': fromDateInvalid || fromIsGreaterThanTo }"></li>
+                            <li>{{::'LABEL_TO' | translate}}</li>
+                            <li><input type="text" class="form-control" id="inDeliveryTimeTo" placeholder="00:00" name="inDeliveryTimeTo" time-input ng-blur="fixTime('DeliveryDateTo')" ng-model="practice.DeliveryDateTo" ng-class="{'redborder': toDateInvalid || fromIsGreaterThanTo }"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-xs-4">
+                    <div class="form-group toggler">
+                        <label>{{::'LABEL_QUICK_ORDER_VERWNDEN' | translate}}</label>
+                        <span class="mask-toggle" title="{{:: 'TOOLTIP_QUICK_ORDER_MSG' | translate }}">
+                            <input ng-disabled="checkIsQuickOrderDisabled()" name="cbPracticeQuickOrder" type="checkbox" ng-model="practice.IsQuickOrderActive" ng-change="changeQuickOrder(false)">
+                            <i class="icon" ng-click="changeQuickOrder(true)"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="form-group toggler">
+                        <label>{{::'LABEL_QUICK_ORDER_GRACE_PERIOD' | translate}}</label>
+                        <span class="mask-toggle">
+                            <input ng-disabled="checkIsGracePeriodDisabled()" name="cbPracticeGracePeriod" type="checkbox" ng-model="practice.UseGracePeriod" ng-change="changeGracePeriod(false)">
+                            <i class="icon" ng-click="changeGracePeriod(true)"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-xs-4">
+                    <div class="form-group toggler">
+                        <label id="lblOrderDrugs" translate="LABEL_ORDERS_DRUGS"></label>
+                        <span class="mask-toggle">
+                            <input id="inOrderDrugs" name="inOrderDrugs" type="checkbox" ng-model="practice.IsOrderDrugs" />
+                            <i class="icon"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="form-group toggler">
+                        <label id="lblOnlyLabelRequired" translate="LABEL_ONLY_LABEL_REQUIRED"></label>
+                        <span class="mask-toggle">
+                            <input id="inOnlyLabelRequired" name="inOnlyLabelRequired" type="checkbox" ng-model="practice.IsOnlyLabelRequired" />
+                            <i class="icon"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="margin-top-15 margin-bottom-20" id="lblPRacticeBankAccount">{{::'LABEL_PRACTICE_BANK_ACCOUNT' | translate}}</h3>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label id="lblAccountHolder">{{::'LABEL_ACCOUNT_HOLDER' | translate}}</label>
+                        <input type="text" class="form-control" id="inAccountHolder" name="inAccountHolder" ng-model="practice.AccountHolder">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="form-group">
+                        <label id="lblIban">{{::'LABEL_IBAN' | translate}}</label>
+                        <input type="text" class="form-control" id="inIban" name="inIban" ng-model="practice.Iban" ng-class="{'redborder': IBANinvalid}" ng-blur="CheckIbanFillBic()">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="form-group">
+                        <label id="lblBic">{{::'LABEL_BIC' | translate}}</label>
+                        <input type="text" class="form-control" id="inBic" name="inBic" ng-model="practice.Bic" ng-class="{'redborder': BICinvalid ||BICBankinvalid}" ng-blur="CheckBicFillBank()">
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="form-group">
+                        <label id="lblBank">{{::'LABEL_BANK' | translate}}</label>
+                        <input type="text" class="form-control" id="inBank" name="inBank" ng-model="practice.Bank" ng-class="{'redborder': BankInvalid ||BICBankinvalid}">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="margin-top-15 margin-bottom-20">{{::'LABEL_OTHER_OPTIONS' | translate}}</h3>
+                </div>
+
+                <div class="col-xs-4">
+                    <div class="form-group toggler">
+                        <label id="lblWaiveServiceFee" translate="LABEL_WAIVE_SERVICE_FEE"></label>
+                        <span class="mask-toggle">
+                            <input id="inWaiveServiceFee" name="inWaiveServiceFee" type="checkbox" ng-model="practice.isWaiveServiceFee" />
+                            <i class="icon"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="form-group toggler">
+                        <label id="lblWaiveServiceFee" translate="LABEL_SHOULD_DOWNLOAD_REPORT_UPON_SUBMISSION"></label>
+                        <span class="mask-toggle">
+                            <input id="inDownloadReportUponSubmission" name="inDownloadReportUponSubmission" type="checkbox" ng-model="practice.ShouldDownloadReportUponSubmission" ng-true-value="false" ng-false-value="true" />
+                            <i class="icon"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="form-group toggler">
+                        <label id="lblWaiveServiceFee" translate="LABEL_PRESS_ENTER_TO_SEARCH"></label>
+                        <span class="mask-toggle">
+                            <input id="inWaiveServiceFee" name="inWaiveServiceFee" type="checkbox" ng-model="practice.PressEnterToSearch" />
+                            <i class="icon"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="margin-top-15 margin-bottom-20" id="lblPracticeAccount">{{::'LABEL_PRACTICE_ACCOUNT' | translate}}</h3>
+                </div>
+
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <label id="lblLoginEmail">{{::'LABEL_LOGIN_EMAIL' | translate}}<span class="error" ng-show="practiceForm.inLoginEmail.$error.required">*</span></label>
+                        <input type="text" class="form-control" id="inLoginEmail" name="inLoginEmail" name="mail" ng-model="practice.LoginEmail" ng-class="{'redborder': LoginEmailNotValid || LoginEmailExists }" ng-disabled="mode" auto-fill-sync required>
+                    </div>
+                </div>
+                <div class="col-xs-3" ng-if="!mode">
+                    <div class="form-group">
+                        <span class="mask-checkbox">
+                            <input type="radio" id="CKGeneratePassword1" value="1" ng-change="GenPass()" ng-model="CKGeneratePassword" ng-init="SetInitialPass()" />
+                            <i class="icon"></i>
+                        </span>
+                        <label id="lblGeneratePassword" translate="LABEL_GENERATE_PASSWORD"></label>
+                        <input type="password" class="form-control" id="inPassword" name="practice.inPassword" ng-disabled="genDisabled" ng-model="practice.inPassword" ng-class="{redborder:passwordDontValidForm || passwordDontMAtch || passwordInvalidEmpty}" auto-fill-sync />
+                        <span id="lblWElcomeMailWillBeSentToPractice" class="help-block">{{::'LABEL_WELCOMEEMAILWILLBESENTTOPRACTICE' | translate}}</span>
+                    </div>
+                </div>
+                <div class="col-xs-3" ng-if="!mode">
+                    <div class="form-group">
+                        <span class="mask-checkbox">
+                            <input type="radio" id="CKGeneratePassword2" value="2" ng-change="TypePass()" ng-model="CKGeneratePassword" />
+                            <i class="icon"></i>
+                        </span>
+                        <label id="lblDefinePassword" translate="LABEL_DEFINE_PASSWORD"></label>
+                        <input type="password" class="form-control" id="inDefinePassword" name="practice.DefinePassword" ng-disabled="defDisabled" ng-model="practice.DefinePassword" ng-class="{redborder:passwordDontMatch || passwordInvalidEmpty}" auto-fill-sync />
+                    </div>
+                </div>
+                <div class="col-xs-3" ng-if="mode">
+                    <div class="form-group">
+                        <label>{{::'LABEL_PASSWORD' | translate}}</label>
+                        <input type="password" class="form-control" id="inPassword" name="practice.inPassword" ng-disabled="true" ng-model="practice.inPassword" auto-fill-sync>
+                    </div>
+                </div>
+                <div class="col-xs-2" ng-if="mode" ng-class="{'password-btn-holder': mode}">
+                    <div class="form-group padding-top-15">
+                        <button class="button medium reject" onclick="return false;" ng-click="ResetPassword()" translate="LABEL_RESET_PASSWORD"></button>
+                    </div>
+                </div>
+                <div class="col-xs-4" ng-if="mode">
+                    <div class="form-group toggler">
+                        <label id="lblDeactivateAccount" translate="LABEL_DEACTIVATE_ACCOUNT"></label>
+                        <span class="mask-toggle">
+                            <input type="checkbox" ng-model="practice.IsAccountDeactivated" />
+                            <i class="icon"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-class="{'buttons-with-text-button': mode,'buttons': !mode}">
+            <span ng-if="mode" class="abort"><a href="" ng-click="closePracticeForm()" translate="BUTTON_CANCEL">{{ 'LABEL_CANCEL' | translate }}</a></span>
+            <button class="button wide confirm" id="btnSubmitPractice" type="submit" translate="BUTTON_SAVE" ng-disabled="practiceForm.$invalid"></button>
+            <button class="button narrow reject" id="btnCancelSubmitPractice" onclick="return false;" ng-click="closePracticeForm()" translate="BUTTON_CANCEL" ng-if="!mode"></button>
+        </div>
+
+    </form>
+</div>

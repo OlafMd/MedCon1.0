@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8327F3D8-91FD-4C90-B53D-4F34C8B58C93}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_CMN_CTR</RootNamespace>
+    <AssemblyName>CL1_CMN_CTR</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CMN_CTR_Contract\ORM_CMN_CTR_Contract.cs" />
+    <Compile Include="CMN_CTR_Contract_DefaultParameter\ORM_CMN_CTR_Contract_DefaultParameter.cs" />
+    <Compile Include="CMN_CTR_Contract_Parameter\ORM_CMN_CTR_Contract_Parameter.cs" />
+    <Compile Include="CMN_CTR_Contract_Party\ORM_CMN_CTR_Contract_Party.cs" />
+    <Compile Include="CMN_CTR_Contract_Role\ORM_CMN_CTR_Contract_Role.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_CTR_Contract_Role\SQL\Insert.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_CTR_Contract_Role\SQL\Select.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_CTR_Contract_Role\SQL\Update.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_CTR_Contract_Party\SQL\Insert.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_CTR_Contract_Party\SQL\Select.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_CTR_Contract_Party\SQL\Update.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_CTR_Contract\SQL\Insert.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_CTR_Contract\SQL\Select.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_CTR_Contract\SQL\Update.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_CTR_Contract_DefaultParameter\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CTR_Contract_DefaultParameter\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CTR_Contract_DefaultParameter\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_CTR_Contract_Parameter\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_CTR_Contract_Parameter\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_CTR_Contract_Parameter\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_CTR_Contracts.xml" />
+    <Content Include="_Support\CMN_CTR_Contract_DefaultParameters.xml" />
+    <Content Include="_Support\CMN_CTR_Contract_Parameters.xml" />
+    <Content Include="_Support\CMN_CTR_Contract_Parties.xml" />
+    <Content Include="_Support\CMN_CTR_Contract_Roles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

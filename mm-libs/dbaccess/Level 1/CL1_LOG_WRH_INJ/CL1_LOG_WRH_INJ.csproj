@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0D3AEFA0-0168-49CE-87AB-760966293044}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_LOG_WRH_INJ</RootNamespace>
+    <AssemblyName>CL1_LOG_WRH_INJ</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LOG_WRH_INJ_CountingResult_TrackingInstance\ORM_LOG_WRH_INJ_CountingResult_TrackingInstance.cs" />
+    <Compile Include="LOG_WRH_INJ_InventoryJob\ORM_LOG_WRH_INJ_InventoryJob.cs" />
+    <Compile Include="LOG_WRH_INJ_InventoryJob_CountingRunShelf\ORM_LOG_WRH_INJ_InventoryJob_CountingRunShelf.cs" />
+    <Compile Include="LOG_WRH_INJ_InventoryJob_CountingRun\ORM_LOG_WRH_INJ_InventoryJob_CountingRun.cs" />
+    <Compile Include="LOG_WRH_INJ_InventoryJob_Process\ORM_LOG_WRH_INJ_InventoryJob_Process.cs" />
+    <Compile Include="LOG_WRH_INJ_InventoryJob_Process_ShelfContent\ORM_LOG_WRH_INJ_InventoryJob_Process_ShelfContent.cs" />
+    <Compile Include="LOG_WRH_INJ_InventoryJob_Process_Shelf\ORM_LOG_WRH_INJ_InventoryJob_Process_Shelf.cs" />
+    <Compile Include="LOG_WRH_INJ_InventoryJob_Series\ORM_LOG_WRH_INJ_InventoryJob_Series.cs" />
+    <Compile Include="LOG_WRH_INJ_InventoryJob_Series_ParticipatingShelf\ORM_LOG_WRH_INJ_InventoryJob_Series_ParticipatingShelf.cs" />
+    <Compile Include="LOG_WRH_INJ_InventoryJob_Series_Rythm\ORM_LOG_WRH_INJ_InventoryJob_Series_Rythm.cs" />
+    <Compile Include="LOG_WRH_INJ_InventryJob_CountingResult\ORM_LOG_WRH_INJ_InventryJob_CountingResult.cs" />
+    <Compile Include="LOG_WRH_INJ_Process_ShelfContents_TrackingInstance\ORM_LOG_WRH_INJ_Process_ShelfContents_TrackingInstance.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LOG_WRH_INJ_Process_ShelfContents_TrackingInstance\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_Process_ShelfContents_TrackingInstance\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_Process_ShelfContents_TrackingInstance\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Process_ShelfContent\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Process_ShelfContent\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Process_ShelfContent\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Series\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Series\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Series\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Series_ParticipatingShelf\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Series_ParticipatingShelf\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Series_ParticipatingShelf\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Series_Rythm\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Series_Rythm\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Series_Rythm\SQL\Insert.sql" />
+    <Content Include="_Support\LOG_WRH_INJ_InventoryJob_Series.xml" />
+    <Content Include="_Support\LOG_WRH_INJ_InventoryJob_Series_ParticipatingShelves.xml" />
+    <Content Include="_Support\LOG_WRH_INJ_InventoryJob_Series_Rythms.xml" />
+    <Content Include="_Support\LOG_WRH_INJ_Process_ShelfContents_TrackingInstances.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Process\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Process\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Process\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Process_Shelf\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Process_Shelf\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_Process_Shelf\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_CountingRunShelf\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_CountingRunShelf\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_CountingRunShelf\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_CountingRun\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_CountingRun\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventoryJob_CountingRun\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventryJob_CountingResult\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventryJob_CountingResult\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_InventryJob_CountingResult\SQL\Insert.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_CountingResult_TrackingInstance\SQL\Select.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_CountingResult_TrackingInstance\SQL\Update.sql" />
+    <EmbeddedResource Include="LOG_WRH_INJ_CountingResult_TrackingInstance\SQL\Insert.sql" />
+    <Content Include="_Support\LOG_WRH_INJ_CountingResult_TrackingInstances.xml" />
+    <Content Include="_Support\LOG_WRH_INJ_InventoryJobs.xml" />
+    <Content Include="_Support\LOG_WRH_INJ_InventoryJob_CountingRuns.xml" />
+    <Content Include="_Support\LOG_WRH_INJ_InventoryJob_CountingRunShelves.xml" />
+    <Content Include="_Support\LOG_WRH_INJ_InventoryJob_Processes.xml" />
+    <Content Include="_Support\LOG_WRH_INJ_InventoryJob_Process_ShelfContents.xml" />
+    <Content Include="_Support\LOG_WRH_INJ_InventoryJob_Process_Shelves.xml" />
+    <Content Include="_Support\LOG_WRH_INJ_InventryJob_CountingResults.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

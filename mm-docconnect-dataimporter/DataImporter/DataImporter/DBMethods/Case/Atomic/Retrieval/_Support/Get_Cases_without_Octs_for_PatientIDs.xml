@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Cases_without_Octs_for_PatientIDs</Name>
+    <Namespace>DataImporter.DBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="DataImporter.DBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Cases_without_Octs_for_PatientIDs"
+								Method_Name="Get_Cases_without_Octs_for_PatientIDs"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    Select
+      hec_cas_cases.CaseNumber As case_number,
+      hec_cas_cases.Creation_Timestamp as creation_date,
+      hec_cas_cases.HEC_CAS_CaseID As case_id,
+      hec_act_plannedactions.ToBePerformedBy_BusinessParticipant_RefID As op_doctor_bpt_id,
+      hec_cas_cases.Patient_RefID As patient_id,
+      hec_act_performedaction_diagnosisupdate_localizations.IM_PotentialDiagnosisLocalization_Code As localization,
+      hec_act_performedaction_diagnosisupdates.PotentialDiagnosis_RefID As diagnose_id,
+      hec_act_plannedaction_potentialprocedure_requiredproduct.HealthcareProduct_RefID as drug_id,      
+      hec_act_plannedactions.PlannedFor_Date as op_date
+    From
+      hec_cas_cases Inner Join
+      hec_cas_case_relevantperformedactions
+        On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_relevantperformedactions.Case_RefID And hec_cas_case_relevantperformedactions.Tenant_RefID = @TenantID And
+        hec_cas_case_relevantperformedactions.IsDeleted = 0 Inner Join
+      hec_act_plannedactions
+        On hec_cas_case_relevantperformedactions.PerformedAction_RefID = hec_act_plannedactions.IfPlannedFollowup_PreviousAction_RefID And
+        hec_act_plannedactions.Tenant_RefID = @TenantID And hec_act_plannedactions.IsDeleted = 0 Inner Join
+      hec_act_performedaction_diagnosisupdates
+        On hec_cas_case_relevantperformedactions.PerformedAction_RefID = hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_RefID And
+        hec_act_performedaction_diagnosisupdates.Tenant_RefID = @TenantID And hec_act_performedaction_diagnosisupdates.IsDeleted = 0 Inner Join
+      hec_act_performedaction_diagnosisupdate_localizations
+        On hec_act_performedaction_diagnosisupdates.HEC_ACT_PerformedAction_DiagnosisUpdateID =
+        hec_act_performedaction_diagnosisupdate_localizations.HEX_EXC_Action_DiagnosisUpdate_RefID And
+        hec_act_performedaction_diagnosisupdate_localizations.Tenant_RefID = @TenantID And hec_act_performedaction_diagnosisupdate_localizations.IsDeleted = 0
+      Inner Join
+      hec_act_plannedaction_potentialprocedures
+        On hec_act_plannedactions.HEC_ACT_PlannedActionID = hec_act_plannedaction_potentialprocedures.PlannedAction_RefID And
+        hec_act_plannedaction_potentialprocedures.Tenant_RefID = @TenantID And
+        hec_act_plannedaction_potentialprocedures.IsDeleted = 0 Inner Join
+      hec_act_plannedaction_potentialprocedure_requiredproduct
+        On hec_act_plannedaction_potentialprocedures.HEC_ACT_PlannedAction_PotentialProcedureID =
+        hec_act_plannedaction_potentialprocedure_requiredproduct.PlannedAction_PotentialProcedure_RefID And
+        hec_act_plannedaction_potentialprocedure_requiredproduct.Tenant_RefID = @TenantID And
+        hec_act_plannedaction_potentialprocedure_requiredproduct.IsDeleted = 0 
+    Where
+      hec_cas_cases.Patient_RefID = @PatientIDs And
+      hec_cas_cases.Tenant_RefID = @TenantID And
+      hec_cas_cases.IsDeleted = 0
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GCwOctsfPIDs_1738">
+    <Members>
+      <ClassMember Name="PatientIDs" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GCwOctsfPIDs_1738" IsArray="true">
+      <Members>
+        <ClassMember Name="case_number" Type="String"  />
+        <ClassMember Name="case_id" Type="Guid"  />
+        <ClassMember Name="op_doctor_bpt_id" Type="Guid"  />
+        <ClassMember Name="patient_id" Type="Guid"  />
+        <ClassMember Name="localization" Type="String"  />
+        <ClassMember Name="diagnose_id" Type="Guid"  />
+        <ClassMember Name="drug_id" Type="Guid"  />
+        <ClassMember Name="op_date" Type="DateTime"  />
+        <ClassMember Name="creation_date" Type="DateTime"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

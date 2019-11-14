@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/10/2013 2:48:42 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_HVACRSubmisionInfo_For_RevisionID</Name>
+    <Namespace>CL5_KPRS_DueDiligences.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_DueDiligences.Atomic.Retrieval"
+                Method_ClassName="cls_Get_HVACRSubmisionInfo_For_RevisionID"
+                Method_Name="Get_HVACRSubmisionInfo_For_RevisionID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_HVACRSubmisionInfo_For_RevisionID"
+                />
+
+  <SQLStatement xml:space="preserve">
+
+Select
+  res_str_hvacrs.RES_STR_HVACRID,
+  res_str_hvacrs.DocumentHeader_RefID As HVACR_DocumentHeader_RefID,
+  res_str_hvacrs.AverageRating_RefID,
+  res_str_hvacrs.Comment As HVACR_Comment,
+  res_str_hvacrs.RES_BLD_HVACR_RefID,
+  Assassment.RES_STR_HVACR_PropertyID,
+  Assassment.RES_STR_HVACR_PropertyAssessmentID,
+  Assassment.RES_STR_HVACR_RequiredActionID,
+  Assassment.GlobalPropertyMatchingID,
+  Assassment.STR_HVACR_RefID,
+  Assassment.Rating_RefID,
+  Assassment.HVACRProperty_RefID,
+  Assassment.DocumentHeader_RefID,
+  Assassment.PropertyAssessment_Comment,
+  Assassment.Action_Name_DictID,
+  Assassment.HVACRPropertyAssestment_RefID,
+  Assassment.Action_Unit_RefID,
+  Assassment.EffectivePrice_RefID,
+  Assassment.Action_PricePerUnit_RefID,
+  Assassment.Action_UnitAmount,
+  Assassment.IsCustom,
+  Assassment.IfCustom_Name,
+  Assassment.IfCustom_Description,
+  Assassment.Action_Timeframe_RefID,
+  Assassment.SelectedActionVersion_RefID,
+  Assassment.RequiredAction_Comment,
+  Assassment.PriceValue_Amount
+From
+  res_str_hvacrs Left Join
+  (Select
+    res_str_hvacr_properties.RES_STR_HVACR_PropertyID,
+    res_str_hvacr_properties.GlobalPropertyMatchingID,
+    res_str_hvacr_propertyassessments.RES_STR_HVACR_PropertyAssessmentID,
+    res_str_hvacr_propertyassessments.STR_HVACR_RefID,
+    res_str_hvacr_propertyassessments.Rating_RefID,
+    res_str_hvacr_propertyassessments.HVACRProperty_RefID,
+    res_str_hvacr_propertyassessments.DocumentHeader_RefID,
+    res_str_hvacr_propertyassessments.Comment As PropertyAssessment_Comment,
+    RequieredAction.RES_STR_HVACR_RequiredActionID,
+    RequieredAction.Action_Name_DictID,
+    RequieredAction.HVACRPropertyAssestment_RefID,
+    RequieredAction.EffectivePrice_RefID,
+    RequieredAction.Action_PricePerUnit_RefID,
+    RequieredAction.Action_Unit_RefID,
+    RequieredAction.Action_UnitAmount,
+    RequieredAction.IsCustom,
+    RequieredAction.IfCustom_Name,
+    RequieredAction.IfCustom_Description,
+    RequieredAction.Action_Timeframe_RefID,
+    RequieredAction.RequiredAction_Comment,
+    RequieredAction.SelectedActionVersion_RefID,
+    RequieredAction.PriceValue_Amount
+  From
+    res_str_hvacr_properties Inner Join
+    res_str_hvacr_propertyassessments
+      On res_str_hvacr_propertyassessments.HVACRProperty_RefID =
+      res_str_hvacr_properties.RES_STR_HVACR_PropertyID Left Join
+    (Select
+      res_act_action_version.Action_Name_DictID,
+      res_str_hvacr_requiredactions.RES_STR_HVACR_RequiredActionID,
+      res_str_hvacr_requiredactions.HVACRPropertyAssestment_RefID,
+      res_str_hvacr_requiredactions.EffectivePrice_RefID,
+      res_str_hvacr_requiredactions.Action_PricePerUnit_RefID,
+      res_str_hvacr_requiredactions.Action_Unit_RefID,
+      res_str_hvacr_requiredactions.Action_UnitAmount,
+      res_str_hvacr_requiredactions.IsCustom,
+      res_str_hvacr_requiredactions.IfCustom_Name,
+      res_str_hvacr_requiredactions.IfCustom_Description,
+      res_str_hvacr_requiredactions.Creation_Timestamp,
+      res_str_hvacr_requiredactions.Action_Timeframe_RefID,
+      res_str_hvacr_requiredactions.Comment As RequiredAction_Comment,
+      res_str_hvacr_requiredactions.IsDeleted,
+      res_act_action_version.IsDeleted As IsDeleted1,
+      res_act_action_version.Tenant_RefID,
+      res_str_hvacr_requiredactions.Tenant_RefID As Tenant_RefID1,
+      res_str_hvacr_requiredactions.SelectedActionVersion_RefID,
+      cmn_price_values.PriceValue_Amount
+    From
+      res_act_action_version Inner Join
+      res_str_hvacr_requiredactions
+        On res_str_hvacr_requiredactions.SelectedActionVersion_RefID =
+        res_act_action_version.RES_ACT_Action_VersionID Inner Join
+      cmn_price_values On cmn_price_values.Price_RefID =
+        res_str_hvacr_requiredactions.Action_PricePerUnit_RefID
+    Where
+      res_str_hvacr_requiredactions.IsDeleted = 0 And
+      res_act_action_version.IsDeleted = 0 And
+      res_act_action_version.Tenant_RefID = @TenantID And
+      res_str_hvacr_requiredactions.Tenant_RefID = @TenantID) RequieredAction
+      On RequieredAction.HVACRPropertyAssestment_RefID =
+      res_str_hvacr_propertyassessments.RES_STR_HVACR_PropertyAssessmentID
+  Where
+    res_str_hvacr_propertyassessments.IsDeleted = 0 And
+    res_str_hvacr_properties.IsDeleted = 0 And
+    res_str_hvacr_propertyassessments.Tenant_RefID = @TenantID) Assassment
+    On Assassment.STR_HVACR_RefID = res_str_hvacrs.RES_STR_HVACRID
+Where
+  res_str_hvacrs.IsDeleted = 0 And
+    res_str_hvacrs.RES_BLD_HVACR_RefID = @BuildingPartID And
+
+  res_str_hvacrs.Tenant_RefID = @TenantID And
+  res_str_hvacrs.DUD_Revision_RefID = @RevisionID
+
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5DD_GHSIfRID_1448">
+    <Members>
+		<ClassMember Name="RevisionID" Type="Guid"  />
+      <ClassMember Name="BuildingPartID" Type="Guid" Optional="true" />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5DD_GHSIfRID_1448" IsArray="true" GroupBy="RES_STR_HVACRID">
+			<Members>
+				<ClassMember Name="RES_STR_HVACRID" Type="Guid"  />
+				<ClassMember Name="RES_BLD_HVACR_RefID" Type="Guid"  />
+        <ClassMember Name="HVACR_DocumentHeader_RefID" Type="Guid"  />
+        <ClassMember Name="AverageRating_RefID" Type="Guid"  />
+        <ClassMember Name="HVACR_Comment" Type="String"  />
+
+        <ClassMember IsClass="true" IsArray="true" Name="HVACRPropertyAsessments" Type="L5DD_GHSIfRID_1448_HVACRPropertyAsessment" GroupBy="RES_STR_HVACR_PropertyAssessmentID" >
+          <Members>
+            <ClassMember Name="RES_STR_HVACR_PropertyAssessmentID" Type="Guid"  />
+            <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+            <ClassMember Name="Rating_RefID" Type="Guid"  />
+            <ClassMember Name="PropertyAssessment_Comment" Type="String"  />
+            <ClassMember Name="DocumentHeader_RefID" Type="Guid"  />
+            <ClassMember Name="RES_STR_HVACR_PropertyID" Type="Guid"  />
+            
+
+            <ClassMember IsClass="true" IsArray="true" Name="HVACRReqActions" Type="L5DD_GHSIfRID_1448_HVACRReqAction" GroupBy="RES_STR_HVACR_RequiredActionID">
+              <Members>
+                <ClassMember Name="Action_Timeframe_RefID" Type="Guid"  />
+                <ClassMember Name="IfCustom_Description" Type="String"  />
+                <ClassMember Name="IfCustom_Name" Type="String"  />
+                <ClassMember Name="IsCustom" Type="bool"  />
+                <ClassMember Name="Action_Unit_RefID" Type="Guid"  />
+                <ClassMember Name="Action_PricePerUnit_RefID" Type="Guid"  />
+                <ClassMember Name="Action_UnitAmount" Type="double"  />
+                <ClassMember Name="SelectedActionVersion_RefID" Type="Guid"  />
+                <ClassMember Name="RES_STR_HVACR_RequiredActionID" Type="Guid"  />
+                <ClassMember Name="RequiredAction_Comment" Type="String"  />
+                <ClassMember Name="EffectivePrice_RefID" Type="Guid"  />
+                <ClassMember Name="Action_Name" Type="Dict" OriginTable="res_act_action_version" Source_DBField="Action_Name_DictID"  />
+                <ClassMember Name="PriceValue_Amount" Type="double"  />
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

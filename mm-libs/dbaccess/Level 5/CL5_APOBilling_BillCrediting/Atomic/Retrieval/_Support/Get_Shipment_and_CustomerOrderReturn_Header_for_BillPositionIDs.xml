@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/30/2014 11:12:05 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Shipment_and_CustomerOrderReturn_Header_for_BillPositionIDs</Name>
+    <Namespace>CL5_APOBilling_BillCrediting.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBilling_BillCrediting.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Shipment_and_CustomerOrderReturn_Header_for_BillPositionIDs"
+                Method_Name="Get_Shipment_and_CustomerOrderReturn_Header_for_BillPositionIDs"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Shipment_and_CustomerOrderReturn_Header_for_BillPositionIDs"
+                />
+
+  <SQLStatement xml:space="preserve">
+    SELECT
+      bil_billpositions.BIL_BillPositionID,
+      log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID,
+      log_shp_shipment_headers.ShipmentHeader_Number,
+      ord_cuo_customerorderreturn_headers.ORD_CUO_CustomerOrderReturn_HeaderID,
+      ord_cuo_customerorderreturn_headers.CustomerOrderReturnNumber
+    FROM bil_billpositions
+    LEFT JOIN bil_billposition_2_shipmentposition
+      ON bil_billposition_2_shipmentposition.BIL_BillPosition_RefID = bil_billpositions.BIL_BillPositionID
+      AND bil_billposition_2_shipmentposition.Tenant_RefID = bil_billpositions.Tenant_RefID
+      AND bil_billposition_2_shipmentposition.IsDeleted = bil_billpositions.IsDeleted
+    LEFT JOIN log_shp_shipment_positions
+      ON log_shp_shipment_positions.LOG_SHP_Shipment_PositionID = bil_billposition_2_shipmentposition.LOG_SHP_Shipment_Position_RefID
+      AND log_shp_shipment_positions.Tenant_RefID = bil_billpositions.Tenant_RefID
+      AND log_shp_shipment_positions.IsDeleted = bil_billpositions.IsDeleted
+    LEFT JOIN log_shp_shipment_headers
+      ON log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID = log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID
+      AND log_shp_shipment_headers.Tenant_RefID = bil_billpositions.Tenant_RefID
+      AND log_shp_shipment_headers.IsDeleted = bil_billpositions.IsDeleted
+    LEFT JOIN bil_billposition_2_customerorderreturnposition
+      ON bil_billposition_2_customerorderreturnposition.BIL_BillPosition_RefID = bil_billpositions.BIL_BillPositionID
+      AND bil_billposition_2_customerorderreturnposition.Tenant_RefID = bil_billpositions.Tenant_RefID
+      AND bil_billposition_2_customerorderreturnposition.IsDeleted = bil_billpositions.IsDeleted
+    LEFT JOIN ord_cuo_customerorderreturn_positions
+      ON ord_cuo_customerorderreturn_positions.ORD_CUO_CustomerOrderReturn_PositionID = bil_billposition_2_customerorderreturnposition.ORD_CUO_CustomerOrderReturn_Position_RefID
+      AND ord_cuo_customerorderreturn_positions.Tenant_RefID = bil_billpositions.Tenant_RefID
+      AND ord_cuo_customerorderreturn_positions.IsDeleted = bil_billpositions.IsDeleted 
+    LEFT JOIN ord_cuo_customerorderreturn_headers
+      ON ord_cuo_customerorderreturn_headers.ORD_CUO_CustomerOrderReturn_HeaderID = ord_cuo_customerorderreturn_positions.ORD_CUO_CustomerOrderReturn_PositionID
+      AND ord_cuo_customerorderreturn_headers.Tenant_RefID = bil_billpositions.Tenant_RefID
+      AND ord_cuo_customerorderreturn_headers.IsDeleted = bil_billpositions.IsDeleted 
+    WHERE 
+      bil_billpositions.BIL_BillPositionID = @BillPositionIDs
+      AND bil_billpositions.Tenant_RefID = @TenantID
+      AND bil_billpositions.IsDeleted = 0;
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5BC_GSaCORHfCP_1109">
+    <Members>
+		<ClassMember Name="BillPositionIDs" Type="Guid" IsArray="true" />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5BC_GSaCORHfCP_1109" IsArray="true">
+			<Members>
+				<ClassMember Name="BIL_BillPositionID" Type="Guid"  />
+				<ClassMember Name="LOG_SHP_Shipment_HeaderID" Type="Guid"  />
+				<ClassMember Name="ShipmentHeader_Number" Type="String"  />
+				<ClassMember Name="ORD_CUO_CustomerOrderReturn_HeaderID" Type="Guid"  />
+                <ClassMember Name="CustomerOrderReturnNumber" Type="String"  />
+			</Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 7/8/2013 11:37:04 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_CAL_RepetitionPatterns_Weekly"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_CAL"
+                IsClass_Corresponding_DBTable="cmn_cal_repetitionpatterns_weekly" >
+      <Members>
+		<ClassMember Name="CMN_CAL_RepetitionPattern_WeeklyID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Repetition_RefID" Type="Guid" />
+		<ClassMember Name="Repetition_EveryNumberOfWeeks" Type="int" />
+		<ClassMember Name="HasRepeatingOn_Mondays" Type="Boolean" />
+		<ClassMember Name="HasRepeatingOn_Tuesdays" Type="Boolean" />
+		<ClassMember Name="HasRepeatingOn_Wednesdays" Type="Boolean" />
+		<ClassMember Name="HasRepeatingOn_Thursdays" Type="Boolean" />
+		<ClassMember Name="HasRepeatingOn_Fridays" Type="Boolean" />
+		<ClassMember Name="HasRepeatingOn_Saturdays" Type="Boolean" />
+		<ClassMember Name="HasRepeatingOn_Sundays" Type="Boolean" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

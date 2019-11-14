@@ -1,0 +1,19 @@
+UPDATE 
+	res_qst_questionnaire_version
+SET 
+	Questionnaire_RefID=@Questionnaire_RefID,
+	QuestionnaireVersion_Comment=@QuestionnaireVersion_Comment,
+	QuestionnaireVersion_VersionNumber=@QuestionnaireVersion_VersionNumber,
+	IsApartmentStructureVisible=@IsApartmentStructureVisible,
+	IsStaircaseStructureVisible=@IsStaircaseStructureVisible,
+	IsOutdoorFacilityVisible=@IsOutdoorFacilityVisible,
+	IsFacadeVisible=@IsFacadeVisible,
+	IsRoofVisible=@IsRoofVisible,
+	IsAtticVisible=@IsAtticVisible,
+	IsBasementVisible=@IsBasementVisible,
+	IsHVACRVisible=@IsHVACRVisible,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_QST_Questionnaire_VersionID = @RES_QST_Questionnaire_VersionID

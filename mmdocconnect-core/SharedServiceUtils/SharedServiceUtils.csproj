@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AB0EAAFB-D407-47D2-A9EC-E2DE565EA145}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharedServiceUtils</RootNamespace>
+    <AssemblyName>SharedServiceUtils</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ElasticRebuildUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\mm-libs\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_CMN_CTR\CL1_CMN_CTR.csproj">
+      <Project>{8327f3d8-91fd-4c90-b53d-4f34c8b58c93}</Project>
+      <Name>CL1_CMN_CTR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC_ACT\CL1_HEC_ACT.csproj">
+      <Project>{f66b8f6f-ec2c-4867-9d07-d4e9850e8933}</Project>
+      <Name>CL1_HEC_ACT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC_BIL\CL1_HEC_BIL.csproj">
+      <Project>{3fd2ac3a-f34e-433b-8a86-48fe54c51b00}</Project>
+      <Name>CL1_HEC_BIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mm-libs\dbaccess\Level 1\CL1_HEC_CAS\CL1_HEC_CAS.csproj">
+      <Project>{17e35f8f-6972-4ee9-8135-396798e493c8}</Project>
+      <Name>CL1_HEC_CAS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMDocConnectDBMethods\MMDocConnectDBMethods.csproj">
+      <Project>{0f2fdac6-f460-4012-8a29-08c7e5cdabcd}</Project>
+      <Name>MMDocConnectDBMethods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMDocConnectElasticSearchMethods\MMDocConnectElasticSearchMethods.csproj">
+      <Project>{e99e90be-66e5-4412-b67c-ebfe6a5286ad}</Project>
+      <Name>MMDocConnectElasticSearchMethods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMDocConnectUtils\MMDocConnectUtils.csproj">
+      <Project>{723f3602-7c25-4f63-813e-5731f820ef4b}</Project>
+      <Name>MMDocConnectUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

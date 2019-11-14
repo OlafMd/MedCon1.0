@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/17/2013 3:31:25 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_CMN_PRO_Catalog_ProductGroup</Name>
+    <Namespace>CL2_Catalog.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Catalog.Atomic.Manipulation"
+                Method_ClassName="cls_Save_CMN_PRO_Catalog_ProductGroup"
+                Method_Name="Save_CMN_PRO_Catalog_ProductGroup"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_CMN_PRO_Catalog_ProductGroup"
+                />
+  <SQLLimitation_CSharp_Extension>
+			var returnValue = new FR_Guid();
+
+			var item = new CL1_CMN_PRO.CMN_PRO_Catalog_ProductGroup.ORM_CMN_PRO_Catalog_ProductGroup();
+			if (Parameter.CMN_PRO_Catalog_ProductGroupID != Guid.Empty)
+			{
+			    var result = item.Load(Connection, Transaction, Parameter.CMN_PRO_Catalog_ProductGroupID);
+			    if (result.Status != FR_Status.Success || item.CMN_PRO_Catalog_ProductGroupID == Guid.Empty)
+			    {
+			        var error = new FR_Guid();
+			        error.ErrorMessage = "No Such ID";
+			        error.Status =  FR_Status.Error_Internal;
+			        return error;
+			    }
+			}
+
+			if(Parameter.IsDeleted == true){
+				item.IsDeleted = true;
+				return new FR_Guid(item.Save(Connection, Transaction),item.CMN_PRO_Catalog_ProductGroupID);
+			}
+
+			//Creation specific parameters (Tenant, Account ... )
+			if (Parameter.CMN_PRO_Catalog_ProductGroupID == Guid.Empty)
+			{
+				item.Tenant_RefID = securityTicket.TenantID;
+			}
+
+			item.Catalog_Revision_RefID = Parameter.Catalog_Revision_RefID;
+			item.CatalogProductGroup_Name = Parameter.CatalogProductGroup_Name;
+			item.CatalogProductGroup_Parent_RefID = Parameter.CatalogProductGroup_Parent_RefID;
+
+
+			return new FR_Guid(item.Save(Connection, Transaction),item.CMN_PRO_Catalog_ProductGroupID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2CA_SCPG_1531">
+    <Members>
+		<ClassMember IsIdentificator="True" Name="CMN_PRO_Catalog_ProductGroupID" Type="Guid"  />
+		<ClassMember Name="Catalog_Revision_RefID" Type="Guid"  />
+		<ClassMember Name="CatalogProductGroup_Name" Type="String"  />
+		<ClassMember Name="CatalogProductGroup_Parent_RefID" Type="Guid"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

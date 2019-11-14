@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/1/2013 2:38:32 PM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Save_BuildingPart</Name>
+        <Namespace>CL5_KPRS_Buildings.Atomic.Manipulation</Namespace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_KPRS_Buildings.Atomic.Manipulation"
+                  Method_ClassName="cls_Save_BuildingPart"
+                  Method_Name="Save_BuildingPart"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Save_BuildingPart"
+                />
+
+
+    <Parameters IsClass="true" Name="P_L5BD_SBP_1620">
+        <Members>
+            <ClassMember Name="BuildingPartID" Type="Guid"  />
+            <ClassMember Name="RevisionID" Type="Guid"  />
+            <ClassMember Name="GeneralRating" Type="Guid"  />
+            <ClassMember Name="Comment" Type="String"  />
+            <ClassMember Name="BuildingPartType" Type="String"  />
+            <ClassMember Name="IsApartmentForRent" Type="bool"  />
+            <ClassMember Name="AppartmentUnitRefID" Type="Guid"  />
+            <ClassMember Name="AparementSize" Type="double"  />
+            <ClassMember Name="Appartment_HeatingType" Type="Guid"/>
+            <ClassMember Name="Appartment_FlooringType" Type="Guid"/>
+            <ClassMember Name="Appartment_WallCoveringType" Type="Guid"/>
+            <ClassMember Name="StaircaseUnitRefID" Type="Guid"  />
+            <ClassMember Name="StaircaseSize" Type="double"  />
+            <ClassMember Name="OutdoorNumberOfGaragePlaces" Type="int"  />
+            <ClassMember Name="OutdoorNumberOfRentedGaragePlaces" Type="int"  />
+            <ClassMember Name="OutdoorFacility_AccessRoadType" Type="Guid"/>
+            <ClassMember Name="OutdoorFacility_FenceType" Type="Guid"/>
+            <ClassMember Name="Basement_FloorType" Type="Guid"/>
+            <ClassMember Name="RoofType" Type="Guid"/>
+            <ClassMember IsClass="true" IsArray="true" Name="Questions" Type="P_L5BD_SBP_1620_Question">
+                <Members>
+                    <ClassMember Name="QuestionID" Type="Guid"  />
+                    <ClassMember Name="GeneralRating" Type="Guid"  />
+                    <ClassMember Name="Comment" Type="String"  />
+                    <ClassMember IsClass="true" IsArray="true" Name="Actions" Type="P_L5BD_SBP_1620_Action">
+                        <Members>
+                            <ClassMember Name="ActionVersionID" Type="Guid"  />
+                            <ClassMember Name="TimeFrameID" Type="Guid"  />
+                            <ClassMember Name="CostPerUnit" Type="double"  />
+                            <ClassMember Name="Amount" Type="double"  />
+                            <ClassMember Name="UnitRefID" Type="Guid"  />
+                            <ClassMember Name="Comment" Type="String"  />
+                        </Members>
+                    </ClassMember>
+                </Members>
+            </ClassMember>
+        </Members>
+    </Parameters>
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5BD_SBP_1620" IsArray="false">
+            <Members>
+                <ClassMember Name="BuildingPartDocumentHeader" Type="Guid"  />
+                <ClassMember Name="BuildingPropertyDocumentHeaders" IsArray="true" Type="Guid" />
+            </Members>
+        </ObjectReturnType_Definition>
+
+    </ResultInfo>
+
+</CodeGen>
+
+

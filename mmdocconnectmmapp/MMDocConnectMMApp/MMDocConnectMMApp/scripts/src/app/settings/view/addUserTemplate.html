@@ -1,0 +1,112 @@
+﻿ <div class="animate-if">
+     <form class="gray-content-holder doctors-data-lists doctor-list clearfix" id="userForm" ng-submit="submitUserForm()" name="userForm" novalidate off-click="closeUserForm()" >
+         <h3 id="lblAddUser" translate="LABEL_ADD_USER"></h3>
+         <div name="messageContainer" class="error-msg-container" ng-if="divContainer">
+             <span class="error" ng-if="LoginEmailNotValid">{{ 'LABEL_EMAIL_NOT_VALID' | translate }}</span>
+             <span class="error" ng-if="LoginEmailExists">{{ 'LABEL_ACCOUNT_EXISTS' | translate }}</span>
+             <span class="error" ng-if="EmailNotValid">{{ 'LABEL_EMAIL_NOT_VALID' | translate }}</span>
+             <span class="error" ng-if="passwordInvalidEmpty">{{ 'LABEL_ENTER_PASSWORD' | translate }}</span>
+             <span class="error" ng-if="passwordDontValidForm">{{ 'LABEL_PASSWORD_FORMAT' | translate }}</span>
+             <span class="error" ng-if="passwordDontMAtch">{{ 'LABEL_PASSWORD_MISMATCH' | translate }}</span>
+         </div>
+         <ul class="first-class-data first-row">
+             <li>
+                 <label id="lblSalutation">{{ 'LABEL_SALUTATION' | translate }}</label>
+                 <dropdown-list id="ddSalutation" name="ddSalutation" items="salutation" ng-model="user.Salutation" params="{display_name: 'label', id: 'value', is_model_object: true}"></dropdown-list>
+             </li>
+             <li>
+                 <label id="lbTitle">{{ 'LABEL_TITLE' | translate }}</label>
+                 <input id="inTitle" name="inTitle" type="text" ng-model="user.Title" />
+             </li>
+             <li>
+                 <label id="lblFirstName">{{ 'LABEL_FIRSTNAME' | translate }}<span class="error" ng-if="userForm.inFirstName.$error.required">*</span></label>
+                 <input id="inFirstName" name="inFirstName" type="text" ng-model="user.FirstName" required />
+
+             </li>
+             <li>
+                 <label id="lblLastName">{{ 'LABEL_LASTNAME' | translate }}<span class="error" ng-if="userForm.inLastName.$error.required">*</span></label>
+                 <input id="inLastName" name="inLastName" type="text" ng-model="user.LastName" required />
+
+             </li>
+             <li>
+                 <label id="lblEmail">{{ 'LABEL_EMAIL' | translate }}<span class="error" ng-if="userForm.inEmail.$error.required">*</span></label>
+                 <input id="inEmail" name="inEmail" type="text" ng-model="user.Email" ng-class="{redborder:EmailNotValid}" />
+
+             </li>
+             <li>
+                 <label id="lblPhone">{{ 'LABEL_PHONE' | translate }}<span class="error" ng-if="userForm.inPhone.$error.required">*</span></label>
+                 <input id="inPhone" name="inPhone" type="text" ng-model="user.Phone" required />
+
+             </li>
+
+         </ul>
+         <div ng-class="{'buttons-with-text-button' : edit, 'buttons': !edit}">
+             <span ng-if='edit' class="abort"><a href="" ng-click="closeUserForm()" translate="BUTTON_CANCEL">{{ 'LABEL_CANCEL' | translate }}</a></span>
+             <button class="button wide confirm" id="btnSubmitUser" type="submit" translate="BUTTON_SAVE" ng-disabled="userForm.$invalid"></button>
+             <button class="button narrow reject" id="btnCancelSubmitUser" onclick="return false;" ng-click="closeUserForm()" translate="BUTTON_CANCEL" ng-if="!edit"></button>
+         </div>
+
+         <div class="second-class-data-wrapper">
+             <h3 id="lblUserAccount" translate="LABEL_USER_ACCOUNT"></h3>
+
+             <ul class="first-class-data centered-checkbox">
+                 <li>
+                     <label id="lblReceiveNotification" class="ng-scope">{{'LABEL_RECEIVE_NOTIFICATION'| translate}}</label>
+                     <span class="mask-checkbox">
+                         <input id="inReceiveNotification" name="inReceiveNotification" type="checkbox" ng-model="user.ReceiveNotification" class="ng-pristine ng-untouched ng-valid">
+                         <i class="icon"></i>
+                     </span>
+                 </li>
+                 <li>
+                     <label id="lblIsAdmin" translate="LABEL_ADMIN_ACCOUNT" class="ng-scope"></label>
+                     <span class="mask-checkbox">
+                         <input id="inAdminAccount" name="inAdminAccount" type="checkbox" ng-model="user.isAdmin" class="ng-pristine ng-untouched ng-valid">
+                         <i class="icon"></i>
+                     </span>
+                 </li>
+             </ul>
+
+             <ul class="second-class-data fourth-row">
+                 <li>
+                     <label id="lblLoginEmail">{{'LABEL_LOGIN_EMAIL' |translate}} <span class="error" ng-if="userForm.inLoginEmail.$error.required">*</span></label>
+                     <input id="inLoginEmail" name="inLoginEmail" type="text" ng-model="user.LoginEmail" ng-disabled="edit" ng-class="{redborder:LoginEmailNotValid || LoginEmailExists  }" required auto-fill-sync />
+
+                 </li>
+                 <li>
+                     <span class="mask-checkbox" ng-show="!edit">
+                         <input id="drCKGeneratePassword1" type="radio" value="1" ng-change="drGenPass()" ng-model="drCKGeneratePassword" ng-init="drSetInitialPass()" />
+                         <i class="icon"></i>
+                     </span>
+                     <label id="lblGeneratePassword" translate="LABEL_GENERATE_PASSWORD" ng-if="!edit"></label>
+                     <label id="lblPassword" translate="LABEL_PASSWORD" ng-if="edit"></label>
+                     <input id="inPassword" name="user.inPassword" type="password" ng-disabled="drgenDisabled" ng-model="user.inPassword" ng-class="{redborder:passwordDontValidForm || passwordDontMAtch || passwordInvalidEmpty}" auto-fill-sync />
+                 </li>
+                 <li ng-show="!edit">
+                     <span class=" mask-checkbox">
+                         <input id="drCKGeneratePassword2" type="radio" value="2" ng-change="drTypePass()" ng-model="drCKGeneratePassword" />
+                         <i class="icon"></i>
+                     </span>
+                     <label id="lblDefinePassword" translate="LABEL_DEFINE_PASSWORD"></label>
+                     <input id="inDefinePassword" name="user.DefinePassword" type="password" ng-disabled="drdefDisabled" ng-model="user.DefinePassword" ng-class="{redborder:passwordDontMAtch || passwordInvalidEmpty}" auto-fill-sync />
+                 </li>
+                 <li ng-show="!edit">
+                     <label id=" lblwelcomemailwillbesenttodoctor">
+                         {{'LABEL_WELCOMEEMAILWILLBESENTTOUSER'|translate}}
+                     </label>
+                 </li>
+
+                 <li ng-if="edit" class="padding-top-22">
+                     <button class="button medium reject" onclick="return false;" ng-click="ResetPassword()" translate="LABEL_RESET_PASSWORD"></button>
+
+                 </li>
+                 <li class="toggler no-padding" ng-if="edit">
+                     <label class="module-color bolded-text" id="lblDeactivateAccount" translate="LABEL_DEACTIVATE_ACCOUNT"></label>
+                     <span class="mask-toggle">
+                         <input type="checkbox" ng-model="user.isDeactivated" />
+                         <i class="icon"></i>
+                     </span>
+                 </li>
+             </ul>
+         </div>
+     </form>
+</div>

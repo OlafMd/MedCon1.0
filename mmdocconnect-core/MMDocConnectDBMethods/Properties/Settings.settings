@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MMDocConnectDBMethods.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MMAppGroup" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.mm.app.group</Value>
+    </Setting>
+    <Setting Name="MasterAccountMMApp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.mm.app.master</Value>
+    </Setting>
+    <Setting Name="RegularAccountMMApp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.mm.app.regular</Value>
+    </Setting>
+    <Setting Name="OPDocAccountDocApp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.doc.app.op.doctor</Value>
+    </Setting>
+    <Setting Name="ACDocAccountDocApp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mm.docconect.doc.app.ac.doctor</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

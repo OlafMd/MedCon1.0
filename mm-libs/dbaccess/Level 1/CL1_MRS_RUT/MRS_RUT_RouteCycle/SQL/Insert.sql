@@ -1,0 +1,25 @@
+INSERT INTO 
+	mrs_rut_routecycles
+	(
+		MRS_RUT_RouteCycleID,
+		Route_RefID,
+		ValidFrom,
+		ValidThrough,
+		CronExpressions,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@MRS_RUT_RouteCycleID,
+		@Route_RefID,
+		@ValidFrom,
+		@ValidThrough,
+		@CronExpressions,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

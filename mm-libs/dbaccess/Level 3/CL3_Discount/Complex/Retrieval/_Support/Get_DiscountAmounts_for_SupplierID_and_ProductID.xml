@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="17/4/2014 12:43:00">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DiscountAmounts_for_SupplierID_and_ProductID</Name>
+    <Namespace>CL3_Discount.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Discount.Complex.Retrieval"
+                Method_ClassName="cls_Get_DiscountAmounts_for_SupplierID_and_ProductID"
+                Method_Name="Get_DiscountAmounts_for_SupplierID_and_ProductID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DiscountAmounts_for_SupplierID_and_ProductID"
+                />
+
+  <Parameters IsClass="true" Name="P_L3DC_GDAfSaP_0949">
+    <Members>
+		<ClassMember Name="SupplierID" Type="Guid"  />
+		<ClassMember Name="ProductID" Type="Guid?"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3DC_GDAfSaP_0949" IsArray="false">
+			<Members>
+				<ClassMember Name="ProductSupplierDiscounts" Type="CL3_Discount.Atomic.Retrieval.L3DC_GPSDAfSoP_0957" IsArray="true"  />
+				<ClassMember Name="SupplierDiscounts" Type="L3DC_GDAfSaP_0949a" IsClass="true" IsArray="true"  >
+					<Members>
+						<ClassMember Name="ORD_PRC_DiscountType_RefID" Type="Guid"  />
+						<ClassMember Name="DiscountValue" Type="Double"  />
+						<ClassMember Name="DiscountType_GlobalPropertyMatchingID" Type="string"  />
+					</Members>
+				</ClassMember>
+			</Members>
+		</ObjectReturnType_Definition>
+
+	</ResultInfo>
+
+</CodeGen>
+
+

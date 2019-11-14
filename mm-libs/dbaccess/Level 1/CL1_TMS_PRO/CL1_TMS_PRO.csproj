@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2EED773F-2351-47AC-92BF-2D9A58CB02F9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_TMS_PRO</RootNamespace>
+    <AssemblyName>CL1_TMS_PRO</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDtMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDtMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDyMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDyMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DBACCESREFACTOR|AnyCPU'">
+    <OutputPath>bin\DBACCESREFACTOR\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TMS_PRO_ACC_RightsPackages_2_Right\ORM_TMS_PRO_ACC_RightsPackages_2_Right.cs" />
+    <Compile Include="TMS_PRO_ACC_RightsPackage\ORM_TMS_PRO_ACC_RightsPackage.cs" />
+    <Compile Include="TMS_PRO_ACC_Right\ORM_TMS_PRO_ACC_Right.cs" />
+    <Compile Include="TMS_PRO_BusinessTaskPackage\ORM_TMS_PRO_BusinessTaskPackage.cs" />
+    <Compile Include="TMS_PRO_BusinessTask\ORM_TMS_PRO_BusinessTask.cs" />
+    <Compile Include="TMS_PRO_BusinessTask_2_Feature\ORM_TMS_PRO_BusinessTask_2_Feature.cs" />
+    <Compile Include="TMS_PRO_BusinessTask_Status\ORM_TMS_PRO_BusinessTask_Status.cs" />
+    <Compile Include="TMS_PRO_BusinessTask_Type\ORM_TMS_PRO_BusinessTask_Type.cs" />
+    <Compile Include="TMS_PRO_Comment\ORM_TMS_PRO_Comment.cs" />
+    <Compile Include="TMS_PRO_Comment_AttachedFile\ORM_TMS_PRO_Comment_AttachedFile.cs" />
+    <Compile Include="TMS_PRO_Comment_Mention\ORM_TMS_PRO_Comment_Mention.cs" />
+    <Compile Include="TMS_PRO_DeveloperTask\ORM_TMS_PRO_DeveloperTask.cs" />
+    <Compile Include="TMS_PRO_DeveloperTask_2_Tag\ORM_TMS_PRO_DeveloperTask_2_Tag.cs" />
+    <Compile Include="TMS_PRO_DeveloperTask_Involvements_InvestedWorkTime\ORM_TMS_PRO_DeveloperTask_Involvements_InvestedWorkTime.cs" />
+    <Compile Include="TMS_PRO_DeveloperTask_Involvement\ORM_TMS_PRO_DeveloperTask_Involvement.cs" />
+    <Compile Include="TMS_PRO_DeveloperTask_Priority\ORM_TMS_PRO_DeveloperTask_Priority.cs" />
+    <Compile Include="TMS_PRO_DeveloperTask_Recommendation\ORM_TMS_PRO_DeveloperTask_Recommendation.cs" />
+    <Compile Include="TMS_PRO_DeveloperTask_StatusHistory\ORM_TMS_PRO_DeveloperTask_StatusHistory.cs" />
+    <Compile Include="TMS_PRO_DeveloperTask_Status\ORM_TMS_PRO_DeveloperTask_Status.cs" />
+    <Compile Include="TMS_PRO_DeveloperTask_Type\ORM_TMS_PRO_DeveloperTask_Type.cs" />
+    <Compile Include="TMS_PRO_Feature\ORM_TMS_PRO_Feature.cs" />
+    <Compile Include="TMS_PRO_Feature_2_DeveloperTask\ORM_TMS_PRO_Feature_2_DeveloperTask.cs" />
+    <Compile Include="TMS_PRO_Feature_2_ProjectMember\ORM_TMS_PRO_Feature_2_ProjectMember.cs" />
+    <Compile Include="TMS_PRO_Feature_2_Tag\ORM_TMS_PRO_Feature_2_Tag.cs" />
+    <Compile Include="TMS_PRO_Feature_Status\ORM_TMS_PRO_Feature_Status.cs" />
+    <Compile Include="TMS_PRO_Feature_Type\ORM_TMS_PRO_Feature_Type.cs" />
+    <Compile Include="TMS_PRO_IndividualRight_Assignment\ORM_TMS_PRO_IndividualRight_Assignment.cs" />
+    <Compile Include="TMS_PRO_Members_2_RightPackage\ORM_TMS_PRO_Members_2_RightPackage.cs" />
+    <Compile Include="TMS_PRO_Peers_BusinessTask\ORM_TMS_PRO_Peers_BusinessTask.cs" />
+    <Compile Include="TMS_PRO_Peers_Development\ORM_TMS_PRO_Peers_Development.cs" />
+    <Compile Include="TMS_PRO_Peers_Feature\ORM_TMS_PRO_Peers_Feature.cs" />
+    <Compile Include="TMS_PRO_ProjectMember\ORM_TMS_PRO_ProjectMember.cs" />
+    <Compile Include="TMS_PRO_ProjectMember_TargetWorkload\ORM_TMS_PRO_ProjectMember_TargetWorkload.cs" />
+    <Compile Include="TMS_PRO_Project\ORM_TMS_PRO_Project.cs" />
+    <Compile Include="TMS_PRO_Project_2_ProjectGroup\ORM_TMS_PRO_Project_2_ProjectGroup.cs" />
+    <Compile Include="TMS_PRO_Project_2_ProjectMemberTargetWorkload\ORM_TMS_PRO_Project_2_ProjectMemberTargetWorkload.cs" />
+    <Compile Include="TMS_PRO_Project_2_ProjectTargetWorkload\ORM_TMS_PRO_Project_2_ProjectTargetWorkload.cs" />
+    <Compile Include="TMS_PRO_Project_2_Tag\ORM_TMS_PRO_Project_2_Tag.cs" />
+    <Compile Include="TMS_PRO_Project_Budget\ORM_TMS_PRO_Project_Budget.cs" />
+    <Compile Include="TMS_PRO_Project_Group\ORM_TMS_PRO_Project_Group.cs" />
+    <Compile Include="TMS_PRO_Project_Notes\ORM_TMS_PRO_Project_Notes.cs" />
+    <Compile Include="TMS_PRO_Project_Note_2_Tag\ORM_TMS_PRO_Project_Note_2_Tag.cs" />
+    <Compile Include="TMS_PRO_Project_Note_Collaborators\ORM_TMS_PRO_Project_Note_Collaborators.cs" />
+    <Compile Include="TMS_PRO_Project_Status\ORM_TMS_PRO_Project_Status.cs" />
+    <Compile Include="TMS_PRO_Project_TargetWorkload\ORM_TMS_PRO_Project_TargetWorkload.cs" />
+    <Compile Include="TMS_PRO_Requests\ORM_TMS_PRO_Requests.cs" />
+    <Compile Include="TMS_PRO_Request_2_BusinessTask\ORM_TMS_PRO_Request_2_BusinessTask.cs" />
+    <Compile Include="TMS_PRO_Request_2_Feature\ORM_TMS_PRO_Request_2_Feature.cs" />
+    <Compile Include="TMS_PRO_Request_Comments\ORM_TMS_PRO_Request_Comments.cs" />
+    <Compile Include="TMS_PRO_Request_Comment_Attachments\ORM_TMS_PRO_Request_Comment_Attachments.cs" />
+    <Compile Include="TMS_PRO_Tags\ORM_TMS_PRO_Tags.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TMS_PRO_Project_Note_2_Tag\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Note_2_Tag\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Note_2_Tag\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Note_Collaborators\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Note_Collaborators\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Note_Collaborators\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Notes\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Notes\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Notes\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Tags\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Tags\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Tags\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_2_Tag\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_2_Tag\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_2_Tag\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_2_Tag\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_2_Tag\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_2_Tag\SQL\Insert.sql" />
+    <Content Include="_support\TMS_PRO_DeveloperTask_2_Tag.xml" />
+    <EmbeddedResource Include="TMS_PRO_Project_2_Tag\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_2_Tag\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_2_Tag\SQL\Insert.sql" />
+    <Content Include="_support\TMS_PRO_Feature_2_Tag.xml" />
+    <Content Include="_support\TMS_PRO_Project_2_Tag.xml" />
+    <Content Include="_support\TMS_PRO_Tags.xml" />
+    <EmbeddedResource Include="TMS_PRO_Request_Comment_Attachments\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Request_Comment_Attachments\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Request_Comment_Attachments\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Request_Comments\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Request_Comments\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Request_Comments\SQL\Insert.sql" />
+    <Content Include="_support\TMS_PRO_Project_Notes.xml" />
+    <Content Include="_support\TMS_PRO_Project_Note_2_Tag.xml" />
+    <Content Include="_support\TMS_PRO_Project_Note_Collaborators.xml" />
+    <Content Include="_support\TMS_PRO_Request_Comments.xml" />
+    <Content Include="_support\TMS_PRO_Request_Comment_Attachments.xml" />
+    <EmbeddedResource Include="TMS_PRO_Request_2_Feature\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Request_2_Feature\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Request_2_Feature\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Request_2_BusinessTask\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Request_2_BusinessTask\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Request_2_BusinessTask\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Requests\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Requests\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Requests\SQL\Insert.sql" />
+    <Content Include="_support\TMS_PRO_Requests.xml" />
+    <Content Include="_support\TMS_PRO_Request_2_BusinessTask.xml" />
+    <Content Include="_support\TMS_PRO_Request_2_Feature.xml" />
+    <EmbeddedResource Include="TMS_PRO_ProjectMember_TargetWorkload\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_ProjectMember_TargetWorkload\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_ProjectMember_TargetWorkload\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_2_ProjectMemberTargetWorkload\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_2_ProjectMemberTargetWorkload\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_2_ProjectMemberTargetWorkload\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_2_ProjectTargetWorkload\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_2_ProjectTargetWorkload\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_2_ProjectTargetWorkload\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_TargetWorkload\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_TargetWorkload\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_TargetWorkload\SQL\Update.sql" />
+    <Content Include="_support\TMS_PRO_ProjectMember_TargetWorkloads.xml" />
+    <Content Include="_support\TMS_PRO_Project_2_ProjectMemberTargetWorkload.xml" />
+    <Content Include="_support\TMS_PRO_Project_TargetWorkloads.xml" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTask_2_Feature\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTask_2_Feature\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTask_2_Feature\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTask_Status\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTask_Status\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTask_Status\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTask_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTask_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTask_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTaskPackage\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTaskPackage\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTaskPackage\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTask\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTask\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_BusinessTask\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Comment_AttachedFile\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Comment_AttachedFile\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Comment_AttachedFile\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Comment_Mention\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Comment_Mention\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Comment_Mention\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Comment\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Comment\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Comment\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Involvement\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Involvement\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Involvement\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Involvements_InvestedWorkTime\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Involvements_InvestedWorkTime\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Involvements_InvestedWorkTime\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Priority\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Priority\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Priority\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Recommendation\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Recommendation\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Recommendation\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Status\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Status\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Status\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_StatusHistory\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_StatusHistory\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_StatusHistory\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_DeveloperTask\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_2_DeveloperTask\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_2_DeveloperTask\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_2_DeveloperTask\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_2_ProjectMember\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_2_ProjectMember\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_2_ProjectMember\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_Status\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_Status\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_Status\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Feature_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_IndividualRight_Assignment\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_IndividualRight_Assignment\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_IndividualRight_Assignment\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Members_2_RightPackage\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Members_2_RightPackage\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Members_2_RightPackage\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Peers_BusinessTask\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Peers_BusinessTask\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Peers_BusinessTask\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Peers_Development\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Peers_Development\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Peers_Development\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Peers_Feature\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Peers_Feature\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Peers_Feature\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Status\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Status\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Status\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_ProjectMember\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_ProjectMember\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_ProjectMember\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Budget\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Budget\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Budget\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_ACC_Right\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_ACC_Right\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_ACC_Right\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_ACC_RightsPackage\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_ACC_RightsPackage\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_ACC_RightsPackage\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_ACC_RightsPackages_2_Right\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_ACC_RightsPackages_2_Right\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_ACC_RightsPackages_2_Right\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_2_ProjectGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_2_ProjectGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_2_ProjectGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Group\SQL\Insert.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Group\SQL\Select.sql" />
+    <EmbeddedResource Include="TMS_PRO_Project_Group\SQL\Update.sql" />
+    <Content Include="_support\TMS_PRO_ACC_Rights.xml" />
+    <Content Include="_support\TMS_PRO_ACC_RightsPackages.xml" />
+    <Content Include="_support\TMS_PRO_ACC_RightsPackages_2_Rights.xml" />
+    <Content Include="_support\TMS_PRO_BusinessTaskPackages.xml" />
+    <Content Include="_support\TMS_PRO_BusinessTasks.xml" />
+    <Content Include="_support\TMS_PRO_BusinessTask_2_Feature.xml" />
+    <Content Include="_support\TMS_PRO_BusinessTask_Status.xml" />
+    <Content Include="_support\TMS_PRO_BusinessTask_Types.xml" />
+    <Content Include="_support\TMS_PRO_Comments.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_support\TMS_PRO_Comment_AttachedFiles.xml" />
+    <Content Include="_support\TMS_PRO_Comment_Mentions.xml" />
+    <Content Include="_support\TMS_PRO_DeveloperTasks.xml" />
+    <Content Include="_support\TMS_PRO_DeveloperTask_Involvements.xml" />
+    <Content Include="_support\TMS_PRO_DeveloperTask_Involvements_InvestedWorkTime.xml" />
+    <Content Include="_support\TMS_PRO_DeveloperTask_Priorities.xml" />
+    <Content Include="_support\TMS_PRO_DeveloperTask_Recommendations.xml" />
+    <Content Include="_support\TMS_PRO_DeveloperTask_Statuses.xml" />
+    <Content Include="_support\TMS_PRO_DeveloperTask_StatusHistory.xml" />
+    <Content Include="_support\TMS_PRO_DeveloperTask_Types.xml" />
+    <Content Include="_support\TMS_PRO_Feature.xml" />
+    <Content Include="_support\TMS_PRO_Feature_2_DeveloperTask.xml" />
+    <Content Include="_support\TMS_PRO_Feature_2_ProjectMember.xml" />
+    <Content Include="_support\TMS_PRO_Feature_Statuses.xml" />
+    <Content Include="_support\TMS_PRO_Feature_Type.xml" />
+    <Content Include="_support\TMS_PRO_IndividualRight_Assignments.xml" />
+    <Content Include="_support\TMS_PRO_Members_2_RightPackage.xml" />
+    <Content Include="_support\TMS_PRO_Peers_BusinessTask.xml" />
+    <Content Include="_support\TMS_PRO_Peers_Development.xml" />
+    <Content Include="_support\TMS_PRO_Peers_Features.xml" />
+    <Content Include="_support\TMS_PRO_ProjectMembers.xml" />
+    <Content Include="_support\TMS_PRO_Projects.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_support\TMS_PRO_Project_2_ProjectGroup.xml" />
+    <Content Include="_support\TMS_PRO_Project_2_ProjectTargetWorkload.xml" />
+    <Content Include="_support\TMS_PRO_Project_Budgets.xml" />
+    <Content Include="_support\TMS_PRO_Project_Groups.xml" />
+    <Content Include="_support\TMS_PRO_Project_Status.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

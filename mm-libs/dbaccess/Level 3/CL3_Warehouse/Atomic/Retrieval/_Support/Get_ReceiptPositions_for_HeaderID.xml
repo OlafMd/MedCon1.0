@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/21/2014 9:06:46 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ReceiptPositions_and_QualityControlItems_for_HeaderID</Name>
+    <Namespace>CL3_Warehouse.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Warehouse.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ReceiptPositions_and_QualityControlItems_for_HeaderID"
+                Method_Name="Get_ReceiptPositions_and_QualityControlItems_for_HeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ReceiptPositions_and_QualityControlItems_for_HeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+      log_rcp_receipt_positions.LOG_RCP_Receipt_PositionID,
+      log_rcp_receipt_positions.Receipt_Header_RefID,
+      log_rcp_receipt_positions.ReceiptPosition_Product_RefID,
+      log_rcp_receipt_position_qualitycontrolitems.LOG_RCP_Receipt_Position_QualityControlItem,
+      log_rcp_receipt_position_qualitycontrolitems.Receipt_Position_RefID,
+      log_rcp_receipt_position_qualitycontrolitems.Quantity,
+      log_rcp_receipt_position_qualitycontrolitems.BatchNumber,
+      log_rcp_receipt_position_qualitycontrolitems.SerialKey,
+      log_rcp_receipt_position_qualitycontrolitems.ExpiryDate,
+      log_rcp_receipt_position_qualitycontrolitems.Target_WRH_Shelf_RefID
+    From
+      log_rcp_receipt_positions Inner Join
+      log_rcp_receipt_position_qualitycontrolitems
+        On log_rcp_receipt_positions.LOG_RCP_Receipt_PositionID =
+        log_rcp_receipt_position_qualitycontrolitems.Receipt_Position_RefID
+    Where
+      log_rcp_receipt_positions.Receipt_Header_RefID = @ReceiptHeaderID And
+      log_rcp_receipt_positions.Tenant_RefID = @TenantID And
+      log_rcp_receipt_positions.IsDeleted = 0 And
+      log_rcp_receipt_position_qualitycontrolitems.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3WH_GRPaQCIfH_0905">
+    <Members>
+		<ClassMember Name="ReceiptHeaderID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3WH_GRPaQCIfH_0905" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_RCP_Receipt_PositionID" Type="Guid"  />
+				<ClassMember Name="Receipt_Header_RefID" Type="Guid"  />
+				<ClassMember Name="ReceiptPosition_Product_RefID" Type="Guid"  />
+				<ClassMember Name="LOG_RCP_Receipt_Position_QualityControlItem" Type="Guid"  />
+				<ClassMember Name="Receipt_Position_RefID" Type="Guid"  />
+				<ClassMember Name="Quantity" Type="double"  />
+				<ClassMember Name="BatchNumber" Type="String"  />
+				<ClassMember Name="SerialKey" Type="String"  />
+				<ClassMember Name="ExpiryDate" Type="DateTime"  />
+				<ClassMember Name="Target_WRH_Shelf_RefID" Type="Guid"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

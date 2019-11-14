@@ -1,0 +1,72 @@
+﻿<div class="popup-wrapper">
+    <div class="popup popup-large add-new-patient">
+
+        <h2>{{ 'LABEL_NEW_AFTERCARE_DOCTOR' | translate }}</h2>
+
+        <form id="adhocACDoctorForm" ng-submit="createTemporaryAftercareDoctor()" class="doctors-data-lists patients-list clearfix" name="adhocACDoctorForm" novalidate>
+
+            <!--Error messages-->
+            <div name="messageContainer" class="error-msg-container" ng-show="emailNotValid">
+                <span class="error" ng-if="emailNotValid">{{ 'LABEL_EMAIL_NOT_VALID' | translate }}</span>
+            </div>
+
+            <!--First row-->
+            <h3 id="lblAftercareDoctor">{{ 'LABEL_AC_DOCTOR' | translate }}</h3>
+            <ul class="second-class-data">
+                <li>
+                    <label id="lblName">{{ 'LABEL_NAME' | translate }}<span class="error" ng-show="adhocACDoctorForm.inName.$error.required">*</span></label>
+                    <input id="inName" name="inName" type="text" ng-model="doctor.name" required />
+                </li>
+            </ul>
+
+            <!--Second row-->
+            <h3 id="lblContact">{{ 'LABEL_CONTACT' | translate }}</h3>
+            <ul class="first-class-data first-row">
+                <li>
+                    <label id="lblStreet">{{ 'LABEL_STREET' | translate }}</label>
+                    <input id="inStreet" name="inStreet" type="text" ng-model="doctor.street" />
+                </li>
+                <li>
+                    <label id="lblHouseNumber">{{ 'LABEL_HOUSE_NUMBER' | translate }}</label>
+                    <input id="inHouseNumber" name="inHouseNumber" type="text" ng-model="doctor.house_number" />
+                </li>
+                <li>
+                    <label id="lblZip">{{ 'LABEL_ZIP' | translate }}</label>
+                    <input id="inZip" name="inZip" type="text" ng-model="doctor.zip" />
+                </li>
+                <li>
+                    <label id="lblCity">{{ 'LABEL_CITY' | translate }}<span class="error" ng-show="adhocACDoctorForm.inCity.$error.required">*</span></label>
+                    <input id="inCity" name="inCity" type="text" ng-model="doctor.city" required />
+                </li>
+            </ul>
+
+            <ul class="second-class-data row-equale-fields">
+                <li>
+                    <label id="lblPhone">{{ 'LABEL_PHONE' | translate }}</label>
+                    <input id="inPhone" name="inPhone" type="text" ng-model="doctor.phone" />
+                </li>
+                <li>
+                    <label id="lblFax">{{ 'LABEL_FAX' | translate }}</label>
+                    <input id="inFax" name="inHouseNumber" type="text" ng-model="doctor.fax" />
+                </li>
+                <li>
+                    <label id="lblEmail">{{ 'LABEL_EMAIL' | translate }}</label>
+                    <input id="inEmail" name="inEmail" type="text" ng-model="doctor.email" ng-class="{'redborder': emailNotValid}" />
+                </li>
+            </ul>
+
+            <ul class="second-class-data clear">
+                <li>
+                    <label id="lblComment">{{ 'LABEL_COMMENT' | translate }}</label>
+                    <textarea id="txtComment" name="txtComment" ng-model="doctor.comment" />
+                </li>
+            </ul>
+
+            <div class="buttons no-aside-margin">
+                <button type="button" class="button wide reject jsblockClose" id="btnCancelSubmitdoctor" onclick="return false;" ng-click="closeAddNewACDoctorForm()" translate="BUTTON_CANCEL"></button>
+                <button type="submit" class="button wide confirm jsblockClose" id="btnSubmitAftercareDoctor" translate="BUTTON_SAVE"
+                        ng-disabled="adhocACDoctorForm.$invalid"></button>
+            </div>
+        </form>
+    </div>
+</div>

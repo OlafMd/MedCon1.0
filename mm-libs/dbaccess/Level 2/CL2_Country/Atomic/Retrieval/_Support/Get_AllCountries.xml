@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllCountries_for_TenantID</Name>
+    <Namespace>CL2_Country.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Country.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllCountries"
+                Method_Name="Get_AllCountries"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AllCountries"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_countries.CMN_CountryID,
+  cmn_countries.Default_Language_RefID,
+  cmn_countries.Default_Currency_RefID,
+  cmn_countries.Country_Name_DictID,
+  cmn_countries.Country_ISOCode_Alpha2,
+  cmn_countries.Country_ISOCode_Alpha3,
+  cmn_countries.Country_ISOCode_Numeric,
+  cmn_countries.Tenant_RefID
+From
+  cmn_countries
+Where
+  cmn_countries.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2CN_GAC_1602" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_CountryID" Type="Guid"  />
+				<ClassMember Name="Default_Language_RefID" Type="Guid"  />
+				<ClassMember Name="Default_Currency_RefID" Type="Guid"  />
+				<ClassMember Name="Country_Name" Type="Dict" OriginTable="cmn_countries" Source_DBField="Country_Name_DictID"  />
+				<ClassMember Name="Country_ISOCode_Alpha2" Type="String"  />
+				<ClassMember Name="Country_ISOCode_Alpha3" Type="String"  />
+				<ClassMember Name="Country_ISOCode_Numeric" Type="int"  />
+        <ClassMember Name="Tenant_RefID" Type="Guid"  />
+        
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

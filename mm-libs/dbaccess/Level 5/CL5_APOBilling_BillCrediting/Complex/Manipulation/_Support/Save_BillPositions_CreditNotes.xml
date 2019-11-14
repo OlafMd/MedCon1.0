@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/31/2014 9:55:06 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_BillPositions_CreditNotes</Name>
+    <Namespace>CL5_APOBilling_BillCrediting.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOBilling_BillCrediting.Complex.Manipulation"
+                Method_ClassName="cls_Save_BillPositions_CreditNotes"
+                Method_Name="Save_BillPositions_CreditNotes"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_BillPositions_CreditNotes"
+                />
+
+  <Parameters IsClass="true" Name="P_L5BC_SBPCN_0951">
+    <Members>
+        <ClassMember Name="BillPositionCredits" Type="P_L5BC_SBPCN_0951a" IsClass="true" IsArray="true">
+            <Members>
+                <ClassMember Name="BillPositionID" Type="Guid"  />
+                <ClassMember Name="ReimbursedValue" Type="decimal"  />
+                <ClassMember Name="ReimbursedQuantity" Type="double"  />
+                <ClassMember Name="BillHeaderCurencyID" Type="Guid"  />
+            </Members>
+        </ClassMember>
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5BC_SBPCN_0951">
+			<Members>
+				<ClassMember Name="GrantedCreditNoteID" Type="Guid"  />
+                <ClassMember Name="BillPositionReimbursementIDs" Type="Guid" IsArray="true"  />
+			</Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+
+</CodeGen>
+
+

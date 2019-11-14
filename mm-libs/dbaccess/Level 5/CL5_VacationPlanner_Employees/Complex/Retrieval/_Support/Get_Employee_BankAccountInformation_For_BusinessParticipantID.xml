@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="04/06/2013 11:11:28 AM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                    Target_Method_ProgrammingLanguage_Revision="3.5"
+                    Target_SQL="MySQL"
+                    Target_SQL_Revision="8"
+                    Create_Webservice_Interface="true"
+                    Create_Webservice_Interface_ServerPlattform="C#"
+                    Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                    Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                    Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_VacationPlanner_Employees.Complex.Retrieval"
+                  Method_ClassName="cls_Get_Employee_BankAccountInformation_For_BusinessParticipantID"
+                  Method_Name="Get_Employee_BankAccountInformation_For_BusinessParticipantID"
+                  ApplicationPlattform_WebServiceName=""
+                  ApplicationPlattform_Namespace=".Get_Employee_BankAccountInformation_For_BusinessParticipantID"
+                />
+
+  
+    <Parameters IsClass="true" Name="P_L5EM_GEBAIFBPID_1111">
+        <Members>
+            <ClassMember Name="BusinessParticipantID" Type="Guid"  />
+        </Members>
+    </Parameters>
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5EM_GEBAIFBPID_1111" IsArray="false" >
+            <Members>
+              <ClassMember Name="IBAN" Type="string"  />
+              <ClassMember Name="BIC" Type="string"  />
+              <ClassMember Name="BankName" Type="string"  />
+            </Members>
+        </ObjectReturnType_Definition>
+
+
+    </ResultInfo>
+
+</CodeGen>
+
+

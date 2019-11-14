@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/23/2014 8:23:30 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ProductTrackingInstance_with_Articles_and_Suppliers</Name>
+    <Namespace>CL6_APOLogistic_ExpiryDateControl.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_APOLogistic_ExpiryDateControl.Complex.Retrieval"
+                Method_ClassName="cls_Get_ProductTrackingInstance_with_Articles_and_Suppliers"
+                Method_Name="Get_ProductTrackingInstance_with_Articles_and_Suppliers"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ProductTrackingInstance_with_Articles_and_Suppliers"
+                />
+
+    <Parameters IsClass="true" Name="P_L6ED_GPTIwAaS_0816">
+        <Members>
+            <ClassMember Name="StartDate" Type="DateTime"  />
+            <ClassMember Name="EndDate" Type="DateTime"  />
+            <ClassMember Name="ProductTrackingInstanceIds" Type="Guid" IsArray="true"  />
+        </Members>
+    </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6ED_GPTIwAaS_0816" IsArray="true">
+			<Members>
+        <ClassMember Name="Article" Type="CL3_Articles.Atomic.Retrieval.L3AR_GAfAL_0942" />
+				<ClassMember Name="StoragePlaces" Type="CL3_Warehouse.Atomic.Retrieval.L3WH_GSPfFC_1504" />
+        <ClassMember Name="Suppliers" Type="L6ED_GSRtTIbBNaP_1353" IsArray="true" />
+        <ClassMember Name="MSR" Type="double" />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

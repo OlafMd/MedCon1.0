@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/10/2013 2:06:49 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllCurrencies_for_TenantID</Name>
+    <Namespace>CL2_Currency.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Currency.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllCurrencies_for_TenantID"
+                Method_Name="Get_AllCurrencies_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AllCurrencies_for_TenantID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  cmn_currencies.CMN_CurrencyID,
+	  cmn_currencies.Name_DictID,
+	  cmn_currencies.ISO4127,
+	  cmn_currencies.Symbol
+	From
+	  cmn_currencies
+	Where
+	  cmn_currencies.IsDeleted = 0 And
+	  cmn_currencies.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2CR_GACfT_1406" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_CurrencyID" Type="Guid"  />
+				<ClassMember Name="Name" Type="Dict" OriginTable="cmn_currencies" Source_DBField="Name_DictID"  />
+				<ClassMember Name="ISO4127" Type="String"  />
+				<ClassMember Name="Symbol" Type="String"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_bld_hvacr_2_hvacr_type
+	(
+		AssignmentID,
+		RES_BLD_HVACR_RefID,
+		RES_BLD_HVACR_Type_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@RES_BLD_HVACR_RefID,
+		@RES_BLD_HVACR_Type_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

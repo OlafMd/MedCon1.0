@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL1_CMN_BPT</RootNamespace>
+    <AssemblyName>CL1_CMN_BPT</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDtMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDtMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AndromedaDyMobile|AnyCPU'">
+    <OutputPath>bin\AndromedaDyMobile\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
+    <OutputPath>bin\Local\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DBACCESREFACTOR|AnyCPU'">
+    <OutputPath>bin\DBACCESREFACTOR\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-Local-Healthcare|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Deploy-Local-Healthcare\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish-Live|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish-Live\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging-Deploy|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging-Deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CMN_BPT_AvailableShipmentType\ORM_CMN_BPT_AvailableShipmentType.cs" />
+    <Compile Include="CMN_BPT_BusinessParticipant\ORM_CMN_BPT_BusinessParticipant.cs" />
+    <Compile Include="CMN_BPT_BusinessParticipant_2_BankAccount\ORM_CMN_BPT_BusinessParticipant_2_BankAccount.cs" />
+    <Compile Include="CMN_BPT_BusinessParticipant_2_BusinessParticipantGroup\ORM_CMN_BPT_BusinessParticipant_2_BusinessParticipantGroup.cs" />
+    <Compile Include="CMN_BPT_BusinessParticipant_AccessCode\ORM_CMN_BPT_BusinessParticipant_AccessCode.cs" />
+    <Compile Include="CMN_BPT_BusinessParticipant_AssociatedBusinessParticipant\ORM_CMN_BPT_BusinessParticipant_AssociatedBusinessParticipant.cs" />
+    <Compile Include="CMN_BPT_BusinessParticipant_AssociatedPersonType\ORM_CMN_BPT_BusinessParticipant_AssociatedPersonType.cs" />
+    <Compile Include="CMN_BPT_BusinessParticipant_AssociationType\ORM_CMN_BPT_BusinessParticipant_AssociationType.cs" />
+    <Compile Include="CMN_BPT_BusinessParticipant_Availability\ORM_CMN_BPT_BusinessParticipant_Availability.cs" />
+    <Compile Include="CMN_BPT_BusinessParticipant_ExcludedAvailabilityType\ORM_CMN_BPT_BusinessParticipant_ExcludedAvailabilityType.cs" />
+    <Compile Include="CMN_BPT_BusinessParticipant_Group\ORM_CMN_BPT_BusinessParticipant_Group.cs" />
+    <Compile Include="CMN_BPT_BusinessParticipant_ProductEligibility\ORM_CMN_BPT_BusinessParticipant_ProductEligibility.cs" />
+    <Compile Include="CMN_BPT_BusinessParticipant_SpokenLanguage\ORM_CMN_BPT_BusinessParticipant_SpokenLanguage.cs" />
+    <Compile Include="CMN_BPT_Customer_PromisedDeliveryTime\ORM_CMN_BPT_Customer_PromisedDeliveryTime.cs" />
+    <Compile Include="CMN_BPT_InvestedWorkTime\ORM_CMN_BPT_InvestedWorkTime.cs" />
+    <Compile Include="CMN_BPT_InvestedWorkTime_ChargingLevel\ORM_CMN_BPT_InvestedWorkTime_ChargingLevel.cs" />
+    <Compile Include="CMN_BPT_Memo\ORM_CMN_BPT_Memo.cs" />
+    <Compile Include="CMN_BPT_Memo_AdditionalField\ORM_CMN_BPT_Memo_AdditionalField.cs" />
+    <Compile Include="CMN_BPT_Memo_RelatedParticipant\ORM_CMN_BPT_Memo_RelatedParticipant.cs" />
+    <Compile Include="CMN_BPT_Memo_RelatedParticipant\CMN_BPT_SalesRepresentative\ORM_CMN_BPT_SalesRepresentative.cs" />
+    <Compile Include="CMN_BPT_PublicOffice\ORM_CMN_BPT_PublicOffice.cs" />
+    <Compile Include="CMN_BPT_PublicOffice_Address\ORM_CMN_BPT_PublicOffice_Address.cs" />
+    <Compile Include="CMN_BPT_Supplier\ORM_CMN_BPT_Supplier.cs" />
+    <Compile Include="CMN_BPT_Supplier_DefaultDeliveryTime\ORM_CMN_BPT_Supplier_DefaultDeliveryTime.cs" />
+    <Compile Include="CMN_BPT_Supplier_DiscountValue\ORM_CMN_BPT_Supplier_DiscountValue.cs" />
+    <Compile Include="CMN_BPT_Supplier_Type\ORM_CMN_BPT_Supplier_Type.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMN_BPT_Supplier_DefaultDeliveryTime\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_Supplier_DefaultDeliveryTime\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_Supplier_DefaultDeliveryTime\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_Supplier_DiscountValue\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_Supplier_DiscountValue\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_Supplier_DiscountValue\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_Availability\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_Availability\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_Availability\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_ExcludedAvailabilityType\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_ExcludedAvailabilityType\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_ExcludedAvailabilityType\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_Supplier_Type\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_Supplier_Type\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_Supplier_Type\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_SpokenLanguage\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_SpokenLanguage\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_SpokenLanguage\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_Customer_PromisedDeliveryTime\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_Customer_PromisedDeliveryTime\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_Customer_PromisedDeliveryTime\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_2_BusinessParticipantGroup\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_2_BusinessParticipantGroup\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_2_BusinessParticipantGroup\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_Group\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_Group\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_Group\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_AvailableShipmentType\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_AvailableShipmentType\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_AvailableShipmentType\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_AccessCode\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_AccessCode\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_AccessCode\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_BPT_AvailableShipmentTypes.xml" />
+    <Content Include="_Support\CMN_BPT_BusinessParticipants.xml" />
+    <Content Include="_Support\CMN_BPT_BusinessParticipant_2_BusinessParticipantGroup.xml" />
+    <Content Include="_Support\CMN_BPT_BusinessParticipant_AccessCodes.xml" />
+    <Content Include="_Support\CMN_BPT_BusinessParticipant_Availabilities.xml" />
+    <Content Include="_Support\CMN_BPT_BusinessParticipant_ExcludedAvailabilityTypes.xml" />
+    <Content Include="_Support\CMN_BPT_BusinessParticipant_Groups.xml" />
+    <Content Include="_Support\CMN_BPT_BusinessParticipant_SpokenLanguages.xml" />
+    <Content Include="_Support\CMN_BPT_Customer_PromisedDeliveryTimes.xml" />
+    <Content Include="_Support\CMN_BPT_Supplier_DefaultDeliveryTimes.xml" />
+    <Content Include="_Support\CMN_BPT_Supplier_DiscountValues.xml" />
+    <Content Include="_Support\CMN_BPT_Supplier_Types.xml" />
+    <EmbeddedResource Include="CMN_BPT_Supplier\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_Supplier\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_Supplier\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_Memo_RelatedParticipant\CMN_BPT_SalesRepresentative\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_Memo_RelatedParticipant\CMN_BPT_SalesRepresentative\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_Memo_RelatedParticipant\CMN_BPT_SalesRepresentative\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_Memo\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_Memo\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_Memo\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_Memo_RelatedParticipant\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_Memo_RelatedParticipant\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_Memo_RelatedParticipant\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_Memo_AdditionalField\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_Memo_AdditionalField\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_Memo_AdditionalField\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_InvestedWorkTime\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_InvestedWorkTime\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_InvestedWorkTime\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_AssociatedBusinessParticipant\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_AssociatedBusinessParticipant\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_AssociatedBusinessParticipant\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_2_BankAccount\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_2_BankAccount\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_2_BankAccount\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_InvestedWorkTime_ChargingLevel\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_InvestedWorkTime_ChargingLevel\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_InvestedWorkTime_ChargingLevel\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_PublicOffice\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_PublicOffice\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_PublicOffice\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_PublicOffice_Address\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_PublicOffice_Address\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_PublicOffice_Address\SQL\Insert.sql" />
+    <Content Include="_Support\CMN_BPT_BusinessParticipant_2_BankAccount.xml" />
+    <Content Include="_Support\CMN_BPT_BusinessParticipant_AssociatedBusinessParticipants.xml" />
+    <Content Include="_Support\CMN_BPT_InvestedWorkTimes.xml" />
+    <Content Include="_Support\CMN_BPT_InvestedWorkTime_ChargingLevels.xml" />
+    <Content Include="_Support\CMN_BPT_Memos.xml" />
+    <Content Include="_Support\CMN_BPT_Memo_AdditionalFields.xml" />
+    <Content Include="_Support\CMN_BPT_Memo_RelatedParticipants.xml" />
+    <Content Include="_Support\CMN_BPT_PublicOffices.xml" />
+    <Content Include="_Support\CMN_BPT_PublicOffice_Addresses.xml" />
+    <Content Include="_Support\CMN_BPT_SalesRepresentatives.xml" />
+    <Content Include="_Support\CMN_BPT_Suppliers.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_AssociatedPersonType\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_AssociatedPersonType\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_AssociatedPersonType\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_AssociationType\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_AssociationType\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_AssociationType\SQL\Select.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_ProductEligibility\SQL\Insert.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_ProductEligibility\SQL\Update.sql" />
+    <EmbeddedResource Include="CMN_BPT_BusinessParticipant_ProductEligibility\SQL\Select.sql" />
+    <Content Include="_Support\CMN_BPT_BusinessParticipant_AssociatedPersons.xml" />
+    <Content Include="_Support\CMN_BPT_BusinessParticipant_AssociatedPersonType.xml" />
+    <Content Include="_Support\CMN_BPT_BusinessParticipant_AssociationType.xml" />
+    <Content Include="_Support\CMN_BPT_BusinessParticipant_ProductEligibility.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

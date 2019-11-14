@@ -1,0 +1,18 @@
+UPDATE 
+	hec_prc_procurementorder_positions
+SET 
+	Ext_ORD_PRC_ProcurementOrder_Position_RefID=@Ext_ORD_PRC_ProcurementOrder_Position_RefID,
+	Clearing_Doctor_RefID=@Clearing_Doctor_RefID,
+	ClearingDoctor_DisplayName=@ClearingDoctor_DisplayName,
+	OrderedFor_Patient_RefID=@OrderedFor_Patient_RefID,
+	OrderedForPatient_DisplayName=@OrderedForPatient_DisplayName,
+	OrderedFor_Doctor_RefID=@OrderedFor_Doctor_RefID,
+	OrderedForDoctor_DisplayName=@OrderedForDoctor_DisplayName,
+	IsOrderForPatient_PatientFeeWaived=@IsOrderForPatient_PatientFeeWaived,
+	IfProFormaOrderPosition_PrintLabelOnly=@IfProFormaOrderPosition_PrintLabelOnly,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_PRC_ProcurementOrder_PositionID = @HEC_PRC_ProcurementOrder_PositionID

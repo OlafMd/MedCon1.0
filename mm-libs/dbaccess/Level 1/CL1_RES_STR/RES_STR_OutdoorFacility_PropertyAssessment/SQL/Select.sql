@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_outdoorfacility_propertyassessments
+WHERE 
+	RES_STR_OutdoorFacility_PropertyAssessmentID = @RES_STR_OutdoorFacility_PropertyAssessmentID

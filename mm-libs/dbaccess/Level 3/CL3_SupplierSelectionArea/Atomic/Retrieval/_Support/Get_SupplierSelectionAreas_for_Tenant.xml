@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/18/2015 5:36:47 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_SupplierSelectionAreas_for_Tenant</Name>
+    <Namespace>CL3_SupplierSelectionArea.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_SupplierSelectionArea.Atomic.Retrieval"
+                Method_ClassName="cls_Get_SupplierSelectionAreas_for_Tenant"
+                Method_Name="Get_SupplierSelectionAreas_for_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_SupplierSelectionAreas_for_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+      log_reg_supplierselectionareas.LOG_REG_SupplierSelectionAreaID,
+      log_reg_supplierselectionareas.SupplierSelectionArea_Name_DictID,
+      log_reg_supplierselectionareas.SupplierSelectionArea_Description_DictID
+    From
+      log_reg_supplierselectionareas
+    Where
+      log_reg_supplierselectionareas.Tenant_RefID = @TenantID And
+      log_reg_supplierselectionareas.IsDeleted = 0
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3SA_GSSAfT_1734" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_REG_SupplierSelectionAreaID" Type="Guid"  />
+				<ClassMember Name="SupplierSelectionArea_Name" Type="Dict" OriginTable="log_reg_supplierselectionareas" Source_DBField="SupplierSelectionArea_Name_DictID"  />
+				<ClassMember Name="SupplierSelectionArea_Description" Type="Dict" OriginTable="log_reg_supplierselectionareas" Source_DBField="SupplierSelectionArea_Description_DictID"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

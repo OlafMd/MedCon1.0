@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="16/12/2013 12:08:10">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_FunctionLevelRight_for_Account_Based_on_AccountGroup</Name>
+    <Namespace>CL2_FunctionLevelRight.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_FunctionLevelRight.Atomic.Retrieval"
+                Method_ClassName="cls_Get_FunctionLevelRight_for_Account_Based_on_AccountGroup"
+                Method_Name="Get_FunctionLevelRight_for_Account_Based_on_AccountGroup"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_FunctionLevelRight_for_Account_Based_on_AccountGroup"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT
+	  usr_accounts.USR_AccountID,
+    usr_account_functionlevelrights.USR_Account_FunctionLevelRightID,
+	  usr_account_functionlevelrights.GlobalPropertyMatchingID as RightLevel
+	FROM
+	  usr_accounts
+	  INNER JOIN usr_account_2_group
+	    ON usr_accounts.USR_AccountID = usr_account_2_group.USR_Account_RefID
+	    AND usr_account_2_group.IsDeleted = 0
+	  INNER JOIN usr_groups
+	    ON usr_account_2_group.USR_Group_RefID = usr_groups.USR_GroupID
+	    AND usr_groups.IsDeleted = 0
+	  INNER JOIN usr_groups_2_functionlevelright
+	    ON usr_groups.USR_GroupID = usr_groups_2_functionlevelright.USR_Group_RefID
+	    AND usr_groups_2_functionlevelright.IsDeleted = 0
+	  INNER JOIN usr_account_functionlevelrights
+	    ON usr_groups_2_functionlevelright.USR_Account_FunctionLevelRight_RefID = usr_account_functionlevelrights.USR_Account_FunctionLevelRightID
+	    AND usr_account_functionlevelrights.IsDeleted = 0
+	  INNER JOIN usr_account_functionlevelrights_groups
+	    ON usr_account_functionlevelrights.FunctionLevelRights_Group_RefID = usr_account_functionlevelrights_groups.USR_Account_FunctionLevelRights_GroupID
+	    AND usr_account_functionlevelrights_groups.IsDeleted = 0
+	WHERE
+	  usr_accounts.IsDeleted = 0
+	  AND usr_accounts.USR_AccountID = @AccountID
+	  AND usr_account_functionlevelrights_groups.GlobalPropertyMatchingID = @AccountFunctionLevelRightGroup
+	  AND usr_accounts.Tenant_RefID = @TenantID
+	ORDER BY usr_account_functionlevelrights.Creation_Timestamp DESC
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2FLR_GFLRfABoAG_1206">
+    <Members>
+      <ClassMember Name="AccountFunctionLevelRightGroup" Type="String"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2FLR_GFLRfABoAG_1206" IsArray="true">
+      <Members>
+        <ClassMember Name="USR_AccountID" Type="Guid"  />
+        <ClassMember Name="USR_Account_FunctionLevelRightID" Type="Guid"  />
+        <ClassMember Name="RightLevel" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_tenant_applicationsettings_definitions
+WHERE 
+	CMN_Tenant_ApplicationSettings_DefinitionsID = @CMN_Tenant_ApplicationSettings_DefinitionsID

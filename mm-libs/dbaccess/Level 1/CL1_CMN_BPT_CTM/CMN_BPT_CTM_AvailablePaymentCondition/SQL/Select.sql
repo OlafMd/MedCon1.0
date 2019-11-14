@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_bpt_ctm_availablepaymentconditions
+WHERE 
+	CMN_BPT_CTM_AvailablePaymentConditionID = @CMN_BPT_CTM_AvailablePaymentConditionID

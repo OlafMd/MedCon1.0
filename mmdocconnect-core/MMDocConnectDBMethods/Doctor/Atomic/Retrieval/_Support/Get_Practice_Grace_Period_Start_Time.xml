@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="02/07/2017 09:59 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Practice_Grace_Period_Start_Time</Name>
+    <Namespace>MMDocConnectDBMethods.Doctor.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Doctor.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Practice_Grace_Period_Start_Time"
+								Method_Name="Get_Practice_Grace_Period_Start_Time"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=".Get_Practice_Grace_Period_Start_Time"
+								/>
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_medicalpractice_2_universalproperty.Value_String As PeriodStartAt,
+  hec_medicalpractises.HEC_MedicalPractiseID,
+  hec_medicalpractice_2_universalproperty.AssignmentID
+From
+  hec_medicalpractises Inner Join
+  hec_medicalpractice_2_universalproperty
+    On hec_medicalpractises.HEC_MedicalPractiseID =
+    hec_medicalpractice_2_universalproperty.HEC_MedicalPractice_RefID And
+    hec_medicalpractice_2_universalproperty.IsDeleted = 0 And
+    hec_medicalpractice_2_universalproperty.Tenant_RefID = @TenantID Inner Join
+  hec_medicalpractice_universalproperties
+    On hec_medicalpractice_universalproperties.IsDeleted = 0 And
+    hec_medicalpractice_universalproperties.Tenant_RefID = @TenantID And
+    hec_medicalpractice_universalproperties.GlobalPropertyMatchingID = 'mm.docconnect.practice.pasword-grace-period' And
+    hec_medicalpractice_2_universalproperty.HEC_MedicalPractice_UniversalProperty_RefID = hec_medicalpractice_universalproperties.HEC_MedicalPractice_UniversalPropertyID
+Where
+  hec_medicalpractises.IsDeleted = 0 And
+  hec_medicalpractises.Tenant_RefID = @TenantID And
+  hec_medicalpractises.HEC_MedicalPractiseID = @PracticeID
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_DO_GPGPST_0959">
+    <Members>
+      <ClassMember Name="PracticeID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="DO_GPGPST_0959" IsArray="false">
+      <Members>        
+        <ClassMember Name="PeriodStartAt" Type="String"  />     
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

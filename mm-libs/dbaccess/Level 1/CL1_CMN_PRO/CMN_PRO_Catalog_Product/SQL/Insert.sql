@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_pro_catalog_products
+	(
+		CMN_PRO_Catalog_ProductID,
+		CMN_PRO_Catalog_Revision_RefID,
+		CMN_PRO_Product_RefID,
+		CMN_PRO_Product_Variant_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PRO_Catalog_ProductID,
+		@CMN_PRO_Catalog_Revision_RefID,
+		@CMN_PRO_Product_RefID,
+		@CMN_PRO_Product_Variant_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

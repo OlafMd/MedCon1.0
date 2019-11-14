@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="02-Dec-14 2:18:59 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Tags_for_FeatureID</Name>
+    <Namespace>CL3_Tags.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Tags.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Tags_for_FeatureID"
+                Method_Name="Get_Tags_for_FeatureID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Tags_for_FeatureID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+  tms_pro_tags.TMS_PRO_TagID,
+  tms_pro_tags.TagValue
+From
+  tms_pro_tags Inner Join
+  tms_pro_feature_2_tag On tms_pro_feature_2_tag.Tag_RefID =
+    tms_pro_tags.TMS_PRO_TagID Inner Join
+  tms_pro_feature On tms_pro_feature.TMS_PRO_FeatureID =
+    tms_pro_feature_2_tag.Feature_RefID
+Where
+  tms_pro_feature.TMS_PRO_FeatureID = @FeatureID And
+  tms_pro_feature.IsDeleted = 0 And
+  tms_pro_feature.IsArchived = 0 And
+  tms_pro_feature.Tenant_RefID = @TenantID And
+  tms_pro_tags.IsDeleted = 0 And
+  tms_pro_feature_2_tag.Tenant_RefID = @TenantID And
+  tms_pro_feature_2_tag.IsDeleted = 0 And
+  tms_pro_tags.Tenant_RefID = @TenantID And
+  tms_pro_tags.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3TA_GTfFID_1418">
+    <Members>
+		<ClassMember Name="FeatureID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3TA_GTfFID_1418" IsArray="true">
+			<Members>
+				<ClassMember Name="TMS_PRO_TagID" Type="Guid"  />
+				<ClassMember Name="TagValue" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2-27-15 11:10:27">
+
+  <Meta>
+    <Name>Get_Corresponding_Shipments_for_DistributionOrderID</Name>
+    <Description>Get_Corresponding_Shipments_for_DistributionOrderID</Description>
+    <Namespace>Get_Corresponding_Shipments_for_DistributionOrderID</Namespace>
+    <Tags></Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_DistributionOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Corresponding_Shipments_for_DistributionOrderID"
+                Method_Name="Get_Corresponding_Shipments_for_DistributionOrderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Corresponding_Shipments_for_DistributionOrderID"
+                />
+
+<SQLStatement xml:space="preserve">
+   
+Select Distinct
+  log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID As ShipmentHeaderID,
+  log_shp_shipment_positions.LOG_SHP_Shipment_PositionID,
+  log_shp_shipment_headers.ShipmentHeader_Number,
+  log_shp_shipment_headers.IsShipped,
+  log_shp_shipment_headers.IsPartiallyReadyForPicking,
+  log_shp_shipment_headers.IsReadyForPicking,
+  log_shp_shipment_headers.HasPickingStarted,
+  log_shp_shipment_headers.HasPickingFinished,
+  log_wrh_warehouses.Warehouse_Name,
+  (Select
+    log_shp_shipment_statuses.GlobalPropertyMatchingID
+  From
+    log_shp_shipment_headers Left Join
+    log_shp_shipment_statushistory
+      On log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID =
+      log_shp_shipment_statushistory.LOG_SHP_Shipment_Header_RefID Left Join
+    log_shp_shipment_statuses
+      On log_shp_shipment_statushistory.LOG_SHP_Shipment_Status_RefID =
+      log_shp_shipment_statuses.LOG_SHP_Shipment_StatusID
+  Where
+    log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID =
+    ShipmentHeaderID And
+    log_shp_shipment_statuses.IsDeleted = 0
+  Order By
+    log_shp_shipment_statuses.Creation_Timestamp Desc
+  Limit 1) As ShipmentStatus
+From
+  log_shp_shipment_positions Left Join
+  log_shp_shipment_headers
+    On log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID =
+    log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID Left Join
+  log_wrh_warehouses On log_shp_shipment_headers.Source_Warehouse_RefID =
+    log_wrh_warehouses.LOG_WRH_WarehouseID Left Join
+  ord_dis_distributionorderposition_2_shipmentorderposition
+    On
+    ord_dis_distributionorderposition_2_shipmentorderposition.LOG_SHP_Shipment_Position_RefID = log_shp_shipment_positions.LOG_SHP_Shipment_PositionID Left Join
+  ord_dis_distributionorder_positions
+    On ord_dis_distributionorder_positions.ORD_DIS_DistributionOrder_PositionID
+    =
+    ord_dis_distributionorderposition_2_shipmentorderposition.ORD_DIS_DistributionOrder_Position_RefID
+Where
+  ord_dis_distributionorder_positions.Tenant_RefID = @TenantID And
+  ord_dis_distributionorder_positions.DistributionOrder_Header_RefID =
+  @DistributionOrderID
+Group By
+  ShipmentHeaderID
+    
+    
+</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3_GCSfDO_1112">
+    <Members>
+      <ClassMember  Name="DistributionOrderID" Type="Guid" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+      Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+      Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3_GCSfDO_1112" IsArray="true">
+      <Members>
+        <ClassMember Name="ShipmentHeaderID" Type="Guid"  />
+        <ClassMember Name="LOG_SHP_Shipment_PositionID" Type="Guid"  />
+        <ClassMember Name="ShipmentHeader_Number" Type="String"  />
+        <ClassMember Name="IsShipped" Type="Boolean" />
+        <ClassMember Name="IsPartiallyReadyForPicking" Type="Boolean" />
+        <ClassMember Name="IsReadyForPicking" Type="Boolean" />
+        <ClassMember Name="HasPickingStarted" Type="Boolean" />
+        <ClassMember Name="HasPickingFinished" Type="Boolean" />
+        <ClassMember Name="Warehouse_Name" Type="string"  />
+        <ClassMember Name="ShipmentStatus" Type="string"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+  </ResultInfo>
+
+</CodeGen>
+
+

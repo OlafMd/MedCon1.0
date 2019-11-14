@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Doctors_ConsentStartDate_for_DoctorID_and_ContractID</Name>
+    <Namespace>MMDocConnectDBMethods.Doctor.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Doctor.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Doctors_ConsentStartDate_for_DoctorID_and_ContractID"
+								Method_Name="Get_Doctors_ConsentStartDate_for_DoctorID_and_ContractID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    Select Distinct
+      hec_crt_insurancetobrokercontract_participatingdoctors.ValidFrom As ConsentStartDate
+    From
+      hec_crt_insurancetobrokercontracts
+      Inner Join hec_crt_insurancetobrokercontract_participatingdoctors On hec_crt_insurancetobrokercontracts.HEC_CRT_InsuranceToBrokerContractID =
+        hec_crt_insurancetobrokercontract_participatingdoctors.InsuranceToBrokerContract_RefID And hec_crt_insurancetobrokercontract_participatingdoctors.IsDeleted = 0 And
+        hec_crt_insurancetobrokercontract_participatingdoctors.Tenant_RefID = @TenantID And hec_crt_insurancetobrokercontract_participatingdoctors.ValidFrom &lt;= Now() And 
+       (hec_crt_insurancetobrokercontract_participatingdoctors.ValidThrough = '0001.01.01' Or hec_crt_insurancetobrokercontract_participatingdoctors.ValidThrough &gt;= Now())
+    Where
+      hec_crt_insurancetobrokercontracts.Tenant_RefID = @TenantID And
+      hec_crt_insurancetobrokercontracts.IsDeleted = 0 And
+      hec_crt_insurancetobrokercontracts.Ext_CMN_CTR_Contract_RefID = @ContractID And
+      hec_crt_insurancetobrokercontract_participatingdoctors.Doctor_RefID = @DoctorID
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_DO_GDCSDfDIDaCID_1411">
+    <Members>
+      <ClassMember Name="DoctorID" Type="Guid"  />
+      <ClassMember Name="ContractID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="DO_GDCSDfDIDaCID_1411">
+      <Members>
+        <ClassMember Name="ConsentStartDate" Type="DateTime"  />
+
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

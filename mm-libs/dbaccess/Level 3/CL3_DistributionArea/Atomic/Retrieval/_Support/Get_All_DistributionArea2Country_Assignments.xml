@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/26/2015 04:43:49">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_DistributionArea2Country_Assignments</Name>
+    <Namespace>CL3_DistributionArea.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_DistributionArea.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_DistributionArea2Country_Assignments"
+                Method_Name="Get_All_DistributionArea2Country_Assignments"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_DistributionArea2Country_Assignments"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select Distinct
+  log_reg_distributionarea_2_country.CMN_Country_RefID
+From
+  log_reg_distributionarea_2_country
+Where
+  log_reg_distributionarea_2_country.IsDeleted = 0 And
+  log_reg_distributionarea_2_country.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+    <StandardReturnType_Definition returnType="Guid" IsArray="true"/>
+  </ResultInfo>
+
+</CodeGen>
+
+

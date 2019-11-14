@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/22/2014 4:13:06 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_DiagnoseDetails</Name>
+    <Namespace>CL6_MyHealthClub_Diagnosis.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_MyHealthClub_Diagnosis.Complex.Manipulation"
+                Method_ClassName="cls_Save_DiagnoseDetails"
+                Method_Name="Save_DiagnoseDetails"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_DiagnoseDetails"
+                />
+
+  <Parameters IsClass="true" Name="P_L6DI_SDD_1202">
+    <Members>
+        <ClassMember Name="DiagnoseID" Type="Guid"  />
+		<ClassMember Name="Deactivation_inDays" Type="int"  />
+		<ClassMember IsClass="true" IsArray="true" Type="P_L6DI_SDD_1202_Localization" Name="Localization" >
+			<Members>
+			  <ClassMember Name="LocalizationName" Type="String"  />
+			  <ClassMember Name="LocalizationID" Type="Guid"  />
+			  <ClassMember Name="IsDeleted" Type="bool"  />
+			</Members>
+		</ClassMember>
+		<ClassMember IsClass="true" IsArray="true" Type="P_L6DI_SDD_1202_CatalogDiagnoseData" Name="CatalogDiagnoseData" >
+			<Members>
+				<ClassMember Name="HEC_DIA_PotentialDiagnosis_CatalogID" Type="Guid"  />
+				<ClassMember Name="isDiagnoseAddedToCatalog" Type="bool"  />
+				<ClassMember Name="isFavouriteStatus" Type="bool"  />
+			</Members>
+		</ClassMember>
+		<ClassMember IsClass="true" IsArray="true" Type="P_L6DI_SDD_1202_PossibleHospitalReferral" Name="PossibleHospitalReferral" >
+			<Members>
+				<ClassMember Name="HEC_DIA_FrequentPotentialDiagnosisID" Type="Guid"  />
+				<ClassMember Name="PotentialDiagnosis_RefID" Type="Guid"  />
+				<ClassMember Name="MedicalPractice_RefID" Type="Guid"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+			</Members>
+		</ClassMember>
+		<ClassMember IsClass="true" IsArray="true" Type="P_L6DI_SDD_1202_PotentialProcedures" Name="PotentialProcedures" >
+			<Members>
+        <ClassMember Name="HEC_DIA_TypicalPotentialProcedureID" Type="Guid"  />
+        <ClassMember Name="PotentialDiagnosis_RefID" Type="Guid"  />
+        <ClassMember Name="PotentialProcedure_RefID" Type="Guid"  />
+        <ClassMember Name="IsDeleted" Type="bool"  />
+			</Members>
+		</ClassMember>
+		<ClassMember IsClass="true" IsArray="true" Type="P_L6DI_SDD_1202_PotentialObservation" Name="PotentialObservation" >
+			<Members>
+				<ClassMember Name="TypicalPotentialObservationID" Type="Guid"  />
+				<ClassMember Name="PotentialObservationID" Type="Guid"  />
+				<ClassMember Name="PotentialDiagnosis_RefID" Type="Guid"  />
+				<ClassMember Name="Observation_Text" Type="Dict"  />
+				<ClassMember Name="NewPotentialObservation" Type="bool"  />
+				<ClassMember Name="IsDeleted" Type="bool"  />
+			</Members>
+		</ClassMember>
+    <ClassMember IsClass="true" IsArray="true" Type="P_L6DI_SDD_1202_RecommendedProduct" Name="RecommendedProduct" >
+      <Members>
+        <ClassMember Name="HEC_DIA_RecommendedProductID" Type="Guid"  />
+        <ClassMember Name="ProductID" Type="Guid"  />
+        <ClassMember Name="DiagnoseID" Type="Guid"  />
+        <ClassMember Name="IsDeleted" Type="bool"  />
+        <ClassMember IsClass="true" IsArray="true" Type="P_L6DI_SDD_1202_ProductDosageList" Name="ProductDosageList" >
+          <Members>
+            <ClassMember Name="HEC_DIA_RecommendedProduct_DosageID" Type="Guid"  />
+            <ClassMember Name="Dosage_RefID" Type="Guid"  />
+            <ClassMember Name="IsDefault" Type="bool"  />
+            <ClassMember Name="IsDeleted" Type="bool"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ClassMember>
+    <ClassMember IsClass="true" IsArray="true" Type="P_L6DI_SDD_1202_RecommendedSubstance" Name="RecommendedSubstance" >
+      <Members>
+        <ClassMember Name="HEC_DIA_RecommendedSubstanceID" Type="Guid"  />
+        <ClassMember Name="DiagnoseID" Type="Guid"  />
+        <ClassMember Name="SubstanceID" Type="Guid"  />
+        <ClassMember Name="SubstanceStrength" Type="String"  />
+        <ClassMember Name="Substance_Unit_RefID" Type="Guid"  />
+        <ClassMember Name="IsDeleted" Type="bool"  />
+        <ClassMember IsClass="true" IsArray="true" Type="P_L6DI_SDD_1202_SubstanceDosageList" Name="SubstanceDosageList" >
+          <Members>
+            <ClassMember Name="HEC_DIA_RecommendedSubstance_DosageID" Type="Guid"  />
+            <ClassMember Name="Dosage_RefID" Type="Guid"  />
+            <ClassMember Name="IsDefault" Type="bool"  />
+            <ClassMember Name="IsDeleted" Type="bool"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ClassMember>
+
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+    Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+    Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+
+

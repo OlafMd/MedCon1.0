@@ -1,0 +1,23 @@
+INSERT INTO 
+	ecm_doc_generaldocuments
+	(
+		ECM_DOC_GeneralDocumentID,
+		DocumentMatchingID,
+		DocumentTypeMatchingID,
+		Document_RefID,
+		IsPublicallyVisible,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@ECM_DOC_GeneralDocumentID,
+		@DocumentMatchingID,
+		@DocumentTypeMatchingID,
+		@Document_RefID,
+		@IsPublicallyVisible,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

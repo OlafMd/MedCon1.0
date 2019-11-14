@@ -1,0 +1,11 @@
+UPDATE 
+	log_rcp_rqf_requestquantityforwarding_headers
+SET 
+	SplitFrom_ReceiptHeader_RefID=@SplitFrom_ReceiptHeader_RefID,
+	ReceiptNumber=@ReceiptNumber,
+	ExecutingBusinessParticipant_RefID=@ExecutingBusinessParticipant_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	LOG_RCP_RQF_RequestQuantityForwarding_HeaderID = @LOG_RCP_RQF_RequestQuantityForwarding_HeaderID

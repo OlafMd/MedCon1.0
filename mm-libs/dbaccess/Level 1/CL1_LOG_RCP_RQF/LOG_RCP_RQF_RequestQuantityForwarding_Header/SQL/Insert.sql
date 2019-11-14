@@ -1,0 +1,21 @@
+INSERT INTO 
+	log_rcp_rqf_requestquantityforwarding_headers
+	(
+		LOG_RCP_RQF_RequestQuantityForwarding_HeaderID,
+		SplitFrom_ReceiptHeader_RefID,
+		ReceiptNumber,
+		ExecutingBusinessParticipant_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@LOG_RCP_RQF_RequestQuantityForwarding_HeaderID,
+		@SplitFrom_ReceiptHeader_RefID,
+		@ReceiptNumber,
+		@ExecutingBusinessParticipant_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

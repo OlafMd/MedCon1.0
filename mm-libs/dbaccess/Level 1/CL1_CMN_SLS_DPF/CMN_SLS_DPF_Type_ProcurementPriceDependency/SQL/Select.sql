@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_sls_dpf_type_procurementpricedependencies
+WHERE 
+	CMN_SLS_DPF_Type_ProcurementPriceDependencyID = @CMN_SLS_DPF_Type_ProcurementPriceDependencyID

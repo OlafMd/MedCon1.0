@@ -1,0 +1,11 @@
+UPDATE 
+	hec_cmt_membership_potentialdiagnosiscatalogsubscriptions
+SET 
+	Membership_RefID=@Membership_RefID,
+	PotentialDiagnosisCatalogITL=@PotentialDiagnosisCatalogITL,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_CMT_Membership_DiagnosisCatalogSubscriptionID = @HEC_CMT_Membership_DiagnosisCatalogSubscriptionID

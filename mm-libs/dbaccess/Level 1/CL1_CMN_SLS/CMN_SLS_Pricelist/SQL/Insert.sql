@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_sls_pricelist
+	(
+		CMN_SLS_PricelistID,
+		GlobalPropertyMatchingID,
+		Pricelist_Name_DictID,
+		Pricelist_Description_DictID,
+		IsDiscountCalculated_Accumulative,
+		IsDiscountCalculated_Maximum,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_SLS_PricelistID,
+		@GlobalPropertyMatchingID,
+		@Pricelist_Name,
+		@Pricelist_Description,
+		@IsDiscountCalculated_Accumulative,
+		@IsDiscountCalculated_Maximum,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

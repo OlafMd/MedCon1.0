@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14-Jan-14 17:48:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_DailyWorkSchedule_For_WorkSheduleDate</Name>
+    <Namespace>CL5_Plannico_DailyWorkSchedules.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Plannico_DailyWorkSchedules.Complex.Retrieval"
+                Method_ClassName="cls_Get_DailyWorkSchedule_For_WorkSheduleDate"
+                Method_Name="Get_DailyWorkSchedule_For_WorkSheduleDate"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_DailyWorkSchedule_For_WorkSheduleDate"
+                />
+
+  <Parameters IsClass="true" Name="P_L5DWS_GDWSFWSD_1748">
+    <Members>
+      <ClassMember Name="WorkSheduleDate" Type="DateTime"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+    <ObjectReturnType_Definition Name="L5DWS_GDWSFWSD_1748" IsArray="false">
+      <Members>
+        <ClassMember Name="DailyWorkSchedules" Type="L5DWS_GDWSFT_1154" isReference="true" />
+        <ClassMember Name="DailyWorkSchedules" Type="L5DWS_GDWSFT_1154" isReference="true" IsArray="true" />
+      </Members>
+    </ObjectReturnType_Definition>
+	</ResultInfo>
+
+</CodeGen>
+
+

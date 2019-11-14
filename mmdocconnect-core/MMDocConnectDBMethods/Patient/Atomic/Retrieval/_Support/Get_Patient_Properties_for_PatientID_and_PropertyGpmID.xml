@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/12/2015 11:31:07 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Patient_Properties_for_PatientID_and_PropertyGpmID</Name>
+    <Namespace>MMDocConnectDBMethods.Patient.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Patient.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Patient_Properties_for_PatientID_and_PropertyGpmID"
+                Method_Name="Get_Patient_Properties_for_PatientID_and_PropertyGpmID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Patient_Properties_for_PatientID_and_PropertyGpmID"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+      hec_patient_universalpropertyvalues.Value_String As string_value,
+      hec_patient_universalpropertyvalues.Value_Number As numeric_value,
+      hec_patient_universalpropertyvalues.Value_Boolean As boolean_value,
+      hec_patient_universalpropertyvalues.HEC_Patient_UniversalPropertyValueID as id
+    From
+      hec_patient_universalpropertyvalues Inner Join
+      hec_patient_universalproperties
+        On hec_patient_universalpropertyvalues.HEC_Patient_UniversalProperty_RefID = hec_patient_universalproperties.HEC_Patient_UniversalPropertyID And
+  	    hec_patient_universalproperties.GlobalPropertyMatchingID = @PropertyGpmID And
+        hec_patient_universalproperties.Tenant_RefID = @TenantID And hec_patient_universalproperties.IsDeleted = 0
+    Where
+      hec_patient_universalpropertyvalues.HEC_Patient_RefID = @PatientID And
+      hec_patient_universalpropertyvalues.Tenant_RefID = @TenantID And
+      hec_patient_universalpropertyvalues.IsDeleted = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_PA_GPPfPIDaPGpmID_1620">
+    <Members>
+      <ClassMember Name="PatientID" Type="Guid"  />
+      <ClassMember Name="PropertyGpmID" Type="String"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="PA_GPPfPIDaPGpmID_1620" IsArray="true">
+      <Members>
+        <ClassMember Name="string_value" Type="String"  />
+        <ClassMember Name="numeric_value" Type="Double"  />
+        <ClassMember Name="boolean_value" Type="Boolean"  />
+        <ClassMember Name="id" Type="Guid" />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

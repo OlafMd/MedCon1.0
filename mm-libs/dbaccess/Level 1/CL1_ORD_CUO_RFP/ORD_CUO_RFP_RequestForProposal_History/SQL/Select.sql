@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	ord_cuo_rfp_requestforproposal_history
+WHERE 
+	ORD_CUO_RFP_RequestForProposal_HistoryID = @ORD_CUO_RFP_RequestForProposal_HistoryID

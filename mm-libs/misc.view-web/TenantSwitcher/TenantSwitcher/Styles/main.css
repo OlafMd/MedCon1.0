@@ -1,0 +1,10 @@
+﻿.changeTenant { display: inline-block; position: relative;  width: 96%; z-index: 1; padding: 0 4px;}
+	.changeTenant dt { cursor: pointer; text-overflow: ellipsis; -o-text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+	.changeTenant dd {clear: both; display: none; cursor: pointer; color: #000000; background: #dadada; padding: 3px 4px; text-overflow: ellipsis; -o-text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+	.changeTenant.showList dd{ display: block; border: 1px solid rgb(228, 228, 228); }
+
+	.changeTenant	.arrow { height: 8px; width: 8px; top: 0px; margin-left: 2px; position: relative; }
+	
+	.changeTenant.showList dd:hover { border: 1px solid rgb(116, 178, 235); }
+	
+	.changeTenant.showList dd img { padding-right:4px; }

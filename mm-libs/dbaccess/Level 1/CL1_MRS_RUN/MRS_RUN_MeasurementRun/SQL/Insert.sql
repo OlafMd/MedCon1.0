@@ -1,0 +1,27 @@
+INSERT INTO 
+	mrs_run_measurementrun
+	(
+		MRS_RUN_MeasurementRunID,
+		DateFrom,
+		DateThrough,
+		IsCorrectionRun,
+		CorrectionOf_MeasurementRun_RefID,
+		CurrentStatus_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@MRS_RUN_MeasurementRunID,
+		@DateFrom,
+		@DateThrough,
+		@IsCorrectionRun,
+		@CorrectionOf_MeasurementRun_RefID,
+		@CurrentStatus_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,20 @@
+
+Select
+  tmp_pro_projectmember_type_availablecharginglevels.TMP_PRO_ProjectMember_Type_AvailableChargingLevelsID,
+  cmn_bpt_investedworktime_charginglevels.CMN_BPT_InvestedWorkTime_ChargingLevelID,
+  cmn_bpt_investedworktime_charginglevels.ChangingLevel_Name_DictID
+From
+  tmp_pro_projectmember_types Inner Join
+  tmp_pro_projectmember_type_availablecharginglevels
+    On tmp_pro_projectmember_types.TMP_PRO_ProjectMember_TypeID =
+    tmp_pro_projectmember_type_availablecharginglevels.ProjectMember_Type_RefID
+  Inner Join
+  cmn_bpt_investedworktime_charginglevels
+    On tmp_pro_projectmember_type_availablecharginglevels.ChargingLevel_RefID =
+    cmn_bpt_investedworktime_charginglevels.CMN_BPT_InvestedWorkTime_ChargingLevelID
+Where
+  tmp_pro_projectmember_types.TMP_PRO_ProjectMember_TypeID = @ProjectMemberID And
+  tmp_pro_projectmember_types.IsDeleted = 0 And
+  tmp_pro_projectmember_type_availablecharginglevels.IsDeleted = 0 And
+  cmn_bpt_investedworktime_charginglevels.IsDeleted = 0 And
+  tmp_pro_projectmember_types.Tenant_RefID = @TenantID

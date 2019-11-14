@@ -1,0 +1,11 @@
+UPDATE 
+	log_rcp_receipt_poisition_freeofcharge
+SET 
+	DiscountDueTo_Receipt_Position_RefID=@DiscountDueTo_Receipt_Position_RefID,
+	GeneratedDiscountAt_Receipt_Position_RefID=@GeneratedDiscountAt_Receipt_Position_RefID,
+	QuantityFreeOfCharge=@QuantityFreeOfCharge,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	LOG_RCP_Receipt_Poisition_FreeOfChargeID = @LOG_RCP_Receipt_Poisition_FreeOfChargeID

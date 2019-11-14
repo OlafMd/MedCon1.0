@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5294FD56-9012-4FC7-ABD3-BF02C15F542B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_Lucentis_Patient</RootNamespace>
+    <AssemblyName>CL5_Lucentis_Patient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_AllHealthInsuranceCompanies_for_Patient.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllPatientsAndDataThatHaveBilledTreatment.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllPatientsSimpleData_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllPatients_for_PracticeID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllPatients_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PatientName_and_BillpositionID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_PatientName_for_BillpositionID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Patients_for_PracticeID.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Atomic\Retrieval\cls_Get_Patient_HealthInsurance_State_For_Tenant.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Complex\Manipulation\cls_Save_Patient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Complex\Retrieval\cls_CheckIfPatientExistsInPractice.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Patient_for_PatientID.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Complex\Retrieval\cls_Get_Patient_for_PatientID_and_Get_All_HealthInsurance_Companies.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Patient_for_PatientID_and_Get_All_HealthInsurance_Companies_and_All_Articles.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PER\CL1_CMN_PER.csproj">
+      <Project>{6BDA1EB4-FA2A-41A1-8B83-171ED9B85ADD}</Project>
+      <Name>CL1_CMN_PER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC\CL1_HEC.csproj">
+      <Project>{768C60E8-0C7F-42B2-B8C9-D327C6BF334A}</Project>
+      <Name>CL1_HEC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_HEC_HIS\CL1_HEC_HIS.csproj">
+      <Project>{5FE027FB-A11C-44A2-9F60-0EC9ACFE4EBA}</Project>
+      <Name>CL1_HEC_HIS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_Lucentis_Products\CL5_Lucentis_Products.csproj">
+      <Project>{019CE93D-A710-440E-8651-F62F2C959FC0}</Project>
+      <Name>CL5_Lucentis_Products</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Complex\Retrieval\SQL\cls_Get_Patient_for_PatientID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Patients_for_PracticeID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllHealthInsuranceCompanies_for_Patient.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllPatients_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllPatients_for_PracticeID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllPatientsAndDataThatHaveBilledTreatment.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PatientName_for_BillpositionID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_PatientName_and_BillpositionID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_PatientName_and_BillpositionID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllPatientsAndDataThatHaveBilledTreatment.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllPatientsSimpleData_for_TenantID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllPatientsSimpleData_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_AllPatients_for_PracticeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_AllHealthInsuranceCompanies_for_Patient.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_AllPatients_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_PatientName_for_BillpositionID.xml" />
+    <EmbeddedResource Include="Complex\Retrieval\SQL\cls_CheckIfPatientExistsInPractice.sql" />
+    <Content Include="Complex\Retrieval\_Support\Get_Patient_for_PatientID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_Patient_for_PatientID_and_Get_All_HealthInsurance_Companies_and_All_Articles.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\CheckIfPatientExistsInPractice.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_Patients_for_PracticeID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Patient_HealthInsurance_State_For_Tenant.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Patient_HealthInsurance_State_For_Tenant.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_Patient.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

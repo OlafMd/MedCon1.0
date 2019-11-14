@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 12/13/2013 2:26:54 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_PRO_SubscribedCatalog"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN_PRO"
+                IsClass_Corresponding_DBTable="cmn_pro_subscribedcatalogs" >
+      <Members>
+          <ClassMember Name="CMN_PRO_SubscribedCatalogID" Type="Guid" IsObjectPrimaryKey="true"/>
+          <ClassMember Name="CatalogCodeITL" Type="String" />
+          <ClassMember Name="SubscribedCatalog_Language_RefID" Type="Guid" />
+          <ClassMember Name="SubscribedCatalog_Currency_RefID" Type="Guid" />
+          <ClassMember Name="SubscribedCatalog_Name" Type="String" />
+          <ClassMember Name="SubscribedCatalog_Description" Type="String" />
+          <ClassMember Name="SubscribedCatalog_CurrentRevision" Type="int" />
+          <ClassMember Name="PublishingSupplier_RefID" Type="Guid" />
+          <ClassMember Name="SubscribedBy_BusinessParticipant_RefID" Type="Guid" />
+          <ClassMember Name="SubscribedCatalog_PricelistRelease_RefID" Type="Guid" />
+          <ClassMember Name="SubscribedCatalog_ValidFrom" Type="DateTime" />
+          <ClassMember Name="SubscribedCatalog_ValidThrough" Type="DateTime" />
+          <ClassMember Name="IsCatalogValid" Type="Boolean" />
+          <ClassMember Name="IsCatalogPublic" Type="Boolean" />
+          <ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+          <ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+          <ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

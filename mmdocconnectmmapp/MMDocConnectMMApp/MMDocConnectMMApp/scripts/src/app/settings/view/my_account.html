@@ -1,0 +1,69 @@
+﻿<div>
+    <!--<h2 translate="LABEL_NOT_IMPLEMENTED"> </h2>
+
+    <img class="picture" src="Content/images/construction1.png">-->
+    <form id="MyAccountForm" ng-submit="submitMyAccountForm()" class="gray-content-holder doctors-data-lists doctor-list clearfix" name="MyAccountForm" novalidate>
+        <h3 id="lblMyAccount" translate="LABEL_MY_ACCOUNT"></h3>
+        <div name="messageContainer" class="error-msg-container" ng-if="divContainer">
+            <span class="error" ng-if="LoginEmailNotValid">{{ 'LABEL_EMAIL_NOT_VALID' | translate }}</span>
+            <span class="error" ng-if="LoginEmailExists">{{ 'LABEL_ACCOUNT_EXISTS' | translate }}</span>
+            <span class="error" ng-if="EmailNotValid">{{ 'LABEL_EMAIL_NOT_VALID' | translate }}</span>   
+        </div>
+
+        <ul class="third-class-data first-row">
+            <li>
+                <label id="lblSalutation">{{ 'LABEL_SALUTATION' | translate }}</label>
+                <dropdown-list id="ddSalutation" name="ddSalutation" items="salutation" ng-model="MyAccount.Salutation" params="{display_name: 'label', id: 'value', is_model_object: true}"></dropdown-list>
+            </li>
+            <li>
+                <label id="lbTitle">{{ 'LABEL_TITLE' | translate }}</label>
+                <input id="inTitle" name="inTitle" type="text" ng-model="MyAccount.Title" />
+
+            </li>
+            <li>
+                <label id="lblFirstName">{{ 'LABEL_FIRSTNAME' | translate }}<span class="error" ng-if="MyAccountForm.inFirstName.$error.required">*</span></label>
+                <input id="inFirstName" name="inFirstName" type="text" ng-model="MyAccount.FirstName" required />
+
+            </li>
+            <li>
+                <label id="lblLastName">{{ 'LABEL_LASTNAME' | translate }}<span class="error" ng-if="MyAccountForm.inLastName.$error.required">*</span></label>
+                <input id="inLastName" name="inLastName" type="text" ng-model="MyAccount.LastName" required />
+            </li>
+
+        </ul>
+        <div class="buttons-with-text-button fright">
+            <span class="abort"><a href="" ng-click="closeMyAccountForm()" translate="BUTTON_CANCEL">{{ 'LABEL_CANCEL' | translate }}</a></span>
+            <button class="button wide confirm" id="btnSubmitMyAccount" type="submit" translate="BUTTON_SAVE"
+                    ng-disabled="MyAccountForm.$invalid"></button>
+        </div>
+
+        <div class="second-class-data-wrapper">
+            <h3 id="lblMyContactDetails" translate="LABEL_MY_CONTACT_DETAILS"></h3>
+            <ul class="second-class-data second-row">
+                <li>
+                    <label id="lblEmail">{{ 'LABEL_EMAIL' | translate }}<span class="error" ng-if="MyAccountForm.inEmail.$error.required">*</span></label>
+                    <input id="inEmail" name="inEmail" type="text" ng-model="MyAccount.Email" ng-class="{redborder:EmailNotValid}" />
+                </li>
+                <li>
+                    <label id="lblPhone">{{ 'LABEL_PHONE' | translate }}<span class="error" ng-if="MyAccountForm.inPhone.$error.required">*</span></label>
+                    <input id="inPhone" name="inPhone" type="text" ng-model="MyAccount.Phone" required />
+                </li>
+            </ul>
+
+            <h3 id="lblMyAccessDetails" translate="LABEL_MY_ACCESS_DETAILS"></h3>
+            <ul class="second-class-data  fourth-row">
+                <li>
+                    <label id="lblLoginEmail">{{'LABEL_LOGIN_EMAIL' |translate}} <span class="error" ng-if="MyAccountForm.inLoginEmail.$error.required">*</span></label>
+                    <input id="inLoginEmail" name="inLoginEmail" type="text" ng-model="MyAccount.LoginEmail" ng-disabled="true" ng-class="{redborder:LoginEmailNotValid || LoginEmailExists  }" required auto-fill-sync />
+                </li>
+                <li>
+                    <label id="lblPassword" translate="LABEL_PASSWORD"></label>
+                    <input id="inPassword" name="MyAccount.inPassword" type="password" ng-disabled="drgenDisabled" ng-model="MyAccount.inPassword" auto-fill-sync />
+                </li>
+                <li class="padding-top-22">
+                    <button class="button medium reject" onclick="return false;" ng-click="ResetPassword()" translate="LABEL_RESET_PASSWORD"></button>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

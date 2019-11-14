@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_NonOpCaseIDs_where_PatientID_and_BptID</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_NonOpCaseIDs_where_PatientID_and_BptID"
+								Method_Name="Get_NonOpCaseIDs_where_PatientID_and_BptID"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <SQLStatement xml:space="preserve">
+    Select
+      hec_cas_case_relevantplannedactions.Case_RefID as case_id
+    From
+      hec_act_plannedactions Inner Join
+      hec_cas_case_relevantplannedactions
+        On hec_act_plannedactions.HEC_ACT_PlannedActionID = hec_cas_case_relevantplannedactions.PlannedAction_RefID And
+        hec_cas_case_relevantplannedactions.Tenant_RefID = @TenantID 
+    Where
+      hec_act_plannedactions.ToBePerformedBy_BusinessParticipant_RefID = @BptIDs And
+      hec_act_plannedactions.Patient_RefID = @PatientID And
+      hec_act_plannedactions.Tenant_RefID = @TenantID And
+      hec_act_plannedactions.IsDeleted = 0
+	</SQLStatement>
+
+  <Parameters IsClass="true" Name="P_CAS_GNOpCIDswPIDaBptID_1541">
+    <Members>
+      <ClassMember Name="BptIDs" Type="Guid" IsArray="true" />
+      <ClassMember Name="PatientID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GNOpCIDswPIDaBptID_1541" IsArray="true">
+      <Members>
+        <ClassMember Name="case_id" Type="Guid"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

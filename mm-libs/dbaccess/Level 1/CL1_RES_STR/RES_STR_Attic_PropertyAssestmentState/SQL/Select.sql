@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	res_str_attic_propertyassestmentstates
+WHERE 
+	RES_STR_Attic_PropertyAssestmentStateID = @RES_STR_Attic_PropertyAssestmentStateID

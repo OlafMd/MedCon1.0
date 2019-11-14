@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/26/2013 4:11:47 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="CL6_BBV_GlobalSearch.Complex.Retrieval"
+								Method_ClassName="cls_Get_Data_For_Global_Search"
+								Method_Name="Get_Data_For_Global_Search"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=".Get_Data_For_Global_Search"
+								/>
+
+	<Parameters IsClass="true" Name="P_L6GL_BBVGDFGS_1452">
+		<Members>
+			<ClassMember Name="LanguageID" Type="Guid"  />
+			<ClassMember Name="Term" Type="String"  />
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+			Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+			Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6GL_BBVGDFGS_1452" IsArray="false">
+			<Members>
+				<ClassMember IsReference="true" Type="L6PA_GBBVPFT_1700"       Name="Patients"          IsArray="true"/>
+        <ClassMember IsReference="true" Type="L5DR_RDIaV_1458"       Name="Drivers"          IsArray="true"/>
+			</Members>
+		</ObjectReturnType_Definition>
+	</ResultInfo>
+
+</CodeGen>
+
+

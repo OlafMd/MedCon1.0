@@ -1,0 +1,19 @@
+INSERT INTO 
+	imo_questionnaire_customstatusquestiongroups
+	(
+		IMO_Questionnaire_CustomStatusQuestionGroupID,
+		Label_DictID,
+		CopyOf_PreviouslyPublishedVersion_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@IMO_Questionnaire_CustomStatusQuestionGroupID,
+		@Label,
+		@CopyOf_PreviouslyPublishedVersion_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_act_performedaction_diagnosisupdates
+WHERE 
+	HEC_ACT_PerformedAction_DiagnosisUpdateID = @HEC_ACT_PerformedAction_DiagnosisUpdateID

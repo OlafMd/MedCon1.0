@@ -1,0 +1,24 @@
+
+	Select
+  cmn_bpt_emp_extraworkcalculations.CMN_BPT_EMP_ExtraWorkCalculationID,
+  cmn_bpt_emp_extraworkcalculations.ExtraWorkCalculation_Name_DictID,
+  cmn_bpt_emp_extraworkcalculations.IsCalculatingOvertimeEnabled,
+  cmn_bpt_emp_extraworkcalculations.AreAdditionalWorkDays_CalculatedIn_Hours,
+  cmn_bpt_emp_extraworkcalculations.AreAdditionalWorkDays_CalculatedIn_DaysAsHours,
+  cmn_bpt_emp_extraworkcalculations.AreAdditionalWorkDays_CalculatedIn_Days,
+  cmn_bpt_emp_extraworkcalculations.StandardWorkDay_in_mins,
+  cmn_bpt_emp_extraworkcalculations.IsDisplayedAs_HoursAsDays,
+  cmn_bpt_emp_extraworkcalculations.IsDisplayedAs_DaysAndHours,
+  cmn_bpt_emp_extraworkcalculations.MinimalOvertimeTreshold_in_minutes,
+  cmn_bpt_emp_extraworkcalculation_structurebindings.BoundTo_Office_RefID,
+  cmn_bpt_emp_extraworkcalculation_structurebindings.BoundTo_WorkArea_RefID,
+  cmn_bpt_emp_extraworkcalculation_structurebindings.BoundTo_Workplace_RefID
+From
+  cmn_bpt_emp_extraworkcalculations Inner Join
+  cmn_bpt_emp_extraworkcalculation_structurebindings
+    On cmn_bpt_emp_extraworkcalculations.CMN_BPT_EMP_ExtraWorkCalculationID =
+    cmn_bpt_emp_extraworkcalculation_structurebindings.ExtraWorkCalculation_RefID
+Where
+  cmn_bpt_emp_extraworkcalculations.IsDeleted = 0 And
+  cmn_bpt_emp_extraworkcalculations.Tenant_RefID = @TenantID
+  

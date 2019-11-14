@@ -1,0 +1,19 @@
+INSERT INTO 
+	hec_his_healthinsurance_companies
+	(
+		HEC_HealthInsurance_CompanyID,
+		CMN_BPT_BusinessParticipant_RefID,
+		HealthInsurance_IKNumber,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@HEC_HealthInsurance_CompanyID,
+		@CMN_BPT_BusinessParticipant_RefID,
+		@HealthInsurance_IKNumber,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

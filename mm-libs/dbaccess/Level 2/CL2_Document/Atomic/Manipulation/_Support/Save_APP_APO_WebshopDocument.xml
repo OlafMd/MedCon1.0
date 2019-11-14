@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/16/2014 4:31:51 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_APP_APO_WebshopDocument</Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_Document.Atomic.Manipulation"
+                Method_ClassName="cls_Save_APP_APO_WebshopDocument"
+                Method_Name="Save_APP_APO_WebshopDocument"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_APP_APO_WebshopDocument"
+                />
+  <SQLLimitation_CSharp_Extension>
+			var returnValue = new FR_Guid();
+
+			var item = new CL1_APP_APO.APP_APO_WebshopDocument.ORM_APP_APO_WebshopDocument();
+			if (Parameter.APP_APO_WebshopDocumentID != Guid.Empty)
+			{
+			    var result = item.Load(Connection, Transaction, Parameter.APP_APO_WebshopDocumentID);
+			    if (result.Status != FR_Status.Success || item.APP_APO_WebshopDocumentID == Guid.Empty)
+			    {
+			        var error = new FR_Guid();
+			        error.ErrorMessage = "No Such ID";
+			        error.Status =  FR_Status.Error_Internal;
+			        return error;
+			    }
+			}
+
+			if(Parameter.IsDeleted == true){
+				item.IsDeleted = true;
+				return new FR_Guid(item.Save(Connection, Transaction),item.APP_APO_WebshopDocumentID);
+			}
+
+			//Creation specific parameters (Tenant, Account ... )
+			if (Parameter.APP_APO_WebshopDocumentID == Guid.Empty)
+			{
+				item.Tenant_RefID = securityTicket.TenantID;
+			}
+
+			item.Document_RefID = Parameter.Document_RefID;
+			item.IsVisibleInWebshop = Parameter.IsVisibleInWebshop;
+
+
+			return new FR_Guid(item.Save(Connection, Transaction),item.APP_APO_WebshopDocumentID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2DO_SAAWD_1631">
+    <Members>
+		<ClassMember IsIdentificator="True" Name="APP_APO_WebshopDocumentID" Type="Guid"  />
+		<ClassMember Name="Document_RefID" Type="Guid"  />
+		<ClassMember Name="IsVisibleInWebshop" Type="Boolean"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

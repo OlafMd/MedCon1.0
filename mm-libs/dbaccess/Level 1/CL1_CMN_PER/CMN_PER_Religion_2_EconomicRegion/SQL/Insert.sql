@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_per_religion_2_economicregion
+	(
+		AssignmentID,
+		CMN_PER_Religion_RefID,
+		CMN_EconomicRegion_RefID,
+		Religion_Code,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@CMN_PER_Religion_RefID,
+		@CMN_EconomicRegion_RefID,
+		@Religion_Code,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/29/2014 4:50:16 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Assignment_for_TaxID_List_and_FiscalYearID</Name>
+    <Namespace>CL3_BookingAccounts.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_BookingAccounts.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Assignment_for_TaxID_List_and_FiscalYearID"
+                Method_Name="Get_Assignment_for_TaxID_List_and_FiscalYearID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Assignment_for_TaxID_List_and_FiscalYearID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT
+		acc_bok_bookingaccount_2_tax.AssignmentID,
+		acc_bok_bookingaccount_2_tax.ACC_BOK_BookingAccount_RefID,
+		acc_bok_bookingaccount_2_tax.ACC_TAX_Tax_RefID
+	FROM
+		acc_bok_bookingaccount_2_tax
+	INNER JOIN acc_bok_bookingaccounts
+		 ON acc_bok_bookingaccounts.ACC_BOK_BookingAccountID = acc_bok_bookingaccount_2_tax.ACC_BOK_BookingAccount_RefID
+		AND acc_bok_bookingaccounts.FiscalYear_RefID = @FiscalYearID
+		AND acc_bok_bookingaccounts.Tenant_RefID = @TenantID
+		AND acc_bok_bookingaccounts.IsDeleted = 0
+	WHERE
+		acc_bok_bookingaccount_2_tax.Tenant_RefID = @TenantID
+		AND acc_bok_bookingaccount_2_tax.IsDefaultAccountForTaxBookings = @IsTaxAccount
+		AND acc_bok_bookingaccount_2_tax.IsDefaultAccountForRevenueBookings = @IsRevenueAccount
+		AND acc_bok_bookingaccount_2_tax.IsDeleted = 0
+		AND acc_bok_bookingaccount_2_tax.ACC_TAX_Tax_RefID = @TaxID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L3BA_GAfTaFY_1647">
+    <Members>
+		<ClassMember Name="FiscalYearID" Type="Guid"  />
+		<ClassMember Name="TaxID" Type="Guid" IsArray="true"  />
+		<ClassMember Name="IsTaxAccount" Type="Boolean"  />
+		<ClassMember Name="IsRevenueAccount" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3BA_GAfTaFY_1647" IsArray="true">
+			<Members>
+				<ClassMember Name="AssignmentID" Type="Guid"  />
+				<ClassMember Name="ACC_BOK_BookingAccount_RefID" Type="Guid"  />
+				<ClassMember Name="ACC_TAX_Tax_RefID" Type="Guid"  />
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

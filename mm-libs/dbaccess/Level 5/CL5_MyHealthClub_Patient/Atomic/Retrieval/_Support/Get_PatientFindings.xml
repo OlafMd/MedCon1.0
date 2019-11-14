@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/18/2014 4:50:28 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_PatientFindings</Name>
+    <Namespace>CL5_MyHealthClub_Patient.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Patient.Atomic.Retrieval"
+                Method_ClassName="cls_Get_PatientFindings"
+                Method_Name="Get_PatientFindings"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PatientFindings"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_patient_findings.HEC_Patient_FindingID As finding_id,
+  hec_patient_finding_documents.Document_RefID As file_url,
+  hec_patient_finding_documents.Comment As file_name,
+  hec_patient_findings.MedicalPractice_RefID As practice_id,
+  hec_patient_findings.UndersigningDoctor_RefID As doctor_id,
+  hec_patient_findings.Modification_Timestamp As modification_time,
+  hec_patient_findings.Creation_Timestamp As date,
+  hec_patient_findings.Patient_RefID,
+  hec_patient_findings.MedicalPracticeType_RefID As referal_id
+From
+  hec_patient_findings Left Join
+  hec_patient_finding_documents On hec_patient_findings.HEC_Patient_FindingID =
+    hec_patient_finding_documents.Patient_Finding_RefID And
+    hec_patient_finding_documents.IsDeleted = 0 And
+    hec_patient_finding_documents.Tenant_RefID = @TenantID
+Where
+  hec_patient_findings.Patient_RefID = @PatientID And
+  hec_patient_findings.Tenant_RefID = @TenantID And
+  hec_patient_findings.IsDeleted = 0
+  </SQLStatement>
+
+	<Parameters IsClass="true" Name="P_L5PA_GPF_1649">
+		<Members>
+			<ClassMember Name="PatientID" Type="Guid"  />
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PA_GPF_1649" IsArray="true" GroupBy="finding_id">
+			<Members>
+				<ClassMember Name="finding_id" Type="Guid"  />
+				<ClassMember Name="referal_id" Type="Guid"  />
+				<ClassMember Name="practice_id" Type="Guid"  />
+				<ClassMember Name="doctor_id" Type="Guid"  />
+				<ClassMember Name="modification_time" Type="DateTime"  />
+				<ClassMember Name="date" Type="DateTime"  />
+
+				<ClassMember IsClass="true" IsArray="true" Name="files" Type="L5PA_GPF_1649_Files" GroupBy="file_url" >
+					<Members>
+						<ClassMember Name="file_url" Type="Guid"  />
+						<ClassMember Name="file_name" Type="String"  />
+					</Members>
+				</ClassMember>
+				
+				
+				
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

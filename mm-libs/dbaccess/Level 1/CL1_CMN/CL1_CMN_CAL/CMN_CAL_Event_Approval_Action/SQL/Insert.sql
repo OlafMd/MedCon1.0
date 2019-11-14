@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_cal_event_approval_actions
+	(
+		CMN_CAL_Event_Approval_ActionID,
+		EventApproval_RefID,
+		ActionTriggeredBy_Account_RefID,
+		IsApproval,
+		IsRevocation,
+		IsDenial,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@CMN_CAL_Event_Approval_ActionID,
+		@EventApproval_RefID,
+		@ActionTriggeredBy_Account_RefID,
+		@IsApproval,
+		@IsRevocation,
+		@IsDenial,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

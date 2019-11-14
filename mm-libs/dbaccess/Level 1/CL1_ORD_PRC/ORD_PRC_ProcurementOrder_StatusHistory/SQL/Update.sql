@@ -1,0 +1,27 @@
+UPDATE 
+	ord_prc_procurementorder_statushistory
+SET 
+	ProcurementOrder_Header_RefID=@ProcurementOrder_Header_RefID,
+	ProcurementOrder_Status_RefID=@ProcurementOrder_Status_RefID,
+	TriggeredAt_Date=@TriggeredAt_Date,
+	TriggeredBy_BusinessParticipant_RefID=@TriggeredBy_BusinessParticipant_RefID,
+	StatusHistoryComment=@StatusHistoryComment,
+	IsStatus_Custom=@IsStatus_Custom,
+	IsStatus_Created=@IsStatus_Created,
+	IsStatus_Approved=@IsStatus_Approved,
+	IsStatus_Sent=@IsStatus_Sent,
+	IsStatus_AcceptedBySupplier=@IsStatus_AcceptedBySupplier,
+	IsStatus_Canceled=@IsStatus_Canceled,
+	IsStatus_RejectedBySupplier=@IsStatus_RejectedBySupplier,
+	IsStatus_ShipmentNotificationReceived=@IsStatus_ShipmentNotificationReceived,
+	IsStatus_PartiallyReceived=@IsStatus_PartiallyReceived,
+	IsStatus_Received=@IsStatus_Received,
+	IsStatus_ClearedForPayment=@IsStatus_ClearedForPayment,
+	IsStatus_PayedPartially=@IsStatus_PayedPartially,
+	IsStatus_Payed=@IsStatus_Payed,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	ORD_PRC_ProcurementOrder_StatusHistoryID = @ORD_PRC_ProcurementOrder_StatusHistoryID

@@ -1,0 +1,28 @@
+﻿<div class="popup-wrapper">
+    <div class="popup popup-medium warning-popup">
+        <div class="warning-msg"><h2 translate="LABLE_CANCEL_CASE_TITLE"></h2></div>
+
+
+        <div class="error-msg" ng-if="credentials_not_verified"><span class="error">{{ 'LABEL_CREDENTIALS_NOT_VERIFIED' | translate }}</span></div>
+        <form id="cancelCaseForm" class="popup-content" name="cancelCaseForm" ng-submit="verifyPasswordSettlement()" novalidate>
+            <h4 class="no-aside-margin">{{ 'LABEL_QUESTION_FOR_CANCELATION' | translate }}<span class="error" ng-show="cancelCaseForm.reasonForCancelation.$error.required">*</span></h4>
+            <input class="input-popup" id="reasonForCancelation" name="reasonForCancelation" type="text" ng-model="$parent.confirmation.reasonForCancelation" required />
+
+            <h4 class="no-aside-margin" translate="LABEL_PASSWORD_NEEDED"></h4>
+            <ul class="inline-fields clearfix">
+                <li class="doc-name">
+                    <label>{{'LABEL_DOCTOR_RESPONSIBLE' | translate }}</label>
+                    <dropdown-list id="selPasswordDoctor" name="selPasswordDoctor" items="$parent.doctors" ng-model="$parent.confirmation.doctor" params="{display_name: 'display_name', id: 'id', is_model_object: true}" required disable-input="disable_doctor_select"></dropdown-list>
+                </li>
+                <li class="password">
+                    <label>{{'LABEL_PASSWORD' | translate }}</label>
+                    <input type="password" ng-model="confirmation.password" id="inPassword" required />
+                </li>
+            </ul>
+            <div class="buttons text-right no-padding">
+                <button type="button" class="button wide reject" ng-click="cancelCaseCancel()" id="btnCancel" translate="BUTTON_CANCEL"></button>
+                <button type="submit" class="button wide confirm-smaller" id="btnConfirm" translate="BUTTON_CONFIRM_NORMALCASE" ng-disabled="cancelCaseForm.$invalid"></button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div ng-init="initializeController()">
+
+    <add-pharmacy-directive id="medicationDirective" ng-if="showPharmacyDirective"></add-pharmacy-directive>
+
+    <div class="gray-content-holder  clear" ng-hide="hidePharmacyButton">
+        <button id="btnPharmacyDir" class="wide-add-button" ng-click="openFormAddPharmacy()" translate="LABEL_ADD_PHARMACY" ng-model="showPharmacyDirective" ng-init="showPharmacyDirective=false"></button>
+    </div>
+
+    <ul class="table-header pharmacy-table-header">
+        <li class="unsorted" ng-class="setTableHeaderClass('name')" ng-click="SortFunction('name')">{{'LABEL_NAME'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('contactPersonName')" ng-click="SortFunction('contactPersonName')">{{'LABEL_CONTACT'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('email')" ng-click="SortFunction('email')">{{'LABEL_EMAIL_ADDRESS'| translate}}</li>
+        <li>{{'LABEL_PHONE_FAX'| translate}}</li>
+        <li>{{'LABEL_STREET'| translate}}</li>
+        <li></li>
+    </ul>
+    <h2 id="stickyHeaderBox" class="first-letter-holder hide"></h2>
+
+    <div class="content-scroll clear" id="wrapper" sticky>
+        <div id="wrapper_inner">
+            <div infinite-scroll="loadPharmacies()" infinite-scroll-distance="400" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="pharmacy in pharmacies" ng-repeat-finished>
+                    <add-pharmacy-directive ng-if="showEditPharmacyDirective && editPharmacyID === pharmacy.pharmacyID" from-edit="fromEdit"></add-pharmacy-directive>
+                    <div class="table-row" ng-if="editPharmacyID !== pharmacy.pharmacyID">
+                        <ul id="list" class="table-content oct-table-content" ng-class="getOctStatusClassName(item)">
+                            <li><big>{{::pharmacy.pharmacyName}}</big></li>
+                            <li>{{::pharmacy.contactPersonName}}</li>
+                            <li>{{::pharmacy.email}}</li>
+                            <li>{{::pharmacy.phoneNumber}}<div class="normal-height-font gray-font-color">{{::pharmacy.fax}}</div></li>
+                            <li>{{::pharmacy.street}} {{::pharmacy.streetNumber}}<div class="normal-height-font gray-font-color">{{::pharmacy.town}}</div></li>
+                            <li class="controls text-right">
+                                <a id="edit_{{$index}}" href class="icons-edit action-delete-button" ng-click="editPharmacy(pharmacy)" title="{{ 'BUTTON_EDIT' | translate }}">{{ 'BUTTON_EDIT' | translate }}</a>
+                                <a id="delete_{{$index}}" href class="icons-discard action-delete-button" ng-click="deletePharmacy(pharmacy)" title="{{ 'BUTTON_CANCEL' | translate }}">{{ 'BUTTON_CANCEL' | translate }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

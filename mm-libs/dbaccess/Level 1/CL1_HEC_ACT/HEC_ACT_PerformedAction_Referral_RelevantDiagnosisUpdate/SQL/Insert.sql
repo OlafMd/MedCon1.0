@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_act_performedaction_referral_relevantdiagnosisupdates
+	(
+		HEC_ACT_PerformedAction_Referral_RelevantDiagnosisUpdateID,
+		PerformedAction_Referral_RefID,
+		PerformedAction_DiagnosisUpdate_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_PerformedAction_Referral_RelevantDiagnosisUpdateID,
+		@PerformedAction_Referral_RefID,
+		@PerformedAction_DiagnosisUpdate_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

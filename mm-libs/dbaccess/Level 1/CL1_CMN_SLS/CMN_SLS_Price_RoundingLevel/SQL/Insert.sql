@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_sls_price_roundinglevels
+	(
+		CMN_SLS_Price_RoundingLevelID,
+		Rounding_RefID,
+		RoundingAmount,
+		SequenceNumber,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_SLS_Price_RoundingLevelID,
+		@Rounding_RefID,
+		@RoundingAmount,
+		@SequenceNumber,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

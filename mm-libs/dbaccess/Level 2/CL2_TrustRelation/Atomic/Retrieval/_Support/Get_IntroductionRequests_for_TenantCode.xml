@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/11/2012 9:19:08 AM">
+
+  <Meta>
+    <Name>Has_AccessRightToApplication</Name>
+    <Description>
+      
+    </Description>
+    <Namespace>CL2_ApplicationSubscription.Complex.Retrieval</Namespace>
+    <Tags></Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_TrustRelation.Atomic.Retrieval"
+                Method_ClassName="cls_Get_IntroductionRequests_for_TenantCode"
+                Method_Name="Get_IntroductionRequests_for_TenantCode"
+                ApplicationPlattform_WebServiceName="TrustRelationService"
+                ApplicationPlattform_Namespace="TrustRelationService.Get_IntroductionRequests_for_TenantCode"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L2TR_GIRfTC_1727">
+    <Members>
+      <ClassMember  Name="TenantCode" Type="string"/>
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L2TR_GIRfTC_1727" IsArray="true">
+      <Members>
+        <ClassMember  Name="IntroductionRequestITL" Type="string"/>
+        <ClassMember  Name="RequestTitle" Type="string"/>
+        <ClassMember  Name="Creation_Timestamp" Type="DateTime"/>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>
+
+

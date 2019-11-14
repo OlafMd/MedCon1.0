@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 2/10/2015 2:19:08 AM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_CMT_OPT_UploadedDiagnosis_UploadedReferral"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC_CMT_OPT"
+                IsClass_Corresponding_DBTable="hec_cmt_opt_uploadeddiagnosis_uploadedreferrals" >
+      <Members>
+		<ClassMember Name="HEC_CMT_OPT_UploadedDiagnosis_UploadedReferralID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="UploadedDiagnosis_RefID" Type="Guid" />
+		<ClassMember Name="Uploaded_Practice_BusinessParticipantITL" Type="String" />
+		<ClassMember Name="Uploaded_Practice_Name" Type="String" />
+		<ClassMember Name="Upladed_PracticeType_GlobalPropertyMatchingID" Type="String" />
+		<ClassMember Name="Uploaded_PracticeType_Name" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+		<ClassMember Name="Modification_Timestamp" Type="DateTime" />
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

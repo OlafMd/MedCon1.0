@@ -1,0 +1,27 @@
+INSERT INTO 
+	imo_questionnaire_actions
+	(
+		IMO_Questionnaire_ActionID,
+		Unit_RefID,
+		Unit_Cost,
+		Unit_Amount,
+		Label_DictID,
+		Description_DictID,
+		CopyOf_PreviouslyPublishedVersion_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@IMO_Questionnaire_ActionID,
+		@Unit_RefID,
+		@Unit_Cost,
+		@Unit_Amount,
+		@Label,
+		@Description,
+		@CopyOf_PreviouslyPublishedVersion_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

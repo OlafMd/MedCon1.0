@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_pro_project_2_projectgroup
+	(
+		AssignmentID,
+		TMS_PRO_Project_Group_RefID,
+		TMS_PRO_Project_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@TMS_PRO_Project_Group_RefID,
+		@TMS_PRO_Project_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

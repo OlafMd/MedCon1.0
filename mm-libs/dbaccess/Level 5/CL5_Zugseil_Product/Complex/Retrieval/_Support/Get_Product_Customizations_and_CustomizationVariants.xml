@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/29/2015 10:27:13">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Product_Customizations_and_CustomizationVariants</Name>
+    <Namespace>CL5_Zugseil_Product.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_Product.Complex.Retrieval"
+                Method_ClassName="cls_Get_Product_Customizations_and_CustomizationVariants"
+                Method_Name="Get_Product_Customizations_and_CustomizationVariants"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Product_Customizations_and_CustomizationVariants"/>
+
+  <Parameters IsClass="true" Name="P_L5PR_GPCaCV_1310">
+    <Members>
+      <ClassMember Name="ProductId" Type="Guid"/>
+      <ClassMember Name="ProductVariantId" Type="Guid?"/>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5PR_GPCaCV_1310" IsArray="false">
+      <Members>
+        <ClassMember Name="Customizations" Type="ORM_CMN_PRO_CUS_Customization" IsArray="true" IsReference="true"/>
+        <ClassMember Name="CustomizationVariants" Type="ORM_CMN_PRO_CUS_Customization_Variant" IsArray="true" IsReference="true"/>
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

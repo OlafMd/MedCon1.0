@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_tre_potentialprocedure_localizations
+	(
+		HEC_TRE_PotentialProcedure_LocalizationID,
+		GlobalPropertyMatchingID,
+		Localization_Name_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_TRE_PotentialProcedure_LocalizationID,
+		@GlobalPropertyMatchingID,
+		@Localization_Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

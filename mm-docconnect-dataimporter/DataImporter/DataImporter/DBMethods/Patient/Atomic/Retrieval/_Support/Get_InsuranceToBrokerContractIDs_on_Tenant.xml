@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/12/2015 11:31:07 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_InsuranceToBrokerContractIDs_on_Tenant</Name>
+    <Namespace>DataImporter.DBMethods.Patient.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="DataImporter.DBMethods.Patient.Atomic.Retrieval"
+                Method_ClassName="cls_Get_InsuranceToBrokerContractIDs_on_Tenant"
+                Method_Name="Get_InsuranceToBrokerContractIDs_on_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_InsuranceToBrokerContractIDs_on_Tenant"
+                />
+
+  <SQLStatement xml:space="preserve">
+    Select
+      hec_crt_insurancetobrokercontracts.HEC_CRT_InsuranceToBrokerContractID As InsuranceToBrokerContractID,
+      hec_patient_healthinsurances.Patient_RefID As PatientID
+    From
+      hec_patient_healthinsurances
+      Inner Join hec_his_healthinsurance_companies
+        On hec_patient_healthinsurances.HIS_HealthInsurance_Company_RefID = hec_his_healthinsurance_companies.HEC_HealthInsurance_CompanyID And
+        hec_his_healthinsurance_companies.IsDeleted = 0 And
+        hec_his_healthinsurance_companies.Tenant_RefID = @TenantID 
+      Inner Join cmn_ctr_contract_parties
+        On hec_his_healthinsurance_companies.CMN_BPT_BusinessParticipant_RefID = cmn_ctr_contract_parties.Undersigning_BusinessParticipant_RefID And
+        cmn_ctr_contract_parties.IsDeleted = 0 And
+        cmn_ctr_contract_parties.Tenant_RefID = @TenantID 
+      Inner Join hec_crt_insurancetobrokercontracts
+        On cmn_ctr_contract_parties.Contract_RefID = hec_crt_insurancetobrokercontracts.Ext_CMN_CTR_Contract_RefID And
+        hec_crt_insurancetobrokercontracts.IsDeleted = 0 And
+        hec_crt_insurancetobrokercontracts.Tenant_RefID = @TenantID
+    Where
+      hec_patient_healthinsurances.Tenant_RefID = @TenantID And
+      hec_patient_healthinsurances.IsDeleted = 0 And
+       hec_patient_healthinsurances.Patient_RefID = @PatientIDs
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_PA_GITBCIDsoT_1238">
+    <Members>
+      <ClassMember Name="PatientIDs" Type="Guid" IsArray="true"  />
+
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="PA_GITBCIDsoT_1238" IsArray="true">
+      <Members>
+        <ClassMember Name="InsuranceToBrokerContractID" Type="Guid"  />
+        <ClassMember Name="PatientID" Type="Guid"  />
+        
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

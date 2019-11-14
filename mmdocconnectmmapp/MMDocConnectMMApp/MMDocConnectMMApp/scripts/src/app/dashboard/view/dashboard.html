@@ -1,0 +1,121 @@
+﻿<div class="gray-content-holder no-padding  clear" ng-init="initializeController()">
+    <div class="content-scroll clear" id="wrapper">
+
+        <div>Test test49</div>
+        <div class="boxes-content clearfix">
+            <div id="Settlement">
+                <h2>{{ 'LABEL_SETTLEMENT' | translate }} <span class="dashboard-notification" ng-class="{'dashboard-notification-hide': !settlementUpdated && pageLoaded, 'hide': !pageLoaded }">!</span></h2>
+                <div class="boxes-wrapper">
+                    <div class="labels">
+                        <label>{{'LABEL_VOLUME'| translate}}<span style="font-weight:bold">: {{ tileInfo.settlementTile.ammountOfMoney }}</span></label>
+                        <label>{{'LABEL_CASES' |translate}}<span style="font-weight:bold">: {{ tileInfo.settlementTile.numberOfCases}}</span></label>
+                        <label>{{'LABEL_OLDEST_CASE'|translate}}<span style="font-weight:bold">: {{ tileInfo.settlementTile.dateOfOldest }}</span></label>
+                    </div>
+                    <button class="button btn-forward" id="btnSettlement" ng-click="settlementCase()" ng-disable="NoCaseForSettlement" translate="BUTTON_SUBMIT_SETLLEMENT_TO_HIP"></button>
+                </div>
+            </div>
+            <div id="PositiveResponse">
+                <h2>{{ 'LABEL_RESPONSE' | translate }} <span class="dashboard-notification" ng-class="{'dashboard-notification-hide': !responseUpdated && pageLoaded, 'hide': !pageLoaded }">!</span></h2>
+                <div class="boxes-wrapper">
+                    <div class="labels">
+                        <label>{{'LABEL_VOLUME'| translate}}<span style="font-weight:bold">: {{ tileInfo.responseTile.ammountOfMoney }}</span></label>
+                        <label>{{'LABEL_CASES' |translate}}<span style="font-weight:bold">: {{ tileInfo.responseTile.numberOfCases }}</span></label>
+                        <label>{{'LABEL_OLDEST_CASE'|translate}}<span style="font-weight:bold">: {{ tileInfo.responseTile.dateOfOldest }}</span></label>
+                    </div>
+                    <div id="btnPositiveResponse" class="button btn-download" ngf-select ng-model="filesPositiveResponse" ngf-multiple="multiple" upload-id="'filesPositiveResponse'">{{'BUTTON_IMPORT_HIP_RESPONSE'|translate}}</div>
+                </div>
+            </div>
+            <div id="Payment">
+                <h2>{{ 'LABEL_PAYMENT' | translate }} <span class="dashboard-notification" ng-class="{'dashboard-notification-hide': !paymentUpdated && pageLoaded, 'hide': !pageLoaded }">!</span></h2>
+                <div class="boxes-wrapper">
+                    <div class="labels">
+                        <label>{{'LABEL_VOLUME'| translate}}<span style="font-weight:bold">: {{ tileInfo.paymentTile.ammountOfMoney }}</span></label>
+                        <label>{{'LABEL_CASES' |translate}}<span style="font-weight:bold">: {{ tileInfo.paymentTile.numberOfCases }}</span></label>
+                        <label>{{'LABEL_OLDEST_CASE'|translate}}<span style="font-weight:bold">: {{ tileInfo.paymentTile.dateOfOldest }}</span></label>
+                    </div>
+                    <div class="button btn-forward2" id="btnPayment" ng-click="ChangeCasesPayment()" translate="BUTTON_SEND_PAYMENT_FILE_TO_CONTROLLING"></div>
+                </div>
+            </div>
+            <div id="ErrorCorrections">
+                <h2>{{ 'LABEL_ERROR_CORRECTIONS' | translate }} <span class="dashboard-notification" ng-class="{'dashboard-notification-hide': !errorCorrectionsUpdated && pageLoaded, 'hide': !pageLoaded }">!</span></h2>
+                <div class="boxes-wrapper">
+                    <div class="labels">
+                        <label>{{'LABEL_VOLUME'|translate}}<span style="font-weight:bold">: {{ tileInfo.errorCorrectionsTile.ammountOfMoney }}</span></label>
+                        <label>{{'LABEL_CASES'|translate}}<span style="font-weight:bold">: {{ tileInfo.errorCorrectionsTile.numberOfCases }}</span></label>
+                        <label>{{'LABEL_OLDEST_CASE'|translate}}<span style="font-weight:bold">: {{ tileInfo.errorCorrectionsTile.dateOfOldest }}</span></label>
+                    </div>
+                    <a class="button btn-preview" id="btnErrorCorrections" ng-class="setMenuItemClass('treatment')" ng-click="getClickMenuItem('treatment')" href=" #/treatment?status=fs5" translate="BUTTON_SHOW_ALL_ERRONEOUS_CASES"></a>
+                </div>
+            </div>
+            <div id="CasesOnHold">
+                <h2>{{ 'LABEL_CASES_ON_HOLD' | translate }} <span class="dashboard-notification" ng-class="{'dashboard-notification-hide': !casesOnHoldUpdated && pageLoaded, 'hide': !pageLoaded }">!</span></h2>
+                <div class="boxes-wrapper">
+                    <div class="labels">
+                        <label>{{'LABEL_VOLUME'|translate}}<span style="font-weight:bold">: {{ tileInfo.casesOnHoldTile.ammountOfMoney }}</span></label>
+                        <label>{{'LABEL_CASES'|translate}}<span style="font-weight:bold">: {{ tileInfo.casesOnHoldTile.numberOfCases }}</span></label>
+                        <label>{{'LABEL_OLDEST_CASE'|translate}}<span style="font-weight:bold">: {{ tileInfo.casesOnHoldTile.dateOfOldest }}</span></label>
+                    </div>
+                    <a class="button btn-preview" id="btnCasesOnHold" ng-click="GetCasesOnHold()" href="#/treatment?status=fs3" translate="BUTTON_SHOW_ALL_ON_HOLD_CASES"></a>
+                </div>
+            </div>
+            <div id="AcceptOrdersOverview">
+                <h2>{{ 'LABEL_DRUG_ORDER' | translate }} <span class="dashboard-notification" ng-class="{'dashboard-notification-hide': !ordersUpdated && pageLoaded, 'hide': !pageLoaded }">!</span></h2>
+                <div class="boxes-wrapper">
+                    <div class="labels">
+                        <label>{{'LABEL_CASES'| translate}}<span style="font-weight:bold">: {{ tileInfo.drugOrdersTile.numberOfCases }}</span></label>
+                        <label>{{'LABEL_OLDEST_CASE'| translate}}<span style="font-weight:bold">: {{ tileInfo.drugOrdersTile.dateOfOldest }}</span></label>
+                    </div>
+                    <button class="button btn-accept" id="btnAcceptOrdersOverview" ng-click="AcceptOrders()" ng-disable="NoOrdersForExport" translate="BUTTON_EXPORT_ALL_ORDERS"></button>
+                </div>
+            </div>
+            <div id="shipDrugOrders">
+                <h2 translate="LABEL_DRUG_ORDERS_SHIPPED"></h2>
+                <div class="boxes-wrapper">
+                    <div class="labels">
+                    </div>
+                    <div id="btnAcceptOrdersOverview" class="button btn-deliver" ngf-select ng-model="filesShipOrders" upload-id="'filesShipOrders'">{{'BUTTON_IMPORT_ORDERS' | translate}}</div>
+                </div>
+            </div>
+            <div id="AllCasesReport">
+                <h2>{{ 'LABEL_COMPLETE_REPORT_AOK' | translate }} <span class="dashboard-notification" ng-class="{'dashboard-notification-hide': !completeReportUpdated && pageLoaded, 'hide': !pageLoaded }">!</span></h2>
+                <div class="boxes-wrapper">
+                    <div class="labels">
+                        <label>{{'LABEL_AC_CASE_NUMBER'| translate}}<span style="font-weight:bold">: {{ tileInfo.completeReportTile.numberOfCases }}</span></label>
+                    </div>
+                    <div id="btnCreateAndDownloadReport" class="button btn-download" ng-click="GenerateDownloadAndDownloadItAok()" ng-model="filesShipOrders">{{'BUTTON_GENERATE_REPORT' | translate}}</div>
+                </div>
+            </div>
+
+            <div id="AllCasesReportNONAOK">
+                <h2>{{ 'LABEL_COMPLETE_REPORT_NONAOK' | translate }} <span class="dashboard-notification" ng-class="{'dashboard-notification-hide': !completeReportUpdated && pageLoaded, 'hide': !pageLoaded }">!</span></h2>
+                <div class="boxes-wrapper">
+                    <div class="labels">
+                        <label>{{'LABEL_AC_CASE_NUMBER'| translate}}<span style="font-weight:bold">: {{ tileInfo.completeReportTile.numberOfCases }}</span></label>
+                    </div>
+                    <div id="btnCreateAndDownloadReportNonAok" class="button btn-download" ng-click="GenerateDownloadAndDownloadItNonAok()" ng-model="filesShipOrders">{{'BUTTON_GENERATE_REPORT' | translate}}</div>
+                </div>
+            </div>
+
+            <div id="AllOrdersReport">
+                <h2>{{ 'LABEL_COMPLETE_ORDERS_REPORT' | translate }} <span class="dashboard-notification" ng-class="{'dashboard-notification-hide': !ordersUpdated && pageLoaded, 'hide': !pageLoaded }">!</span></h2>
+                <div class="boxes-wrapper">
+                    <div class="labels">
+                        <label>{{'LABEL_CASES'| translate}}<span style="font-weight:bold">: {{ tileInfo.completeOrdersReportTile.numberOfCases }}</span></label>
+                    </div>
+                    <button class="button btn-download" id="btnCreateCompleteOrdersReport" ng-click="createCompleteOrdersReport()" ng-disable="NoOrdersForCompleteReport" translate="BUTTON_CREATE_COMPLETE_ORDERS_REPORT"></button>
+                </div>
+
+            </div>
+            <div id="TemporaryAftercareDoctors">
+                <h2>{{ 'LABEL_REVIEW_TEMPORARY_DOCTORS' | translate }} <span class="dashboard-notification" ng-class="{'dashboard-notification-hide': !temporaryDoctorsUpdated && pageLoaded, 'hide': !pageLoaded }">!</span></h2>
+                <div class="boxes-wrapper">
+                    <div class="labels">
+                        <label>{{'LABEL_AMMOUNT' | translate}}<span style="font-weight:bold">: {{ tileInfo.temporaryDoctorsTile.numberOfCases }}</span></label>
+                        <label>{{'LABEL_OLDEST_CHANGE' | translate}}<span style="font-weight:bold">: {{ tileInfo.temporaryDoctorsTile.dateOfOldest }}</span></label>
+                    </div>
+                    <a class="button btn-preview" id="btnViewNewACDocs" href="#/doctor?status=temp">{{'BUTTON_SHOW_NEW_DOCTORS' | translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

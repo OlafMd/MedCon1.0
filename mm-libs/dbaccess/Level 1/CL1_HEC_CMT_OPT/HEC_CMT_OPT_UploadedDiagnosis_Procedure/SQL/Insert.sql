@@ -1,0 +1,27 @@
+INSERT INTO 
+	hec_cmt_opt_uploadeddiagnosis_procedures
+	(
+		HEC_CMT_OPT_UploadedDiagnosis_ProcedureID,
+		UploadedDiagnosis_RefID,
+		Uploaded_PotentialProcedureITL,
+		Uploaded_PotentialProcedureCatalogITL,
+		PotentialProcedure_DisplayName,
+		PotentialProcedureCatalog_DisplayName,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CMT_OPT_UploadedDiagnosis_ProcedureID,
+		@UploadedDiagnosis_RefID,
+		@Uploaded_PotentialProcedureITL,
+		@Uploaded_PotentialProcedureCatalogITL,
+		@PotentialProcedure_DisplayName,
+		@PotentialProcedureCatalog_DisplayName,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

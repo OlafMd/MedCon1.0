@@ -1,0 +1,1 @@
+﻿ALTER TABLE `$$TABLENAME$$` ADD COLUMN `Creation_Timestamp` DATETIME 

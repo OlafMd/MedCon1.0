@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/24/2013 11:38:25 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_VacationPlanner_Employees.Complex.Retrieval"
+                Method_ClassName="cls_Get_Employees_And_LeaveRequestData_For_IDList"
+                Method_Name="Get_Employees_And_LeaveRequestData_For_IDList"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Employees_And_LeaveRequestData_For_IDList"
+                />
+
+  <Parameters IsClass="true" Name="P_L5EM_GEALRDFIDL_1138">
+    <Members>
+      <ClassMember Name="EmployeeIDList" IsArray="true" Type="Guid"  />
+      <ClassMember Name="CalculationTimeFrameID" IsArray="false" Type="Guid" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+      Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+      Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5EM_GEALRDFIDL_1138" IsArray="true">
+      <Members>
+        <ClassMember Name="FirstName" Type="String"  />
+        <ClassMember Name="LastName" Type="String"  />
+        <ClassMember Name="CMN_BPT_BusinessParticipantID" Type="Guid"  />
+        <ClassMember Name="CMN_BPT_EMP_EmployeeID" Type="Guid"  />
+        <ClassMember Name="CMN_BPT_EMP_EmploymentRelationshipID" Type="Guid"  />
+        <ClassMember Name="Work_StartDate" Type="DateTime"  />
+        <ClassMember Name="Work_EndDate" Type="DateTime"  />
+        <ClassMember Name="CMN_BPT_EMP_WorkingContractID" Type="Guid"  />
+        <ClassMember Name="IsContractEndDateDefined" Type="bool"  />
+        <ClassMember Name="IsWorkTimeCalculated_InHours" Type="bool"  />
+        <ClassMember Name="IsWorkTimeCalculated_InDays" Type="bool"  />
+        <ClassMember Name="Contract_StartDate" Type="DateTime"  />
+        <ClassMember Name="Contract_EndDate" Type="DateTime"  />
+        <ClassMember Name="R_WorkTime_HoursPerWeek" Type="double"  />
+        <ClassMember Name="R_WorkTime_DaysPerWeek" Type="double"  />
+
+        <ClassMember IsClass="true" IsArray="true" Name="WeeklyOfficeHours" Type="L5EM_GEALRDFIDL_1138_WeeklyOfficeHour">
+          <Members>
+            <ClassMember Name="CMN_CAL_WeeklyOfficeHours_IntervalID" Type="Guid" />
+            <ClassMember Name="IsWholeDay" Type="bool"/>
+            <ClassMember Name="TimeFrom_InMinutes" Type="long"/>
+            <ClassMember Name="TimeTo_InMinutes" Type="long"/>
+            <ClassMember Name="IsMonday" Type="bool"/>
+            <ClassMember Name="IsTuesday" Type="bool"/>
+            <ClassMember Name="IsWednesday" Type="bool"/>
+            <ClassMember Name="IsThursday" Type="bool"/>
+            <ClassMember Name="IsFriday" Type="bool"/>
+            <ClassMember Name="IsSaturday" Type="bool"/>
+            <ClassMember Name="IsSunday" Type="bool"/>
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="WorkingContract2LeaveRequest" Type="L5EM_GEALRDFIDL_1138_WorkingContract2LeaveRequest">
+          <Members>
+            <ClassMember Name="CMN_BPT_EMP_Employee_WorkingContract_AllowedAbsenceReasonID" Type="Guid"  />
+            <ClassMember Name="IsAbsenceCalculated_InHours" Type="bool"  />
+            <ClassMember Name="IsAbsenceCalculated_InDays" Type="bool"  />
+            <ClassMember Name="ContractAllowedAbsence_per_Month" Type="double"  />
+            <ClassMember Name="AbsenceReasonName" Type="Dict" OriginTable="cmn_bpt_sta_absencereasons" Source_DBField="AbsenceReasonName"  />
+            <ClassMember Name="CMN_BPT_STA_AbsenceReasonID" Type="Guid"  />
+            <ClassMember Name="AbsenceReason_ParentID" Type="Guid"  />
+            <ClassMember Name="IsAuthorizationRequired" Type="bool"  />
+            <ClassMember Name="IsIncludedInCapacityCalculation" Type="bool"  />
+            <ClassMember Name="IsAllowedAbsence" Type="bool"  />
+            <ClassMember Name="IsDeactivated" Type="bool"  />
+            <ClassMember Name="IsCarryOverEnabled" Type="bool"  />
+            
+            <ClassMember IsClass="true" IsArray="true" Name="Adjustments" Type="L5EM_GEALRDFIDL_1138_adjustments">
+              <Members>
+                <ClassMember Name="CMN_BPT_EMP_ContractAbsenceAdjustmentID" Type="Guid"  />
+                <ClassMember Name="AbsenceTime_InMinutes" Type="int"  />
+                <ClassMember Name="AdjustmentComment" Type="String"  />
+                <ClassMember Name="ContractAbsenceAdjustment_Group_RefID" Type="Guid"  />
+                <ClassMember Name="IsManual" Type="bool"  />
+                <ClassMember Name="TriggeringAccount_RefID" Type="Guid"  />
+                <ClassMember Name="AdjustmentDate" Type="DateTime"  />
+                
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

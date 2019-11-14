@@ -1,0 +1,11 @@
+UPDATE 
+	hec_act_performedaction_patientparameters
+SET 
+	HEC_ACT_PerformedAction_RefID=@HEC_ACT_PerformedAction_RefID,
+	HEC_Patient_ParameterValue_RefID=@HEC_Patient_ParameterValue_RefID,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_ACT_PerformedAction_PatientParameterID = @HEC_ACT_PerformedAction_PatientParameterID

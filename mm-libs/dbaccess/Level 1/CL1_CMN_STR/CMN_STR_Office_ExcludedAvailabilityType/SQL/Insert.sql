@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_str_office_excludedavailabilitytypes
+	(
+		CMN_STR_Office_ExcludedAvailabilityTypeID,
+		Office_RefID,
+		Excluded_Availability_Type_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_STR_Office_ExcludedAvailabilityTypeID,
+		@Office_RefID,
+		@Excluded_Availability_Type_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

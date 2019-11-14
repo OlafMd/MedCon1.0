@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 6/18/2013 4:16:54 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="CMN_Account_ApplicationSubscription"
+                IsClass="true"
+                IsClass_Namespace="CL1_CMN"
+                IsClass_Corresponding_DBTable="cmn_account_applicationsubscriptions" >
+      <Members>
+		<ClassMember Name="CMN_Account_ApplicationSubscriptionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="ExternalSubscriptionID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="Application_RefID" Type="Guid" />
+		<ClassMember Name="Account_RefID" Type="Guid" />
+		<ClassMember Name="UpdatedOn" Type="DateTime" />
+		<ClassMember Name="IsDisabled" Type="Boolean" />
+		<ClassMember Name="IfDisabled_Reason" Type="String" />
+		<ClassMember Name="Configuration" Type="String" />
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

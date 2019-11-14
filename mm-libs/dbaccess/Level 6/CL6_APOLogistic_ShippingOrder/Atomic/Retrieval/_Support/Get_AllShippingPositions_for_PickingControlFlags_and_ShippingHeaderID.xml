@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3/11/2014 12:04:37 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_AllShippingPositions_for_PickingControlFlags_and_ShippingHeaderID</Name>
+    <Namespace>CL6_APOLogistic_ShippingOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_APOLogistic_ShippingOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_AllShippingPositions_for_PickingControlFlags_and_ShippingHeaderID"
+                Method_Name="Get_AllShippingPositions_for_PickingControlFlags_and_ShippingHeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_AllShippingPositions_for_PickingControlFlags_and_ShippingHeaderID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_pro_products.Product_Number,
+  cmn_pro_products.Product_Name_DictID,
+  cmn_pro_products.Product_Description_DictID,
+  cmn_units.ISOCode,
+  cmn_pro_pac_packageinfo.PackageContent_Amount,
+  hec_product_dosageforms.GlobalPropertyMatchingID,
+  hec_product_dosageforms.DosageForm_Name_DictID,
+  log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID,
+  log_shp_shipment_positions.LOG_SHP_Shipment_PositionID,
+  log_shp_shipment_positions.QuantityToShip,
+  cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID,
+  cmn_bpt_businessparticipants.DisplayName As ProducerName,
+  ord_cuo_customerorder_position_2_shipmentposition.IsDeleted,
+  cmn_bpt_ctm_organizationalunits.CMN_BPT_CTM_OrganizationalUnitID,
+  cmn_bpt_ctm_organizationalunits.OrganizationalUnit_SimpleName,
+  cmn_bpt_ctm_organizationalunits.OrganizationalUnit_Name_DictID
+From
+  log_shp_shipment_headers Inner Join
+  log_shp_shipment_positions
+    On log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID =
+    log_shp_shipment_positions.LOG_SHP_Shipment_Header_RefID And
+    log_shp_shipment_positions.IsDeleted = 0 Inner Join
+  cmn_pro_products On log_shp_shipment_positions.CMN_PRO_Product_RefID =
+    cmn_pro_products.CMN_PRO_ProductID Inner Join
+  cmn_pro_pac_packageinfo On cmn_pro_products.PackageInfo_RefID =
+    cmn_pro_pac_packageinfo.CMN_PRO_PAC_PackageInfoID Inner Join
+  cmn_units On cmn_pro_pac_packageinfo.PackageContent_MeasuredInUnit_RefID =
+    cmn_units.CMN_UnitID Inner Join
+  hec_products On cmn_pro_products.CMN_PRO_ProductID =
+    hec_products.Ext_PRO_Product_RefID Inner Join
+  hec_product_dosageforms On hec_products.ProductDosageForm_RefID =
+    hec_product_dosageforms.HEC_Product_DosageFormID Inner Join
+  cmn_bpt_businessparticipants
+    On cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID =
+    cmn_pro_products.ProducingBusinessParticipant_RefID Inner Join
+  ord_cuo_customerorder_position_2_shipmentposition
+    On log_shp_shipment_positions.LOG_SHP_Shipment_PositionID =
+    ord_cuo_customerorder_position_2_shipmentposition.LOG_SHP_Shipment_Position_RefID Inner Join
+  cmn_bpt_ctm_organizationalunits
+    On cmn_bpt_ctm_organizationalunits.CMN_BPT_CTM_OrganizationalUnitID =
+    ord_cuo_customerorder_position_2_shipmentposition.CMN_BPT_CTM_OrganizationalUnit_RefID
+Where
+  log_shp_shipment_headers.LOG_SHP_Shipment_HeaderID = @ShippmentHeaderID And
+  ord_cuo_customerorder_position_2_shipmentposition.IsDeleted = 0 And
+  log_shp_shipment_headers.Tenant_RefID = @TenantID And
+  log_shp_shipment_headers.IsDeleted = 0 And
+  log_shp_shipment_headers.HasPickingStarted = 1 And
+  log_shp_shipment_headers.HasPickingFinished = 0
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L6SO_GASPfPCFaSH_1202">
+    <Members>
+		<ClassMember Name="ShippmentHeaderID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6SO_GASPfPCFaSH_1202" IsArray="true">
+		<Members>
+            <ClassMember Name="Product_Number" Type="String"  />
+            <ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+            <ClassMember Name="Product_Description" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Description_DictID"  />
+            <ClassMember Name="ISOCode" Type="String"  />
+            <ClassMember Name="PackageContent_Amount" Type="String"  />
+            <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+            <ClassMember Name="DosageForm_Name" Type="Dict" OriginTable="hec_product_dosageforms" Source_DBField="DosageForm_Name_DictID"  />
+            <ClassMember Name="LOG_SHP_Shipment_HeaderID" Type="Guid"  />
+            <ClassMember Name="LOG_SHP_Shipment_PositionID" Type="Guid"  />
+            <ClassMember Name="QuantityToShip" Type="Double"  />
+            <ClassMember Name="ProducerName" Type="String" />
+            <ClassMember Name="CMN_BPT_CTM_OrganizationalUnitID" Type="Guid" />
+            <ClassMember Name="OrganizationalUnit_SimpleName" Type="String" />
+            <ClassMember Name="OrganizationalUnit_Name" Type="Dict" OrignTable="cmn_bpt_ctm_organizationalunits" Source_DBField="OrganizationalUnit_Name_DictID" />
+        </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

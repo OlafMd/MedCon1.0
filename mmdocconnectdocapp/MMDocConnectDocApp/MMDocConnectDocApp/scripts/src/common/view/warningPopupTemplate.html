@@ -1,0 +1,12 @@
+﻿<div class="popup-wrapper">
+    <div class="popup popup-medium">
+        <div class="bck-warning"><h2 translate={{warning_header}}></h2></div>
+        <div ng-repeat="item in warning_messages">
+            <h4 class="warning_message_class" translate={{item.messaga}} translate-values="{ first_name: item.first_name, last_name:item.last_name }"></h4>
+        </div>
+        <div class="buttons text-right">
+            <button class="button wide reject jsblockClose" ng-click="closeThisDialog()" id="no_button" translate={{no_button}}></button>
+            <button class="button wide confirm-smaller jsblockClose" ng-click="yes_warning_function()" id="yes_button" translate={{yes_button}}></button>
+        </div>
+    </div>
+</div>

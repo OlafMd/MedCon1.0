@@ -1,0 +1,137 @@
+﻿<div ng-init="initializeController()">
+    <div class="gray-content-holder">
+        <div name="messageContainer" class="error-msg-container" ng-if="divContainer">
+            <span class="error" ng-if="validation.participationConsentInvalid">{{ 'LABEL_PARTICIPATION_CONSENT_INVALID' | translate }} </span>
+            <span class="error" ng-if="validation.daysBetweenSurgeryAndAfterccareInvalid">{{ 'LABEL_DAYS_BETWEEN_SURGERY_AND_AFTERCARE_INVALID' | translate }} </span>
+            <span class="error" ng-if="validation.daysBetweenSurgeryAndSettlementInvalid">{{ 'LABEL_DAYS_BETWEEN_SURGERY_AND_SETTLEMENT_INVALID' | translate }} </span>
+            <span class="error" ng-if="validation.daysBetweenSubmissionAndReplyInvalid">{{ 'LABEL_DAYS_BETWEEN_SUBMISSION_AND_REPLY_INVALID' | translate }} </span>
+            <span class="error" ng-if="validation.daysBetweenResponseAndPaymentInvalid">{{ 'LABEL_DAYS_BETWEEN_RESPONSE_AND_PAYMENT_INVALID' | translate }} </span>
+            <span class="error" ng-if="validation.daysBetweenResponseAndRejectionInvalid">{{ 'LABEL_DAYS_BETWEEN_RESPONSE_AND_REJECTION_INVALID' | translate }} </span>
+            <span class="error" ng-if="validation.preexaminationValueInvalid">{{ 'LABEL_PREEXAMINATION_MAX_VALUE_INVALID' | translate }} </span>
+            <span class="error" ng-if="validation.preexaminationDaysInvalid">{{ 'LABEL_PREEXAMINATION_DAYS_VALUE_INVALID' | translate }} </span>
+            <span class="error" ng-if="validation.octMaxDaysBeforeOpInvalid">{{ 'LABEL_OCT_MAX_DAYS_BEFORE_OP_INVALID' | translate }} </span>
+        </div>
+
+        <h3>{{ 'LABEL_ADD_CHANGE_DUE_DATES' | translate }}</h3>
+
+        <ul class="due-dates-list">
+            <li>
+                <span class="mask-checkbox">
+                    <input id="cbConsentDuration" name="cbConsentDuration" type="checkbox"
+                           ng-model="due_dates.participation_consent_duration.active" ng-change="updateField('consent')" />
+                    <i class="icon"></i>
+                </span>
+                <label for="cbConsentDuration">{{ 'LABEL_PARTICIPATION_CONSENT_DURATION' | translate }}</label>
+                <input type="text" ng-model="due_dates.participation_consent_duration.value" ng-disabled="!due_dates.participation_consent_duration.active" ng-class="{'redborder': validation.participationConsentInvalid }" />
+                <label>{{ 'LABEL_MONTHS' | translate }}</label>
+            </li>
+            <li>
+                <span class="mask-checkbox">
+                    <input id="cbSurgeryAftercare" name="cbSurgeryAftercare" type="checkbox"
+                           ng-model="due_dates.number_of_days_between_surgery_and_aftercare.active" ng-change="updateField('surgeryAftercare')" />
+                    <i class="icon"></i>
+                </span>
+                <label for="cbSurgeryAftercare">{{ 'LABEL_DAYS_BETWEEN_SURGERY_AND_AFTERCARE' | translate }}</label>
+                <input type="text" ng-model="due_dates.number_of_days_between_surgery_and_aftercare.value" ng-disabled="!due_dates.number_of_days_between_surgery_and_aftercare.active"
+                       ng-class="{'redborder': validation.daysBetweenSurgeryAndAfterccareInvalid }" />
+                <label>{{ 'LABEL_DAYS' | translate }}</label>
+            </li>
+            <li>
+                <span class="mask-checkbox">
+                    <input id="cbSurgerySettlement" name="cbSurgerySettlement" type="checkbox"
+                           ng-model="due_dates.number_of_days_between_surgery_and_settlement_claim.active" ng-change="updateField('surgerySettlement')" />
+                    <i class="icon"></i>
+                </span>
+                <label for="cbSurgerySettlement">{{ 'LABEL_NUMBER_OF_DAYS_BETWEEN_SURGERY_AND_SETTLEMENT_CLAIM' | translate }}</label>
+                <input type="text" ng-model="due_dates.number_of_days_between_surgery_and_settlement_claim.value" ng-disabled="!due_dates.number_of_days_between_surgery_and_settlement_claim.active"
+                       ng-class="{'redborder': validation.daysBetweenSurgeryAndSettlementInvalid }" />
+                <label>{{ 'LABEL_DAYS' | translate }}</label>
+            </li>
+            <li>
+                <span class="mask-checkbox">
+                    <input id="chSubmissionReply" name="chSubmissionReply" type="checkbox"
+                           ng-model="due_dates.number_of_days_between_submission_to_hip_and_reply.active" ng-change="updateField('submissionReply')" />
+                    <i class="icon"></i>
+                </span>
+                <label for="chSubmissionReply">{{ 'LABEL_NUMBER_OF_DAYS_BETWEEN_SUBMISSION_TO_HIP_AND_REPLY' | translate }}</label>
+                <input type="text" ng-model="due_dates.number_of_days_between_submission_to_hip_and_reply.value" ng-disabled="!due_dates.number_of_days_between_submission_to_hip_and_reply.active"
+                       ng-class="{'redborder': validation.daysBetweenSubmissionAndReplyInvalid }" />
+                <label>{{ 'LABEL_DAYS' | translate }}</label>
+            </li>
+            <li>
+                <span class="mask-checkbox">
+                    <input id="cbResponsePayment" name="cbResponsePayment" type="checkbox"
+                           ng-model="due_dates.number_of_days_between_response_and_payment.active" ng-change="updateField('responsePayment')" />
+                    <i class="icon"></i>
+                </span>
+                <label for="cbResponsePayment">{{ 'LABEL_NUMBER_OF_DAYS_BETWEEN_RESPONSE_AND_PAYMENT' | translate }}</label>
+                <input type="text" ng-model="due_dates.number_of_days_between_response_and_payment.value" ng-disabled="!due_dates.number_of_days_between_response_and_payment.active"
+                       ng-class="{'redborder': validation.daysBetweenResponseAndPaymentInvalid }" />
+                <label>{{ 'LABEL_DAYS' | translate }}</label>
+            </li>
+            <li>
+                <span class="mask-checkbox">
+                    <input id="cbResponseRejection" name="cbResponseRejection" type="checkbox"
+                           ng-model="due_dates.number_of_days_between_hip_response_and_rejection.active" ng-change="updateField('responseRejection')" />
+                    <i class="icon"></i>
+                </span>
+                <label for="cbResponseRejection">{{ 'LABEL_NUMBER_OF_DAYS_BETWEEN_HIP_RESPONSE_AND_REJECTION' | translate }}</label>
+                <input type="text" ng-model="due_dates.number_of_days_between_hip_response_and_rejection.value" ng-disabled="!due_dates.number_of_days_between_hip_response_and_rejection.active"
+                       ng-class="{'redborder': validation.daysBetweenResponseAndRejectionInvalid }" />
+                <label>{{ 'LABEL_DAYS' | translate }}</label>
+            </li>
+
+
+            <li>
+                <span class="mask-checkbox">
+                    <input id="cbPreExaminationConstraint" name="cbPreExaminationConstraint" type="checkbox"
+                           ng-model="due_dates.number_of_max_preexaminations_value.active" ng-change="updateField('preexamination')" />
+                    <i class="icon"></i>
+                </span>
+                <label for="cbPreExaminationConstraint">{{ 'LABEL_MAX_NUMBER_OF_PREEXAMINATIONS_PREFIX' | translate }}</label>
+                <input type="text" ng-model="due_dates.number_of_max_preexaminations_value.value" ng-disabled="!due_dates.number_of_max_preexaminations_value.active"
+                       ng-class="{'redborder': validation.preexaminationValueInvalid }" />
+                <label for="cbPreExaminationConstraint">{{ 'LABEL_MAX_NUMBER_OF_PREEXAMINATIONS_SUFFIX' | translate }}</label>
+                <input type="text" ng-model="due_dates.number_of_max_preexaminations_days.value" ng-disabled="!due_dates.number_of_max_preexaminations_value.active"
+                       ng-class="{'redborder': validation.preexaminationDaysInvalid }" />
+                <label>{{ 'LABEL_DAYS' | translate }}</label>
+            </li>
+            <li>
+                <span class="mask-checkbox">
+                    <input id="cbOctMaxDaysBeforeOp" name="cbOctMaxDaysBeforeOp" type="checkbox"
+                           ng-model="due_dates.oct_max_number_of_days_before_op.active" ng-change="updateField('octMaxDaysBeforeOp')" />
+                    <i class="icon"></i>
+                </span>
+                <label for="cbOctMaxDaysBeforeOp">{{ 'LABEL_OCT_MAX_NUMBER_OF_DAYS_BEFORE_OP' | translate }}</label>
+                <input type="text" ng-model="due_dates.oct_max_number_of_days_before_op.value" ng-disabled="!due_dates.oct_max_number_of_days_before_op.active"
+                       ng-class="{'redborder': validation.octMaxDaysBeforeOpInvalid }" />
+                <label>{{ 'LABEL_DAYS' | translate }}</label>
+            </li>
+            <li>
+                <span class="mask-checkbox">
+                    <input id="cbOpRenewsConsent" name="cbOpRenewsConsent" type="checkbox"
+                           ng-model="due_dates.op_renews_patient_consent.active" />
+                    <i class="icon"></i>
+                </span>
+                <label for="cbOpRenewsConsent">{{ 'LABEL_OP_RENEWS_PATIENT_CONSENT' | translate }}</label>
+            </li>
+
+            <li>
+                <span class="mask-checkbox">
+                    <input id="cbUseSettlementYear" name="cbUseSettlementYear" type="checkbox"
+                           ng-model="due_dates.use_settlement_year.active" />
+                    <i class="icon"></i>
+                </span>
+                <label for="cbUseSettlementYear">{{ 'LABEL_USE_SETTLEMNT_YEAR' | translate }}</label>
+            </li>
+            <li>
+                <span class="mask-checkbox">
+                    <input id="cbDoctorNeedsSertification" name="cbDoctorNeedsSertification" type="checkbox"
+                           ng-model="due_dates.doctor_needs_certification.active" />
+                    <i class="icon"></i>
+                </span>
+                <label for="cbDoctorNeedsSertification">{{ 'LABEL_DOCTOR_NEEDS_CERTIFICATION' | translate }}</label>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="procurement-status.active">
+    <Lang ISO="EN" Content="Active" />
+    <Lang ISO="DE" Content="Aktiv" />
+  </Item>
+  <Item ID="procurement-status.rejected">
+    <Lang ISO="EN" Content="Rejected" />
+    <Lang ISO="DE" Content="Abgelehnt" />
+  </Item>
+  <Item ID="procurement-status.confirmed">
+    <Lang ISO="EN" Content="Confirmed" />
+    <Lang ISO="DE" Content="Bestätigt" />
+  </Item>
+  <Item ID="procurement-status.shipped">
+    <Lang ISO="EN" Content="Shipped" />
+    <Lang ISO="DE" Content="Versandt" />
+  </Item>
+  <Item ID="procurement-status.partialyshipped">
+    <Lang ISO="EN" Content="Partialy Shipped" />
+    <Lang ISO="DE" Content="Teilweise versandt" />
+  </Item>
+  <Item ID="procurement-status.ordered">
+    <Lang ISO="EN" Content="Ordered" />
+    <Lang ISO="DE" Content="Bestellt" />
+  </Item> 
+</Resources>

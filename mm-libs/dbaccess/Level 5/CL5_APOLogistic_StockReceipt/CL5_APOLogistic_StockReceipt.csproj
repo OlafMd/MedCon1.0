@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{016301B3-480E-41D7-A340-BC28A0E25282}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL5_APOLogistic_StockReceipt</RootNamespace>
+    <AssemblyName>CL5_APOLogistic_StockReceipt</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_BasicInfo_WizardStepOne_for_HeaderID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_LightStockReceiptsPositions_for_HeaderID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProcurementOrderPosition_ForwardingInstructions_for_PositionID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ProductTrackingInstance_for_StockReceiptPosition.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_QualityControlItems_for_ReceiptHeaderID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_QualityControlItems_for_ReceiptPosition.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ReceiptHeader_and_ProcurmentHeader_for_ReceiptHeaderID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_ReceiptPositions_for_Article.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_StockReceiptsPositions_for_ReceiptHeaderID_Atomic.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_StockReceipts_for_TenantID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_StockReceipt_for_HeaderID.cs" />
+    <Compile Include="Complex\Manipulation\cls_Confirm_StockReceiptControl.cs" />
+    <Compile Include="Complex\Manipulation\cls_Confirm_StockReceiptHeader_Control.cs" />
+    <Compile Include="Complex\Manipulation\cls_Create_ExpectedDeliveries_for_UndeliveredPositions.cs" />
+    <Compile Include="Complex\Manipulation\cls_DeepDelete_StockReceipt.cs" />
+    <Compile Include="Complex\Manipulation\cls_DeepDelete_StockReceiptPositions.cs" />
+    <Compile Include="Complex\Manipulation\cls_Preload_TargetShelves_for_StockReceipt.cs" />
+    <Compile Include="Complex\Manipulation\cls_Put_StockReceipt_in_StoragePlace.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_StockReceiptHeader.cs" />
+    <Compile Include="Complex\Manipulation\cls_Delete_StockReceiptPositions.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_StockReceiptPosition.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_StockReceiptPositions.cs" />
+    <Compile Include="Complex\Manipulation\cls_Save_StockReceipt_Procurement_and_ExpectedDelivery_Positions.cs" />
+    <Compile Include="Complex\Manipulation\cls_Split_QualityControlItems.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_AllData_for_WizardStepOne.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Filter_StockReceipt_for_TenantID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_PreloadingData_for_StockReceiptCreation.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_ReceiptPositions_and_ActiveReservedQuantities_for_Article.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_StockReceiptsPositions_for_ReceiptHeaderID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_StockReceiptsPositions_for_ReceiptsHeaderID_by_ProductList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031C04C9-08CD-4833-AF41-A9B64D337CA6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO\CL1_CMN_PRO.csproj">
+      <Project>{06AB1C3C-339F-4E31-8408-232DC283308C}</Project>
+      <Name>CL1_CMN_PRO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PRO_PAC\CL1_CMN_PRO_PAC.csproj">
+      <Project>{022F0501-41A8-4206-9007-374D9155E23D}</Project>
+      <Name>CL1_CMN_PRO_PAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG\CL1_LOG.csproj">
+      <Project>{5FF8E7C7-57C2-48AE-BC70-8F6B957DABC6}</Project>
+      <Name>CL1_LOG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_RCP\CL1_LOG_RCP.csproj">
+      <Project>{2C396733-6EF3-43BC-8C37-8959C59B2535}</Project>
+      <Name>CL1_LOG_RCP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_RCP_RQF\CL1_LOG_RCP_RQF.csproj">
+      <Project>{7D7DCFEB-15E1-4B53-9992-301DC0396565}</Project>
+      <Name>CL1_LOG_RCP_RQF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_WRH\CL1_LOG_WRH.csproj">
+      <Project>{BB08DBAD-494E-4689-9467-BBDDAEBC1EB0}</Project>
+      <Name>CL1_LOG_WRH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_PRC\CL1_ORD_PRC.csproj">
+      <Project>{2ED9EC1F-4C36-4790-B8AE-6C03F4B40588}</Project>
+      <Name>CL1_ORD_PRC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_Currency\CL2_Currency.csproj">
+      <Project>{CACC6DDF-D4E9-4EE9-9C75-E1A65071A37C}</Project>
+      <Name>CL2_Currency</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_DiscountAmounts\CL2_DiscountAmounts.csproj">
+      <Project>{2E064E62-76CA-4D39-8725-E4A480C5CB3A}</Project>
+      <Name>CL2_DiscountAmounts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_DiscountType\CL2_DiscountType.csproj">
+      <Project>{562D592F-4C27-4275-9967-BF12F35047F8}</Project>
+      <Name>CL2_DiscountType</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_NumberRange\CL2_NumberRange.csproj">
+      <Project>{430ED362-7290-4A5F-9A7C-BCF3E90A72B3}</Project>
+      <Name>CL2_NumberRange</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 2\CL2_ReceiptHeader\CL2_ReceiptHeader.csproj">
+      <Project>{3F61FEEF-699B-4E2C-BEF8-71204BAEA85E}</Project>
+      <Name>CL2_ReceiptHeader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Articles\CL3_Articles.csproj">
+      <Project>{B6DFA294-6413-463B-AD21-1F6EC75F8196}</Project>
+      <Name>CL3_Articles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Price\CL3_Price.csproj">
+      <Project>{A47E5B89-3CCF-407A-97AF-2ABA2558B3DB}</Project>
+      <Name>CL3_Price</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_ShippingOrder\CL3_ShippingOrder.csproj">
+      <Project>{BA9896B5-6424-4D1B-9838-537B2E79B745}</Project>
+      <Name>CL3_ShippingOrder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_Warehouse\CL3_Warehouse.csproj">
+      <Project>{A3A3BD1F-A206-4C65-BD16-526F6F77495B}</Project>
+      <Name>CL3_Warehouse</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_APOLogistic_ShippingOrder\CL5_APOLogistic_ShippingOrder.csproj">
+      <Project>{37A293E0-5D59-44F6-AFEF-82739F638C1B}</Project>
+      <Name>CL5_APOLogistic_ShippingOrder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_APOLogistic_Storage\CL5_APOLogistic_Storage.csproj">
+      <Project>{444533C1-EE01-4CCA-8FFB-ED5BDFD098A0}</Project>
+      <Name>CL5_APOLogistic_Storage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL5_APOLogistic_Supplier\CL5_APOLogistic_Supplier.csproj">
+      <Project>{B8C8E7D6-F98F-4A66-B90E-27BE2CC85AE4}</Project>
+      <Name>CL5_APOLogistic_Supplier</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Atomic\Retrieval\SQL\cls_Get_ProductTrackingInstance_for_StockReceiptPosition.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ReceiptPositions_for_Article.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProductTrackingInstance_for_StockReceiptPosition.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ReceiptPositions_for_Article.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Create_ExpectedDeliveries_for_UndeliveredPositions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Preload_TargetShelves_for_StockReceipt.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_StockReceiptPosition.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_Filter_StockReceipt_for_TenantID.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_ReceiptPositions_and_ActiveReservedQuantities_for_Article.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_StockReceiptsPositions_for_ReceiptsHeaderID_by_ProductList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_StockReceipt_for_HeaderID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ProcurementOrderPosition_ForwardingInstructions_for_PositionID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_QualityControlItems_for_ReceiptHeaderID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_StoragePlaces_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_BasicInfo_WizardStepOne_for_HeaderID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_QualityControlItems_for_ReceiptPosition.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_ReceiptHeader_and_ProcurmentHeader_for_ReceiptHeaderID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_StockReceiptsPositions_for_ReceiptHeaderID_Atomic.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_BasicInfo_WizardStepOne_for_HeaderID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ProcurementOrderPosition_ForwardingInstructions_for_PositionID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_QualityControlItems_for_ReceiptHeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_QualityControlItems_for_ReceiptPosition.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_ReceiptHeader_and_ProcurmentHeader_for_ReceiptHeaderID.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_StockReceiptsPositions_for_ReceiptHeaderID_Atomic.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_StockReceipts_for_TenantID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_StockReceipt_for_HeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Confirm_StockReceiptHeader_Control.xml" />
+    <Content Include="Complex\Manipulation\_Support\DeepDelete_StockReceipt.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_StockReceiptPositions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Split_QualityControlItems.xml" />
+    <Content Include="Complex\Manipulation\_Support\DeepDelete_StockReceiptPositions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Delete_StockReceiptPositions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Confirm_StockReceiptControl.xml" />
+    <Content Include="Complex\Manipulation\_Support\Put_StockReceipt_in_StoragePlace.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_AllData_for_WizardStepOne.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_PreloadingData_for_StockReceiptCreation.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_StockReceipts_for_TenantID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_LightStockReceiptsPositions_for_HeaderID.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_LightStockReceiptsPositions_for_HeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_StockReceiptsPositions_for_ReceiptHeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Save_StockReceiptHeader.xml" />
+    <Content Include="Complex\Manipulation\_Support\Save_StockReceipt_Procurement_and_ExpectedDelivery_Positions.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

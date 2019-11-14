@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="15/10/2013 11:19:33">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Taxes_for_DefaultCountry_and_RetrurResult</Name>
+    <Namespace>CL3_Taxes.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Taxes.Atomic.Manipulation"
+                Method_ClassName="cls_Save_Taxes_for_DefaultCountry_and_ReturnResult"
+                Method_Name="Save_Taxes_for_DefaultCountry_and_ReturnResult"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Taxes_for_DefaultCountry_and_ReturnResult"
+                />
+
+  <Parameters IsClass="true" Name="P_L3TX_STfDCaRR_1119" >
+    <Members>
+      <ClassMember Name="TaxRates" Type="double" IsArray="true" />
+    </Members>
+  </Parameters>
+  
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L3TX_STfDCaRR_1119" IsArray="true">
+      <Members>
+        <ClassMember Name="TaxID" Type="Guid"  />
+        <ClassMember Name="TaxRate" Type="double"  />
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+</CodeGen>
+
+

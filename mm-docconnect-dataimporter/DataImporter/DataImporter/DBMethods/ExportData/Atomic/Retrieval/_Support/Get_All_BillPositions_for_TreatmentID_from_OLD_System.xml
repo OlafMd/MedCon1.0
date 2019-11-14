@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="4/8/2015 8:50:00 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_BillPositions_for_TreatmentID_from_OLD_System</Name>
+    <Namespace>DataImporter.DBMethods.ExportData.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="DataImporter.DBMethods.ExportData.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_BillPositions_for_TreatmentID_from_OLD_System"
+                Method_Name="Get_All_BillPositions_for_TreatmentID_from_OLD_System"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_BillPositions_for_TreatmentID_from_OLD_System"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  bil_billpositions.PositionValue_IncludingTax,
+  bil_billpositions.External_PositionReferenceField As VorgangsNummer,
+  bil_billpositions.External_PositionType,
+  bil_billposition_transmitionstatuses.TransmitionCode,
+  bil_billposition_transmitionstatuses.PrimaryComment,
+  bil_billposition_transmitionstatuses.SecondaryComment,
+  bil_billposition_transmitionstatuses.TransmittedOnDate,
+  bil_billpositions.BIL_BillPositionID,
+  bil_billpositions.External_PositionCode As GPOS
+From
+  bil_billposition_2_patienttreatment Inner Join
+  bil_billpositions
+    On bil_billposition_2_patienttreatment.BIL_BillPosition_RefID =
+    bil_billpositions.BIL_BillPositionID And bil_billpositions.IsDeleted = 0 And
+    bil_billpositions.Tenant_RefID = @TenantID Inner Join
+  bil_billposition_transmitionstatuses On bil_billpositions.BIL_BillPositionID =
+    bil_billposition_transmitionstatuses.BillPosition_RefID And
+    bil_billposition_transmitionstatuses.Tenant_RefID = @TenantID And
+    bil_billposition_transmitionstatuses.IsDeleted = 0 And
+    bil_billposition_transmitionstatuses.IsActive = 1
+Where
+  bil_billposition_2_patienttreatment.IsDeleted = 0 And
+  bil_billposition_2_patienttreatment.Tenant_RefID = @TenantID And
+  bil_billposition_2_patienttreatment.HEC_Patient_Treatment_RefID = @TreatmentID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_ED_GABfTIDOS_1712">
+    <Members>
+      <ClassMember Name="TreatmentID" Type="Guid"  />
+
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="ED_GABfTIDOS_1712" IsArray="true" >
+      <Members>
+        <ClassMember Name="BIL_BillPositionID" Type="Guid"  />
+        <ClassMember Name="TransmittedOnDate" Type="DateTime"  />
+        <ClassMember Name="SecondaryComment" Type="String"  />
+        <ClassMember Name="PrimaryComment" Type="String"  />
+        <ClassMember Name="TransmitionCode" Type="int"  />
+        <ClassMember Name="External_PositionType" Type="String"  />
+        <ClassMember Name="VorgangsNummer" Type="String"  />
+       <ClassMember Name="PositionValue_IncludingTax" Type="String"  />
+        <ClassMember Name="GPOS" Type="String"  />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

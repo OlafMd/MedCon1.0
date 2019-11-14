@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_act_plannedaction_followupreasons
+	(
+		HEC_ACT_PlannedAction_FollowupReasonID,
+		GlobalPropertyMatchingID,
+		FollowupReason_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ACT_PlannedAction_FollowupReasonID,
+		@GlobalPropertyMatchingID,
+		@FollowupReason,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

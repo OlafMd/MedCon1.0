@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/19/2014 2:50:21 PM">
+    <Componenttype>AtomicMethod</Componenttype>
+
+    <Meta>
+        <Name>Get_StockReceiptsPositions_for_ReceiptsHeaderID_by_ProductList</Name>
+        <NameSpace>CL5_APOLogistic_StockReceipt.Complex.Retrieval</NameSpace>
+        <Description></Description>
+        <Tags></Tags>
+    </Meta>
+
+    <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                 Target_Method_ProgrammingLanguage_Revision="3.5"
+                 Target_SQL="MySQL"
+                 Target_SQL_Revision="8"
+                 Create_Webservice_Interface="true"
+                 Create_Webservice_Interface_ServerPlattform="C#"
+                 Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                 Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                 Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+    <CreationInfo Method_Namespace="CL5_APOLogistic_StockReceipt.Complex.Retrieval"
+                Method_ClassName="cls_Get_StockReceiptsPositions_for_ReceiptsHeaderID_by_ProductList"
+                Method_Name="Get_StockReceiptsPositions_for_ReceiptsHeaderID_by_ProductList"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_StockReceiptsPositions_for_ReceiptsHeaderID_by_ProductList"
+                />
+
+
+    <Parameters IsClass="true" Name="P_L5SR_GSRPfHbP_1522">
+        <Members>
+            <ClassMember Name="ReceiptHeaderID" Type="Guid"  />
+        </Members>
+    </Parameters>
+
+
+
+    <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+        <ObjectReturnType_Definition Name="L5SR_GSRPfHbP_1522" IsArray="true">
+            <Members>
+                <ClassMember Name="OrderPosition" Type="CL5_APOLogistic_StockReceipt.Atomic.Retrieval.L5SR_GSROfHA_1408" />
+                <ClassMember Name="Article" Type="CL3_Articles.Atomic.Retrieval.L3AR_GAfAL_0942" />
+                <ClassMember Name="AEKPrice" Type="Decimal" />
+                <ClassMember Name="Symbol" Type="string" />
+            </Members>
+        </ObjectReturnType_Definition>
+    </ResultInfo>
+
+
+</CodeGen>

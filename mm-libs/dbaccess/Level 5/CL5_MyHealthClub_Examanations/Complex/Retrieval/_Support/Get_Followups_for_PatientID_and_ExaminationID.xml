@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/11/2015 6:05:56 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Followups_for_PatientID_and_ExaminationID</Name>
+    <Namespace>CL5_MyHealthClub_Examanations.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Examanations.Complex.Retrieval"
+                Method_ClassName="cls_Get_Followups_for_PatientID_and_ExaminationID"
+                Method_Name="Get_Followups_for_PatientID_and_ExaminationID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Followups_for_PatientID_and_ExaminationID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_act_plannedactions.PlannedFor_Date As date,
+  hec_act_plannedaction_2_plannedactionfollowupreasons.FollowupReason,
+  hec_act_plannedactions.HEC_ACT_PlannedActionID
+From
+  hec_act_plannedactions Inner Join
+  hec_act_plannedaction_2_plannedactionfollowupreasons
+    On hec_act_plannedactions.HEC_ACT_PlannedActionID =
+    hec_act_plannedaction_2_plannedactionfollowupreasons.HEC_ACT_PlannedAction_RefID And hec_act_plannedaction_2_plannedactionfollowupreasons.Tenant_RefID = @TenantID And hec_act_plannedaction_2_plannedactionfollowupreasons.IsDeleted = 0
+Where
+  hec_act_plannedactions.Patient_RefID = @PatientID And
+  hec_act_plannedactions.IsDeleted = 0 And
+  hec_act_plannedactions.Tenant_RefID = @TenantID And
+  hec_act_plannedactions.IfPlannedFollowup_PreviousAction_RefID = @ExaminationID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5EX_GFPIDEID_1805">
+    <Members>
+		<ClassMember Name="PatientID" Type="Guid"  />
+		<ClassMember Name="ExaminationID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5EX_GFPIDEID_1805" IsArray="true">
+			<Members>
+				<ClassMember Name="HEC_ACT_PlannedActionID" Type="Guid"  />
+				<ClassMember Name="date" Type="DateTime"  />
+				<ClassMember Name="FollowupReason" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

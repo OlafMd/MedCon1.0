@@ -1,0 +1,22 @@
+UPDATE 
+	res_bld_buildings
+SET 
+	Building_CurrentAverageRentPrice_per_sqm_RefID=@Building_CurrentAverageRentPrice_per_sqm_RefID,
+	BuildingRevisionHeader_RefID=@BuildingRevisionHeader_RefID,
+	Building_BalconyPortionPercent=@Building_BalconyPortionPercent,
+	Building_Name=@Building_Name,
+	Building_DocumentationStructure_RefID=@Building_DocumentationStructure_RefID,
+	IsContaminationSuspected=@IsContaminationSuspected,
+	Building_NumberOfFloors=@Building_NumberOfFloors,
+	Building_ElevatorCoveragePercent=@Building_ElevatorCoveragePercent,
+	Building_NumberOfAppartments=@Building_NumberOfAppartments,
+	Building_NumberOfOccupiedAppartments=@Building_NumberOfOccupiedAppartments,
+	Building_NumberOfOffices=@Building_NumberOfOffices,
+	Building_NumberOfRetailUnits=@Building_NumberOfRetailUnits,
+	Building_NumberOfProductionUnits=@Building_NumberOfProductionUnits,
+	Building_NumberOfOtherUnits=@Building_NumberOfOtherUnits,
+	Creation_Timestamp=@Creation_Timestamp,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID
+WHERE 
+	RES_BLD_BuildingID = @RES_BLD_BuildingID

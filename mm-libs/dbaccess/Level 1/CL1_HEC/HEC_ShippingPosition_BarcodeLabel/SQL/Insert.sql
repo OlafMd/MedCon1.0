@@ -1,0 +1,25 @@
+INSERT INTO 
+	hec_shippingposition_barcodelabels
+	(
+		HEC_ShippingPosition_BarcodeLabelID,
+		Doctor_RefID,
+		ShippingPosition_BarcodeLabel,
+		LOG_SHP_Shipment_Position_RefID,
+		R_IsSubmission_Complete,
+		Bound_QuestionnaireTemplateVersion_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_ShippingPosition_BarcodeLabelID,
+		@Doctor_RefID,
+		@ShippingPosition_BarcodeLabel,
+		@LOG_SHP_Shipment_Position_RefID,
+		@R_IsSubmission_Complete,
+		@Bound_QuestionnaireTemplateVersion_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,23 @@
+INSERT INTO 
+	mrs_rut_route_measuringpoints
+	(
+		MRS_RUT_Route_MeasuringPointID,
+		Route_RefID,
+		MeasuringPoint_RefID,
+		OrderSequence,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@MRS_RUT_Route_MeasuringPointID,
+		@Route_RefID,
+		@MeasuringPoint_RefID,
+		@OrderSequence,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

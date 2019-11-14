@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	ord_cuo_customerorderreturn_positions
+WHERE 
+	ORD_CUO_CustomerOrderReturn_PositionID = @ORD_CUO_CustomerOrderReturn_PositionID

@@ -1,0 +1,19 @@
+INSERT INTO 
+	cmn_per_personinfo_correspondencetypes
+	(
+		CMN_PER_PersonInfo_CorrespondenceTypeID,
+		GlobalPropertyMatchingID,
+		DisplayName,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_PER_PersonInfo_CorrespondenceTypeID,
+		@GlobalPropertyMatchingID,
+		@DisplayName,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

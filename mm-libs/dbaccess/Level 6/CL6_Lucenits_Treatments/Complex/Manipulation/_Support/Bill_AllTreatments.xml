@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/16/2013 2:56:23 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Patient_Treatment</Name>
+    <Namespace>CL6_Lucenits_Treatments.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_Lucenits_Treatments.Complex.Manipulation"
+                Method_ClassName="cls_Bill_AllTreatments"
+                Method_Name="Bill_AllTreatments"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Bill_AllTreatments"
+                />
+
+  <Parameters IsClass="true" Name="P_L6TR_BAT_2014">
+    <Members>
+      <ClassMember Name="LanguageID" Type="Guid"/>
+      <ClassMember Name="fromDate" Type="DateTime"/>
+      <ClassMember Name="toDate" Type="DateTime"/>
+      <ClassMember Name="statusFilter" Type="int" IsArray="true"/>
+    </Members>
+  </Parameters>
+  
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6TR_BAT_2014" IsArray="false">
+      <Members>
+        <ClassMember IsClass="true" IsArray="true" Name="Positions" Type="L6TR_BAT_2014_Position">
+          <Members>
+
+            <ClassMember Name="positionStatus" Type="int"  />
+            <ClassMember Name="positionSequence" Type="long"  />
+
+            <ClassMember Name="InsuranceStateCode" Type="string"  />
+            <ClassMember Name="HealthInsuranceNumber" Type="string"  />
+            <ClassMember Name="PatientFirstName" Type="string"  />
+            <ClassMember Name="PatientLastName" Type="string"  />
+            <ClassMember Name="PatientDOB" Type="DateTime"  />
+
+            <ClassMember Name="PositionProcessNumber" Type="long"  />
+            <ClassMember Name="TreatmentType" Type="string"  />
+            <ClassMember Name="GPOS" Type="string"  />
+            <ClassMember Name="Price" Type="double"  />
+            <ClassMember Name="NumberOfNegativeTries" Type="int"  />
+            <ClassMember Name="DateOfTransmision" Type="DateTime"  />
+            <ClassMember Name="TransmitionStatus_Comment2" Type="string"  />
+            <ClassMember Name="DateOfPayment" Type="DateTime"  />
+            <ClassMember Name="TransmitionStatus_Comment1" Type="string"  />
+            
+            <ClassMember Name="DiagnoseCode" Type="string"  />
+            <ClassMember Name="DiagnoseState" Type="string"  />
+            <ClassMember Name="DiagnoseName" Type="string"  />
+            <ClassMember Name="DiagnoseLocalization" Type="string"  />
+            <ClassMember Name="ArticleName" Type="string"  />
+
+            <ClassMember Name="TreatmentDate" Type="DateTime"  />
+            <ClassMember Name="BSNR" Type="string"  />
+            <ClassMember Name="PracticeName" Type="string"  />
+            <ClassMember Name="LANR" Type="string"  />
+            <ClassMember Name="DoctroFullName" Type="string"  />
+
+            <ClassMember Name="AccountOwner" Type="string"  />
+            <ClassMember Name="BLZ" Type="string"  />
+            <ClassMember Name="AccountNumber" Type="string"  />
+            <ClassMember Name="BankName" Type="string"  />
+            <ClassMember Name="IBAN" Type="string"  />
+            <ClassMember Name="BIC" Type="string"  />
+
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

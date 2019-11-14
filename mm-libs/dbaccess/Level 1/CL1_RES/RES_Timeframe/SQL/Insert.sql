@@ -1,0 +1,21 @@
+INSERT INTO 
+	res_timeframes
+	(
+		RES_TimeframeID,
+		Timeframe_Name_DictID,
+		Timeframe_Description_DictID,
+		Timeframe_SequenceNumber,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_TimeframeID,
+		@Timeframe_Name,
+		@Timeframe_Description,
+		@Timeframe_SequenceNumber,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

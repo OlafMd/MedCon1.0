@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="2/27/2015 14:49:26">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Customer_Orders_for_Status</Name>
+    <Namespace>CL5_Zugseil_CustomerOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_CustomerOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Customer_Orders_for_Status"
+                Method_Name="Get_Customer_Orders_for_Status"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Customer_Orders_for_Status"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT ord_cuo_customerorder_headers.ORD_CUO_CustomerOrder_HeaderID,
+		       ord_cuo_customerorder_headers.CustomerOrder_Number,
+           ord_cuo_customerorder_headers.ProcurementOrderITL,
+		       ord_cuo_customerorder_headers.CustomerOrder_Date,
+		       ord_cuo_customerorder_headers.Current_CustomerOrderStatus_RefID,
+	         ord_cuo_customerorder_statuses.GlobalPropertyMatchingID,
+	         ord_cuo_customerorder_statuses.Status_Code,
+	         ord_cuo_customerorder_statuses.Status_Name_DictID,
+		       ord_cuo_customerorder_headers.OrderingCustomer_BusinessParticipant_RefID,
+		       ord_cuo_customerorder_headers.CustomerOrder_Currency_RefID,
+		       ord_cuo_customerorder_headers.TotalValue_BeforeTax,
+		       cmn_bpt_businessparticipants.DisplayName as Customer_Name,
+		       cmn_currencies.Name_DictID,
+		       cmn_currencies.ISO4127,
+		       cmn_currencies.Symbol,
+	    	  (SELECT COUNT(ord_cuo_customerorder_positions.ORD_CUO_CustomerOrder_PositionID)
+		       FROM ord_cuo_customerorder_positions
+		      WHERE ord_cuo_customerorder_positions.CustomerOrder_Header_RefID= ord_cuo_customerorder_headers.ORD_CUO_CustomerOrder_HeaderID
+		      AND ord_cuo_customerorder_positions.Tenant_RefID = @TenantID
+		      AND ord_cuo_customerorder_positions.IsDeleted = 0 ) AS Number_of_Positions
+		FROM ord_cuo_customerorder_headers
+		LEFT JOIN cmn_bpt_businessparticipants ON ord_cuo_customerorder_headers.OrderingCustomer_BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+		LEFT JOIN cmn_currencies ON ord_cuo_customerorder_headers.CustomerOrder_Currency_RefID = cmn_currencies.CMN_CurrencyID
+		AND cmn_currencies.Tenant_RefID = @TenantID
+		AND cmn_currencies.IsDeleted = 0
+	  LEFT JOIN ord_cuo_customerorder_statuses
+	        ON ord_cuo_customerorder_headers.Current_CustomerOrderStatus_RefID =
+	           ord_cuo_customerorder_statuses.ORD_CUO_CustomerOrder_StatusID
+	       AND   ord_cuo_customerorder_statuses.IsDeleted=0
+	      AND ord_cuo_customerorder_statuses.Tenant_RefID=@TenantID
+		WHERE ord_cuo_customerorder_headers.IsCustomerOrderFinalized = 0
+		  AND ord_cuo_customerorder_headers.Tenant_RefID = @TenantID
+		  AND ord_cuo_customerorder_headers.IsDeleted = 0
+	    AND ord_cuo_customerorder_statuses.GlobalPropertyMatchingID=@StatusGlobalPropertyMatching
+
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5CO_GCOfS_1449">
+    <Members>
+		<ClassMember Name="StatusGlobalPropertyMatching" Type="string"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5CO_GCOfS_1449" IsArray="true">
+			<Members>
+				<ClassMember Name="ORD_CUO_CustomerOrder_HeaderID" Type="Guid"  />
+				<ClassMember Name="CustomerOrder_Number" Type="String"  />
+        <ClassMember Name="ProcurementOrderITL" Type="String"  />
+        <ClassMember Name="CustomerOrder_Date" Type="DateTime"  />
+				<ClassMember Name="Current_CustomerOrderStatus_RefID" Type="Guid"  />
+				<ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+				<ClassMember Name="Status_Code" Type="String"  />
+				<ClassMember Name="Status_Name" Type="Dict" OriginTable="ord_cuo_customerorder_statuses" Source_DBField="Status_Name_DictID"  />
+				<ClassMember Name="OrderingCustomer_BusinessParticipant_RefID" Type="Guid"  />
+				<ClassMember Name="CustomerOrder_Currency_RefID" Type="Guid"  />
+				<ClassMember Name="TotalValue_BeforeTax" Type="String"  />
+				<ClassMember Name="Customer_Name" Type="String"  />
+				<ClassMember Name="Name" Type="Dict" OriginTable="cmn_currencies" Source_DBField="Name_DictID"  />
+				<ClassMember Name="ISO4127" Type="String"  />
+				<ClassMember Name="Symbol" Type="String"  />
+				<ClassMember Name="Number_of_Positions" Type="int"  />
+	</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

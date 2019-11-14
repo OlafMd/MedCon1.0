@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_cas_case_relevantprocedures
+	(
+		HEC_CAS_Case_RelevantProcedureID,
+		Case_RefID,
+		PerfomedAction_Procedure_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CAS_Case_RelevantProcedureID,
+		@Case_RefID,
+		@PerfomedAction_Procedure_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

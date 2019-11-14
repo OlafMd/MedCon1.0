@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_pro_project_notes
+	(
+		TMS_PRO_Project_NoteID,
+		Ext_CMN_Note_RefID,
+		Project_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@TMS_PRO_Project_NoteID,
+		@Ext_CMN_Note_RefID,
+		@Project_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

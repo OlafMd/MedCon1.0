@@ -1,0 +1,19 @@
+INSERT INTO 
+	imo_questionnairestatus_2_statustype
+	(
+		AssignmentID,
+		Questionnaire_StatusType_RefID,
+		Questionnaire_Status_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@Questionnaire_StatusType_RefID,
+		@Questionnaire_Status_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

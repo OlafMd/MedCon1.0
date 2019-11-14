@@ -1,0 +1,23 @@
+INSERT INTO 
+	mrs_run_measurementrun_routes
+	(
+		MRS_RUN_MeasurementRun_RouteID,
+		Route_RefID,
+		MeasurementRun_RefID,
+		BoundTo_Account_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@MRS_RUN_MeasurementRun_RouteID,
+		@Route_RefID,
+		@MeasurementRun_RefID,
+		@BoundTo_Account_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

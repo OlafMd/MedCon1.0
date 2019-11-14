@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_act_performedaction_patientprovidedfindings
+WHERE 
+	HEC_ACT_PerformedAction_PatientProvidedFindingID = @HEC_ACT_PerformedAction_PatientProvidedFindingID

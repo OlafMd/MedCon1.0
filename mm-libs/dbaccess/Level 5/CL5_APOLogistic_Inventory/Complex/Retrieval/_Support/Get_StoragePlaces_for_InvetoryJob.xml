@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="07/17/2014 4:41:16 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_StoragePlaces_for_InvetoryJob</Name>
+		<Namespace>CL5_APOLogistic_Inventory.Complex.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+	<CreationInfo Method_Namespace="CL5_APOLogistic_Inventory.Complex.Retrieval"
+				  Method_ClassName="cls_Get_StoragePlaces_for_InvetoryJob"
+				  Method_Name="Get_StoragePlaces_for_InvetoryJob"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Get_StoragePlaces_for_InvetoryJob"
+                />
+  <Parameters IsClass="true" Name="P_L5IN_GSPfIJ_1641">
+    <Members>
+      <ClassMember Name="Warehouse_GroupID" Type="Guid?" />
+      <ClassMember Name="WarehouseID" Type="Guid?"  />
+      <ClassMember Name="AreaID" Type="Guid?" />
+      <ClassMember Name="RackID" Type="Guid?" />
+      <ClassMember Name="ShelfID" Type="Guid?" />
+      <ClassMember Name="UseShelfList" Type="bool"  />
+      <ClassMember Name="ShelfID_List" Type="Guid" IsArray="true"  />
+      <ClassMember Name="QuantityTop" Type="float?"  />
+      <ClassMember Name="QuantityBottom" Type="float?"  />
+      <ClassMember Name="InventoryJobID" Type="Guid?"/>
+    </Members>
+  </Parameters>
+  
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				  Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				  Returns_an_Object_or_ObjectArray="true">
+    
+    <ObjectReturnType_Definition Name="L5IN_GSPfIJ_1641" IsArray="false">
+      <Members>
+        <ClassMember Name="StoragePlace" IsArray="true" Type="CL3_Warehouse.Atomic.Retrieval.L3WH_GSPfFC_1504"></ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+	</ResultInfo>
+</CodeGen>
+
+

@@ -1,0 +1,5 @@
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\MMDocConnectDocAppModels\bin\Debug\MMDocConnectMMAppModels.dll
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\MMDocConnectDocAppModels\bin\Debug\MMDocConnectMMAppModels.pdb
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\MMDocConnectDocAppModels\obj\Debug\MMDocConnectMMAppModels.csprojAssemblyReference.cache
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\MMDocConnectDocAppModels\obj\Debug\MMDocConnectMMAppModels.dll
+C:\Projects\MeCon\mmdocconnectmmapp\MMDocConnectMMApp\MMDocConnectDocAppModels\obj\Debug\MMDocConnectMMAppModels.pdb

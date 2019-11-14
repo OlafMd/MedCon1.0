@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/21/2013 3:21:21 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_ACC_PAY_Condition_Detail</Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_AccountingPayment.Atomic.Manipulation"
+                Method_ClassName="cls_Save_ACC_PAY_Condition_Detail"
+                Method_Name="Save_ACC_PAY_Condition_Detail"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_ACC_PAY_Condition_Detail"
+                />
+  <SQLLimitation_CSharp_Extension>
+			var returnValue = new FR_Guid();
+
+			var item = new CL1_ACC_PAY.ACC_PAY_Condition_Detail.ORM_ACC_PAY_Condition_Detail();
+			if (Parameter.ACC_PAY_Condition_DetailID != Guid.Empty)
+			{
+			    var result = item.Load(Connection, Transaction, Parameter.ACC_PAY_Condition_DetailID);
+			    if (result.Status != FR_Status.Success || item.ACC_PAY_Condition_DetailID == Guid.Empty)
+			    {
+			        var error = new FR_Guid();
+			        error.ErrorMessage = "No Such ID";
+			        error.Status =  FR_Status.Error_Internal;
+			        return error;
+			    }
+			}
+
+			if(Parameter.IsDeleted == true){
+				item.IsDeleted = true;
+				return new FR_Guid(item.Save(Connection, Transaction),item.ACC_PAY_Condition_DetailID);
+			}
+
+			//Creation specific parameters (Tenant, Account ... )
+			if (Parameter.ACC_PAY_Condition_DetailID == Guid.Empty)
+			{
+				item.Tenant_RefID = securityTicket.TenantID;
+			}
+
+			item.Conditions_RefID = Parameter.Conditions_RefID;
+			item.DateInterval_From = Parameter.DateInterval_From;
+			item.DateInterval_To = Parameter.DateInterval_To;
+			item.DiscountPercentage = Parameter.DiscountPercentage;
+			item.SequenceNumber = Parameter.SequenceNumber;
+
+
+			return new FR_Guid(item.Save(Connection, Transaction),item.ACC_PAY_Condition_DetailID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2AP_SCD_1521">
+    <Members>
+		<ClassMember IsIdentificator="True" Name="ACC_PAY_Condition_DetailID" Type="Guid"  />
+		<ClassMember Name="Conditions_RefID" Type="Guid"  />
+		<ClassMember Name="DateInterval_From" Type="int"  />
+		<ClassMember Name="DateInterval_To" Type="int"  />
+		<ClassMember Name="DiscountPercentage" Type="double"  />
+		<ClassMember Name="SequenceNumber" Type="int"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

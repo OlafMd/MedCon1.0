@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_act_performedaction_referral_2_procedure
+	(
+		AssignmentID,
+		HEC_ACT_PerformedAction_Referral_RefID,
+		HEC_ACT_PerformedAction_Procedure_RefID,
+		Comment,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@HEC_ACT_PerformedAction_Referral_RefID,
+		@HEC_ACT_PerformedAction_Procedure_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

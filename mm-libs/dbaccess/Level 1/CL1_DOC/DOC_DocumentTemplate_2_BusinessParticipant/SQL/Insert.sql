@@ -1,0 +1,21 @@
+INSERT INTO 
+	doc_documenttemplate_2_businessparticipant
+	(
+		AssignmentID,
+		DOC_DocumentTemplate_Instance_RefID,
+		CMN_BPT_BusinessParticipant_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@AssignmentID,
+		@DOC_DocumentTemplate_Instance_RefID,
+		@CMN_BPT_BusinessParticipant_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

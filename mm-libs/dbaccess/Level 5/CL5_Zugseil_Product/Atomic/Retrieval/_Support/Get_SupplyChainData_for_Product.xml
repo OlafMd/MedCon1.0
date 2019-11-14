@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/27/2015 02:38:12">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_SupplyChainData_for_Product</Name>
+    <Namespace>CL5_Zugseil_Product.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_Zugseil_Product.Atomic.Retrieval"
+                Method_ClassName="cls_Get_SupplyChainData_for_Product"
+                Method_Name="Get_SupplyChainData_for_Product"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_SupplyChainData_for_Product"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT cmn_economicregion.EconomicRegion_Name_DictID
+		,cmn_economicregion.ParentEconomicRegion_RefID
+		,cmn_economicregion.CMN_EconomicRegionID
+		,log_wrh_warehouses.LOG_WRH_WarehouseID
+		,log_wrh_warehouses.Warehouse_Name
+		,cmn_bpt_suppliers.CMN_BPT_SupplierID
+		,cmn_bpt_suppliers.ExternalSupplierProvidedIdentifier
+		,cmn_bpt_businessparticipants.DisplayName
+    ,cmn_pro_product_suppliers.CMN_PRO_Product_SupplierID
+	FROM cmn_economicregion
+	LEFT JOIN cmn_pro_distributioncenters ON cmn_economicregion.CMN_EconomicRegionID = cmn_pro_distributioncenters.EconomicRegion_RefID
+		AND cmn_pro_distributioncenters.Product_RefID = @ProductID
+		AND cmn_pro_distributioncenters.IsDeleted = 0
+		AND cmn_pro_distributioncenters.Tenant_RefID = @TenantID
+	LEFT JOIN log_wrh_warehouses ON cmn_pro_distributioncenters.Warehouse_RefID = log_wrh_warehouses.LOG_WRH_WarehouseID
+		AND log_wrh_warehouses.IsDeleted = 0
+		AND log_wrh_warehouses.Tenant_RefID = @TenantID
+	LEFT JOIN cmn_pro_product_supplier_regionalbindings ON cmn_economicregion.CMN_EconomicRegionID = cmn_pro_product_supplier_regionalbindings.EconomicRegion_RefID
+		AND cmn_pro_product_supplier_regionalbindings.IsDeleted = 0
+		AND cmn_pro_product_supplier_regionalbindings.Tenant_RefID = @TenantID
+	LEFT JOIN cmn_pro_product_suppliers ON cmn_pro_product_supplier_regionalbindings.ProductSupplier_RefID = cmn_pro_product_suppliers.CMN_PRO_Product_SupplierID
+		AND cmn_pro_product_suppliers.CMN_PRO_Product_RefID = @ProductID
+		AND cmn_pro_product_suppliers.SupplierPriority = 0
+		AND cmn_pro_product_suppliers.IsDeleted = 0
+		AND cmn_pro_product_suppliers.Tenant_RefID = @TenantID
+	LEFT JOIN cmn_bpt_suppliers ON cmn_pro_product_suppliers.CMN_BPT_Supplier_RefID = cmn_bpt_suppliers.CMN_BPT_SupplierID
+		AND cmn_bpt_suppliers.IsDeleted = 0
+		AND cmn_bpt_suppliers.Tenant_RefID = @TenantID
+	LEFT JOIN cmn_bpt_businessparticipants ON cmn_bpt_suppliers.Ext_BusinessParticipant_RefID = cmn_bpt_businessparticipants.CMN_BPT_BusinessParticipantID
+		AND cmn_bpt_businessparticipants.IsDeleted = 0
+		AND cmn_bpt_businessparticipants.Tenant_RefID = @TenantID
+	WHERE cmn_economicregion.IsDeleted = 0
+		AND cmn_economicregion.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5PR_GSCDfP_1437">
+    <Members>
+		<ClassMember Name="ProductID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5PR_GSCDfP_1437" IsArray="true">
+			<Members>
+				<ClassMember Name="EconomicRegion_Name" Type="Dict" OriginTable="cmn_economicregion" Source_DBField="EconomicRegion_Name_DictID"  />
+				<ClassMember Name="ParentEconomicRegion_RefID" Type="Guid"  />
+				<ClassMember Name="CMN_EconomicRegionID" Type="Guid"  />
+				<ClassMember Name="LOG_WRH_WarehouseID" Type="Guid"  />
+				<ClassMember Name="Warehouse_Name" Type="String"  />
+				<ClassMember Name="CMN_BPT_SupplierID" Type="Guid"  />
+				<ClassMember Name="ExternalSupplierProvidedIdentifier" Type="String"  />
+				<ClassMember Name="DisplayName" Type="String"  />
+			  <ClassMember Name="CMN_PRO_Product_SupplierID" Type="Guid" />
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

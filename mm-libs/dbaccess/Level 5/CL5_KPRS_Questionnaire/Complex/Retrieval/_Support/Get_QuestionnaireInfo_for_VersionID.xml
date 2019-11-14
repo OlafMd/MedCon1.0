@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="11/27/2012 11:51:28 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_Questionnaire.Complex.Retrieval"
+                Method_ClassName="cls_Get_QuestionnaireInfo_for_VersionID"
+                Method_Name="Get_QuestionnaireInfo_for_VersionID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_QuestionnaireInfo_for_VersionID"
+                />
+
+  <Parameters IsClass="true" Name="P_L5QT_GQIfVI_1048">
+    <Members>
+      <ClassMember Name="QuestionnaireVersionID" IsArray="false" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+        Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+        Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="L5QT_GQIfVI_1048" IsArray="false" GroupBy="RES_QST_QuestionnaireID">
+      <Members>
+        <ClassMember Name="QuestionnaireVersion_Comment" Type="String"  />
+        <ClassMember Name="QuestionnaireVersion_VersionNumber" Type="String"  />
+        <ClassMember Name="IsApartmentStructureVisible" Type="bool"  />
+        <ClassMember Name="IsStaircaseStructureVisible" Type="bool"  />
+        <ClassMember Name="IsOutdoorFacilityVisible" Type="bool"  />
+        <ClassMember Name="IsFacadeVisible" Type="bool"  />
+        <ClassMember Name="IsRoofVisible" Type="bool"  />
+        <ClassMember Name="IsAtticVisible" Type="bool"  />
+        <ClassMember Name="IsBasementVisible" Type="bool"  />
+        <ClassMember Name="IsHVACRVisible" Type="bool"  />
+        <ClassMember Name="RES_QST_Questionnaire_VersionID" Type="Guid"  />
+        <ClassMember Name="RES_QST_QuestionnaireID" Type="Guid"  />
+        <ClassMember Name="Questionnaire_Name" Type="Dict" OriginTable="res_qst_questionnaire" Source_DBField="Questionnaire_Name_DictID"  />
+        <ClassMember Name="Questionnaire_Description" Type="Dict" OriginTable="res_qst_questionnaire" Source_DBField="Questionnaire_Description_DictID"  />
+
+
+        <!-- Derived Tables -->
+        <ClassMember IsClass="true" IsArray="true" Name="OutdoorFacilities" Type="L5QT_GQIfVI_1048_OutdoorFacilities" GroupBy="RES_STR_OutdoorFacility_PropertyID">
+          <Members>                                                            
+            <ClassMember Name="OutdoorFacilityProperty_Name" Type="Dict" OriginTable="res_str_outdoorfacility_properties" Source_DBField="OutdoorFacilityProperty_Name_DictID"  />
+            <ClassMember Name="RES_STR_OutdoorFacility_PropertyID" Type="Guid"  />
+            <ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+            <ClassMember IsClass="true" IsArray="true" Name="OutdoorFacilityAvailableActions" Type="L5QT_GQIfVI_1048_OutdoorFacilityAvailableActions">
+              <Members>
+                <ClassMember Name="RES_STR_OutdoorFacility_Property_AvailableActionID" Type="Guid"  />
+                <ClassMember Name="RES_ACT_Action_RefID" Type="Guid"  />
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Name="Apartments" Type="L5QT_GQIfVI_1048_Apartments" GroupBy="RES_STR_Apartment_PropertyID">
+          <Members>
+            <ClassMember Name="RES_STR_Apartment_PropertyID" Type="Guid"  />
+            <ClassMember Name="ApartmentProperty_Name" Type="Dict" OriginTable="res_str_apartment_properties" Source_DBField="ApartmentProperty_Name_DictID"  />
+            <ClassMember Name="ApartmentProperty_GlobalID" Type="String"  />
+
+            <ClassMember IsClass="true" IsArray="true" Name="ApartmentAvailableActions" Type="L5QT_GQIfVI_1048_ApartmentAvailableActions" >
+              <Members>
+                <ClassMember Name="RES_STR_Apartment_Property_AvailableActionID" Type="Guid"  />
+                <ClassMember Name="Apartment_Action_RefID" Type="Guid"  />
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Name="Roofs" Type="L5QT_GQIfVI_1048_Roofs" GroupBy="RES_STR_Roof_PropertyID">
+          <Members>
+            <ClassMember Name="RES_STR_Roof_PropertyID" Type="Guid"  />
+   
+            <ClassMember Name="RoofProperty_Name" Type="Dict" OriginTable="res_str_roof_properties" Source_DBField="RoofProperty_Name_DictID"  />
+            <ClassMember Name="RoofProperty_GlobalID" Type="String"  />
+            <ClassMember IsClass="true" IsArray="true" Name="RoofAvailableActions" Type="L5QT_GQIfVI_1048_RoofAvailableActions" >
+              <Members>
+                <ClassMember Name="RES_STR_Roof_Property_AvailableActionID" Type="Guid"  />
+                <ClassMember Name="Roof_Action_RefID" Type="Guid"  />
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Name="Facades" Type="L5QT_GQIfVI_1048_Facades" GroupBy="RES_STR_Facade_PropertyID">
+          <Members>
+       
+            <ClassMember Name="RES_STR_Facade_PropertyID" Type="Guid"  />
+            <ClassMember Name="FacadeProperty_Name" Type="Dict" OriginTable="res_str_facade_properties" Source_DBField="FacadeProperty_Name_DictID"  />
+            <ClassMember Name="FacadeProperty_GlobalID" Type="String"  />
+            <ClassMember IsClass="true" IsArray="true" Name="FacadeAvailableActions" Type="L5QT_GQIfVI_1048_FacadeAvailableActions" >
+              <Members>
+                <ClassMember Name="RES_STR_Facade_Property_AvailableActionID" Type="Guid"  />
+                <ClassMember Name="Facade_Action_RefID" Type="Guid"  />
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Name="Staircases" Type="L5QT_GQIfVI_1048_Staircases" GroupBy="RES_STR_Staircase_PropertyID">
+          <Members>
+   
+            <ClassMember Name="RES_STR_Staircase_PropertyID" Type="Guid"  />
+            <ClassMember Name="StaircaseProperty_Name" Type="Dict" OriginTable="res_str_staircase_properties" Source_DBField="StaircaseProperty_Name_DictID"  />
+            <ClassMember Name="StaircaseProperty_GlobalID" Type="String"  />
+            <ClassMember IsClass="true" IsArray="true" Name="StaircaseAvailableActions" Type="L5QT_GQIfVI_1048_StaircaseAvailableActions" >
+              <Members>
+                <ClassMember Name="RES_STR_Staircase_Property_AvailableActionsID" Type="Guid"  />
+                <ClassMember Name="Staricase_Action_RefID" Type="Guid"  />
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Name="Basements" Type="L5QT_GQIfVI_1048_Basements" GroupBy="RES_STR_Basement_PropertyID">
+          <Members>
+           
+            <ClassMember Name="RES_STR_Basement_PropertyID" Type="Guid"  />
+            <ClassMember Name="BasementProperty_Name" Type="Dict" OriginTable="res_str_basement_properties" Source_DBField="BasementProperty_Name_DictID"  />
+            <ClassMember Name="BasementProperty_GlobalID" Type="String"  />
+            <ClassMember IsClass="true" IsArray="true" Name="BasementAvailableActions" Type="L5QT_GQIfVI_1048_BasementAvailableActions" >
+              <Members>
+                <ClassMember Name="RES_STR_Basement_Property_AvailableActionID" Type="Guid"  />
+                <ClassMember Name="Basement_Action_RefID" Type="Guid"  />
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Name="HVACRs" Type="L5QT_GQIfVI_1048_HVACRs" GroupBy="RES_STR_HVACR_PropertyID">
+          <Members>
+      
+            <ClassMember Name="HVACRProperty_Name" Type="Dict" OriginTable="res_str_hvacr_properties" Source_DBField="HVACRProperty_Name_DictID"  />
+            <ClassMember Name="RES_STR_HVACR_PropertyID" Type="Guid"  />
+            <ClassMember Name="HVACRProperty_GlobalID" Type="String"  />
+            <ClassMember IsClass="true" IsArray="true" Name="HVACRAvailableActions" Type="L5QT_GQIfVI_1048_HVACRAvailableActions" >
+              <Members>
+                <ClassMember Name="RES_STR_HVACR_Property_AvailableActionID" Type="Guid"  />
+                <ClassMember Name="HVACR_Action_RefID" Type="Guid"  />
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Name="Attics" Type="L5QT_GQIfVI_1048_Attics" GroupBy="RES_STR_Attic_PropertyID">
+          <Members>
+     
+            <ClassMember Name="RES_STR_Attic_PropertyID" Type="Guid"  />
+            <ClassMember Name="AtticProperty_Name" Type="Dict" OriginTable="res_str_attic_properties" Source_DBField="AtticProperty_Name_DictID"  />
+            <ClassMember Name="AtticProperty_GlobalID" Type="String"  />
+            <ClassMember IsClass="true" IsArray="true" Name="AtticAvailableActions" Type="L5QT_GQIfVI_1048_AtticAvailableActions" >
+              <Members>
+                <ClassMember Name="RES_STR_Attic_Property_AvailableActionID" Type="Guid"  />
+                <ClassMember Name="Attic_Action_RefID" Type="Guid"  />
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>

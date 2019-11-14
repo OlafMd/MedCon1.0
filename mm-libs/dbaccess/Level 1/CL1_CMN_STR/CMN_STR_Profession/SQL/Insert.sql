@@ -1,0 +1,23 @@
+INSERT INTO 
+	cmn_str_professions
+	(
+		CMN_STR_ProfessionID,
+		GlobalPropertyMatchingID,
+		ProfessionSimpleName,
+		ProfessionName_DictID,
+		ProfessionDescription_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_STR_ProfessionID,
+		@GlobalPropertyMatchingID,
+		@ProfessionSimpleName,
+		@ProfessionName,
+		@ProfessionDescription,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

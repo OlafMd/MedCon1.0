@@ -1,0 +1,11 @@
+UPDATE 
+	log_wrh_shelf_contentadjustment_trackinginstances
+SET 
+	LOG_WRH_Shelf_ContentAdjustment_RefID=@LOG_WRH_Shelf_ContentAdjustment_RefID,
+	LOG_ProductTrackingInstance_RefID=@LOG_ProductTrackingInstance_RefID,
+	QuantityChangedAmount=@QuantityChangedAmount,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	LOG_WRH_Shelf_ContentAdjustment_TrackingInstanceID = @LOG_WRH_Shelf_ContentAdjustment_TrackingInstanceID

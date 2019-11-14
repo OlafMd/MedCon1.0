@@ -1,0 +1,8 @@
+﻿{
+    DoctorWelcomeSubject: 'Willkommen bei Medios Connect',
+    PracticeWelcomeSubject: 'Willkommen bei Medios Connect',
+    NewUserSubject: 'Willkommen bei Medios Connect',
+    PdfReceiptSubject: 'Medios Connect / Neue Abrechnungsübersicht',
+    NewPasswordSubject:  'Medios Connect / Neues Passwort',
+    
+}

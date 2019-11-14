@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/9/2014 12:38:34 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>PatientInfos_for_Tennant</Name>
+    <Namespace>CLE_L3_Patients.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#" 
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_EMR.Atomic.Retrieval"
+                Method_ClassName="cls_Get_PatientActionHistory_for_TenantID"
+                Method_Name="Get_PatientActionHistory_for_TenantID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_PatientActionHistory_for_TenantID"
+                />
+
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_patients.HEC_PatientID,
+  hec_act_performedactions.HEC_ACT_PerformedActionID,
+  hec_act_plannedactions.PlannedFor_Date,
+  hec_act_performedactions.IfPerfomed_DateOfAction,
+  hec_pat_electronicmedicalrecord_creationrequests.IsEMRFileCreated,
+  hec_pat_electronicmedicalrecord_creationrequests.RequestDate,
+  hec_act_plannedactions.HEC_ACT_PlannedActionID,
+  hec_pat_electronicmedicalrecord_creationrequests.HEC_PAT_ElectronicMedicalRecord_CreationRequestID
+From
+  hec_patients Left Join
+  hec_act_performedactions On hec_act_performedactions.Patient_RefID =
+    hec_patients.HEC_PatientID And (hec_act_performedactions.IsDeleted Is Null
+      Or hec_act_performedactions.IsDeleted = 0) Left Join
+  hec_act_plannedactions On hec_patients.HEC_PatientID =
+    hec_act_plannedactions.Patient_RefID And (hec_act_plannedactions.IsDeleted
+      Is Null Or hec_act_plannedactions.IsDeleted = 0) Left Join
+  hec_pat_electronicmedicalrecord_creationrequests
+    On hec_pat_electronicmedicalrecord_creationrequests.Patient_RefID =
+    hec_patients.HEC_PatientID And
+    (hec_pat_electronicmedicalrecord_creationrequests.IsDeleted Is Null Or
+      hec_pat_electronicmedicalrecord_creationrequests.IsDeleted = 0)
+Where
+  hec_patients.IsDeleted = 0 And
+  hec_patients.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5ME_GPAHfT_1213" IsArray="true" GroupBy="HEC_PatientID">
+			<Members>
+        <ClassMember Name="HEC_PatientID" Type="Guid"  />
+        <ClassMember IsClass="true" IsArray="true" Type="L5ME_GPAHfT_1213_PlannedAction" Name="PlannedActions" GroupBy="HEC_ACT_PlannedActionID" >
+          <Members>
+            <ClassMember Name="HEC_ACT_PlannedActionID" Type="Guid"  />
+            <ClassMember Name="PlannedFor_Date" Type="DateTime"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Type="L5ME_GPAHfT_1213_PerformedAction" Name="PerformedActions" GroupBy="HEC_ACT_PerformedActionID" >
+          <Members>
+            <ClassMember Name="HEC_ACT_PerformedActionID" Type="Guid"  />
+            <ClassMember Name="IfPerfomed_DateOfAction" Type="DateTime"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Type="L5ME_GPAHfT_1213_EMRCreationRequest" Name="EMRCreationRequest" GroupBy="HEC_PAT_ElectronicMedicalRecord_CreationRequestID" >
+          <Members>
+            <ClassMember Name="HEC_PAT_ElectronicMedicalRecord_CreationRequestID" Type="Guid"  />
+            <ClassMember Name="IsEMRFileCreated" Type="bool"  />
+            <ClassMember Name="RequestDate" Type="DateTime"  />
+          </Members>
+        </ClassMember>
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

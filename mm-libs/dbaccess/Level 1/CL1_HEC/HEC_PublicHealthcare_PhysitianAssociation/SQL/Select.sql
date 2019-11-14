@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_publichealthcare_physitianassociations
+WHERE 
+	HEC_PublicHealthcare_PhysitianAssociationID = @HEC_PublicHealthcare_PhysitianAssociationID

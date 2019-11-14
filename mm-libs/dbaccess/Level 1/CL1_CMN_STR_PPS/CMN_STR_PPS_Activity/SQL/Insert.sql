@@ -1,0 +1,27 @@
+INSERT INTO 
+	cmn_str_pps_activities
+	(
+		CMN_STR_PPS_ActivityID,
+		Activity_ShortName,
+		Activity_Name_DictID,
+		Activity_Description_DicID,
+		IsAbsenceActivity,
+		AbsenceReason_RefID,
+		IsSkill,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_STR_PPS_ActivityID,
+		@Activity_ShortName,
+		@Activity_Name,
+		@Activity_Description_DicID,
+		@IsAbsenceActivity,
+		@AbsenceReason_RefID,
+		@IsSkill,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

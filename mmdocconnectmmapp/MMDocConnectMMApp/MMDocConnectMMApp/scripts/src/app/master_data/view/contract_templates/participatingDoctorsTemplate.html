@@ -1,0 +1,73 @@
+﻿<div ng-init="initializeController()">
+    <div class="gray-content-holder doctors-data-lists doctor-list">
+        <div name="messageContainer" class="error-msg-container" ng-if="showErrorMessageContainer">
+            <span class="error" ng-if="doctorAlreadyAdded">{{ 'LABEL_DOCTOR_ALREADY_SELECTED' | translate }} </span>
+            <span class="error" ng-if="consentStartDateInvalid">{{ 'LABEL_VALID_FROM_INVALID_DATE' | translate }} </span>
+            <span class="error" ng-if="consentStartDateNotInContractValidityTimespan">{{ 'LABEL_CONSENT_START_NOT_IN_CONTRACT_VALIDITY_TIMESPAN' | translate }} </span>
+            <span class="error" ng-repeat="overlap in overlaps" ng-if="overlaps || overlaps.length !== 0" translate="LABEL_CONTRACT_DATES_OVERLAPS" translate-values="overlap"></span>
+        </div>
+
+        <ul class="second-class-data doctor-row">
+            <li>
+                <label>{{ 'LABEL_VALID_FROM' | translate }} <span class="error" ng-if="consentStartDateNotEntered">*</span></label>
+                <datepicker date-format="dd.MM.yyyy" date-model="consent_date" date-max-limit={{maximumConsentDate}} date-min-limit={{minimumConsentDate}}>
+                    <input type="text" id="consentStartDate" ng-focus="setClass()" name="consentStartDate" class="2000Year" ng-model="consent_date"
+                           placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}" ng-change="consentStartDateEntered()"
+                           ng-class="{ 'redborder': (consentStartDateInvalid || consentStartDateNotInContractValidityTimespan || $scope.overlaps.length !== 0) && showErrorMessageContainer }"
+                           ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'" validate-date="true" date-min-limit="minimumConsentDate" date-max-limit="maximumConsentDate" />
+                </datepicker>
+            </li>
+            <li>
+                <label>{{ 'LABEL_DOCTOR' | translate }}</label>
+                <angucomplete-alt id="inDoctorName"
+                                  class="autocomplete-input"
+                                  name="inDoctorName" pause="500"
+                                  selected-object="addDoctor"
+                                  remote-url="api/contract/GetDoctorsForSearchCriteria"
+                                  remote-url-data-field="items"
+                                  remote-url-request-formatter="remoteUrlRequestFn"
+                                  search-fields="expanded_name"
+                                  title-field="expanded_name"
+                                  minlength="1"
+                                  inputclass="form-control form-control-small"
+                                  inherit-position="true"
+                                  ng-class-if="doctorAlreadyAdded"
+                                  ng-class-class="'redborder'" />
+            </li>
+            <li>
+                <button class="button wide add-button" ng-click="addDoctorToList()" translate="LABEL_ADD" onclick="return false;" ng-disabled></button>
+            </li>
+        </ul>
+
+    </div>
+    <ul class="doctor-participation-list-header">
+        <li class="unsorted" ng-class="setTableHeaderClass('sortable_name')" ng-click="SortFunction('sortable_name')">{{'LABEL_DOCTORS' | translate }}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('lanr')" ng-click="SortFunction('lanr')">{{'LABEL_LANR' | translate }}</li>
+        <li>{{'LABEL_ADDRESS' | translate }}</li>
+        <li>{{'LABEL_CONTACT' | translate }}</li>
+        <li>{{'LABEL_VALID_FROM' | translate }}</li>
+        <li>{{'LABEL_VALID_THROUGH' | translate }}</li>
+    </ul>
+
+    <div class="content-scroll clear" id="wrapper">
+        <div id="wrapper_inner" class="clearfix">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner">
+                <div ng-repeat="item in doctors track by item.id">
+                    <ul class="doctor-participation-list-item" ng-class="{'disabled-list': !item.is_consent_active }">
+                        <li class="larger-font">
+                            <span>{{ item.name }}</span>
+                            <span class="normal-height-font gray-font-color margin-top-3">{{ item.practice }}</span>
+                        </li>
+                        <li><span>{{ item.lanr }}</span> </li>
+                        <li><span>{{ item.address }}</span> <span class="margin-top-3">{{ item.city }}</span> </li>
+                        <li><span>{{ item.phone }}</span> <span class="margin-top-3">{{ item.email }}</span>  </li>
+                        <li><span>{{ item.consent_start_date }}</span></li>
+                        <li><span>{{ item.consent_end_date }}</span></li>
+                        <li><a href="" ng-if="item.is_consent_active" ng-click="removeDoctor(item)" class="icons-discard" title="{{'LABEL_REMOVE_FROM_CONTRACT' | translate}}"></a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

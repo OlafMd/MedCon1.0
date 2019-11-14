@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	pprs_tsk_task_selectedavailabilitytypes
+WHERE 
+	PPRS_TSK_Task_SelectedAvailabilityTypeID = @PPRS_TSK_Task_SelectedAvailabilityTypeID

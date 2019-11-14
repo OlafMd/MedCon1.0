@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_bil_potentialcode_catalogs
+	(
+		HEC_BIL_PotentialCode_CatalogID,
+		GlobalPropertyMatchingID,
+		DateOfPublishing,
+		CatalogName_DictID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_BIL_PotentialCode_CatalogID,
+		@GlobalPropertyMatchingID,
+		@DateOfPublishing,
+		@CatalogName,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

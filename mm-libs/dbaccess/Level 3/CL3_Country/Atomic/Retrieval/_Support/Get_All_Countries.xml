@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/9/2013 2:20:23 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_All_Countries</Name>
+    <Namespace>CL3_Country.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Country.Atomic.Retrieval"
+                Method_ClassName="cls_Get_All_Countries"
+                Method_Name="Get_All_Countries"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_All_Countries"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  cmn_countries.CMN_CountryID,
+  cmn_countries.Country_Name_DictID,
+  cmn_countries.Country_ISOCode_Alpha3,
+  cmn_countries.Country_ISOCode_Alpha2
+From
+  cmn_countries
+Where
+  cmn_countries.IsDeleted = 0 and cmn_countries.Tenant_RefID=cast(0x00000000000000000000000000000000 as binary)
+  </SQLStatement>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3CTR_GAC_1420" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_CountryID" Type="Guid"  />
+				<ClassMember Name="Country_Name" Type="Dict" OriginTable="cmn_countries" Source_DBField="Country_Name_DictID"  />
+        <ClassMember Name="Country_ISOCode_Alpha3" Type="String"  />
+        <ClassMember Name="Country_ISOCode_Alpha2" Type="String"  />
+        
+        
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

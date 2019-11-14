@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="30/7/2014 12:40:55">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_OrganizationalUnit_Address</Name>
+    <Namespace>CL5_APOCustomerAdmin_Address.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOCustomerAdmin_Address.Atomic.Manipulation"
+                Method_ClassName="cls_Save_OrganizationalUnit_Address"
+                Method_Name="Save_OrganizationalUnit_Address"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_OrganizationalUnit_Address"
+                />
+
+  <Parameters IsClass="true" Name="P_L5ACAAD_SOUA_1239">
+    <Members>
+      <ClassMember IsIdentificator="True" Name="CMN_AddressID" Type="Guid"  />
+      <ClassMember Name="OrganizationalUnitID" Type="Guid"  />
+      <ClassMember Name="UniversalContactDetailsID" Type="Guid"  />
+      <ClassMember Name="IsBilling" Type="Boolean"  />
+      <ClassMember Name="AddressName" Type="String"  />
+      <ClassMember Name="StreetName" Type="String"  />
+      <ClassMember Name="StreetNumber" Type="String"  />
+      <ClassMember Name="Country_Name" Type="String"  />
+      <ClassMember Name="Country_ISOCode" Type="String"  />
+      <ClassMember Name="Town" Type="String"  />
+      <ClassMember Name="IsPrimary" Type="Boolean"  />
+      <ClassMember Name="City_PostalCode" Type="String"  />
+      <ClassMember Name="IsDelete" Type="Boolean"  />
+      <ClassMember Name="IsReadOnly" Type="Boolean"  />
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+  </ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="bestRegards" xml:space="preserve">
+    <value>Mit freundlichen Grüßen,</value>
+  </data>
+  <data name="emailSubject" xml:space="preserve">
+    <value>Willkommen bei Medios Connect </value>
+  </data>
+  <data name="firstLine" xml:space="preserve">
+    <value>vielen Dank für Ihre Teilnahme am Abrechnungsprogramm von mediosmanagement.</value>
+  </data>
+  <data name="fourthLine" xml:space="preserve">
+    <value>Für Rückfragen stehen wir Ihnen gern zur Verfügung</value>
+  </data>
+  <data name="LoginURLDocApp" xml:space="preserve">
+    <value>https://lynxv3.b-op.com/mmdocconnect-doc/</value>
+  </data>
+  <data name="secondLine" xml:space="preserve">
+    <value>Ihr initiales Passwort lautet</value>
+  </data>
+  <data name="thirdLine" xml:space="preserve">
+    <value>Bitte ändern Sie das Passwort aus Sicherheitsgründen bei Ihrem ersten Login.</value>
+  </data>
+  <data name="WelcomePracticeName" xml:space="preserve">
+    <value>Herzlich Willkommen</value>
+  </data>
+  <data name="helloMM" xml:space="preserve">
+    <value>Hallo mm Team,</value>
+  </data>
+  <data name="orderurgent" xml:space="preserve">
+    <value>die folgende Bestellung muss sofort bearbeitet werden:</value>
+  </data>
+  <data name="regards" xml:space="preserve">
+    <value>Viele Grüße,</value>
+  </data>
+  <data name="urgentOrder" xml:space="preserve">
+    <value>Medios Connect  / Eilbestellung</value>
+  </data>
+  <data name="immidiatenotificationordernumber" xml:space="preserve">
+    <value>120</value>
+  </data>
+  <data name="mmdocConnect" xml:space="preserve">
+    <value>Medios Connect </value>
+  </data>
+  <data name="LoginURLMM" xml:space="preserve">
+    <value>https://lynxv3.b-op.com/mmdocconnect-mm/</value>
+  </data>
+  <data name="ContractCharacteristicsID" xml:space="preserve">
+    <value>17172100035</value>
+  </data>
+  <data name="InterchangeSenderID" xml:space="preserve">
+    <value>591104483</value>
+  </data>
+  <data name="adHocFirstLine" xml:space="preserve">
+    <value>soeben wurde ein neuer Nachsorgearzt im System angelegt.</value>
+  </data>
+  <data name="adHocSecondLine" xml:space="preserve">
+    <value>Bitte überprüft die Daten für den neuen Arzt und die entsprechende Praxis umgehend um Dopplungen zu vermeiden.</value>
+  </data>
+  <data name="createdBy" xml:space="preserve">
+    <value>erstellt von</value>
+  </data>
+  <data name="from" xml:space="preserve">
+    <value>von</value>
+  </data>
+  <data name="city" xml:space="preserve">
+    <value>Ort:</value>
+  </data>
+  <data name="comment" xml:space="preserve">
+    <value>Kommentar: </value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>E-Mail:</value>
+  </data>
+  <data name="fax" xml:space="preserve">
+    <value>Fax:</value>
+  </data>
+  <data name="houseNr" xml:space="preserve">
+    <value>Haus-Nr.:</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Telefon:</value>
+  </data>
+  <data name="InvoiceDocumentName" xml:space="preserve">
+    <value>Abrechnungen</value>
+  </data>
+  <data name="zip" xml:space="preserve">
+    <value>PLZ:</value>
+  </data>
+  <data name="furtherQuestions" xml:space="preserve">
+    <value>Verfügung.</value>
+  </data>
+  <data name="MailSubjectReceipt" xml:space="preserve">
+    <value>Medios Connect / Neue Abrechnungsübersicht</value>
+  </data>
+  <data name="mediosconnectsettlement" xml:space="preserve">
+    <value>Abrechnungsprogramm von medios connect.</value>
+  </data>
+  <data name="newSettlementForYou" xml:space="preserve">
+    <value>Es liegt eine neue Abrechnungsübersicht für Sie vor:</value>
+  </data>
+  <data name="pleaseContactUs" xml:space="preserve">
+    <value>Für Rückfragen stehen wir Ihnen gern zur</value>
+  </data>
+  <data name="thankYouForBeinguser" xml:space="preserve">
+    <value>vielen Dank für Ihre aktive Teilnahme am</value>
+  </data>
+  <data name="YourMediosConnectTeam" xml:space="preserve">
+    <value>Ihr Medios Connect Team.</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Betrag</value>
+  </data>
+  <data name="CaseNum1" xml:space="preserve">
+    <value>Vorgangs-</value>
+  </data>
+  <data name="CaseNum2" xml:space="preserve">
+    <value>nummer</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Stornierung</value>
+  </data>
+  <data name="DetailedInfoForInvoice" xml:space="preserve">
+    <value>Detaillierte Informationen für den Leistungszeitraum</value>
+  </data>
+  <data name="Diagnose" xml:space="preserve">
+    <value>Diag. /</value>
+  </data>
+  <data name="Euro" xml:space="preserve">
+    <value>(Euro)</value>
+  </data>
+  <data name="GPOS" xml:space="preserve">
+    <value>Vorgang</value>
+  </data>
+  <data name="InvoiceForAccount" xml:space="preserve">
+    <value>Der Betrag wird innerhalb der nächsten 5 Werktage auf das Konto</value>
+  </data>
+  <data name="invoiceFrom" xml:space="preserve">
+    <value>Honorarvorgang vom</value>
+  </data>
+  <data name="invoiceNumber" xml:space="preserve">
+    <value>Vorgangsnummer</value>
+  </data>
+  <data name="InvoicePeriod" xml:space="preserve">
+    <value>Die Leistungszeiträume im Überblick</value>
+  </data>
+  <data name="InvoicePeriod2begin" xml:space="preserve">
+    <value>Die Leistungen für </value>
+  </data>
+  <data name="InvoicePeriod2end" xml:space="preserve">
+    <value>im Überblick</value>
+  </data>
+  <data name="InvoiceRemitted" xml:space="preserve">
+    <value>überwiesen</value>
+  </data>
+  <data name="InvoiceSumme" xml:space="preserve">
+    <value>Summe der oben aufgeführten Beträge</value>
+  </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Lokal.</value>
+  </data>
+  <data name="Patient" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="PatientBirthDate" xml:space="preserve">
+    <value>Geb.-Datum</value>
+  </data>
+  <data name="PatientInsuranceNumber" xml:space="preserve">
+    <value>Versichertennummer</value>
+  </data>
+  <data name="PeriodOfInvoice" xml:space="preserve">
+    <value>Leistungszeitraum</value>
+  </data>
+  <data name="SumFor" xml:space="preserve">
+    <value>Summe für</value>
+  </data>
+  <data name="SumForDeleted" xml:space="preserve">
+    <value>Summe für Stornierung</value>
+  </data>
+  <data name="footerFrom" xml:space="preserve">
+    <value>Seite</value>
+  </data>
+  <data name="footerTo" xml:space="preserve">
+    <value>von</value>
+  </data>
+  <data name="Reclaimed" xml:space="preserve">
+    <value>Rückforderung</value>
+  </data>
+  <data name="adHocSubject" xml:space="preserve">
+    <value>Neue Nachsorgearzt</value>
+  </data>
+  <data name="SumForReclaimed" xml:space="preserve">
+    <value>Summe für Rückforderung</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hallo</value>
+  </data>
+  <data name="bodyLine1" xml:space="preserve">
+    <value>Hallo</value>
+  </data>
+  <data name="bodyLine2" xml:space="preserve">
+    <value>vielen Dank für Deine Mitarbeit am Abrechnungsprogramm von mediosmanagement.</value>
+  </data>
+  <data name="bodyLine3" xml:space="preserve">
+    <value>Dein Passwort wurde zurückgesetzt. Das neue Passwort lautet:</value>
+  </data>
+  <data name="bodyLine4" xml:space="preserve">
+    <value>Bitte ändere das Passwort aus Sicherheitsgründen bei Deinem ersten Login.</value>
+  </data>
+  <data name="bodyLine5" xml:space="preserve">
+    <value>https://lynxv3.b-op.com/mmdocconnect-mm/</value>
+  </data>
+  <data name="bodyLine6" xml:space="preserve">
+    <value>Für Rückfragen stehen wir Dir gern zur Verfügung.</value>
+  </data>
+  <data name="bodyLine7" xml:space="preserve">
+    <value>Viele Grüße.</value>
+  </data>
+  <data name="bodyLine8" xml:space="preserve">
+    <value>Dein Medios Connect Team.</value>
+  </data>
+  <data name="ContractCharacteristicsID1" xml:space="preserve">
+    <value>17172100035</value>
+  </data>
+  <data name="emailSubject1" xml:space="preserve">
+    <value>Medios Connect  / Neues Passwort</value>
+  </data>
+  <data name="InterchangeSenderID1" xml:space="preserve">
+    <value>591104483</value>
+  </data>
+  <data name="street" xml:space="preserve">
+    <value>Strasse:</value>
+  </data>
+  <data name="FS1" xml:space="preserve">
+    <value>zur Übermittlung freigegeben</value>
+  </data>
+  <data name="FS10" xml:space="preserve">
+    <value>rückforderung</value>
+  </data>
+  <data name="FS2" xml:space="preserve">
+    <value>übermittelt</value>
+  </data>
+  <data name="FS3" xml:space="preserve">
+    <value>gesperrt</value>
+  </data>
+  <data name="FS4" xml:space="preserve">
+    <value>bestätigt</value>
+  </data>
+  <data name="FS5" xml:space="preserve">
+    <value>korrektur erforderlich</value>
+  </data>
+  <data name="FS6" xml:space="preserve">
+    <value>wartet auf Korrektur</value>
+  </data>
+  <data name="FS7" xml:space="preserve">
+    <value>überwiesen</value>
+  </data>
+  <data name="FS8" xml:space="preserve">
+    <value>storniert</value>
+  </data>
+  <data name="FS9" xml:space="preserve">
+    <value>ablehnung durch Krankenkasse</value>
+  </data>
+  <data name="goodUntil" xml:space="preserve">
+    <value>gültig bis</value>
+  </data>
+  <data name="participarionConsent" xml:space="preserve">
+    <value>Teilnahmeerklärung</value>
+  </data>
+  <data name="notOrdered" xml:space="preserve">
+    <value>Medikament nicht bestellt </value>
+  </data>
+  <data name="ordered" xml:space="preserve">
+    <value>Medikament bestellt</value>
+  </data>
+  <data name="FS11" xml:space="preserve">
+    <value>Stornierung anhängig</value>
+  </data>
+  <data name="referenceNumber" xml:space="preserve">
+    <value>Referenz-nummer</value>
+  </data>
+  <data name="FS13" xml:space="preserve">
+    <value>zur Dokumentation</value>
+  </data>
+  <data name="FS21" xml:space="preserve">
+    <value>OCT vorgemerkt</value>
+  </data>
+</root>

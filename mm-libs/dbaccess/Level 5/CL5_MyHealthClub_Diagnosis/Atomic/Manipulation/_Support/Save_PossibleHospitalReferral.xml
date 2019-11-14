@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/5/2014 9:48:48 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_PossibleHospitalReferral</Name>
+    <Namespace>CL5_MyHealthClub_Diagnosis.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Diagnosis.Atomic.Manipulation"
+                Method_ClassName="cls_Save_PossibleHospitalReferral"
+                Method_Name="Save_PossibleHospitalReferral"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_PossibleHospitalReferral"
+                />
+
+  <Parameters IsClass="true" Name="P_L5DI_SPHR_1208">
+    <Members>
+      <ClassMember IsClass="true" IsArray="true" Type="P_L5DI_SPHR_1208_PossibleHospitalReferral" Name="PossibleHospitalReferral" >
+        <Members>
+          <ClassMember Name="HEC_DIA_STA_Diagnosis_ReferalHistoryID" Type="Guid"  />
+          <ClassMember Name="PotentialDiagnosis_RefID" Type="Guid"  />
+          <ClassMember Name="MedicalPractice_RefID" Type="Guid"  />
+          <ClassMember Name="IsDeleted" Type="bool"  />
+        </Members>
+      </ClassMember>
+    </Members>
+  </Parameters>
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="true" />
+  </ResultInfo>
+
+</CodeGen>
+
+

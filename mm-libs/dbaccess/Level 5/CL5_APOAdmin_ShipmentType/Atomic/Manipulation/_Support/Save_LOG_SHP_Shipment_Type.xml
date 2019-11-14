@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/17/2013 1:47:39 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_LOG_SHP_Shipment_Type</Name>
+    <Namespace>CL5_APOAdmin_ShipmentType.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOAdmin_ShipmentType.Atomic.Manipulation"
+                Method_ClassName="cls_Save_LOG_SHP_Shipment_Type"
+                Method_Name="Save_LOG_SHP_Shipment_Type"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_LOG_SHP_Shipment_Type"
+                />
+  <SQLLimitation_CSharp_Extension>
+			var returnValue = new FR_Guid();
+
+			var item = new CL1_LOG_SHP.LOG_SHP_Shipment_Type.ORM_LOG_SHP_Shipment_Type();
+			if (Parameter.LOG_SHP_Shipment_TypeID != Guid.Empty)
+			{
+			    var result = item.Load(Connection, Transaction, Parameter.LOG_SHP_Shipment_TypeID);
+			    if (result.Status != FR_Status.Success || item.LOG_SHP_Shipment_TypeID == Guid.Empty)
+			    {
+			        var error = new FR_Guid();
+			        error.ErrorMessage = "No Such ID";
+			        error.Status =  FR_Status.Error_Internal;
+			        return error;
+			    }
+			}
+
+			if(Parameter.IsDeleted == true){
+				item.IsDeleted = true;
+				return new FR_Guid(item.Save(Connection, Transaction),item.LOG_SHP_Shipment_TypeID);
+			}
+
+			//Creation specific parameters (Tenant, Account ... )
+			if (Parameter.LOG_SHP_Shipment_TypeID == Guid.Empty)
+			{
+				item.Tenant_RefID = securityTicket.TenantID;
+			}
+
+			item.GlobalPropertyMatchingID = Parameter.GlobalPropertyMatchingID;
+			item.ShipmentType_Name = Parameter.ShipmentType_Name;
+			item.ShipmentType_Description = Parameter.ShipmentType_Description;
+			item.IsCustomerPickup = Parameter.IsCustomerPickup;
+			item.IsPartialPickingPermitted = Parameter.IsPartialPickingPermitted;
+			item.IsFixedPricePerShipment = Parameter.IsFixedPricePerShipment;
+			item.IfFixedPricePerShipment_Price_RefID = Parameter.IfFixedPricePerShipment_Price_RefID;
+
+
+			return new FR_Guid(item.Save(Connection, Transaction),item.LOG_SHP_Shipment_TypeID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L5ST_SST_1347">
+    <Members>
+		<ClassMember IsIdentificator="True" Name="LOG_SHP_Shipment_TypeID" Type="Guid"  />
+		<ClassMember Name="GlobalPropertyMatchingID" Type="String"  />
+		<ClassMember Name="ShipmentType_Name" Type="Dict"  />
+		<ClassMember Name="ShipmentType_Description" Type="Dict"  />
+		<ClassMember Name="IsCustomerPickup" Type="Boolean"  />
+		<ClassMember Name="IsPartialPickingPermitted" Type="Boolean"  />
+		<ClassMember Name="IsFixedPricePerShipment" Type="Boolean"  />
+		<ClassMember Name="IfFixedPricePerShipment_Price_RefID" Type="Guid"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

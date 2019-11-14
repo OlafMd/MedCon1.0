@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="3-10-14 16:42:27">
+
+  <Meta>
+    <Name></Name>
+    <Description></Description>
+    <Namespace></Namespace>
+    <Tags></Tags>
+  </Meta>
+
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_Tags.Complex.Manipulation"
+                Method_ClassName="cls_Add_Tags_to_Note"
+                Method_Name="Add_Tags_to_Note"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Add_Tags_to_Note"
+                />
+  <Parameters IsClass="true" Name="P_L3TG_ATtN_1738">
+    <Members>
+      <ClassMember Name="ProjectNoteID" Type="Guid" />
+      <ClassMember Name="NoteTags" IsClass="true" Type="P_L3TG_ATtN_1738a" IsArray="true">
+        <Members>
+          <ClassMember Name="TMS_PRO_TagID" Type="Guid" />
+          <ClassMember Name="TagValue" Type="String" />
+        </Members>
+      </ClassMember>
+    </Members>
+  </Parameters>
+  <ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+
+  </ResultInfo>
+
+</CodeGen>
+
+

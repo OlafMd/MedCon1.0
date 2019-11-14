@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/20/2014 7:50:12 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CustomerOrderPositions_with_HeaderData_for_HeaderID</Name>
+    <Namespace>CL6_Backoffice_Sales.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_Backoffice_Sales.Complex.Retrieval"
+                Method_ClassName="cls_Get_CustomerOrderPositions_with_HeaderData_for_HeaderID"
+                Method_Name="Get_CustomerOrderPositions_with_HeaderData_for_HeaderID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_CustomerOrderPositions_with_HeaderData_for_HeaderID"
+                />
+
+  <Parameters IsClass="true" Name="P_L6BS_GCOPwHDfH_0748">
+    <Members>
+		<ClassMember Name="CustomerOrderHeaderID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6BS_GCOPwHDfH_0748" IsArray="false">
+			<Members>
+				<ClassMember Name="HeaderData" Type="CL3_CustomerOrder.Atomic.Retrieval.CL3_GCODfH_1537"  />
+                <ClassMember Name="Positions" IsArray="true" Type="CL5_APOBackoffice_CustomerOrder.Complex.Retrieval.L5CO_GCOPwDfH_1421" />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

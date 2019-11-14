@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/8/2013 11:57:06 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Treatment_and_RelevantDiagnosis_for_TreatmentID</Name>
+    <Namespace>CL6_Lucenits_Treatments.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_Lucenits_Treatments.Atomic.Retrieval"
+                Method_ClassName="cls_Get_TreatmentsCompleteInfo_by_IDs"
+                Method_Name="Get_TreatmentsCompleteInfo_by_IDs"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_TreatmentsCompleteInfo_by_IDs"
+                />
+
+  <SQLStatement xml:space="preserve">    
+Select
+  hec_patient_treatment.IsDeleted As IsTreatmentDeleted,
+  hec_patient_treatment.IsTreatmentFollowup,
+  hec_patient_treatment.IfSheduled_ForDoctor_RefID,
+  hec_patient_treatment.Treatment_Comment,
+  hec_patient_treatment.IfTreatmentBilled_Date,
+  hec_patient_treatment.IsTreatmentBilled,
+  hec_patient_treatment.IfSheduled_Date,
+  hec_patient_treatment.IsScheduled,
+  hec_patient_treatment.IfTreatmentPerformed_Date,
+  hec_patient_treatment.IfTreatmentPerformed_ByDoctor_RefID,
+  hec_patient_treatment.IsTreatmentPerformed,
+  hec_patient_treatment.TreatmentPractice_RefID,
+  hec_patient_treatment.IfTreatmentFollowup_FromTreatment_RefID,
+  hec_patient_treatment_ocularextension.IsTreatmentOfLeftEye,
+  hec_patient_treatment_ocularextension.IsTreatmentOfRightEye,
+  hec_patient_2_patienttreatment.HEC_Patient_RefID,
+  bil_billpositions.External_PositionCode,
+  bil_billpositions.External_PositionType,
+  bil_billpositions.External_PositionReferenceField,
+  bil_billpositions.BillPosition_ProductNumber,
+  bil_billpositions.PositionValue_IncludingTax,
+  bil_billpositions.PositionValue_BeforeTax,
+  bil_billpositions.PositionNumber,
+  bil_billpositions.BIL_BillPositionID,
+  bil_billposition_transmitionstatuses.BIL_BillPosition_TransmitionStatusID,
+  bil_billposition_transmitionstatuses.TransmitionCode,
+  bil_billposition_transmitionstatuses.PrimaryComment,
+  bil_billposition_transmitionstatuses.SecondaryComment,
+  bil_billposition_transmitionstatuses.TransmittedOnDate,
+  bil_billposition_transmitionstatuses.Creation_Timestamp,
+  bil_billposition_transmitionstatuses.IsActive,
+  hec_patient_treatment_relevantdiagnoses.DiagnosedOnDate,
+  hec_patient_treatment_relevantdiagnoses.HEC_Patient_Treatment_RelevantDiagnosisID,
+  hec_patient_treatment_relevantdiagnoses.Doctor_RefID,
+  hec_patient_treatment_relevantdiagnoses.Creation_Timestamp As Creation_Date,
+  hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID,
+  hec_dia_potentialdiagnoses.ICD10_Code,
+  hec_dia_potentialdiagnoses.PotentialDiagnosis_Name_DictID,
+  hec_dia_diagnosis_states.HEC_DIA_Diagnosis_StateID,
+  hec_dia_diagnosis_states.DiagnosisState_Abbreviation,
+  hec_dia_diagnosis_states.DiagnosisState_Name_DictID,
+  hec_patient_treatment_requiredproducts.Quantity,
+  cmn_pro_products.Product_Number,
+  cmn_pro_products.Product_Name_DictID,
+  cmn_pro_products.CMN_PRO_ProductID,
+  hec_patient_treatment.HEC_Patient_TreatmentID
+From
+  hec_patient_treatment Left Join
+  hec_patient_treatment_ocularextension
+    On hec_patient_treatment.HEC_Patient_TreatmentID =
+    hec_patient_treatment_ocularextension.HEC_Patient_Treatment_RefID And
+    hec_patient_treatment_ocularextension.IsDeleted = 0 And
+    hec_patient_treatment_ocularextension.Tenant_RefID = @TenantID Left Join
+  hec_patient_2_patienttreatment
+    On hec_patient_treatment.HEC_Patient_TreatmentID =
+    hec_patient_2_patienttreatment.HEC_Patient_Treatment_RefID And
+    hec_patient_2_patienttreatment.Tenant_RefID = @TenantID And
+    (hec_patient_2_patienttreatment.IsDeleted = 0 Or
+      hec_patient_2_patienttreatment.IsDeleted Is Null) Left Join
+  bil_billposition_2_patienttreatment
+    On hec_patient_treatment.HEC_Patient_TreatmentID =
+    bil_billposition_2_patienttreatment.HEC_Patient_Treatment_RefID And
+    (bil_billposition_2_patienttreatment.IsDeleted = 0 Or
+      bil_billposition_2_patienttreatment.IsDeleted Is Null) And
+    bil_billposition_2_patienttreatment.Tenant_RefID = @TenantID Left Join
+  bil_billpositions
+    On bil_billposition_2_patienttreatment.BIL_BillPosition_RefID =
+    bil_billpositions.BIL_BillPositionID And (bil_billpositions.IsDeleted = 0 Or
+      bil_billpositions.IsDeleted Is Null) And bil_billpositions.Tenant_RefID =
+    @TenantID Left Join
+  bil_billposition_transmitionstatuses On bil_billpositions.BIL_BillPositionID =
+    bil_billposition_transmitionstatuses.BillPosition_RefID And
+    (bil_billposition_transmitionstatuses.IsDeleted = 0 Or
+      bil_billposition_transmitionstatuses.IsDeleted Is Null) And
+    bil_billposition_transmitionstatuses.Tenant_RefID = @TenantID Left Join
+  hec_patient_treatment_relevantdiagnoses
+    On hec_patient_treatment_relevantdiagnoses.Patient_Treatment_RefID =
+    hec_patient_treatment.HEC_Patient_TreatmentID And
+    hec_patient_treatment_relevantdiagnoses.Tenant_RefID = @TenantID And
+    hec_patient_treatment_relevantdiagnoses.IsDeleted = 0 Left Join
+  hec_dia_potentialdiagnoses
+    On hec_patient_treatment_relevantdiagnoses.DIA_PotentialDiagnosis_RefID =
+    hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID And
+    hec_dia_potentialdiagnoses.IsDeleted = 0 And
+    hec_dia_potentialdiagnoses.Tenant_RefID = @TenantID Left Join
+  hec_dia_diagnosis_states On hec_dia_diagnosis_states.HEC_DIA_Diagnosis_StateID
+    = hec_patient_treatment_relevantdiagnoses.DIA_State_RefID And
+    hec_dia_diagnosis_states.IsDeleted = 0 And
+    hec_dia_diagnosis_states.Tenant_RefID = @TenantID Left Join
+  hec_patient_treatment_requiredproducts
+    On hec_patient_treatment_requiredproducts.HEC_Patient_Treatment_RefID =
+    hec_patient_treatment.HEC_Patient_TreatmentID And
+    hec_patient_treatment_requiredproducts.IsDeleted = 0 And
+    hec_patient_treatment_requiredproducts.Tenant_RefID = @TenantID Left Join
+  hec_products
+    On hec_products.HEC_ProductID =
+    hec_patient_treatment_requiredproducts.HEC_Product_RefID And
+    hec_products.IsDeleted = 0 And hec_products.Tenant_RefID = @TenantID
+  Left Join
+  cmn_pro_products On hec_products.Ext_PRO_Product_RefID =
+    cmn_pro_products.CMN_PRO_ProductID And cmn_pro_products.IsDeleted = 0 And
+    cmn_pro_products.Tenant_RefID = @TenantID
+Where
+  hec_patient_treatment.HEC_Patient_TreatmentID = @TreatmentIDs And
+  hec_patient_treatment.Tenant_RefID = @TenantID
+  </SQLStatement>
+
+
+  <Parameters IsClass="true" Name="P_L6TR_GTCIbID_2148">
+    <Members>
+      <ClassMember Name="TreatmentIDs" Type="Guid" IsArray="true"/>
+    </Members>
+  </Parameters>
+  
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L6TR_GTCIbID_2148" IsArray="true" GroupBy="HEC_Patient_TreatmentID">
+      <Members>
+        
+        <ClassMember Name="IsTreatmentDeleted" Type="bool"  />
+        <ClassMember Name="HEC_Patient_TreatmentID" Type="Guid"  />
+        <ClassMember Name="TreatmentPractice_RefID" Type="Guid"  />
+        <ClassMember Name="IsTreatmentPerformed" Type="bool"  />
+        <ClassMember Name="IfTreatmentPerformed_ByDoctor_RefID" Type="Guid"  />
+        <ClassMember Name="IfTreatmentPerformed_Date" Type="DateTime"  />
+        <ClassMember Name="IsTreatmentFollowup" Type="bool"  />
+        <ClassMember Name="IfTreatmentFollowup_FromTreatment_RefID" Type="Guid"  />
+        <ClassMember Name="IsScheduled" Type="bool"  />
+        <ClassMember Name="IfSheduled_Date" Type="DateTime"  />
+        <ClassMember Name="IsTreatmentBilled" Type="bool"  />
+        <ClassMember Name="IfTreatmentBilled_Date" Type="DateTime"  />
+        <ClassMember Name="Treatment_Comment" Type="String"  />
+        <ClassMember Name="IsTreatmentOfLeftEye" Type="bool"  />
+        <ClassMember Name="IsTreatmentOfRightEye" Type="bool"  />
+        <ClassMember Name="HEC_Patient_RefID" Type="Guid"  />
+        <ClassMember Name="IfSheduled_ForDoctor_RefID" Type="Guid"  />
+        
+        <ClassMember IsClass="true" IsArray="true" Name="BillData" Type="L6TR_GTCIbID_2148_BillData" GroupBy="BIL_BillPositionID">
+          <Members>
+            <ClassMember Name="BIL_BillPositionID" Type="Guid"  />
+            <ClassMember Name="BillPosition_ProductNumber" Type="string"  />
+            <ClassMember Name="PositionNumber" Type="string"  />
+            <ClassMember Name="External_PositionCode" Type="string"  />
+            <ClassMember Name="External_PositionType" Type="string"  />
+            <ClassMember Name="External_PositionReferenceField" Type="string"  />
+            <ClassMember Name="PositionValue_IncludingTax" Type="double"  />
+            <ClassMember Name="PositionValue_BeforeTax" Type="double"  />
+            
+            <ClassMember IsClass="true" IsArray="true" Name="Statuses" Type="L6TR_GTCIbID_2148_TransmisionStatus" GroupBy="BIL_BillPosition_TransmitionStatusID">
+              <Members>
+                <ClassMember Name="BIL_BillPosition_TransmitionStatusID" Type="Guid"  />
+                <ClassMember Name="TransmitionCode" Type="int"  />
+                <ClassMember Name="PrimaryComment" Type="string"  />
+                <ClassMember Name="SecondaryComment" Type="string"  />
+                <ClassMember Name="Creation_Timestamp" Type="DateTime"  />
+                <ClassMember Name="TransmittedOnDate" Type="DateTime"  />
+                <ClassMember Name="IsActive" Type="bool"  />
+              </Members>
+            </ClassMember>
+          </Members>
+        </ClassMember>
+
+        <!-- Derived Tables -->
+        <ClassMember IsClass="true" IsArray="true" Name="RelevantDiagnosis" Type="L6TR_GTCIbID_2148_RelevantDiagnose" GroupBy="HEC_Patient_Treatment_RelevantDiagnosisID">
+          <Members>
+            <ClassMember Name="HEC_Patient_Treatment_RelevantDiagnosisID" Type="Guid"  />
+            <ClassMember Name="HEC_DIA_Diagnosis_StateID" Type="Guid"  />
+            <ClassMember Name="HEC_DIA_PotentialDiagnosisID" Type="Guid"  />
+            <ClassMember Name="Doctor_RefID" Type="Guid"  />
+            <ClassMember Name="ICD10_Code" Type="String"  />
+            <ClassMember Name="DiagnosisState_Name" Type="Dict" OriginTable="hec_dia_diagnosis_states" Source_DBField="DiagnosisState_Name_DictID"  />
+            <ClassMember Name="DiagnosisState_Abbreviation" Type="String"  />
+            <ClassMember Name="Creation_Date" Type="DateTime"  />
+            <ClassMember Name="DiagnosedOnDate" Type="DateTime"  />
+            <ClassMember Name="PotentialDiagnosis_Name_DictID" Type="Dict" OriginTable="hec_dia_potentialdiagnoses" Source_DBField="PotentialDiagnosis_Name_DictID"/>
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Articles" Type="L6TR_GTCIbID_2148_Article" GroupBy="CMN_PRO_ProductID">
+          <Members>
+            <ClassMember Name="CMN_PRO_ProductID" Type="Guid"  />
+            <ClassMember Name="Product_Number" Type="string"  />
+            <ClassMember Name="Quantity" Type="double"  />
+            <ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+          </Members>
+        </ClassMember>
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

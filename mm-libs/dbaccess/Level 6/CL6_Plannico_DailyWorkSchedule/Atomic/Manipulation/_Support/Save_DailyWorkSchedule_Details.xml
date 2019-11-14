@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="09-Jan-14 11:31:01">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_DailyWorkSchedule_Detail</Name>
+    <Namespace>CL6_Plannico_DailyWorkSchedule.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL6_Plannico_DailyWorkSchedule.Atomic.Manipulation"
+                Method_ClassName="cls_Save_DailyWorkSchedule_Details"
+                Method_Name="Save_DailyWorkSchedule_Details"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_DailyWorkSchedule_Details"
+                />
+
+  <Parameters IsClass="true" Name="P_L6DWS_SDWSDS_1055">
+    <Members>
+      <ClassMember Name="Details" Type="P_L6DWS_SDWSD_1130" IsArray="true" />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="true"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="false">
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,27 @@
+INSERT INTO 
+	hec_cmt_opt_uploadeddiagnosis_uploadedreferrals
+	(
+		HEC_CMT_OPT_UploadedDiagnosis_UploadedReferralID,
+		UploadedDiagnosis_RefID,
+		Uploaded_Practice_BusinessParticipantITL,
+		Uploaded_Practice_Name,
+		Upladed_PracticeType_GlobalPropertyMatchingID,
+		Uploaded_PracticeType_Name,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_CMT_OPT_UploadedDiagnosis_UploadedReferralID,
+		@UploadedDiagnosis_RefID,
+		@Uploaded_Practice_BusinessParticipantITL,
+		@Uploaded_Practice_Name,
+		@Upladed_PracticeType_GlobalPropertyMatchingID,
+		@Uploaded_PracticeType_Name,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="10/13/2014 3:54:41 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ProductQuantities_for_ProcurementHeader_with_Status</Name>
+    <Namespace>CL2_ProcurementOrder.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_ProcurementOrder.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ProductQuantities_for_ProcurementHeader_with_Status"
+                Method_Name="Get_ProductQuantities_for_ProcurementHeader_with_Status"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ProductQuantities_for_ProcurementHeader_with_Status"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  ord_prc_procurementorder_positions.CMN_PRO_Product_RefID,
+	  Sum(ord_prc_procurementorder_positions.Position_Quantity) As Quantity
+	From
+	  ord_prc_procurementorder_headers Inner Join
+	  ord_prc_procurementorder_positions
+	    On ord_prc_procurementorder_headers.ORD_PRC_ProcurementOrder_HeaderID =
+	    ord_prc_procurementorder_positions.ProcurementOrder_Header_RefID
+	Where
+	  ord_prc_procurementorder_headers.Current_ProcurementOrderStatus_RefID =
+	  @CurrentProcurementOrderStatus And
+	  ord_prc_procurementorder_headers.Tenant_RefID = @TenantID
+	Group By
+	  ord_prc_procurementorder_positions.CMN_PRO_Product_RefID
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2PO_GPQfPHwS_1553">
+    <Members>
+		<ClassMember Name="CurrentProcurementOrderStatus" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2PO_GPQfPHwS_1553" IsArray="true">
+			<Members>
+				<ClassMember Name="CMN_PRO_Product_RefID" Type="Guid"  />
+				<ClassMember Name="Quantity" Type="Double"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

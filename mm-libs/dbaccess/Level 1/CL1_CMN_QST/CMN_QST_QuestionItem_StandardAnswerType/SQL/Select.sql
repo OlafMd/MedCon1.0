@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	cmn_qst_questionitem_standardanswertypes
+WHERE 
+	CMN_QST_QuestionItem_StandardAnswerTypeID = @CMN_QST_QuestionItem_StandardAnswerTypeID

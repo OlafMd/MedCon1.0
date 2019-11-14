@@ -1,0 +1,19 @@
+UPDATE 
+	cmn_trl_introductionrequests
+SET 
+	IntroductionRequestITL=@IntroductionRequestITL,
+	RequestingTenantCode=@RequestingTenantCode,
+	RequestedForTenantCode=@RequestedForTenantCode,
+	IsApproved=@IsApproved,
+	IsRejected=@IsRejected,
+	IsPermanentlyRejected=@IsPermanentlyRejected,
+	PerformedBy_Account_RefID=@PerformedBy_Account_RefID,
+	PerformedDate=@PerformedDate,
+	RejectedReason=@RejectedReason,
+	RequestTitle=@RequestTitle,
+	RequestComment=@RequestComment,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	CMN_TRL_IntroductionRequestID = @CMN_TRL_IntroductionRequestID

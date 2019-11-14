@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Generated on 9/2/2014 12:16:23 PM -->
+<CodeGen>
+  <Componenttype>BaseClass</Componenttype>
+
+  <Meta>
+    <Name></Name>
+    <Namespace></Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <CreationInfo Target_ProgrammingLanguage="C#"
+                Target_ProgrammingLanguage_Revision="2.0"
+                Target_ProgrammingLanguage_LibraryName="CLE_L1_dlmc_cmn"
+                Target_SQL="MySQL"
+                Target_SQL_Revision="8" />
+
+  <Base_Tables>
+    <Base_Table Name="HEC_PotentialMedication"
+                IsClass="true"
+                IsClass_Namespace="CL1_HEC"
+                IsClass_Corresponding_DBTable="hec_potentialmedications" >
+      <Members>
+		<ClassMember Name="HEC_PotentialMedicationID" Type="Guid" IsObjectPrimaryKey="true"/>
+		<ClassMember Name="IsHealthcareProduct" Type="Boolean" />
+		<ClassMember Name="HEC_Product_RefID" Type="Guid" />
+		<ClassMember Name="IsSubstance" Type="Boolean" />
+		<ClassMember Name="IfSubstance_Strength" Type="double" />
+		<ClassMember Name="IfSubstance_Unit_RefID" Type="Guid" />
+		<ClassMember Name="HEC_SUB_Substance_RefiD" Type="Guid" />
+		<ClassMember Name="RecommendedDosage" Type="String" />
+		<ClassMember Name="Creation_Timestamp" Type="DateTime" IsDateOfCreationField="true"/>
+		<ClassMember Name="Tenant_RefID" Type="Guid" IsTenantField="true"/>
+		<ClassMember Name="IsDeleted" Type="Boolean" IsDeletedField="true"/>
+	
+      </Members>
+    </Base_Table>
+  </Base_Tables>
+</CodeGen>
+
+

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD920F44-6C43-40DA-BCEF-60545CD60DA7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL6_MRMS_Backoffice</RootNamespace>
+    <AssemblyName>CL6_MRMS_Backoffice</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_All_Accounts_For_MeasurementRun.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_All_Reading_Sessions.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_All_Reading_Session_Items.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_All_Reading_Session_Items_with_Readers.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Reading_Session.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_Reading_Session_Details.cs" />
+    <Compile Include="Complex\Manipulation\cls_Finalize_Reading_Session.cs" />
+    <Compile Include="Complex\Manipulation\cls_Publish_Reading_Session.cs" />
+    <Compile Include="Complex\Manipulation\cls_CreateUpdate_MRMS_Backoffice_Entities.cs" />
+    <Compile Include="Complex\Manipulation\cls_Delete_Reading_Session.cs" />
+    <Compile Include="Complex\Manipulation\cls_Send_Email_to_Readers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\StringUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+    <Folder Include="Complex\Manipulation\SQL\" />
+    <Folder Include="Complex\Retrieval\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Complex\Manipulation\_Support\Send_Email_to_Readers.xml" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_Accounts_For_MeasurementRun.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_Reading_Sessions.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_Reading_Session_Items.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_Reading_Session.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_Accounts_For_MeasurementRun.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_Reading_Session_Items.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_Reading_Session_Items_with_Readers.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Reading_Session.xml" />
+    <Content Include="Complex\Manipulation\_Support\Delete_Reading_Session.xml" />
+    <Content Include="Complex\Manipulation\_Support\Finalize_Reading_Session.xml" />
+    <Content Include="Complex\Manipulation\_Support\Publish_Reading_Session.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_All_Reading_Sessions.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_Reading_Session_Details.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Complex\Manipulation\_Support\CreateUpdate_MRMS_Backoffice_Entities.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{d33ebd03-020f-4e51-bb09-ab20535a6f72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{eef71e87-fa3a-45ca-a001-ebf6cc97ff99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\utils\DLUtils_Common\DLUtils_Common.csproj">
+      <Project>{e7d06880-7054-4045-9b0b-6afe3db5185c}</Project>
+      <Name>DLUtils_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8a936290-4628-4f28-9639-9b65915a0c8c}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3c164500-bf5f-4173-b1a8-154a38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT\CL1_CMN_BPT.csproj">
+      <Project>{031c04c9-08cd-4833-af41-a9b64d337ca6}</Project>
+      <Name>CL1_CMN_BPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_BPT_CTM\CL1_CMN_BPT_CTM.csproj">
+      <Project>{c453f5a9-9877-4197-a5e3-403ef6a0455d}</Project>
+      <Name>CL1_CMN_BPT_CTM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN_PER\CL1_CMN_PER.csproj">
+      <Project>{6bda1eb4-fa2a-41a1-8b83-171ed9b85add}</Project>
+      <Name>CL1_CMN_PER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_MRS_MPT\CL1_MRS_MPT.csproj">
+      <Project>{d566bcdd-a976-4bd2-9ada-02fe9a5e070a}</Project>
+      <Name>CL1_MRS_MPT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_MRS_RUN\CL1_MRS_RUN.csproj">
+      <Project>{e6a2adff-307e-439b-a1fe-45875d0c31aa}</Project>
+      <Name>CL1_MRS_RUN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_MRS_RUT\CL1_MRS_RUT.csproj">
+      <Project>{958509db-abba-4dcb-8a4f-3936b42d4cdc}</Project>
+      <Name>CL1_MRS_RUT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_USR\CL1_USR.csproj">
+      <Project>{feab6f0e-56f1-43d4-bef0-988b26474dd2}</Project>
+      <Name>CL1_USR</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

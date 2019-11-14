@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="26/11/2013 03:49:38">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Price_RoundingRuleSet</Name>
+    <Namespace>CL2_PriceRounding.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_PriceRounding.Complex.Manipulation"
+                Method_ClassName="cls_Save_Price_RoundingRuleSet"
+                Method_Name="Save_Price_RoundingRuleSet"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_Price_RoundingRuleSet"
+                />
+  <SQLLimitation_CSharp_Extension>
+			var returnValue = new FR_Guid();
+
+			var item = new CL1_CMN_SLS.ORM_CMN_SLS_Price_RoundingRuleSet();
+			if (Parameter.CMN_SLS_Price_RoundingRuleSetID != Guid.Empty)
+			{
+			    var result = item.Load(Connection, Transaction, Parameter.CMN_SLS_Price_RoundingRuleSetID);
+			}
+
+			if(Parameter.IsDeleted == true){
+				item.IsDeleted = true;
+				return new FR_Guid(item.Save(Connection, Transaction),item.CMN_SLS_Price_RoundingRuleSetID);
+			}
+
+			//Creation specific parameters (Tenant, Account ... )
+			if (Parameter.CMN_SLS_Price_RoundingRuleSetID == Guid.Empty)
+			{
+				item.Tenant_RefID = securityTicket.TenantID;
+			}
+
+			item.RuleSet_Name = Parameter.RuleSet_Name;
+			item.MaximumPriceIncreaseInPercent = Parameter.MaximumPriceIncreaseInPercent;
+			item.MaximumPriceDecreaseInPercent = Parameter.MaximumPriceDecreaseInPercent;
+
+
+			return new FR_Guid(item.Save(Connection, Transaction),item.CMN_SLS_Price_RoundingRuleSetID);
+  </SQLLimitation_CSharp_Extension>
+
+  <Parameters IsClass="true" Name="P_L2PR_SPRRS_1549">
+    <Members>
+		<ClassMember IsIdentificator="True" Name="CMN_SLS_Price_RoundingRuleSetID" Type="Guid"  />
+		<ClassMember Name="RuleSet_Name" Type="Dict"  />
+		<ClassMember Name="MaximumPriceIncreaseInPercent" Type="Decimal"  />
+		<ClassMember Name="MaximumPriceDecreaseInPercent" Type="Decimal"  />
+		<ClassMember Name="IsDeleted" Type="Boolean"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+				<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,23 @@
+INSERT INTO 
+	hec_products
+	(
+		HEC_ProductID,
+		Ext_PRO_Product_RefID,
+		Recepie,
+		ProductDosageForm_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@HEC_ProductID,
+		@Ext_PRO_Product_RefID,
+		@Recepie,
+		@ProductDosageForm_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID,
+		@Modification_Timestamp
+	)

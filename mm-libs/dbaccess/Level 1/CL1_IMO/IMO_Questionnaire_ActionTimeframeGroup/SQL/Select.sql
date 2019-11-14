@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	imo_questionnaire_actiontimeframegroups
+WHERE 
+	IMO_Questionnaire_ActionTimeframeGroupID = @IMO_Questionnaire_ActionTimeframeGroupID

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_stu_study_medicalpracticedocument
+WHERE 
+	HEC_STU_Study_MedicalPracticeDocumentID = @HEC_STU_Study_MedicalPracticeDocumentID

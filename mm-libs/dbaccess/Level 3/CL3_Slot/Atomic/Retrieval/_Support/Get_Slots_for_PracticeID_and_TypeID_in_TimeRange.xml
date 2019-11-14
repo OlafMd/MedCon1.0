@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="5/27/2014 1:39:56 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Skills_for_TenantID</Name>
+    <Namespace>CL3_Skills.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_TaskTemplateSlot.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Slots_for_PracticeID_and_TypeID_in_TimeRange"
+                Method_Name="Get_Slots_for_PracticeID_and_TypeID_in_TimeRange"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Slots_for_PracticeID_and_TypeID_in_TimeRange"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  pps_tsk_freeslotsfortasktemplates.FreeInterval_End,
+  pps_tsk_freeslotsfortasktemplates.FreeInterval_Start,
+  pps_tsk_freeslotsfortasktemplates.TaskTemplate_RefID,
+  pps_tsk_freeslotsfortasktemplates.FreeSlotsForTaskTemplateITPL,
+  pps_tsk_freeslotsfortasktemplates.PPS_TSK_FreeSlotsForTaskTemplateID
+From
+  pps_tsk_freeslotsfortasktemplates
+Where
+  pps_tsk_freeslotsfortasktemplates.IsDeleted = 0 And
+  pps_tsk_freeslotsfortasktemplates.Tenant_RefID = @TenantID And
+  pps_tsk_freeslotsfortasktemplates.Office_RefID = @OfficeID And
+  pps_tsk_freeslotsfortasktemplates.TaskTemplate_RefID = @TypeID and
+  pps_tsk_freeslotsfortasktemplates.FreeInterval_End &lt;=@ToDate and
+  pps_tsk_freeslotsfortasktemplates.FreeInterval_Start &gt;=@FromDate
+  </SQLStatement>
+
+
+  <Parameters IsClass="true" Name="P_L3TTS_SfPTIDiTR_1553">
+    <Members>
+      <ClassMember Name="OfficeID" Type="Guid"  />
+      <ClassMember Name="TypeID" Type="Guid"  />
+      <ClassMember Name="FromDate" Type="DateTime"  />
+      <ClassMember Name="ToDate" Type="DateTime"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3TTS_SfPTIDiTR_1553" IsArray="true">
+			<Members>
+				<ClassMember Name="PPS_TSK_FreeSlotsForTaskTemplateID" Type="Guid"  />
+        <ClassMember Name="FreeSlotsForTaskTemplateITPL" Type="string"  />
+        <ClassMember Name="FreeInterval_End" Type="DateTime"  />
+        <ClassMember Name="FreeInterval_Start" Type="DateTime"  />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

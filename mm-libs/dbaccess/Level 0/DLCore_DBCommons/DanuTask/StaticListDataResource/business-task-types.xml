@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+  <Item ID="business-task-type.feature-development">
+    <Lang ISO="EN" Content="Feature Development" />
+    <Lang ISO="DE" Content="Eigenschaft Entwicklung" />
+    <Lang ISO="RS" Content="Razvoj funkcionalnosti" />
+  </Item>
+  <Item ID="business-task-type.project-maintenance">
+    <Lang ISO="EN" Content="Maintenance" />
+    <Lang ISO="DE" Content="Wartung" />
+    <Lang ISO="RS" Content="Odrzavanje" />
+  </Item>
+  <Item ID="business-task-type.project-fix">
+    <Lang ISO="EN" Content="Project Fix" />
+    <Lang ISO="DE" Content="Projekt Fix" />
+    <Lang ISO="RS" Content="Ispravke" />
+  </Item>
+</Resources>

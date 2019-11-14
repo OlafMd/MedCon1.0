@@ -1,0 +1,25 @@
+UPDATE 
+	ord_cuo_customerorder_headers
+SET 
+	ProcurementOrderITL=@ProcurementOrderITL,
+	Current_CustomerOrderStatus_RefID=@Current_CustomerOrderStatus_RefID,
+	CustomerOrder_Number=@CustomerOrder_Number,
+	CustomerOrder_Date=@CustomerOrder_Date,
+	OrderingCustomer_BusinessParticipant_RefID=@OrderingCustomer_BusinessParticipant_RefID,
+	CreatedBy_BusinessParticipant_RefID=@CreatedBy_BusinessParticipant_RefID,
+	CanceledBy_BusinessParticipant_RefID=@CanceledBy_BusinessParticipant_RefID,
+	CustomerOrder_Currency_RefID=@CustomerOrder_Currency_RefID,
+	TotalValue_BeforeTax=@TotalValue_BeforeTax,
+	IsCustomerOrderFinalized=@IsCustomerOrderFinalized,
+	DeliveryDeadline=@DeliveryDeadline,
+	IsPartialShippingAllowed=@IsPartialShippingAllowed,
+	BillingAddressUCD_RefID=@BillingAddressUCD_RefID,
+	ShippingAddressUCD_RefID=@ShippingAddressUCD_RefID,
+	DeliveryRequestedFrom_Warehouse_RefID=@DeliveryRequestedFrom_Warehouse_RefID,
+	CreatedAt_PointOfSale_RefID=@CreatedAt_PointOfSale_RefID,
+	WasAutoApprovedUponReceipt=@WasAutoApprovedUponReceipt,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	ORD_CUO_CustomerOrder_HeaderID = @ORD_CUO_CustomerOrder_HeaderID

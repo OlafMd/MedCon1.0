@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_crt_insurancetobrokercontract_participatingdoctors
+WHERE 
+	HEC_CRT_InsuranceToBrokerContract_ParticipatingDoctorID = @HEC_CRT_InsuranceToBrokerContract_ParticipatingDoctorID

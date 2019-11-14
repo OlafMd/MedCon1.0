@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/3/2013 5:07:37 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Questionnaires_For_Tenant</Name>
+    <Namespace>CLE_L5_RealEstate_Properties.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CLE_L5_Question_Properties.Complex.Retrieval"
+                Method_ClassName="cls_Get_Properties_For_Tenant"
+                Method_Name="Get_Properties_For_Tenant"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Properties_For_Tenant"
+                />
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5PR_GPFT_0911" IsArray="false">
+      <Members>
+        <ClassMember IsClass="true" IsArray="true" Name="Apartments" Type="L5PR_GPFT_0911_Apartments">
+          <Members>
+            <ClassMember Name="RES_STR_Apartment_PropertyID" Type="Guid"  />
+            <ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+            <ClassMember Name="Name" Type="Dict" OriginTable="RES_STR_Apartment_Properties" Source_DBField="ApartmentProperty_Name_DictID"  />
+            <ClassMember Name="Description" Type="Dict" OriginTable="RES_STR_Apartment_Properties" Source_DBField="ApartmentProperty_Description_DictID"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Staircases" Type="L5PR_GPFT_0911_Staircases">
+          <Members>
+            <ClassMember Name="RES_STR_Staircase_PropertyID" Type="Guid"  />
+            <ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+            <ClassMember Name="Name" Type="Dict" OriginTable="RES_STR_Staircase_Properties" Source_DBField="StaircaseProperty_Name_DictID"  />
+            <ClassMember Name="Description" Type="Dict" OriginTable="RES_STR_Staircase_Properties" Source_DBField="StaircaseProperty_Description_DictID"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="OutdoorFacility" Type="L5PR_GPFT_0911_OutdoorFacility">
+          <Members>
+            <ClassMember Name="RES_STR_OutdoorFacility_PropertyID" Type="Guid"  />
+            <ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+            <ClassMember Name="Name" Type="Dict" OriginTable="RES_STR_OutdoorFacility_Properties" Source_DBField="OutdoorFacilityProperty_Name_DictID"  />
+            <ClassMember Name="Description" Type="Dict" OriginTable="RES_STR_OutdoorFacility_Properties" Source_DBField="OutdoorFacilityProperty_Description_DictID"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Facade" Type="L5PR_GPFT_0911_Facade">
+          <Members>
+            <ClassMember Name="RES_STR_Facade_PropertyID" Type="Guid"  />
+            <ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+            <ClassMember Name="Name" Type="Dict" OriginTable="RES_STR_Facade_Properties" Source_DBField="FacadeProperty_Name_DictID"  />
+            <ClassMember Name="Description" Type="Dict" OriginTable="RES_STR_Facade_Properties" Source_DBField="FacadeProperty_Description_DictID"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Attic" Type="L5PR_GPFT_0911_Attic">
+          <Members>
+            <ClassMember Name="RES_STR_Attic_PropertyID" Type="Guid"  />
+            <ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+            <ClassMember Name="Name" Type="Dict" OriginTable="RES_STR_Attic_Properties" Source_DBField="AtticProperty_Name_DictID"  />
+            <ClassMember Name="Description" Type="Dict" OriginTable="RES_STR_Attic_Properties" Source_DBField="AtticProperty_Description_DictID"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="HVACR" Type="L5PR_GPFT_0911_HVACR">
+          <Members>
+            <ClassMember Name="RES_STR_HVACR_PropertyID" Type="Guid"  />
+            <ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+            <ClassMember Name="Name" Type="Dict" OriginTable="RES_STR_HVACR_Properties" Source_DBField="HVACRProperty_Name_DictID"  />
+            <ClassMember Name="Description" Type="Dict" OriginTable="RES_STR_HVACR_Properties" Source_DBField="HVACRProperty_Description_DictID"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Basement" Type="L5PR_GPFT_0911_Basement">
+          <Members>
+            <ClassMember Name="RES_STR_Basement_PropertyID" Type="Guid"  />
+            <ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+            <ClassMember Name="Name" Type="Dict" OriginTable="RES_STR_Basement_Properties" Source_DBField="BasementProperty_Name_DictID"  />
+            <ClassMember Name="Description" Type="Dict" OriginTable="RES_STR_Basement_Properties" Source_DBField="BasementProperty_Description_DictID"  />
+          </Members>
+        </ClassMember>
+
+        <ClassMember IsClass="true" IsArray="true" Name="Roof" Type="L5PR_GPFT_0911_Roof">
+          <Members>
+            <ClassMember Name="RES_STR_Roof_PropertyID" Type="Guid"  />
+            <ClassMember Name="GlobalPropertyMatchingID" Type="string"  />
+            <ClassMember Name="Name" Type="Dict" OriginTable="RES_STR_Roof_Properties" Source_DBField="RoofProperty_Name_DictID"  />
+            <ClassMember Name="Description" Type="Dict" OriginTable="RES_STR_Roof_Properties" Source_DBField="RoofProperty_Description_DictID"  />
+          </Members>
+        </ClassMember>
+
+
+      </Members>
+    </ObjectReturnType_Definition>
+
+
+  </ResultInfo>
+
+</CodeGen>
+
+

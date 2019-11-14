@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_bpt_emp_workingcontract_salarytypes
+	(
+		CMN_BPT_EMP_WorkingContract_SalaryTypeID,
+		CMN_BPT_EMP_WorkingContract_RefID,
+		CMN_BPT_EMP_SalaryTypeID,
+		Amount,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted
+	)
+VALUES 
+	(
+		@CMN_BPT_EMP_WorkingContract_SalaryTypeID,
+		@CMN_BPT_EMP_WorkingContract_RefID,
+		@CMN_BPT_EMP_SalaryTypeID,
+		@Amount,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted
+	)

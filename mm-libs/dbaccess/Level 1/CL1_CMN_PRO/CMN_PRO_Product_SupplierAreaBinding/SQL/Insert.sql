@@ -1,0 +1,25 @@
+INSERT INTO 
+	cmn_pro_product_supplierareabindings
+	(
+		CMN_PRO_Product_SupplierAreaBindingID,
+		CMN_PRO_Product_RefID,
+		CMN_BPT_Supplier_RefID,
+		LOG_REG_SupplierSelectionArea_RefID,
+		IsDefault_ProductSupplier,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_PRO_Product_SupplierAreaBindingID,
+		@CMN_PRO_Product_RefID,
+		@CMN_BPT_Supplier_RefID,
+		@LOG_REG_SupplierSelectionArea_RefID,
+		@IsDefault_ProductSupplier,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

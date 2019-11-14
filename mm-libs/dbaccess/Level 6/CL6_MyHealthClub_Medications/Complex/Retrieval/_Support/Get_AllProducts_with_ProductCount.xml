@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="1/16/2013 2:56:23 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_AllProducts_with_ProductCount</Name>
+		<Namespace>CL6_MyHealthClub_Medications.Complex.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+					Target_Method_ProgrammingLanguage_Revision="3.5"
+					Target_SQL="MySQL"
+					Target_SQL_Revision="8"
+					Create_Webservice_Interface="true"
+					Create_Webservice_Interface_ServerPlattform="C#"
+					Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+					Create_Webservice_Interface_ApplicationPlattform="FLEX"
+					Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+	<CreationInfo Method_Namespace="CL6_MyHealthClub_Medications.Complex.Retrieval"
+				  Method_ClassName="cls_Get_AllProducts_with_ProductCount"
+				  Method_Name="Get_AllProducts_with_ProductCount"
+				  ApplicationPlattform_WebServiceName=""
+				  ApplicationPlattform_Namespace=".Get_AllProducts_with_ProductCount"
+                />
+
+	<Parameters IsClass="true" Name="P_L6DI_GAPwPC_1035">
+		<Members>
+			<ClassMember Name="IsASC_Order" Type="bool"/>
+			<ClassMember Name="OrderValue" Type="String"/>
+			<ClassMember Name="PageClicked" Type="int"/>
+			<ClassMember Name="NumberOfElementsPerPage" Type="int"/>
+			<ClassMember Name="Search_Param" Type="String"/>
+			<ClassMember Name="LanguageID" Type="Guid"/>
+		</Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L6DI_GAPwPC_1035" IsArray="false">
+			<Members>
+				<ClassMember IsReference="true" Type="L5ME_GAPfTID_1426" Name="Products" IsArray="true"/>
+				<ClassMember Name="NumberOfPages" Type="int"  />
+				<ClassMember Name="CurrentPage" Type="int"  />
+				<ClassMember Name="NumberOfElements" Type="int"/>
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

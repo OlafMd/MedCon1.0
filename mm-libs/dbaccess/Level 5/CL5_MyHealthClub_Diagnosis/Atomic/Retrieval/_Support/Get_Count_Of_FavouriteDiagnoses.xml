@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/19/2014 2:33:00 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Count_Of_AllDiagnoses</Name>
+    <Namespace>CL5_MyHealthClub_Diagnosis.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Diagnosis.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Count_Of_FavouriteDiagnoses"
+                Method_Name="Get_Count_Of_FavouriteDiagnoses"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Count_Of_FavouriteDiagnoses"
+                />
+
+  <SQLStatement xml:space="preserve">
+	  Select Count(  Distinct 
+  hec_dia_potentialdiagnosis_prioritysequence.HEC_DIA_PotentialDiagnosis_PrioritySequenceID)  As
+  NumberOfElements
+From
+  hec_dia_potentialdiagnoses Inner Join
+  hec_dia_potentialdiagnoses_de
+    On hec_dia_potentialdiagnoses.PotentialDiagnosis_Name_DictID =
+    hec_dia_potentialdiagnoses_de.DictID Inner Join
+  hec_dia_potentialdiagnosis_catalogcodes
+    On hec_dia_potentialdiagnosis_catalogcodes.PotentialDiagnosis_RefID =
+    hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID And
+    hec_dia_potentialdiagnosis_catalogcodes.IsDeleted = 0 And
+    hec_dia_potentialdiagnosis_catalogcodes.Tenant_RefID = @TenantID Inner Join
+  hec_dia_potentialdiagnosis_catalogs
+    On hec_dia_potentialdiagnosis_catalogs.HEC_DIA_PotentialDiagnosis_CatalogID
+    = hec_dia_potentialdiagnosis_catalogcodes.PotentialDiagnosis_Catalog_RefID
+    And hec_dia_potentialdiagnosis_catalogs.Tenant_RefID = @TenantID And
+    hec_dia_potentialdiagnosis_catalogs.IsDeleted = 0 And
+    hec_dia_potentialdiagnosis_catalogs.HEC_DIA_PotentialDiagnosis_CatalogID =
+    @CatalogID Inner Join
+  hec_dia_potentialdiagnosis_prioritysequence
+    On hec_dia_potentialdiagnoses.HEC_DIA_PotentialDiagnosisID =
+    hec_dia_potentialdiagnosis_prioritysequence.PotentialDiagnosis_RefID And
+    hec_dia_potentialdiagnosis_prioritysequence.PotentialDiagnosis_Catalog_RefID
+    = hec_dia_potentialdiagnosis_catalogs.HEC_DIA_PotentialDiagnosis_CatalogID
+    And hec_dia_potentialdiagnosis_prioritysequence.Tenant_RefID = @TenantID And
+    hec_dia_potentialdiagnosis_prioritysequence.IsDeleted = 0 And
+    hec_dia_potentialdiagnosis_prioritysequence.Tenant_RefID = @TenantID And
+    hec_dia_potentialdiagnosis_prioritysequence.IsDeleted = 0
+Where
+  hec_dia_potentialdiagnoses.Tenant_RefID = @TenantID And
+  hec_dia_potentialdiagnoses.IsDeleted = 0 And
+  hec_dia_potentialdiagnoses_de.Language_RefID = @LanguageID And
+  hec_dia_potentialdiagnoses_de.IsDeleted = 0  @SearchCriterium
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5DI_GCoFD_1632">
+    <Members>
+		<ClassMember Name="SearchCriterium" Type="String"  />
+		<ClassMember Name="CatalogID" Type="Guid"/>
+		<ClassMember Name="LanguageID" Type="Guid"/>
+    </Members>
+  </Parameters>
+
+	<!--when gerating code2 project put this part in .cs file 
+                /***For Search**/
+                string newText2 = command.CommandText.Replace("@SearchCriterium", Parameter.SearchCriterium);
+                command.CommandText = newText2;
+                
+                -->
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5DI_GCoFD_1632" IsArray="true">
+			<Members>
+				<ClassMember Name="NumberOfElements" Type="int"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

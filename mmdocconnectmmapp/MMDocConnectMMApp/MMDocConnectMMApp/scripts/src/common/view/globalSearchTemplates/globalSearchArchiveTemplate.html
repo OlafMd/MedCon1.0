@@ -1,0 +1,45 @@
+﻿<ul class="global-filter">
+    <li class="search-input-holder">
+        <input type="text" class="form-control" id="globalSearchInput" ng-model="global_search.text_search" ng-model-options="{debounce:500}" ng-change="search()" placeholder="{{ 'LABEL_SEARCH' | translate }}">
+        <span class="icon-search"></span>
+    </li>
+    <li>
+        <ul class="global-filter-items">
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.all" id="all" value="" ng-change="prepareSearch(true)" />
+                <label for="all" ng-class="{'active': filter.all}" class="filter-item">{{ 'LABEL_ALL' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.settlement" id="settlement" value="abrechnungen" ng-change="prepareSearch(false)" />
+                <label for="settlement" ng-class="{'active': filter.settlement}" class="filter-item">{{ 'LABEL_SETTLEMENT' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.edifact" id="edifact" value="edifact" ng-change="prepareSearch(false)" />
+                <label for="edifact" ng-class="{'active': filter.edifact}" class="filter-item">{{ 'LABEL_EDIFACT' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.datev" id="datev" value="datev" ng-change="prepareSearch(false)" />
+                <label for="datev" ng-class="{'active': filter.datev}" class="filter-item">{{ 'LABEL_DATEV' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.kvimport" id="kvimport" value="kv import" ng-change="prepareSearch(false)" />
+                <label for="kvimport" ng-class="{'active': filter.kvimport}" class="filter-item">{{ 'LABEL_HIPIMPORT' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.kverror" id="kverror" value="kv fehler" ng-change="prepareSearch(false)" />
+                <label for="kverror" ng-class="{'active': filter.kverror}" class="filter-item">{{ 'LABEL_HIPERROR' | translate }}</label>
+            </li>
+            <li>
+                <input class="hide" type="checkbox" name="filter" ng-model="filter.steribase" id="steribase" value="steribase" ng-change="prepareSearch(false)" />
+                <label for="steribase" ng-class="{'active': filter.steribase}" class="filter-item">{{ 'LABEL_STERIBASE' | translate }}</label>
+            </li>
+            <li>
+                <a href class="filter-item dropdown-list-arrow" ng-class="{'active': getIsDateSelected()}" id="btnMasterData" ng-click="showDateDropdown()" ng-blur="closeDateDropdown()">{{'LABEL_DATE_PERIOD' | translate}}</a>
+                <ul ng-if="show_date_dropdown" class="origin-date-tr">
+                    <li ng-repeat="item in date_dropdown_itemsArchive"><a id="{{ item.id }}" ng-click="select(item.id)">{{ item.display_name | translate }}</a></li>
+                    <li><div id="btnSetPeriod" class="wide-dotted-btn" ng-click="setPeriod()">{{ 'LABEL_ENTER_DATE_PERIOD' | translate }}</div></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

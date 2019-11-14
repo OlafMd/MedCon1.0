@@ -1,0 +1,27 @@
+INSERT INTO 
+	tms_pro_requests
+	(
+		TMS_PRO_RequestID,
+		CreatedBy_Account_RefID,
+		RequestNumber,
+		RequestTitle,
+		R_CurrentAssignee_Account_RefID,
+		R_IsOpen,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Progress
+	)
+VALUES 
+	(
+		@TMS_PRO_RequestID,
+		@CreatedBy_Account_RefID,
+		@RequestNumber,
+		@RequestTitle,
+		@R_CurrentAssignee_Account_RefID,
+		@R_IsOpen,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Progress
+	)

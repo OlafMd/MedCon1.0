@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/9/2014 12:38:34 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>PatientInfos_for_Tennant</Name>
+    <Namespace>CLE_L3_Patients.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#" 
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_EMR.Atomic.Retrieval"
+                Method_ClassName="cls_Get_MedicationProduct_for_PerformedActionID"
+                Method_Name="Get_MedicationProduct_for_PerformedActionID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_MedicationProduct_for_PerformedActionID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_act_performedaction_medicationupdates.HEC_ACT_PerformedAction_MedicationUpdateID,
+  hec_patient_medications.HEC_Patient_MedicationID,
+  hec_act_performedaction_medicationupdates.DosageText,
+  hec_products.HEC_ProductID,
+  hec_act_performedaction_medicationupdates.MedicationUpdateComment,
+  hec_act_performedaction_medicationupdates.Relevant_PatientDiagnosis_RefID,
+  hec_act_performedaction_medicationupdates.IntendedApplicationDuration_in_days,
+  cmn_pro_products.Product_Name_DictID,
+  hec_product_dosageforms.HEC_Product_DosageFormID,
+  hec_product_dosageforms.DosageForm_Name_DictID,
+  hec_act_performedaction_medicationupdates.IsMedicationDeactivated
+From
+  hec_act_performedaction_medicationupdates Inner Join
+  hec_patient_medications
+    On hec_act_performedaction_medicationupdates.HEC_Patient_Medication_RefID =
+    hec_patient_medications.HEC_Patient_MedicationID Inner Join
+  hec_products
+    On hec_products.HEC_ProductID =
+    hec_act_performedaction_medicationupdates.HEC_Product_RefID Inner Join
+  cmn_pro_products On hec_products.Ext_PRO_Product_RefID =
+    cmn_pro_products.CMN_PRO_ProductID Inner Join
+  hec_product_dosageforms On hec_product_dosageforms.HEC_Product_DosageFormID =
+    hec_products.ProductDosageForm_RefID
+Where
+  hec_act_performedaction_medicationupdates.HEC_ACT_PerformedAction_RefID =
+  @PerformedActionID And
+  hec_act_performedaction_medicationupdates.Tenant_RefID = @TenantID And
+  hec_act_performedaction_medicationupdates.IsDeleted = 0 And
+  hec_act_performedaction_medicationupdates.IsHealthcareProduct = 1
+Order By
+  hec_act_performedaction_medicationupdates.Creation_Timestamp Desc
+  </SQLStatement>
+
+
+
+  <Parameters IsClass="true" Name="P_L5ME_GMPfPAID_1133">
+    <Members>
+      <ClassMember Name="PerformedActionID" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5ME_GMPfPAID_1133" IsArray="true" GroupBy="HEC_ACT_PerformedAction_MedicationUpdateID">
+			<Members>
+				<ClassMember Name="HEC_ACT_PerformedAction_MedicationUpdateID" Type="Guid"  />
+        <ClassMember Name="DosageText" Type="String"  />
+        <ClassMember Name="MedicationUpdateComment" Type="String"  />
+        <ClassMember Name="HEC_Patient_MedicationID" Type="Guid"  />
+        <ClassMember Name="HEC_ProductID" Type="Guid"  />
+        <ClassMember Name="Relevant_PatientDiagnosis_RefID" Type="Guid"  />
+        <ClassMember Name="HEC_Product_DosageFormID" Type="Guid"  />
+        <ClassMember Name="Product_Name" Type="Dict" OriginTable="cmn_pro_products" Source_DBField="Product_Name_DictID"  />
+        <ClassMember Name="DosageForm_Name" Type="Dict" OriginTable="hec_product_dosageforms" Source_DBField="DosageForm_Name_DictID"  />
+        <ClassMember Name="IntendedApplicationDuration_in_days" Type="int"  />
+		<ClassMember Name="IsMedicationDeactivated" Type="bool"  />
+      </Members>
+		</ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>
+
+

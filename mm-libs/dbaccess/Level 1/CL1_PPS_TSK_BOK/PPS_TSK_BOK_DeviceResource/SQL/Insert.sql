@@ -1,0 +1,21 @@
+INSERT INTO 
+	pps_tsk_bok_deviceresources
+	(
+		PPS_TSK_BOK_DeviceResourceID,
+		AvailableResourceCombination_RefID,
+		PPS_DEV_Device_Instance_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@PPS_TSK_BOK_DeviceResourceID,
+		@AvailableResourceCombination_RefID,
+		@PPS_DEV_Device_Instance_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

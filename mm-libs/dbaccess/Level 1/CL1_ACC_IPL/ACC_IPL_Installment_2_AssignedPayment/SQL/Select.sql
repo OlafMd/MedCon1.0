@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	acc_ipl_installment_2_assignedpayments
+WHERE 
+	ACC_IPL_Installment_2_AssignedPaymentID = @ACC_IPL_Installment_2_AssignedPaymentID

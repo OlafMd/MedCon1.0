@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SubmissionReportContent>
+  <Title>Übermittlungsbestätigung</Title>
+
+  <ReferenceNumber>Referenznummer:</ReferenceNumber>
+
+  <FirstParagraph>The following {{caseType}} was entered in the system as a documentation only:</FirstParagraph>
+
+  <Patient>Patient:</Patient>
+
+  <SecondParagraph></SecondParagraph>
+
+  <SecondParagraphNoConsent>Eine gültige Teilnahmeerklärung liegt für den Behandlungszeitraum in medios Connect nicht vor.</SecondParagraphNoConsent>
+
+  <Diagnose>Diagnose</Diagnose>
+
+  <ConfirmedDiagnose>G – gesicherte Diagnose</ConfirmedDiagnose>
+
+  <Drug>Arzneimittel:</Drug>
+
+  <Localization>Seitenlokalisation:</Localization>
+
+  <CaseType>Behandlungsart:</CaseType>
+
+  <TreatmentDate>Behandlungsdatum:</TreatmentDate>
+
+  <TreatmentYear>Behandlungsjahr:</TreatmentYear>
+
+  <TreatmentDoctor>Behandelnder Arzt:</TreatmentDoctor>
+
+  <Practice>Praxis:</Practice>
+
+  <OpDate>OP Datum:</OpDate>
+
+  <OpDoctor>OP Arzt:</OpDoctor>
+
+  <OpPractice>OP Praxis:</OpPractice>
+
+  <PatientID>Externe ID:</PatientID>
+
+  <Footer>Vielen Dank für die Verwendung von medios Connect.</Footer>
+</SubmissionReportContent>

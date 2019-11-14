@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/9/2014 1:55:52 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_Count_Of_AllProcedures</Name>
+    <Namespace>CL5_MyHealthClub_Diagnosis.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MyHealthClub_Diagnosis.Atomic.Manipulation"
+                Method_ClassName="cls_Get_Count_Of_AllProcedures"
+                Method_Name="Get_Count_Of_AllProcedures"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Count_Of_AllProcedures"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+	  Count(Distinct hec_tre_potentialprocedures.HEC_TRE_PotentialProcedureID) As
+	  NumberOfElements
+	From
+	  hec_tre_potentialprocedures Left Join
+	  hec_tre_potentialprocedures_de
+	    On hec_tre_potentialprocedures.PotentialProcedure_Name_DictID =
+	    hec_tre_potentialprocedures_de.DictID Inner Join
+	  hec_tre_potentialprocedure_catalogcodes
+	    On hec_tre_potentialprocedures.HEC_TRE_PotentialProcedureID =
+	    hec_tre_potentialprocedure_catalogcodes.PotentialProcedure_RefID And
+	    hec_tre_potentialprocedure_catalogcodes.Tenant_RefID = @TenantID And
+	    hec_tre_potentialprocedure_catalogcodes.IsDeleted = 0 Inner Join
+	  hec_tre_potentialprocedure_catalogs
+	    On hec_tre_potentialprocedure_catalogs.HEC_TRE_PotentialProcedure_CatalogID
+	    = hec_tre_potentialprocedure_catalogcodes.PotentialProcedure_Catalog_RefID
+	    And hec_tre_potentialprocedure_catalogs.Tenant_RefID = @TenantID And
+	    hec_tre_potentialprocedure_catalogs.IsDeleted = 0 And
+	    hec_tre_potentialprocedure_catalogs.HEC_TRE_PotentialProcedure_CatalogID =
+	    @CatalogID Left Join
+	  hec_tre_potentialprocedures_de hec_tre_potentialprocedures_de1
+	    On hec_tre_potentialprocedures.PotentialProcedure_Description_DictID =
+	    hec_tre_potentialprocedures_de1.DictID And
+	    hec_tre_potentialprocedures_de1.IsDeleted = 0
+	Where
+	  hec_tre_potentialprocedures.IsDeleted = 0 And
+	  hec_tre_potentialprocedures.Tenant_RefID = @TenantID @SearchCriterium
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5DIGCoAP_1355">
+    <Members>
+      <ClassMember Name="CatalogID" Type="Guid"  />
+      <ClassMember Name="SearchCriterium" Type="String"  />
+    </Members>
+  </Parameters>
+
+  <!--when gerating code2 project put this part in .cs file 
+                /***For Search**/
+                string newText2 = command.CommandText.Replace("@SearchCriterium", Parameter.SearchCriterium);
+                command.CommandText = newText2;
+                
+                -->
+
+
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5DIGCoAP_1355" IsArray="true">
+			<Members>
+				<ClassMember Name="NumberOfElements" Type="int"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

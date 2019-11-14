@@ -1,0 +1,21 @@
+INSERT INTO 
+	hec_patient_healthinsurance_states
+	(
+		HEC_Patient_HealthInsurance_StateID,
+		HealthInsuranceState_Abbreviation,
+		HealthInsuranceState_Name_DictID,
+		HealthInsuranceState_Description_DictID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@HEC_Patient_HealthInsurance_StateID,
+		@HealthInsuranceState_Abbreviation,
+		@HealthInsuranceState_Name,
+		@HealthInsuranceState_Description,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

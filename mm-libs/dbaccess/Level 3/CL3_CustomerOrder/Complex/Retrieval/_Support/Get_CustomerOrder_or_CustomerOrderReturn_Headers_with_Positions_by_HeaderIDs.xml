@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/18/2014 4:25:51 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_CustomerOrder_or_CustomerOrderReturn_Headers_with_Positions_by_HeaderIDs</Name>
+    <Namespace>CL3_CustomerOrder.Complex.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL3_CustomerOrder.Complex.Retrieval"
+                Method_ClassName="cls_Get_CustomerOrder_or_CustomerOrderReturn_Headers_with_Positions_by_HeaderIDs"
+                Method_Name="Get_CustomerOrder_or_CustomerOrderReturn_Headers_with_Positions_by_HeaderIDs"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_CustomerOrder_or_CustomerOrderReturn_Headers_with_Positions_by_HeaderIDs"
+                />
+
+  <Parameters IsClass="true" Name="P_L3CO_GCOoCORHwPbH_1622">
+    <Members>
+		<ClassMember Name="CustomerOrderHeaderIDs" IsArray="true" Type="Guid"  />
+		<ClassMember Name="CustomerOrderReturnHeaderIDs" IsArray="true" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L3CO_GCOoCORHwPbH_1622">
+			<Members>
+                <ClassMember Name="CustomerOrderHeaders" IsArray="true" Type="CL3_CustomerOrder.Atomic.Retrieval.L3CO_GCOHwPbH_1604"/>
+                <ClassMember Name="CustomerOrderReturnHeaders" IsArray="true" Type="CL3_CustomerOrder.Atomic.Retrieval.L3CO_GCORHwPbH_1610"/>
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

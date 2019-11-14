@@ -1,0 +1,25 @@
+INSERT INTO 
+	acc_pay_condition_details
+	(
+		ACC_PAY_Condition_DetailID,
+		Conditions_RefID,
+		DateInterval_From,
+		DateInterval_To,
+		DiscountPercentage,
+		SequenceNumber,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@ACC_PAY_Condition_DetailID,
+		@Conditions_RefID,
+		@DateInterval_From,
+		@DateInterval_To,
+		@DiscountPercentage,
+		@SequenceNumber,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

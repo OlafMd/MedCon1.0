@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Submit_Case</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Atomic.Manipulation"
+								Method_ClassName="cls_Submit_Case"
+								Method_Name="Submit_Case"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+  <Parameters IsClass="true" Name="P_CAS_SC_1425">
+    <Members>
+      <ClassMember Name="case_ids" Type="Guid" IsArray="true"  />
+      <ClassMember Name="practice_id" Type="Guid"  />
+      <ClassMember Name="is_treatment" Type="Boolean"  />
+      <ClassMember Name="is_settlement" Type="Boolean"  />
+      <ClassMember Name="date_of_performed_action" Type="DateTime"  />
+      <ClassMember Name="planned_action_id" Type="Guid"  />
+      <ClassMember Name="authorizing_doctor_id" Type="Guid"  />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_SC_1425">
+      <Members>
+        <ClassMember Name="pdf_report_url" Type="String"  />
+        <ClassMember Name="patient_ids" Type="Guid" IsArray="true" />
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+ 
+</CodeGen>

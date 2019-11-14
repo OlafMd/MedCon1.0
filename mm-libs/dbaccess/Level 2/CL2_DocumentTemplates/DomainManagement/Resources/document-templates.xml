@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+    <Item ID="document-templates.default-printing.prescription-note">
+      <Lang ISO="EN" Content="Prescription Note" />
+      <Lang ISO="DE" Content="Prescription Note" />
+      <Lang ISO="RS" Content="Prescription Note" />
+    </Item>
+    <Item ID="document-templates.default-printing.referral-summary">
+      <Lang ISO="EN" Content="Referral Summary" />
+      <Lang ISO="DE" Content="Referral Summary" />
+      <Lang ISO="RS" Content="Referral Summary" />
+    </Item>
+</Resources>

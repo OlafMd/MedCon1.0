@@ -1,0 +1,19 @@
+INSERT INTO 
+	tms_pro_project_status
+	(
+		TMS_PRO_Project_StatusID,
+		Label_DictID,
+		GlobalPropertyMatchingID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@TMS_PRO_Project_StatusID,
+		@Label,
+		@GlobalPropertyMatchingID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

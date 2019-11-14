@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="6/23/2014 11:53:53 AM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ArticleStorages_for_ArticleID</Name>
+    <Namespace>CL5_APOLogistic_Articles.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_APOLogistic_Articles.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ArticleStorages_for_ArticleID"
+                Method_Name="Get_ArticleStorages_for_ArticleID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ArticleStorages_for_ArticleID"
+                />
+
+  <SQLStatement xml:space="preserve">
+	Select
+			  log_wrh_quantitylevels.LOG_WRH_QuantityLevelID,
+			  log_wrh_quantitylevels.Quantity_Minimum,
+			  log_wrh_quantitylevels.Quantity_RecommendedMinimumCalculation,
+			  log_wrh_quantitylevels.Quantity_Maximum,
+			  log_wrh_quantitylevels.Product_RefID As ArticleID,
+			  log_wrh_area_2_quantitylevels.LOG_WRH_Area_RefID As QLAreaID,
+			  log_wrh_rack_2_quantitylevels.LOG_WRH_Rack_RefID As QLRackID,
+			  log_wrh_shelf_2_quantitylevels.LOG_WRH_Shelf_RefID As QLShelfID,
+			  Coalesce(log_wrh_areas.LOG_WRH_AreaID, log_wrh_areas2.LOG_WRH_AreaID, log_wrh_areas3.LOG_WRH_AreaID) As AreaID,
+			  Coalesce(log_wrh_racks.LOG_WRH_RackID, log_wrh_racks2.LOG_WRH_RackID) As RackID,
+			  Coalesce(log_wrh_areas.IsPointOfSalesArea, log_wrh_areas2.IsPointOfSalesArea, log_wrh_areas3.IsPointOfSalesArea) As IsPointOfSalesArea,
+			  Coalesce(log_wrh_areas.IsLongTermStorageArea, log_wrh_areas2.IsLongTermStorageArea, log_wrh_areas3.IsLongTermStorageArea) As IsLongTermStorageArea,
+			  Coalesce(log_wrh_areas.CoordinateCode, log_wrh_areas2.CoordinateCode, log_wrh_areas3.CoordinateCode ) As AreaCode,
+			  Coalesce(log_wrh_racks.CoordinateCode, log_wrh_racks2.CoordinateCode) As RackCode,
+			  log_wrh_shelves.CoordinateCode As ShelfCode
+			From
+			  log_wrh_quantitylevels Left Outer Join
+			  log_wrh_area_2_quantitylevels
+			  On log_wrh_area_2_quantitylevels.LOG_WRH_QuantityLevel_RefID =
+			  log_wrh_quantitylevels.LOG_WRH_QuantityLevelID And
+			  log_wrh_area_2_quantitylevels.IsDeleted = 0 And
+			  log_wrh_area_2_quantitylevels.Tenant_RefID = @TenantID Left Outer Join
+			  log_wrh_areas On log_wrh_area_2_quantitylevels.LOG_WRH_Area_RefID =
+			  log_wrh_areas.LOG_WRH_AreaID And log_wrh_areas.IsDeleted = 0 And
+			  log_wrh_areas.Tenant_RefID = @TenantID Left Outer Join
+			  log_wrh_rack_2_quantitylevels
+			  On log_wrh_rack_2_quantitylevels.LOG_WRH_QuantityLevel_RefID =
+			  log_wrh_quantitylevels.LOG_WRH_QuantityLevelID And
+			  log_wrh_rack_2_quantitylevels.IsDeleted = 0 And
+			  log_wrh_rack_2_quantitylevels.Tenant_RefID = @TenantID Left Outer Join
+			  log_wrh_racks On log_wrh_rack_2_quantitylevels.LOG_WRH_Rack_RefID = log_wrh_racks.LOG_WRH_RackID
+			  And log_wrh_racks.IsDeleted = 0 And
+			  log_wrh_racks.Tenant_RefID = @TenantID Left Outer Join 
+			  log_wrh_areas As log_wrh_areas2 On log_wrh_racks.Area_RefID = log_wrh_areas2.LOG_WRH_AreaID Left Outer Join
+			  log_wrh_shelf_2_quantitylevels
+			  On log_wrh_shelf_2_quantitylevels.LOG_WRH_QuantityLevel_RefID =
+			  log_wrh_quantitylevels.LOG_WRH_QuantityLevelID And
+			  log_wrh_shelf_2_quantitylevels.IsDeleted = 0 And
+			  log_wrh_shelf_2_quantitylevels.Tenant_RefID = @TenantID Left Outer Join
+			  log_wrh_shelves On log_wrh_shelf_2_quantitylevels.LOG_WRH_Shelf_RefID =
+			  log_wrh_shelves.LOG_WRH_ShelfID And log_wrh_shelves.IsDeleted = 0 And
+			  log_wrh_shelves.Tenant_RefID = @TenantID Left Outer Join
+			  log_wrh_areas As log_wrh_areas3 On log_wrh_shelves.R_Area_RefID = log_wrh_areas3.LOG_WRH_AreaID 
+			  Left Outer Join
+			  log_wrh_racks As log_wrh_racks2 On log_wrh_shelves.Rack_RefID = log_wrh_racks2.LOG_WRH_RackID
+			Where
+			  log_wrh_quantitylevels.Product_RefID = @ArticleID And
+			  log_wrh_quantitylevels.IsDeleted = 0 And
+			  log_wrh_quantitylevels.Tenant_RefID = @TenantID
+
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L5AR_GASfA_1520">
+    <Members>
+		<ClassMember Name="ArticleID" Type="Guid"  />
+	
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L5AR_GASfA_1520" IsArray="true">
+			<Members>
+				<ClassMember Name="LOG_WRH_QuantityLevelID" Type="Guid"  />
+				<ClassMember Name="Quantity_Minimum" Type="String"  />
+				<ClassMember Name="Quantity_RecommendedMinimumCalculation" Type="String"  />
+				<ClassMember Name="Quantity_Maximum" Type="String"  />
+				<ClassMember Name="ArticleID" Type="Guid"  />
+				<ClassMember Name="QLAreaID" Type="Guid"  />
+				<ClassMember Name="QLRackID" Type="Guid"  />
+				<ClassMember Name="QLShelfID" Type="Guid"  />
+				<ClassMember Name="AreaID" Type="Guid"  />
+				<ClassMember Name="RackID" Type="Guid"  />
+				<ClassMember Name="IsPointOfSalesArea" Type="bool"  />
+				<ClassMember Name="IsLongTermStorageArea" Type="bool"  />
+				<ClassMember Name="AreaCode" Type="String"  />
+				<ClassMember Name="RackCode" Type="String"  />
+				<ClassMember Name="ShelfCode" Type="String"  />
+			
+
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

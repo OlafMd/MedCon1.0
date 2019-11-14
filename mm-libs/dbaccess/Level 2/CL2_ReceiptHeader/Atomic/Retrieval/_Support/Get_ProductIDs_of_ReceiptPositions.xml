@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="12/8/2014 11:39:11">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Get_ProductIDs_of_ReceiptPositions</Name>
+    <Namespace>CL2_ReceiptHeader.Atomic.Retrieval</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL2_ReceiptHeader.Atomic.Retrieval"
+                Method_ClassName="cls_Get_ProductIDs_of_ReceiptPositions"
+                Method_Name="Get_ProductIDs_of_ReceiptPositions"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_ProductIDs_of_ReceiptPositions"
+                />
+
+  <SQLStatement xml:space="preserve">
+	SELECT LOG_RCP_Receipt_Positions.ReceiptPosition_Product_RefID
+  , LOG_RCP_Receipt_Positions.LOG_RCP_Receipt_PositionID
+	FROM LOG_RCP_Receipt_Positions
+	WHERE LOG_RCP_Receipt_Positions.IsDeleted = 0
+		AND LOG_RCP_Receipt_Positions.Tenant_RefID = @TenantID
+		AND LOG_RCP_Receipt_Positions.LOG_RCP_Receipt_PositionID = @ReceiptPositionIDs
+  </SQLStatement>
+
+  <Parameters IsClass="true" Name="P_L2RH_GPoRP_1134">
+    <Members>
+		  <ClassMember Name="ReceiptPositionIDs" Type="Guid" IsArray="true" />
+    </Members>
+  </Parameters>
+
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="L2RH_GPoRP_1134" IsArray="true">
+			<Members>
+				<ClassMember Name="ReceiptPosition_Product_RefID" Type="Guid" />
+        <ClassMember Name="LOG_RCP_Receipt_PositionID" Type="Guid" />
+			</Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>
+
+

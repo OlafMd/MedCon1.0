@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="9/22/2014 4:13:06 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_Dosage</Name>
+    <Namespace>CL5_MyHealthClub_Medication.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_MPC_Community.Atomic.Retrieval"
+                Method_ClassName="cls_Get_Groups_for_BPID"
+                Method_Name="Get_Groups_for_BPID"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Get_Groups_for_BPID"
+                />
+
+  <SQLStatement xml:space="preserve">
+Select
+  hec_cmt_communitygroups.HEC_CMT_CommunityGroupID,
+  hec_cmt_communitygroups.CommunityGroup_Name_DictID,
+  hec_cmt_communitygroups.IsPrivate,
+  hec_cmt_communitygroups.CommunityGroupCode,
+  hec_cmt_communitygroups.HealthcareCommunityGroupITL,
+  hec_cmt_communitygroups.CommunityGroup_Description_DictID,
+  hec_cmt_offeredroles.GlobalPropertyMatchingID As Role_GlobalPropertyMatchingID,
+  hec_cmt_offeredroles_2_groupsubscription.AssignmentID,
+  hec_cmt_offeredroles.HEC_CMT_OfferedRoleID As Role_HEC_CMT_OfferedRoleID,
+  hec_cmt_offeredroles1.GlobalPropertyMatchingID As Request_GlobalPropertyMatchingID,
+  hec_cmt_groupsubscription_requests.HEC_CMT_GroupSubscription_RequestID,
+  hec_cmt_offeredroles1.HEC_CMT_OfferedRoleID As Request_HEC_CMT_OfferedRoleID
+From
+  hec_cmt_communitygroups Inner Join
+  hec_cmt_groupsubscriptions On hec_cmt_groupsubscriptions.CommunityGroup_RefID
+    = hec_cmt_communitygroups.HEC_CMT_CommunityGroupID Inner Join
+  hec_cmt_memberships On hec_cmt_groupsubscriptions.Membership_RefID =
+    hec_cmt_memberships.HEC_CMT_MembershipID Inner Join
+  hec_cmt_offeredroles_2_groupsubscription
+    On hec_cmt_offeredroles_2_groupsubscription.HEC_CMT_GroupSubscription_RefID
+    = hec_cmt_groupsubscriptions.HEC_CMT_GroupSubscriptionID Inner Join
+  hec_cmt_offeredroles
+    On hec_cmt_offeredroles_2_groupsubscription.HEC_CMT_OfferedRole_RefID =
+    hec_cmt_offeredroles.HEC_CMT_OfferedRoleID Left Join
+  hec_cmt_groupsubscription_requests
+    On hec_cmt_groupsubscription_requests.CommunityGroup_RefID =
+    hec_cmt_groupsubscriptions.CommunityGroup_RefID And
+    hec_cmt_groupsubscription_requests.Membership_RefID =
+    hec_cmt_groupsubscriptions.Membership_RefID and
+    (hec_cmt_groupsubscription_requests.IsApproved is null or hec_cmt_groupsubscription_requests.IsApproved = 0) and
+    (hec_cmt_groupsubscription_requests.IsRejected is null or hec_cmt_groupsubscription_requests.IsRejected = 0) and
+    (hec_cmt_groupsubscription_requests.IsDeleted is null or hec_cmt_groupsubscription_requests.IsDeleted = 0) Left Join
+  hec_cmt_offeredroles_2_groupsubscriptionrequest
+    On
+    hec_cmt_offeredroles_2_groupsubscriptionrequest.HEC_CMT_GroupSubscription_Request_RefID = hec_cmt_groupsubscription_requests.HEC_CMT_GroupSubscription_RequestID
+    and (hec_cmt_offeredroles_2_groupsubscriptionrequest.IsDeleted is null or hec_cmt_offeredroles_2_groupsubscriptionrequest.IsDeleted = 0 ) Left Join
+  hec_cmt_offeredroles hec_cmt_offeredroles1
+    On hec_cmt_offeredroles1.HEC_CMT_OfferedRoleID =
+    hec_cmt_offeredroles_2_groupsubscriptionrequest.HEC_CMT_OfferedRole_RefID
+    and (hec_cmt_offeredroles1.IsDeleted = 0 or hec_cmt_offeredroles1.IsDeleted is null)
+Where
+  hec_cmt_memberships.Tenant_RefID = @TenantID And
+  hec_cmt_memberships.IsDeleted = 0 And
+  hec_cmt_groupsubscriptions.IsDeleted = 0 And
+  hec_cmt_communitygroups.IsDeleted = 0 And
+  hec_cmt_memberships.BusinessParticipant_RefID = @BPID And
+  hec_cmt_offeredroles.IsDeleted = 0 and
+  hec_cmt_offeredroles_2_groupsubscription.IsDeleted = 0
+
+  </SQLStatement>
+  
+  <Parameters IsClass="true" Name="P_L5AC_GGfBPID_1747">
+    <Members>
+      <ClassMember Name="BPID" Type="Guid"  />
+    </Members>
+  </Parameters>
+  <ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+    <ObjectReturnType_Definition Name="L5AC_GGfBPID_1747" IsArray="true" GroupBy="HEC_CMT_CommunityGroupID">
+      <Members>
+        <ClassMember Name="HEC_CMT_CommunityGroupID" Type="Guid"  />
+        <ClassMember Name="CommunityGroup_Name" Type="Dict" OriginTable="hec_cmt_communitygroups" Source_DBField="CommunityGroup_Name_DictID"  />
+        <ClassMember Name="CommunityGroup_Description" Type="Dict" OriginTable="hec_cmt_communitygroups" Source_DBField="CommunityGroup_Description_DictID"  />
+        <ClassMember Name="IsPrivate" Type="bool"  />
+        <ClassMember Name="CommunityGroupCode" Type="string"  />
+        <ClassMember Name="HealthcareCommunityGroupITL" Type="string"  />
+        <ClassMember IsClass="true" IsArray="true" Type="L5AC_GGfBPID_1747_Role" Name="Roles" GroupBy="AssignmentID">
+          <Members>
+            <ClassMember Name="AssignmentID" Type="Guid"  />
+            <ClassMember Name="Role_GlobalPropertyMatchingID" Type="string"  />
+            <ClassMember Name="Role_HEC_CMT_OfferedRoleID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+        <ClassMember IsClass="true" IsArray="true" Type="L5AC_GGfBPID_1747_RoleRequest" Name="RoleRequests" GroupBy="HEC_CMT_GroupSubscription_RequestID">
+          <Members>
+            <ClassMember Name="HEC_CMT_GroupSubscription_RequestID" Type="Guid"  />
+            <ClassMember Name="Request_GlobalPropertyMatchingID" Type="string"  />
+            <ClassMember Name="Request_HEC_CMT_OfferedRoleID" Type="Guid"  />
+          </Members>
+        </ClassMember>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+
+</CodeGen>

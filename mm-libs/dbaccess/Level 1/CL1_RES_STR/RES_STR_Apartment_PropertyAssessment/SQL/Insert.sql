@@ -1,0 +1,25 @@
+INSERT INTO 
+	res_str_apartment_propertyassessments
+	(
+		RES_STR_Apartment_PropertyAssessmentID,
+		STR_Apartment_RefID,
+		Rating_RefID,
+		ApartmentProperty_RefID,
+		DocumentHeader_RefID,
+		Comment,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_Apartment_PropertyAssessmentID,
+		@STR_Apartment_RefID,
+		@Rating_RefID,
+		@ApartmentProperty_RefID,
+		@DocumentHeader_RefID,
+		@Comment,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="05/26/2014 16:04:20 PM">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Save_Contract</Name>
+		<Namespace>MMDocConnectDBMethods.MainData.Comnplex.Manipulation</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Interface="true"
+									Create_Webservice_Interface_ServerPlattform="C#"
+									Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Interface_ApplicationPlattform="FLEX"
+									Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="MMDocConnectDBMethods.MainData.Complex.Manipulation"
+								Method_ClassName="cls_Save_Contract"
+								Method_Name="Save_Contract"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<Parameters IsClass="true" Name="P_MD_SC_1653">
+		<Members>
+			<ClassMember Name="ContractID" Type="Guid" />
+			<ClassMember Name="ContractName" Type="String" />
+			<ClassMember Name="ValidFrom" Type="DateTime" />
+			<ClassMember Name="ValidThrough" Type="DateTime"  />
+			<ClassMember Name="GposData" IsReference="true" Type="P_MD_SCGPOSD_1306" />
+			<ClassMember Name="CoveredDrugIDs" Type="Guid" IsArray="true" />
+			<ClassMember Name="CoveredDiagnoseIDs" Type="Guid" IsArray="true" />
+			<ClassMember Name="DueDates" IsReference="true" Type="P_MD_SCDD_1729_Array" IsArray="true" />
+			<ClassMember Name="ParticipatingDoctors" Type="P_MD_SCPD_1341_Doctors" IsReference="true" IsArray="true" />
+      <ClassMember Name="ParticipatingHIPs" Type="Guid" IsArray="true" />
+
+    </Members>
+	</Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+		<StandardReturnType_Definition returnType="Guid" IsArray="false" />
+	</ResultInfo>
+
+</CodeGen>

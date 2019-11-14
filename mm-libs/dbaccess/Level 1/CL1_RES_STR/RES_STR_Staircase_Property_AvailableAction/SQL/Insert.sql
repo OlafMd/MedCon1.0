@@ -1,0 +1,19 @@
+INSERT INTO 
+	res_str_staircase_property_availableactions
+	(
+		RES_STR_Staircase_Property_AvailableActionsID,
+		RES_STR_Staircase_Property_RefID,
+		RES_ACT_Action_RefID,
+		Creation_Timestamp,
+		IsDeleted,
+		Tenant_RefID
+	)
+VALUES 
+	(
+		@RES_STR_Staircase_Property_AvailableActionsID,
+		@RES_STR_Staircase_Property_RefID,
+		@RES_ACT_Action_RefID,
+		@Creation_Timestamp,
+		@IsDeleted,
+		@Tenant_RefID
+	)

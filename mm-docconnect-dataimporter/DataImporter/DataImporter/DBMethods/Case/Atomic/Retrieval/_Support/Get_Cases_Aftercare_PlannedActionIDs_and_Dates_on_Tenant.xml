@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="14/10/2013 11:24:40">
+	<Componenttype>AtomicMethod</Componenttype>
+
+	<Meta>
+		<Name>Get_Cases_Aftercare_PlannedActionIDs_and_Dates_on_Tenant</Name>
+		<Namespace>DataImporter.DBMethods.Case.Atomic.Retrieval</Namespace>
+		<Description></Description>
+		<Tags></Tags>
+	</Meta>
+
+	<PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+									Target_Method_ProgrammingLanguage_Revision="3.5"
+									Target_SQL="MySQL"
+									Target_SQL_Revision="8"
+									Create_Webservice_Guiderface="true"
+									Create_Webservice_Guiderface_ServerPlattform="C#"
+									Create_Webservice_Guiderface_ServerPlattform_Revision="3.5"
+									Create_Webservice_Guiderface_ApplicationPlattform="FLEX"
+									Create_Webservice_Guiderface_ApplicationPlattform_Revision="4.5"
+									/>
+
+	<CreationInfo Method_Namespace="DataImporter.DBMethods.Case.Atomic.Retrieval"
+								Method_ClassName="cls_Get_Cases_Aftercare_PlannedActionIDs_and_Dates_on_Tenant"
+								Method_Name="Get_Cases_Aftercare_PlannedActionIDs_and_Dates_on_Tenant"
+								ApplicationPlattform_WebServiceName=""
+								ApplicationPlattform_Namespace=""
+								/>
+
+	<SQLStatement xml:space="preserve">
+    Select
+      hec_cas_case_relevantplannedactions.Case_RefID As CaseID,
+      hec_act_plannedactions.PlannedFor_Date As PlannedActionDate,
+      hec_act_performedactions.IfPerfomed_DateOfAction As PerformedActionDate,
+      hec_act_plannedactions.IfPerformed_PerformedAction_RefID As PerformedActionID, 
+      hec_cas_cases.CaseNumber
+    From
+      hec_cas_cases
+      Inner Join hec_cas_case_relevantplannedactions
+        On hec_cas_cases.HEC_CAS_CaseID = hec_cas_case_relevantplannedactions.Case_RefID And hec_cas_case_relevantplannedactions.IsDeleted = 0
+      Inner Join hec_act_plannedactions
+        On hec_cas_case_relevantplannedactions.PlannedAction_RefID = hec_act_plannedactions.HEC_ACT_PlannedActionID And hec_act_plannedactions.IsDeleted = 0
+      Inner Join hec_act_performedactions
+        On hec_act_plannedactions.IfPerformed_PerformedAction_RefID = hec_act_performedactions.HEC_ACT_PerformedActionID And hec_act_performedactions.IsDeleted = 0 And
+        hec_act_plannedactions.IsPerformed = 1
+    Where
+      hec_cas_cases.IsDeleted = 0 And
+      hec_cas_cases.Tenant_RefID = @TenantID And
+      Cast(hec_cas_cases.CaseNumber As Unsigned) &lt;= 10000
+	</SQLStatement>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="false"
+				Returns_an_Object_or_ObjectArray="true">
+
+		<ObjectReturnType_Definition Name="CAS_GCAPAIDsaDoT_1606" IsArray="true">
+			<Members>
+				<ClassMember Name="CaseID" Type="Guid"  />
+        <ClassMember Name="PerformedActionID" Type="Guid"  />
+        <ClassMember Name="PerformedActionDate" Type="DateTime"  />
+        <ClassMember Name="PlannedActionDate" Type="DateTime"  />
+        <ClassMember Name="CaseNumber" Type="String"  />
+        
+      </Members>
+		</ObjectReturnType_Definition>
+
+
+	</ResultInfo>
+
+</CodeGen>

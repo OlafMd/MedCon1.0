@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{92504B3D-344A-4A80-91BD-77471835EDDB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL6_APOLogistic_ShippingOrder</RootNamespace>
+    <AssemblyName>CL6_APOLogistic_ShippingOrder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atomic\Retrieval\cls_Get_AllShipmentPositions_bound_to_WarehouseStructure_via_Reservations.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_AllShippingPositions_for_PickingControlFlags_and_ShippingHeaderID.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_All_Unexecuted_Reservation_for_ProductList.cs" />
+    <Compile Include="Atomic\Retrieval\cls_Get_CustomerOrderPosition_for_ShipmentPositionList.cs" />
+    <Compile Include="Complex\Manipulation\cls_Finish_PickingControl.cs" />
+    <Compile Include="Complex\Manipulation\cls_Delete_LastShipmentPosition.cs" />
+    <Compile Include="Complex\Manipulation\cls_Is_PickingControlAllowed.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_Address_for_ShipmentHeaderID.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_PreloadData_for_PickingControl.cs" />
+    <Compile Include="Complex\Retrieval\cls_Get_PreloadData_for_PickingPreparationEdit.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\PickingControlStatus.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllShipmentPositions_bound_to_WarehouseStructure_via_Reservations.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_AllShippingPositions_for_PickingControlFlags_and_ShippingHeaderID.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_All_Unexecuted_Reservation_for_ProductList.sql" />
+    <EmbeddedResource Include="Atomic\Retrieval\SQL\cls_Get_CustomerOrderPosition_for_ShipmentPositionList.sql" />
+    <Content Include="Atomic\Retrieval\_Support\Get_CustomerOrderPosition_for_ShipmentPositionList.xml" />
+    <Content Include="Atomic\Retrieval\_Support\Get_AllShipmentPositions_bound_to_WarehouseStructure_via_Reservations.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_AllShippingPositions_for_PickingControlFlags_and_ShippingHeaderID.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Atomic\Retrieval\_Support\Get_All_Unexecuted_Reservation_for_ProductList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Manipulation\_Support\Is_PickingControlAllowed.xml" />
+    <Content Include="Complex\Manipulation\_Support\Delete_LastShipmentPosition.xml" />
+    <Content Include="Complex\Manipulation\_Support\Finish_PickingControl.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_Address_for_SheapmentHeaderID.xml" />
+    <Content Include="Complex\Retrieval\_Support\Get_PreloadData_for_PickingPreparationEdit.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Complex\Retrieval\_Support\Get_PreloadData_for_PickingControl.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Atomic\Manipulation\_Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\CSV2Core\CSV2Core.csproj">
+      <Project>{D33EBD03-020F-4E51-BB09-AB20535A6F72}</Project>
+      <Name>CSV2Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\core\CSV2Core_MySQL\CSV2Core_MySQL.csproj">
+      <Project>{EEF71E87-FA3A-45CA-A001-EBF6CC97FF99}</Project>
+      <Name>CSV2Core_MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 0\DLCore_DBCommons\DLCore_DBCommons.csproj">
+      <Project>{8A936290-4628-4F28-9639-9B65915A0C8C}</Project>
+      <Name>DLCore_DBCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_CMN\CL1_CMN.csproj">
+      <Project>{3C164500-BF5F-4173-B1A8-154A38372773}</Project>
+      <Name>CL1_CMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG\CL1_LOG.csproj">
+      <Project>{5FF8E7C7-57C2-48AE-BC70-8F6B957DABC6}</Project>
+      <Name>CL1_LOG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_RSV\CL1_LOG_RSV.csproj">
+      <Project>{2193AE63-54C5-44D5-AACE-CDB0AC097530}</Project>
+      <Name>CL1_LOG_RSV</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_SHP\CL1_LOG_SHP.csproj">
+      <Project>{E43DE7B7-3C37-46B1-8824-D7313CCD8273}</Project>
+      <Name>CL1_LOG_SHP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_LOG_WRH\CL1_LOG_WRH.csproj">
+      <Project>{BB08DBAD-494E-4689-9467-BBDDAEBC1EB0}</Project>
+      <Name>CL1_LOG_WRH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 1\CL1_ORD_CUO\CL1_ORD_CUO.csproj">
+      <Project>{08B298C5-2B62-46EA-964F-98109E5B288C}</Project>
+      <Name>CL1_ORD_CUO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 3\CL3_ShippingOrder\CL3_ShippingOrder.csproj">
+      <Project>{BA9896B5-6424-4D1B-9838-537B2E79B745}</Project>
+      <Name>CL3_ShippingOrder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Level 5\CL5_APOLogistic_ShippingOrder\CL5_APOLogistic_ShippingOrder.csproj">
+      <Project>{37A293E0-5D59-44F6-AFEF-82739F638C1B}</Project>
+      <Name>CL5_APOLogistic_ShippingOrder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

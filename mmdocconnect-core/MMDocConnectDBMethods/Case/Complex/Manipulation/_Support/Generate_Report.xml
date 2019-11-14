@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="07/29/2013 14:37:20 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Generate_Report</Name>
+    <Namespace>MMDocConnectDBMethods.Case.Complex.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="MMDocConnectDBMethods.Case.Complex.Manipulation"
+                Method_ClassName="cls_Generate_Report"
+                Method_Name="Generate_Report"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=""
+                />
+
+
+  <Parameters IsClass="true" Name="P_CAS_GR_1608">
+    <Members>
+      <ClassMember Name="statuses" Type="int" IsArray="true" />
+      <ClassMember Name="position_numbers" Type="double" IsArray="true" />
+      <ClassMember Name="updateCasesSubmittedBeforeDate" Type="DateTime?" />
+    </Members>
+  </Parameters>
+
+  <ResultInfo Returns_an_Object_or_ObjectArray="true">
+    <ObjectReturnType_Definition Name="CAS_GR_1608" IsArray="false">
+      <Members>
+        <ClassMember Name="cases" Type="MMDocConnectUtils.ExcelTemplates.CaseForReportModel" IsArray="true"/>
+      </Members>
+    </ObjectReturnType_Definition>
+  </ResultInfo>
+</CodeGen>

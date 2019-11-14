@@ -1,0 +1,21 @@
+INSERT INTO 
+	cmn_pro_ass_assortmentproduct_vendorproducts
+	(
+		CMN_PRO_ASS_AssortmentProduct_VendorProductID,
+		CMN_PRO_ASS_AssortmentProduct_RefID,
+		CMN_PRO_Product_RefID,
+		Creation_Timestamp,
+		Tenant_RefID,
+		IsDeleted,
+		Modification_Timestamp
+	)
+VALUES 
+	(
+		@CMN_PRO_ASS_AssortmentProduct_VendorProductID,
+		@CMN_PRO_ASS_AssortmentProduct_RefID,
+		@CMN_PRO_Product_RefID,
+		@Creation_Timestamp,
+		@Tenant_RefID,
+		@IsDeleted,
+		@Modification_Timestamp
+	)

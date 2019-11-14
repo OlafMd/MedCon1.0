@@ -1,0 +1,14 @@
+UPDATE 
+	cmn_bpt_ctm_customers
+SET 
+	Ext_BusinessParticipant_RefID=@Ext_BusinessParticipant_RefID,
+	CustomerAffinityStatus_RefID=@CustomerAffinityStatus_RefID,
+	InternalCustomerNumber=@InternalCustomerNumber,
+	CustomerOrderDefaultShipmentWarehouse_RefID=@CustomerOrderDefaultShipmentWarehouse_RefID,
+	IsCustomerSales_ExcludedFromSalesStatistics=@IsCustomerSales_ExcludedFromSalesStatistics,
+	IsCustomerOrderAutomaticallyApprovedOnReceipt=@IsCustomerOrderAutomaticallyApprovedOnReceipt,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted
+WHERE 
+	CMN_BPT_CTM_CustomerID = @CMN_BPT_CTM_CustomerID

@@ -1,0 +1,25 @@
+UPDATE 
+	hec_pro_components
+SET 
+	GlobalPropertyMatchingID=@GlobalPropertyMatchingID,
+	ComponentMatterState=@ComponentMatterState,
+	AbsoluteCompositionValue_Unit_RefID=@AbsoluteCompositionValue_Unit_RefID,
+	AbsoluteCompositionValue=@AbsoluteCompositionValue,
+	RelativeCompositionValue_Unit_RefID=@RelativeCompositionValue_Unit_RefID,
+	RelativeCompositionValue=@RelativeCompositionValue,
+	BreadUnitContainedAmount=@BreadUnitContainedAmount,
+	EthanolContained_VolumePercentage=@EthanolContained_VolumePercentage,
+	ComponentEneryValue_in_kJ=@ComponentEneryValue_in_kJ,
+	Component_SimpleName=@Component_SimpleName,
+	Component_Name_DictID=@Component_Name,
+	Component_Description_DictID=@Component_Description,
+	ComponentDisposalSpeedStatus=@ComponentDisposalSpeedStatus,
+	GalenicalTypeInsidePackageStatus=@GalenicalTypeInsidePackageStatus,
+	ComponentExcipientStatus=@ComponentExcipientStatus,
+	GalenicalType_RelativeComposition=@GalenicalType_RelativeComposition,
+	Creation_Timestamp=@Creation_Timestamp,
+	Tenant_RefID=@Tenant_RefID,
+	IsDeleted=@IsDeleted,
+	Modification_Timestamp=@Modification_Timestamp
+WHERE 
+	HEC_PRO_ComponentID = @HEC_PRO_ComponentID

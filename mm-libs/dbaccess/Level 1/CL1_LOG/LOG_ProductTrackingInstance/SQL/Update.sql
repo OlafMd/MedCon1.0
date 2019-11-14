@@ -1,0 +1,21 @@
+UPDATE 
+	log_producttrackinginstances
+SET 
+	TrackingInstanceTakenFromSourceTrackingInstance_RefID=@TrackingInstanceTakenFromSourceTrackingInstance_RefID,
+	TrackingCode=@TrackingCode,
+	SerialNumber=@SerialNumber,
+	BatchNumber=@BatchNumber,
+	OwnedBy_BusinessParticipant_RefID=@OwnedBy_BusinessParticipant_RefID,
+	CMN_PRO_Product_RefID=@CMN_PRO_Product_RefID,
+	CMN_PRO_Product_Variant_RefID=@CMN_PRO_Product_Variant_RefID,
+	CMN_PRO_Product_Release_RefID=@CMN_PRO_Product_Release_RefID,
+	ExpirationDate=@ExpirationDate,
+	IsDeleted=@IsDeleted,
+	Tenant_RefID=@Tenant_RefID,
+	InitialQuantityOnTrackingInstance=@InitialQuantityOnTrackingInstance,
+	CurrentQuantityOnTrackingInstance=@CurrentQuantityOnTrackingInstance,
+	R_ReservedQuantity=@R_ReservedQuantity,
+	R_FreeQuantity=@R_FreeQuantity,
+	Creation_Timestamp=@Creation_Timestamp
+WHERE 
+	LOG_ProductTrackingInstanceID = @LOG_ProductTrackingInstanceID

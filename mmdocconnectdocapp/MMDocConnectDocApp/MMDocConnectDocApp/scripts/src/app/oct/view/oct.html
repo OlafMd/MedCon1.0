@@ -1,0 +1,102 @@
+<div>
+    <ul class="table-header oct-table-header" ng-class="{'table-header-active': selected_count !== 0}">
+        <li>
+            <span class="mask-checkbox">
+                <input id="cbSelectAll" name="cbSelectAll" type="checkbox" ng-model="all_selected" ng-change="checkAll()" />
+                <i class="icon"></i>
+            </span>
+            <span class="num-of-selected-item" ng-if="selected_count !== 0" ng-cloak>[ {{ selected_count }} ]</span>
+        </li>
+        <li class="unsorted" ng-class="setTableHeaderClass('oct_date')" ng-click="SortFunction('oct_date')">{{'LABEL_LAST_OCT'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('patient_name')" ng-click="SortFunction('patient_name')">{{'LABEL_OCT_PATIENT_NAME'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('diagnose')" ng-click="SortFunction('diagnose')">{{'LABEL_DIAGNOSE'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('localization')" ng-click="SortFunction('localization')">{{'LABEL_LOKALIZATION'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('treatment_doctor_name')" ng-click="SortFunction('treatment_doctor_name')">{{'LABEL_OP_DOCTOR'| translate}}</li>
+        <li ng-if="selected_count === 0" class="unsorted" ng-class="setTableHeaderClass('oct_doctor_name')" ng-click="SortFunction('oct_doctor_name')">{{'LABEL_OCT_DOCTOR'| translate}}</li>
+        <li ng-if="selected_count !== 0">
+            <dropdown-list class="table-header-dropdown" id="selOctDoctor" items="oct_doctors" ng-model="parameter.oct_doctor_id" additional-class="'dropdown-min-width'" params="{has_prefix: true}"></dropdown-list>
+        </li>
+        <li class="unsorted" ng-class="setTableHeaderClass('treatment_year_date')" ng-click="SortFunction('treatment_year_date')">{{'LABEL_TREATMENT_YEAR'| translate}}</li>
+        <li class="unsorted" ng-class="setTableHeaderClass('status')" ng-click="SortFunction('status')">{{'LABEL_STATUS'| translate}}</li>
+        <li class="controls text-right">
+            <ul class="list-table" ng-if="selected_count !== 0">
+                <li>
+                    <a id="cancelMultiEditSubmit" href class="btn-link" ng-click="cancelMultiEdit()" translate="BUTTON_CANCEL" title="{{ 'BUTTON_CANCEL' | translate}}">{{ 'LABEL_CANCEL' | translate }}</a>
+                </li>
+                <li>
+                    <button class="button narrow confirm" onclick="return false;" id="saveMulti" ng-click="multiEditSubmitOct(false)" translate="BUTTON_SAVE" title="{{ 'BUTTON_SAVE' | translate }}" ng-disabled="isEditButtonDisabled()" disabled="disabled">
+                        {{ 'BUTTON_SAVE' | translate }}
+                    </button>
+                </li>
+                <li class="text-right">
+                    <form name="octForm" class="datepicker-input-group" ng-submit="multiEditSubmitOct(true)" novalidate>
+                        <datepicker date-format="dd.MM.yyyy" date-max-limit={{today}} date-model="parameter.oct_performed_date" is-right="true">
+                            <input class="2000Year" type="text" id="octPerformedDateMulti" ng-focus="setClass()" name="octPerformedDate" ng-model="parameter.oct_performed_date"
+                                   placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}"
+                                   ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'" validate-date="true" date-max-limit="today" required>
+                        </datepicker>
+                        <button class="icons-submit" ng-class="{'action-submit-button-click': show_datepicker_id !== item.id, 'action-submit-button': show_datepicker_id === item.id}"
+                                id="submitMulti" type="submit" translate="BUTTON_SUBMIT" ng-disabled="octForm.$invalid" title="{{'BUTTON_SUBMIT' | translate}}"></button>
+                    </form>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <h2 id="stickyHeaderBox" class="first-letter-holder has-checkbox hide"></h2>
+
+    <div class="content-scroll clear" id="wrapper" sticky>
+        <div id="wrapper_inner">
+            <div infinite-scroll="loadMore()" infinite-scroll-distance="300" infinite-scroll-parent="#wrapper" infinite-scroll-child="#wrapper_inner" infinite-scroll-disabled="isScrollDisabled">
+                <div ng-repeat="item in octs | groupBy:'group_name'" ng-repeat-finished>
+                    <h2 id="tableGroup" class="first-letter-holder has-checkbox tableGroup" ng-if="item.group_name_CHANGED">
+                        <span>
+                            {{::item.group_name | translate}}
+                        </span>
+                    </h2>
+                    <div class="table-row">
+                        <ul id="list" class="table-content oct-table-content" ng-class="getOctStatusClassName(item)">
+                            <li>
+                                <span class="mask-checkbox">
+                                    <input id="cbSelect_{{item.id}}" name="cbSelect_{{item.id}}" type="checkbox" ng-model="item.is_selected" ng-change="checkSelected(item)" ng-disabled="item.status === 'OCT4' || item.status === 'OCT6'">
+                                    <i class="icon"></i>
+                                </span>
+                            </li>
+                            <li><big>{{::item.oct_date || 'LABEL_NO_OCT_DATE' | date:'dd.MM.yyyy' | translate }}</big><div class="normal-height-font gray-font-color" id="octTreatmentDate_{{$index}}">{{ 'LABEL_LAST_IVOM' | translate }}: {{::item.treatment_date | date:'dd.MM.yyyy'}}</div></li>
+                            <li class="larger-font" id="octPatientName_{{$index}}">
+                                {{::item.patient_name}}
+                                <a href="#/patient/patient_detail/{{item.patient_id}}" id="btnGoToPatientDetails_{{$index}}" title="{{ 'BUTTON_GO_TO_PATIENT_DETAILS' | translate}}"><i class="icons-preview-black"></i></a>
+                                <div class="normal-height-font gray-font-color" id="octPatientBday_{{$index}}">{{::item.patient_birthdate | date:'dd.MM.yyyy'}}</div>
+                            </li>
+                            <li id="octDiagnosis_{{$index}}">{{::item.diagnose}}</li>
+                            <li id="octLocalization_{{$index}}" class=" text-center">{{::item.localization}}</li>
+                            <li id="octOPDoctor_{{$index}}">{{::item.treatment_doctor_name}} <div class="normal-height-font gray-font-color">{{::item.treatment_doctor_practice_name}}</div></li>
+                            <li id="octOCTDoctor_{{$index}}">{{::item.oct_doctor_name}}</li>
+                            <li>{{::item.treatment_year_date | date:'dd.MM.yyyy'}} <div id="octPerformedNumber_{{$index}}" class="normal-height-font gray-font-color">{{::item.treatment_year_octs || ''}} {{::item.treatment_year_octs ? item.treatment_year_octs === 1 ? 'LABEL_OCT_PERFORMED' : 'LABEL_OCTS_PERFORMED' : 'LABEL_NO_OCTS_PERFORMED' | translate}}</div></li>
+                            <li class="table-row-color">
+                                <span id="octStatus_{{$index}}"> {{ ::item.status | translate }}</span>
+                            </li>
+                            <li class="controls text-right">
+                                <span ng-if="isSubmitVisible(item)">
+                                    <a id="reject_{{$index}}" href class="icons-discard action-delete-button ng-binding ng-scope" ng-click="rejectOct(item)" title="{{ 'BUTTON_REJECT_OCT' | translate }}">{{ 'BUTTON_REJECT_OCT' | translate }}</a>
+                                    <form name="octForm" class="datepicker-input-group" ng-submit="submitOct(item)" novalidate id="octDatepickerForm_{{$index}}">
+                                        <input id="octPerformedDate_{{$index}}" type="text" ng-if="show_datepicker_id !== $index" ng-focus="renderDatepicker($index)" ng-required="show_datepicker_id !== item.id" placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}" ng-model="item.oct_performed_date"></input>
+                                        <datepicker ng-if="show_datepicker_id === $index" date-format="dd.MM.yyyy" date-max-limit={{today}} date-model="item.oct_performed_date" is-right="true">
+                                            <input class="2000Year" type="text" id="octPerformedDate_{{$index}}" ng-focus="setClass()" name="octPerformedDate" ng-model="item.oct_performed_date"
+                                                   placeholder="{{ 'LABEL_DATE_PLACEHOLDER' | translate }}" ng-datefilter valid-date="false" ng-bind="date | date:'dd.MM.yyyy'"
+                                                   ng-required="show_datepicker_id === item.id" ng-class="{'redborder': delivery_date_invalid}" validate-date="true" date-max-limit="today" />
+                                        </datepicker>
+                                        <button class="icons-submit" ng-class="{'action-submit-button-click': show_datepicker_id !== item.id, 'action-submit-button': show_datepicker_id === item.id}"
+                                                id="submit_{{$index}}" type="submit" translate="BUTTON_SUBMIT" ng-disabled="octForm.$invalid" title="{{'BUTTON_SUBMIT' | translate}}"></button>
+                                    </form>
+                                </span>
+                                <span ng-if="item.status === 'OCT6'" id="oct6Status_{{$index}}">
+                                    {{ 'LABEL_OCT_PENDING' | translate }}
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

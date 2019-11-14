@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	hec_shippingposition_questionnairesubmissions
+WHERE 
+	HEC_ShippingPosition_QuestionnaireSubmissionID = @HEC_ShippingPosition_QuestionnaireSubmissionID

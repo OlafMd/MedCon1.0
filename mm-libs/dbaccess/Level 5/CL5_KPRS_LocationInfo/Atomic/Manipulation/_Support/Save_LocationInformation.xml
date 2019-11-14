@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGen createdOn="7/1/2013 2:38:32 PM">
+  <Componenttype>AtomicMethod</Componenttype>
+
+  <Meta>
+    <Name>Save_LocationInformation</Name>
+    <Namespace>CL5_KPRS_LocationInfo.Atomic.Manipulation</Namespace>
+    <Description></Description>
+    <Tags></Tags>
+  </Meta>
+
+  <PlattformInfo  Target_Method_ProgrammingLanguage="C#"
+                  Target_Method_ProgrammingLanguage_Revision="3.5"
+                  Target_SQL="MySQL"
+                  Target_SQL_Revision="8"
+                  Create_Webservice_Interface="true"
+                  Create_Webservice_Interface_ServerPlattform="C#"
+                  Create_Webservice_Interface_ServerPlattform_Revision="3.5"
+                  Create_Webservice_Interface_ApplicationPlattform="FLEX"
+                  Create_Webservice_Interface_ApplicationPlattform_Revision="4.5"
+                  />
+
+  <CreationInfo Method_Namespace="CL5_KPRS_LocationInfo.Atomic.Manipulation"
+                Method_ClassName="cls_Save_LocationInformation"
+                Method_Name="Save_LocationInformation"
+                ApplicationPlattform_WebServiceName=""
+                ApplicationPlattform_Namespace=".Save_LocationInformation"
+                />
+
+
+  <Parameters IsClass="true" Name="P_L5LI_SLI_1538">
+    <Members>
+      <ClassMember Name="RealestatePropertyID" Type="Guid"/>
+      <ClassMember Name="AddressID" Type="Guid"/>
+      <ClassMember Name="Street_Name" Type="String"  />
+      <ClassMember Name="Street_Number" Type="String"  />
+      <ClassMember Name="City_PostalCode" Type="String"  />
+      <ClassMember Name="City_Name" Type="String"  />
+      <ClassMember Name="City_Region" Type="String"/>
+      <ClassMember Name="City_AdministrativeDistrict" Type="String"  />
+      <ClassMember Name="Province_Name" Type="String"  />
+      <ClassMember Name="RegionInformation_PurchasingPowerAmount_Current_RefID" Type="Guid"  />
+      <ClassMember Name="RegionInformation_PurchasingPowerAmount_Forecast_RefID" Type="Guid"  />
+      <ClassMember Name="RegionInformation_ResidentialRent_MinPrice_RefID" Type="Guid"  />
+      <ClassMember Name="RegionInformation_ResidentialRent_AveragePrice_RefID" Type="Guid"  />
+      <ClassMember Name="RegionInformation_ResidentialRent_MaxPrice_RefID" Type="Guid"  />
+      <ClassMember Name="RegionInformation_NonResidentialRent_MinPrice_RefID" Type="Guid"  />
+      <ClassMember Name="RegionInformation_NonResidentialRent_AveragePrice_RefID" Type="Guid"  />
+      <ClassMember Name="RegionInformation_NonResidentialRent_MaxPrice_RefID" Type="Guid"  />
+
+      <ClassMember Name="RegionInformation_PurchasingPowerAmount_Current_RefIDValue" Type="Double"  />
+      <ClassMember Name="RegionInformation_PurchasingPowerAmount_Forecast_RefIDValue" Type="Double"  />
+      <ClassMember Name="RegionInformation_ResidentialRent_MinPrice_RefIDValue" Type="Double"  />
+      <ClassMember Name="RegionInformation_ResidentialRent_AveragePrice_RefIDValue" Type="Double"  />
+      <ClassMember Name="RegionInformation_ResidentialRent_MaxPrice_RefIDValue" Type="Double"  />
+      <ClassMember Name="RegionInformation_NonResidentialRent_MinPrice_RefIDValue" Type="Double"  />
+      <ClassMember Name="RegionInformation_NonResidentialRent_AveragePrice_RefIDValue" Type="Double"  />
+      <ClassMember Name="RegionInformation_NonResidentialRent_MaxPrice_RefIDValue" Type="Double"  />
+
+      <ClassMember Name="LocationInformationID" Type="Guid"/>
+      <ClassMember Name="MapImage" Type="Guid"/>
+      <ClassMember Name="SateliteImage" Type="Guid"/>
+      <ClassMember Name="AddressImage" Type="Guid"/>
+      
+      <ClassMember Name="CMN_LOC_LocationID" Type="Guid"/>
+      <ClassMember Name="RES_LOC_Emmission_RefID" Type="Guid[]"  />
+      <ClassMember Name="RES_LOC_MeansOfTransportation_RefID" Type="Guid[]" />
+      <ClassMember Name="RES_LOC_NeighborhoodQuality_RefID" Type="Guid[]"  />
+      <ClassMember Name="RES_LOC_SurroundingInfrastructure_RefID" Type="Guid[]"  />
+      <ClassMember Name="RES_LOC_ParkingSituation_RefID" Type="Guid[]"  />
+      <ClassMember Name="RES_LOC_ResidentialVacancies_RefID" Type="Guid[]"  />
+      <ClassMember Name="RES_LOC_CommercialVacancies_RefID" Type="Guid[]"  />
+
+      <ClassMember Name="RegionID" Type="Guid"/>
+      <ClassMember Name="Country_RefID" Type="Guid"/>
+      <ClassMember Name="RegionInformation_RegionArea_in_sqkm" Type="Double"  />
+      <ClassMember Name="RegionInformation_TotalPopulation" Type="int"  />
+      <ClassMember Name="RegionInformation_Population_per_sqkm" Type="Double"  />
+      <ClassMember Name="RegionInformation_RegionUnemploymentRatePercent" Type="Double"  />
+      <ClassMember Name="RegionInformation_NumberOfHouseholds_Current" Type="int"  />
+      <ClassMember Name="RegionInformation_NumberOfHouseholds_Forecast" Type="int"  />
+    </Members>
+  </Parameters>
+
+	<ResultInfo Returns_just_the_status_of_the_operation="false"
+				Returns_a_StandardDataType_or_StadardDataTypeArray="true"
+				Returns_an_Object_or_ObjectArray="false">
+
+    <StandardReturnType_Definition returnType="Guid" IsArray="false" />
+
+	</ResultInfo>
+
+</CodeGen>
+
+

@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+	pps_tsk_task_template_organizationalunitavailabilities
+WHERE 
+	PPS_TSK_Task_Template_OrganizationalUnitAvailabilityID = @PPS_TSK_Task_Template_OrganizationalUnitAvailabilityID

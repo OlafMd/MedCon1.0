@@ -1,0 +1,17 @@
+/*
+|------------------------------------------------------------
+| Sprite mixin
+|------------------------------------------------------------
+*/
+
+@mixin sprite-icon ($img) {
+	@extend %hide-text;
+	// background: sprite($icons, $img);
+	// @include sprite-dimensions($icons, $img);
+	@include icons-sprite($img);
+	height: icons-sprite-height($img);
+	width: icons-sprite-width($img);
+}
+
+// how to call @include sprite-icon('video-icon');
+

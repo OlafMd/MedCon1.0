@@ -1,0 +1,63 @@
+﻿<div class="white-content-holder default-font-color" ng-init="initializeController()">
+
+    <a class="back-button" ng-click="redirectBackOnePage()" href=""><span translate="BUTTON_BACK"></span></a>
+    <h1 class="gray-font-color bolded-text clear"><span class="default-font-color">{{doctor_detail.name}} </span>| {{doctor_detail.practice}}</h1>
+</div>
+<add-doctor-directive ng-if="showDoctorDirective" mode="'edit'"></add-doctor-directive>
+<div class="default-font-color" ng-class="{'white-content-holder': !showDoctorDirective}">
+    <ul class="doctor-details negative-margin" ng-if="!showDoctorDirective">
+        <li>
+            <label><span translate="LABEL_LANR"></span></label>
+            <label ng-cloak>{{doctor_detail.lanr}}</label>
+        </li>
+        <li>
+            <label><span translate="LABEL_ADDRESS"></span> </label>
+            <label ng-cloak> {{doctor_detail.address}}</label>
+            <label ng-cloak> {{doctor_detail.town}}</label>
+        </li>
+        <li>
+            <label><span translate="LABEL_CONTACT"></span></label>
+            <label ng-cloak><span translate="LABEL_PHONE"></span> {{doctor_detail.phone}}</label>
+            <label ng-cloak ng-if="isNotNullOrEmpty(doctor_detail.fax)"><span translate="LABEL_FAX_NR"></span> {{doctor_detail.fax}}</label>
+            <label ng-cloak ng-if="isNotNullOrEmpty(doctor_detail.email)"><span translate="LABEL_EMAIL"></span> {{doctor_detail.email}}</label>
+        </li>
+        <li ng-if="isNotNullOrEmpty(doctor_detail.bank_name) ||
+            isNotNullOrEmpty(doctor_detail.bic) ||
+            isNotNullOrEmpty(doctor_detail.iban)">
+            <label ng-cloak><span translate="LABEL_BANK_ACCOUNT"></span></label>
+            <label ng-if="isNotNullOrEmpty(doctor_detail.bank_name)">{{doctor_detail.bank_name}}</label>
+            <label ng-cloak ng-if="isNotNullOrEmpty(doctor_detail.bic)"><span translate="LABEL_BIC"></span> {{doctor_detail.bic}}</label>
+            <label ng-cloak ng-if="isNotNullOrEmpty(doctor_detail.iban)"><span translate="LABEL_IBAN"></span> {{doctor_detail.iban}}</label>
+        </li>
+        <li>
+            <a id="btnEditDoctor" href="" class="icons-edit" translate="BUTTON_EDIT" ng-click="OpenFormEditDoctor()" onclick="return false;" title="{{ 'BUTTON_EDIT' | translate}}"></a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="gray-content-holder" ng-hide="hideButtonAddContract">
+    <button id="btnAddContract" class="wide-add-button" ng-click="OpenFormAddContract('add')" translate="BUTTON_ADD_CONTRACT" ng-model="showAddContractDirective" ng-init="showAddContractDirective=false" ng-class="{'disabled': doctor_detail.is_temp}" ng-disabled="doctor_detail.is_temp"></button>
+</div>
+<add-contract-directive ng-if="showAddContractDirective && CloseContractForm" fromedit="fromEdit"></add-contract-directive>
+
+<ul class="contracts-list-header">
+    <li class="unsorted" ng-class="setClass('ContractName')" ng-click="SortFunction('ContractName')">{{'LABEL_CONTACT' | translate }}</li>
+    <li class="unsorted" ng-class="setClass('ValidFrom')" ng-click="SortFunction('ValidFrom')">{{'LABEL_START_DATE' | translate }}</li>
+    <li class="unsorted" ng-class="setClass('ValidThrough')" ng-click="SortFunction('ValidThrough')">{{'LABEL_END_DATE'| translate}}</li>
+    <li>{{'LABEL_HIP'| translate}}</li>
+</ul>
+<div class="content-scroll clear" id="wrapper">
+    <div ng-repeat="item in ContractsList |orderBy:[frKey, sndKey]">
+        <add-contract-directive ng-if="showEditContractDirective && item.DoctorAssignment == editContractID" assignment-id="item.DoctorAssignment"></add-contract-directive>
+        <ul class="contracts-list-item" ng-hide="showEditContractDirective && item.DoctorAssignment == editContractID">
+            <li class="larger-font">{{::item.ContractName}} </li>
+            <li>{{::item.ValidFrom | date:'dd.MM.yyyy' }} </li>
+            <li>{{::item.ValidThrough | date:'dd.MM.yyyy' }} </li>
+            <li><span elipsis-directive data="item.HIP">{{ ::item.HIP }} </span></li>
+            <li ng-hide="SetVisibility">
+                <a class="icons-edit jsblockClose" href="" ng-click="OpenFormAddContract(item)" ng-class="{disabled:SetVisibility ==true}" title="{{ 'BUTTON_EDIT' | translate}}">{{'BUTTON_EDIT' | translate}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
