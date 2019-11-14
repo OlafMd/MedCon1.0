@@ -1,0 +1,85 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/24/2019 6:53:29 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MD-001"
+  DTS:CreatorName="SIA\OBRESl01"
+  DTS:DTSID="{99B0586C-063C-4504-BF73-FCFFA17D7C5F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1031"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{F382BD7D-6470-4741-9533-16F684E3E987}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Test01]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{497908A9-666A-4D44-A589-2F76E2FCEDC7}"
+      DTS:ObjectName="localhost.Test01">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Test01;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQL-Test]"
+      DTS:CreationName="ADO.NET:SQL"
+      DTS:DTSID="{251314F7-99DA-4DA6-AB1B-20A4E4C7C4E0}"
+      DTS:ObjectName="SQL-Test">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MD-001;Integrated Security=SSPI;Connect Timeout=30;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Task &quot;T-SQL-Anweisung ausführen&quot;"
+      DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
+      DTS:Description="Task &quot;T-SQL-Anweisung ausführen&quot;"
+      DTS:DTSID="{C5B3D546-1F24-46E7-AA8E-CBA66986FBBB}"
+      DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Task &quot;T-SQL-Anweisung ausführen&quot;"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{251314F7-99DA-4DA6-AB1B-20A4E4C7C4E0}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="select * from [MD-001].[bob].[hec_dia_potentialdiagnoses]"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Dieser CDATA-Abschnitt enthält die Layoutinformationen des Pakets, z.B. Informationen wie X-/Y-Koordinaten, Breite und Höhe.-->
+<!--Wenn Sie diesen Abschnitt manuell ändern und Ihnen ein Fehler unterläuft, können Sie ihn löschen. -->
+<!--Das Paket kann zwar weiterhin normal geladen werden, aber frühere Layoutinformationen gehen verloren, und die Elemente auf der Entwurfsoberfläche werden vom Designer automatisch neu angeordnet.-->
+<Objects
+  Version="8">
+  <!--Jeder darunter liegende Knoten enthält Eigenschaften, die sich nicht auf das Laufzeitverhalten auswirken.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="255,42"
+          Id="Package\Task &quot;T-SQL-Anweisung ausführen&quot;"
+          TopLeft="411,144" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

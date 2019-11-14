@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="sqlconnection.sql"
+  DTS:DTSID="{C864B54E-C67F-4212-AF21-FEB4E8D80D20}"
+  DTS:CreationName="FILE">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="C:\Projects\MeCon\SSIS\Diagnose\sqlconnection.sql" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

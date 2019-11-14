@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="V32.recherche"
+  DTS:DTSID="{910B6416-4556-480D-A096-7D403DADE9ED}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="uid=recherche;Dsn=V32;">
+      <DTS:Password
+        DTS:Name="pwd"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAi6bVfgAfF0ee8S6AlnE81QAAAAACAAAAAAADZgAAwAAAABAAAADd+G969n0jvn09QNf6BjfNAAAAAASAAACgAAAAEAAAAHizUVQl6DVtAcX7kaZhIcp4AAAAr9LCF+dSaUOLcmOu5XJHJd31b8aYuv4AoJ5jvnnTu1jffW1kYLTFkJYpbK8Wlu+D2l/L1I46seYyfeEXZYEv71uYJBGP4yhQTlDN2IF/hWujH1tKXX3RA3VkJ9U1vOJxsl5BannA8r9d3sJa3ByszjuTNBGUIN5lFAAAAN3MpdYkHhhrbY3Z8NCnt4g16S1N</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

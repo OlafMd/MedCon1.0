@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="V32.recherche 1"
+  DTS:DTSID="{EFC1F286-98AF-4D81-9F08-BB49300F853D}"
+  DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="uid=recherche;Dsn=V32;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

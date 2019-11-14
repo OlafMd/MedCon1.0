@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="mc-test-DB01.mediosdigital.de.bop_omni.recherche"
+  DTS:DTSID="{2F33D407-F32F-4AA4-AE20-05FBDB48A10A}"
+  DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="server=mc-test-DB01.mediosdigital.de;user id=recherche;sqlservermode=True;treattinyasboolean=True;port=3306;database=bop_omni;oldguids=True;convertzerodatetime=True;allowzerodatetime=False;">
+      <DTS:Password
+        DTS:Name="password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAi6bVfgAfF0ee8S6AlnE81QAAAAACAAAAAAADZgAAwAAAABAAAAAbnvnAm+9C1s+uOyhE33UzAAAAAASAAACgAAAAEAAAAFKFpl9isQFlvUUQfgXxY0l4AAAAVe2RpJfowL5nx3UjoDMYvnM/R0fGZj9E9p++UdpuuVtyQkgSMokmr1NHeCiWa2TDxzraEJjX2d+3Vbv798avKubgoQQWG6rQnupBEGLJYRzFbcBy3D2eJWu1aFKVppKj4d3f63lMyJo/662/XqZSELGA8usWu+3wFAAAABY3o+qcjUn8QO3VlF4JRFP5D5ed</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
